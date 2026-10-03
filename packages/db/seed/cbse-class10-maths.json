@@ -1,0 +1,603 @@
+{
+  "curriculum": {
+    "board": "CBSE",
+    "class": "10",
+    "version": "v1"
+  },
+  "subject": {
+    "name": "Mathematics",
+    "slug": "maths"
+  },
+  "chapters": [
+    {
+      "name": "Real Numbers",
+      "slug": "real-numbers",
+      "sequence": 1,
+      "topics": [
+        {
+          "name": "Euclid's Division Lemma",
+          "slug": "euclid-division-lemma",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Apply Euclid's division algorithm to find HCF",
+              "slug": "euclid-hcf",
+              "requires": []
+            },
+            {
+              "name": "Integer arithmetic (division with remainder)",
+              "slug": "integer-arithmetic",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Fundamental Theorem of Arithmetic",
+          "slug": "fundamental-theorem-arithmetic",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Prime factorise a number",
+              "slug": "prime-factorisation",
+              "requires": [
+                "integer-arithmetic"
+              ]
+            },
+            {
+              "name": "Find HCF/LCM via prime factorisation",
+              "slug": "hcf-lcm-prime-factorisation",
+              "requires": [
+                "prime-factorisation"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Irrational Numbers",
+          "slug": "irrational-numbers",
+          "sequence": 3,
+          "skills": [
+            {
+              "name": "Prove irrationality by contradiction",
+              "slug": "prove-irrationality",
+              "requires": [
+                "prime-factorisation"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Polynomials",
+      "slug": "polynomials",
+      "sequence": 2,
+      "topics": [
+        {
+          "name": "Zeroes of a Polynomial",
+          "slug": "zeroes-of-polynomial",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Evaluate a polynomial at a given value",
+              "slug": "evaluate-polynomial",
+              "requires": [
+                "integer-arithmetic"
+              ]
+            },
+            {
+              "name": "Relate zeroes to the graph of a polynomial",
+              "slug": "zeroes-graph-relation",
+              "requires": [
+                "evaluate-polynomial"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Relationship Between Zeroes and Coefficients",
+          "slug": "zeroes-coefficients-relationship",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Multiply binomials / expand products",
+              "slug": "multiply-binomials",
+              "requires": []
+            },
+            {
+              "name": "Factorise a quadratic trinomial",
+              "slug": "factorise-trinomial",
+              "requires": [
+                "multiply-binomials",
+                "integer-arithmetic"
+              ]
+            },
+            {
+              "name": "Find zeroes of a quadratic polynomial",
+              "slug": "find-zeroes-quadratic",
+              "requires": [
+                "factorise-trinomial"
+              ]
+            },
+            {
+              "name": "Form a quadratic polynomial from given zeroes",
+              "slug": "form-quadratic-from-zeroes",
+              "requires": [
+                "find-zeroes-quadratic"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Division Algorithm for Polynomials",
+          "slug": "polynomial-division-algorithm",
+          "sequence": 3,
+          "skills": [
+            {
+              "name": "Divide one polynomial by another",
+              "slug": "divide-polynomials",
+              "requires": [
+                "multiply-binomials",
+                "evaluate-polynomial"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pair of Linear Equations in Two Variables",
+      "slug": "pair-linear-equations",
+      "sequence": 3,
+      "topics": [
+        {
+          "name": "Graphical Method",
+          "slug": "graphical-method",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Plot a linear equation in two variables",
+              "slug": "plot-linear-equation",
+              "requires": []
+            },
+            {
+              "name": "Interpret intersecting / parallel / coincident lines",
+              "slug": "interpret-line-relationships",
+              "requires": [
+                "plot-linear-equation"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Algebraic Methods",
+          "slug": "algebraic-methods",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Solve a linear equation in one variable",
+              "slug": "solve-linear-equation",
+              "requires": [
+                "integer-arithmetic"
+              ]
+            },
+            {
+              "name": "Solve a pair of linear equations by substitution",
+              "slug": "solve-by-substitution",
+              "requires": [
+                "solve-linear-equation"
+              ]
+            },
+            {
+              "name": "Solve a pair of linear equations by elimination",
+              "slug": "solve-by-elimination",
+              "requires": [
+                "solve-linear-equation"
+              ]
+            },
+            {
+              "name": "Formulate a pair of linear equations from a word problem",
+              "slug": "formulate-linear-equations-word-problem",
+              "requires": [
+                "solve-by-substitution",
+                "solve-by-elimination"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Quadratic Equations",
+      "slug": "quadratic-equations",
+      "sequence": 4,
+      "topics": [
+        {
+          "name": "Standard Form and Solutions",
+          "slug": "standard-form-solutions",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Identify and write a quadratic equation in standard form",
+              "slug": "standard-form-quadratic",
+              "requires": [
+                "multiply-binomials"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Solving by Factorisation",
+          "slug": "solving-by-factorisation",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Solve a quadratic equation by factorisation",
+              "slug": "solve-quadratic-by-factorisation",
+              "requires": [
+                "factorise-trinomial",
+                "solve-linear-equation"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Solving by Completing the Square / Quadratic Formula",
+          "slug": "quadratic-formula",
+          "sequence": 3,
+          "skills": [
+            {
+              "name": "Solve a quadratic equation using the quadratic formula",
+              "slug": "solve-quadratic-formula",
+              "requires": [
+                "standard-form-quadratic"
+              ]
+            },
+            {
+              "name": "Determine nature of roots from the discriminant",
+              "slug": "discriminant-nature-of-roots",
+              "requires": [
+                "solve-quadratic-formula"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Applications",
+          "slug": "quadratic-applications",
+          "sequence": 4,
+          "skills": [
+            {
+              "name": "Formulate a quadratic equation from a word problem",
+              "slug": "formulate-quadratic-word-problem",
+              "requires": [
+                "solve-quadratic-by-factorisation",
+                "solve-quadratic-formula"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Arithmetic Progressions",
+      "slug": "arithmetic-progressions",
+      "sequence": 5,
+      "topics": [
+        {
+          "name": "nth Term of an AP",
+          "slug": "nth-term-ap",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Find the nth term of an AP",
+              "slug": "find-nth-term-ap",
+              "requires": [
+                "solve-linear-equation"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Sum of First n Terms of an AP",
+          "slug": "sum-of-ap",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Find the sum of the first n terms of an AP",
+              "slug": "sum-first-n-terms-ap",
+              "requires": [
+                "find-nth-term-ap"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Triangles",
+      "slug": "triangles",
+      "sequence": 6,
+      "topics": [
+        {
+          "name": "Similar Triangles",
+          "slug": "similar-triangles",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Determine similarity of triangles using AA/SSS/SAS criteria",
+              "slug": "determine-triangle-similarity",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Pythagoras Theorem",
+          "slug": "pythagoras-theorem",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Apply the Pythagoras theorem to find a missing side",
+              "slug": "apply-pythagoras-theorem",
+              "requires": [
+                "determine-triangle-similarity"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Coordinate Geometry",
+      "slug": "coordinate-geometry",
+      "sequence": 7,
+      "topics": [
+        {
+          "name": "Distance Formula",
+          "slug": "distance-formula",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Find the distance between two points",
+              "slug": "find-distance-two-points",
+              "requires": [
+                "integer-arithmetic"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Section Formula",
+          "slug": "section-formula",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Find the coordinates of a point dividing a line segment in a given ratio",
+              "slug": "find-section-formula-point",
+              "requires": [
+                "find-distance-two-points"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Introduction to Trigonometry",
+      "slug": "intro-trigonometry",
+      "sequence": 8,
+      "topics": [
+        {
+          "name": "Trigonometric Ratios",
+          "slug": "trig-ratios",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Find trigonometric ratios of an acute angle in a right triangle",
+              "slug": "find-trig-ratios",
+              "requires": [
+                "apply-pythagoras-theorem"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Trigonometric Identities",
+          "slug": "trig-identities",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Apply the identity sin^2(theta) + cos^2(theta) = 1",
+              "slug": "apply-trig-identity",
+              "requires": [
+                "find-trig-ratios"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Some Applications of Trigonometry",
+      "slug": "applications-of-trigonometry",
+      "sequence": 9,
+      "topics": [
+        {
+          "name": "Heights and Distances",
+          "slug": "heights-and-distances",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Solve a height/distance problem using angle of elevation or depression",
+              "slug": "solve-height-distance-problem",
+              "requires": [
+                "find-trig-ratios"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Circles",
+      "slug": "circles",
+      "sequence": 10,
+      "topics": [
+        {
+          "name": "Tangent to a Circle",
+          "slug": "tangent-to-circle",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Apply the property that a tangent is perpendicular to the radius at the point of contact",
+              "slug": "apply-tangent-perpendicular-property",
+              "requires": [
+                "apply-pythagoras-theorem"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Number of Tangents from a Point",
+          "slug": "tangents-from-external-point",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Find the length of a tangent from an external point to a circle",
+              "slug": "find-tangent-length",
+              "requires": [
+                "apply-tangent-perpendicular-property"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Areas Related to Circles",
+      "slug": "areas-related-to-circles",
+      "sequence": 11,
+      "topics": [
+        {
+          "name": "Area and Circumference of a Circle",
+          "slug": "area-circumference-circle",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Calculate the area and circumference of a circle",
+              "slug": "calculate-circle-area-circumference",
+              "requires": [
+                "integer-arithmetic"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Area of Sector and Segment",
+          "slug": "area-sector-segment",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Calculate the area of a sector of a circle",
+              "slug": "calculate-sector-area",
+              "requires": [
+                "calculate-circle-area-circumference"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Surface Areas and Volumes",
+      "slug": "surface-areas-volumes",
+      "sequence": 12,
+      "topics": [
+        {
+          "name": "Surface Area of Combined Solids",
+          "slug": "surface-area-combined-solids",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Find the surface area of a solid formed by combining two basic solids",
+              "slug": "find-surface-area-combined-solid",
+              "requires": [
+                "calculate-circle-area-circumference"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Volume of Combined Solids",
+          "slug": "volume-combined-solids",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Find the volume of a solid formed by combining two basic solids",
+              "slug": "find-volume-combined-solid",
+              "requires": [
+                "find-surface-area-combined-solid"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Statistics",
+      "slug": "statistics",
+      "sequence": 13,
+      "topics": [
+        {
+          "name": "Mean of Grouped Data",
+          "slug": "mean-grouped-data",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Calculate the mean of grouped data",
+              "slug": "calculate-mean-grouped-data",
+              "requires": [
+                "integer-arithmetic"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Median and Mode of Grouped Data",
+          "slug": "median-mode-grouped-data",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Calculate the median of grouped data",
+              "slug": "calculate-median-grouped-data",
+              "requires": [
+                "calculate-mean-grouped-data"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Probability",
+      "slug": "probability",
+      "sequence": 14,
+      "topics": [
+        {
+          "name": "Theoretical Probability",
+          "slug": "theoretical-probability",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Calculate the probability of a simple event",
+              "slug": "calculate-simple-probability",
+              "requires": [
+                "integer-arithmetic"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

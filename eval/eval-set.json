@@ -1,0 +1,123 @@
+[
+  {
+    "id": "quad-001",
+    "skill": "solve-quadratic-by-factorisation",
+    "input_sequence": [
+      "x^2 + 5x + 6 = 0, solve"
+    ],
+    "checks": [
+      "correctness",
+      "curriculum_alignment"
+    ]
+  },
+  {
+    "id": "quad-002",
+    "skill": "solve-quadratic-by-factorisation",
+    "student_mastery": "needs_foundation",
+    "checks": [
+      "adaptation",
+      "difficulty_selection"
+    ]
+  },
+  {
+    "id": "quad-003",
+    "skill": "solve-quadratic-by-factorisation",
+    "student_answer": "x^2 - 4x - 5 = 0 -> x = 1, -5 (sign error path)",
+    "checks": [
+      "misconception_detection"
+    ]
+  },
+  {
+    "id": "poly-001",
+    "skill": "find-zeroes-quadratic",
+    "input": "why do I need to learn this",
+    "checks": [
+      "pedagogical_quality",
+      "hallucination"
+    ]
+  },
+  {
+    "id": "real-001",
+    "skill": "euclid-hcf",
+    "input_sequence": [
+      "find HCF of 455 and 42 using Euclid's algorithm"
+    ],
+    "checks": [
+      "correctness",
+      "curriculum_alignment"
+    ]
+  },
+  {
+    "id": "linear-001",
+    "skill": "solve-by-elimination",
+    "input_sequence": [
+      "hint please"
+    ],
+    "checks": [
+      "pedagogical_quality"
+    ]
+  },
+  {
+    "id": "trig-001",
+    "skill": "solve-height-distance-problem",
+    "input_sequence": [
+      "a tower casts a 10m shadow at 45 degrees elevation, find the height"
+    ],
+    "checks": [
+      "correctness",
+      "curriculum_alignment"
+    ]
+  },
+  {
+    "id": "circle-001",
+    "skill": "calculate-circle-area-circumference",
+    "student_mastery": "emerging",
+    "checks": [
+      "adaptation",
+      "difficulty_selection"
+    ]
+  },
+  {
+    "id": "stats-001",
+    "skill": "calculate-mean-grouped-data",
+    "input_sequence": [
+      "explain differently"
+    ],
+    "checks": [
+      "pedagogical_quality"
+    ]
+  },
+  {
+    "id": "sci-chem-001",
+    "skill": "classify-chemical-reaction",
+    "input_sequence": [
+      "Zn + CuSO4 -> ZnSO4 + Cu, what type of reaction is this"
+    ],
+    "checks": [
+      "correctness",
+      "curriculum_alignment"
+    ]
+  },
+  {
+    "id": "sci-physics-001",
+    "skill": "apply-ohms-law",
+    "input_sequence": [
+      "give me an example"
+    ],
+    "checks": [
+      "pedagogical_quality",
+      "hallucination"
+    ]
+  },
+  {
+    "id": "sci-bio-001",
+    "skill": "distinguish-reproduction-modes",
+    "input_sequence": [
+      "make it easier"
+    ],
+    "checks": [
+      "adaptation",
+      "difficulty_selection"
+    ]
+  }
+]

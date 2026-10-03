@@ -1,0 +1,146 @@
+{
+  "subject_slug": "science",
+  "questions": [
+    {
+      "skill_slug": "classify-chemical-reaction",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Zn + CuSO4 \u2192 ZnSO4 + Cu is an example of which type of reaction?",
+      "options": [
+        "Combination",
+        "Decomposition",
+        "Displacement",
+        "Double displacement"
+      ],
+      "expected_answer": {
+        "value": "Displacement"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ]
+    },
+    {
+      "skill_slug": "determine-acid-base-neutral",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "A solution has pH 3. Is it acidic, basic, or neutral?",
+      "options": [
+        "Acidic",
+        "Basic",
+        "Neutral"
+      ],
+      "expected_answer": {
+        "value": "Acidic"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ]
+    },
+    {
+      "skill_slug": "distinguish-nutrition-types",
+      "difficulty": 1,
+      "question_type": "short_answer",
+      "prompt": "Plants that make their own food are called ___ (autotrophs or heterotrophs)?",
+      "expected_answer": {
+        "value": "autotrophs"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ]
+    },
+    {
+      "skill_slug": "distinguish-metals-nonmetals",
+      "difficulty": 1,
+      "question_type": "short_answer",
+      "prompt": "Which property is typical of metals but not non-metals: malleability or brittleness?",
+      "expected_answer": {
+        "value": "malleability"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ]
+    },
+    {
+      "skill_slug": "explain-covalent-bonding",
+      "difficulty": 2,
+      "question_type": "numeric",
+      "prompt": "In a molecule of methane (CH4), how many covalent bonds does the carbon atom form?",
+      "expected_answer": {
+        "value": "4"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ]
+    },
+    {
+      "skill_slug": "apply-mirror-formula",
+      "difficulty": 3,
+      "question_type": "numeric",
+      "prompt": "An object is placed 30 cm from a concave mirror of focal length 10 cm. Using 1/v + 1/u = 1/f (take u = -30, f = -10), find the image distance v (in cm).",
+      "expected_answer": {
+        "value": "-15"
+      },
+      "misconception_tags": [
+        "SIGN_ERROR",
+        "FORMULA_MISUSE"
+      ]
+    },
+    {
+      "skill_slug": "apply-ohms-law",
+      "difficulty": 1,
+      "question_type": "numeric",
+      "prompt": "A resistor has voltage 12 V across it and current 3 A through it. Find its resistance (in ohms).",
+      "expected_answer": {
+        "value": "4"
+      },
+      "misconception_tags": [
+        "FORMULA_MISUSE",
+        "ARITHMETIC_ERROR"
+      ]
+    },
+    {
+      "skill_slug": "apply-right-hand-thumb-rule",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "prompt": "If current flows upward through a straight wire and you point your right thumb in the direction of the current, which way do your curled fingers point (viewed from above)?",
+      "options": [
+        "Clockwise",
+        "Counter-clockwise"
+      ],
+      "expected_answer": {
+        "value": "Counter-clockwise"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ]
+    },
+    {
+      "skill_slug": "describe-reflex-action-pathway",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Which part of the nervous system directly controls a reflex action: the brain or the spinal cord?",
+      "options": [
+        "Brain",
+        "Spinal cord"
+      ],
+      "expected_answer": {
+        "value": "Spinal cord"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ]
+    },
+    {
+      "skill_slug": "distinguish-reproduction-modes",
+      "difficulty": 1,
+      "question_type": "short_answer",
+      "prompt": "Reproduction involving a single parent and no fusion of gametes is called ___ (asexual or sexual) reproduction?",
+      "expected_answer": {
+        "value": "asexual"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ]
+    }
+  ]
+}

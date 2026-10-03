@@ -1,0 +1,313 @@
+{
+  "curriculum": {
+    "board": "CBSE",
+    "class": "10",
+    "version": "v1"
+  },
+  "subject": {
+    "name": "Science",
+    "slug": "science"
+  },
+  "chapters": [
+    {
+      "name": "Chemical Reactions and Equations",
+      "slug": "chemical-reactions-equations",
+      "sequence": 1,
+      "topics": [
+        {
+          "name": "Types of Chemical Reactions",
+          "slug": "types-of-chemical-reactions",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Classify a chemical reaction as combination, decomposition, displacement or double displacement",
+              "slug": "classify-chemical-reaction",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Balancing Chemical Equations",
+          "slug": "balancing-chemical-equations",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Balance a chemical equation",
+              "slug": "balance-chemical-equation",
+              "requires": [
+                "classify-chemical-reaction"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Acids, Bases and Salts",
+      "slug": "acids-bases-salts",
+      "sequence": 2,
+      "topics": [
+        {
+          "name": "pH Scale",
+          "slug": "ph-scale",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Determine whether a substance is acidic, basic or neutral from its pH",
+              "slug": "determine-acid-base-neutral",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Reactions of Acids and Bases",
+          "slug": "reactions-acids-bases",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Predict the products of an acid-base neutralization reaction",
+              "slug": "predict-neutralization-products",
+              "requires": [
+                "determine-acid-base-neutral",
+                "classify-chemical-reaction"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Life Processes",
+      "slug": "life-processes",
+      "sequence": 3,
+      "topics": [
+        {
+          "name": "Nutrition",
+          "slug": "nutrition",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Distinguish autotrophic and heterotrophic nutrition",
+              "slug": "distinguish-nutrition-types",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Respiration",
+          "slug": "respiration",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Compare aerobic and anaerobic respiration",
+              "slug": "compare-respiration-types",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Metals and Non-metals",
+      "slug": "metals-non-metals",
+      "sequence": 4,
+      "topics": [
+        {
+          "name": "Physical Properties of Metals and Non-metals",
+          "slug": "physical-properties-metals-nonmetals",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Distinguish metals from non-metals by physical properties",
+              "slug": "distinguish-metals-nonmetals",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Reactivity Series",
+          "slug": "reactivity-series",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Predict displacement reactions using the reactivity series",
+              "slug": "predict-displacement-using-reactivity-series",
+              "requires": [
+                "distinguish-metals-nonmetals",
+                "classify-chemical-reaction"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Carbon and its Compounds",
+      "slug": "carbon-compounds",
+      "sequence": 5,
+      "topics": [
+        {
+          "name": "Covalent Bonding",
+          "slug": "covalent-bonding",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain covalent bond formation in simple carbon compounds",
+              "slug": "explain-covalent-bonding",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Homologous Series",
+          "slug": "homologous-series",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Identify the homologous series of a given carbon compound",
+              "slug": "identify-homologous-series",
+              "requires": [
+                "explain-covalent-bonding"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Light \u2013 Reflection and Refraction",
+      "slug": "light-reflection-refraction",
+      "sequence": 6,
+      "topics": [
+        {
+          "name": "Reflection by Spherical Mirrors",
+          "slug": "reflection-spherical-mirrors",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Apply the mirror formula to find image distance or focal length",
+              "slug": "apply-mirror-formula",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Refraction through Lenses",
+          "slug": "refraction-through-lenses",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Apply the lens formula to find image distance or focal length",
+              "slug": "apply-lens-formula",
+              "requires": [
+                "apply-mirror-formula"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Electricity",
+      "slug": "electricity",
+      "sequence": 7,
+      "topics": [
+        {
+          "name": "Ohm's Law",
+          "slug": "ohms-law",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Apply Ohm's law to find current, voltage or resistance",
+              "slug": "apply-ohms-law",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Series and Parallel Circuits",
+          "slug": "series-parallel-circuits",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Calculate equivalent resistance in series and parallel combinations",
+              "slug": "calculate-equivalent-resistance",
+              "requires": [
+                "apply-ohms-law"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Magnetic Effects of Electric Current",
+      "slug": "magnetic-effects-current",
+      "sequence": 8,
+      "topics": [
+        {
+          "name": "Magnetic Field due to a Current",
+          "slug": "magnetic-field-current",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Determine the direction of magnetic field using the right-hand thumb rule",
+              "slug": "apply-right-hand-thumb-rule",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Control and Coordination",
+      "slug": "control-coordination",
+      "sequence": 9,
+      "topics": [
+        {
+          "name": "Nervous System",
+          "slug": "nervous-system",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Describe the pathway of a reflex action",
+              "slug": "describe-reflex-action-pathway",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Plant Hormones",
+          "slug": "plant-hormones",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Identify the plant hormone responsible for a given tropic response",
+              "slug": "identify-plant-hormone-response",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "How do Organisms Reproduce?",
+      "slug": "reproduction-in-organisms",
+      "sequence": 10,
+      "topics": [
+        {
+          "name": "Modes of Reproduction",
+          "slug": "modes-of-reproduction",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Distinguish asexual and sexual modes of reproduction",
+              "slug": "distinguish-reproduction-modes",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
