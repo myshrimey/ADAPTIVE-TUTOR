@@ -547,3 +547,13 @@ Prompted by preparing for a real multi-student/parent trial.
   `DATABASE_URL` before (or right after) deploying this — it only adds one nullable column,
   so it's safe to run anytime, but the diagnostic-answer code now selects that column and
   will error until it exists.
+
+### Fix: `/admin/feedback` had no way to actually sign in (this update)
+
+- `/admin/feedback` used to just say "Sign in with an allowed account to view this page" with
+  no sign-in form anywhere on it — the only way in was to sign in on the main `/` page, which
+  then redirects to `/dashboard`, not back to the admin page. Fixed: the page now has its own
+  sign-in form (`apps/web/components/AdminSignIn.tsx`) right there when you're not signed in,
+  and a "Sign out" button (new shared `apps/web/components/SignOutButton.tsx`) both when
+  you're signed in with the wrong account and on the feedback list itself, to make it easy to
+  switch accounts.

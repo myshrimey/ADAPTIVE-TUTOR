@@ -1,4 +1,6 @@
 import { createServerClient, createServiceClient } from '@/lib/supabase-server';
+import { AdminSignIn } from '@/components/AdminSignIn';
+import { SignOutButton } from '@/components/SignOutButton';
 
 // Gated on ADMIN_EMAILS (apps/web/.env.example) rather than a role in the
 // database — this is a one-person-trial MVP, not worth a real roles table
@@ -23,10 +25,21 @@ export default async function AdminFeedbackPage() {
       <main className="page">
         <div className="shell shell--narrow">
           <div style={{ paddingTop: 'var(--space-4)' }}>
-            <h1 style={{ fontSize: 'var(--step-2)' }}>Not available</h1>
-            <p style={{ color: 'var(--slate)' }}>
-              {user ? "This account isn't allowed to view this page." : 'Sign in with an allowed account to view this page.'}
-            </p>
+            <h1 style={{ fontSize: 'var(--step-2)' }}>Admin sign in</h1>
+            {user ? (
+              <>
+                <p className="alert">
+                  Signed in as {user.email}, but this account isn't in ADMIN_EMAILS. Sign out and sign in with an
+                  allowed account.
+                </p>
+                <SignOutButton label="Sign out" />
+              </>
+            ) : (
+              <>
+                <p style={{ color: 'var(--slate)' }}>Sign in with an allowed account to view feedback.</p>
+                <AdminSignIn />
+              </>
+            )}
           </div>
         </div>
       </main>
@@ -43,9 +56,12 @@ export default async function AdminFeedbackPage() {
   return (
     <main className="page">
       <div className="shell">
-        <div style={{ paddingTop: 'var(--space-3)' }}>
-          <h1 style={{ fontSize: 'var(--step-2)' }}>Feedback</h1>
-          <p style={{ color: 'var(--slate)' }}>{rows?.length ?? 0} most recent submissions.</p>
+        <div style={{ paddingTop: 'var(--space-3)', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+          <div>
+            <h1 style={{ fontSize: 'var(--step-2)' }}>Feedback</h1>
+            <p style={{ color: 'var(--slate)' }}>{rows?.length ?? 0} most recent submissions. Signed in as {user!.email}.</p>
+          </div>
+          <SignOutButton />
         </div>
 
         {error && <p className="alert">{error.message}</p>}
