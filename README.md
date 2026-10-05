@@ -557,3 +557,67 @@ Prompted by preparing for a real multi-student/parent trial.
   and a "Sign out" button (new shared `apps/web/components/SignOutButton.tsx`) both when
   you're signed in with the wrong account and on the feedback list itself, to make it easy to
   switch accounts.
+
+### Diagnostic question variety, at zero ongoing cost (this update)
+
+- **Requested**: different students (or the same student retaking it) should not necessarily
+  see the exact same diagnostic question for a skill every time, but without adding any
+  per-request AI cost or latency to the diagnostic (that's deliberately being deferred until
+  there are real paying customers — see `pickQuestionForSkill()`'s comment in
+  `packages/core/diagnostic/engine.ts` for the reasoning). The alternative — generating a
+  fresh question with Gemini for each of the ~15 diagnostic questions — would reintroduce
+  real latency and AI spend just to take the diagnostic, which isn't worth it yet.
+- `pickQuestionForSkill()` now picks **randomly** among however many authored questions exist
+  for a skill at the target difficulty, instead of always returning the same one. This only
+  does something once a skill has more than one authored question — it's the selection
+  mechanism, separate from the content itself.
+- **Maths now has 2 authored variants for every one of its 25 diagnostic skills** (50
+  questions total, up from 25) — e.g. a student might get "find the HCF of 60 and 100" or
+  "find the HCF of 48 and 18" for the same skill, chosen at random. Science and Social
+  Science still have only 1 question per skill each — the randomization is already live for
+  them too, but there's nothing yet to randomize *between* until a second variant is authored
+  for those subjects, which is the planned next step.
+
+### Fix: one Gemini hiccup was failing the whole `/learn` turn (this update)
+
+- **Real production error, caught via the browser's Network tab**: `gemini_request_failed:
+  503 ... "This model is currently experiencing high demand"`. This is Google's own
+  model-capacity signal, not a bug in the app — but one 503 was enough to fail the entire
+  turn immediately, with no retry. Given how clearly it's actually happening in testing right
+  now, that's a real reliability problem worth fixing even though it's not our API.
+- `GeminiProvider.complete()` (`packages/core/ai-provider/gemini.provider.ts`) now retries
+  once, after a 1.5 second pause, specifically for a 503 (overloaded) or 429 (rate-limited)
+  response — a one-time capacity hiccup like that usually clears within a couple of seconds.
+  Anything else (a bad API key, a genuinely malformed request, an actual 20-second timeout)
+  still fails immediately, since retrying those wouldn't help and would just make the
+  student wait longer for the same failure.
+
+### Multiple free-tier AI providers, so one being overloaded doesn't take the tutor down (this update)
+
+- **Requested directly**, after the 503 above turned out to be a real, repeatable issue in
+  testing: "include all kinds of free tier models from all AI providers so that this doesn't
+  happen", plus a clear message to the student when it does happen anyway, that can mention a
+  paid/priority tier once one exists.
+- New `packages/core/ai-provider/factory.ts` builds a fallback chain tried in order on ANY
+  failure, not just a 503 — read its comment for the exact reasoning:
+  1. **Gemini**, the usual model (unchanged default).
+  2. **Gemini again**, via Google's `gemini-flash-latest` alias — same API key, no new
+     signup, but a different served model, so a problem specific to the pinned model version
+     doesn't also take this rung down.
+  3. **Groq** (new `packages/core/ai-provider/groq.provider.ts`) — a free account at
+     console.groq.com, a completely different company's infrastructure. Optional: set
+     `GROQ_API_KEY` to enable it; the app runs fine on Gemini alone without it.
+  New `packages/core/ai-provider/fallback.provider.ts` is the mechanism — tries each
+  configured rung in turn, only failing once every single one has.
+- Every real AI call (`tutor.orchestrator.ts`, `session-summary.service.ts`) now goes through
+  this chain instead of talking to Gemini directly.
+- **When every provider in the chain fails** (not just one), the student now sees a distinct
+  message instead of a generic error: "The tutor is at capacity across every free AI service
+  we use right now... If this keeps happening, a paid or priority version of this app (once
+  available) would avoid shared free-tier limits like this entirely." (`friendlyError()` in
+  `apps/web/app/learn/page.tsx`) — the paid-tier line is there on purpose per the request, but
+  there's no actual paid tier or billing built yet, so that sentence is a placeholder to
+  revisit with real wording/a real link once one exists.
+- **Action needed**: this works with zero changes (Gemini-only, same as before) — Groq is
+  purely optional extra redundancy. To enable it, create a free key at
+  console.groq.com/keys and add `GROQ_API_KEY` in Vercel's environment variables.

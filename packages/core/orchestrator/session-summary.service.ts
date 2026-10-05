@@ -1,6 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { AIProvider } from '../ai-provider/ai-provider.interface';
-import { GeminiProvider } from '../ai-provider/gemini.provider';
+import { createDefaultAIProvider } from '../ai-provider/factory';
 import { updateMastery } from '../mastery/mastery.service';
 import { logEvent } from '../analytics/events';
 
@@ -25,7 +25,7 @@ Do not invent facts beyond what's given. Keep each item to one short sentence.`;
 export async function completeSession(
   supabase: SupabaseClient,
   sessionId: string,
-  aiProvider: AIProvider = new GeminiProvider()
+  aiProvider: AIProvider = createDefaultAIProvider()
 ): Promise<SessionSummary> {
   const { data: session, error: sessionErr } = await supabase
     .from('learning_sessions')

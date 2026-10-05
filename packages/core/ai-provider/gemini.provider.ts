@@ -4,8 +4,8 @@ import type { AIProvider, AICompletionParams, AICompletionResult } from './ai-pr
 // one fetch call, no extra dependency, and it's trivial to swap for the SDK
 // later without touching anything outside this file. Nothing else in the
 // codebase should import a model SDK or call this endpoint directly.
-const GEMINI_MODEL = 'gemini-3.8-flash';
-const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
+const DEFAULT_GEMINI_MODEL = 'gemini-3.8-flash';
+const endpointFor = (model: string) => `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
 
 // Without this, a hung Gemini call (bad network, Google-side stall, etc.)
 // had nothing stopping it — Vercel's own platform limit for a function is
@@ -16,12 +16,53 @@ const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models
 // platform-level timeout response.
 const REQUEST_TIMEOUT_MS = 20_000;
 
+// Google's own "high demand" response for this model (503 UNAVAILABLE) is a
+// transient capacity hiccup, not a real failure — seen live: a student's
+// /learn session failing outright on the very first 503, when a one-time
+// retry a couple seconds later usually goes straight through. 429 (rate
+// limit) is the same story. Anything else (a bad API key, a malformed
+// request, a genuine timeout) retrying won't fix, so those still fail
+// immediately rather than doubling the wait for no benefit.
+const RETRYABLE_STATUS = new Set([429, 503]);
+const MAX_ATTEMPTS = 2;
+const RETRY_DELAY_MS = 1_500;
+
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export class GeminiProvider implements AIProvider {
-  constructor(private apiKey: string = process.env.GEMINI_API_KEY!) {
+  // `model` lets the same API key be tried against a second Gemini model as
+  // a fallback rung (see ai-provider/factory.ts) — a different model can
+  // have different capacity even when one is overloaded, at no extra signup.
+  constructor(
+    private apiKey: string = process.env.GEMINI_API_KEY!,
+    private model: string = DEFAULT_GEMINI_MODEL
+  ) {
     if (!this.apiKey) throw new Error('missing_gemini_api_key');
   }
 
   async complete(params: AICompletionParams): Promise<AICompletionResult> {
+    let lastError: Error | null = null;
+
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+      try {
+        return await this.attemptComplete(params);
+      } catch (err: any) {
+        lastError = err;
+        const retryableStatus = Number(/^gemini_request_failed: (\d+)/.exec(err?.message ?? '')?.[1]);
+        const canRetry = attempt < MAX_ATTEMPTS && RETRYABLE_STATUS.has(retryableStatus);
+        if (!canRetry) throw err;
+        await sleep(RETRY_DELAY_MS);
+      }
+    }
+
+    // Unreachable in practice (the loop always returns or throws above) —
+    // satisfies TypeScript's control-flow analysis.
+    throw lastError ?? new Error('gemini_request_failed: unknown');
+  }
+
+  private async attemptComplete(params: AICompletionParams): Promise<AICompletionResult> {
     const body = {
       systemInstruction: { parts: [{ text: params.systemPrompt }] },
       contents: [{ role: 'user', parts: [{ text: params.userMessage }] }],
@@ -40,7 +81,7 @@ export class GeminiProvider implements AIProvider {
 
     let res: Response;
     try {
-      res = await fetch(`${GEMINI_ENDPOINT}?key=${this.apiKey}`, {
+      res = await fetch(`${endpointFor(this.model)}?key=${this.apiKey}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),

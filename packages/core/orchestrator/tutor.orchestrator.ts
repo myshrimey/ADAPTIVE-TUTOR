@@ -1,6 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { AIProvider } from '../ai-provider/ai-provider.interface';
-import { GeminiProvider } from '../ai-provider/gemini.provider';
+import { createDefaultAIProvider } from '../ai-provider/factory';
 import { loadLearnerState } from '../learner-model/learner-state.service';
 import type { LearnerState } from '../learner-model/types';
 import { selectStrategy, selectDifficulty, nextDifficulty, parseStudentCommand } from '../pedagogy/pedagogy.engine';
@@ -42,7 +42,7 @@ const RECENT_MESSAGE_WINDOW = 3;
 export async function runOrchestratorTurn(
   supabase: SupabaseClient,
   input: OrchestratorTurnInput,
-  aiProvider: AIProvider = new GeminiProvider()
+  aiProvider: AIProvider = createDefaultAIProvider()
 ): Promise<OrchestratorTurnResult> {
   const state = await loadLearnerState(supabase, input.studentId);
 

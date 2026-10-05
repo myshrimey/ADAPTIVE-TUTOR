@@ -204,15 +204,25 @@ async function getAnchorSkillIds(supabase: SupabaseClient, subjectId: string): P
   return anchors;
 }
 
+// Picks a random question among whichever candidates best match
+// PREFERRED_DIFFICULTY for this skill — not always the same one — so a
+// student retaking the diagnostic (or a different student on the same
+// skill) doesn't necessarily see an identical question every time. This is
+// a zero-cost mechanism: it only has anything to vary once a skill has more
+// than one authored question (see cbse-class10-*-diagnostic.json), which is
+// still a work in progress across subjects; a skill with just one question
+// simply always returns that one, same as before.
 async function pickQuestionForSkill(supabase: SupabaseClient, testId: string, skillId: string) {
   const { data } = await supabase
     .from('diagnostic_questions')
     .select('id, difficulty')
     .eq('diagnostic_test_id', testId)
-    .eq('skill_id', skillId)
-    .order('difficulty', { ascending: true });
+    .eq('skill_id', skillId);
   if (!data || data.length === 0) return null;
-  return data.find((q) => q.difficulty === PREFERRED_DIFFICULTY) ?? data[0];
+
+  const exact = data.filter((q) => q.difficulty === PREFERRED_DIFFICULTY);
+  const pool = exact.length > 0 ? exact : data;
+  return pool[Math.floor(Math.random() * pool.length)];
 }
 
 async function pickPrerequisiteCheckQuestion(supabase: SupabaseClient, testId: string, skillId: string, existingPlan: string[]) {

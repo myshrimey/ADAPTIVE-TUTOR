@@ -19,6 +19,10 @@ Set all of these on the host (see `apps/web/.env.example` for the full list with
   write RLS blocks the client from making directly (mastery, question_attempts, misconceptions,
   learning_events — see `packages/db/migrations/0002_rls_policies.sql`)
 - `GEMINI_API_KEY` — from Google AI Studio
+- `GROQ_API_KEY` — optional, free account at console.groq.com. When set, it's tried
+  automatically if every Gemini attempt fails (`packages/core/ai-provider/factory.ts`) — a
+  different company's free tier, so the two being overloaded at once is unlikely. The app
+  runs fine without it, just with less redundancy.
 - `SUPABASE_URL` — same value as `NEXT_PUBLIC_SUPABASE_URL`, used by the non-Next scripts
   (`packages/db/migrate.js`, `seed.js`, `seed-diagnostic.js`, `eval/run-eval.ts`) which don't
   have access to Next's env loading

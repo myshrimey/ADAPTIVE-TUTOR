@@ -27,10 +27,23 @@ interface SessionSummary {
 // student's screen. This translates the ones worth explaining differently;
 // anything unmatched just shows as-is rather than hiding a real signal.
 function friendlyError(raw: string): string {
-  if (raw.startsWith('gemini_request_timeout')) {
+  // Every free-tier AI provider in the chain (ai-provider/factory.ts) failed
+  // for this turn — not just one hiccup. Distinct from a single provider's
+  // own error below: this is the "capacity is genuinely exhausted right
+  // now" message, which is also the natural place to mention a paid plan
+  // once one exists — swap in the real link/name when it does.
+  if (raw.startsWith('all_ai_providers_unavailable')) {
+    return "The tutor is at capacity across every free AI service we use right now — this isn't something retrying will fix immediately. Please try again in a few minutes. If this keeps happening, a paid or priority version of this app (once available) would avoid shared free-tier limits like this entirely.";
+  }
+  if (raw.startsWith('gemini_request_timeout') || raw.startsWith('groq_request_timeout')) {
     return "The tutor is taking too long to respond. This is usually temporary — try sending that again.";
   }
-  if (raw.startsWith('gemini_request_failed') || raw.startsWith('gemini_request_network_error')) {
+  if (
+    raw.startsWith('gemini_request_failed') ||
+    raw.startsWith('gemini_request_network_error') ||
+    raw.startsWith('groq_request_failed') ||
+    raw.startsWith('groq_request_network_error')
+  ) {
     return "Couldn't reach the tutor right now. Please try again in a moment.";
   }
   if (raw === 'unauthenticated') {
