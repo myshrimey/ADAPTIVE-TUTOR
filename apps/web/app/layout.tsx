@@ -1,6 +1,7 @@
 import { Fraunces, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import { SiteHeader } from '@/components/SiteHeader';
 import { FeedbackWidget } from '@/components/FeedbackWidget';
+import 'katex/dist/katex.min.css';
 import './globals.css';
 
 const fraunces = Fraunces({

@@ -1,0 +1,395 @@
+{
+  "subject_slug": "social-science",
+  "questions": [
+    {
+      "skill_slug": "explain-nationalism-spread-europe",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "The French Revolution of 1789 is often seen as the starting point for the spread of which idea across Europe?",
+      "expected_answer": {
+        "value": "Nationalism"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Nationalism",
+        "Feudalism",
+        "Colonialism",
+        "Capitalism"
+      ]
+    },
+    {
+      "skill_slug": "explain-non-cooperation-movement",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Which event led Gandhi to call off the Non-Cooperation Movement in 1922?",
+      "expected_answer": {
+        "value": "Chauri Chaura incident"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Chauri Chaura incident",
+        "Jallianwala Bagh massacre",
+        "Partition of Bengal",
+        "Simon Commission visit"
+      ]
+    },
+    {
+      "skill_slug": "describe-pre-modern-global-links",
+      "difficulty": 2,
+      "question_type": "short_answer",
+      "prompt": "Name the disease, brought by European conquerors, that devastated the original population of America before the 19th century.",
+      "expected_answer": {
+        "value": "smallpox"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ]
+    },
+    {
+      "skill_slug": "explain-proto-industrialisation",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "In the system of proto-industrialisation, where was most of the production actually carried out?",
+      "expected_answer": {
+        "value": "In homes in the countryside"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "In homes in the countryside",
+        "In large urban factories",
+        "In government workshops",
+        "In guild halls"
+      ]
+    },
+    {
+      "skill_slug": "explain-print-revolution-impact",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "Who is credited with developing the first known printing press in the mid-15th century?",
+      "expected_answer": {
+        "value": "Johann Gutenberg"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Johann Gutenberg",
+        "William Caxton",
+        "Louis Braille",
+        "James Watt"
+      ]
+    },
+    {
+      "skill_slug": "classify-resources",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "Coal and petroleum are examples of which kind of resource, based on exhaustibility?",
+      "expected_answer": {
+        "value": "Non-renewable"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Renewable",
+        "Non-renewable",
+        "Biotic",
+        "Human-made"
+      ]
+    },
+    {
+      "skill_slug": "explain-forest-wildlife-conservation",
+      "difficulty": 2,
+      "question_type": "short_answer",
+      "prompt": "Name the 1972 Indian legislation that provides the basic framework for wildlife protection.",
+      "expected_answer": {
+        "value": "Wildlife Protection Act"
+      },
+      "misconception_tags": [
+        "INCOMPLETE_REASONING"
+      ]
+    },
+    {
+      "skill_slug": "explain-water-scarcity-conservation",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "Which of these is a traditional rainwater harvesting structure historically used in Rajasthan?",
+      "expected_answer": {
+        "value": "Tanka"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Tanka",
+        "Canal",
+        "Tube well",
+        "Reservoir dam"
+      ]
+    },
+    {
+      "skill_slug": "classify-major-crops-india",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "Which crop needs high temperature, high humidity, and annual rainfall above 200 cm, and is grown in deltaic regions?",
+      "expected_answer": {
+        "value": "Rice"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Rice",
+        "Wheat",
+        "Millets",
+        "Gram"
+      ]
+    },
+    {
+      "skill_slug": "classify-minerals-india",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Iron ore and bauxite are both classified as which type of mineral?",
+      "expected_answer": {
+        "value": "Metallic"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Metallic",
+        "Non-metallic",
+        "Fossil fuel",
+        "Energy mineral"
+      ]
+    },
+    {
+      "skill_slug": "classify-industries",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "An industry that uses minerals and metals as raw material, like iron and steel, is classified as a what kind of industry?",
+      "expected_answer": {
+        "value": "Mineral based"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Agro based",
+        "Mineral based",
+        "Forest based",
+        "Marine based"
+      ]
+    },
+    {
+      "skill_slug": "compare-transport-modes",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "Which mode of transport has the lowest running cost for carrying heavy and bulky goods over long distances within India?",
+      "expected_answer": {
+        "value": "Waterways"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Waterways",
+        "Roadways",
+        "Airways",
+        "Pipelines"
+      ]
+    },
+    {
+      "skill_slug": "distinguish-power-sharing-forms",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Power shared among different organs of government at the same level, like the legislature, executive, and judiciary, is an example of which type of power sharing?",
+      "expected_answer": {
+        "value": "Horizontal"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Horizontal",
+        "Vertical",
+        "Federal",
+        "Regional"
+      ]
+    },
+    {
+      "skill_slug": "list-federalism-features",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "In a federal system, which level of government usually cannot unilaterally change the powers assigned to the other level?",
+      "expected_answer": {
+        "value": "Either level, on its own"
+      },
+      "misconception_tags": [
+        "INCOMPLETE_REASONING"
+      ],
+      "options": [
+        "Either level, on its own",
+        "Only the central government",
+        "Only the state government",
+        "Only the judiciary"
+      ]
+    },
+    {
+      "skill_slug": "explain-social-difference-politics",
+      "difficulty": 2,
+      "question_type": "short_answer",
+      "prompt": "When social differences overlap and reinforce each other \u2014 for example, a group that is both a racial minority and poor \u2014 what are these differences called (one word)?",
+      "expected_answer": {
+        "value": "overlapping"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ]
+    },
+    {
+      "skill_slug": "explain-gender-political-participation",
+      "difficulty": 1,
+      "question_type": "short_answer",
+      "prompt": "What is the minimum share of seats reserved for women in Panchayati Raj institutions in India (as a percentage)?",
+      "expected_answer": {
+        "value": "33"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ]
+    },
+    {
+      "skill_slug": "explain-political-party-functions",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "Which of these is NOT typically a function of a political party?",
+      "expected_answer": {
+        "value": "Running the courts"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Running the courts",
+        "Contesting elections",
+        "Forming and running governments",
+        "Shaping public opinion"
+      ]
+    },
+    {
+      "skill_slug": "evaluate-democracy-outcomes",
+      "difficulty": 2,
+      "question_type": "short_answer",
+      "prompt": "Name one expected outcome of democracy that is about citizens being treated with self-respect and freedom (two words).",
+      "expected_answer": {
+        "value": "dignity and freedom"
+      },
+      "misconception_tags": [
+        "INCOMPLETE_REASONING"
+      ]
+    },
+    {
+      "skill_slug": "identify-democracy-challenges",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "A country that has not yet made the transition from an authoritarian government to a democratic one faces which category of challenge?",
+      "expected_answer": {
+        "value": "Foundational challenge"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Foundational challenge",
+        "Expansion challenge",
+        "Deepening challenge",
+        "Constitutional challenge"
+      ]
+    },
+    {
+      "skill_slug": "compare-development-indicators",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Which organisation publishes the Human Development Report, ranking countries using income and non-income criteria?",
+      "expected_answer": {
+        "value": "United Nations Development Programme (UNDP)"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "United Nations Development Programme (UNDP)",
+        "World Trade Organisation (WTO)",
+        "International Monetary Fund (IMF)",
+        "World Health Organisation (WHO)"
+      ]
+    },
+    {
+      "skill_slug": "classify-economic-sectors",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "Activities like mining, agriculture, and fishing \u2014 which directly use natural resources \u2014 belong to which sector?",
+      "expected_answer": {
+        "value": "Primary sector"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Primary sector",
+        "Secondary sector",
+        "Tertiary sector",
+        "Informal sector"
+      ]
+    },
+    {
+      "skill_slug": "explain-money-barter-solution",
+      "difficulty": 1,
+      "question_type": "short_answer",
+      "prompt": "What is the term for the problem in a barter system where both parties must want exactly what the other is offering?",
+      "expected_answer": {
+        "value": "double coincidence of wants"
+      },
+      "misconception_tags": [
+        "INCOMPLETE_REASONING"
+      ]
+    },
+    {
+      "skill_slug": "explain-globalisation-factors",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Rapid improvement in which two technologies is widely credited with speeding up globalisation in recent decades?",
+      "expected_answer": {
+        "value": "Information technology and transportation"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Information technology and transportation",
+        "Agriculture and mining",
+        "Banking and insurance only",
+        "Textiles and handicrafts"
+      ]
+    },
+    {
+      "skill_slug": "explain-consumer-rights-protection",
+      "difficulty": 1,
+      "question_type": "short_answer",
+      "prompt": "What does the acronym COPRA stand for, as it relates to Indian consumer protection (just the full form's key year)?",
+      "expected_answer": {
+        "value": "1986"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ]
+    }
+  ]
+}

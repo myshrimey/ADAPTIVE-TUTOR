@@ -26,7 +26,7 @@ export function gradeAnswer(expected: unknown, given: unknown): boolean {
   return expectedSets.every((set, i) => sameSet(set, givenSets[i]));
 }
 
-function extractString(v: unknown): string {
+export function extractString(v: unknown): string {
   if (typeof v === 'object' && v !== null && 'value' in (v as Record<string, unknown>)) {
     return String((v as Record<string, unknown>).value ?? '');
   }

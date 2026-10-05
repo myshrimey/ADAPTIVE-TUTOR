@@ -19,7 +19,10 @@ export async function POST(request: Request) {
     if ('completed' in result) {
       return NextResponse.json({ data: { completed: true, result: result.result }, error: null });
     }
-    return NextResponse.json({ data: { completed: false, question: result.nextQuestion }, error: null });
+    return NextResponse.json({
+      data: { completed: false, question: result.nextQuestion, isCorrect: result.isCorrect, correctAnswer: result.correctAnswer },
+      error: null,
+    });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
   }

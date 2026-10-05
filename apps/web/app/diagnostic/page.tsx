@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { MathText } from '@/components/MathText';
 
 interface QuestionView {
   id: string;
@@ -11,11 +12,23 @@ interface QuestionView {
   difficulty: number;
 }
 
+interface QuestionReviewEntry {
+  questionId: string;
+  skillId: string;
+  prompt: string;
+  questionType: 'mcq' | 'short_answer' | 'numeric';
+  yourAnswer: string;
+  correctAnswer: string;
+  isCorrect: boolean;
+  explanation: string | null;
+}
+
 interface DiagnosticResult {
   strengths: string[];
   weakSkills: string[];
   prerequisiteGaps: string[];
   recommendedStartingSkillId: string;
+  questionReview: QuestionReviewEntry[];
 }
 
 export default function DiagnosticPage() {
@@ -105,7 +118,49 @@ export default function DiagnosticPage() {
               exactly where the first session will begin.
             </p>
           )}
-          <a href="/learn" className="btn btn--accent" style={{ marginTop: 'var(--space-2)' }}>
+          <section style={{ marginTop: 'var(--space-4)' }}>
+            <h2 style={{ fontSize: 'var(--step-1)', marginBottom: '0.6rem' }}>Your answers, question by question</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              {result.questionReview.map((q) => (
+                <div
+                  key={q.questionId}
+                  style={{
+                    border: '1px solid var(--line)',
+                    borderLeft: `3px solid ${q.isCorrect ? 'var(--mastered)' : 'var(--marigold-deep)'}`,
+                    borderRadius: '8px',
+                    padding: '0.8rem 1rem',
+                  }}
+                >
+                  <p style={{ margin: 0, fontWeight: 500 }}>
+                    <MathText text={q.prompt} />
+                  </p>
+                  <p style={{ margin: '0.4rem 0 0', fontSize: '0.9rem', color: 'var(--slate)' }}>
+                    {q.isCorrect ? (
+                      <span style={{ color: 'var(--mastered)', fontWeight: 600 }}>Correct</span>
+                    ) : (
+                      <>
+                        <span style={{ color: 'var(--marigold-deep)', fontWeight: 600 }}>Incorrect</span>
+                        {' — your answer: '}
+                        <MathText text={q.yourAnswer} />
+                      </>
+                    )}
+                  </p>
+                  {!q.isCorrect && (
+                    <p style={{ margin: '0.3rem 0 0', fontSize: '0.9rem', color: 'var(--ink-soft)' }}>
+                      Correct answer: <MathText text={q.correctAnswer} />
+                    </p>
+                  )}
+                  {q.explanation && (
+                    <p style={{ margin: '0.3rem 0 0', fontSize: '0.9rem', color: 'var(--ink-soft)' }}>
+                      <MathText text={q.explanation} />
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <a href="/learn" className="btn btn--accent" style={{ marginTop: 'var(--space-4)' }}>
             Start learning
           </a>
         </div>
@@ -122,7 +177,9 @@ export default function DiagnosticPage() {
         {question && (
           <form onSubmit={submitAnswer}>
             <div className="question-card">
-              <p className="question-card__prompt">{question.prompt}</p>
+              <p className="question-card__prompt">
+                <MathText text={question.prompt} />
+              </p>
 
               {question.questionType === 'mcq' && question.options ? (
                 <div className="mcq-options">

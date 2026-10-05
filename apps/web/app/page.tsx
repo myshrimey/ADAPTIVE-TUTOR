@@ -7,6 +7,7 @@ import { createClient } from '@/lib/supabase-client';
 const SUBJECTS = [
   { slug: 'maths', name: 'Mathematics', note: '14 chapters — Real Numbers through Probability' },
   { slug: 'science', name: 'Science', note: '10 chapters across Physics, Chemistry, and Biology' },
+  { slug: 'social-science', name: 'Social Science', note: '24 chapters across History, Geography, Civics, and Economics' },
 ];
 
 type Mode = 'signup' | 'signin' | 'forgot';

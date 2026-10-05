@@ -90,6 +90,11 @@ async function seedDiagnosticFile(filePath) {
       options: q.options ?? null,
       expected_answer: q.expected_answer,
       misconception_tags: q.misconception_tags ?? [],
+      // Optional — shown on the diagnostic review screen alongside the
+      // correct answer when a question's JSON authors one. Most existing
+      // seed content doesn't have one yet; the review screen falls back to
+      // just the correct answer in that case (see migrations/0005).
+      explanation: q.explanation ?? null,
     });
     if (insertErr) throw insertErr;
     console.log(`  seeded: ${q.skill_slug} (difficulty ${q.difficulty})`);

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { MathText } from '@/components/MathText';
 
 interface ChatMessage {
   role: 'tutor' | 'student';
@@ -14,6 +15,30 @@ interface ActiveQuestion {
   options?: string[];
 }
 
+interface SessionSummary {
+  whatYouLearned: string[];
+  whatYouCanNowDo: string[];
+  needsPractice: string[];
+  nextRecommendation: { skillId: string | null; reason: string };
+}
+
+// The API returns internal error codes (gemini_request_timeout,
+// gemini_request_failed: 404 ..., etc.) meant for logs/debugging, not a
+// student's screen. This translates the ones worth explaining differently;
+// anything unmatched just shows as-is rather than hiding a real signal.
+function friendlyError(raw: string): string {
+  if (raw.startsWith('gemini_request_timeout')) {
+    return "The tutor is taking too long to respond. This is usually temporary — try sending that again.";
+  }
+  if (raw.startsWith('gemini_request_failed') || raw.startsWith('gemini_request_network_error')) {
+    return "Couldn't reach the tutor right now. Please try again in a moment.";
+  }
+  if (raw === 'unauthenticated') {
+    return 'Your session expired — please sign in again.';
+  }
+  return raw;
+}
+
 export default function LearnPage() {
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -22,6 +47,19 @@ export default function LearnPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  // Live progress, tracked client-side from each answer turn's evaluation —
+  // no extra backend call needed, just a running count of what's already
+  // come back from /api/session/answer.
+  const [answered, setAnswered] = useState(0);
+  const [correct, setCorrect] = useState(0);
+
+  // Set once the session is actually closed — switches the whole page over
+  // to the summary view instead of silently redirecting to /dashboard with
+  // nothing shown. completeSession() (packages/core) already computes this;
+  // it was just being thrown away before.
+  const [summary, setSummary] = useState<SessionSummary | null>(null);
+  const [ending, setEnding] = useState(false);
 
   useEffect(() => {
     fetch('/api/session/start', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' })
@@ -32,7 +70,7 @@ export default function LearnPage() {
         setMessages([{ role: 'tutor', content: json.data.turn.tutorMessage }]);
         setActiveQuestion(json.data.turn.activeQuestion ?? null);
       })
-      .catch((e) => setError(e.message))
+      .catch((e) => setError(friendlyError(e.message)))
       .finally(() => setLoading(false));
   }, []);
 
@@ -44,6 +82,7 @@ export default function LearnPage() {
     e.preventDefault();
     if (!sessionId || !input.trim()) return;
     const text = input;
+    const wasAnswer = !!activeQuestion;
     setInput('');
     setMessages((m) => [...m, { role: 'student', content: text }]);
     setLoading(true);
@@ -58,8 +97,12 @@ export default function LearnPage() {
     setLoading(false);
 
     if (json.error) {
-      setError(json.error);
+      setError(friendlyError(json.error));
       return;
+    }
+    if (wasAnswer && json.data.evaluation) {
+      setAnswered((n) => n + 1);
+      if (json.data.evaluation.isCorrect) setCorrect((n) => n + 1);
     }
     setMessages((m) => [...m, { role: 'tutor', content: json.data.tutorMessage }]);
     setActiveQuestion(json.data.activeQuestion ?? null);
@@ -71,18 +114,52 @@ export default function LearnPage() {
     const res = await fetch('/api/session/hint', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ sessionId }) });
     const json = await res.json();
     setLoading(false);
-    if (json.error) return setError(json.error);
+    if (json.error) return setError(friendlyError(json.error));
     setMessages((m) => [...m, { role: 'tutor', content: json.data.tutorMessage }]);
   }
 
   async function endSession() {
     if (!sessionId) return;
-    setLoading(true);
+    setEnding(true);
+    setError(null);
     const res = await fetch('/api/session/complete', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ sessionId }) });
     const json = await res.json();
-    setLoading(false);
-    if (json.error) return setError(json.error);
-    window.location.href = '/dashboard';
+    setEnding(false);
+    if (json.error) return setError(friendlyError(json.error));
+    setSummary(json.data);
+  }
+
+  if (summary) {
+    return (
+      <main className="page">
+        <div className="shell shell--narrow">
+          <div style={{ paddingTop: 'var(--space-3)' }}>
+            <h1 style={{ fontSize: 'var(--step-2)', marginBottom: 'var(--space-1)' }}>Session complete</h1>
+            <p style={{ color: 'var(--slate)' }}>
+              {answered > 0 ? `${correct} of ${answered} answered correctly this session.` : "Here's how it went."}
+            </p>
+          </div>
+
+          <SummarySection title="What you learned" items={summary.whatYouLearned} />
+          <SummarySection title="What you can now do" items={summary.whatYouCanNowDo} />
+          <SummarySection title="Still needs practice" items={summary.needsPractice} />
+
+          <section style={{ marginTop: 'var(--space-4)' }}>
+            <h2 style={{ fontSize: 'var(--step-1)', marginBottom: '0.4rem' }}>Recommended next step</h2>
+            <p style={{ color: 'var(--ink-soft)' }}>{summary.nextRecommendation.reason}</p>
+          </section>
+
+          <div className="hero__actions" style={{ marginTop: 'var(--space-4)' }}>
+            <a href="/dashboard" className="btn btn--accent">
+              Go to dashboard
+            </a>
+            <a href="/learn" className="btn btn--ghost">
+              Start another session
+            </a>
+          </div>
+        </div>
+      </main>
+    );
   }
 
   return (
@@ -90,10 +167,16 @@ export default function LearnPage() {
       <div className="shell shell--narrow">
         <div style={{ paddingTop: 'var(--space-3)', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
           <h1 style={{ fontSize: 'var(--step-2)' }}>Learning session</h1>
-          <button onClick={endSession} className="btn btn--ghost btn--small" disabled={loading || !sessionId}>
-            End session
+          <button onClick={endSession} className="btn btn--ghost btn--small" disabled={loading || ending || !sessionId}>
+            {ending ? 'Finishing…' : 'End session'}
           </button>
         </div>
+
+        {answered > 0 && (
+          <p style={{ color: 'var(--slate)', fontSize: '0.85rem', marginTop: '-0.3rem', marginBottom: 'var(--space-1)' }}>
+            {answered} answered this session · {correct} correct
+          </p>
+        )}
 
         {error && <p className="alert">{error}</p>}
 
@@ -101,7 +184,7 @@ export default function LearnPage() {
           {messages.map((m, i) => (
             <div key={i} className={`chat-msg chat-msg--${m.role}`}>
               <span className="chat-msg__role">{m.role === 'tutor' ? 'Tutor' : 'You'}</span>
-              {m.content}
+              <MathText text={m.content} />
             </div>
           ))}
           {loading && messages.length > 0 && (
@@ -144,5 +227,21 @@ export default function LearnPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+function SummarySection({ title, items }: { title: string; items: string[] }) {
+  if (!items || items.length === 0) return null;
+  return (
+    <section style={{ marginTop: 'var(--space-3)' }}>
+      <h2 style={{ fontSize: 'var(--step-1)', marginBottom: '0.4rem' }}>{title}</h2>
+      <ul style={{ margin: 0, paddingLeft: '1.2rem', color: 'var(--ink-soft)' }}>
+        {items.map((it, i) => (
+          <li key={i} style={{ marginBottom: '0.3rem' }}>
+            {it}
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

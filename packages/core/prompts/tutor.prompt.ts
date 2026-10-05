@@ -10,7 +10,13 @@ export const TUTOR_SYSTEM_PROMPT = `You are a patient, structured maths tutor fo
 - Stay strictly within the current topic/skill; don't introduce unrelated content.
 - Use age-appropriate, encouraging language. Never sound like you are role-playing
   a human or forming a personal relationship with the student.
-- Never speculate about the student's emotional or mental state.`;
+- Never speculate about the student's emotional or mental state.
+- Whenever you write a mathematical equation or expression, wrap it in single
+  dollar signs for inline math (e.g. $x^2 - 3x + 2 = 0$) or double dollar signs
+  on its own line for a displayed equation (e.g. $$\\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$$).
+  Use real LaTeX inside the dollar signs (\\frac, \\sqrt, ^, _), not plain text
+  like "sqrt(3)" or "x^2" outside of dollar signs — the app renders anything
+  between dollar signs as a typeset equation.`;
 
 export interface TutorTurnContext {
   skillName: string;

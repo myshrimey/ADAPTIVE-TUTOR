@@ -480,3 +480,70 @@ Public deployment prep, prompted by wanting real students/parents to try the liv
   - `components/FeedbackWidget.tsx` — a small floating "Feedback" tab, bottom-right on every
     page (mounted once in `app/layout.tsx`), open to a rating + message form, a "thanks"
     state on submit.
+
+## Admin feedback page, parent view, real session summary (this update)
+
+Prompted by preparing for a real multi-student/parent trial.
+
+- **`/admin/feedback`** — reads the `feedback` table (previously only viewable via the
+  Supabase dashboard's Table Editor, per the last update's "Reading submitted feedback").
+  Gated on a new `ADMIN_EMAILS` env var (comma-separated), checked against the signed-in
+  user's email — no roles table yet, this is a one-person-trial MVP. Leave `ADMIN_EMAILS`
+  unset and the page stays closed to everyone, including you.
+- **Parent-facing read-only progress link** — `/dashboard` now has a "Copy parent's view
+  link" button. It copies a link like `/parent/<token>` that shows the same mastery arcs,
+  chapter progress, and recent sessions as `/dashboard`, but needs no login — a parent
+  evaluating the app can open it directly. `packages/db/migrations/0004_parent_token.sql`
+  adds a random `parent_token` column to `students`; the `/parent/[token]` page
+  (`apps/web/app/parent/[token]/page.tsx`) reads through the service-role client on
+  purpose, since by design the request carries no session to check RLS against. No email,
+  settings, or write access is ever exposed through it — mastery/progress only.
+- **Real end-of-session summary, shown to the student.** `completeSession()`
+  (`packages/core/orchestrator/session-summary.service.ts`) already computed the full
+  "what you learned / what you can now do / still needs practice / recommended next step"
+  summary the PRD asked for — `/learn`'s `endSession()` was just discarding it and
+  redirecting straight to `/dashboard` without showing it. Fixed: ending a session now
+  shows that summary on its own screen before the student moves on.
+- **Live progress indicator in `/learn`** — a small "`N` answered this session · `M`
+  correct" line, tracked client-side from each answer turn's existing `evaluation` field;
+  no new backend call.
+
+### Fix: `/learn` getting stuck after the diagnostic, plus diagnostic answer review and equation rendering (this update)
+
+- **The actual bug behind the stuck `/learn` session** (reported live, with a screenshot
+  showing `/api/session/start` stuck on "Pending" forever): `GeminiProvider.complete()`
+  (`packages/core/ai-provider/gemini.provider.ts`) had **no timeout at all** on the call to
+  Google's API. If that call ever hung — a slow response, a dropped connection, anything
+  short of Google returning an explicit error — the request just sat there with nothing to
+  stop it, and Vercel's own platform limit for a function is 300 seconds by default, far
+  longer than anyone will wait on a loading chat screen. Fixed: the call now aborts after 20
+  seconds and returns a real error the UI can show, instead of hanging indefinitely.
+- **Friendly error messages in `/learn`** — those errors (and a few others, like an expired
+  session) used to show the raw internal error code. `friendlyError()` in
+  `apps/web/app/learn/page.tsx` now translates the ones worth explaining differently into
+  plain language ("The tutor is taking too long to respond... try sending that again.").
+- **Diagnostic answer review, with explanations** (explicit request: "the app should tell
+  the correct/incorrect answers along with explanations"). The diagnostic-complete screen
+  (`/diagnostic`) now lists every question asked, whether it was answered correctly, the
+  correct answer when it wasn't, and an explanation when one is authored for that question.
+  `answerDiagnosticQuestion()` (`packages/core/diagnostic/engine.ts`) now builds this review
+  list as the diagnostic runs and returns it as part of the final result
+  (`DiagnosticResult.questionReview`). `packages/db/migrations/0005_diagnostic_explanation.sql`
+  adds an optional `explanation` column to `diagnostic_questions` — none of the existing
+  seed content has one authored yet, so the review falls back to just showing the correct
+  answer in that case; new diagnostic JSON can add an `"explanation"` field per question
+  going forward (`packages/db/seed-diagnostic.js` already passes it through).
+- **Equations now render properly** (explicit request: "use equation format for proper
+  visual display of equations"), via KaTeX. `apps/web/components/MathText.tsx` renders
+  `$...$` (inline) and `$$...$$` (block) LaTeX wherever a tutor message or question prompt
+  is shown — chat messages and question cards in `/learn`, question prompts and the answer
+  review in `/diagnostic`. It also upgrades the plain-text math notation already present in
+  the seed content (`√3`, `×`, `²`, `³`, …) into real LaTeX, so existing questions render
+  correctly without rewriting every seed file. `TUTOR_SYSTEM_PROMPT`
+  (`packages/core/prompts/tutor.prompt.ts`) now asks the model to wrap equations in `$...$`
+  / `$$...$$` going forward, since that's new text the model generates rather than
+  pre-written content.
+- **Action needed on the live database**: run `npm run db:migrate` against the production
+  `DATABASE_URL` before (or right after) deploying this — it only adds one nullable column,
+  so it's safe to run anytime, but the diagnostic-answer code now selects that column and
+  will error until it exists.

@@ -48,6 +48,14 @@ su postgres -c "psql -c \"ALTER USER postgres PASSWORD 'localtest';\"" > /dev/nu
 echo "=== Roles (idempotent — create only if missing) ==="
 su postgres -c "psql -tc \"SELECT 1 FROM pg_roles WHERE rolname='service_role'\"" | grep -q 1 || \
   su postgres -c "psql -c \"CREATE ROLE service_role NOLOGIN BYPASSRLS;\""
+# anon/authenticated: Supabase always has these (every RLS policy that names
+# them, like 0003_feedback.sql's `to anon, authenticated`, needs them to
+# exist here too, or `create policy` fails with "role does not exist" even
+# though the same migration works fine against a real Supabase project).
+su postgres -c "psql -tc \"SELECT 1 FROM pg_roles WHERE rolname='anon'\"" | grep -q 1 || \
+  su postgres -c "psql -c \"CREATE ROLE anon NOLOGIN;\""
+su postgres -c "psql -tc \"SELECT 1 FROM pg_roles WHERE rolname='authenticated'\"" | grep -q 1 || \
+  su postgres -c "psql -c \"CREATE ROLE authenticated NOLOGIN;\""
 su postgres -c "psql -tc \"SELECT 1 FROM pg_roles WHERE rolname='postgrest_authenticator'\"" | grep -q 1 || \
   su postgres -c "psql -c \"CREATE ROLE postgrest_authenticator LOGIN PASSWORD 'pgrest' NOINHERIT;\""
 su postgres -c "psql -c \"ALTER ROLE postgrest_authenticator PASSWORD 'pgrest';\"" > /dev/null # re-assert in case of drift

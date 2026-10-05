@@ -1,0 +1,735 @@
+{
+  "curriculum": {
+    "board": "CBSE",
+    "class": "10",
+    "version": "v1"
+  },
+  "subject": {
+    "name": "Social Science",
+    "slug": "social-science"
+  },
+  "chapters": [
+    {
+      "name": "Nationalism in Europe",
+      "slug": "nationalism-in-europe",
+      "sequence": 1,
+      "topics": [
+        {
+          "name": "Forms and Spread of Nationalism",
+          "slug": "forms-spread-nationalism",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain how ideas of nationalism spread across 19th-century Europe",
+              "slug": "explain-nationalism-spread-europe",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Unification Movements",
+          "slug": "unification-movements",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Compare the unification processes of Germany and Italy",
+              "slug": "compare-germany-italy-unification",
+              "requires": [
+                "explain-nationalism-spread-europe"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nationalism in India",
+      "slug": "nationalism-in-india",
+      "sequence": 2,
+      "topics": [
+        {
+          "name": "Non-Cooperation and Civil Disobedience",
+          "slug": "non-cooperation-civil-disobedience",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain the causes and course of the Non-Cooperation Movement",
+              "slug": "explain-non-cooperation-movement",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Sense of Collective Belonging",
+          "slug": "sense-collective-belonging",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Identify symbols and figures that built a sense of collective belonging in Indian nationalism",
+              "slug": "identify-symbols-collective-belonging",
+              "requires": [
+                "explain-non-cooperation-movement"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The Making of a Global World",
+      "slug": "making-global-world",
+      "sequence": 3,
+      "topics": [
+        {
+          "name": "Pre-Modern Trade and Globalisation",
+          "slug": "pre-modern-trade-globalisation",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Describe how trade, migration, and labour linked the world before the 19th century",
+              "slug": "describe-pre-modern-global-links",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "The Great Depression",
+          "slug": "great-depression",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain the causes and global impact of the Great Depression",
+              "slug": "explain-great-depression",
+              "requires": [
+                "describe-pre-modern-global-links"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The Age of Industrialisation",
+      "slug": "age-of-industrialisation",
+      "sequence": 4,
+      "topics": [
+        {
+          "name": "Before the Factories",
+          "slug": "before-the-factories",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain proto-industrialisation and why factories emerged later in some economies",
+              "slug": "explain-proto-industrialisation",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Industrialisation in the Colonies",
+          "slug": "industrialisation-in-colonies",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain the impact of colonial rule on Indian industries",
+              "slug": "explain-colonial-impact-indian-industries",
+              "requires": [
+                "explain-proto-industrialisation"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Print Culture and the Modern World",
+      "slug": "print-culture-modern-world",
+      "sequence": 5,
+      "topics": [
+        {
+          "name": "The Print Revolution",
+          "slug": "print-revolution",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain how print technology changed the way people accessed information",
+              "slug": "explain-print-revolution-impact",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Print and Censorship",
+          "slug": "print-and-censorship",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain the relationship between print culture, censorship, and nationalism in India",
+              "slug": "explain-print-nationalism-link",
+              "requires": [
+                "explain-print-revolution-impact"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Resources and Development",
+      "slug": "resources-and-development",
+      "sequence": 6,
+      "topics": [
+        {
+          "name": "Classification of Resources",
+          "slug": "classification-of-resources",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Classify resources as renewable/non-renewable, based on origin, exhaustibility, and ownership",
+              "slug": "classify-resources",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Land Resources and Soil Types",
+          "slug": "land-resources-soil-types",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Identify major Indian soil types and their characteristics",
+              "slug": "identify-indian-soil-types",
+              "requires": [
+                "classify-resources"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Forest and Wildlife Resources",
+      "slug": "forest-wildlife-resources",
+      "sequence": 7,
+      "topics": [
+        {
+          "name": "Conservation of Forest and Wildlife",
+          "slug": "conservation-forest-wildlife",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain strategies for conserving forest and wildlife resources in India",
+              "slug": "explain-forest-wildlife-conservation",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Water Resources",
+      "slug": "water-resources",
+      "sequence": 8,
+      "topics": [
+        {
+          "name": "Water Scarcity and Conservation",
+          "slug": "water-scarcity-conservation",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain the causes of water scarcity and methods of water conservation",
+              "slug": "explain-water-scarcity-conservation",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Multi-Purpose River Projects",
+          "slug": "multi-purpose-river-projects",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Evaluate the benefits and criticisms of multi-purpose river valley projects",
+              "slug": "evaluate-river-valley-projects",
+              "requires": [
+                "explain-water-scarcity-conservation"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Agriculture",
+      "slug": "agriculture",
+      "sequence": 9,
+      "topics": [
+        {
+          "name": "Types of Farming and Cropping Patterns",
+          "slug": "types-farming-cropping-patterns",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Classify major crops of India by the conditions they need",
+              "slug": "classify-major-crops-india",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Technological and Institutional Reforms",
+          "slug": "technological-institutional-reforms",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain reforms that have improved Indian agriculture",
+              "slug": "explain-agricultural-reforms",
+              "requires": [
+                "classify-major-crops-india"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Minerals and Energy Resources",
+      "slug": "minerals-energy-resources",
+      "sequence": 10,
+      "topics": [
+        {
+          "name": "Classification of Minerals",
+          "slug": "classification-of-minerals",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Classify minerals as metallic or non-metallic and locate major mineral belts of India",
+              "slug": "classify-minerals-india",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Conventional and Non-Conventional Energy",
+          "slug": "conventional-nonconventional-energy",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Compare conventional and non-conventional sources of energy",
+              "slug": "compare-energy-sources",
+              "requires": [
+                "classify-minerals-india"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Manufacturing Industries",
+      "slug": "manufacturing-industries",
+      "sequence": 11,
+      "topics": [
+        {
+          "name": "Classification of Industries",
+          "slug": "classification-of-industries",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Classify industries by raw material, size, and ownership",
+              "slug": "classify-industries",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Industrial Pollution and Control",
+          "slug": "industrial-pollution-control",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain causes of industrial pollution and control measures",
+              "slug": "explain-industrial-pollution-control",
+              "requires": [
+                "classify-industries"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lifelines of National Economy",
+      "slug": "lifelines-national-economy",
+      "sequence": 12,
+      "topics": [
+        {
+          "name": "Means of Transportation",
+          "slug": "means-of-transportation",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Compare modes of transport in India by cost, speed, and capacity",
+              "slug": "compare-transport-modes",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Trade and Tourism",
+          "slug": "trade-and-tourism",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain the role of trade and tourism in the Indian economy",
+              "slug": "explain-trade-tourism-role",
+              "requires": [
+                "compare-transport-modes"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Power Sharing",
+      "slug": "power-sharing",
+      "sequence": 13,
+      "topics": [
+        {
+          "name": "Forms of Power Sharing",
+          "slug": "forms-power-sharing",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Distinguish horizontal and vertical power sharing with examples",
+              "slug": "distinguish-power-sharing-forms",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Case Studies: Belgium and Sri Lanka",
+          "slug": "case-studies-belgium-sri-lanka",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Compare how Belgium and Sri Lanka handled power sharing differently",
+              "slug": "compare-belgium-srilanka-power-sharing",
+              "requires": [
+                "distinguish-power-sharing-forms"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Federalism",
+      "slug": "federalism",
+      "sequence": 14,
+      "topics": [
+        {
+          "name": "Features of Federalism",
+          "slug": "features-of-federalism",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "List the distinguishing features of a federal system of government",
+              "slug": "list-federalism-features",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Decentralisation in India",
+          "slug": "decentralisation-in-india",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain how the 1992 constitutional amendments decentralised power in India",
+              "slug": "explain-decentralisation-india",
+              "requires": [
+                "list-federalism-features"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Democracy and Diversity",
+      "slug": "democracy-and-diversity",
+      "sequence": 15,
+      "topics": [
+        {
+          "name": "Social Differences and Politics",
+          "slug": "social-differences-and-politics",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain how social differences can lead to political conflict or accommodation",
+              "slug": "explain-social-difference-politics",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gender, Religion and Caste",
+      "slug": "gender-religion-caste",
+      "sequence": 16,
+      "topics": [
+        {
+          "name": "Gender and Politics",
+          "slug": "gender-and-politics",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain how gender division shapes political participation and representation",
+              "slug": "explain-gender-political-participation",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Caste and Politics",
+          "slug": "caste-and-politics",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain how caste influences, and is influenced by, politics in India",
+              "slug": "explain-caste-politics-link",
+              "requires": [
+                "explain-gender-political-participation"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Political Parties",
+      "slug": "political-parties",
+      "sequence": 17,
+      "topics": [
+        {
+          "name": "Functions of Political Parties",
+          "slug": "functions-political-parties",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain the functions political parties perform in a democracy",
+              "slug": "explain-political-party-functions",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Party Systems",
+          "slug": "party-systems",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Distinguish one-party, two-party, and multi-party systems with Indian examples",
+              "slug": "distinguish-party-systems",
+              "requires": [
+                "explain-political-party-functions"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Outcomes of Democracy",
+      "slug": "outcomes-of-democracy",
+      "sequence": 18,
+      "topics": [
+        {
+          "name": "Evaluating Democracy",
+          "slug": "evaluating-democracy",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Evaluate democracy against accountable government, economic growth, and dignity and freedom",
+              "slug": "evaluate-democracy-outcomes",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Challenges to Democracy",
+      "slug": "challenges-to-democracy",
+      "sequence": 19,
+      "topics": [
+        {
+          "name": "Challenges Facing Democracies",
+          "slug": "challenges-facing-democracies",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Identify foundational, expansion, and deepening challenges facing democracies",
+              "slug": "identify-democracy-challenges",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Development",
+      "slug": "development",
+      "sequence": 20,
+      "topics": [
+        {
+          "name": "Measuring Development",
+          "slug": "measuring-development",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Compare states or countries using income and non-income development indicators",
+              "slug": "compare-development-indicators",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Sustainability of Development",
+          "slug": "sustainability-of-development",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain why development needs to be sustainable",
+              "slug": "explain-sustainable-development",
+              "requires": [
+                "compare-development-indicators"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sectors of the Indian Economy",
+      "slug": "sectors-indian-economy",
+      "sequence": 21,
+      "topics": [
+        {
+          "name": "Classifying Economic Activities",
+          "slug": "classifying-economic-activities",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Classify economic activities into primary, secondary, and tertiary sectors",
+              "slug": "classify-economic-sectors",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Organised and Unorganised Sectors",
+          "slug": "organised-unorganised-sectors",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Distinguish organised from unorganised sector employment",
+              "slug": "distinguish-organised-unorganised-sector",
+              "requires": [
+                "classify-economic-sectors"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Money and Credit",
+      "slug": "money-and-credit",
+      "sequence": 22,
+      "topics": [
+        {
+          "name": "Functions of Money",
+          "slug": "functions-of-money",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain how money overcomes the limitations of the barter system",
+              "slug": "explain-money-barter-solution",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Credit and Its Terms",
+          "slug": "credit-and-terms",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Identify the terms of credit \u2014 interest rate, collateral, and documentation \u2014 in a loan",
+              "slug": "identify-terms-of-credit",
+              "requires": [
+                "explain-money-barter-solution"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Globalisation and the Indian Economy",
+      "slug": "globalisation-indian-economy",
+      "sequence": 23,
+      "topics": [
+        {
+          "name": "Factors Enabling Globalisation",
+          "slug": "factors-enabling-globalisation",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain the role of MNCs, trade liberalisation, and technology in globalisation",
+              "slug": "explain-globalisation-factors",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Impact of Globalisation on India",
+          "slug": "impact-globalisation-india",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Evaluate the positive and negative impacts of globalisation on Indian producers and workers",
+              "slug": "evaluate-globalisation-impact-india",
+              "requires": [
+                "explain-globalisation-factors"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Consumer Rights",
+      "slug": "consumer-rights",
+      "sequence": 24,
+      "topics": [
+        {
+          "name": "Consumer Rights and Protection",
+          "slug": "consumer-rights-protection",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "List consumer rights and explain how consumer movements and COPRA protect them",
+              "slug": "explain-consumer-rights-protection",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,14 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { logEvent } from '../analytics/events';
 import { computeMasteryScore, bandForScore, RETENTION_DEFAULT_SCORE } from '../mastery/types';
-import { gradeAnswer } from '../question-engine/grading';
+import { gradeAnswer, extractString } from '../question-engine/grading';
+
+// Human-readable form of a stored/submitted answer for the diagnostic review
+// screen — same extraction gradeAnswer() itself uses (a bare value, or
+// `{ value: ... }`), just not reduced into grading tokens.
+function extractAnswerDisplay(v: unknown): string {
+  return extractString(v);
+}
 
 export interface DiagnosticQuestionView {
   id: string;
@@ -19,12 +26,29 @@ export interface DiagnosticResult {
   prerequisiteGaps: string[];
   possibleMisconceptions: Array<{ tag: string; skillId: string; confidence: number }>;
   recommendedStartingSkillId: string;
+  // One entry per question actually asked, in the order it was answered —
+  // the per-question "did I get this right, and what was the correct
+  // answer/explanation" review the student sees after finishing (requested
+  // directly: "tell the correct/incorrect answers along with explanations").
+  questionReview: QuestionReviewEntry[];
+}
+
+export interface QuestionReviewEntry {
+  questionId: string;
+  skillId: string;
+  prompt: string;
+  questionType: 'mcq' | 'short_answer' | 'numeric';
+  yourAnswer: string;
+  correctAnswer: string;
+  isCorrect: boolean;
+  explanation: string | null;
 }
 
 interface DiagnosticPlanState {
   plan: string[]; // diagnostic_question ids, in order; adaptive insertions splice into this
   answers: Array<{ questionId: string; skillId: string; correct: boolean }>;
   insertedForSkill: Record<string, boolean>; // anchor skillId -> already inserted a prereq check for it
+  review: QuestionReviewEntry[];
 }
 
 const MAX_QUESTIONS = 15;
@@ -61,7 +85,7 @@ export async function startDiagnostic(
   }
   if (plan.length === 0) throw new Error('no_diagnostic_questions_available');
 
-  const state: DiagnosticPlanState = { plan, answers: [], insertedForSkill: {} };
+  const state: DiagnosticPlanState = { plan, answers: [], insertedForSkill: {}, review: [] };
 
   const { data: attempt, error: attemptErr } = await supabase
     .from('diagnostic_attempts')
@@ -85,7 +109,10 @@ export async function startDiagnostic(
 export async function answerDiagnosticQuestion(
   supabase: SupabaseClient,
   params: { attemptId: string; questionId: string; answer: unknown }
-): Promise<{ nextQuestion: DiagnosticQuestionView } | { completed: true; result: DiagnosticResult }> {
+): Promise<
+  | { nextQuestion: DiagnosticQuestionView; isCorrect: boolean; correctAnswer: string }
+  | { completed: true; result: DiagnosticResult }
+> {
   const { data: attempt, error: attemptErr } = await supabase
     .from('diagnostic_attempts')
     .select('id, student_id, diagnostic_test_id, status, result')
@@ -96,12 +123,13 @@ export async function answerDiagnosticQuestion(
 
   const { data: question, error: qErr } = await supabase
     .from('diagnostic_questions')
-    .select('id, skill_id, expected_answer')
+    .select('id, skill_id, prompt, question_type, expected_answer, explanation')
     .eq('id', params.questionId)
     .single();
   if (qErr || !question) throw qErr ?? new Error('question_not_found');
 
   const isCorrect = gradeAnswer(question.expected_answer, params.answer);
+  const correctAnswer = extractAnswerDisplay(question.expected_answer);
 
   await supabase.from('diagnostic_answers').insert({
     diagnostic_attempt_id: attempt.id,
@@ -111,7 +139,18 @@ export async function answerDiagnosticQuestion(
   });
 
   const state = attempt.result as DiagnosticPlanState;
+  if (!state.review) state.review = []; // attempts started before this field existed
   state.answers.push({ questionId: question.id, skillId: question.skill_id, correct: isCorrect });
+  state.review.push({
+    questionId: question.id,
+    skillId: question.skill_id,
+    prompt: question.prompt,
+    questionType: question.question_type,
+    yourAnswer: extractAnswerDisplay(params.answer),
+    correctAnswer,
+    isCorrect,
+    explanation: question.explanation ?? null,
+  });
 
   if (!isCorrect && !state.insertedForSkill[question.skill_id] && state.plan.length < MAX_QUESTIONS) {
     const prereqQuestion = await pickPrerequisiteCheckQuestion(supabase, attempt.diagnostic_test_id, question.skill_id, state.plan);
@@ -128,7 +167,7 @@ export async function answerDiagnosticQuestion(
   if (nextQuestionId) {
     await supabase.from('diagnostic_attempts').update({ result: state }).eq('id', attempt.id);
     const nextQuestion = await loadQuestionView(supabase, nextQuestionId);
-    return { nextQuestion };
+    return { nextQuestion, isCorrect, correctAnswer };
   }
 
   const result = await finalizeDiagnostic(supabase, attempt.id, attempt.student_id, state);
@@ -228,6 +267,7 @@ async function finalizeDiagnostic(
     prerequisiteGaps,
     possibleMisconceptions: [], // pattern-based detection is Day 5 (misconceptions/taxonomy.ts)
     recommendedStartingSkillId,
+    questionReview: state.review ?? [],
   };
 
   await supabase.from('diagnostic_attempts').update({ status: 'completed', completed_at: new Date().toISOString(), result }).eq('id', attemptId);

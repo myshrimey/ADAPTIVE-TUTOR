@@ -25,6 +25,8 @@ Set all of these on the host (see `apps/web/.env.example` for the full list with
 - `DATABASE_URL` — the Postgres connection string, for `migrate.js` only
 - `BOLT_FRONTEND_ORIGIN` — only if you're taking the cross-origin integration path in
   `docs/bolt-integration.md`; leave unset otherwise
+- `ADMIN_EMAILS` — comma-separated email(s) allowed to view `/admin/feedback`. Leave unset
+  and that page stays closed to everyone, including you.
 
 ## Database setup (production Supabase project)
 

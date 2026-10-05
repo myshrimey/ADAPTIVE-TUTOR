@@ -1,46 +1,51 @@
-import { redirect } from 'next/navigation';
-import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
+import { createServiceClient } from '@/lib/supabase-server';
 import { loadCurriculum } from '@adaptive-tutor/core';
 import { MasteryArc } from '@/components/MasteryArc';
-import { ParentLinkButton } from '@/components/ParentLinkButton';
 
-export default async function DashboardPage() {
-  let studentId: string;
-  try {
-    studentId = await getCurrentStudentId();
-  } catch {
-    redirect('/');
+// Deliberately public: a parent opening this link has no account and no
+// session, so this reads through the service-role client rather than the
+// session-bound one (see dashboard/page.tsx for the equivalent authenticated
+// version). Only ever shows mastery/progress — no email, no settings, no
+// way to act on the student's behalf. The token itself
+// (packages/db/migrations/0004_parent_token.sql) is the only thing gating
+// access, same trust model as any "anyone with the link" share link.
+export default async function ParentViewPage({ params }: { params: Promise<{ token: string }> }) {
+  const { token } = await params;
+  const service = createServiceClient();
+
+  const { data: student } = await service.from('students').select('id, display_name').eq('parent_token', token).maybeSingle();
+
+  if (!student) {
+    return (
+      <main className="page">
+        <div className="shell shell--narrow">
+          <div style={{ paddingTop: 'var(--space-4)' }}>
+            <h1 style={{ fontSize: 'var(--step-2)' }}>Link not found</h1>
+            <p style={{ color: 'var(--slate)' }}>This progress link isn't valid — ask the student for a fresh one.</p>
+          </div>
+        </div>
+      </main>
+    );
   }
 
-  const supabase = await createServerClient();
-
-  const { data: student } = await supabase.from('students').select('display_name, parent_token').eq('id', studentId).single();
-
-  const { data: masteryRows } = await supabase.from('mastery_states').select('skill_id, score, band').eq('student_id', studentId);
+  const { data: masteryRows } = await service.from('mastery_states').select('skill_id, score, band').eq('student_id', student.id);
   const masteryBySkill = new Map((masteryRows ?? []).map((r) => [r.skill_id, r]));
 
-  const curriculum = await loadCurriculum(supabase, 'CBSE', '10');
+  const curriculum = await loadCurriculum(service, 'CBSE', '10');
 
-  const { data: sessions } = await supabase
+  const { data: sessions } = await service
     .from('learning_sessions')
     .select('id, status, starting_mastery, ending_mastery, started_at, skills(name)')
-    .eq('student_id', studentId)
+    .eq('student_id', student.id)
     .order('started_at', { ascending: false })
     .limit(5);
 
   return (
     <main className="page">
       <div className="shell">
-        <div style={{ paddingTop: 'var(--space-4)', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: '1rem' }}>
-          <div>
-            <h1 style={{ fontSize: 'var(--step-3)' }}>{student?.display_name ? `${student.display_name}'s progress` : 'Progress'}</h1>
-          </div>
-          <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
-            {student?.parent_token && <ParentLinkButton parentToken={student.parent_token} />}
-            <a href="/learn" className="btn btn--accent">
-              Continue learning
-            </a>
-          </div>
+        <div style={{ paddingTop: 'var(--space-4)' }}>
+          <p className="hero__eyebrow">Read-only progress view</p>
+          <h1 style={{ fontSize: 'var(--step-3)' }}>{student.display_name}'s progress</h1>
         </div>
 
         {curriculum.subjects.map((subject) => {
@@ -107,7 +112,7 @@ export default async function DashboardPage() {
               ))}
             </div>
           ) : (
-            <p style={{ color: 'var(--slate)' }}>No sessions yet — start one above.</p>
+            <p style={{ color: 'var(--slate)' }}>No sessions yet.</p>
           )}
         </section>
       </div>

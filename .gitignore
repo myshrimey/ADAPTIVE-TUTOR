@@ -1,5 +1,12 @@
-node_modules/ 
-.next/ 
-.env.local 
-.env 
-*.log 
+node_modules/
+.next/
+.env.local
+.env
+*.log
+.DS_Store
+dist/
+
+# local-dev/ artifacts — the postgrest binary is a ~17MB third-party download
+# (see local-dev/README.md), and the JWT secret is generated per-machine.
+local-dev/postgrest
+local-dev/.jwt-secret
