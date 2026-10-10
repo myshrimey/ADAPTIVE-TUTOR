@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 240" width="280" height="240">
+  <rect width="280" height="240" fill="#fbf9f4"/>
+  <circle cx="140" cy="120" r="90" fill="none" stroke="#1b2a4a" stroke-width="3"/>
+  <line x1="140" y1="120" x2="230" y2="120" stroke="#c8811f" stroke-width="3"/>
+  <circle cx="140" cy="120" r="3" fill="#1b2a4a"/>
+  <text x="165" y="112" font-family="Arial" font-size="18" fill="#c8811f" font-weight="bold">r</text>
+  <text x="55" y="30" font-family="Arial" font-size="15" fill="#1b2a4a">Area = &#960;r&#178;</text>
+  <text x="55" y="50" font-family="Arial" font-size="15" fill="#1b2a4a">Circumference = 2&#960;r</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 180" width="300" height="180">
+  <rect width="300" height="180" fill="#fbf9f4"/>
+  <rect x="40" y="40" width="220" height="100" fill="none" stroke="#1b2a4a" stroke-width="3"/>
+  <line x1="40" y1="90" x2="10" y2="90" stroke="#1b2a4a" stroke-width="3"/>
+  <line x1="260" y1="90" x2="290" y2="90" stroke="#1b2a4a" stroke-width="3"/>
+  <line x1="10" y1="90" x2="10" y2="140" stroke="#1b2a4a" stroke-width="3"/>
+  <line x1="290" y1="90" x2="290" y2="140" stroke="#1b2a4a" stroke-width="3"/>
+  <line x1="10" y1="140" x2="290" y2="140" stroke="#1b2a4a" stroke-width="3"/>
+  <line x1="130" y1="140" x2="140" y2="125" stroke="#1b2a4a" stroke-width="3"/>
+  <line x1="140" y1="125" x2="155" y2="150" stroke="#1b2a4a" stroke-width="3"/>
+  <line x1="155" y1="150" x2="170" y2="125" stroke="#1b2a4a" stroke-width="3"/>
+  <line x1="170" y1="125" x2="180" y2="140" stroke="#1b2a4a" stroke-width="3"/>
+  <rect x="100" y="60" width="100" height="30" fill="#faf0dd" stroke="#c8811f" stroke-width="3"/>
+  <text x="125" y="80" font-family="Arial" font-size="15" fill="#c8811f" font-weight="bold">R (resistor)</text>
+  <text x="140" y="175" font-family="Arial" font-size="13" fill="#33456b">battery (V)</text>
+  <text x="10" y="20" font-family="Arial" font-size="14" fill="#1b2a4a">V = I &#215; R</text>
+</svg>

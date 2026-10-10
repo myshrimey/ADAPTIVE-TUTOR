@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 220" width="260" height="220">
+  <rect width="260" height="220" fill="#fbf9f4"/>
+  <line x1="50" y1="200" x2="50" y2="60" stroke="#1b2a4a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 50 60 Q 90 40 130 20" stroke="#1b2a4a" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="200" cy="40" r="22" fill="#faf0dd" stroke="#c8811f" stroke-width="3"/>
+  <line x1="200" y1="10" x2="200" y2="2" stroke="#c8811f" stroke-width="2"/>
+  <line x1="222" y1="18" x2="228" y2="12" stroke="#c8811f" stroke-width="2"/>
+  <line x1="222" y1="62" x2="228" y2="68" stroke="#c8811f" stroke-width="2"/>
+  <text x="178" y="80" font-family="Arial" font-size="13" fill="#c8811f">light</text>
+  <path d="M 150 25 L 180 38" stroke="#c8811f" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow3)"/>
+  <defs>
+    <marker id="arrow3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#c8811f" />
+    </marker>
+  </defs>
+  <text x="10" y="195" font-family="Arial" font-size="13" fill="#1b2a4a">Auxin makes the shoot bend</text>
+  <text x="10" y="211" font-family="Arial" font-size="13" fill="#1b2a4a">towards light (phototropism)</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" width="320" height="240">
+  <rect width="320" height="240" fill="#fbf9f4"/>
+  <circle cx="150" cy="120" r="80" fill="none" stroke="#1b2a4a" stroke-width="3"/>
+  <line x1="150" y1="120" x2="230" y2="120" stroke="#33456b" stroke-width="2"/>
+  <line x1="40" y1="120" x2="290" y2="120" stroke="#c8811f" stroke-width="3"/>
+  <rect x="212" y="104" width="16" height="16" fill="none" stroke="#1b2a4a" stroke-width="2"/>
+  <circle cx="230" cy="120" r="3" fill="#1b2a4a"/>
+  <text x="175" y="112" font-family="Arial" font-size="14" fill="#33456b">radius</text>
+  <text x="235" y="145" font-family="Arial" font-size="14" fill="#c8811f">tangent</text>
+  <text x="15" y="30" font-family="Arial" font-size="13" fill="#1b2a4a">A tangent always meets the radius</text>
+  <text x="15" y="46" font-family="Arial" font-size="13" fill="#1b2a4a">at exactly 90&#176;</text>
+</svg>

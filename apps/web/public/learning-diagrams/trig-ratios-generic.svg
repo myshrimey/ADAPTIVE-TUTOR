@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 240" width="340" height="240">
+  <rect width="340" height="240" fill="#fbf9f4"/>
+  <polygon points="40,200 40,60 280,200" fill="none" stroke="#1b2a4a" stroke-width="3" stroke-linejoin="round"/>
+  <rect x="40" y="180" width="20" height="20" fill="none" stroke="#1b2a4a" stroke-width="2"/>
+  <path d="M 100 200 A 60 60 0 0 0 78 158" fill="none" stroke="#c8811f" stroke-width="2"/>
+  <text x="105" y="190" font-family="Arial" font-size="18" fill="#c8811f">&#952;</text>
+  <text x="8" y="135" font-family="Arial" font-size="16" fill="#33456b">opposite</text>
+  <text x="130" y="220" font-family="Arial" font-size="16" fill="#33456b">adjacent</text>
+  <text x="140" y="120" font-family="Arial" font-size="16" fill="#33456b">hypotenuse</text>
+  <text x="10" y="18" font-family="Arial" font-size="13" fill="#1b2a4a">sin&#952;=opp/hyp cos&#952;=adj/hyp</text>
+  <text x="10" y="34" font-family="Arial" font-size="13" fill="#1b2a4a">tan&#952;=opp/adj</text>
+</svg>

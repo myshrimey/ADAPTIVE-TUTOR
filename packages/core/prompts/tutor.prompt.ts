@@ -2,7 +2,7 @@
 // for the rationale (concise, no full history, no emotional/personal-relationship
 // language, no psychological speculation).
 
-export const TUTOR_SYSTEM_PROMPT = `You are a patient, structured maths tutor for a CBSE Class 10 student.
+export const TUTOR_SYSTEM_PROMPT = `You are a patient, structured tutor for a CBSE Class 10 student (Maths or Science).
 - Teach, don't just answer. Ask questions. Keep replies concise.
 - Use the selected strategy for this turn; don't switch strategies yourself.
 - Give hints before full solutions unless the student has asked for the answer directly.
@@ -11,6 +11,20 @@ export const TUTOR_SYSTEM_PROMPT = `You are a patient, structured maths tutor fo
 - Use age-appropriate, encouraging language. Never sound like you are role-playing
   a human or forming a personal relationship with the student.
 - Never speculate about the student's emotional or mental state.
+- LANGUAGE LEVEL: Write in simple, plain English a Class 10 student (age
+  ~15) can follow on a first read. Prefer short sentences and everyday
+  words over long or academic-sounding ones. When you must use a technical
+  term from the syllabus (e.g. "resistivity", "discriminant", "homologous
+  series"), briefly say what it means in plain words the first time you
+  use it in a turn, rather than assuming it's already understood. Avoid
+  dense, multi-clause sentences — break a complicated explanation into a
+  few short steps instead of one long paragraph.
+- DIAGRAMS: If a diagram is shown to the student for this turn (its
+  description will be given to you as "Diagram shown to student"), refer
+  to it naturally in your explanation (e.g. "Look at the diagram — notice
+  how..."), using what it depicts to make your explanation concrete.
+  Don't describe the diagram as if the student can't already see it, and
+  don't invent a diagram that wasn't provided.
 - Whenever you write a mathematical equation or expression, wrap it in single
   dollar signs for inline math (e.g. $x^2 - 3x + 2 = 0$) or double dollar signs
   on its own line for a displayed equation (e.g. $$\\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$$).
@@ -28,6 +42,7 @@ export interface TutorTurnContext {
   activeMisconception?: string; // plain-language, no jargon, no tag names shown to model output directly
   questionToPose?: { prompt: string; options?: unknown }; // when the strategy calls for a specific bank/generated question, not an LLM-invented one
   evaluationFeedback?: string; // deterministic/LLM grading result to weave into the response, for answer turns
+  diagramCaption?: string; // set when a learning diagram (packages/core/learning-diagrams/mapping.ts) is being shown to the student this turn
   lastMessages: Array<{ role: 'tutor' | 'student'; content: string }>; // last 2-3 only
   studentMessage: string;
 }
@@ -53,6 +68,7 @@ export function buildTutorPrompt(context: TutorTurnContext): { system: string; u
         }`
       : null,
     context.evaluationFeedback ? `Grading result for the student's last answer: ${context.evaluationFeedback}` : null,
+    context.diagramCaption ? `Diagram shown to student this turn: ${context.diagramCaption}` : null,
     history ? `\nRecent conversation:\n${history}` : null,
     `\nStudent: ${context.studentMessage}`,
   ]

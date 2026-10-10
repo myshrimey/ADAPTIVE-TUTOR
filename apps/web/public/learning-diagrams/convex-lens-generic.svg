@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" width="360" height="200">
+  <rect width="360" height="200" fill="#fbf9f4"/>
+  <line x1="180" y1="20" x2="180" y2="180" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+  <path d="M 170 20 Q 195 100 170 180 Q 165 100 170 20 Z" fill="#eaf2fb" stroke="#1b2a4a" stroke-width="2"/>
+  <line x1="40" y1="100" x2="320" y2="100" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+  <circle cx="130" cy="100" r="3" fill="#1b2a4a"/>
+  <text x="122" y="92" font-family="Arial" font-size="13" fill="#33456b">F</text>
+  <circle cx="230" cy="100" r="3" fill="#1b2a4a"/>
+  <text x="222" y="92" font-family="Arial" font-size="13" fill="#33456b">F</text>
+  <line x1="80" y1="100" x2="80" y2="50" stroke="#c8811f" stroke-width="3"/>
+  <polygon points="80,50 75,60 85,60" fill="#c8811f"/>
+  <text x="55" y="40" font-family="Arial" font-size="13" fill="#c8811f">object</text>
+  <line x1="80" y1="50" x2="170" y2="100" stroke="#1b2a4a" stroke-width="1.5"/>
+  <line x1="170" y1="100" x2="290" y2="140" stroke="#1b2a4a" stroke-width="1.5"/>
+  <line x1="260" y1="100" x2="290" y2="140" stroke="#1b2a4a" stroke-width="1.5"/>
+  <line x1="260" y1="100" x2="260" y2="140" stroke="#c8811f" stroke-width="3"/>
+  <text x="195" y="162" font-family="Arial" font-size="12" fill="#c8811f">real, inverted image</text>
+  <text x="10" y="15" font-family="Arial" font-size="13" fill="#1b2a4a">Convex lens: 1/v - 1/u = 1/f</text>
+</svg>

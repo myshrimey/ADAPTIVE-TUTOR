@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 300" width="260" height="300">
+  <rect width="260" height="300" fill="#fbf9f4"/>
+  <text x="20" y="25" font-family="Arial" font-size="14" fill="#1b2a4a" font-weight="bold">Most reactive</text>
+  <g font-family="Arial" font-size="13" fill="#33456b">
+    <text x="40" y="55">Potassium (K)</text>
+    <text x="40" y="78">Sodium (Na)</text>
+    <text x="40" y="101">Calcium (Ca)</text>
+    <text x="40" y="124">Magnesium (Mg)</text>
+    <text x="40" y="147">Aluminium (Al)</text>
+    <text x="40" y="170">Zinc (Zn)</text>
+    <text x="40" y="193">Iron (Fe)</text>
+    <text x="40" y="216">Lead (Pb)</text>
+    <text x="40" y="239">Hydrogen (H)</text>
+    <text x="40" y="262">Copper (Cu)</text>
+    <text x="40" y="285">Gold (Au)</text>
+  </g>
+  <line x1="20" y1="40" x2="20" y2="270" stroke="#c8811f" stroke-width="3" marker-end="url(#arrow4)"/>
+  <defs>
+    <marker id="arrow4" markerWidth="10" markerHeight="10" refX="5" refY="8" orient="auto">
+      <path d="M0,0 L10,0 L5,9 z" fill="#c8811f" />
+    </marker>
+  </defs>
+  <text x="20" y="297" font-family="Arial" font-size="14" fill="#1b2a4a" font-weight="bold">Least reactive</text>
+</svg>

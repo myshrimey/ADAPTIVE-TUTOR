@@ -6,6 +6,7 @@ import { MathText } from '@/components/MathText';
 interface ChatMessage {
   role: 'tutor' | 'student';
   content: string;
+  diagram?: { url: string; caption: string } | null; // a teaching diagram for this turn's skill, if one exists (packages/core/learning-diagrams/mapping.ts) — distinct from a question's own imageUrl below
 }
 
 interface ActiveQuestion {
@@ -80,7 +81,7 @@ export default function LearnPage() {
       .then((json) => {
         if (json.error) throw new Error(json.error);
         setSessionId(json.data.sessionId);
-        setMessages([{ role: 'tutor', content: json.data.turn.tutorMessage }]);
+        setMessages([{ role: 'tutor', content: json.data.turn.tutorMessage, diagram: json.data.turn.diagram ?? null }]);
         setActiveQuestion(json.data.turn.activeQuestion ?? null);
       })
       .catch((e) => setError(friendlyError(e.message)))
@@ -117,7 +118,7 @@ export default function LearnPage() {
       setAnswered((n) => n + 1);
       if (json.data.evaluation.isCorrect) setCorrect((n) => n + 1);
     }
-    setMessages((m) => [...m, { role: 'tutor', content: json.data.tutorMessage }]);
+    setMessages((m) => [...m, { role: 'tutor', content: json.data.tutorMessage, diagram: json.data.diagram ?? null }]);
     setActiveQuestion(json.data.activeQuestion ?? null);
   }
 
@@ -128,7 +129,7 @@ export default function LearnPage() {
     const json = await res.json();
     setLoading(false);
     if (json.error) return setError(friendlyError(json.error));
-    setMessages((m) => [...m, { role: 'tutor', content: json.data.tutorMessage }]);
+    setMessages((m) => [...m, { role: 'tutor', content: json.data.tutorMessage, diagram: json.data.diagram ?? null }]);
   }
 
   async function endSession() {
@@ -197,6 +198,13 @@ export default function LearnPage() {
           {messages.map((m, i) => (
             <div key={i} className={`chat-msg chat-msg--${m.role}`}>
               <span className="chat-msg__role">{m.role === 'tutor' ? 'Tutor' : 'You'}</span>
+              {m.diagram && (
+                <img
+                  src={m.diagram.url}
+                  alt={m.diagram.caption}
+                  style={{ maxWidth: '100%', maxHeight: '260px', display: 'block', margin: '0.4rem 0 0.6rem', borderRadius: '8px', border: '1px solid var(--line)' }}
+                />
+              )}
               <MathText text={m.content} />
             </div>
           ))}

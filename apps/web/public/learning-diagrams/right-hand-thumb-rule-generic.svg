@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 260" width="280" height="260">
+  <rect width="280" height="260" fill="#fbf9f4"/>
+  <line x1="140" y1="230" x2="140" y2="30" stroke="#1b2a4a" stroke-width="4"/>
+  <polygon points="140,20 130,45 150,45" fill="#1b2a4a"/>
+  <text x="150" y="35" font-family="Arial" font-size="15" fill="#33456b">I (current)</text>
+  <ellipse cx="140" cy="130" rx="90" ry="30" fill="none" stroke="#c8811f" stroke-width="2"/>
+  <ellipse cx="140" cy="130" rx="55" ry="18" fill="none" stroke="#c8811f" stroke-width="2"/>
+  <polygon points="230,130 220,124 220,136" fill="#c8811f"/>
+  <polygon points="50,130 60,124 60,136" fill="#c8811f"/>
+  <text x="15" y="190" font-family="Arial" font-size="13" fill="#1b2a4a">Curl your right-hand fingers</text>
+  <text x="15" y="206" font-family="Arial" font-size="13" fill="#1b2a4a">in the direction of the field</text>
+  <text x="15" y="222" font-family="Arial" font-size="13" fill="#1b2a4a">when the thumb points along I</text>
+</svg>

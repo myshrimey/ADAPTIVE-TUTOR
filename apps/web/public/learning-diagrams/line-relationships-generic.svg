@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 170" width="480" height="170">
+  <rect width="480" height="170" fill="#fbf9f4"/>
+  <g font-family="Arial" font-size="14" fill="#33456b" text-anchor="middle">
+    <line x1="20" y1="100" x2="140" y2="40" stroke="#1b2a4a" stroke-width="3"/>
+    <line x1="20" y1="40" x2="140" y2="100" stroke="#c8811f" stroke-width="3"/>
+    <text x="80" y="140">Intersecting</text>
+    <text x="80" y="158">(one solution)</text>
+
+    <line x1="180" y1="50" x2="300" y2="50" stroke="#1b2a4a" stroke-width="3"/>
+    <line x1="180" y1="90" x2="300" y2="90" stroke="#c8811f" stroke-width="3"/>
+    <text x="240" y="140">Parallel</text>
+    <text x="240" y="158">(no solution)</text>
+
+    <line x1="340" y1="50" x2="460" y2="90" stroke="#1b2a4a" stroke-width="5"/>
+    <line x1="340" y1="50" x2="460" y2="90" stroke="#c8811f" stroke-width="2" stroke-dasharray="6,4"/>
+    <text x="400" y="140">Coincident</text>
+    <text x="400" y="158">(infinite solutions)</text>
+  </g>
+</svg>

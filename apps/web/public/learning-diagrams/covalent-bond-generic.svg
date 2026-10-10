@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 170" width="320" height="170">
+  <rect width="320" height="170" fill="#fbf9f4"/>
+  <circle cx="100" cy="90" r="45" fill="none" stroke="#1b2a4a" stroke-width="3"/>
+  <circle cx="220" cy="90" r="45" fill="none" stroke="#1b2a4a" stroke-width="3"/>
+  <text x="80" y="96" font-family="Arial" font-size="16" fill="#33456b" font-weight="bold">Atom A</text>
+  <text x="200" y="96" font-family="Arial" font-size="16" fill="#33456b" font-weight="bold">Atom B</text>
+  <circle cx="150" cy="85" r="4" fill="#c8811f"/>
+  <circle cx="170" cy="85" r="4" fill="#c8811f"/>
+  <text x="122" y="65" font-family="Arial" font-size="12" fill="#c8811f">shared electron pair</text>
+  <text x="10" y="20" font-family="Arial" font-size="13" fill="#1b2a4a">A covalent bond = a shared pair</text>
+  <text x="10" y="36" font-family="Arial" font-size="13" fill="#1b2a4a">of electrons between two atoms</text>
+</svg>

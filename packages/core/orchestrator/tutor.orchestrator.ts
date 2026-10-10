@@ -12,6 +12,7 @@ import { gradeAnswer } from '../question-engine/grading';
 import { detectMisconception, recordMisconception, MISCONCEPTION_TAXONOMY } from '../misconceptions/taxonomy';
 import { updateMastery } from '../mastery/mastery.service';
 import { logEvent } from '../analytics/events';
+import { getLearningDiagram, type LearningDiagram } from '../learning-diagrams/mapping';
 
 export interface OrchestratorTurnInput {
   studentId: string;
@@ -27,6 +28,7 @@ export interface OrchestratorTurnResult {
   updatedMastery?: { skillId: string; score: number };
   nextAction: PedagogyStrategy;
   activeQuestion?: { id: string; prompt: string; questionType: string; options?: unknown };
+  diagram?: LearningDiagram; // present when this turn's skill has a teaching diagram (learning-diagrams/mapping.ts) — distinct from a question's own image_url
 }
 
 const QUESTION_STRATEGIES: PedagogyStrategy[] = ['GUIDED_PRACTICE', 'INDEPENDENT_TEST', 'CHALLENGE', 'REVIEW'];
@@ -74,8 +76,9 @@ export async function runOrchestratorTurn(
     }
   }
 
-  const { data: skillRow } = await supabase.from('skills').select('id, name').eq('id', effectiveSkillId).single();
+  const { data: skillRow } = await supabase.from('skills').select('id, name, slug').eq('id', effectiveSkillId).single();
   const skillName = skillRow?.name ?? 'this skill';
+  const skillSlug = skillRow?.slug;
   const learningObjectiveText = `Student can ${skillName.toLowerCase()} unaided.`;
   const mastery = state.masteryBySkill[effectiveSkillId];
   const masteryScore = mastery?.score ?? 0;
@@ -118,6 +121,7 @@ export async function runOrchestratorTurn(
       state,
       effectiveSkillId,
       skillName,
+      skillSlug,
       learningObjectiveText,
       strategy,
       difficulty,
@@ -132,6 +136,7 @@ export async function runOrchestratorTurn(
     strategy,
     difficulty,
     skillName,
+    skillSlug,
     learningObjectiveText,
     masteryBand,
     masteryScore,
@@ -149,6 +154,7 @@ async function handleMessageTurn(
     strategy: PedagogyStrategy;
     difficulty: number;
     skillName: string;
+    skillSlug?: string;
     learningObjectiveText: string;
     masteryBand: string;
     masteryScore: number;
@@ -159,6 +165,7 @@ async function handleMessageTurn(
 ): Promise<OrchestratorTurnResult> {
   let questionToPose: TutorTurnContext['questionToPose'];
   let activeQuestion: OrchestratorTurnResult['activeQuestion'];
+  const diagram = getLearningDiagram(ctx.skillSlug) ?? undefined;
 
   if (QUESTION_STRATEGIES.includes(ctx.strategy)) {
     const { data: recentAttempts } = await supabase
@@ -204,6 +211,7 @@ async function handleMessageTurn(
     masteryScore: ctx.masteryScore,
     activeMisconception: ctx.activeMisconceptionText,
     questionToPose,
+    diagramCaption: diagram?.caption,
     lastMessages: ctx.lastMessages,
     studentMessage: input.studentMessage ?? '(session just started)',
   });
@@ -215,7 +223,7 @@ async function handleMessageTurn(
   }
   await supabase.from('messages').insert({ session_id: input.sessionId, role: 'tutor', content: completion.text, strategy: ctx.strategy });
 
-  return { tutorMessage: completion.text, strategyUsed: ctx.strategy, nextAction: ctx.strategy, activeQuestion };
+  return { tutorMessage: completion.text, strategyUsed: ctx.strategy, nextAction: ctx.strategy, activeQuestion, diagram };
 }
 
 async function handleAnswerTurn(
@@ -226,6 +234,7 @@ async function handleAnswerTurn(
     state: LearnerState;
     effectiveSkillId: string;
     skillName: string;
+    skillSlug?: string;
     learningObjectiveText: string;
     strategy: PedagogyStrategy;
     difficulty: number;
@@ -350,6 +359,7 @@ async function handleAnswerTurn(
     activeQuestion = { id: nextQuestion.id, prompt: nextQuestion.prompt, questionType: nextQuestion.questionType, options: nextQuestion.options };
   }
 
+  const diagram = getLearningDiagram(ctx.skillSlug) ?? undefined;
   const prompt = buildTutorPrompt({
     skillName: ctx.skillName,
     learningObjective: ctx.learningObjectiveText,
@@ -359,6 +369,7 @@ async function handleAnswerTurn(
     masteryScore: updatedMastery.score,
     evaluationFeedback: `${isCorrect ? 'Correct' : 'Incorrect'}. ${feedbackText}`,
     questionToPose,
+    diagramCaption: diagram?.caption,
     lastMessages: ctx.lastMessages,
     studentMessage: `(submitted answer: ${JSON.stringify(answer.answer)})`,
   });
@@ -378,6 +389,7 @@ async function handleAnswerTurn(
     updatedMastery: { skillId: question.skill_id, score: updatedMastery.score },
     nextAction,
     activeQuestion,
+    diagram,
   };
 }
 

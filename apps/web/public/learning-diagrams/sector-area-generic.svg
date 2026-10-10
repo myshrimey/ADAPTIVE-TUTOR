@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 240" width="280" height="240">
+  <rect width="280" height="240" fill="#fbf9f4"/>
+  <circle cx="140" cy="120" r="90" fill="none" stroke="#1b2a4a" stroke-width="3"/>
+  <path d="M 140 120 L 230 120 A 90 90 0 0 0 184 41 Z" fill="#faf0dd" stroke="#c8811f" stroke-width="3"/>
+  <text x="165" y="80" font-family="Arial" font-size="18" fill="#c8811f">&#952;</text>
+  <text x="235" y="124" font-family="Arial" font-size="16" fill="#33456b">r</text>
+  <text x="45" y="30" font-family="Arial" font-size="15" fill="#1b2a4a">Sector area = (&#952;/360) &#215; &#960;r&#178;</text>
+</svg>

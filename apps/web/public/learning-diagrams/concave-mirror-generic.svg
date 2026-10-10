@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" width="360" height="200">
+  <rect width="360" height="200" fill="#fbf9f4"/>
+  <path d="M 300 20 Q 260 100 300 180" fill="none" stroke="#1b2a4a" stroke-width="3"/>
+  <line x1="40" y1="100" x2="320" y2="100" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+  <circle cx="180" cy="100" r="3" fill="#1b2a4a"/>
+  <text x="170" y="92" font-family="Arial" font-size="13" fill="#33456b">C</text>
+  <circle cx="240" cy="100" r="3" fill="#1b2a4a"/>
+  <text x="232" y="92" font-family="Arial" font-size="13" fill="#33456b">F</text>
+  <line x1="120" y1="100" x2="120" y2="40" stroke="#c8811f" stroke-width="3"/>
+  <polygon points="120,40 115,50 125,50" fill="#c8811f"/>
+  <text x="95" y="30" font-family="Arial" font-size="13" fill="#c8811f">object</text>
+  <line x1="120" y1="40" x2="300" y2="72" stroke="#1b2a4a" stroke-width="1.5"/>
+  <line x1="40" y1="40" x2="120" y2="40" stroke="#1b2a4a" stroke-width="1.5"/>
+  <line x1="300" y1="72" x2="150" y2="140" stroke="#1b2a4a" stroke-width="1.5"/>
+  <line x1="150" y1="100" x2="150" y2="140" stroke="#c8811f" stroke-width="3"/>
+  <polygon points="150,140 145,130 155,130" fill="#c8811f" transform="rotate(180 150 135)"/>
+  <text x="155" y="155" font-family="Arial" font-size="13" fill="#c8811f">real, inverted image</text>
+  <text x="10" y="15" font-family="Arial" font-size="13" fill="#1b2a4a">Concave mirror: 1/v + 1/u = 1/f</text>
+</svg>
