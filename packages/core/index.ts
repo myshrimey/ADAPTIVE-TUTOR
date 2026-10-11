@@ -25,3 +25,6 @@ export * from './prompts/evaluation.prompt';
 export * from './analytics/events';
 export * from './learning-diagrams/mapping';
 export * from './quiz/skill-quiz.engine';
+export * from './explanations/ensure-explanation';
+export * from './papers/previous-papers.service';
+export * from './profile/student-profile.service';

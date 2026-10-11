@@ -1,7 +1,10 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
+import type { AIProvider } from '../ai-provider/ai-provider.interface';
+import { createDefaultAIProvider } from '../ai-provider/factory';
 import { logEvent } from '../analytics/events';
 import { computeMasteryScore, bandForScore, RETENTION_DEFAULT_SCORE } from '../mastery/types';
 import { gradeAnswer, extractString } from '../question-engine/grading';
+import { ensureExplanation } from '../explanations/ensure-explanation';
 
 // Human-readable form of a stored/submitted answer for the diagnostic review
 // screen — same extraction gradeAnswer() itself uses (a bare value, or
@@ -108,7 +111,8 @@ export async function startDiagnostic(
  */
 export async function answerDiagnosticQuestion(
   supabase: SupabaseClient,
-  params: { attemptId: string; questionId: string; answer: unknown }
+  params: { attemptId: string; questionId: string; answer: unknown },
+  aiProvider: AIProvider = createDefaultAIProvider()
 ): Promise<
   | { nextQuestion: DiagnosticQuestionView; isCorrect: boolean; correctAnswer: string }
   | { completed: true; result: DiagnosticResult }
@@ -123,7 +127,7 @@ export async function answerDiagnosticQuestion(
 
   const { data: question, error: qErr } = await supabase
     .from('diagnostic_questions')
-    .select('id, skill_id, prompt, question_type, expected_answer, explanation')
+    .select('id, skill_id, prompt, question_type, options, expected_answer, explanation')
     .eq('id', params.questionId)
     .single();
   if (qErr || !question) throw qErr ?? new Error('question_not_found');
@@ -138,6 +142,21 @@ export async function answerDiagnosticQuestion(
     is_correct: isCorrect,
   });
 
+  // A miss always gets an explanation — generated on the spot and saved back
+  // onto the question if it didn't already have one authored (most of the
+  // bank doesn't yet; see ensure-explanation.ts). A correct answer skips
+  // this entirely, so getting something right never costs an AI call.
+  const explanation = isCorrect
+    ? question.explanation ?? null
+    : await ensureExplanation(supabase, aiProvider, 'diagnostic_questions', {
+        id: question.id,
+        prompt: question.prompt,
+        questionType: question.question_type,
+        options: question.options,
+        expectedAnswer: question.expected_answer,
+        explanation: question.explanation,
+      });
+
   const state = attempt.result as DiagnosticPlanState;
   if (!state.review) state.review = []; // attempts started before this field existed
   state.answers.push({ questionId: question.id, skillId: question.skill_id, correct: isCorrect });
@@ -149,7 +168,7 @@ export async function answerDiagnosticQuestion(
     yourAnswer: extractAnswerDisplay(params.answer),
     correctAnswer,
     isCorrect,
-    explanation: question.explanation ?? null,
+    explanation,
   });
 
   if (!isCorrect && !state.insertedForSkill[question.skill_id] && state.plan.length < MAX_QUESTIONS) {

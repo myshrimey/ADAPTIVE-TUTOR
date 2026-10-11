@@ -2,6 +2,20 @@
 
 import { useEffect, useState } from 'react';
 import { MathText } from '@/components/MathText';
+import { SubjectIcon } from '@/components/SubjectIcon';
+
+// Social Science is intentionally left out of this picker — its question
+// bank is still thin (paused while Maths/Science are built out further; see
+// the footer's "What's covered here"), so offering it here would start a
+// diagnostic most of which has nothing to actually ask.
+const PICKABLE_SUBJECT_SLUGS = ['maths', 'science'];
+
+interface SubjectOption {
+  id: string;
+  slug: string;
+  name: string;
+  chapterCount: number;
+}
 
 interface QuestionView {
   id: string;
@@ -32,26 +46,57 @@ interface DiagnosticResult {
 }
 
 export default function DiagnosticPage() {
+  const [subjects, setSubjects] = useState<SubjectOption[] | null>(null);
+  const [subjectId, setSubjectId] = useState<string | null>(null);
   const [attemptId, setAttemptId] = useState<string | null>(null);
   const [question, setQuestion] = useState<QuestionView | null>(null);
   const [answer, setAnswer] = useState('');
   const [result, setResult] = useState<DiagnosticResult | null>(null);
   const [loading, setLoading] = useState(true);
+  const [starting, setStarting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [askedCount, setAskedCount] = useState(0);
 
+  // Load the subject picker first, instead of starting a diagnostic
+  // immediately — a student (or parent) landing here from the "Take a
+  // test" link anywhere on the site needs to say which subject before
+  // anything can start.
   useEffect(() => {
-    fetch('/api/diagnostic/start', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' })
+    fetch('/api/curriculum')
       .then((r) => r.json())
       .then((json) => {
         if (json.error) throw new Error(json.error);
-        setAttemptId(json.data.attemptId);
-        setQuestion(json.data.question);
-        setAskedCount(1);
+        const options: SubjectOption[] = (json.data?.subjects ?? [])
+          .filter((s: any) => PICKABLE_SUBJECT_SLUGS.includes(s.slug))
+          .map((s: any) => ({ id: s.id, slug: s.slug, name: s.name, chapterCount: s.chapters?.length ?? 0 }));
+        setSubjects(options);
       })
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
   }, []);
+
+  async function startDiagnostic(chosenSubjectId: string) {
+    setStarting(true);
+    setError(null);
+    setSubjectId(chosenSubjectId);
+    try {
+      const res = await fetch('/api/diagnostic/start', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ subjectId: chosenSubjectId }),
+      });
+      const json = await res.json();
+      if (json.error) throw new Error(json.error);
+      setAttemptId(json.data.attemptId);
+      setQuestion(json.data.question);
+      setAskedCount(1);
+    } catch (e: any) {
+      setError(e.message);
+      setSubjectId(null);
+    } finally {
+      setStarting(false);
+    }
+  }
 
   async function submitAnswer(e: React.FormEvent) {
     e.preventDefault();
@@ -81,11 +126,11 @@ export default function DiagnosticPage() {
     }
   }
 
-  if (loading && !question && !result) {
+  if (loading) {
     return (
       <main className="page">
         <div className="shell shell--narrow" style={{ paddingTop: 'var(--space-4)' }}>
-          <p style={{ color: 'var(--slate)' }}>Preparing your diagnostic…</p>
+          <p style={{ color: 'var(--slate)' }}>Loading…</p>
         </div>
       </main>
     );
@@ -96,6 +141,45 @@ export default function DiagnosticPage() {
       <main className="page">
         <div className="shell shell--narrow" style={{ paddingTop: 'var(--space-4)' }}>
           <p className="alert">{error}</p>
+          <button className="btn btn--ghost" onClick={() => window.location.reload()}>
+            Try again
+          </button>
+        </div>
+      </main>
+    );
+  }
+
+  if (!subjectId) {
+    return (
+      <main className="page">
+        <div className="shell shell--narrow" style={{ paddingTop: 'var(--space-4)' }}>
+          <p className="hero__eyebrow">Quick diagnostic</p>
+          <h1 style={{ fontSize: 'var(--step-2)' }}>Which subject?</h1>
+          <p style={{ color: 'var(--slate)' }}>8–15 questions that adapt as you answer — about 10 minutes.</p>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.7rem', marginTop: 'var(--space-2)' }}>
+            {(subjects ?? []).map((s) => (
+              <button
+                key={s.id}
+                type="button"
+                onClick={() => startDiagnostic(s.id)}
+                disabled={starting}
+                className="subject-card fade-slide-in"
+                data-subject={s.slug}
+                style={{ width: '100%', textAlign: 'left', cursor: starting ? 'wait' : 'pointer', background: 'white', font: 'inherit', color: 'inherit' }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                  <SubjectIcon slug={s.slug} size={36} />
+                  <div>
+                    <div style={{ fontWeight: 500 }}>{s.name}</div>
+                    <div style={{ fontSize: '0.82rem', color: 'var(--slate)' }}>{s.chapterCount} chapters</div>
+                  </div>
+                </div>
+                <span style={{ color: 'var(--marigold-deep)', fontWeight: 500 }}>{starting && subjectId === s.id ? 'Starting…' : '→'}</span>
+              </button>
+            ))}
+            {subjects && subjects.length === 0 && <p style={{ color: 'var(--slate)' }}>No subjects available right now.</p>}
+          </div>
         </div>
       </main>
     );
@@ -163,6 +247,16 @@ export default function DiagnosticPage() {
           <a href="/learn" className="btn btn--accent" style={{ marginTop: 'var(--space-4)' }}>
             Start learning
           </a>
+        </div>
+      </main>
+    );
+  }
+
+  if (starting && !question) {
+    return (
+      <main className="page">
+        <div className="shell shell--narrow" style={{ paddingTop: 'var(--space-4)' }}>
+          <p className="loading-pulse" style={{ color: 'var(--slate)' }}>Preparing your diagnostic…</p>
         </div>
       </main>
     );

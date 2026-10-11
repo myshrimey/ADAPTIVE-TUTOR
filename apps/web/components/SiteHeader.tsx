@@ -52,6 +52,8 @@ export function SiteHeader() {
           {signedIn && <a href="/dashboard">Dashboard</a>}
           <a href="/progress">Progress</a>
           <a href="/learn">Learn</a>
+          <a href="/papers">Past Papers</a>
+          {signedIn && <a href="/profile">Profile</a>}
           {signedIn && (
             <a href="/diagnostic" className="site-header__diagnostic-link">
               Take a test

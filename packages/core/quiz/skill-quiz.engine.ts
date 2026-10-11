@@ -1,17 +1,21 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
+import type { AIProvider } from '../ai-provider/ai-provider.interface';
+import { createDefaultAIProvider } from '../ai-provider/factory';
 import { gradeAnswer, extractString } from '../question-engine/grading';
 import { logEvent } from '../analytics/events';
+import { ensureExplanation } from '../explanations/ensure-explanation';
 
 // A short, auto-generated quiz shown right after a learning session ends,
 // covering the skill that session just taught. It deliberately reuses the
 // existing diagnostic_questions bank (same question content that already
 // has mixed types — mcq/numeric/short_answer — and difficulties for every
 // skill) rather than inventing a new question source: that bank is large
-// (900-1100+ questions per subject) and already has explanations authored
-// for most entries, so a same-skill, mixed-type, varied-difficulty sample
-// is just a filtered, shuffled read — no AI generation needed, no new
-// content to maintain, and nothing for the student to have already seen as
-// a "diagnostic" question (this is a different context, a quiz, not a test).
+// (900-1100+ questions per subject), so a same-skill, mixed-type,
+// varied-difficulty sample is just a filtered, shuffled read, and nothing
+// for the student to have already seen as a "diagnostic" question (this is
+// a different context, a quiz, not a test). Most of that bank predates the
+// `explanation` field, though — see ensure-explanation.ts for how a missed
+// question always gets one anyway.
 
 const QUIZ_LENGTH = 5;
 
@@ -98,21 +102,26 @@ export async function gradeSkillQuiz(
   supabase: SupabaseClient,
   studentId: string,
   sessionId: string | null,
-  answers: QuizAnswerInput[]
+  answers: QuizAnswerInput[],
+  aiProvider: AIProvider = createDefaultAIProvider()
 ): Promise<QuizResult> {
   const questionIds = answers.map((a) => a.questionId);
   const { data, error } = await supabase
     .from('diagnostic_questions')
-    .select('id, prompt, question_type, expected_answer, explanation')
+    .select('id, prompt, question_type, options, expected_answer, explanation')
     .in('id', questionIds);
   if (error) throw error;
 
   const byId = new Map((data ?? []).map((q) => [q.id, q]));
 
-  const review: QuizReviewEntry[] = answers.map((a) => {
+  // Sequential, not Promise.all: a quiz is only 5 questions, and keeping it
+  // sequential avoids firing several AI calls at once for one student's quiz
+  // (easy to saturate a free-tier rate limit otherwise).
+  const review: QuizReviewEntry[] = [];
+  for (const a of answers) {
     const q = byId.get(a.questionId);
     if (!q) {
-      return {
+      review.push({
         questionId: a.questionId,
         prompt: '',
         questionType: 'short_answer',
@@ -120,19 +129,30 @@ export async function gradeSkillQuiz(
         correctAnswer: '',
         isCorrect: false,
         explanation: null,
-      };
+      });
+      continue;
     }
     const isCorrect = gradeAnswer(q.expected_answer, a.answer);
-    return {
+    const explanation = isCorrect
+      ? q.explanation ?? null
+      : await ensureExplanation(supabase, aiProvider, 'diagnostic_questions', {
+          id: q.id,
+          prompt: q.prompt,
+          questionType: q.question_type,
+          options: q.options,
+          expectedAnswer: q.expected_answer,
+          explanation: q.explanation,
+        });
+    review.push({
       questionId: q.id,
       prompt: q.prompt,
       questionType: q.question_type,
       yourAnswer: extractString(a.answer),
       correctAnswer: extractString(q.expected_answer),
       isCorrect,
-      explanation: q.explanation ?? null,
-    };
-  });
+      explanation,
+    });
+  }
 
   const score = review.filter((r) => r.isCorrect).length;
   const result: QuizResult = { score, total: review.length, review };

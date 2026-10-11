@@ -26,6 +26,16 @@
   --subject-social: #7a5ea8;
   --subject-social-bg: #efe8f7;
 
+  /* Footer gets its own dark palette, deliberately distinct from the warm
+     paper tone everything else uses, so there's a clear visual break
+     between "page content" and "site info" rather than the footer just
+     being a slightly darker shade of the same cream. */
+  --footer-bg: #142238;
+  --footer-bg-deep: #0d1829;
+  --footer-ink: #f3efe4;
+  --footer-ink-soft: #b7c2d6;
+  --footer-line: rgba(255, 255, 255, 0.12);
+
   /* Type */
   --font-display: var(--font-fraunces), Georgia, serif;
   --font-body: var(--font-plex-sans), -apple-system, sans-serif;
@@ -715,7 +725,7 @@ a {
 
 .quick-actions {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--space-2);
   margin-top: var(--space-3);
 }
@@ -835,8 +845,8 @@ a {
 /* ---------- footer ---------- */
 
 .site-footer {
-  border-top: 1px solid var(--line);
-  background: var(--paper-raised);
+  background: linear-gradient(160deg, var(--footer-bg), var(--footer-bg-deep));
+  color: var(--footer-ink-soft);
   padding: var(--space-4) 0 var(--space-3);
   margin-top: var(--space-5);
 }
@@ -851,11 +861,12 @@ a {
   font-weight: 600;
   margin: 0 0 0.5rem;
   font-size: 0.95rem;
+  color: var(--footer-ink);
 }
 
 .site-footer__body {
   font-size: 0.85rem;
-  color: var(--ink-soft);
+  color: var(--footer-ink-soft);
   margin: 0;
 }
 
@@ -863,28 +874,32 @@ a {
   margin: 0;
   padding-left: 1.1rem;
   font-size: 0.82rem;
-  color: var(--ink-soft);
+  color: var(--footer-ink-soft);
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
 }
 
 .site-footer__list a {
-  color: var(--marigold-deep);
+  color: var(--marigold);
+}
+
+.site-footer__list a:hover {
+  color: var(--footer-ink);
 }
 
 .site-footer__note {
   font-size: 0.78rem;
-  color: var(--slate);
+  color: rgba(183, 194, 214, 0.75);
   margin: 0.5rem 0 0;
 }
 
 .site-footer__fine-print {
   font-size: 0.75rem;
-  color: var(--slate);
+  color: rgba(183, 194, 214, 0.65);
   margin: var(--space-3) 0 0;
   padding-top: var(--space-2);
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--footer-line);
 }
 
 /* ---------- hero ---------- */
@@ -905,6 +920,37 @@ a {
   font-size: 1.15rem;
   color: var(--ink-soft);
   max-width: 42ch;
+}
+
+/* A colorful, full-bleed-feeling banner variant of .hero — used on the
+   homepage and the dashboard overview so "first thing you see" actually
+   looks like a first thing, not paper-colored text on a paper background.
+   A faint dot pattern (via a radial-gradient background layer, no image
+   asset) gives it some texture instead of a flat gradient block. */
+.hero-banner {
+  background: linear-gradient(135deg, var(--ink) 0%, var(--subject-maths) 50%, var(--subject-science) 100%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.14) 1px, transparent 1.5px);
+  background-size:
+    100% 100%,
+    18px 18px;
+  border-radius: 20px;
+  padding: var(--space-4) var(--space-4);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner .hero__eyebrow {
+  color: var(--marigold);
+}
+
+.hero-banner h1,
+.hero-banner .hero__lede,
+.hero-banner p {
+  color: var(--paper);
+}
+
+.hero-banner .hero__note {
+  color: rgba(251, 249, 244, 0.75);
 }
 
 .hero__actions {

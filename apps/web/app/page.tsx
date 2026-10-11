@@ -156,7 +156,7 @@ export default function Home() {
   return (
     <main className="page">
       <div className="shell">
-        <section className="hero">
+        <section className="hero hero-banner">
           <p className="hero__eyebrow">CBSE Class 10 · Maths &amp; Science</p>
           <h1>
             Same syllabus.

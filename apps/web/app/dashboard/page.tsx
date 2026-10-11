@@ -60,9 +60,12 @@ export default async function DashboardOverviewPage() {
   return (
     <main className="page">
       <div className="shell">
-        <div className="fade-slide-in" style={{ paddingTop: 'var(--space-4)' }}>
+        <div className="hero-banner fade-slide-in" style={{ marginTop: 'var(--space-4)' }}>
           <p className="hero__eyebrow">Dashboard</p>
           <h1 style={{ fontSize: 'var(--step-3)' }}>{student?.display_name ? `Welcome back, ${student.display_name}` : 'Welcome back'}</h1>
+          <p className="hero__lede" style={{ marginBottom: 0 }}>
+            {skillsTouched > 0 ? "Here's where things stand today." : 'Start a session or take a diagnostic to get going.'}
+          </p>
         </div>
 
         <div className="stat-tile-row fade-slide-in" style={{ animationDelay: '0.05s' }}>
@@ -98,6 +101,14 @@ export default async function DashboardOverviewPage() {
           <a href="/progress" className="quick-action-card">
             <span className="quick-action-card__title">View full progress</span>
             <span className="quick-action-card__body">See every chapter and skill, tracked individually.</span>
+          </a>
+          <a href="/papers" className="quick-action-card">
+            <span className="quick-action-card__title">Browse past papers</span>
+            <span className="quick-action-card__body">Previous year question papers and solutions, shared by students.</span>
+          </a>
+          <a href="/profile" className="quick-action-card">
+            <span className="quick-action-card__title">Complete your profile</span>
+            <span className="quick-action-card__body">Add your school and a bit of background — just a couple of minutes.</span>
           </a>
         </div>
 
