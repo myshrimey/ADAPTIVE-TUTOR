@@ -61,7 +61,15 @@ export default function Home() {
     const res = await fetch('/api/student/profile');
     const json = await res.json();
     if (!json.error && json.data?.onboardingCompleted) {
-      router.push('/dashboard');
+      // A full browser navigation here, not router.push(). router.push() asks
+      // the server for /dashboard over a soft (client-side) request, and that
+      // request can reach the server a moment before the sign-in cookie has
+      // actually been written to the browser — so the dashboard's own
+      // "redirect to / if not signed in" check fires and bounces straight
+      // back to this page, which looks exactly like "nothing happened after
+      // sign in". A real page load always carries whatever cookies exist at
+      // that moment, so it doesn't hit that race.
+      window.location.href = '/dashboard';
       return;
     }
     // Any error here (most commonly "student_not_found") or
