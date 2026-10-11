@@ -1,5 +1,6 @@
 import { Fraunces, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import { SiteHeader } from '@/components/SiteHeader';
+import { Footer } from '@/components/Footer';
 import { FeedbackWidget } from '@/components/FeedbackWidget';
 import 'katex/dist/katex.min.css';
 import './globals.css';
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <SiteHeader />
         {children}
+        <Footer />
         <FeedbackWidget />
       </body>
     </html>

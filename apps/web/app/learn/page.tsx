@@ -407,11 +407,14 @@ export default function LearnPage() {
           </section>
 
           <div className="hero__actions" style={{ marginTop: 'var(--space-4)' }}>
-            <a href="/dashboard" className="btn btn--accent">
-              Go to dashboard
+            <a href="/progress" className="btn btn--accent">
+              View your progress
             </a>
             <a href="/learn" className="btn btn--ghost">
               Start another session
+            </a>
+            <a href="/dashboard" className="btn btn--ghost">
+              Dashboard
             </a>
           </div>
         </div>

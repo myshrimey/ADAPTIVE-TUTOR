@@ -49,7 +49,8 @@ export function SiteHeader() {
         </a>
         <nav className="site-header__nav">
           {signedIn && displayName && <span className="site-header__name">Hi, {displayName}</span>}
-          <a href="/dashboard">Progress</a>
+          {signedIn && <a href="/dashboard">Dashboard</a>}
+          <a href="/progress">Progress</a>
           <a href="/learn">Learn</a>
           {signedIn && (
             <a href="/diagnostic" className="site-header__diagnostic-link">

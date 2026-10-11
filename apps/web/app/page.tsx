@@ -200,7 +200,7 @@ export default function Home() {
                 <span className="field__label">Which subject?</span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginTop: '0.2rem' }}>
                   {SUBJECTS.map((s) => (
-                    <label key={s.slug} className="subject-card" data-selected={subject === s.slug}>
+                    <label key={s.slug} className="subject-card" data-selected={subject === s.slug} data-subject={s.slug}>
                       <div>
                         <div style={{ fontWeight: 500 }}>{s.name}</div>
                         <div style={{ fontSize: '0.82rem', color: 'var(--slate)' }}>{s.note}</div>

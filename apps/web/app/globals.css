@@ -16,6 +16,16 @@
   --foundation-bg: #fbebe6;
   --line: #e3ddcc;
 
+  /* Subject accent colors — a deliberate second (and third) hue beyond the
+     marigold/navy pair everything used to be, so Maths/Science/Social
+     Science each read as their own thing on the dashboard and progress page. */
+  --subject-maths: #2f6fb0;
+  --subject-maths-bg: #e6eff8;
+  --subject-science: #2e8a7d;
+  --subject-science-bg: #e4f3f0;
+  --subject-social: #7a5ea8;
+  --subject-social-bg: #efe8f7;
+
   /* Type */
   --font-display: var(--font-fraunces), Georgia, serif;
   --font-body: var(--font-plex-sans), -apple-system, sans-serif;
@@ -53,6 +63,13 @@ body {
   font-size: var(--step-0);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page {
+  flex: 1;
 }
 
 h1,
@@ -655,10 +672,226 @@ a {
   transform: translateY(-1px);
 }
 
+/* ---------- dashboard overview page ---------- */
+
+.stat-tile-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.stat-tile {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: var(--space-2) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.stat-tile--gradient {
+  background: linear-gradient(135deg, var(--marigold), var(--marigold-deep));
+  border-color: transparent;
+}
+
+.stat-tile--gradient .stat-tile__value,
+.stat-tile--gradient .stat-tile__label {
+  color: var(--ink);
+}
+
+.stat-tile__value {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-tile__label {
+  font-size: 0.82rem;
+  color: var(--slate);
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.quick-action-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--ink);
+  background: white;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.quick-action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(27, 42, 74, 0.08);
+  border-color: var(--marigold-deep);
+}
+
+.quick-action-card--accent {
+  background: var(--paper-raised);
+  border-color: var(--marigold-deep);
+}
+
+.quick-action-card__title {
+  font-weight: 600;
+}
+
+.quick-action-card__body {
+  font-size: 0.85rem;
+  color: var(--slate);
+}
+
+.subject-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.subject-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem 0.5rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--ink);
+  background: white;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.subject-chip:hover {
+  transform: translateY(-1px);
+  border-color: var(--slate);
+}
+
+.subject-chip__name {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.subject-chip__score {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--slate);
+}
+
+.tip-card {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--subject-science-bg), var(--subject-social-bg));
+  border: 1px solid var(--line);
+}
+
+.tip-card__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--subject-science);
+}
+
+.tip-card__body {
+  margin: 0.3rem 0 0;
+  color: var(--ink-soft);
+}
+
+/* ---------- subject banner (progress page) ---------- */
+
+.subject-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+  padding: var(--space-2);
+  border-radius: 10px;
+}
+
+.subject-banner--maths {
+  background: var(--subject-maths-bg);
+}
+
+.subject-banner--science {
+  background: var(--subject-science-bg);
+}
+
+.subject-banner--social-science {
+  background: var(--subject-social-bg);
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--paper-raised);
+  padding: var(--space-4) 0 var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+
+.site-footer__heading {
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+.site-footer__body {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.site-footer__list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.site-footer__list a {
+  color: var(--marigold-deep);
+}
+
+.site-footer__note {
+  font-size: 0.78rem;
+  color: var(--slate);
+  margin: 0.5rem 0 0;
+}
+
+.site-footer__fine-print {
+  font-size: 0.75rem;
+  color: var(--slate);
+  margin: var(--space-3) 0 0;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--line);
+}
+
 /* ---------- hero ---------- */
 
 .hero {
   padding: var(--space-5) 0 var(--space-4);
+  animation: fadeSlideIn 0.5s ease both;
 }
 
 .hero__eyebrow {
@@ -696,6 +929,25 @@ a {
   border-top: 1px solid var(--line);
 }
 
+.step {
+  animation: fadeSlideIn 0.45s ease both;
+  transition: transform 0.15s ease;
+}
+
+.step:hover {
+  transform: translateY(-2px);
+}
+
+.steps .step:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.steps .step:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.steps .step:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
 .step__number {
   font-family: var(--font-display);
   font-size: var(--step-2);
@@ -728,6 +980,27 @@ a {
 .subject-card[data-selected='true'] {
   border-color: var(--marigold-deep);
   background: var(--paper-raised);
+}
+
+.subject-card {
+  border-left-width: 4px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.subject-card:hover {
+  transform: translateY(-1px);
+}
+
+.subject-card[data-subject='maths'] {
+  border-left-color: var(--subject-maths);
+}
+
+.subject-card[data-subject='science'] {
+  border-left-color: var(--subject-science);
+}
+
+.subject-card[data-subject='social-science'] {
+  border-left-color: var(--subject-social);
 }
 
 /* ---------- alerts ---------- */
@@ -765,6 +1038,27 @@ a {
   }
   .site-header__name {
     display: none;
+  }
+  .site-header__nav {
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .stat-tile-row,
+  .quick-actions {
+    grid-template-columns: 1fr;
+  }
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .subject-banner {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr;
   }
 }
 

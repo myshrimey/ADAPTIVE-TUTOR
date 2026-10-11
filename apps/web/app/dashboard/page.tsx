@@ -1,10 +1,25 @@
 import { redirect } from 'next/navigation';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { loadCurriculum } from '@adaptive-tutor/core';
-import { MasteryArc } from '@/components/MasteryArc';
-import { ParentLinkButton } from '@/components/ParentLinkButton';
+import { SubjectIcon } from '@/components/SubjectIcon';
+import { CountUp } from '@/components/CountUp';
 
-export default async function DashboardPage() {
+// Short, varied study tips — picked by day of year so it changes daily
+// without needing any client-side state, rather than always showing the
+// same one. Generic and evergreen on purpose (no CBSE dates/numbers here —
+// that stable factual content lives in the footer instead).
+const TIPS = [
+  'Re-doing a question you got wrong teaches you more than ten new ones you get right.',
+  "A wrong answer with a clear reason why is more useful than a guess that happened to be correct.",
+  'Short, frequent sessions beat one long cram — the sidebar progress bar is there so you can see steady movement.',
+  'If a hint makes something click, try the next similar question without one — that\'s the real test.',
+  'Reading a worked example once rarely sticks. Working through it with pen and paper does.',
+  'Mixing question types (MCQ, numeric, short answer) on the same topic is exactly how CBSE papers are structured.',
+  "Mistakes you understand are worth more than marks you don't.",
+  'A skill you "mastered" last month is worth revisiting — that\'s what the retention part of your score tracks.',
+];
+
+export default async function DashboardOverviewPage() {
   let studentId: string;
   try {
     studentId = await getCurrentStudentId();
@@ -14,99 +29,112 @@ export default async function DashboardPage() {
 
   const supabase = await createServerClient();
 
-  // None of these four reads depend on each other (all they need is
-  // studentId, already known) and loadCurriculum no longer hides a hundred
-  // of its own serial queries inside it (see curriculum.service.ts) — so
-  // running them together, instead of one after another, is what actually
-  // makes this page (and switching to it from /learn) load quickly.
-  const [{ data: student }, { data: masteryRows }, curriculum, { data: sessions }] = await Promise.all([
-    supabase.from('students').select('display_name, parent_token').eq('id', studentId).single(),
-    supabase.from('mastery_states').select('skill_id, score, band').eq('student_id', studentId),
+  const [{ data: student }, { data: masteryRows }, curriculum, { data: sessions }, completedCountResult] = await Promise.all([
+    supabase.from('students').select('display_name').eq('id', studentId).single(),
+    supabase.from('mastery_states').select('skill_id, score').eq('student_id', studentId),
     loadCurriculum(supabase, 'CBSE', '10'),
     supabase
       .from('learning_sessions')
-      .select('id, status, starting_mastery, ending_mastery, started_at, skills(name)')
+      .select('id, status, started_at, skills(name)')
       .eq('student_id', studentId)
       .order('started_at', { ascending: false })
-      .limit(5),
+      .limit(3),
+    supabase.from('learning_sessions').select('id', { count: 'exact', head: true }).eq('student_id', studentId).eq('status', 'completed'),
   ]);
 
-  const masteryBySkill = new Map((masteryRows ?? []).map((r) => [r.skill_id, r]));
+  const masteryBySkill = new Map((masteryRows ?? []).map((r) => [r.skill_id, r.score as number]));
+  const overallMastery = masteryRows && masteryRows.length > 0 ? masteryRows.reduce((sum, r) => sum + Number(r.score), 0) / masteryRows.length : 0;
+  const skillsTouched = masteryRows?.length ?? 0;
+  const sessionsCompleted = completedCountResult.count ?? 0;
+
+  const subjectAverages = curriculum.subjects.map((subject) => {
+    const scores = subject.chapters.flatMap((c) => c.topics.flatMap((t) => t.skills)).map((s) => masteryBySkill.get(s.id) ?? null);
+    const touched = scores.filter((s) => s !== null) as number[];
+    const avg = touched.length ? touched.reduce((a, b) => a + b, 0) / touched.length : 0;
+    return { id: subject.id, name: subject.name, slug: subject.slug, avg, started: touched.length > 0 };
+  });
+
+  const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
+  const tip = TIPS[dayOfYear % TIPS.length];
 
   return (
     <main className="page">
       <div className="shell">
-        <div style={{ paddingTop: 'var(--space-4)', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: '1rem' }}>
-          <div>
-            <h1 style={{ fontSize: 'var(--step-3)' }}>{student?.display_name ? `${student.display_name}'s progress` : 'Progress'}</h1>
+        <div className="fade-slide-in" style={{ paddingTop: 'var(--space-4)' }}>
+          <p className="hero__eyebrow">Dashboard</p>
+          <h1 style={{ fontSize: 'var(--step-3)' }}>{student?.display_name ? `Welcome back, ${student.display_name}` : 'Welcome back'}</h1>
+        </div>
+
+        <div className="stat-tile-row fade-slide-in" style={{ animationDelay: '0.05s' }}>
+          <div className="stat-tile stat-tile--gradient">
+            <span className="stat-tile__value">
+              <CountUp value={Math.round(overallMastery)} suffix="%" />
+            </span>
+            <span className="stat-tile__label">Overall mastery</span>
           </div>
-          <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
-            {student?.parent_token && <ParentLinkButton parentToken={student.parent_token} />}
-            <a href="/learn" className="btn btn--accent">
-              Continue learning
-            </a>
+          <div className="stat-tile">
+            <span className="stat-tile__value">
+              <CountUp value={sessionsCompleted} />
+            </span>
+            <span className="stat-tile__label">Sessions completed</span>
+          </div>
+          <div className="stat-tile">
+            <span className="stat-tile__value">
+              <CountUp value={skillsTouched} />
+            </span>
+            <span className="stat-tile__label">Skills in progress</span>
           </div>
         </div>
 
-        {curriculum.subjects.map((subject) => {
-          const subjectScores = subject.chapters.flatMap((c) => c.topics.flatMap((t) => t.skills)).map((s) => masteryBySkill.get(s.id)?.score ?? 0);
-          const subjectAvg = subjectScores.length ? subjectScores.reduce((a, b) => a + b, 0) / subjectScores.length : 0;
-          const subjectBand = subjectAvg >= 90 ? 'mastered' : subjectAvg >= 60 ? 'developing' : 'needs_foundation';
+        <div className="quick-actions fade-slide-in" style={{ animationDelay: '0.1s' }}>
+          <a href="/learn" className="quick-action-card quick-action-card--accent">
+            <span className="quick-action-card__title">Continue learning</span>
+            <span className="quick-action-card__body">Jump back into your next adaptive session.</span>
+          </a>
+          <a href="/diagnostic" className="quick-action-card">
+            <span className="quick-action-card__title">Take a diagnostic test</span>
+            <span className="quick-action-card__body">Check where you stand on a subject, any time.</span>
+          </a>
+          <a href="/progress" className="quick-action-card">
+            <span className="quick-action-card__title">View full progress</span>
+            <span className="quick-action-card__body">See every chapter and skill, tracked individually.</span>
+          </a>
+        </div>
 
-          return (
-            <section key={subject.id} style={{ marginTop: 'var(--space-4)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-2)' }}>
-                <MasteryArc score={subjectAvg} band={subjectBand} label={subject.name} size={104} />
-                <div>
-                  <h2 style={{ marginBottom: '0.2rem' }}>{subject.name}</h2>
-                  <p style={{ color: 'var(--slate)', margin: 0 }}>{subject.chapters.length} chapters</p>
-                </div>
-              </div>
+        {subjectAverages.length > 0 && (
+          <section className="fade-slide-in" style={{ marginTop: 'var(--space-4)', animationDelay: '0.15s' }}>
+            <h2 style={{ fontSize: 'var(--step-1)', marginBottom: '0.6rem' }}>Your subjects</h2>
+            <div className="subject-chip-row">
+              {subjectAverages.map((s) => (
+                <a key={s.id} href="/progress" className="subject-chip">
+                  <SubjectIcon slug={s.slug} size={34} />
+                  <span className="subject-chip__name">{s.name}</span>
+                  <span className="subject-chip__score">{s.started ? `${Math.round(s.avg)}%` : 'Not started'}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
 
-              {subject.chapters.map((chapter) => {
-                const skills = chapter.topics.flatMap((t) => t.skills);
-                const started = skills.some((s) => masteryBySkill.has(s.id));
+        <section className="tip-card fade-slide-in pop-in" style={{ marginTop: 'var(--space-4)', animationDelay: '0.2s' }}>
+          <span className="tip-card__eyebrow">Did you know?</span>
+          <p className="tip-card__body">{tip}</p>
+        </section>
 
-                return (
-                  <div key={chapter.id} className="chapter-row">
-                    <div className="chapter-row__body">
-                      <div className="chapter-row__title">{chapter.name}</div>
-                      <div className="chapter-row__skills">
-                        {skills.map((skill) => {
-                          const m = masteryBySkill.get(skill.id);
-                          return m ? (
-                            <span key={skill.id} className={`band band--${m.band}`} style={{ marginRight: '0.4rem' }}>
-                              {skill.name.length > 28 ? skill.name.slice(0, 28) + '…' : skill.name}
-                            </span>
-                          ) : null;
-                        })}
-                        {!started && 'Not started yet'}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </section>
-          );
-        })}
-
-        <section style={{ marginTop: 'var(--space-5)' }}>
-          <h2>Recent sessions</h2>
+        <section style={{ marginTop: 'var(--space-4)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+            <h2 style={{ fontSize: 'var(--step-1)' }}>Recent sessions</h2>
+            <a href="/progress" style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>
+              See full history
+            </a>
+          </div>
           {sessions && sessions.length > 0 ? (
             <div>
-              {sessions.map((s: any) => (
-                <div key={s.id} className="chapter-row">
+              {sessions.map((s: any, i: number) => (
+                <div key={s.id} className="chapter-row fade-slide-in" style={{ animationDelay: `${i * 0.04}s` }}>
                   <div className="chapter-row__body">
                     <div className="chapter-row__title">{s.skills?.name ?? 'Skill'}</div>
-                    <div className="chapter-row__skills">
-                      {s.status}
-                      {s.starting_mastery != null && s.ending_mastery != null && (
-                        <span style={{ fontFamily: 'var(--font-mono)' }}>
-                          {' '}
-                          · {Math.round(s.starting_mastery)} → {Math.round(s.ending_mastery)}
-                        </span>
-                      )}
-                    </div>
+                    <div className="chapter-row__skills">{s.status}</div>
                   </div>
                 </div>
               ))}
