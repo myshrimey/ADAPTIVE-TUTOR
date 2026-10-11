@@ -8,19 +8,21 @@ export async function POST(request: Request) {
     const studentId = await getCurrentStudentId();
     const supabase = await createServerClient();
 
-    const state = await loadLearnerState(supabase, studentId);
-    const objective = body.skillId ? { ...resolveCurrentObjective(state), skillId: body.skillId } : resolveCurrentObjective(state);
-    const startingMastery = state.masteryBySkill[objective.skillId]?.score ?? 0;
-
+    // These two don't depend on each other — both just need studentId —
+    // so they run concurrently instead of one after the other. Was the
+    // first of a few sequential-await chains in this route that added up to
+    // noticeable delay before a session could even start.
+    const [state, priorCompletedCountResult] = await Promise.all([
+      loadLearnerState(supabase, studentId),
+      supabase.from('learning_sessions').select('id', { count: 'exact', head: true }).eq('student_id', studentId).eq('status', 'completed'),
+    ]);
     // A prior completed session means this is a returning student, not a
     // brand-new one — the MVP proxy for "return_session" (docs/architecture.md,
     // Analytics section), since the schema has no separate day/streak concept.
-    const { count: priorCompletedCount } = await supabase
-      .from('learning_sessions')
-      .select('id', { count: 'exact', head: true })
-      .eq('student_id', studentId)
-      .eq('status', 'completed');
-    const isReturningStudent = (priorCompletedCount ?? 0) > 0;
+    const isReturningStudent = (priorCompletedCountResult.count ?? 0) > 0;
+
+    const objective = body.skillId ? { ...resolveCurrentObjective(state), skillId: body.skillId } : resolveCurrentObjective(state);
+    const startingMastery = state.masteryBySkill[objective.skillId]?.score ?? 0;
 
     const { data: session, error } = await supabase
       .from('learning_sessions')
@@ -29,15 +31,39 @@ export async function POST(request: Request) {
       .single();
     if (error || !session) throw error ?? new Error('session_create_failed');
 
-    await logEvent({ studentId, sessionId: session.id, eventType: 'session_started', payload: { skillId: objective.skillId } });
+    // Neither log write depends on the other, and nothing after this needs
+    // to wait for them either in principle — but logEvent already swallows
+    // its own errors, so running them together (rather than one after another)
+    // is a pure latency win with no behavior change.
+    const logPromises = [logEvent({ studentId, sessionId: session.id, eventType: 'session_started', payload: { skillId: objective.skillId } })];
     if (isReturningStudent) {
-      await logEvent({ studentId, sessionId: session.id, eventType: 'return_session' });
+      logPromises.push(logEvent({ studentId, sessionId: session.id, eventType: 'return_session' }));
     }
+
+    // Where the student is right now, for the "what am I learning" sidebar —
+    // one small joined read, not a full curriculum load.
+    const contextPromise = supabase
+      .from('skills')
+      .select('name, topics(name, chapters(name, subjects(name)))')
+      .eq('id', objective.skillId)
+      .single();
+
+    const [, contextResult] = await Promise.all([Promise.all(logPromises), contextPromise]);
+    const skillMeta: any = contextResult.data;
+    const context = skillMeta
+      ? {
+          subjectName: skillMeta.topics?.chapters?.subjects?.name ?? null,
+          chapterName: skillMeta.topics?.chapters?.name ?? null,
+          topicName: skillMeta.topics?.name ?? null,
+          skillName: skillMeta.name ?? null,
+          masteryScore: startingMastery,
+        }
+      : null;
 
     // Opening turn: no student message yet, just the tutor's first move for this objective.
     const turn = await runOrchestratorTurn(supabase, { studentId, sessionId: session.id });
 
-    return NextResponse.json({ data: { sessionId: session.id, skillId: objective.skillId, turn }, error: null });
+    return NextResponse.json({ data: { sessionId: session.id, skillId: objective.skillId, context, turn }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
   }

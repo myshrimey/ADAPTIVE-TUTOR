@@ -8,9 +8,17 @@ import type { Curriculum, Subject, Chapter, Topic, Skill } from './types';
 
 /**
  * Loads the full curriculum tree (subjects -> chapters -> topics -> skills, with
- * each skill's resolved prerequisite ids) for a given board/class. Curriculum
- * content is small (a handful of chapters in the MVP) so one query per level,
- * assembled in memory, is simpler and fast enough — no need for a recursive CTE yet.
+ * each skill's resolved prerequisite ids) for a given board/class.
+ *
+ * This used to walk the tree with one query per chapter, per topic, per skill
+ * AND per skill's prerequisites — serial, awaited one at a time. With ~100
+ * skills across Maths/Science that was 150+ sequential round trips to
+ * Supabase on every single call (and this function is called on nearly every
+ * page load and session start), which is what made the app feel slow to
+ * load and slow to switch between pages. It's rewritten here to run a fixed
+ * six queries total — one per level, fetched by the parent ids already known
+ * from the previous level, mostly in parallel — and assemble the tree in
+ * memory. Same output, a few queries instead of hundreds.
  */
 export async function loadCurriculum(
   supabase: SupabaseClient,
@@ -31,77 +39,92 @@ export async function loadCurriculum(
     .eq('curriculum_id', curriculumRow.id);
   if (subErr) throw subErr;
 
-  const subjects: Subject[] = [];
-  for (const subjectRow of subjectRows ?? []) {
-    const { data: chapterRows, error: chErr } = await supabase
-      .from('chapters')
-      .select('id, subject_id, name, slug, sequence')
-      .eq('subject_id', subjectRow.id)
-      .order('sequence');
-    if (chErr) throw chErr;
-
-    const chapters: Chapter[] = [];
-    for (const chapterRow of chapterRows ?? []) {
-      const { data: topicRows, error: tErr } = await supabase
-        .from('topics')
-        .select('id, chapter_id, name, slug, sequence')
-        .eq('chapter_id', chapterRow.id)
-        .order('sequence');
-      if (tErr) throw tErr;
-
-      const topics: Topic[] = [];
-      for (const topicRow of topicRows ?? []) {
-        const { data: skillRows, error: sErr } = await supabase
-          .from('skills')
-          .select('id, topic_id, name, slug')
-          .eq('topic_id', topicRow.id);
-        if (sErr) throw sErr;
-
-        const skills: Skill[] = [];
-        for (const skillRow of skillRows ?? []) {
-          const { data: prereqRows, error: pErr } = await supabase
-            .from('prerequisites')
-            .select('requires_skill_id')
-            .eq('skill_id', skillRow.id);
-          if (pErr) throw pErr;
-
-          skills.push({
-            id: skillRow.id,
-            topicId: skillRow.topic_id,
-            name: skillRow.name,
-            slug: skillRow.slug,
-            requiresSkillIds: (prereqRows ?? []).map((r) => r.requires_skill_id),
-          });
-        }
-
-        topics.push({
-          id: topicRow.id,
-          chapterId: topicRow.chapter_id,
-          name: topicRow.name,
-          slug: topicRow.slug,
-          sequence: topicRow.sequence,
-          skills,
-        });
-      }
-
-      chapters.push({
-        id: chapterRow.id,
-        subjectId: chapterRow.subject_id,
-        name: chapterRow.name,
-        slug: chapterRow.slug,
-        sequence: chapterRow.sequence,
-        topics,
-      });
-    }
-
-    subjects.push({
-      id: subjectRow.id,
-      curriculumId: subjectRow.curriculum_id,
-      name: subjectRow.name,
-      slug: subjectRow.slug,
-      chapters,
-    });
+  const subjectIds = (subjectRows ?? []).map((s) => s.id);
+  if (subjectIds.length === 0) {
+    return { id: curriculumRow.id, board: curriculumRow.board, class: curriculumRow.class, version: curriculumRow.version, subjects: [] };
   }
+
+  const [{ data: chapterRows, error: chErr }] = await Promise.all([
+    supabase.from('chapters').select('id, subject_id, name, slug, sequence').in('subject_id', subjectIds).order('sequence'),
+  ]);
+  if (chErr) throw chErr;
+  const chapterIds = (chapterRows ?? []).map((c) => c.id);
+
+  const [{ data: topicRows, error: tErr }] = await Promise.all([
+    chapterIds.length
+      ? supabase.from('topics').select('id, chapter_id, name, slug, sequence').in('chapter_id', chapterIds).order('sequence')
+      : Promise.resolve({ data: [], error: null }),
+  ]);
+  if (tErr) throw tErr;
+  const topicIds = (topicRows ?? []).map((t) => t.id);
+
+  const [{ data: skillRows, error: sErr }] = await Promise.all([
+    topicIds.length
+      ? supabase.from('skills').select('id, topic_id, name, slug').in('topic_id', topicIds)
+      : Promise.resolve({ data: [], error: null }),
+  ]);
+  if (sErr) throw sErr;
+  const skillIds = (skillRows ?? []).map((s) => s.id);
+
+  const { data: prereqRows, error: pErr } = skillIds.length
+    ? await supabase.from('prerequisites').select('skill_id, requires_skill_id').in('skill_id', skillIds)
+    : { data: [], error: null };
+  if (pErr) throw pErr;
+
+  const prereqsBySkill = new Map<string, string[]>();
+  for (const row of prereqRows ?? []) {
+    if (!prereqsBySkill.has(row.skill_id)) prereqsBySkill.set(row.skill_id, []);
+    prereqsBySkill.get(row.skill_id)!.push(row.requires_skill_id);
+  }
+
+  const skillsByTopic = new Map<string, Skill[]>();
+  for (const row of skillRows ?? []) {
+    const skill: Skill = {
+      id: row.id,
+      topicId: row.topic_id,
+      name: row.name,
+      slug: row.slug,
+      requiresSkillIds: prereqsBySkill.get(row.id) ?? [],
+    };
+    if (!skillsByTopic.has(row.topic_id)) skillsByTopic.set(row.topic_id, []);
+    skillsByTopic.get(row.topic_id)!.push(skill);
+  }
+
+  const topicsByChapter = new Map<string, Topic[]>();
+  for (const row of topicRows ?? []) {
+    const topic: Topic = {
+      id: row.id,
+      chapterId: row.chapter_id,
+      name: row.name,
+      slug: row.slug,
+      sequence: row.sequence,
+      skills: skillsByTopic.get(row.id) ?? [],
+    };
+    if (!topicsByChapter.has(row.chapter_id)) topicsByChapter.set(row.chapter_id, []);
+    topicsByChapter.get(row.chapter_id)!.push(topic);
+  }
+
+  const chaptersBySubject = new Map<string, Chapter[]>();
+  for (const row of chapterRows ?? []) {
+    const chapter: Chapter = {
+      id: row.id,
+      subjectId: row.subject_id,
+      name: row.name,
+      slug: row.slug,
+      sequence: row.sequence,
+      topics: topicsByChapter.get(row.id) ?? [],
+    };
+    if (!chaptersBySubject.has(row.subject_id)) chaptersBySubject.set(row.subject_id, []);
+    chaptersBySubject.get(row.subject_id)!.push(chapter);
+  }
+
+  const subjects: Subject[] = (subjectRows ?? []).map((row) => ({
+    id: row.id,
+    curriculumId: row.curriculum_id,
+    name: row.name,
+    slug: row.slug,
+    chapters: chaptersBySubject.get(row.id) ?? [],
+  }));
 
   return { id: curriculumRow.id, board: curriculumRow.board, class: curriculumRow.class, version: curriculumRow.version, subjects };
 }

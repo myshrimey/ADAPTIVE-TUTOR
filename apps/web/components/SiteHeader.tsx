@@ -7,6 +7,7 @@ import { createClient } from '@/lib/supabase-client';
 export function SiteHeader() {
   const router = useRouter();
   const [signedIn, setSignedIn] = useState(false);
+  const [displayName, setDisplayName] = useState<string | null>(null);
 
   useEffect(() => {
     const supabase = createClient();
@@ -16,6 +17,22 @@ export function SiteHeader() {
     } = supabase.auth.onAuthStateChange((_event, session) => setSignedIn(!!session));
     return () => subscription.unsubscribe();
   }, []);
+
+  // The student's name should be visible wherever they're signed in, not
+  // just on the dashboard — one lightweight profile fetch whenever sign-in
+  // state flips to true, cached here for the rest of the page's life.
+  useEffect(() => {
+    if (!signedIn) {
+      setDisplayName(null);
+      return;
+    }
+    fetch('/api/student/profile')
+      .then((r) => r.json())
+      .then((json) => {
+        if (!json.error && json.data?.displayName) setDisplayName(json.data.displayName);
+      })
+      .catch(() => {});
+  }, [signedIn]);
 
   async function handleSignOut() {
     const supabase = createClient();
@@ -31,8 +48,14 @@ export function SiteHeader() {
           <span className="wordmark__mark">∠</span>Sahayak
         </a>
         <nav className="site-header__nav">
+          {signedIn && displayName && <span className="site-header__name">Hi, {displayName}</span>}
           <a href="/dashboard">Progress</a>
           <a href="/learn">Learn</a>
+          {signedIn && (
+            <a href="/diagnostic" className="site-header__diagnostic-link">
+              Take a test
+            </a>
+          )}
           {signedIn && (
             <button
               type="button"

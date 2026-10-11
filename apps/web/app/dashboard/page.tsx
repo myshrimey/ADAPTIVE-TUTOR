@@ -14,19 +14,24 @@ export default async function DashboardPage() {
 
   const supabase = await createServerClient();
 
-  const { data: student } = await supabase.from('students').select('display_name, parent_token').eq('id', studentId).single();
+  // None of these four reads depend on each other (all they need is
+  // studentId, already known) and loadCurriculum no longer hides a hundred
+  // of its own serial queries inside it (see curriculum.service.ts) — so
+  // running them together, instead of one after another, is what actually
+  // makes this page (and switching to it from /learn) load quickly.
+  const [{ data: student }, { data: masteryRows }, curriculum, { data: sessions }] = await Promise.all([
+    supabase.from('students').select('display_name, parent_token').eq('id', studentId).single(),
+    supabase.from('mastery_states').select('skill_id, score, band').eq('student_id', studentId),
+    loadCurriculum(supabase, 'CBSE', '10'),
+    supabase
+      .from('learning_sessions')
+      .select('id, status, starting_mastery, ending_mastery, started_at, skills(name)')
+      .eq('student_id', studentId)
+      .order('started_at', { ascending: false })
+      .limit(5),
+  ]);
 
-  const { data: masteryRows } = await supabase.from('mastery_states').select('skill_id, score, band').eq('student_id', studentId);
   const masteryBySkill = new Map((masteryRows ?? []).map((r) => [r.skill_id, r]));
-
-  const curriculum = await loadCurriculum(supabase, 'CBSE', '10');
-
-  const { data: sessions } = await supabase
-    .from('learning_sessions')
-    .select('id, status, starting_mastery, ending_mastery, started_at, skills(name)')
-    .eq('student_id', studentId)
-    .order('started_at', { ascending: false })
-    .limit(5);
 
   return (
     <main className="page">

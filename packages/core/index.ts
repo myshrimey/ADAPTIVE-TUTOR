@@ -24,3 +24,4 @@ export * from './prompts/tutor.prompt';
 export * from './prompts/evaluation.prompt';
 export * from './analytics/events';
 export * from './learning-diagrams/mapping';
+export * from './quiz/skill-quiz.engine';
