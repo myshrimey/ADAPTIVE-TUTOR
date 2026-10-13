@@ -41,8 +41,8 @@ export async function POST(request: Request) {
       }
     }
 
-    const { attemptId, firstQuestion } = await startDiagnostic(supabase, studentId, subjectId as string);
-    return NextResponse.json({ data: { attemptId, question: firstQuestion }, error: null });
+    const { attemptId, firstQuestion, resumed, answeredCount } = await startDiagnostic(supabase, studentId, subjectId as string);
+    return NextResponse.json({ data: { attemptId, question: firstQuestion, resumed, answeredCount }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
   }

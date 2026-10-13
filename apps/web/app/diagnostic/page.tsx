@@ -59,6 +59,7 @@ export default function DiagnosticPage() {
   const [starting, setStarting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [askedCount, setAskedCount] = useState(0);
+  const [resumedNotice, setResumedNotice] = useState(false);
 
   // Load the subject picker first, instead of starting a diagnostic
   // immediately — a student (or parent) landing here from the "Take a
@@ -92,7 +93,12 @@ export default function DiagnosticPage() {
       if (json.error) throw new Error(json.error);
       setAttemptId(json.data.attemptId);
       setQuestion(json.data.question);
-      setAskedCount(1);
+      // If this resumed an existing in-progress attempt instead of starting
+      // a new one, start the counter from where the student actually left
+      // off, not back at 1 — otherwise a resumed student sees "Question 1"
+      // on what's really their 4th question.
+      setAskedCount((json.data.answeredCount ?? 0) + 1);
+      setResumedNotice(!!json.data.resumed);
     } catch (e: any) {
       setError(e.message);
       setSubjectId(null);
@@ -270,6 +276,11 @@ export default function DiagnosticPage() {
       <div className="shell shell--narrow" style={{ paddingTop: 'var(--space-4)' }}>
         <p className="hero__eyebrow">Question {askedCount} of roughly 8–15</p>
         <h1 style={{ fontSize: 'var(--step-2)' }}>Quick diagnostic</h1>
+        {resumedNotice && (
+          <p className="alert" style={{ borderLeftColor: 'var(--mastered)', background: 'var(--mastered-bg)', color: 'var(--mastered)' }}>
+            {t('diagnostic.resuming')}
+          </p>
+        )}
 
         {question && (
           <form onSubmit={submitAnswer}>

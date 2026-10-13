@@ -80,6 +80,10 @@ export const DICTIONARY: Dict = {
   'diagnostic.incorrect': { en: 'Incorrect', hi: 'गलत' },
   'diagnostic.completed': { en: 'Diagnostic completed', hi: 'डायग्नोस्टिक पूरा हुआ' },
   'diagnostic.savingProgress': { en: 'Saving your progress…', hi: 'आपकी प्रगति सहेजी जा रही है…' },
+  'diagnostic.resuming': {
+    en: "Picking up your unfinished diagnostic — your earlier answers are safe.",
+    hi: 'आपका पिछला अधूरा डायग्नोस्टिक फिर से शुरू किया जा रहा है — आपके पहले के उत्तर सुरक्षित हैं।',
+  },
   'diagnostic.saveFailed': {
     en: 'We could not save that answer. Please check your connection and try again — your earlier answers are safe.',
     hi: 'वह उत्तर सहेजा नहीं जा सका। कृपया अपना कनेक्शन जांचें और फिर से प्रयास करें — आपके पिछले उत्तर सुरक्षित हैं।',

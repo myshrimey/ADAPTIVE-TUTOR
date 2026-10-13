@@ -63,12 +63,24 @@ const PREFERRED_DIFFICULTY = 3;
  * the diagnostic_attempts row. This plan is the "happy path" if every anchor is
  * answered correctly; a miss triggers an adaptive prerequisite-check insertion
  * in answerDiagnosticQuestion, not here.
+ *
+ * RESUME BEHAVIOR (added 2026-10-13, root-causing the "my diagnostic results
+ * don't save" report): before this, every call here created a brand-new
+ * `diagnostic_attempts` row, even if the student already had one sitting
+ * `in_progress` for the same subject — e.g. they closed the tab partway
+ * through and came back later. Nothing was ever actually lost (every
+ * `completed` attempt's mastery_states rows checked out fine against live
+ * data), but a student who never finishes an attempt never sees it reflected
+ * in Progress either, which reads exactly like "my results didn't save." Now,
+ * if an in-progress attempt already exists for this student+subject, we
+ * resume it at the next unanswered question instead of silently abandoning
+ * it and starting another one.
  */
 export async function startDiagnostic(
   supabase: SupabaseClient,
   studentId: string,
   subjectId: string
-): Promise<{ attemptId: string; firstQuestion: DiagnosticQuestionView }> {
+): Promise<{ attemptId: string; firstQuestion: DiagnosticQuestionView; resumed: boolean; answeredCount: number }> {
   const { data: test, error: testErr } = await supabase
     .from('diagnostic_tests')
     .select('id')
@@ -77,6 +89,31 @@ export async function startDiagnostic(
     .limit(1)
     .single();
   if (testErr || !test) throw new Error('no_active_diagnostic_test');
+
+  const { data: existingAttempt, error: existingErr } = await supabase
+    .from('diagnostic_attempts')
+    .select('id, result')
+    .eq('student_id', studentId)
+    .eq('diagnostic_test_id', test.id)
+    .eq('status', 'in_progress')
+    .order('started_at', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  if (existingErr) throw existingErr;
+
+  if (existingAttempt) {
+    const state = existingAttempt.result as DiagnosticPlanState;
+    const nextIndex = state.answers.length;
+    const nextQuestionId = state.plan[nextIndex];
+    // The attempt's own plan is exhausted (shouldn't normally happen for a
+    // row still marked in_progress — answerDiagnosticQuestion finalizes as
+    // soon as the plan runs out) — fall through to starting a fresh attempt
+    // rather than resuming into a dead end.
+    if (nextQuestionId) {
+      const firstQuestion = await loadQuestionView(supabase, nextQuestionId);
+      return { attemptId: existingAttempt.id, firstQuestion, resumed: true, answeredCount: state.answers.length };
+    }
+  }
 
   const anchorSkillIds = await getAnchorSkillIds(supabase, subjectId);
 
@@ -100,7 +137,7 @@ export async function startDiagnostic(
   await logEvent({ studentId, eventType: 'diagnostic_started', payload: { attemptId: attempt.id } });
 
   const firstQuestion = await loadQuestionView(supabase, plan[0]);
-  return { attemptId: attempt.id, firstQuestion };
+  return { attemptId: attempt.id, firstQuestion, resumed: false, answeredCount: 0 };
 }
 
 /**
