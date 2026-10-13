@@ -1,8 +1,9 @@
 import { redirect } from 'next/navigation';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { loadCurriculum } from '@adaptive-tutor/core';
+import { loadCurriculum, t } from '@adaptive-tutor/core';
 import { SubjectIcon } from '@/components/SubjectIcon';
 import { CountUp } from '@/components/CountUp';
+import { getServerLang } from '@/lib/language';
 
 // Short, varied study tips — picked by day of year so it changes daily
 // without needing any client-side state, rather than always showing the
@@ -28,6 +29,7 @@ export default async function DashboardOverviewPage() {
   }
 
   const supabase = await createServerClient();
+  const lang = await getServerLang();
 
   const [{ data: student }, { data: masteryRows }, curriculum, { data: sessions }, completedCountResult] = await Promise.all([
     supabase.from('students').select('display_name').eq('id', studentId).single(),
@@ -62,7 +64,9 @@ export default async function DashboardOverviewPage() {
       <div className="shell">
         <div className="hero-banner fade-slide-in" style={{ marginTop: 'var(--space-4)' }}>
           <p className="hero__eyebrow">Dashboard</p>
-          <h1 style={{ fontSize: 'var(--step-3)' }}>{student?.display_name ? `Welcome back, ${student.display_name}` : 'Welcome back'}</h1>
+          <h1 style={{ fontSize: 'var(--step-3)' }}>
+            {student?.display_name ? t('dashboard.welcomeBack', lang, { name: student.display_name }) : t('dashboard.welcomeBackPlain', lang)}
+          </h1>
           <p className="hero__lede" style={{ marginBottom: 0 }}>
             {skillsTouched > 0 ? "Here's where things stand today." : 'Start a session or take a diagnostic to get going.'}
           </p>
@@ -73,19 +77,19 @@ export default async function DashboardOverviewPage() {
             <span className="stat-tile__value">
               <CountUp value={Math.round(overallMastery)} suffix="%" />
             </span>
-            <span className="stat-tile__label">Overall mastery</span>
+            <span className="stat-tile__label">{t('dashboard.overallMastery', lang)}</span>
           </div>
           <div className="stat-tile">
             <span className="stat-tile__value">
               <CountUp value={sessionsCompleted} />
             </span>
-            <span className="stat-tile__label">Sessions completed</span>
+            <span className="stat-tile__label">{t('dashboard.sessionsCompleted', lang)}</span>
           </div>
           <div className="stat-tile">
             <span className="stat-tile__value">
               <CountUp value={skillsTouched} />
             </span>
-            <span className="stat-tile__label">Skills in progress</span>
+            <span className="stat-tile__label">{t('dashboard.skillsInProgress', lang)}</span>
           </div>
         </div>
 
@@ -109,6 +113,12 @@ export default async function DashboardOverviewPage() {
           <a href="/profile" className="quick-action-card">
             <span className="quick-action-card__title">Complete your profile</span>
             <span className="quick-action-card__body">Add your school and a bit of background — just a couple of minutes.</span>
+          </a>
+          <a href="/report" className="quick-action-card">
+            <span className="quick-action-card__title">{t('nav.report', lang)}</span>
+            <span className="quick-action-card__body">
+              {lang === 'hi' ? 'एक सारांश जो आप अपने माता-पिता के साथ साझा कर सकते हैं।' : 'A summary you can share with your parents.'}
+            </span>
           </a>
         </div>
 

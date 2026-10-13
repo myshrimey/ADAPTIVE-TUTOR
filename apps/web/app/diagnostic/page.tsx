@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { MathText } from '@/components/MathText';
 import { SubjectIcon } from '@/components/SubjectIcon';
+import { useLanguage } from '@/components/LanguageProvider';
 
 // Social Science is intentionally left out of this picker — its question
 // bank is still thin (paused while Maths/Science are built out further; see
@@ -46,6 +47,8 @@ interface DiagnosticResult {
 }
 
 export default function DiagnosticPage() {
+  const { t } = useLanguage();
+  const questionLanguageNote = t('common.questionEnglishOnly');
   const [subjects, setSubjects] = useState<SubjectOption[] | null>(null);
   const [subjectId, setSubjectId] = useState<string | null>(null);
   const [attemptId, setAttemptId] = useState<string | null>(null);
@@ -271,6 +274,10 @@ export default function DiagnosticPage() {
         {question && (
           <form onSubmit={submitAnswer}>
             <div className="question-card">
+              {/* Brief Section 4: the question bank itself isn't translated yet
+                  — clearly label it rather than silently presenting it as
+                  fully Hindi-supported. */}
+              <p style={{ fontSize: '0.72rem', color: 'var(--slate)', marginBottom: '0.2rem' }}>{questionLanguageNote}</p>
               <p className="question-card__prompt">
                 <MathText text={question.prompt} />
               </p>

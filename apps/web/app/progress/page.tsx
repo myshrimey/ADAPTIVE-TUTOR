@@ -1,9 +1,10 @@
 import { redirect } from 'next/navigation';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { loadCurriculum } from '@adaptive-tutor/core';
+import { loadCurriculum, t } from '@adaptive-tutor/core';
 import { MasteryArc } from '@/components/MasteryArc';
 import { SubjectIcon } from '@/components/SubjectIcon';
 import { ParentLinkButton } from '@/components/ParentLinkButton';
+import { getServerLang } from '@/lib/language';
 
 // The detailed, skill-by-skill progress view — previously this WAS
 // /dashboard. Split out so /dashboard can be a quick "what should I do
@@ -19,6 +20,7 @@ export default async function ProgressPage() {
   }
 
   const supabase = await createServerClient();
+  const lang = await getServerLang();
 
   const [{ data: student }, { data: masteryRows }, curriculum, { data: sessions }] = await Promise.all([
     supabase.from('students').select('display_name, parent_token').eq('id', studentId).single(),
@@ -39,7 +41,7 @@ export default async function ProgressPage() {
       <div className="shell">
         <div style={{ paddingTop: 'var(--space-4)', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', flexWrap: 'wrap', gap: '1rem' }}>
           <div>
-            <p className="hero__eyebrow">Skill by skill</p>
+            <p className="hero__eyebrow">{t('progress.skillBySkill', lang)}</p>
             <h1 style={{ fontSize: 'var(--step-3)' }}>{student?.display_name ? `${student.display_name}'s progress` : 'Progress'}</h1>
           </div>
           <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
@@ -83,7 +85,7 @@ export default async function ProgressPage() {
                             </span>
                           ) : null;
                         })}
-                        {!started && 'Not started yet'}
+                        {!started && t('progress.notStarted', lang)}
                       </div>
                     </div>
                   </div>
@@ -94,7 +96,7 @@ export default async function ProgressPage() {
         })}
 
         <section style={{ marginTop: 'var(--space-5)' }}>
-          <h2>Recent sessions</h2>
+          <h2>{t('progress.recentSessions', lang)}</h2>
           {sessions && sessions.length > 0 ? (
             <div>
               {sessions.map((s: any, i: number) => (
@@ -115,7 +117,7 @@ export default async function ProgressPage() {
               ))}
             </div>
           ) : (
-            <p style={{ color: 'var(--slate)' }}>No sessions yet — start one above.</p>
+            <p style={{ color: 'var(--slate)' }}>{t('progress.noSessionsYet', lang)}</p>
           )}
         </section>
       </div>

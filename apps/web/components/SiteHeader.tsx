@@ -3,9 +3,12 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase-client';
+import { useLanguage } from './LanguageProvider';
+import { LanguageToggle } from './LanguageToggle';
 
 export function SiteHeader() {
   const router = useRouter();
+  const { t } = useLanguage();
   const [signedIn, setSignedIn] = useState(false);
   const [displayName, setDisplayName] = useState<string | null>(null);
 
@@ -48,15 +51,17 @@ export function SiteHeader() {
           <span className="wordmark__mark">∠</span>Sahayak
         </a>
         <nav className="site-header__nav">
-          {signedIn && displayName && <span className="site-header__name">Hi, {displayName}</span>}
-          {signedIn && <a href="/dashboard">Dashboard</a>}
-          <a href="/progress">Progress</a>
-          <a href="/learn">Learn</a>
-          <a href="/papers">Past Papers</a>
-          {signedIn && <a href="/profile">Profile</a>}
+          {signedIn && displayName && <span className="site-header__name">{t('nav.hi', { name: displayName })}</span>}
+          {signedIn && <a href="/dashboard">{t('nav.dashboard')}</a>}
+          <a href="/progress">{t('nav.progress')}</a>
+          <a href="/learn">{t('nav.learn')}</a>
+          <a href="/papers">{t('nav.pastPapers')}</a>
+          {signedIn && <a href="/report">{t('nav.report')}</a>}
+          {signedIn && <a href="/profile">{t('nav.profile')}</a>}
+          <a href="/pilot">{t('nav.pilotOffer')}</a>
           {signedIn && (
             <a href="/diagnostic" className="site-header__diagnostic-link">
-              Take a test
+              {t('nav.takeTest')}
             </a>
           )}
           {signedIn && (
@@ -65,9 +70,10 @@ export function SiteHeader() {
               onClick={handleSignOut}
               style={{ background: 'none', border: 'none', padding: 0, font: 'inherit', color: 'inherit', cursor: 'pointer' }}
             >
-              Sign out
+              {t('nav.signOut')}
             </button>
           )}
+          <LanguageToggle />
         </nav>
       </div>
     </header>

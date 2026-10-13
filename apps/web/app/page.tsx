@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase-client';
+import { useLanguage } from '@/components/LanguageProvider';
 
 const SUBJECTS = [
   { slug: 'maths', name: 'Mathematics', note: '14 chapters — Real Numbers through Probability' },
@@ -14,6 +15,7 @@ type Mode = 'signup' | 'signin' | 'forgot';
 
 export default function Home() {
   const router = useRouter();
+  const { t } = useLanguage();
   const [mode, setMode] = useState<Mode>('signup');
 
   const [email, setEmail] = useState('');
@@ -96,7 +98,7 @@ export default function Home() {
       // Email confirmation is required. There's no session yet, so we can't
       // create the student record now — the name/subject step runs after
       // they confirm and sign in.
-      setNotice("Check your email for a confirmation link, then come back and sign in.");
+      setNotice(t('auth.checkEmailConfirm'));
       setMode('signin');
     }
   }
@@ -130,7 +132,7 @@ export default function Home() {
       setError(resetError.message);
       return;
     }
-    setNotice('Check your email for a password reset link.');
+    setNotice(t('auth.checkEmailReset'));
   }
 
   async function handleOnboardingSubmit(e: React.FormEvent) {
@@ -178,13 +180,13 @@ export default function Home() {
           )}
 
           {checkingSession ? (
-            <p style={{ color: 'var(--slate)' }}>Checking your session…</p>
+            <p style={{ color: 'var(--slate)' }}>{t('auth.checkingSession')}</p>
           ) : needsOnboarding ? (
             <form onSubmit={handleOnboardingSubmit}>
-              <p style={{ color: 'var(--slate)' }}>One last step — what should we call you, and which subject?</p>
+              <p style={{ color: 'var(--slate)' }}>{t('onboarding.oneLastStep')}</p>
               <div className="field">
                 <label className="field__label" htmlFor="displayName">
-                  What should we call you?
+                  {t('onboarding.yourName')}
                 </label>
                 <input
                   id="displayName"
@@ -197,7 +199,7 @@ export default function Home() {
                 />
               </div>
               <div className="field">
-                <span className="field__label">Which subject?</span>
+                <span className="field__label">{t('onboarding.whichSubject')}</span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginTop: '0.2rem' }}>
                   {SUBJECTS.map((s) => (
                     <label key={s.slug} className="subject-card" data-selected={subject === s.slug} data-subject={s.slug}>
@@ -219,7 +221,7 @@ export default function Home() {
               </div>
               <div className="hero__actions">
                 <button type="submit" className="btn btn--accent" disabled={submitting}>
-                  {submitting ? 'Starting…' : 'Start the diagnostic'}
+                  {submitting ? t('onboarding.starting') : t('onboarding.startDiagnostic')}
                 </button>
               </div>
             </form>
@@ -246,7 +248,7 @@ export default function Home() {
                       cursor: 'pointer',
                     }}
                   >
-                    {m === 'signup' ? 'Sign up' : 'Sign in'}
+                    {m === 'signup' ? t('auth.signUp') : t('auth.signIn')}
                   </button>
                 ))}
               </div>
@@ -255,16 +257,16 @@ export default function Home() {
                 <form onSubmit={handleForgotPassword}>
                   <div className="field">
                     <label className="field__label" htmlFor="email">
-                      Email
+                      {t('auth.email')}
                     </label>
                     <input id="email" type="email" className="field__input" value={email} onChange={(e) => setEmail(e.target.value)} required autoFocus />
                   </div>
                   <div className="hero__actions">
                     <button type="submit" className="btn btn--accent" disabled={submitting}>
-                      {submitting ? 'Sending…' : 'Send reset link'}
+                      {submitting ? 'Sending…' : t('auth.sendResetLink')}
                     </button>
                     <button type="button" className="btn btn--ghost" onClick={() => { setMode('signin'); resetMessages(); }}>
-                      Back to sign in
+                      {t('auth.backToSignIn')}
                     </button>
                   </div>
                 </form>
@@ -272,13 +274,13 @@ export default function Home() {
                 <form onSubmit={mode === 'signup' ? handleSignUp : handleSignIn}>
                   <div className="field">
                     <label className="field__label" htmlFor="email">
-                      Email
+                      {t('auth.email')}
                     </label>
                     <input id="email" type="email" className="field__input" value={email} onChange={(e) => setEmail(e.target.value)} required autoFocus />
                   </div>
                   <div className="field">
                     <label className="field__label" htmlFor="password">
-                      Password
+                      {t('auth.password')}
                     </label>
                     <input
                       id="password"
@@ -297,13 +299,13 @@ export default function Home() {
                       onClick={() => { setMode('forgot'); resetMessages(); }}
                       style={{ background: 'none', border: 'none', padding: 0, color: 'var(--slate)', fontSize: '0.85rem', cursor: 'pointer', marginBottom: 'var(--space-2)' }}
                     >
-                      Forgot password?
+                      {t('auth.forgotPassword')}
                     </button>
                   )}
 
                   <div className="hero__actions">
                     <button type="submit" className="btn btn--accent" disabled={submitting}>
-                      {submitting ? 'Please wait…' : mode === 'signup' ? 'Create account' : 'Sign in'}
+                      {submitting ? t('auth.pleaseWait') : mode === 'signup' ? t('auth.createAccount') : t('auth.signIn')}
                     </button>
                     {mode === 'signup' && <span className="hero__note">Takes about 10 minutes for the whole diagnostic.</span>}
                   </div>

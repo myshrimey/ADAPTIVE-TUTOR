@@ -1,164 +1,100 @@
-SAHAYAK — v23 UPDATE
-Simple step-by-step guide. Do these steps in order.
+SAHAYAK — v29 (10-DAY MVP BUILD, PART 1)
+==========================================
 
-====================================================================
-WHAT THIS UPDATE DOES
-====================================================================
+WHAT THIS IS
+------------
+This is a big round, built in one go on your instruction ("let's build first
+then deploy everything at once"). It covers most of the 10-day MVP brief you
+sent me:
+  - The explanation-caching bug fix (from the Day 1 report)
+  - A new, separate table/safety fix for offline UPI/QR pilot payments
+  - An English/Hindi language toggle across the main parts of the site
+  - A pilot offer page with a manual payment-confirmation form
+  - An admin-only page where YOU manually confirm or reject a payment
+    (a student/parent can never confirm their own payment)
+  - A parent-facing progress report page, built only from real data
+  - Five legal pages (Terms, Privacy, Pilot Limitations, Payment Policy,
+    Contact) in English and Hindi — DRAFTS for you to review, not final
+  - A founder-attribution line in the footer — DRAFT wording, not yet
+    approved by you
+  - A set of project-notes files (CLAUDE.md, PROJECT_CONTEXT.md, docs/...)
+    that let me (or any future Claude session) pick up exactly where this
+    left off, even in a brand-new chat
 
-You asked for 7 things. Here's what each one became:
+It does NOT include a real UPI ID or QR code — you said you'll share that
+with parents yourself, so nothing needed to be built for that part.
 
-1. "Topic being covered visible on the left, with a progress bar"
-   -> The /learn page now has a left sidebar that always shows: the
-      subject, chapter, topic, and skill the student is currently
-      being taught, plus a progress bar for how much of that skill
-      they've already mastered, plus a running "X/Y correct this
-      session" count.
+It does NOT yet fix the "diagnostic results don't save" issue — I still
+haven't been able to confirm that bug is real from the code alone (see
+"STILL OPEN" below).
 
-2. "User's name visible everywhere when logged in"
-   -> The header bar (top of every page) now shows "Hi, <name>" next
-      to the navigation links, whenever the student is signed in.
+STEP-BY-STEP: WHAT TO DO
+--------------------------
+1. Copy every file in this zip into your real project folder, into the
+   exact same folder paths shown (e.g. a file at
+   `packages/db/migrations/0009_pilot_payments.sql` in this zip goes into
+   `packages/db/migrations/` in your project — same as every previous
+   round). Some of these are BRAND NEW files in brand new folders
+   (apps/web/app/pilot, apps/web/app/report, apps/web/app/admin/payments,
+   apps/web/app/legal, apps/web/app/contact, apps/web/content, and three
+   new folders under packages/core) — just create those folders if they
+   don't exist yet and put the files inside.
 
-3. "Learning session takes too long to load" and
-4. "Switching between progress and learning takes time"
-   -> Found and fixed the real cause: the code that loads your
-      curriculum (subjects/chapters/topics/skills) was making roughly
-      150+ separate, one-at-a-time requests to the database every
-      single time a page needed it — once per chapter, once per topic,
-      once per skill, once per skill's prerequisites. That function
-      runs on nearly every page load. It's rewritten to do the same
-      job in about 6 database requests total, no matter how big the
-      curriculum gets. This is the single biggest speed fix in this
-      update. A couple of smaller spots (starting a session, loading
-      the dashboard) were also changed to run their independent
-      database checks at the same time instead of one after another.
+2. Open a terminal in your project folder and run:
+     npm install
+     npm run db:migrate
+   What success looks like: no red error text. If you see "policy already
+   exists," that's fine.
 
-5. "Take a diagnostic test any time from any location"
-   -> Added a "Take a test" link to the header bar, next to "Progress"
-      and "Learn" — visible on every page, not just during onboarding.
-      Clicking it always starts a fresh diagnostic test.
+3. Then run:
+     npm run build
+   What success looks like: it ends with a list of routes (40 of them) and
+   no red "Failed to compile" text. I already ran this exact build myself
+   and it was clean — but please still run it yourself before pushing,
+   since your real project may have small differences from mine.
 
-6. "A small quiz after every learning session, with answers,
-   solutions, and grading"
-   -> When a student clicks "End session" now, before the usual
-      summary screen, they get a short 5-question quiz on the skill
-      they just learned (a mix of question types, pulled from the
-      same large question bank you already have — no new content had
-      to be written). After submitting, they see their score, and for
-      every question: whether they got it right, the correct answer,
-      and the explanation (where one exists in the question bank).
-      There's a "Skip quiz" option too, so nobody gets stuck.
+4. Commit and push to GitHub the way you always have. Vercel will pick it
+   up and deploy automatically.
 
-7. "Animations, infographics, exciting colors to make it visually
-   attractive"
-   -> Added smooth fade-in animations for chat messages and quiz
-      cards, a bouncing "typing…" indicator instead of a static "…",
-      a colorful gradient progress bar, a celebratory animated score
-      banner after the quiz, and a small lift effect on buttons when
-      hovered. Kept your existing color palette and fonts — this is a
-      polish pass, not a redesign, so it won't feel like a different
-      app.
+5. Go through the smoke-test checklist in docs/DEPLOYMENT_GUIDE.md once
+   it's live.
 
-Nothing about Maths/Science question content changed in this round —
-this was entirely about the learning experience, performance, and
-visuals.
+THREE THINGS THAT NEED A DECISION FROM YOU BEFORE THIS IS "DONE"
+-------------------------------------------------------------------
+1. FOUNDER WORDING: the footer currently shows "Sahayak | Built by
+   Dr. Arvind Tiwari, Founder & Product Builder." I kept this restrained —
+   no degrees or credentials added, since I still can't verify your
+   LinkedIn from here. If you want this changed, tell me the exact wording
+   and I'll update it in one small file
+   (packages/core/branding/founder.ts) — nowhere else needs touching.
 
-====================================================================
-STEP 1 — Copy the new/changed files into your project
-====================================================================
+2. LEGAL PAGES: Terms, Privacy, Pilot Limitations, and the Payment Policy
+   are drafts matching only what the app actually does today. Please read
+   them at /legal/terms, /legal/privacy, /legal/pilot-limitations, and
+   /legal/payment-policy once deployed. They don't invent any address,
+   registration number, or legal claim — but they're not reviewed by a
+   lawyer, and I'd treat them as a starting point, not final.
 
-Unzip this file. You'll see a folder structure. Copy EVERY file from
-inside this unzipped folder into your real project folder, keeping
-the same folders, and REPLACING any file with the same name.
+3. STILL OPEN — the diagnostic-save bug: I still have not been able to
+   confirm this from the code alone (see my last report). To actually
+   track it down, either:
+   (a) tell me exactly what you saw last time it happened — which
+       subject, did you refresh/sign out, what the Progress page showed —
+       or
+   (b) I can give you one safe, read-only question to run in your
+       Supabase dashboard and paste back the result.
 
-Files in this update (11 total — 2 of them are brand new API routes,
-the rest are edits to existing files):
+WHAT'S DIFFERENT FROM HOW I'D NORMALLY SHIP
+----------------------------------------------
+I usually ship small rounds one at a time. This round is deliberately
+bigger, per your instruction to build everything first. That also means
+more to verify in one go — please go through the smoke-test checklist
+carefully rather than assuming it's all fine just because it built cleanly
+on my end.
 
-  apps/web/app/api/quiz/start/route.ts              <- NEW
-  apps/web/app/api/quiz/submit/route.ts              <- NEW
-  apps/web/app/api/session/start/route.ts
-  apps/web/app/dashboard/page.tsx
-  apps/web/app/globals.css
-  apps/web/app/learn/page.tsx
-  apps/web/components/SiteHeader.tsx
-  packages/core/analytics/events.ts
-  packages/core/curriculum/curriculum.service.ts
-  packages/core/index.ts
-  packages/core/quiz/skill-quiz.engine.ts            <- NEW (new folder)
-
-Easiest way in Windows File Explorer: open the unzipped update
-folder and your real project folder side by side, and drag each
-file across into the matching folder. For the 3 new files, you'll
-need to create the folders first if they don't already exist
-(apps/web/app/api/quiz/start/, apps/web/app/api/quiz/submit/,
-packages/core/quiz/) — just make a new folder with that exact name
-in the right place, then put the file inside it.
-
-====================================================================
-STEP 2 — Build it to make sure nothing's broken
-====================================================================
-
-Open your command prompt in your project folder and run:
-
-    npm install
-    npm run build
-
-Wait for it to finish. It should end with a list of routes and no
-red "Failed to compile" message. (I already ran this exact build on
-my end after making these changes and it passed cleanly — this step
-is just to confirm it also works in your copy of the project.)
-
-If you see an error, copy-paste the FULL error text back to me and
-I'll tell you exactly what to fix.
-
-====================================================================
-STEP 3 — Commit and push
-====================================================================
-
-Still in your command prompt, run these one at a time:
-
-    git add .
-    git commit -m "v23: sidebar + progress bar, visible username, faster loading, universal diagnostic access, post-session quiz, visual polish"
-    git push
-
-If it asks you to pull first, just run "git pull" then try the push
-again.
-
-====================================================================
-STEP 4 — Check it on the live site
-====================================================================
-
-Vercel will redeploy automatically after the push (usually 1-3
-minutes). Then:
-
-  1. Hard-refresh the site (Ctrl+Shift+R) so you're not looking at an
-     old cached version.
-  2. Sign in and look at the header — your name should now show up
-     next to "Progress" / "Learn", and there should be a new
-     "Take a test" link.
-  3. Click "Take a test" from somewhere OTHER than onboarding (e.g.
-     from the dashboard) — it should start a diagnostic test right
-     away.
-  4. Go to "Learn" and start a session — you should see the new left
-     sidebar with the subject/chapter/topic/skill and a progress bar.
-     Notice whether the page feels faster to load than before.
-  5. Answer a couple of questions, then click "End session" — you
-     should land on a short quiz before the usual summary screen.
-     Answer it (or click "Skip quiz") and confirm you see a score and
-     explanations.
-  6. Switch back and forth between "Progress" and "Learn" a couple of
-     times and see if it feels noticeably snappier than before — it
-     should, especially once Vercel's cold start has passed (the very
-     first load after a deploy is always a bit slower regardless).
-
-====================================================================
-A NOTE ON THE QUIZ CONTENT
-====================================================================
-
-The post-session quiz pulls straight from your existing diagnostic
-question bank (same questions used for the placement test), filtered
-to just the skill that session covered. Most questions already have
-an explanation written; a few of the older ones don't, so for those
-the student will just see "correct answer" without a written
-explanation. That's existing content, not something this update
-needs to fix — if you want, a future round could add explanations to
-whichever questions are still missing them.
+NOT YET BUILT (still coming, per the brief's own 10-day order)
+-------------------------------------------------------------------
+- Live, two-account privacy testing (I can only read the security rules in
+  the code — I can't log in as two real students myself)
+- Testing with real families (Day 7)
+- Anything that needs your actual UPI ID/QR, once you're ready to share it

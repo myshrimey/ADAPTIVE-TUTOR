@@ -28,3 +28,7 @@ export * from './quiz/skill-quiz.engine';
 export * from './explanations/ensure-explanation';
 export * from './papers/previous-papers.service';
 export * from './profile/student-profile.service';
+export * from './i18n/dictionary';
+export * from './branding/founder';
+export * from './pilot/pilot-payment.service';
+export * from './reports/parent-report.service';

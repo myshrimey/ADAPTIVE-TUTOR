@@ -1,10 +1,22 @@
+import { FOUNDER, t } from '@adaptive-tutor/core';
+import { getServerLang } from '@/lib/language';
+import { LanguageToggle } from './LanguageToggle';
+
 // Shown on every page (wired into layout.tsx) — including the sign-in/sign-up
 // page, where it was specifically asked for. Deliberately kept to stable,
 // structural facts about the CBSE Class 10 exam (the marks split and
 // question-type mix), not anything date-specific like this year's exact
 // datesheet, which changes annually and this app has no live source for —
 // that's what the official-site links are for.
-export function Footer() {
+//
+// Also carries: the language toggle, legal-page links, and the founder
+// attribution line (brief Sections 4-6) — all from a single configurable
+// source (packages/core/branding/founder.ts and i18n/dictionary.ts) rather
+// than hand-written per page, and kept secondary (small, bottom of page)
+// to the learning content above it, per the brief's "keep attribution
+// secondary to the learning experience."
+export async function Footer() {
+  const lang = await getServerLang();
   return (
     <footer className="site-footer">
       <div className="shell site-footer__grid">
@@ -62,10 +74,22 @@ export function Footer() {
         </div>
       </div>
 
+      <div className="shell site-footer__legal-row" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem', alignItems: 'center', justifyContent: 'space-between' }}>
+        <nav style={{ display: 'flex', flexWrap: 'wrap', gap: '0.9rem', fontSize: '0.8rem' }}>
+          <a href="/legal/terms">{t('legal.terms', lang)}</a>
+          <a href="/legal/privacy">{t('legal.privacy', lang)}</a>
+          <a href="/legal/pilot-limitations">{t('legal.pilotLimitations', lang)}</a>
+          <a href="/legal/payment-policy">{t('legal.paymentPolicy', lang)}</a>
+          <a href="/contact">{t('legal.contact', lang)}</a>
+        </nav>
+        <LanguageToggle />
+      </div>
+
       <div className="shell">
         <p className="site-footer__fine-print">
           Sahayak is an independent learning tool and isn't affiliated with or endorsed by CBSE.
         </p>
+        <p className="site-footer__fine-print">{FOUNDER.attributionLine}</p>
       </div>
     </footer>
   );

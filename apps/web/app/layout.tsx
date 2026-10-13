@@ -2,6 +2,8 @@ import { Fraunces, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import { SiteHeader } from '@/components/SiteHeader';
 import { Footer } from '@/components/Footer';
 import { FeedbackWidget } from '@/components/FeedbackWidget';
+import { LanguageProvider } from '@/components/LanguageProvider';
+import { getServerLang } from '@/lib/language';
 import 'katex/dist/katex.min.css';
 import './globals.css';
 
@@ -32,14 +34,17 @@ export const metadata = {
   description: 'An adaptive 1-to-1 tutor for CBSE Class 10 Maths and Science. Same syllabus, a different path for every student.',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const initialLang = await getServerLang();
   return (
-    <html lang="en" className={`${fraunces.variable} ${plexSans.variable} ${plexMono.variable}`}>
+    <html lang={initialLang} className={`${fraunces.variable} ${plexSans.variable} ${plexMono.variable}`}>
       <body>
-        <SiteHeader />
-        {children}
-        <Footer />
-        <FeedbackWidget />
+        <LanguageProvider initialLang={initialLang}>
+          <SiteHeader />
+          {children}
+          <Footer />
+          <FeedbackWidget />
+        </LanguageProvider>
       </body>
     </html>
   );
