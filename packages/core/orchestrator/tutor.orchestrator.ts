@@ -251,7 +251,7 @@ async function handleMessageTurn(
     studentMessage: input.studentMessage ?? '(session just started)',
   });
 
-  const completion = await aiProvider.complete({ systemPrompt: prompt.system, userMessage: prompt.user });
+  const completion = await aiProvider.complete({ systemPrompt: prompt.system, userMessage: prompt.user, feature: 'tutor' });
 
   if (input.studentMessage) {
     await supabase.from('messages').insert({ session_id: input.sessionId, role: 'student', content: input.studentMessage });
@@ -296,7 +296,7 @@ async function handleAnswerTurn(
     // Free-text reasoning — deterministic comparison can't grade this, so the
     // evaluation prompt does (docs/architecture.md §11).
     const evalPrompt = buildEvaluationPrompt({ question: question.prompt, expectedAnswer: question.expected_answer, studentAnswer: String(answer.answer) });
-    const evalCompletion = await aiProvider.complete({ systemPrompt: evalPrompt.system, userMessage: evalPrompt.user, responseFormat: 'json' });
+    const evalCompletion = await aiProvider.complete({ systemPrompt: evalPrompt.system, userMessage: evalPrompt.user, responseFormat: 'json', feature: 'evaluation' });
     let parsed: EvaluationResult;
     try {
       parsed = JSON.parse(evalCompletion.text);
@@ -418,7 +418,7 @@ async function handleAnswerTurn(
     lastMessages: ctx.lastMessages,
     studentMessage: `(submitted answer: ${JSON.stringify(answer.answer)})`,
   });
-  const completion = await aiProvider.complete({ systemPrompt: prompt.system, userMessage: prompt.user });
+  const completion = await aiProvider.complete({ systemPrompt: prompt.system, userMessage: prompt.user, feature: 'tutor' });
 
   await supabase.from('messages').insert({ session_id: input.sessionId, role: 'student', content: `Answer: ${JSON.stringify(answer.answer)}` });
   await supabase.from('messages').insert({ session_id: input.sessionId, role: 'tutor', content: completion.text, strategy: nextAction });

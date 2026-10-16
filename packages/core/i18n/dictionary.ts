@@ -763,10 +763,6 @@ export const DICTIONARY: Dict = {
     en: "Per subject",
     hi: "प्रति विषय",
   },
-  'plans.perSubject.price': {
-    en: "₹300 per subject per month",
-    hi: "₹300 प्रति विषय प्रति माह",
-  },
   'plans.perSubject.desc': {
     en: "Pay month by month for just the subjects you need.",
     hi: "जितने विषय चाहिए, उतने के लिए माह-दर-माह भुगतान करें।",
@@ -775,10 +771,6 @@ export const DICTIONARY: Dict = {
     en: "Five subjects, monthly",
     hi: "पाँच विषय, मासिक",
   },
-  'plans.fiveMonthly.price': {
-    en: "₹999 per month",
-    hi: "₹999 प्रति माह",
-  },
   'plans.fiveMonthly.desc': {
     en: "Up to 5 subjects, billed monthly, available till February 2027.",
     hi: "5 विषयों तक, मासिक भुगतान, फ़रवरी 2027 तक उपलब्ध।",
@@ -786,10 +778,6 @@ export const DICTIONARY: Dict = {
   'plans.fiveMarch.name': {
     en: "Five subjects, till March 2027",
     hi: "पाँच विषय, मार्च 2027 तक",
-  },
-  'plans.fiveMarch.price': {
-    en: "₹4500 one time",
-    hi: "₹4500 एक बार",
   },
   'plans.fiveMarch.desc': {
     en: "Up to 5 subjects, one payment, access till 31 March 2027.",
@@ -802,6 +790,138 @@ export const DICTIONARY: Dict = {
   'plans.invite': {
     en: "Early access is by invitation. To join, contact us — we will create your account and activate your plan.",
     hi: "शुरुआती पहुँच आमंत्रण पर है। जुड़ने के लिए हमसे संपर्क करें — हम आपका खाता बनाएँगे और प्लान सक्रिय करेंगे।",
+  },
+  'plans.free.name': {
+    en: "Free",
+    hi: "निःशुल्क",
+  },
+  'plans.free.desc': {
+    en: "Try Sahayak at no cost, using free-tier AI.",
+    hi: "निःशुल्क-स्तर के AI के साथ सहायक को बिना शुल्क आज़माएँ।",
+  },
+  'plans.unit.free': {
+    en: "free",
+    hi: "निःशुल्क",
+  },
+  'plans.unit.perSubjectMonth': {
+    en: "per subject per month",
+    hi: "प्रति विषय प्रति माह",
+  },
+  'plans.unit.perMonth': {
+    en: "per month",
+    hi: "प्रति माह",
+  },
+  'plans.unit.oneTime': {
+    en: "one time",
+    hi: "एक बार",
+  },
+  'plans.f.oneSubject': {
+    en: "1 subject of your choice",
+    hi: "आपकी पसंद का 1 विषय",
+  },
+  'plans.f.diagnostic': {
+    en: "Diagnostic test to find your starting point",
+    hi: "शुरुआती स्तर जानने के लिए डायग्नोस्टिक टेस्ट",
+  },
+  'plans.f.quizzes': {
+    en: "Practice quizzes with explanations",
+    hi: "व्याख्या सहित अभ्यास क्विज़",
+  },
+  'plans.f.aiLimited': {
+    en: "AI tutor: up to {n} replies a day, on free-tier AI (can be slower at busy times)",
+    hi: "AI ट्यूटर: प्रतिदिन {n} उत्तर तक, निःशुल्क-स्तर के AI पर (व्यस्त समय में धीमा हो सकता है)",
+  },
+  'plans.f.report': {
+    en: "Parent progress report you can share",
+    hi: "साझा करने योग्य अभिभावक प्रगति रिपोर्ट",
+  },
+  'plans.f.papers': {
+    en: "Previous-year papers library",
+    hi: "पिछले वर्षों के प्रश्नपत्रों का संग्रह",
+  },
+  'plans.f.chooseSubjects': {
+    en: "Pick the subjects you need; add or drop each month",
+    hi: "ज़रूरी विषय चुनें; हर माह जोड़ें या हटाएँ",
+  },
+  'plans.f.aiFull': {
+    en: "AI tutor with a generous daily limit ({n} replies) and backup AI so lessons keep going",
+    hi: "उदार दैनिक सीमा ({n} उत्तर) वाला AI ट्यूटर, और बैकअप AI ताकि पाठ चलते रहें",
+  },
+  'plans.f.adaptive': {
+    en: "Learning path that adapts to you, chapter by chapter",
+    hi: "आपके अनुसार ढलने वाला, अध्याय-दर-अध्याय सीखने का मार्ग",
+  },
+  'plans.f.mocks': {
+    en: "Timed mock exams with feedback",
+    hi: "फ़ीडबैक सहित समयबद्ध मॉक परीक्षाएँ",
+  },
+  'plans.f.readiness': {
+    en: "Board-readiness bands per subject (guidance, not a prediction of marks)",
+    hi: "हर विषय के लिए बोर्ड-तैयारी स्तर (मार्गदर्शन, अंकों की भविष्यवाणी नहीं)",
+  },
+  'plans.f.checkins': {
+    en: "Mood, focus and confidence check-ins that shape how a session starts",
+    hi: "मूड, ध्यान और आत्मविश्वास के चेक-इन, जो सत्र की शुरुआत तय करते हैं",
+  },
+  'plans.f.fiveSubjects': {
+    en: "Up to 5 subjects (Maths Standard and Basic count as one)",
+    hi: "5 विषयों तक (गणित स्टैंडर्ड और बेसिक एक गिने जाते हैं)",
+  },
+  'plans.f.everythingPaid': {
+    en: "Everything in the per-subject plan",
+    hi: "प्रति विषय प्लान की सभी सुविधाएँ",
+  },
+  'plans.f.monthToMonth': {
+    en: "Pay month to month, stop any time",
+    hi: "माह-दर-माह भुगतान, कभी भी रोकें",
+  },
+  'plans.f.tillFeb': {
+    en: "Available till February 2027",
+    hi: "फ़रवरी 2027 तक उपलब्ध",
+  },
+  'plans.f.onePayment': {
+    en: "One payment, nothing to renew each month",
+    hi: "एक भुगतान, हर माह नवीनीकरण की ज़रूरत नहीं",
+  },
+  'plans.f.tillMarch': {
+    en: "Access till 31 March 2027, through board exam season",
+    hi: "31 मार्च 2027 तक पहुँच, बोर्ड परीक्षा के समय तक",
+  },
+  'plans.cta.free': {
+    en: "Ask for a free account",
+    hi: "निःशुल्क खाता माँगें",
+  },
+  'plans.cta.paid': {
+    en: "Ask to join",
+    hi: "जुड़ने के लिए पूछें",
+  },
+  'plans.badge.start': {
+    en: "Start here",
+    hi: "यहाँ से शुरू करें",
+  },
+  'plans.badge.best': {
+    en: "Best value",
+    hi: "सबसे किफ़ायती",
+  },
+  'plans.home.title': {
+    en: "Plans and what you get",
+    hi: "प्लान और आपको क्या मिलता है",
+  },
+  'plans.home.note': {
+    en: "Sign-up is by invitation during early access. Ask us for an account and we will set it up and send you a login.",
+    hi: "शुरुआती पहुँच के दौरान साइन-अप केवल आमंत्रण पर है। हमसे खाता माँगें; हम उसे बनाकर आपको लॉगिन भेज देंगे।",
+  },
+  'plans.fairUse': {
+    en: "Daily AI limits are a fair-use guard. Free-tier AI can be slower when many students are online. Sahayak does not promise marks or ranks.",
+    hi: "दैनिक AI सीमाएँ उचित उपयोग की सुरक्षा हैं। कई विद्यार्थियों के ऑनलाइन होने पर निःशुल्क-स्तर का AI धीमा हो सकता है। सहायक अंकों या रैंक का वादा नहीं करता।",
+  },
+  'access.dailyAiLimit': {
+    en: "You have used today's AI tutor replies. They reset tomorrow morning. Practice quizzes still work, or ask us about a paid plan for more.",
+    hi: "आज के AI ट्यूटर उत्तर पूरे हो गए। वे कल सुबह फिर मिलेंगे। अभ्यास क्विज़ अभी भी चलते हैं, या अधिक के लिए हमसे पेड प्लान के बारे में पूछें।",
+  },
+  'access.upgradeRequired': {
+    en: "This is part of the paid plans. Please ask the Sahayak team about upgrading.",
+    hi: "यह पेड प्लान का हिस्सा है। कृपया सहायक टीम से अपग्रेड के बारे में पूछें।",
   },
 };
 

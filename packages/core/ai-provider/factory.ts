@@ -4,8 +4,21 @@ import { GroqProvider } from './groq.provider';
 import { OpenAIProvider } from './openai.provider';
 import { ClaudeProvider } from './claude.provider';
 import { FallbackAIProvider } from './fallback.provider';
+import { freeProviderNames, type AIAttempt } from './usage';
+import type { AITier } from '../plans/plans';
 
-export function createDefaultAIProvider(): AIProvider {
+export interface CreateAIProviderOptions {
+  /**
+   * 'free'  = free-tier providers only (never a provider that bills per use) — used for the free plan.
+   * 'paid'  = the whole chain: free providers first, paid providers as backup so a paid student's
+   *           lesson does not stop when a free service is busy. (Default.)
+   */
+  tier?: AITier;
+  /** Called for every attempt, for the usage/cost log. */
+  onAttempt?: (attempt: AIAttempt) => Promise<void> | void;
+}
+
+export function createAIProvider(options: CreateAIProviderOptions = {}): AIProvider {
   const chain: Array<{ name: string; provider: AIProvider }> = [];
 
   if (process.env.GEMINI_API_KEY) {
@@ -24,5 +37,11 @@ export function createDefaultAIProvider(): AIProvider {
     chain.push({ name: 'claude', provider: new ClaudeProvider() });
   }
 
-  return new FallbackAIProvider(chain);
+  const allowed = options.tier === 'free' ? chain.filter((c) => freeProviderNames().includes(c.name)) : chain;
+  return new FallbackAIProvider(allowed, options.onAttempt);
+}
+
+/** Unchanged behaviour for scripts and anything that does not know the student: the full chain, no log. */
+export function createDefaultAIProvider(): AIProvider {
+  return createAIProvider({ tier: 'paid' });
 }

@@ -3,9 +3,12 @@
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
 ## Exact current status (2026-10-16)
-v29 and v30 are **deployed and confirmed working live**. **v34** (bundles v31-v33), **v35** and **v36** are **built, clean-built and zipped, NOT deployed**. The founder applies them in order: `sahayak-v34-complete-board-prep-delta.zip`, `sahayak-v35-maths-mock-readiness-delta.zip`, `sahayak-v36-plans-teachers-delta.zip` (migrations 0013-0016). Don't re-build either; wait for the founder to report deployed-and-working (or a problem).
+v29 and v30 are **deployed and confirmed working live**. **v34** (bundles v31-v33), **v35**, **v36** and **v37** are **built, clean-built and zipped, NOT deployed**. The founder applies them in order: `sahayak-v34-complete-board-prep-delta.zip`, `sahayak-v35-maths-mock-readiness-delta.zip`, `sahayak-v36-plans-teachers-delta.zip`, `sahayak-v37-pricing-free-aicost-delta.zip` (migrations 0013-0017). Don't re-build either; wait for the founder to report deployed-and-working (or a problem).
 
-## Last completed task — v36 (see `docs/BUILD_LOG.md` for the full entry)
+## Last completed task — v37 (see `docs/BUILD_LOG.md` for the full entry)
+New prices (Rs 1000/subject/month; Rs 3,300/month for 5 subjects till Feb 2027; Rs 15,000 once till Mar 2027 — last two are Claude's proposal), a Free plan (1 subject, free-tier AI only, 10 tutor replies/day, no mocks), AI usage/cost log + `/admin/ai-costs`, four plan cards on the home/offer pages, server-side redirect so signed-in people never see sign-in/sign-up, brighter header name. Untested against real Supabase.
+
+## Previous task — v36 (see `docs/BUILD_LOG.md`)
 Founder's three plans (Rs 300/subject/month; Rs 999/month up to 5 subjects till Feb 2027; Rs 4500 once up to 5 subjects till Mar 2027) enforced via `student_access`; sign-up closed (founder creates students at `/admin/students`, first sign-in goes to the profile page, then subject choice); teacher role with self-registration (needs approval) and a review dashboard (`/teacher`), with founder-side `/admin/teachers` and `/admin/reviews`. **Founder must switch OFF Supabase "Allow new users to sign up".** New admin/teacher routes are untested against real Supabase.
 
 ## Previous task — v35 (see `docs/BUILD_LOG.md`)

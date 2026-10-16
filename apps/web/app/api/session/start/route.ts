@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { assertAccess, loadLearnerState, resolveCurrentObjective, runOrchestratorTurn, logEvent, recordCheckin } from '@adaptive-tutor/core';
+import { aiForStudent } from '@/lib/ai';
 
 export async function POST(request: Request) {
   try {
@@ -8,6 +9,8 @@ export async function POST(request: Request) {
     const studentId = await getCurrentStudentId();
     const supabase = await createServerClient();
     await assertAccess(supabase, studentId); // plan must be active (throws access_required / access_expired)
+    // Daily allowance of AI tutor replies (free plan: small; paid: fair-use). Checked BEFORE a session row is created.
+    const ai = await aiForStudent(studentId, { tutor: true });
 
     // These two don't depend on each other — both just need studentId —
     // so they run concurrently instead of one after the other. Was the
@@ -75,7 +78,7 @@ export async function POST(request: Request) {
       : null;
 
     // Opening turn: no student message yet, just the tutor's first move for this objective.
-    const turn = await runOrchestratorTurn(supabase, { studentId, sessionId: session.id });
+    const turn = await runOrchestratorTurn(supabase, { studentId, sessionId: session.id }, ai);
 
     return NextResponse.json({ data: { sessionId: session.id, skillId: objective.skillId, context, turn, recoveryMode }, error: null });
   } catch (err: any) {

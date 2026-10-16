@@ -3,6 +3,7 @@ import { FOUNDER, PLANS, t } from '@adaptive-tutor/core';
 import { getServerLang } from '@/lib/language';
 import { PilotPaymentForm } from '@/components/PilotPaymentForm';
 import { FaqSection } from '@/components/FaqSection';
+import { PlanCards } from '@/components/PlanCards';
 
 // The ₹999 "Sahayak Complete Board Preparation" offer page (master prompt
 // sec. 29): states duration, supported subjects (with honest status), what is
@@ -27,26 +28,15 @@ export default async function BoardPrepOfferPage() {
 
   return (
     <main className="page">
-      <div className="shell shell--narrow">
+      <div className="shell">
         <div className="hero-banner" style={{ marginTop: 'var(--space-4)' }}>
           <p className="hero__eyebrow">{t('pilot.title', lang)} · CBSE Class 10 · 2027</p>
           <h1 style={{ fontSize: 'var(--step-3)' }}>{t('plans.title', lang)}</h1>
           <p className="hero__lede">{t('plans.lede', lang)}</p>
         </div>
 
-        <section style={{ marginTop: 'var(--space-3)', display: 'grid', gap: '0.8rem' }}>
-          {([
-            ['perSubject', PLANS.per_subject_monthly.code],
-            ['fiveMonthly', PLANS.five_monthly.code],
-            ['fiveMarch', PLANS.five_till_march.code],
-          ] as const).map(([k, code]) => (
-            <div key={code} className="chapter-row" style={{ display: 'block' }}>
-              <div className="chapter-row__title">{t(`plans.${k}.name` as any, lang)}</div>
-              <div style={{ fontSize: 'var(--step-1)', fontWeight: 600 }}>{t(`plans.${k}.price` as any, lang)}</div>
-              <p style={{ margin: '0.2rem 0', color: 'var(--slate)' }}>{t(`plans.${k}.desc` as any, lang)}</p>
-            </div>
-          ))}
-          <p style={{ color: 'var(--slate)', fontSize: '0.9rem', margin: 0 }}>{t('plans.maths', lang)} {t('plans.invite', lang)}</p>
+        <section style={{ marginTop: 'var(--space-3)' }}>
+          <PlanCards lang={lang} />
         </section>
 
         <section style={{ marginTop: 'var(--space-4)' }}>

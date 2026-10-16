@@ -8,6 +8,8 @@ const KEYS: Record<string, string> = {
   access_expired: 'access.expired',
   subject_limit_reached: 'access.subjectLimit',
   invitation_required: 'auth.invitationOnly',
+  daily_ai_limit: 'access.dailyAiLimit',
+  plan_upgrade_required: 'access.upgradeRequired',
 };
 
 export function accessErrorMessage(raw: string | undefined | null): string | null {

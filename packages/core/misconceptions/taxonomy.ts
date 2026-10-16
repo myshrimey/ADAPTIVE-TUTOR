@@ -55,6 +55,7 @@ export async function detectMisconception(
 Respond ONLY with JSON: {"tag": string, "confidence": number}. tag must be one of the given options.`,
       userMessage: `Expected: ${JSON.stringify(params.expectedAnswer)}\nStudent answered: ${JSON.stringify(params.studentAnswer)}`,
       responseFormat: 'json',
+      feature: 'misconception',
     });
     const parsed = JSON.parse(result.text) as { tag: MisconceptionTag; confidence: number };
     if (candidateTags.includes(parsed.tag)) return parsed;

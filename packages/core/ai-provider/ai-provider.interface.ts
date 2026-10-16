@@ -6,7 +6,11 @@ export interface AICompletionParams {
   systemPrompt: string;
   userMessage: string;
   responseFormat?: 'text' | 'json';
+  /** What this call is for ('tutor', 'evaluation', ...). Only used for the usage/cost log. */
+  feature?: AIFeature;
 }
+
+export type AIFeature = 'tutor' | 'evaluation' | 'summary' | 'explanation' | 'question_generation' | 'misconception' | 'other';
 
 export interface AICompletionResult {
   text: string;

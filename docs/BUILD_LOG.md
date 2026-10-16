@@ -4,6 +4,25 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## 2026-10-16 — v37: AI usage/cost log, new prices (₹1000/subject), free plan, pricing on the home page, signed-in redirect, readable name
+
+**Task (founder):** build the AI usage/cost logging first; once a student is signed in the sign-up page must never show; the user name must be bright/readable; add a free tier (free-tier AI only); show pricing with features under each plan on the home page; raise the per-subject price from ₹300 to ₹1000 and recalculate the others.
+
+**What was done:**
+1. **AI usage log** (migration 0017 `ai_usage`): every AI call attempt (also failed ones) records provider, what it was for (tutor, evaluation, summary, explanation, question generation, misconception), tokens, time. No prompt or answer text. Students cannot read or write it (RLS on, no policy). `/admin/ai-costs` shows a month at a time: totals, by AI company, by use, free vs paid, and by student, as "list price" (what it would cost at public prices) and "actually billed" (only providers not in `AI_FREE_PROVIDERS`). Rates are planning numbers in `packages/core/ai-provider/usage.ts`.
+2. **Prices** (proposed by me, founder to confirm): ₹1000 per subject per month; ₹3,300 per month for 5 subjects till Feb 2027 (same 2/3 ratio as before); ₹15,000 one time for 5 subjects till 31 Mar 2027 (4.5 months of the monthly plan, as before). All in `plans.ts`; FAQ, offer page, admin form and payment form read from it; legal pages updated.
+3. **Free plan** (`plan_code = 'free'`): 1 subject, no end date, diagnostic, practice quizzes, parent report, past papers, AI tutor limited to 10 replies per day on free-tier AI models only (a free student's request can never reach a paid model), no timed mock exams. Paid plans (and grandfathered/custom): up to 100 tutor replies per day as a fair-use guard, free models first and paid models as backup so a lesson does not stop. Daily limits reset at midnight India time. Founder assigns Free at `/admin/students`; if self sign-up is ever opened, new sign-ups start on Free.
+4. **Home page**: four plan cards (Free + three paid) with the features under each, bilingual, read from the same plan file. Offer page uses the same cards.
+5. **Signed-in people never see the sign-in/sign-up page**: `/` is now decided on the server (admin → /admin/students, teacher → /teacher, student → profile or dashboard); the old client page moved to `components/HomeClient.tsx`; someone mid-way through choosing subjects sees only that step, no sales sections.
+6. **Name badge**: the header name is now a bright marigold badge, larger, and no longer hidden on phones (it was `display:none` under 720px and dark grey).
+
+**Tests run:** tsc clean; full build clean; font-stub layout restored identical. 25 unit checks (plan tiers/caps, free-plan mock gate, IST day boundaries, cost maths, usage roll-up, month range, fallback logging incl. a failing logger, free chain excludes paid providers, `AI_FREE_PROVIDERS` override, daily-limit check at/under limit). Scratch Postgres: 0017 applies twice; `free` accepted and a bogus plan rejected; an `authenticated` user sees 0 rows of `ai_usage` and cannot insert even with table grants. Pricing cards rendered to text in English and Hindi (no missing keys).
+**Not tested:** anything against the real Supabase or a real browser (writes to `ai_usage` via the service key, the cost page, sign-in redirect, free-plan limits end to end), real AI providers' token counts, mobile layout by eye.
+
+**Deployment status:** Not deployed. Package: `sahayak-v37-pricing-free-aicost-delta.zip` (apply after v34, v35, v36; migration 0017).
+
+---
+
 ## 2026-10-16 — v36: three paid plans (enforced), invitation-only students, first-login profile step, teacher review area
 
 **Task:** Founder set three plans — (i) Rs 300 per subject per month, (ii) Rs 999 per month for up to 5 subjects till Feb 2027, (iii) Rs 4500 one time for up to 5 subjects till March 2027 — and asked for: no self sign-up until March 2027 or until he says so; students get an email + password from him and land on the profile page after first sign-in; a teacher dashboard where teachers evaluate AI-generated questions/quizzes/answers and share feedback (payment to teachers optional for now); teachers can register themselves or be given credentials. Answers to my three questions: (ii) is billed monthly; self-registered teachers need his approval first; plans are enforced.

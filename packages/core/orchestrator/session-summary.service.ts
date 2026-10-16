@@ -68,6 +68,7 @@ export async function completeSession(
       systemPrompt: SUMMARY_SYSTEM_PROMPT,
       userMessage: JSON.stringify(facts),
       responseFormat: 'json',
+      feature: 'summary',
     });
     phrased = JSON.parse(completion.text);
   } catch {

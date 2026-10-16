@@ -58,6 +58,11 @@ export async function POST(request: Request) {
         .single();
       if (studentErr || !studentRow) throw studentErr ?? new Error('student_insert_failed');
       studentId = studentRow.id;
+      // Open sign-up (only when the founder turns it on) starts everyone on the FREE plan.
+      await service.from('student_access').upsert(
+        { student_id: studentId, plan_code: 'free', subject_limit: 1, access_until: null, notes: 'Self sign-up: free plan' },
+        { onConflict: 'student_id' }
+      );
       await logEvent({ studentId, eventType: 'signup' });
     } else {
       await service.from('students').update({ display_name: body.displayName, grade: body.grade }).eq('id', studentId);

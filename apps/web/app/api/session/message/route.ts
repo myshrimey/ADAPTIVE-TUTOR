@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { runOrchestratorTurn } from '@adaptive-tutor/core';
+import { aiForStudent } from '@/lib/ai';
 
 export async function POST(request: Request) {
   try {
@@ -12,7 +13,7 @@ export async function POST(request: Request) {
     }
 
     const supabase = await createServerClient();
-    const turn = await runOrchestratorTurn(supabase, { studentId, sessionId, studentMessage: message });
+    const turn = await runOrchestratorTurn(supabase, { studentId, sessionId, studentMessage: message }, await aiForStudent(studentId, { tutor: true }));
 
     return NextResponse.json({ data: turn, error: null });
   } catch (err: any) {

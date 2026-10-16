@@ -4,6 +4,13 @@ Key product/technical decisions, alternatives considered, and why. Decisions mar
 
 ---
 
+### v37 (2026-10-16): prices, free plan, AI cost log
+**Prices (founder asked for ₹1000/subject; the other two are my proposal, founder to confirm):** ₹1000 per subject per month; ₹3,300 per month for 5 subjects till Feb 2027; ₹15,000 one time for 5 subjects till 31 Mar 2027. Single source: `packages/core/plans/plans.ts`. GST treatment of these prices is not decided (founder to ask CA). Old 240-day idea stays obsolete.
+**Free plan:** exists as a plan code assigned by the founder (sign-up stays closed). Free = 1 subject, free-tier AI only (never a provider outside `AI_FREE_PROVIDERS`), 10 tutor replies per day, no mocks. The idea: everything free costs near zero because diagnostic and quizzes come from the question bank.
+**Paid AI:** paid students use the same free models first and the paid models only as backup when the free ones fail; flip the order only after `/admin/ai-costs` shows real numbers. 100 replies/day is a fair-use guard, not a promise of "unlimited".
+**Cost log privacy:** `ai_usage` stores tokens, provider, feature, timing — never text. Cost rates are planning numbers and must be re-checked against each company's price page.
+**Open:** whether free students should keep daily limits after a paid plan ends (today an expired paid plan falls to free-tier AI for any session already running); whether to gate Free by a referral/teacher invite; free-to-paid reminders.
+
 ### v36 (2026-10-16): plans, invitation-only access, teachers
 **Plans (founder):** Rs 300/subject/month; Rs 999/month for up to 5 subjects till Feb 2027 (confirmed: billed monthly); Rs 4500 one time for up to 5 subjects till 31 Mar 2027. Prices and rules live only in `packages/core/plans/plans.ts`. Monthly plans are granted month by month: the end date is the last day of the month paid, never beyond the plan's last date.
 **Enforcement (founder chose "enforce"):** access is a per-student record the founder sets (`student_access`). Money and access are separate on purpose: confirming a payment does not auto-grant access (nothing automated touches access). Existing students were grandfathered with no end date; the founder should give them real plans/dates when ready. "5 subjects" while six subjects exist = any five; Maths Standard/Basic count as one.

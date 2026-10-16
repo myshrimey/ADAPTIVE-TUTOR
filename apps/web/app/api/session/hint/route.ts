@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { runOrchestratorTurn, logEvent } from '@adaptive-tutor/core';
+import { aiForStudent } from '@/lib/ai';
 
 export async function POST(request: Request) {
   try {
@@ -12,7 +13,7 @@ export async function POST(request: Request) {
     const supabase = await createServerClient();
     // "hint" is recognized by the pedagogy engine's command parser and routes
     // straight to the HINT strategy — see packages/core/pedagogy/pedagogy.engine.ts.
-    const turn = await runOrchestratorTurn(supabase, { studentId, sessionId, studentMessage: 'hint' });
+    const turn = await runOrchestratorTurn(supabase, { studentId, sessionId, studentMessage: 'hint' }, await aiForStudent(studentId, { tutor: true }));
 
     await logEvent({ studentId, sessionId, eventType: 'hint_requested' });
 

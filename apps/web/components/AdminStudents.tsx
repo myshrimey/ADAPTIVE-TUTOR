@@ -16,11 +16,12 @@ export interface AdminStudentRow {
 }
 
 const PLAN_OPTIONS: { code: AccessPlanCode; label: string }[] = [
-  { code: 'per_subject_monthly', label: 'Rs 300 per subject per month' },
-  { code: 'five_monthly', label: 'Rs 999 per month, up to 5 subjects (till Feb 2027)' },
-  { code: 'five_till_march', label: 'Rs 4500 one time, up to 5 subjects (till Mar 2027)' },
-  { code: 'custom', label: 'Custom (you choose subjects and end date)' },
-  { code: 'grandfathered', label: 'Early access (existing / free)' },
+  { code: 'free', label: 'Free plan (1 subject, free-tier AI only, daily limit, no mock exams)' },
+  { code: 'per_subject_monthly', label: `Rs ${PLANS.per_subject_monthly.priceInr} per subject per month` },
+  { code: 'five_monthly', label: `Rs ${PLANS.five_monthly.priceInr} per month, up to 5 subjects (till Feb 2027)` },
+  { code: 'five_till_march', label: `Rs ${PLANS.five_till_march.priceInr} one time, up to 5 subjects (till Mar 2027)` },
+  { code: 'custom', label: 'Custom (you choose subjects and end date; full paid features)' },
+  { code: 'grandfathered', label: 'Early access (existing students; full paid features)' },
 ];
 
 function planDefaults(code: AccessPlanCode) {

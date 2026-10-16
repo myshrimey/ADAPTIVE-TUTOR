@@ -15,6 +15,7 @@ export * from './ai-provider/openai.provider';
 export * from './ai-provider/claude.provider';
 export * from './ai-provider/fallback.provider';
 export * from './ai-provider/factory';
+export * from './ai-provider/usage';
 export * from './diagnostic/engine';
 export * from './question-engine/selector';
 export * from './question-engine/grading';

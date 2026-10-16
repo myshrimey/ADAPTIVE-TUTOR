@@ -1114,9 +1114,6 @@ a {
     width: 100%;
     position: static;
   }
-  .site-header__name {
-    display: none;
-  }
   .site-header__nav {
     gap: var(--space-2);
     flex-wrap: wrap;
@@ -1251,3 +1248,125 @@ a {
 .progress-reveal__fill { height: 100%; border-radius: 999px; background: var(--marigold-deep, #c8811f); transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1); }
 .progress-reveal__burst { position: absolute; right: 0; top: 50%; width: 14px; height: 14px; margin: -7px -3px 0 0; border-radius: 50%; border: 3px solid var(--mastered, #3f7a5c); animation: burstRing 1.2s ease-out 1.5s 2 both; }
 @keyframes burstRing { 0% { transform: scale(0.6); opacity: 1; } 100% { transform: scale(3.2); opacity: 0; } }
+
+/* ---------- plan cards (home page and offer page) ---------- */
+
+.plan-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+  align-items: stretch;
+}
+
+.plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: var(--space-3) var(--space-2) var(--space-2);
+}
+
+.plan-card--featured {
+  border-color: var(--marigold-deep);
+  box-shadow: 0 6px 22px rgba(200, 129, 31, 0.18);
+}
+
+.plan-card__badge {
+  position: absolute;
+  top: -0.7rem;
+  left: var(--space-2);
+  background: var(--marigold);
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+}
+
+.plan-card__name {
+  margin: 0;
+  font-size: var(--step-0);
+  color: var(--ink);
+}
+
+.plan-card__price {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.plan-card__unit {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+.plan-card__desc {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.plan-card__features {
+  margin: 0 0 var(--space-1);
+  padding-left: 1.1rem;
+  font-size: 0.86rem;
+  color: var(--ink);
+  flex: 1 1 auto;
+}
+
+.plan-card__features li {
+  margin-bottom: 0.35rem;
+}
+
+.plan-note {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: var(--space-2) 0 0;
+}
+
+@media (max-width: 1000px) {
+  .plan-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .plan-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- signed-in name: bright, readable, and never hidden ---------- */
+
+.site-header__nav a {
+  color: var(--ink-soft);
+}
+
+.site-header__name {
+  background: var(--marigold);
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  max-width: 14rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 720px) {
+  .site-header__name {
+    display: inline-block;
+    max-width: 9rem;
+    font-size: 0.9rem;
+  }
+}

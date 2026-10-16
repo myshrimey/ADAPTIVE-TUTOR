@@ -77,7 +77,7 @@ export async function generateQuestionWithSolution(
     .filter(Boolean)
     .join('\n');
 
-  const result = await aiProvider.complete({ systemPrompt: SYSTEM_PROMPT, userMessage, responseFormat: 'json' });
+  const result = await aiProvider.complete({ systemPrompt: SYSTEM_PROMPT, userMessage, responseFormat: 'json', feature: 'question_generation' });
 
   try {
     return JSON.parse(result.text) as GeneratedQuestion;

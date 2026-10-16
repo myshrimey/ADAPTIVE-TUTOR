@@ -39,7 +39,7 @@ export async function ensureExplanation(
       options: question.options,
       expectedAnswer: question.expectedAnswer,
     });
-    const completion = await aiProvider.complete({ systemPrompt: built.system, userMessage: built.user });
+    const completion = await aiProvider.complete({ systemPrompt: built.system, userMessage: built.user, feature: 'explanation' });
     const text = completion.text?.trim();
     if (!text) return FALLBACK_EXPLANATION;
 

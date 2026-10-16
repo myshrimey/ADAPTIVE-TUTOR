@@ -71,5 +71,14 @@ Matches the brief's Section 15 release gates. Do not accept real paid pilot cust
 - [ ] Two-account test also covers `student_access`, `teacher_profiles`, `content_reviews`, `mock_exams`.
 - [ ] Founder gives existing (grandfathered) students real plans and end dates when ready.
 
+## v37 additions (prices, free plan, AI cost log)
+- [ ] Migration 0017 applied (`select count(*) from ai_usage;` runs without error).
+- [ ] Founder confirmed the new prices (₹1000 / ₹3,300 / ₹15,000) and GST treatment, and approved the new FAQ/legal wording.
+- [ ] `AI_FREE_PROVIDERS` in Vercel matches reality (providers still on a free API tier).
+- [ ] Use the app as a student for a few minutes; open `/admin/ai-costs`: rows appear with tokens and cost.
+- [ ] Create a test student on the Free plan: the 11th tutor reply of a day is refused with a clear message; mock exams show "part of the paid plans"; a second subject is refused.
+- [ ] Signed in on any page, opening the home page (logo) goes straight to your page and never shows sign-in/sign-up.
+- [ ] The name badge is visible on a phone.
+
 ## Narrower pilot, if a gate fails
 If any Security or Payment gate fails, do not accept payments yet — the rest of the product can still be used for a free, unpaid trial with a small number of families while that gate is fixed.

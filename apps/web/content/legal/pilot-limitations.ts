@@ -30,7 +30,7 @@ export const PILOT_LIMITATIONS_EN: LegalContent = {
     {
       heading: 'Pricing is an experiment',
       body: [
-        'The current prices (₹300 per subject per month, ₹999 per month for up to five subjects, or ₹4500 one time for up to five subjects till March 2027) are introductory, experimental prices, not an established market price, and may change for future cohorts.',
+        'The current prices (₹1000 per subject per month, ₹3300 per month for up to five subjects, or ₹15000 one time for up to five subjects till March 2027) are introductory, experimental prices, not an established market price, and may change for future cohorts.',
       ],
     },
   ],
@@ -61,7 +61,7 @@ export const PILOT_LIMITATIONS_HI: LegalContent = {
     },
     {
       heading: 'मूल्य निर्धारण एक प्रयोग है',
-      body: ['वर्तमान मूल्य (₹300 प्रति विषय प्रति माह, ₹999 प्रति माह 5 विषयों तक, या ₹4500 एक बार 5 विषयों के लिए मार्च 2027 तक) परिचयात्मक, प्रायोगिक मूल्य हैं, स्थापित बाज़ार मूल्य नहीं, और भविष्य के समूहों के लिए बदल सकता है।'],
+      body: ['वर्तमान मूल्य (₹1000 प्रति विषय प्रति माह, ₹3300 प्रति माह 5 विषयों तक, या ₹15000 एक बार 5 विषयों के लिए मार्च 2027 तक) परिचयात्मक, प्रायोगिक मूल्य हैं, स्थापित बाज़ार मूल्य नहीं, और भविष्य के समूहों के लिए बदल सकता है।'],
     },
   ],
 };

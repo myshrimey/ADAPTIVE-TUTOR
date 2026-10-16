@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { answerDiagnosticQuestion } from '@adaptive-tutor/core';
+import { aiForStudent } from '@/lib/ai';
 
 export async function POST(request: Request) {
   try {
     // Ensures the caller is authenticated even though attemptId is the real
     // scoping key below; also gives us studentId for the completion event.
-    await getCurrentStudentId();
+    const studentId = await getCurrentStudentId();
     const body = await request.json();
     const { attemptId, questionId, answer } = body as { attemptId: string; questionId: string; answer: unknown };
     if (!attemptId || !questionId || answer === undefined) {
@@ -14,7 +15,7 @@ export async function POST(request: Request) {
     }
 
     const supabase = await createServerClient();
-    const result = await answerDiagnosticQuestion(supabase, { attemptId, questionId, answer });
+    const result = await answerDiagnosticQuestion(supabase, { attemptId, questionId, answer }, await aiForStudent(studentId));
 
     if ('completed' in result) {
       return NextResponse.json({ data: { completed: true, result: result.result }, error: null });
