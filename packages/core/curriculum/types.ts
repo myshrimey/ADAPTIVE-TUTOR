@@ -27,11 +27,15 @@ export interface Chapter {
   topics: Topic[];
 }
 
+export type SubjectStatus = 'ready' | 'pilot' | 'in_development' | 'coming_soon';
+
 export interface Subject {
   id: string;
   curriculumId: string;
   name: string;
   slug: string;
+  status: SubjectStatus;
+  description: string | null;
   chapters: Chapter[];
 }
 

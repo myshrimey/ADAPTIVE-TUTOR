@@ -1,9 +1,11 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { AIProvider } from '../ai-provider/ai-provider.interface';
+import { generateQuestionWithSolution, validateGeneratedQuestion } from './ai-question-generator';
 
 export interface QuestionSelectionParams {
   skillId: string;
   skillName: string;
+  subjectName: string;
   masteryScore: number;
   difficulty: number; // 1-5
   learningObjective: string;
@@ -18,6 +20,8 @@ export interface SelectedQuestion {
   options?: unknown;
   expectedAnswer: unknown;
   difficulty: number;
+  figureUrl: string | null;
+  figureCaption: string | null;
 }
 
 /**
@@ -34,8 +38,20 @@ export async function selectQuestion(
   const bankQuestion = await pickFromBank(supabase, params);
   if (bankQuestion) return bankQuestion;
 
-  const generated = await generateQuestion(aiProvider, params);
-  const validation = validateQuestionShape(generated);
+  // Bank is thin for this skill/difficulty — generate a fresh one via AI
+  // instead of reusing a too-easy/too-hard or already-seen question
+  // (docs/architecture.md §13, Cost Control). Every generated question is
+  // persisted (source: 'generated') so it's immediately a real bank
+  // question for every future student too — the bank genuinely grows
+  // through use rather than needing every question hand-authored up front.
+  const generated = await generateQuestionWithSolution(aiProvider, {
+    subjectName: params.subjectName,
+    skillName: params.skillName,
+    difficulty: params.difficulty,
+    learningObjective: params.learningObjective,
+    recentMisconceptions: params.recentMisconceptions,
+  });
+  const validation = validateGeneratedQuestion(generated);
   if (!validation.valid) {
     throw new Error(`generated_question_invalid: ${validation.reason}`);
   }
@@ -45,11 +61,13 @@ export async function selectQuestion(
     .insert({
       skill_id: params.skillId,
       source: 'generated',
+      content_status: 'needs_review',
       difficulty: params.difficulty,
       question_type: generated.questionType,
       prompt: generated.prompt,
       options: generated.options ?? null,
       expected_answer: generated.expectedAnswer,
+      explanation: generated.explanation,
       validated: true,
     })
     .select()
@@ -63,15 +81,18 @@ export async function selectQuestion(
     options: inserted.options,
     expectedAnswer: inserted.expected_answer,
     difficulty: inserted.difficulty,
+    figureUrl: inserted.figure_url ?? null,
+    figureCaption: inserted.figure_caption ?? null,
   };
 }
 
 async function pickFromBank(supabase: SupabaseClient, params: QuestionSelectionParams): Promise<SelectedQuestion | null> {
   let query = supabase
     .from('questions')
-    .select('id, prompt, question_type, options, expected_answer, difficulty')
+    .select('id, prompt, question_type, options, expected_answer, difficulty, figure_url, figure_caption')
     .eq('skill_id', params.skillId)
     .eq('validated', true)
+    .neq('content_status', 'rejected')
     .gte('difficulty', Math.max(1, params.difficulty - 1))
     .lte('difficulty', Math.min(5, params.difficulty + 1));
 
@@ -90,54 +111,24 @@ async function pickFromBank(supabase: SupabaseClient, params: QuestionSelectionP
     options: closest.options,
     expectedAnswer: closest.expected_answer,
     difficulty: closest.difficulty,
+    figureUrl: closest.figure_url ?? null,
+    figureCaption: closest.figure_caption ?? null,
   };
 }
 
-interface GeneratedQuestion {
-  prompt: string;
-  questionType: 'mcq' | 'short_answer' | 'numeric' | 'step';
-  options?: string[];
-  expectedAnswer: { value: string };
-}
+// The actual AI-generation call and its shape validation now live in
+// ai-question-generator.ts (shared with quiz/skill-quiz.engine.ts) —
+// re-exported here under their old names so nothing importing from this
+// module (the barrel export in index.ts, any existing caller) breaks.
+export { validateGeneratedQuestion as validateQuestionShape } from './ai-question-generator';
 
-const GENERATION_SYSTEM_PROMPT = `You write a single CBSE Class 10 Maths practice question. Respond ONLY with JSON,
-no prose, no markdown fences: {"prompt": string, "questionType": "mcq"|"short_answer"|"numeric"|"step",
-"options": string[]|null, "expectedAnswer": {"value": string}}. The question must test exactly the named
-skill at the named difficulty, use age-appropriate language, and have one unambiguous correct answer.`;
-
-async function generateQuestion(aiProvider: AIProvider, params: QuestionSelectionParams): Promise<GeneratedQuestion> {
-  const userMessage = [
-    `Skill: ${params.skillName}`,
-    `Learning objective: ${params.learningObjective}`,
-    `Difficulty: ${params.difficulty}/5`,
-    params.recentMisconceptions.length ? `Recent misconceptions to probe for: ${params.recentMisconceptions.join(', ')}` : null,
-  ]
-    .filter(Boolean)
-    .join('\n');
-
-  const result = await aiProvider.complete({ systemPrompt: GENERATION_SYSTEM_PROMPT, userMessage, responseFormat: 'json' });
-
-  try {
-    return JSON.parse(result.text) as GeneratedQuestion;
-  } catch {
-    throw new Error('generated_question_not_valid_json');
-  }
-}
-
-export function validateQuestionShape(q: GeneratedQuestion): { valid: boolean; reason?: string } {
-  if (!q.prompt || q.prompt.trim().length < 5) return { valid: false, reason: 'prompt_too_short' };
-  if (!['mcq', 'short_answer', 'numeric', 'step'].includes(q.questionType)) return { valid: false, reason: 'invalid_question_type' };
-  if (q.questionType === 'mcq' && (!q.options || q.options.length < 2)) return { valid: false, reason: 'mcq_missing_options' };
-  if (!q.expectedAnswer || !q.expectedAnswer.value) return { valid: false, reason: 'missing_expected_answer' };
-  return { valid: true };
-}
-
-/** Re-checks a bank or already-inserted question's shape (used by eval/, Day 7). */
+/** Re-checks a bank or already-inserted question's shape. */
 export async function validateQuestion(question: SelectedQuestion): Promise<{ valid: boolean; reason?: string }> {
-  return validateQuestionShape({
+  return validateGeneratedQuestion({
     prompt: question.prompt,
     questionType: question.questionType,
     options: question.options as string[] | undefined,
     expectedAnswer: question.expectedAnswer as { value: string },
+    explanation: 'placeholder', // SelectedQuestion doesn't carry explanation; shape-check skips this field for bank re-checks
   });
 }

@@ -440,6 +440,38 @@ a {
   margin-bottom: var(--space-2);
 }
 
+.question-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0 var(--space-2);
+  padding: var(--space-2);
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.question-figure__img {
+  max-width: 100%;
+  max-height: 220px;
+}
+
+.question-figure__caption {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--slate);
+  text-align: center;
+}
+
+.score-gauge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  margin: var(--space-2) 0;
+}
+
 .mcq-options {
   display: flex;
   flex-direction: column;

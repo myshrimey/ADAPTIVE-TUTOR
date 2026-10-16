@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { loadLearnerState, resolveCurrentObjective, runOrchestratorTurn, logEvent } from '@adaptive-tutor/core';
+import { loadLearnerState, resolveCurrentObjective, runOrchestratorTurn, logEvent, recordCheckin } from '@adaptive-tutor/core';
 
 export async function POST(request: Request) {
   try {
@@ -30,6 +30,19 @@ export async function POST(request: Request) {
       .select()
       .single();
     if (error || !session) throw error ?? new Error('session_create_failed');
+
+    // Pre-session check-in (optional — a student can skip it). Stored before the
+    // first tutor turn so a "recovery mode" start can make the opening question
+    // gentler. A failure here must never block the session itself.
+    let recoveryMode = false;
+    if (body.checkin && typeof body.checkin === 'object') {
+      try {
+        const result = await recordCheckin(supabase, studentId, session.id, objective.skillId, body.checkin);
+        recoveryMode = result.recoveryMode;
+      } catch (checkinErr) {
+        console.error('session/start: check-in not saved', checkinErr);
+      }
+    }
 
     // Neither log write depends on the other, and nothing after this needs
     // to wait for them either in principle — but logEvent already swallows
@@ -63,7 +76,7 @@ export async function POST(request: Request) {
     // Opening turn: no student message yet, just the tutor's first move for this objective.
     const turn = await runOrchestratorTurn(supabase, { studentId, sessionId: session.id });
 
-    return NextResponse.json({ data: { sessionId: session.id, skillId: objective.skillId, context, turn }, error: null });
+    return NextResponse.json({ data: { sessionId: session.id, skillId: objective.skillId, context, turn, recoveryMode }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
   }

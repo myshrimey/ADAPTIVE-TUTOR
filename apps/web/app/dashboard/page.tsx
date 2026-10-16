@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { loadCurriculum, t } from '@adaptive-tutor/core';
+import { loadCurriculum, loadSubjectCatalogue, t } from '@adaptive-tutor/core';
 import { SubjectIcon } from '@/components/SubjectIcon';
 import { CountUp } from '@/components/CountUp';
 import { getServerLang } from '@/lib/language';
@@ -31,7 +31,7 @@ export default async function DashboardOverviewPage() {
   const supabase = await createServerClient();
   const lang = await getServerLang();
 
-  const [{ data: student }, { data: masteryRows }, curriculum, { data: sessions }, completedCountResult] = await Promise.all([
+  const [{ data: student }, { data: masteryRows }, curriculum, { data: sessions }, completedCountResult, catalogue] = await Promise.all([
     supabase.from('students').select('display_name').eq('id', studentId).single(),
     supabase.from('mastery_states').select('skill_id, score').eq('student_id', studentId),
     loadCurriculum(supabase, 'CBSE', '10'),
@@ -42,18 +42,29 @@ export default async function DashboardOverviewPage() {
       .order('started_at', { ascending: false })
       .limit(3),
     supabase.from('learning_sessions').select('id', { count: 'exact', head: true }).eq('student_id', studentId).eq('status', 'completed'),
+    loadSubjectCatalogue(supabase, studentId),
   ]);
+  const registeredIds = new Set(catalogue.filter((c) => c.registered).map((c) => c.id));
+  const activeSubjectId = catalogue.find((c) => c.active)?.id ?? null;
 
   const masteryBySkill = new Map((masteryRows ?? []).map((r) => [r.skill_id, r.score as number]));
   const overallMastery = masteryRows && masteryRows.length > 0 ? masteryRows.reduce((sum, r) => sum + Number(r.score), 0) / masteryRows.length : 0;
   const skillsTouched = masteryRows?.length ?? 0;
   const sessionsCompleted = completedCountResult.count ?? 0;
 
-  const subjectAverages = curriculum.subjects.map((subject) => {
+  // Show only the subjects this student registered for or has already worked
+  // in — not every subject in the catalogue — and never a coming-soon one.
+  const visibleSubjects = curriculum.subjects.filter((subject) => {
+    const usable = subject.status === 'ready' || subject.status === 'pilot';
+    if (!usable) return false;
+    const started = subject.chapters.some((c) => c.topics.some((t) => t.skills.some((s) => masteryBySkill.has(s.id))));
+    return registeredIds.has(subject.id) || started;
+  });
+  const subjectAverages = visibleSubjects.map((subject) => {
     const scores = subject.chapters.flatMap((c) => c.topics.flatMap((t) => t.skills)).map((s) => masteryBySkill.get(s.id) ?? null);
     const touched = scores.filter((s) => s !== null) as number[];
     const avg = touched.length ? touched.reduce((a, b) => a + b, 0) / touched.length : 0;
-    return { id: subject.id, name: subject.name, slug: subject.slug, avg, started: touched.length > 0 };
+    return { id: subject.id, name: subject.name, slug: subject.slug, status: subject.status, avg, started: touched.length > 0, active: subject.id === activeSubjectId };
   });
 
   const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
@@ -124,12 +135,14 @@ export default async function DashboardOverviewPage() {
 
         {subjectAverages.length > 0 && (
           <section className="fade-slide-in" style={{ marginTop: 'var(--space-4)', animationDelay: '0.15s' }}>
-            <h2 style={{ fontSize: 'var(--step-1)', marginBottom: '0.6rem' }}>Your subjects</h2>
+            <h2 style={{ fontSize: 'var(--step-1)', marginBottom: '0.6rem' }}>
+              Your subjects <a href="/subjects" style={{ fontSize: '0.85rem', fontWeight: 400, marginLeft: '0.6rem' }}>{t('subject.manageLink', lang)}</a>
+            </h2>
             <div className="subject-chip-row">
               {subjectAverages.map((s) => (
                 <a key={s.id} href="/progress" className="subject-chip">
                   <SubjectIcon slug={s.slug} size={34} />
-                  <span className="subject-chip__name">{s.name}</span>
+                  <span className="subject-chip__name">{s.name}{s.status === 'pilot' ? ` · ${t('subject.status.pilot', lang)}` : ''}{s.active ? ' ●' : ''}</span>
                   <span className="subject-chip__score">{s.started ? `${Math.round(s.avg)}%` : 'Not started'}</span>
                 </a>
               ))}

@@ -3,19 +3,22 @@
 import { useEffect, useState } from 'react';
 import { MathText } from '@/components/MathText';
 import { SubjectIcon } from '@/components/SubjectIcon';
+import { QuestionFigure } from '@/components/QuestionFigure';
+import { MasteryArc } from '@/components/MasteryArc';
 import { useLanguage } from '@/components/LanguageProvider';
 
-// Social Science is intentionally left out of this picker — its question
-// bank is still thin (paused while Maths/Science are built out further; see
-// the footer's "What's covered here"), so offering it here would start a
-// diagnostic most of which has nothing to actually ask.
-const PICKABLE_SUBJECT_SLUGS = ['maths', 'science'];
+// Which subjects can be tested comes from each subject's readiness status in
+// the database (migration 0013): 'ready' and 'pilot' can be tested; 'coming
+// soon' / 'in development' are not offered. Pilot subjects are labelled so a
+// student/parent knows their questions are still being reviewed.
+const USABLE_STATUSES = ['ready', 'pilot'];
 
 interface SubjectOption {
   id: string;
   slug: string;
   name: string;
   chapterCount: number;
+  status: string;
 }
 
 interface QuestionView {
@@ -25,6 +28,8 @@ interface QuestionView {
   questionType: 'mcq' | 'short_answer' | 'numeric';
   options: string[] | null;
   difficulty: number;
+  figureUrl: string | null;
+  figureCaption: string | null;
 }
 
 interface QuestionReviewEntry {
@@ -36,6 +41,8 @@ interface QuestionReviewEntry {
   correctAnswer: string;
   isCorrect: boolean;
   explanation: string | null;
+  figureUrl: string | null;
+  figureCaption: string | null;
 }
 
 interface DiagnosticResult {
@@ -71,8 +78,8 @@ export default function DiagnosticPage() {
       .then((json) => {
         if (json.error) throw new Error(json.error);
         const options: SubjectOption[] = (json.data?.subjects ?? [])
-          .filter((s: any) => PICKABLE_SUBJECT_SLUGS.includes(s.slug))
-          .map((s: any) => ({ id: s.id, slug: s.slug, name: s.name, chapterCount: s.chapters?.length ?? 0 }));
+          .filter((s: any) => USABLE_STATUSES.includes(s.status ?? 'ready') && (s.chapters?.length ?? 0) > 0)
+          .map((s: any) => ({ id: s.id, slug: s.slug, name: s.name, chapterCount: s.chapters?.length ?? 0, status: s.status ?? 'ready' }));
         setSubjects(options);
       })
       .catch((e) => setError(e.message))
@@ -180,8 +187,15 @@ export default function DiagnosticPage() {
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
                   <SubjectIcon slug={s.slug} size={36} />
                   <div>
-                    <div style={{ fontWeight: 500 }}>{s.name}</div>
-                    <div style={{ fontSize: '0.82rem', color: 'var(--slate)' }}>{s.chapterCount} chapters</div>
+                    <div style={{ fontWeight: 500 }}>
+                      {s.name}
+                      {s.status === 'pilot' && (
+                        <span className="subject-chip__score" style={{ marginLeft: '0.5rem' }}>Pilot</span>
+                      )}
+                    </div>
+                    <div style={{ fontSize: '0.82rem', color: 'var(--slate)' }}>
+                      {s.chapterCount} chapters{s.status === 'pilot' ? ' · questions still being reviewed' : ''}
+                    </div>
                   </div>
                 </div>
                 <span style={{ color: 'var(--marigold-deep)', fontWeight: 500 }}>{starting && subjectId === s.id ? 'Starting…' : '→'}</span>
@@ -196,14 +210,19 @@ export default function DiagnosticPage() {
 
   if (result) {
     const total = result.strengths.length + result.weakSkills.length + result.prerequisiteGaps.length;
+    const overallScore = total > 0 ? (result.strengths.length / total) * 100 : 0;
+    const overallBand = overallScore >= 80 ? 'strong' : overallScore >= 50 ? 'developing' : overallScore >= 25 ? 'emerging' : 'needs_foundation';
     return (
       <main className="page">
         <div className="shell shell--narrow" style={{ paddingTop: 'var(--space-4)' }}>
           <h1 style={{ fontSize: 'var(--step-3)' }}>Diagnostic complete</h1>
-          <p style={{ color: 'var(--slate)' }}>
-            Strong on {result.strengths.length} of {total} skills checked. We'll start with what
-            gives the biggest lift.
-          </p>
+          <div className="score-gauge-row">
+            <MasteryArc score={overallScore} band={overallBand} label="Overall" size={120} />
+            <p style={{ color: 'var(--slate)', margin: 0 }}>
+              Strong on {result.strengths.length} of {total} skills checked. We'll start with what
+              gives the biggest lift.
+            </p>
+          </div>
           {result.prerequisiteGaps.length > 0 && (
             <p>
               Found <strong>{result.prerequisiteGaps.length}</strong> foundational gap
@@ -224,6 +243,7 @@ export default function DiagnosticPage() {
                     padding: '0.8rem 1rem',
                   }}
                 >
+                  <QuestionFigure url={q.figureUrl} caption={q.figureCaption} />
                   <p style={{ margin: 0, fontWeight: 500 }}>
                     <MathText text={q.prompt} />
                   </p>
@@ -289,6 +309,7 @@ export default function DiagnosticPage() {
                   — clearly label it rather than silently presenting it as
                   fully Hindi-supported. */}
               <p style={{ fontSize: '0.72rem', color: 'var(--slate)', marginBottom: '0.2rem' }}>{questionLanguageNote}</p>
+              <QuestionFigure url={question.figureUrl} caption={question.figureCaption} />
               <p className="question-card__prompt">
                 <MathText text={question.prompt} />
               </p>

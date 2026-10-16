@@ -1,0 +1,404 @@
+{
+  "subject_slug": "computer-applications",
+  "questions": [
+    {
+      "skill_slug": "identify-network-types",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "A network that connects computers within a single school building is called a:",
+      "expected_answer": {
+        "value": "LAN"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "LAN",
+        "WAN",
+        "MAN",
+        "PAN"
+      ],
+      "explanation": "A LAN (Local Area Network) covers a small area such as a building or campus."
+    },
+    {
+      "skill_slug": "explain-network-devices",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Which device connects different networks and forwards data packets between them?",
+      "expected_answer": {
+        "value": "Router"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Hub",
+        "Router",
+        "Repeater",
+        "Modem"
+      ],
+      "explanation": "A router forwards packets between different networks, while a switch connects devices within one LAN."
+    },
+    {
+      "skill_slug": "compare-network-topologies",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "prompt": "In a star topology, what happens if the cable of one node fails?",
+      "expected_answer": {
+        "value": "Only that node loses connection"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "The whole network stops working",
+        "All nodes except the central one fail",
+        "Only that node loses connection",
+        "Data is sent only to the last node"
+      ],
+      "explanation": "Each node in a star network has its own cable to the central device, so a single cable failure isolates only that node."
+    },
+    {
+      "skill_slug": "explain-dns-role",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "What does the Domain Name System (DNS) do?",
+      "expected_answer": {
+        "value": "Translates domain names into IP addresses"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Protects computers from viruses",
+        "Stores webpages for offline use",
+        "Assigns email passwords",
+        "Translates domain names into IP addresses"
+      ],
+      "explanation": "DNS lets people use names like example.com while computers use numeric IP addresses."
+    },
+    {
+      "skill_slug": "explain-ip-address-versions",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "prompt": "How many bits are there in an IPv6 address?",
+      "expected_answer": {
+        "value": "128"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "128",
+        "32",
+        "64",
+        "256"
+      ],
+      "explanation": "IPv4 addresses are 32 bits long, while IPv6 addresses are 128 bits long."
+    },
+    {
+      "skill_slug": "identify-https-security",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "What does \"https\" at the start of a web address indicate?",
+      "expected_answer": {
+        "value": "The connection is encrypted"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "The site is free of all viruses",
+        "The connection is encrypted",
+        "The site is run by the government",
+        "The page loads faster"
+      ],
+      "explanation": "HTTPS uses encryption (SSL/TLS) to protect data in transit, but it does not guarantee the site itself is trustworthy."
+    },
+    {
+      "skill_slug": "identify-html-structure",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Which element contains the content that is visible on a web page?",
+      "expected_answer": {
+        "value": "<body>"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "<head>",
+        "<title>",
+        "<body>",
+        "<meta>"
+      ],
+      "explanation": "The <body> element holds visible content, while <head> holds information such as the title."
+    },
+    {
+      "skill_slug": "apply-text-formatting-tags",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "Which tag is used to make text bold?",
+      "expected_answer": {
+        "value": "<b>"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "<i>",
+        "<u>",
+        "<br>",
+        "<b>"
+      ],
+      "explanation": "<b> makes text bold, <i> italic and <u> underlined."
+    },
+    {
+      "skill_slug": "compose-anchor-image",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Which attribute of the <a> tag specifies the destination of a link?",
+      "expected_answer": {
+        "value": "href"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "href",
+        "src",
+        "alt",
+        "link"
+      ],
+      "explanation": "The href attribute of <a> holds the URL. The src attribute belongs to <img>."
+    },
+    {
+      "skill_slug": "compose-lists-tables",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Which tag defines a row in an HTML table?",
+      "expected_answer": {
+        "value": "<tr>"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "<td>",
+        "<tr>",
+        "<th>",
+        "<tb>"
+      ],
+      "explanation": "<tr> is a table row, <td> a data cell and <th> a header cell."
+    },
+    {
+      "skill_slug": "identify-cyber-threats",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "An email pretending to be from a bank to steal your login details is called:",
+      "expected_answer": {
+        "value": "Phishing"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Spamming",
+        "Hacking back",
+        "Phishing",
+        "Cookie syncing"
+      ],
+      "explanation": "Phishing uses deceptive messages to trick people into giving away sensitive information."
+    },
+    {
+      "skill_slug": "apply-safe-online-practices",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Which of these is the strongest password?",
+      "expected_answer": {
+        "value": "T#9mQ!v2Lp8"
+      },
+      "misconception_tags": [
+        "INCOMPLETE_REASONING"
+      ],
+      "options": [
+        "password123",
+        "12345678",
+        "myname2010",
+        "T#9mQ!v2Lp8"
+      ],
+      "explanation": "A strong password is long and mixes upper and lower case letters, digits and symbols, and avoids guessable words."
+    },
+    {
+      "skill_slug": "explain-plagiarism-copyright",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Using someone else's work as your own without giving credit is called:",
+      "expected_answer": {
+        "value": "Plagiarism"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Plagiarism",
+        "Phishing",
+        "Netiquette",
+        "Encryption"
+      ],
+      "explanation": "Plagiarism is passing off another person's work as one's own. It also violates their intellectual property rights."
+    },
+    {
+      "skill_slug": "apply-and-or-not",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "What is the value of (1 AND 0) OR 1?",
+      "expected_answer": {
+        "value": "1"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "0",
+        "1",
+        "10",
+        "Undefined"
+      ],
+      "explanation": "1 AND 0 equals 0, and 0 OR 1 equals 1."
+    },
+    {
+      "skill_slug": "apply-de-morgan",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "prompt": "According to De Morgan's law, NOT (A AND B) is equal to:",
+      "expected_answer": {
+        "value": "(NOT A) OR (NOT B)"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "(NOT A) AND (NOT B)",
+        "A OR B",
+        "(NOT A) OR (NOT B)",
+        "NOT A AND B"
+      ],
+      "explanation": "De Morgan's law says the NOT of an AND is the OR of the NOTs."
+    },
+    {
+      "skill_slug": "apply-spreadsheet-formulas",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Which formula finds the total of cells A1 to A5?",
+      "expected_answer": {
+        "value": "=SUM(A1:A5)"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "=ADD(A1-A5)",
+        "=TOTAL(A1,A5)",
+        "=A1:A5",
+        "=SUM(A1:A5)"
+      ],
+      "explanation": "The SUM function with a range A1:A5 adds all the cells in that range."
+    },
+    {
+      "skill_slug": "apply-cell-references",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "prompt": "Which of these is an absolute cell reference?",
+      "expected_answer": {
+        "value": "$B$2"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "$B$2",
+        "B2",
+        "B$2",
+        "$B2"
+      ],
+      "explanation": "Only $B$2 has both column and row fixed, so it does not change when copied."
+    },
+    {
+      "skill_slug": "apply-mail-merge",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "What is the purpose of mail merge?",
+      "expected_answer": {
+        "value": "Creating personalised copies of a letter for many recipients"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Combining two documents into one file",
+        "Creating personalised copies of a letter for many recipients",
+        "Compressing a document for email",
+        "Translating a letter into another language"
+      ],
+      "explanation": "Mail merge joins a letter template with a recipient list to produce personalised letters."
+    },
+    {
+      "skill_slug": "explain-algorithm",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "An algorithm is best described as:",
+      "expected_answer": {
+        "value": "a finite set of well-defined steps to solve a problem"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "a programming language",
+        "a type of computer hardware",
+        "a finite set of well-defined steps to solve a problem",
+        "a random set of instructions"
+      ],
+      "explanation": "An algorithm is a finite, unambiguous sequence of steps that solves a problem."
+    },
+    {
+      "skill_slug": "identify-flowchart-symbols",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Which flowchart symbol represents a decision?",
+      "expected_answer": {
+        "value": "Diamond"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "Oval",
+        "Rectangle",
+        "Parallelogram",
+        "Diamond"
+      ],
+      "explanation": "A diamond shows a yes/no decision. Ovals mark start/stop and parallelograms show input/output."
+    },
+    {
+      "skill_slug": "apply-decomposition-loops",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "prompt": "x = 2. Repeat 3 times: x = x * 2. What is the final value of x?",
+      "expected_answer": {
+        "value": "16"
+      },
+      "misconception_tags": [
+        "INCOMPLETE_REASONING"
+      ],
+      "options": [
+        "16",
+        "8",
+        "12",
+        "32"
+      ],
+      "explanation": "x becomes 4, then 8, then 16 after the three repetitions."
+    }
+  ]
+}

@@ -38,6 +38,35 @@ const GLYPHS: Record<string, { path: ReactNode; bg: string; fg: string }> = {
       </>
     ),
   },
+  english: {
+    bg: 'var(--subject-social-bg)',
+    fg: 'var(--subject-social)',
+    path: (
+      <>
+        <path d="M4 5.5c2.7-.7 5.3-.4 8 1.2 2.7-1.6 5.3-1.9 8-1.2v12c-2.7-.7-5.3-.4-8 1.2-2.7-1.6-5.3-1.9-8-1.2v-12Z" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+        <path d="M12 6.7v12" stroke="currentColor" strokeWidth="1.3" />
+      </>
+    ),
+  },
+  hindi: {
+    bg: 'var(--subject-social-bg)',
+    fg: 'var(--subject-social)',
+    path: (
+      <>
+        <path d="M5 8h14M12 8v10M8.5 12.5c0 3 1.5 5.5 3.5 5.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      </>
+    ),
+  },
+  'computer-applications': {
+    bg: 'var(--subject-social-bg)',
+    fg: 'var(--subject-social)',
+    path: (
+      <>
+        <rect x="4" y="5" width="16" height="11" rx="1.5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        <path d="M9 19.5h6M12 16v3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </>
+    ),
+  },
 };
 
 export function SubjectIcon({ slug, size = 40 }: { slug: string; size?: number }) {

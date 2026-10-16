@@ -35,7 +35,7 @@ export async function loadCurriculum(
 
   const { data: subjectRows, error: subErr } = await supabase
     .from('subjects')
-    .select('id, curriculum_id, name, slug')
+    .select('id, curriculum_id, name, slug, status, description')
     .eq('curriculum_id', curriculumRow.id);
   if (subErr) throw subErr;
 
@@ -123,6 +123,8 @@ export async function loadCurriculum(
     curriculumId: row.curriculum_id,
     name: row.name,
     slug: row.slug,
+    status: (row.status ?? 'ready') as Subject['status'],
+    description: row.description ?? null,
     chapters: chaptersBySubject.get(row.id) ?? [],
   }));
 

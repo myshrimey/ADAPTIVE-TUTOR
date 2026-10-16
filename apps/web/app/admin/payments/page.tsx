@@ -56,7 +56,7 @@ export default async function AdminPaymentsPage() {
       <div className="shell">
         <div style={{ paddingTop: 'var(--space-3)', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
           <div>
-            <h1 style={{ fontSize: 'var(--step-2)' }}>Pilot payments</h1>
+            <h1 style={{ fontSize: 'var(--step-2)' }}>Payments (Complete Board Preparation)</h1>
             <p style={{ color: 'var(--slate)' }}>{rows?.length ?? 0} claims. Signed in as {user!.email}.</p>
           </div>
           <SignOutButton />
@@ -81,6 +81,7 @@ export default async function AdminPaymentsPage() {
                 </div>
               )}
               {r.status === 'pending' && <AdminPaymentActions paymentId={r.id} />}
+              {r.status === 'confirmed' && <AdminPaymentActions paymentId={r.id} status="confirmed" />}
             </div>
           </div>
         ))}

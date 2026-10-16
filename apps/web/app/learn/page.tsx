@@ -1,7 +1,10 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { CheckInForm, type CheckinAnswers } from '@/components/CheckInForm';
 import { MathText } from '@/components/MathText';
+import { QuestionFigure } from '@/components/QuestionFigure';
+import { MasteryArc } from '@/components/MasteryArc';
 
 interface ChatMessage {
   role: 'tutor' | 'student';
@@ -14,6 +17,8 @@ interface ActiveQuestion {
   prompt: string;
   questionType: string;
   options?: string[];
+  figureUrl?: string | null;
+  figureCaption?: string | null;
 }
 
 interface SessionSummary {
@@ -39,6 +44,8 @@ interface QuizQuestion {
   prompt: string;
   questionType: 'mcq' | 'short_answer' | 'numeric';
   options: string[] | null;
+  figureUrl?: string | null;
+  figureCaption?: string | null;
 }
 
 interface QuizReviewEntry {
@@ -49,6 +56,8 @@ interface QuizReviewEntry {
   correctAnswer: string;
   isCorrect: boolean;
   explanation: string | null;
+  figureUrl?: string | null;
+  figureCaption?: string | null;
 }
 
 interface QuizResult {
@@ -94,7 +103,16 @@ export default function LearnPage() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [activeQuestion, setActiveQuestion] = useState<ActiveQuestion | null>(null);
   const [input, setInput] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  // Pre-session check-in (v34). The session is created only after the student
+  // answers (or skips) the short check-in, so "recovery mode" can shape the
+  // opening question.
+  const [checkinDone, setCheckinDone] = useState(false);
+  const [hadCheckin, setHadCheckin] = useState(false);
+  const [recoveryMode, setRecoveryMode] = useState(false);
+  const [confidenceAfter, setConfidenceAfter] = useState<number | null>(null);
+  const [confidenceSaved, setConfidenceSaved] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
@@ -124,20 +142,43 @@ export default function LearnPage() {
   const [quizResult, setQuizResult] = useState<QuizResult | null>(null);
   const [quizSubmitting, setQuizSubmitting] = useState(false);
 
-  useEffect(() => {
-    fetch('/api/session/start', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' })
+  function startSession(checkin?: CheckinAnswers) {
+    setCheckinDone(true);
+    setHadCheckin(!!checkin);
+    setLoading(true);
+    fetch('/api/session/start', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(checkin ? { checkin } : {}),
+    })
       .then((r) => r.json())
       .then((json) => {
         if (json.error) throw new Error(json.error);
         setSessionId(json.data.sessionId);
         setSkillId(json.data.skillId ?? null);
         setContext(json.data.context ?? null);
+        setRecoveryMode(!!json.data.recoveryMode);
         setMessages([{ role: 'tutor', content: json.data.turn.tutorMessage, diagram: json.data.turn.diagram ?? null }]);
         setActiveQuestion(json.data.turn.activeQuestion ?? null);
       })
       .catch((e) => setError(friendlyError(e.message)))
       .finally(() => setLoading(false));
-  }, []);
+  }
+
+  async function saveConfidenceAfter(value: number) {
+    setConfidenceAfter(value);
+    if (!sessionId) return;
+    try {
+      await fetch('/api/session/checkin-after', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sessionId, confidenceAfter: value }),
+      });
+      setConfidenceSaved(true);
+    } catch {
+      // Non-critical — never block the summary over this.
+    }
+  }
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -259,6 +300,10 @@ export default function LearnPage() {
     setSummary(pendingSummary);
   }
 
+  if (!checkinDone) {
+    return <CheckInForm onSubmit={(a) => startSession(a)} onSkip={() => startSession()} />;
+  }
+
   if (quizPhase === 'loading') {
     return (
       <main className="page">
@@ -285,6 +330,7 @@ export default function LearnPage() {
           {q && (
             <form onSubmit={submitQuizAnswer}>
               <div className="question-card fade-slide-in">
+                <QuestionFigure url={q.figureUrl} caption={q.figureCaption} />
                 <p className="question-card__prompt">
                   <MathText text={q.prompt} />
                 </p>
@@ -329,9 +375,12 @@ export default function LearnPage() {
       <main className="page">
         <div className="shell shell--narrow" style={{ paddingTop: 'var(--space-4)' }}>
           <div className="quiz-score-banner pop-in">
-            <span className="quiz-score-banner__score">
-              {quizResult.score}/{quizResult.total}
-            </span>
+            <MasteryArc
+              score={pct}
+              band={pct >= 80 ? 'strong' : pct >= 50 ? 'developing' : pct >= 25 ? 'emerging' : 'needs_foundation'}
+              label={`${quizResult.score}/${quizResult.total} correct`}
+              size={120}
+            />
             <span className="quiz-score-banner__label">
               {pct >= 80 ? "Great work!" : pct >= 50 ? 'Good effort — keep practicing.' : "That's okay — review the solutions below."}
             </span>
@@ -350,6 +399,7 @@ export default function LearnPage() {
                   padding: '0.8rem 1rem',
                 }}
               >
+                <QuestionFigure url={q.figureUrl} caption={q.figureCaption} />
                 <p style={{ margin: 0, fontWeight: 500 }}>
                   <MathText text={q.prompt} />
                 </p>
@@ -397,6 +447,26 @@ export default function LearnPage() {
             </p>
           </div>
 
+          {hadCheckin && (
+            <section style={{ marginTop: 'var(--space-3)' }}>
+              <h2 style={{ fontSize: 'var(--step-1)', marginBottom: '0.4rem' }}>How confident do you feel about this topic now? (0–10)</h2>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem' }}>
+                {Array.from({ length: 11 }, (_, i) => i).map((n) => (
+                  <button
+                    key={n}
+                    type="button"
+                    className={confidenceAfter === n ? 'btn btn--accent btn--small' : 'btn btn--ghost btn--small'}
+                    aria-pressed={confidenceAfter === n}
+                    onClick={() => saveConfidenceAfter(n)}
+                  >
+                    {n}
+                  </button>
+                ))}
+              </div>
+              {confidenceSaved && <p style={{ color: 'var(--slate)', fontSize: '0.85rem' }}>Saved. Thank you.</p>}
+            </section>
+          )}
+
           <SummarySection title="What you learned" items={summary.whatYouLearned} />
           <SummarySection title="What you can now do" items={summary.whatYouCanNowDo} />
           <SummarySection title="Still needs practice" items={summary.needsPractice} />
@@ -439,6 +509,7 @@ export default function LearnPage() {
                 <div className="progress-bar__fill" style={{ width: `${Math.max(4, Math.min(100, context.masteryScore))}%` }} />
               </div>
               <p className="learn-sidebar__progress-label">{Math.round(context.masteryScore)}% mastered so far</p>
+              {recoveryMode && <p className="learn-sidebar__session-stat">Let&apos;s start gently today — a shorter, easier warm-up first.</p>}
 
               {answered > 0 && (
                 <p className="learn-sidebar__session-stat">
@@ -491,6 +562,8 @@ export default function LearnPage() {
             )}
             <div ref={bottomRef} />
           </div>
+
+          {activeQuestion && <QuestionFigure url={activeQuestion.figureUrl} caption={activeQuestion.figureCaption} />}
 
           {activeQuestion?.questionType === 'mcq' && activeQuestion.options && (
             <div className="mcq-options" style={{ marginBottom: 'var(--space-2)' }}>

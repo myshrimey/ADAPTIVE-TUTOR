@@ -1,0 +1,290 @@
+{
+  "curriculum": {
+    "board": "CBSE",
+    "class": "10",
+    "version": "v1"
+  },
+  "subject": {
+    "name": "English Language & Literature",
+    "slug": "english",
+    "status": "pilot",
+    "description": "Seeded this round; AI-assisted content pending founder/teacher review — see CONTENT_STATUS.md."
+  },
+  "chapters": [
+    {
+      "name": "First Flight Prose: Faith and Courage",
+      "slug": "ff-prose-faith-courage",
+      "sequence": 1,
+      "topics": [
+        {
+          "name": "A Letter to God",
+          "slug": "letter-to-god",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain Lencho's faith and the irony in A Letter to God",
+              "slug": "explain-lencho-faith-irony",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Nelson Mandela: Long Walk to Freedom",
+          "slug": "long-walk-to-freedom",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain Mandela's view of courage and freedom",
+              "slug": "explain-mandela-courage",
+              "requires": []
+            },
+            {
+              "name": "Identify the historical context of Mandela's presidency",
+              "slug": "identify-apartheid-context",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "First Flight Prose: Diaries and Journeys",
+      "slug": "ff-prose-diaries-journeys",
+      "sequence": 2,
+      "topics": [
+        {
+          "name": "From the Diary of Anne Frank",
+          "slug": "anne-frank-diary",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Identify how Anne Frank uses her diary as a confidant",
+              "slug": "identify-anne-frank-diary-address",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Madam Rides the Bus",
+          "slug": "madam-rides-the-bus",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain how Valli's bus journey changes her",
+              "slug": "explain-valli-bus-journey",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "First Flight Poetry",
+      "slug": "ff-poetry",
+      "sequence": 3,
+      "topics": [
+        {
+          "name": "Poems by Robert Frost",
+          "slug": "robert-frost-poems",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Interpret the mood change in Dust of Snow",
+              "slug": "interpret-dust-of-snow",
+              "requires": []
+            },
+            {
+              "name": "Interpret the symbolism in Fire and Ice",
+              "slug": "interpret-fire-and-ice",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Poetic Devices",
+          "slug": "poetic-devices",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Identify common poetic devices",
+              "slug": "identify-poetic-devices",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Footprints Without Feet: Stories I",
+      "slug": "fwf-stories-1",
+      "sequence": 4,
+      "topics": [
+        {
+          "name": "A Triumph of Surgery",
+          "slug": "triumph-of-surgery",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain the cause of Tricki's illness and its resolution",
+              "slug": "explain-tricki-overfeeding",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "The Thief's Story",
+          "slug": "thiefs-story",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Identify the relationship between Hari Singh and Anil",
+              "slug": "identify-thief-story-characters",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Footprints Without Feet: Stories II",
+      "slug": "fwf-stories-2",
+      "sequence": 5,
+      "topics": [
+        {
+          "name": "The Midnight Visitor",
+          "slug": "midnight-visitor",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Identify the characters and their roles in The Midnight Visitor",
+              "slug": "identify-midnight-visitor-characters",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "The Making of a Scientist",
+          "slug": "making-of-a-scientist",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain how curiosity shaped Richard Ebright's path to science",
+              "slug": "explain-ebright-curiosity",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grammar I: Tenses, Modals and Voice",
+      "slug": "grammar-tenses-modals-voice",
+      "sequence": 6,
+      "topics": [
+        {
+          "name": "Tenses",
+          "slug": "tenses",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Apply the past perfect tense correctly",
+              "slug": "apply-past-perfect-tense",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Modals and Voice",
+          "slug": "modals-voice",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Apply modals to express obligation and prohibition",
+              "slug": "apply-modals-prohibition",
+              "requires": []
+            },
+            {
+              "name": "Convert sentences between active and passive voice",
+              "slug": "convert-active-passive",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grammar II: Reported Speech, Agreement and Clauses",
+      "slug": "grammar-reported-agreement-clauses",
+      "sequence": 7,
+      "topics": [
+        {
+          "name": "Reported Speech",
+          "slug": "reported-speech",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Convert direct speech into reported speech",
+              "slug": "convert-direct-reported-speech",
+              "requires": [
+                "apply-past-perfect-tense"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Agreement and Clauses",
+          "slug": "agreement-clauses",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Apply subject-verb agreement",
+              "slug": "apply-subject-verb-agreement",
+              "requires": []
+            },
+            {
+              "name": "Identify noun, adjective and adverb clauses",
+              "slug": "identify-clause-types",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Writing and Reading Skills",
+      "slug": "writing-reading-skills",
+      "sequence": 8,
+      "topics": [
+        {
+          "name": "Letters and Analytical Paragraphs",
+          "slug": "letters-analytical-paragraphs",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Compose a formal letter in the correct format",
+              "slug": "compose-formal-letter",
+              "requires": []
+            },
+            {
+              "name": "Compose an analytical paragraph from a chart or data",
+              "slug": "compose-analytical-paragraph",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Reading Comprehension",
+          "slug": "reading-comprehension",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Infer meaning from a short passage",
+              "slug": "infer-from-passage",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

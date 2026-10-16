@@ -1,0 +1,296 @@
+{
+  "curriculum": {
+    "board": "CBSE",
+    "class": "10",
+    "version": "v1"
+  },
+  "subject": {
+    "name": "Computer Applications",
+    "slug": "computer-applications",
+    "status": "pilot",
+    "description": "Seeded this round; AI-assisted content pending founder/teacher review — see CONTENT_STATUS.md."
+  },
+  "chapters": [
+    {
+      "name": "Computer Networks",
+      "slug": "computer-networks",
+      "sequence": 1,
+      "topics": [
+        {
+          "name": "Network Types and Devices",
+          "slug": "network-types-devices",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Identify types of networks by their coverage",
+              "slug": "identify-network-types",
+              "requires": []
+            },
+            {
+              "name": "Explain the function of common network devices",
+              "slug": "explain-network-devices",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Network Topologies",
+          "slug": "network-topologies",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Compare network topologies",
+              "slug": "compare-network-topologies",
+              "requires": [
+                "identify-network-types"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Internet and the Web",
+      "slug": "internet-web",
+      "sequence": 2,
+      "topics": [
+        {
+          "name": "Internet Addressing",
+          "slug": "internet-addressing",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain the role of DNS",
+              "slug": "explain-dns-role",
+              "requires": []
+            },
+            {
+              "name": "Explain IPv4 and IPv6 addresses",
+              "slug": "explain-ip-address-versions",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Web Basics",
+          "slug": "web-basics",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Identify secure web communication",
+              "slug": "identify-https-security",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HTML Basics",
+      "slug": "html-basics",
+      "sequence": 3,
+      "topics": [
+        {
+          "name": "Structure of an HTML Page",
+          "slug": "html-structure",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Identify the structural elements of an HTML page",
+              "slug": "identify-html-structure",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Text Formatting",
+          "slug": "html-text-formatting",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Apply tags to format text",
+              "slug": "apply-text-formatting-tags",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HTML Links, Lists and Tables",
+      "slug": "html-links-lists-tables",
+      "sequence": 4,
+      "topics": [
+        {
+          "name": "Links and Images",
+          "slug": "html-links-images",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Compose hyperlinks and image tags",
+              "slug": "compose-anchor-image",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Lists and Tables",
+          "slug": "html-lists-tables",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Compose lists and tables",
+              "slug": "compose-lists-tables",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cyber Ethics and Safety",
+      "slug": "cyber-ethics-safety",
+      "sequence": 5,
+      "topics": [
+        {
+          "name": "Cyber Threats and Safe Practices",
+          "slug": "cyber-threats-safe-practices",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Identify common cyber threats",
+              "slug": "identify-cyber-threats",
+              "requires": []
+            },
+            {
+              "name": "Apply safe online practices",
+              "slug": "apply-safe-online-practices",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Ethics and Intellectual Property",
+          "slug": "ethics-ip",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain plagiarism and copyright",
+              "slug": "explain-plagiarism-copyright",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Boolean Logic",
+      "slug": "boolean-logic",
+      "sequence": 6,
+      "topics": [
+        {
+          "name": "Basic Logic Gates",
+          "slug": "basic-logic-gates",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Apply AND, OR and NOT operations",
+              "slug": "apply-and-or-not",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Boolean Laws",
+          "slug": "boolean-laws",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Apply De Morgan's laws",
+              "slug": "apply-de-morgan",
+              "requires": [
+                "apply-and-or-not"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Productivity Tools",
+      "slug": "productivity-tools",
+      "sequence": 7,
+      "topics": [
+        {
+          "name": "Spreadsheets",
+          "slug": "spreadsheets",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Apply formulas and functions in a spreadsheet",
+              "slug": "apply-spreadsheet-formulas",
+              "requires": []
+            },
+            {
+              "name": "Apply relative and absolute cell references",
+              "slug": "apply-cell-references",
+              "requires": [
+                "apply-spreadsheet-formulas"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Documents and Presentations",
+          "slug": "documents-presentations",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Apply mail merge in a word processor",
+              "slug": "apply-mail-merge",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Algorithmic Thinking",
+      "slug": "algorithmic-thinking",
+      "sequence": 8,
+      "topics": [
+        {
+          "name": "Algorithms and Flowcharts",
+          "slug": "algorithms-flowcharts",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain what an algorithm is",
+              "slug": "explain-algorithm",
+              "requires": []
+            },
+            {
+              "name": "Identify flowchart symbols",
+              "slug": "identify-flowchart-symbols",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Problem Solving",
+          "slug": "problem-solving",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Apply decomposition and loops to solve problems",
+              "slug": "apply-decomposition-loops",
+              "requires": [
+                "explain-algorithm"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

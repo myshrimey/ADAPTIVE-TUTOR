@@ -47,8 +47,9 @@ export async function Footer() {
           <ul className="site-footer__list">
             <li>Maths — 14 chapters, Real Numbers through Probability.</li>
             <li>Science — 10 chapters across Physics, Chemistry, and Biology.</li>
+            <li>Pilot (questions still being reviewed): Social Science, English Language &amp; Literature, Hindi Course A, Computer Applications.</li>
           </ul>
-          <p className="site-footer__note">Social Science content is on the way.</p>
+          <p className="site-footer__note">Each subject's status is shown wherever you choose it.</p>
         </div>
 
         <div className="site-footer__col">

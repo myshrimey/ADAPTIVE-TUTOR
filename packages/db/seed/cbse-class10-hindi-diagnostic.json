@@ -1,0 +1,385 @@
+{
+  "subject_slug": "hindi",
+  "questions": [
+    {
+      "skill_slug": "identify-netaji-ka-chashma-subject",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Whose statue is the focus of Swayam Prakash's story \"Netaji ka Chashma\"?",
+      "expected_answer": {
+        "value": "Subhas Chandra Bose"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Subhas Chandra Bose",
+        "Mahatma Gandhi",
+        "Bhagat Singh",
+        "Jawaharlal Nehru"
+      ],
+      "explanation": "The story centres on the statue of Netaji Subhas Chandra Bose in a town square, and its missing spectacles."
+    },
+    {
+      "skill_slug": "explain-lakhnavi-andaz-satire",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "prompt": "What does Yashpal satirise in \"Lakhnavi Andaz\"?",
+      "expected_answer": {
+        "value": "Pretentious, show-off aristocratic behaviour"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "The poverty of villagers",
+        "Pretentious, show-off aristocratic behaviour",
+        "Corruption in government offices",
+        "Modern technology"
+      ],
+      "explanation": "The Nawab's elaborate ritual with cucumbers, which he only smells and then discards, mocks empty pride in a showy lifestyle."
+    },
+    {
+      "skill_slug": "identify-balgobin-bhagat-devotion",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Balgobin Bhagat was a devotee of which saint-poet?",
+      "expected_answer": {
+        "value": "Kabir"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Tulsidas",
+        "Surdas",
+        "Kabir",
+        "Raidas"
+      ],
+      "explanation": "Balgobin Bhagat sang Kabir's padas and treated Kabir as his saheb."
+    },
+    {
+      "skill_slug": "explain-stri-shiksha-argument",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "What is the central argument of Mahavir Prasad Dwivedi's essay \"Stri Shiksha ke Virodhi Kutarkon ka Khandan\"?",
+      "expected_answer": {
+        "value": "Arguments against educating women are baseless and women should be educated"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Women should be taught only household skills",
+        "Education makes women lose their culture",
+        "Only men need formal education",
+        "Arguments against educating women are baseless and women should be educated"
+      ],
+      "explanation": "Dwivedi refutes the illogical arguments of those opposed to women's education and argues strongly for it."
+    },
+    {
+      "skill_slug": "explain-uddhav-gopi-sandesh",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "In Surdas's pads on the \"Bhramargeet\" theme, whom does Krishna send to console the gopis in Gokul?",
+      "expected_answer": {
+        "value": "Uddhav"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Uddhav",
+        "Akrur",
+        "Balram",
+        "Sudama"
+      ],
+      "explanation": "Krishna sends his friend Uddhav with a message of yoga, and the gopis answer him with love-filled complaints."
+    },
+    {
+      "skill_slug": "explain-parshuram-anger",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Why is Parashuram angry in Tulsidas's \"Ram-Lakshman-Parashuram Samvad\"?",
+      "expected_answer": {
+        "value": "Someone broke Shiva's bow"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Ram refused to greet him",
+        "Someone broke Shiva's bow",
+        "Lakshman stole his axe",
+        "Sita insulted him"
+      ],
+      "explanation": "Parashuram, a devotee of Shiva, rages at the person who broke Shiva's bow at Sita's swayamvara."
+    },
+    {
+      "skill_slug": "identify-aatmakathya-poet",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "Who wrote the poem \"Aatmakathya\"?",
+      "expected_answer": {
+        "value": "Jaishankar Prasad"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "Suryakant Tripathi Nirala",
+        "Nagarjun",
+        "Jaishankar Prasad",
+        "Girija Kumar Mathur"
+      ],
+      "explanation": "\"Aatmakathya\" was written by Jaishankar Prasad, a major poet of the Chhayavad movement."
+    },
+    {
+      "skill_slug": "explain-kanyadaan-message",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "prompt": "What is the central message of Rituraj's poem \"Kanyadaan\"?",
+      "expected_answer": {
+        "value": "Women should not accept stereotypes that confine them as meek and submissive"
+      },
+      "misconception_tags": [
+        "INCOMPLETE_REASONING"
+      ],
+      "options": [
+        "A daughter must always obey in-laws",
+        "Marriage is the only goal of a woman",
+        "Women should avoid education",
+        "Women should not accept stereotypes that confine them as meek and submissive"
+      ],
+      "explanation": "The mother warns her daughter not to be trapped by idealised images of docile womanhood."
+    },
+    {
+      "skill_slug": "identify-mata-ka-aanchal-author",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "Who wrote \"Mata ka Aanchal\"?",
+      "expected_answer": {
+        "value": "Shivpujan Sahay"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "Shivpujan Sahay",
+        "Premchand",
+        "Yashpal",
+        "Mannu Bhandari"
+      ],
+      "explanation": "\"Mata ka Aanchal\" is a childhood memoir by Shivpujan Sahay about a child's bond with his father and mother."
+    },
+    {
+      "skill_slug": "explain-george-pancham-satire",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "prompt": "What does Kamleshwar's \"George Pancham ki Naak\" satirise?",
+      "expected_answer": {
+        "value": "The colonial mentality and servility of officials"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "The beauty of English art",
+        "The colonial mentality and servility of officials",
+        "The bravery of British soldiers",
+        "The honesty of government clerks"
+      ],
+      "explanation": "The effort to restore the statue's nose mocks officials' obsession with pleasing the former colonial rulers."
+    },
+    {
+      "skill_slug": "identify-ras-sthayi-bhav",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "What is the sthayi bhav of Veer ras?",
+      "expected_answer": {
+        "value": "Utsah"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "Shok",
+        "Krodh",
+        "Utsah",
+        "Bhay"
+      ],
+      "explanation": "The sthayi bhav of Veer ras is utsah (enthusiasm). Shok belongs to Karun ras, krodh to Raudra ras, and bhay to Bhayanak ras."
+    },
+    {
+      "skill_slug": "identify-alankar-upama",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "In \"Uska mukh chandrama ke saman sundar hai\", which alankar is used?",
+      "expected_answer": {
+        "value": "Upama"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Rupak",
+        "Anupras",
+        "Yamak",
+        "Upama"
+      ],
+      "explanation": "A comparison using words like \"ke saman\" or \"sa\" between an upaman and upamey is upama alankar."
+    },
+    {
+      "skill_slug": "explain-muhavare-meaning",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "What does the muhavara \"aankhon ka tara\" mean?",
+      "expected_answer": {
+        "value": "Very dear"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Very dear",
+        "Very angry",
+        "Very tired",
+        "Very proud"
+      ],
+      "explanation": "\"Aankhon ka tara\" describes someone very precious or beloved."
+    },
+    {
+      "skill_slug": "identify-samas-type",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "prompt": "\"Pitambar\" (one who wears yellow clothes, meaning Krishna) is which type of samas?",
+      "expected_answer": {
+        "value": "Bahuvrihi"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Tatpurush",
+        "Bahuvrihi",
+        "Dvandva",
+        "Karmadharay"
+      ],
+      "explanation": "In bahuvrihi samas neither word gives the main meaning; the compound points to a third entity, here Krishna."
+    },
+    {
+      "skill_slug": "identify-sandhi-type",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "prompt": "\"Vidyalay\" is formed from vidya + alay. Which type of sandhi is this?",
+      "expected_answer": {
+        "value": "Dirgh sandhi"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Guna sandhi",
+        "Vriddhi sandhi",
+        "Dirgh sandhi",
+        "Yan sandhi"
+      ],
+      "explanation": "Here \"a\" + \"a\" combine to form \"aa\", which is dirgh sandhi."
+    },
+    {
+      "skill_slug": "identify-vakya-bhed",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "\"Vah khelta hai aur main padhta hoon\" is which type of vakya?",
+      "expected_answer": {
+        "value": "Sanyukt vakya"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Saral vakya",
+        "Mishrit vakya",
+        "Prashnavachak vakya",
+        "Sanyukt vakya"
+      ],
+      "explanation": "Two independent clauses joined by \"aur\" make a sanyukt (compound) vakya."
+    },
+    {
+      "skill_slug": "identify-vachya",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "prompt": "\"Rogi se utha nahin jata\" is in which vachya?",
+      "expected_answer": {
+        "value": "Bhav vachya"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Bhav vachya",
+        "Kartri vachya",
+        "Karm vachya",
+        "Shabd vachya"
+      ],
+      "explanation": "The sentence stresses the state or inability of the doer rather than an object, so it is bhav vachya."
+    },
+    {
+      "skill_slug": "compose-aupcharik-patra",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "An application to the Principal asking for leave is which type of letter?",
+      "expected_answer": {
+        "value": "Aupcharik patra"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Anaupcharik patra",
+        "Aupcharik patra",
+        "Nijee patra",
+        "Badhai patra"
+      ],
+      "explanation": "Letters to officials and institutions are formal letters, called aupcharik patra."
+    },
+    {
+      "skill_slug": "compose-anuchchhed",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "A good anuchchhed should be written as:",
+      "expected_answer": {
+        "value": "a single paragraph on one central idea"
+      },
+      "misconception_tags": [
+        "INCOMPLETE_REASONING"
+      ],
+      "options": [
+        "many short unrelated points",
+        "a letter with an address",
+        "a single paragraph on one central idea",
+        "a dialogue between two people"
+      ],
+      "explanation": "An anuchchhed develops one central idea in connected sentences within a single paragraph."
+    },
+    {
+      "skill_slug": "compose-suchna",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Which details are essential in a suchna for a school event?",
+      "expected_answer": {
+        "value": "Date, time and venue of the event"
+      },
+      "misconception_tags": [
+        "INCOMPLETE_REASONING"
+      ],
+      "options": [
+        "Only the name of the writer",
+        "A long story about the event",
+        "The writer's home address",
+        "Date, time and venue of the event"
+      ],
+      "explanation": "A notice must state clearly what, when and where, along with the issuing authority and date."
+    }
+  ]
+}

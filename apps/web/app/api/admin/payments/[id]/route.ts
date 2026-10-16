@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient } from '@/lib/supabase-server';
-import { confirmPayment, rejectPayment } from '@adaptive-tutor/core';
+import { confirmPayment, rejectPayment, refundPayment } from '@adaptive-tutor/core';
 
 // Admin-only: confirm or reject a pilot payment claim. Gated on ADMIN_EMAILS,
 // checked against the caller's own authenticated session — never trusts a
@@ -27,13 +27,15 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
     await assertAdmin();
     const { id } = await params;
     const body = await request.json().catch(() => ({}));
-    const action = body.action as 'confirm' | 'reject';
+    const action = body.action as 'confirm' | 'reject' | 'refund';
     const service = createServiceClient();
 
     if (action === 'confirm') {
       await confirmPayment(service, id, { adminNotes: body.adminNotes });
     } else if (action === 'reject') {
       await rejectPayment(service, id, body.adminNotes);
+    } else if (action === 'refund') {
+      await refundPayment(service, id, body.adminNotes);
     } else {
       return NextResponse.json({ data: null, error: 'invalid_action' }, { status: 400 });
     }

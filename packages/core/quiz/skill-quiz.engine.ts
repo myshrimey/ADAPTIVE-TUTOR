@@ -4,18 +4,21 @@ import { createDefaultAIProvider } from '../ai-provider/factory';
 import { gradeAnswer, extractString } from '../question-engine/grading';
 import { logEvent } from '../analytics/events';
 import { ensureExplanation } from '../explanations/ensure-explanation';
+import { generateQuestionWithSolution, validateGeneratedQuestion } from '../question-engine/ai-question-generator';
 
-// A short, auto-generated quiz shown right after a learning session ends,
-// covering the skill that session just taught. It deliberately reuses the
-// existing diagnostic_questions bank (same question content that already
-// has mixed types — mcq/numeric/short_answer — and difficulties for every
-// skill) rather than inventing a new question source: that bank is large
-// (900-1100+ questions per subject), so a same-skill, mixed-type,
-// varied-difficulty sample is just a filtered, shuffled read, and nothing
-// for the student to have already seen as a "diagnostic" question (this is
-// a different context, a quiz, not a test). Most of that bank predates the
-// `explanation` field, though — see ensure-explanation.ts for how a missed
-// question always gets one anyway.
+// A short quiz shown right after a learning session ends, covering the
+// skill that session just taught. Prefers the existing diagnostic_questions
+// bank (mixed types — mcq/numeric/short_answer — and difficulties already
+// authored for every skill) — a same-skill, mixed-type, varied-difficulty
+// sample is just a filtered, shuffled read, and this is a different
+// context from the diagnostic test, so there's no concern about a student
+// having "already seen" one of these as a diagnostic question. When a
+// skill's bank is too thin to fill a 5-question quiz, the rest are
+// generated fresh via AI (see generateQuizTopUp below) and saved back into
+// the bank, so repeated use is what grows a thin skill toward real depth.
+// Some of the bank predates the `explanation` field — see
+// ensure-explanation.ts for how a missed question without one always gets
+// one anyway.
 
 const QUIZ_LENGTH = 5;
 
@@ -25,6 +28,8 @@ export interface QuizQuestionView {
   questionType: 'mcq' | 'short_answer' | 'numeric';
   options: string[] | null;
   difficulty: number;
+  figureUrl: string | null;
+  figureCaption: string | null;
 }
 
 export interface QuizAnswerInput {
@@ -40,6 +45,8 @@ export interface QuizReviewEntry {
   correctAnswer: string;
   isCorrect: boolean;
   explanation: string | null;
+  figureUrl: string | null;
+  figureCaption: string | null;
 }
 
 export interface QuizResult {
@@ -54,16 +61,36 @@ export interface QuizResult {
  * picking the same type five times, then rounds out from whatever's left.
  * Never sends expected_answer/explanation to the client here — those are
  * only revealed after grading, same pattern as the diagnostic.
+ *
+ * When the bank has fewer than QUIZ_LENGTH questions for this skill, the gap
+ * is filled with AI-generated ones (same generator used for learning-session
+ * practice — see ai-question-generator.ts) rather than handing back a
+ * shorter quiz. Each generated question is persisted into
+ * diagnostic_questions (source: 'generated') before being served, so it's
+ * immediately a real bank question too — this is what lets a thin skill's
+ * bank grow toward real depth through ordinary use instead of needing
+ * thousands of questions hand-authored up front for every skill.
  */
-export async function generateSkillQuiz(supabase: SupabaseClient, skillId: string): Promise<QuizQuestionView[]> {
+export async function generateSkillQuiz(
+  supabase: SupabaseClient,
+  skillId: string,
+  aiProvider: AIProvider = createDefaultAIProvider()
+): Promise<QuizQuestionView[]> {
   const { data, error } = await supabase
     .from('diagnostic_questions')
-    .select('id, prompt, question_type, options, difficulty')
-    .eq('skill_id', skillId);
+    .select('id, prompt, question_type, options, difficulty, figure_url, figure_caption')
+    .eq('skill_id', skillId)
+    .neq('content_status', 'rejected');
   if (error) throw error;
-  if (!data || data.length === 0) return [];
 
-  const shuffled = [...data].sort(() => Math.random() - 0.5);
+  let bank = data ?? [];
+  if (bank.length < QUIZ_LENGTH) {
+    const topUp = await generateQuizTopUp(supabase, aiProvider, skillId, QUIZ_LENGTH - bank.length, bank.map((q) => q.prompt));
+    bank = [...bank, ...topUp];
+  }
+  if (bank.length === 0) return [];
+
+  const shuffled = [...bank].sort(() => Math.random() - 0.5);
 
   const byType = new Map<string, typeof shuffled>();
   for (const q of shuffled) {
@@ -88,7 +115,102 @@ export async function generateSkillQuiz(supabase: SupabaseClient, skillId: strin
     questionType: q.question_type,
     options: q.options,
     difficulty: q.difficulty,
+    figureUrl: q.figure_url ?? null,
+    figureCaption: q.figure_caption ?? null,
   }));
+}
+
+/**
+ * Generates `count` fresh questions for a skill whose bank is too thin, and
+ * persists each one into diagnostic_questions (source: 'generated') before
+ * returning it — same shape pickFromBank below would have given back, so the
+ * caller doesn't need to know which questions came from where. Best-effort:
+ * if the skill/subject lookup fails or the AI is unavailable, logs and
+ * returns whatever it managed (possibly nothing) rather than failing the
+ * whole quiz over a handful of missing questions.
+ */
+async function generateQuizTopUp(
+  supabase: SupabaseClient,
+  aiProvider: AIProvider,
+  skillId: string,
+  count: number,
+  avoidPrompts: string[]
+): Promise<Array<{ id: string; prompt: string; question_type: string; options: unknown; difficulty: number; figure_url: string | null; figure_caption: string | null }>> {
+  const { data: skillRow } = await supabase
+    .from('skills')
+    .select('id, name, topics(chapters(subjects(id, name)))')
+    .eq('id', skillId)
+    .single();
+  const skillName: string = skillRow?.name ?? 'this skill';
+  const subjectId: string | undefined = (skillRow as any)?.topics?.chapters?.subjects?.id;
+  const subjectName: string = (skillRow as any)?.topics?.chapters?.subjects?.name ?? 'Mathematics';
+
+  let diagnosticTestId: string | undefined;
+  if (subjectId) {
+    const { data: test } = await supabase.from('diagnostic_tests').select('id').eq('subject_id', subjectId).eq('is_active', true).limit(1).maybeSingle();
+    diagnosticTestId = test?.id;
+  }
+  if (!diagnosticTestId) {
+    console.error('generateQuizTopUp: no active diagnostic test found for skill', skillId, '— skipping AI top-up');
+    return [];
+  }
+
+  const results: Array<{ id: string; prompt: string; question_type: string; options: unknown; difficulty: number; figure_url: string | null; figure_caption: string | null }> = [];
+  const usedPrompts = [...avoidPrompts];
+  // Sequential (not Promise.all), same reasoning as gradeSkillQuiz below —
+  // keeps this from firing several AI calls at once for one small quiz.
+  for (let i = 0; i < count; i++) {
+    try {
+      const difficulty = [2, 3, 3, 4, 2][i % 5];
+      const generated = await generateQuestionWithSolution(aiProvider, {
+        subjectName,
+        skillName,
+        difficulty,
+        avoidPrompts: usedPrompts,
+      });
+      const validation = validateGeneratedQuestion(generated);
+      // diagnostic_questions (unlike questions) has no 'step' question type —
+      // free-text reasoning questions belong to the learning-session flow,
+      // which grades them via the AI evaluation prompt, not this quiz's
+      // deterministic gradeAnswer(). Treat 'step' as invalid here rather than
+      // let the insert fail on the table's CHECK constraint.
+      if (validation.valid && generated.questionType === 'step') {
+        console.error('generateQuizTopUp: generated a step-type question, not supported in diagnostic_questions — skipping', skillId);
+        continue;
+      }
+      if (!validation.valid) {
+        console.error('generateQuizTopUp: generated question failed validation', skillId, validation.reason);
+        continue;
+      }
+      usedPrompts.push(generated.prompt);
+
+      const { data: inserted, error } = await supabase
+        .from('diagnostic_questions')
+        .insert({
+          diagnostic_test_id: diagnosticTestId,
+          skill_id: skillId,
+          difficulty,
+          question_type: generated.questionType,
+          prompt: generated.prompt,
+          options: generated.options ?? null,
+          expected_answer: generated.expectedAnswer,
+          explanation: generated.explanation,
+          source: 'generated',
+          content_status: 'needs_review',
+          validated: true,
+        })
+        .select('id, prompt, question_type, options, difficulty, figure_url, figure_caption')
+        .single();
+      if (error || !inserted) {
+        console.error('generateQuizTopUp: failed to persist generated question', skillId, error);
+        continue;
+      }
+      results.push(inserted);
+    } catch (err) {
+      console.error('generateQuizTopUp: generation failed', skillId, err);
+    }
+  }
+  return results;
 }
 
 /**
@@ -108,7 +230,7 @@ export async function gradeSkillQuiz(
   const questionIds = answers.map((a) => a.questionId);
   const { data, error } = await supabase
     .from('diagnostic_questions')
-    .select('id, prompt, question_type, options, expected_answer, explanation')
+    .select('id, prompt, question_type, options, expected_answer, explanation, figure_url, figure_caption')
     .in('id', questionIds);
   if (error) throw error;
 
@@ -129,6 +251,8 @@ export async function gradeSkillQuiz(
         correctAnswer: '',
         isCorrect: false,
         explanation: null,
+        figureUrl: null,
+        figureCaption: null,
       });
       continue;
     }
@@ -151,6 +275,8 @@ export async function gradeSkillQuiz(
       correctAnswer: extractString(q.expected_answer),
       isCorrect,
       explanation,
+      figureUrl: q.figure_url ?? null,
+      figureCaption: q.figure_caption ?? null,
     });
   }
 

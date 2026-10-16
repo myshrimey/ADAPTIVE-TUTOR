@@ -1,13 +1,14 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient } from '@/lib/supabase-server';
-import { logEvent } from '@adaptive-tutor/core';
+import { logEvent, registerSubject } from '@adaptive-tutor/core';
 
 interface OnboardingBody {
   displayName: string;
   grade: string; // e.g. 'CBSE-10'
   board: string; // e.g. 'CBSE'
   class: string; // e.g. '10'
-  subject?: string; // subject slug, e.g. 'maths' or 'science'; defaults to 'maths'
+  subject?: string; // legacy single subject slug; kept so older clients keep working
+  subjects?: string[]; // subject slugs the family registers for, e.g. ['maths','science','english']
   targetDate?: string;
 }
 
@@ -67,32 +68,25 @@ export async function POST(request: Request) {
       .single();
     if (curErr || !curriculumRow) throw curErr ?? new Error('curriculum_not_found');
 
-    const subjectSlug = body.subject ?? 'maths';
-    const { data: subjectRow, error: subjErr } = await service
+    // Register every chosen subject (a student may take 5-6). The first one in
+    // the list becomes the active subject. Subjects that are 'coming soon' /
+    // 'in development' are rejected by registerSubject.
+    const requestedSlugs = (body.subjects && body.subjects.length > 0 ? body.subjects : [body.subject ?? 'maths']).filter(Boolean);
+    const { data: subjectRows, error: subjErr } = await service
       .from('subjects')
-      .select('id')
+      .select('id, slug')
       .eq('curriculum_id', curriculumRow.id)
-      .eq('slug', subjectSlug)
-      .single();
-    if (subjErr || !subjectRow) throw subjErr ?? new Error(`subject_not_found: ${subjectSlug}`);
+      .in('slug', requestedSlugs);
+    if (subjErr) throw subjErr;
+    const idBySlug = new Map((subjectRows ?? []).map((r: any) => [r.slug, r.id]));
+    const missing = requestedSlugs.filter((slug) => !idBySlug.has(slug));
+    if (missing.length > 0) throw new Error(`subject_not_found: ${missing.join(', ')}`);
 
-    const { data: existingGoal } = await service
-      .from('learning_goals')
-      .select('id')
-      .eq('student_id', studentId)
-      .eq('curriculum_id', curriculumRow.id)
-      .eq('subject_id', subjectRow.id)
-      .maybeSingle();
-
-    if (existingGoal) {
-      await service
-        .from('learning_goals')
-        .update({ target_date: body.targetDate ?? null, status: 'active' })
-        .eq('id', existingGoal.id);
-    } else {
-      await service
-        .from('learning_goals')
-        .insert({ student_id: studentId, curriculum_id: curriculumRow.id, subject_id: subjectRow.id, target_date: body.targetDate ?? null, status: 'active' });
+    for (let i = 0; i < requestedSlugs.length; i++) {
+      await registerSubject(service, studentId, idBySlug.get(requestedSlugs[i]) as string, {
+        activate: i === 0,
+        targetDate: body.targetDate ?? null,
+      });
     }
 
     await service

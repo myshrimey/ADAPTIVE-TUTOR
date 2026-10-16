@@ -1,4 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { loadConfidenceTrend, type ConfidenceTrend } from '../checkins/checkin.service';
 
 // Parent-facing progress summary (brief Section 9). Built entirely from data
 // that already exists — no invented improvement percentages, no guaranteed
@@ -29,20 +30,32 @@ export interface ParentReportSubject {
   needsPractice: string[]; // skill names at band 'needs_foundation' or 'emerging'
   nextRecommendedSkillName: string | null;
   sessionsCompleted: number;
+  // v34 (master prompt sec. 23, scoped down): how much of the syllabus has
+  // actually been assessed, and how much evidence the estimate rests on.
+  subjectStatus: 'ready' | 'pilot' | 'in_development' | 'coming_soon';
+  skillsAssessed: number;
+  skillsTotal: number;
+  coveragePercent: number; // skillsAssessed / skillsTotal
+  /**
+   * How much data Sahayak has for this subject's numbers. This describes the
+   * evidence, NOT the child: 'insufficient' = too little to say anything firm.
+   */
+  evidence: 'insufficient' | 'limited' | 'good';
 }
 
 export interface ParentReport {
   studentName: string | null;
+  confidence: ConfidenceTrend;
   subjects: ParentReportSubject[];
   generatedAt: string;
 }
 
 export async function buildParentReport(supabase: SupabaseClient, studentId: string): Promise<ParentReport> {
-  const [{ data: student }, { data: masteryRows }, { data: attempts }, { data: sessions }] = await Promise.all([
+  const [{ data: student }, { data: masteryRows }, { data: attempts }, { data: sessions }, { data: skillRows }, { data: subjectRows }, { data: goalRows }, confidence] = await Promise.all([
     supabase.from('students').select('display_name').eq('id', studentId).single(),
     supabase
       .from('mastery_states')
-      .select('skill_id, score, band, skills(name, chapters(subject_id, subjects(id, name)))')
+      .select('skill_id, score, band, skills(name, topics(chapters(subject_id, subjects(id, name))))')
       .eq('student_id', studentId),
     supabase
       .from('diagnostic_attempts')
@@ -51,7 +64,18 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
       .eq('status', 'completed')
       .order('completed_at', { ascending: true }),
     supabase.from('learning_sessions').select('id, status').eq('student_id', studentId).eq('status', 'completed'),
+    supabase.from('skills').select('id, topics(chapters(subject_id))'),
+    supabase.from('subjects').select('id, name, status'),
+    supabase.from('learning_goals').select('subject_id').eq('student_id', studentId).eq('status', 'active'),
+    loadConfidenceTrend(supabase, studentId),
   ]);
+
+  const skillsTotalBySubject = new Map<string, number>();
+  for (const sk of (skillRows ?? []) as any[]) {
+    const sid = sk.topics?.chapters?.subject_id;
+    if (sid) skillsTotalBySubject.set(sid, (skillsTotalBySubject.get(sid) ?? 0) + 1);
+  }
+  const subjectMeta = new Map((subjectRows ?? []).map((r: any) => [r.id, r]));
 
   // One baseline per subject — the FIRST completed diagnostic for that
   // subject (a retake's result is more like "current", not the original
@@ -75,8 +99,8 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
     { subjectName: string; scores: number[]; topics: string[]; needsPractice: string[]; lowest: { name: string; score: number } | null }
   >();
   for (const row of (masteryRows ?? []) as any[]) {
-    const subjectId = row.skills?.chapters?.subject_id;
-    const subjectName = row.skills?.chapters?.subjects?.name;
+    const subjectId = row.skills?.topics?.chapters?.subject_id;
+    const subjectName = row.skills?.topics?.chapters?.subjects?.name;
     const skillName = row.skills?.name;
     if (!subjectId || !skillName) continue;
     if (!bySubject.has(subjectId)) bySubject.set(subjectId, { subjectName: subjectName ?? 'Subject', scores: [], topics: [], needsPractice: [], lowest: null });
@@ -87,15 +111,30 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
     if (!bucket.lowest || Number(row.score) < bucket.lowest.score) bucket.lowest = { name: skillName, score: Number(row.score) };
   }
 
-  const allSubjectIds = new Set([...baselineBySubject.keys(), ...bySubject.keys()]);
+  // Include every registered subject too, so a parent sees "diagnostic needed"
+  // for a subject the child is registered in but hasn't started.
+  const registeredIds = (goalRows ?? []).map((g: any) => g.subject_id).filter(Boolean) as string[];
+  const allSubjectIds = new Set([...baselineBySubject.keys(), ...bySubject.keys(), ...registeredIds]);
   const subjects: ParentReportSubject[] = [...allSubjectIds].map((subjectId) => {
     const baseline = baselineBySubject.get(subjectId);
     const current = bySubject.get(subjectId);
     const currentAvg = current && current.scores.length > 0 ? current.scores.reduce((a, b) => a + b, 0) / current.scores.length : null;
 
+    const meta: any = subjectMeta.get(subjectId);
+    const skillsAssessed = current?.scores.length ?? 0;
+    const skillsTotal = skillsTotalBySubject.get(subjectId) ?? 0;
+    const coveragePercent = skillsTotal > 0 ? (skillsAssessed / skillsTotal) * 100 : 0;
+    const evidence: ParentReportSubject['evidence'] =
+      skillsAssessed < 3 || coveragePercent < 20 ? 'insufficient' : coveragePercent < 60 ? 'limited' : 'good';
+
     return {
       subjectId,
-      subjectName: baseline?.subjectName ?? current?.subjectName ?? 'Subject',
+      subjectName: meta?.name ?? baseline?.subjectName ?? current?.subjectName ?? 'Subject',
+      subjectStatus: (meta?.status ?? 'ready') as ParentReportSubject['subjectStatus'],
+      skillsAssessed,
+      skillsTotal,
+      coveragePercent,
+      evidence,
       hasBaseline: !!baseline,
       baselineAvgPercent: baseline?.avgPercent ?? null,
       hasCurrentMastery: currentAvg !== null,
@@ -110,6 +149,7 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
 
   return {
     studentName: student?.display_name ?? null,
+    confidence,
     subjects,
     generatedAt: new Date().toISOString(),
   };
@@ -131,8 +171,13 @@ export function formatReportForWhatsApp(report: ParentReport): string {
     } else {
       lines.push('- Not started yet');
     }
+    if (s.skillsTotal > 0) lines.push(`- Syllabus assessed so far: ${Math.round(s.coveragePercent)}% (${s.skillsAssessed} of ${s.skillsTotal} skills)${s.evidence === 'insufficient' ? ' — not enough evidence yet' : ''}`);
     if (s.needsPractice.length) lines.push(`- Needs more practice: ${s.needsPractice.slice(0, 3).join(', ')}`);
     if (s.nextRecommendedSkillName) lines.push(`- Suggested next: ${s.nextRecommendedSkillName}`);
+  }
+  if (report.confidence.count > 0 && report.confidence.current !== null) {
+    lines.push('');
+    lines.push(`Confidence (self-reported, 0-10): latest ${report.confidence.current}${report.confidence.avg7Days !== null ? `, 7-day average ${report.confidence.avg7Days}` : ''}`);
   }
   lines.push('');
   lines.push('(This is a learning summary, not a guarantee of exam results.)');

@@ -6,14 +6,14 @@ import type { LegalContent } from '@/components/LegalPageLayout';
 
 export const TERMS_EN: LegalContent = {
   title: 'Terms and Conditions',
-  lastUpdated: 'Draft — last updated 12 October 2026. Pending founder review before publication.',
+  lastUpdated: 'Draft — last updated 15 October 2026. Pending founder review before publication.',
   intro:
-    'These terms cover your use of Sahayak, an early-access learning product for CBSE Class 10 Mathematics and Science. Please read them before using the product or making a payment.',
+    'These terms cover your use of Sahayak, a learning product for CBSE Class 10 students preparing for the 2027 board exams. Please read them before using the product or making a payment.',
   sections: [
     {
       heading: '1. What Sahayak is',
       body: [
-        'Sahayak is an adaptive learning tool that gives a student a short diagnostic test, then an AI-guided practice and teaching experience in Mathematics and Science, aligned to the CBSE Class 10 syllabus.',
+        'Sahayak is an adaptive learning tool that gives a student a short diagnostic test, then an AI-guided practice and teaching experience in the subjects the family registers for, aligned to the CBSE Class 10 syllabus. Each subject is shown as Ready, Pilot or Coming soon, and only reflects what is actually available.',
         'Sahayak is a practice and learning aid. It is not a substitute for school teaching, tuition, or a qualified teacher, and it does not issue any certificate or official qualification.',
       ],
     },
@@ -62,14 +62,14 @@ export const TERMS_EN: LegalContent = {
 
 export const TERMS_HI: LegalContent = {
   title: 'नियम और शर्तें',
-  lastUpdated: 'मसौदा — अंतिम अपडेट 12 अक्टूबर 2026। प्रकाशन से पहले संस्थापक की समीक्षा लंबित है।',
+  lastUpdated: 'मसौदा — अंतिम अपडेट 15 अक्टूबर 2026। प्रकाशन से पहले संस्थापक की समीक्षा लंबित है।',
   intro:
-    'ये शर्तें सहायक के उपयोग को नियंत्रित करती हैं, जो CBSE कक्षा 10 गणित और विज्ञान के लिए एक प्रारंभिक-पहुँच अध्ययन उत्पाद है। कृपया उत्पाद का उपयोग करने या भुगतान करने से पहले इन्हें पढ़ें।',
+    'ये शर्तें सहायक के उपयोग को नियंत्रित करती हैं, जो 2027 बोर्ड परीक्षा की तैयारी कर रहे CBSE कक्षा 10 के विद्यार्थियों के लिए एक अध्ययन उत्पाद है। कृपया उत्पाद का उपयोग करने या भुगतान करने से पहले इन्हें पढ़ें।',
   sections: [
     {
       heading: '1. सहायक क्या है',
       body: [
-        'सहायक एक अनुकूली अध्ययन उपकरण है जो छात्र को एक छोटा डायग्नोस्टिक टेस्ट देता है, फिर CBSE कक्षा 10 पाठ्यक्रम के अनुरूप AI-निर्देशित अभ्यास और शिक्षण अनुभव प्रदान करता है।',
+        'सहायक एक अनुकूली अध्ययन उपकरण है जो छात्र को एक छोटा डायग्नोस्टिक टेस्ट देता है, फिर परिवार द्वारा चुने विषयों में CBSE कक्षा 10 पाठ्यक्रम के अनुरूप AI-निर्देशित अभ्यास और शिक्षण अनुभव प्रदान करता है। हर विषय "तैयार", "पायलट" या "जल्द आ रहा है" के रूप में दिखता है और केवल वही दर्शाता है जो वास्तव में उपलब्ध है।',
         'सहायक एक अभ्यास और अध्ययन सहायक है। यह स्कूल शिक्षण, ट्यूशन, या किसी योग्य शिक्षक का विकल्प नहीं है, और यह कोई प्रमाणपत्र या आधिकारिक योग्यता जारी नहीं करता।',
       ],
     },

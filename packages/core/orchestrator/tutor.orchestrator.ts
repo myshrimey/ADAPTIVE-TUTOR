@@ -13,6 +13,7 @@ import { detectMisconception, recordMisconception, MISCONCEPTION_TAXONOMY } from
 import { updateMastery } from '../mastery/mastery.service';
 import { logEvent } from '../analytics/events';
 import { getLearningDiagram, type LearningDiagram } from '../learning-diagrams/mapping';
+import { getSessionCheckin } from '../checkins/checkin.service';
 
 export interface OrchestratorTurnInput {
   studentId: string;
@@ -27,7 +28,7 @@ export interface OrchestratorTurnResult {
   evaluation?: { isCorrect: boolean; misconceptionTag?: string };
   updatedMastery?: { skillId: string; score: number };
   nextAction: PedagogyStrategy;
-  activeQuestion?: { id: string; prompt: string; questionType: string; options?: unknown };
+  activeQuestion?: { id: string; prompt: string; questionType: string; options?: unknown; figureUrl?: string | null; figureCaption?: string | null };
   diagram?: LearningDiagram; // present when this turn's skill has a teaching diagram (learning-diagrams/mapping.ts) — distinct from a question's own image_url
 }
 
@@ -76,9 +77,18 @@ export async function runOrchestratorTurn(
     }
   }
 
-  const { data: skillRow } = await supabase.from('skills').select('id, name, slug').eq('id', effectiveSkillId).single();
+  const { data: skillRow } = await supabase
+    .from('skills')
+    .select('id, name, slug, topics(chapters(subjects(name)))')
+    .eq('id', effectiveSkillId)
+    .single();
   const skillName = skillRow?.name ?? 'this skill';
   const skillSlug = skillRow?.slug;
+  // Nested Supabase join (skill -> topic -> chapter -> subject) so a
+  // question generated for this skill is asked for the right subject
+  // ("Mathematics" vs "Science") rather than a hardcoded guess — see
+  // question-engine/ai-question-generator.ts.
+  const subjectName = (skillRow as any)?.topics?.chapters?.subjects?.name ?? 'Mathematics';
   const learningObjectiveText = `Student can ${skillName.toLowerCase()} unaided.`;
   const mastery = state.masteryBySkill[effectiveSkillId];
   const masteryScore = mastery?.score ?? 0;
@@ -104,6 +114,18 @@ export async function runOrchestratorTurn(
   if (studentCommand === 'easier') difficulty = Math.max(1, difficulty - 1);
   if (studentCommand === 'challenge') difficulty = Math.min(5, difficulty + 1);
 
+  // Recovery mode (pre-session check-in signalled a harder day than usual):
+  // make the first few questions of THIS session one step easier. This only
+  // changes what is asked today — it never touches stored mastery.
+  const checkin = await getSessionCheckin(supabase, input.sessionId);
+  if (checkin?.recoveryMode) {
+    const { count: attemptsSoFar } = await supabase
+      .from('question_attempts')
+      .select('id', { count: 'exact', head: true })
+      .eq('session_id', input.sessionId);
+    if ((attemptsSoFar ?? 0) < 3) difficulty = Math.max(1, difficulty - 1);
+  }
+
   const { data: recentMessages } = await supabase
     .from('messages')
     .select('role, content')
@@ -122,6 +144,7 @@ export async function runOrchestratorTurn(
       effectiveSkillId,
       skillName,
       skillSlug,
+      subjectName,
       learningObjectiveText,
       strategy,
       difficulty,
@@ -137,6 +160,7 @@ export async function runOrchestratorTurn(
     difficulty,
     skillName,
     skillSlug,
+    subjectName,
     learningObjectiveText,
     masteryBand,
     masteryScore,
@@ -155,6 +179,7 @@ async function handleMessageTurn(
     difficulty: number;
     skillName: string;
     skillSlug?: string;
+    subjectName: string;
     learningObjectiveText: string;
     masteryBand: string;
     masteryScore: number;
@@ -178,6 +203,7 @@ async function handleMessageTurn(
     const question = await selectQuestion(supabase, aiProvider, {
       skillId: ctx.effectiveSkillId,
       skillName: ctx.skillName,
+      subjectName: ctx.subjectName,
       masteryScore: ctx.masteryScore,
       difficulty: ctx.difficulty,
       learningObjective: ctx.learningObjectiveText,
@@ -185,7 +211,14 @@ async function handleMessageTurn(
       recentQuestionIds: (recentAttempts ?? []).map((a) => a.question_id),
     });
     questionToPose = { prompt: question.prompt, options: question.options };
-    activeQuestion = { id: question.id, prompt: question.prompt, questionType: question.questionType, options: question.options };
+    activeQuestion = {
+      id: question.id,
+      prompt: question.prompt,
+      questionType: question.questionType,
+      options: question.options,
+      figureUrl: question.figureUrl,
+      figureCaption: question.figureCaption,
+    };
     // New question -> hint count resets (it's tracked per active question, not per session).
     await supabase.from('learning_sessions').update({ active_question_id: question.id, hint_count_for_active_question: 0 }).eq('id', input.sessionId);
   }
@@ -235,6 +268,7 @@ async function handleAnswerTurn(
     effectiveSkillId: string;
     skillName: string;
     skillSlug?: string;
+    subjectName: string;
     learningObjectiveText: string;
     strategy: PedagogyStrategy;
     difficulty: number;
@@ -349,6 +383,7 @@ async function handleAnswerTurn(
     const nextQuestion = await selectQuestion(supabase, aiProvider, {
       skillId: question.skill_id,
       skillName: ctx.skillName,
+      subjectName: ctx.subjectName,
       masteryScore: updatedMastery.score,
       difficulty: nextTurnDifficulty,
       learningObjective: ctx.learningObjectiveText,
@@ -356,7 +391,14 @@ async function handleAnswerTurn(
       recentQuestionIds: (recentAttempts ?? []).map((a) => a.question_id),
     });
     questionToPose = { prompt: nextQuestion.prompt, options: nextQuestion.options };
-    activeQuestion = { id: nextQuestion.id, prompt: nextQuestion.prompt, questionType: nextQuestion.questionType, options: nextQuestion.options };
+    activeQuestion = {
+      id: nextQuestion.id,
+      prompt: nextQuestion.prompt,
+      questionType: nextQuestion.questionType,
+      options: nextQuestion.options,
+      figureUrl: nextQuestion.figureUrl,
+      figureCaption: nextQuestion.figureCaption,
+    };
   }
 
   const diagram = getLearningDiagram(ctx.skillSlug) ?? undefined;

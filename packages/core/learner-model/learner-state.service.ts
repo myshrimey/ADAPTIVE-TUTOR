@@ -30,6 +30,7 @@ export async function loadLearnerState(supabase: SupabaseClient, studentId: stri
     .select('curriculum_id, subject_id, target_date')
     .eq('student_id', studentId)
     .eq('status', 'active')
+    .order('activated_at', { ascending: false })
     .order('created_at', { ascending: false })
     .limit(1)
     .maybeSingle();

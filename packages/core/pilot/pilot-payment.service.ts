@@ -5,15 +5,25 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 // this safe (a student can submit and read their own claim; only the
 // service-role key, used from the admin page, can confirm one).
 
-export const PILOT_OFFER = {
-  label: '30-day founding-family pilot',
-  priceInr: 199,
-  days: 30,
+// v34: the offer is now "Sahayak Complete Board Preparation" at a ₹999 PRICE
+// HYPOTHESIS (not a proven market price) — see docs/DECISIONS.md. Access runs
+// for a fixed number of days from confirmation; 240 days comfortably covers the
+// CBSE Class 10 2027 board-exam window from an October 2026 start. Both values
+// are the single source of truth for the offer page, payment form and admin
+// confirm step: change them here only. Table/route names still say "pilot"
+// on purpose (renaming live tables is risk for no user benefit).
+export const BOARD_PREP_OFFER = {
+  label: 'Sahayak Complete Board Preparation — CBSE Class 10, 2027',
+  priceInr: 999,
+  days: 240,
 } as const;
+
+/** @deprecated kept so older imports keep compiling; use BOARD_PREP_OFFER. */
+export const PILOT_OFFER = BOARD_PREP_OFFER;
 
 export interface PilotPaymentClaim {
   id: string;
-  status: 'pending' | 'confirmed' | 'rejected';
+  status: 'pending' | 'confirmed' | 'rejected' | 'refunded';
   amount: number;
   paymentDate: string;
   pilotStartDate: string | null;
@@ -90,6 +100,15 @@ export async function rejectPayment(serviceClient: SupabaseClient, paymentId: st
   const { error } = await serviceClient
     .from('pilot_payments')
     .update({ status: 'rejected', admin_notes: adminNotes ?? null })
+    .eq('id', paymentId);
+  if (error) throw error;
+}
+
+/** Admin-only: mark a previously confirmed payment as refunded — this ends access (the UI treats only 'confirmed' as active). */
+export async function refundPayment(serviceClient: SupabaseClient, paymentId: string, adminNotes?: string): Promise<void> {
+  const { error } = await serviceClient
+    .from('pilot_payments')
+    .update({ status: 'refunded', admin_notes: adminNotes ?? null })
     .eq('id', paymentId);
   if (error) throw error;
 }

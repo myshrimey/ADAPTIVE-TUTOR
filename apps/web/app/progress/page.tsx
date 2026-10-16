@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { loadCurriculum, t } from '@adaptive-tutor/core';
+import { loadCurriculum, loadSubjectCatalogue, t } from '@adaptive-tutor/core';
 import { MasteryArc } from '@/components/MasteryArc';
 import { SubjectIcon } from '@/components/SubjectIcon';
 import { ParentLinkButton } from '@/components/ParentLinkButton';
@@ -22,7 +22,7 @@ export default async function ProgressPage() {
   const supabase = await createServerClient();
   const lang = await getServerLang();
 
-  const [{ data: student }, { data: masteryRows }, curriculum, { data: sessions }] = await Promise.all([
+  const [{ data: student }, { data: masteryRows }, curriculum, { data: sessions }, catalogue] = await Promise.all([
     supabase.from('students').select('display_name, parent_token').eq('id', studentId).single(),
     supabase.from('mastery_states').select('skill_id, score, band').eq('student_id', studentId),
     loadCurriculum(supabase, 'CBSE', '10'),
@@ -32,9 +32,17 @@ export default async function ProgressPage() {
       .eq('student_id', studentId)
       .order('started_at', { ascending: false })
       .limit(5),
+    loadSubjectCatalogue(supabase, studentId),
   ]);
 
   const masteryBySkill = new Map((masteryRows ?? []).map((r) => [r.skill_id, r]));
+  // Only the student's registered (or already-started) subjects, never a coming-soon one.
+  const registeredIds = new Set(catalogue.filter((c) => c.registered).map((c) => c.id));
+  const visibleSubjects = curriculum.subjects.filter((subject) => {
+    if (subject.status !== 'ready' && subject.status !== 'pilot') return false;
+    const started = subject.chapters.some((c) => c.topics.some((t) => t.skills.some((sk) => masteryBySkill.has(sk.id))));
+    return registeredIds.has(subject.id) || started;
+  });
 
   return (
     <main className="page">
@@ -52,7 +60,7 @@ export default async function ProgressPage() {
           </div>
         </div>
 
-        {curriculum.subjects.map((subject, subjectIdx) => {
+        {visibleSubjects.map((subject, subjectIdx) => {
           const subjectScores = subject.chapters.flatMap((c) => c.topics.flatMap((t) => t.skills)).map((s) => masteryBySkill.get(s.id)?.score ?? 0);
           const subjectAvg = subjectScores.length ? subjectScores.reduce((a, b) => a + b, 0) / subjectScores.length : 0;
           const subjectBand = subjectAvg >= 90 ? 'mastered' : subjectAvg >= 60 ? 'developing' : 'needs_foundation';

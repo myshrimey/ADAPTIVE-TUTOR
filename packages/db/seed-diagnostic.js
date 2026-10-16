@@ -33,7 +33,7 @@ async function seedDiagnosticFile(filePath) {
 
   const { data: subject, error: subjErr } = await supabase
     .from('subjects')
-    .select('id, curricula!inner(board, class)')
+    .select('id, status, curricula!inner(board, class)')
     .eq('curricula.board', 'CBSE')
     .eq('curricula.class', '10')
     .eq('slug', subjectSlug)
@@ -60,6 +60,11 @@ async function seedDiagnosticFile(filePath) {
     testId = created.id;
   }
   console.log(`diagnostic test: ${testId}`);
+
+  // Content-verification status (migration 0013): questions in a subject that
+  // is not yet 'ready' start as 'needs_review'; 'ready' subjects keep the
+  // column default ('verified'). A human flips individual rows later.
+  const contentStatus = subject.status && subject.status !== 'ready' ? 'needs_review' : 'verified';
 
   for (const q of questions) {
     const { data: skill, error: skillErr } = await supabase.from('skills').select('id').eq('slug', q.skill_slug).single();
@@ -95,6 +100,7 @@ async function seedDiagnosticFile(filePath) {
       // seed content doesn't have one yet; the review screen falls back to
       // just the correct answer in that case (see migrations/0005).
       explanation: q.explanation ?? null,
+      content_status: contentStatus,
     });
     if (insertErr) throw insertErr;
     console.log(`  seeded: ${q.skill_slug} (difficulty ${q.difficulty})`);

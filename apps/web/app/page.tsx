@@ -5,10 +5,16 @@ import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase-client';
 import { useLanguage } from '@/components/LanguageProvider';
 
-const SUBJECTS = [
-  { slug: 'maths', name: 'Mathematics', note: '14 chapters — Real Numbers through Probability' },
-  { slug: 'science', name: 'Science', note: '10 chapters across Physics, Chemistry, and Biology' },
-  { slug: 'social-science', name: 'Social Science', note: '24 chapters across History, Geography, Civics, and Economics' },
+// Shown at sign-up. `status` mirrors subjects.status in the database (the
+// database is the real gate — registerSubject rejects anything not usable);
+// keep the two in sync when a subject's readiness changes.
+const SUBJECTS: { slug: string; name: string; note: string; status: 'ready' | 'pilot' }[] = [
+  { slug: 'maths', name: 'Mathematics', note: '14 chapters — Real Numbers through Probability', status: 'ready' },
+  { slug: 'science', name: 'Science', note: '10 chapters across Physics, Chemistry, and Biology', status: 'ready' },
+  { slug: 'social-science', name: 'Social Science', note: '24 chapters across History, Geography, Civics, and Economics', status: 'pilot' },
+  { slug: 'english', name: 'English Language & Literature', note: 'First Flight, Footprints Without Feet, grammar and writing', status: 'pilot' },
+  { slug: 'hindi', name: 'Hindi Course A', note: 'Kshitij, Kritika, grammar and writing (questions in English letters for now)', status: 'pilot' },
+  { slug: 'computer-applications', name: 'Computer Applications', note: 'Networking, HTML, cyber safety, logic and productivity tools', status: 'pilot' },
 ];
 
 type Mode = 'signup' | 'signin' | 'forgot';
@@ -21,7 +27,7 @@ export default function Home() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
-  const [subject, setSubject] = useState('maths');
+  const [chosenSubjects, setChosenSubjects] = useState<string[]>(['maths']);
 
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -138,12 +144,16 @@ export default function Home() {
   async function handleOnboardingSubmit(e: React.FormEvent) {
     e.preventDefault();
     resetMessages();
+    if (chosenSubjects.length === 0) {
+      setError('Please choose at least one subject.');
+      return;
+    }
     setSubmitting(true);
 
     const res = await fetch('/api/student/onboarding', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ displayName, grade: 'CBSE-10', subject, board: 'CBSE', class: '10' }),
+      body: JSON.stringify({ displayName, grade: 'CBSE-10', subjects: chosenSubjects, board: 'CBSE', class: '10' }),
     });
     const json = await res.json();
     setSubmitting(false);
@@ -159,15 +169,15 @@ export default function Home() {
     <main className="page">
       <div className="shell">
         <section className="hero hero-banner">
-          <p className="hero__eyebrow">CBSE Class 10 · Maths &amp; Science</p>
+          <p className="hero__eyebrow">CBSE Class 10 · Board Preparation 2027</p>
           <h1>
             Same syllabus.
             <br />A different path for every student.
           </h1>
           <p className="hero__lede">
-            Sahayak runs a short diagnostic, finds exactly where a student's understanding
-            starts to wobble, and teaches from there — asking questions, giving hints
-            before answers, and adjusting difficulty every single turn.
+            How ready is your child for the 2027 board exams? Sahayak runs a short diagnostic in each
+            subject, finds exactly where understanding starts to wobble, teaches from there, and shows
+            parents the evidence — what has improved, what needs attention, and what to do next.
           </p>
         </section>
 
@@ -202,17 +212,26 @@ export default function Home() {
                 <span className="field__label">{t('onboarding.whichSubject')}</span>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginTop: '0.2rem' }}>
                   {SUBJECTS.map((s) => (
-                    <label key={s.slug} className="subject-card" data-selected={subject === s.slug} data-subject={s.slug}>
+                    <label key={s.slug} className="subject-card" data-selected={chosenSubjects.includes(s.slug)} data-subject={s.slug}>
                       <div>
-                        <div style={{ fontWeight: 500 }}>{s.name}</div>
+                        <div style={{ fontWeight: 500 }}>
+                          {s.name}{' '}
+                          {s.status !== 'ready' && (
+                            <span className="subject-chip__score" style={{ marginLeft: '0.4rem' }}>
+                              {t(`subject.status.${s.status}` as any)}
+                            </span>
+                          )}
+                        </div>
                         <div style={{ fontSize: '0.82rem', color: 'var(--slate)' }}>{s.note}</div>
                       </div>
                       <input
-                        type="radio"
-                        name="subject"
+                        type="checkbox"
+                        name="subjects"
                         value={s.slug}
-                        checked={subject === s.slug}
-                        onChange={() => setSubject(s.slug)}
+                        checked={chosenSubjects.includes(s.slug)}
+                        onChange={(e) =>
+                          setChosenSubjects((prev) => (e.target.checked ? [...prev, s.slug] : prev.filter((x) => x !== s.slug)))
+                        }
                         style={{ accentColor: 'var(--marigold-deep)' }}
                       />
                     </label>
@@ -341,6 +360,18 @@ export default function Home() {
               summary of what was learned after every session.
             </div>
           </div>
+        </section>
+
+        <section style={{ marginTop: 'var(--space-4)', paddingBottom: 'var(--space-4)' }}>
+          <h2 style={{ fontSize: 'var(--step-1)' }}>For parents</h2>
+          <p style={{ color: 'var(--slate)' }}>
+            Sahayak Complete Board Preparation shows where your child stands in each registered subject,
+            what is holding them back, and what to do next — from real evidence, not guesses. We do not
+            promise marks or predict board scores.
+          </p>
+          <p>
+            <a className="btn btn--ghost" href="/pilot">See what&apos;s included and the price (₹999)</a>
+          </p>
         </section>
       </div>
     </main>

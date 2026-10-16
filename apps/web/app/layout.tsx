@@ -31,7 +31,7 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata = {
   title: 'Sahayak — Adaptive CBSE Class 10 Tutor',
-  description: 'An adaptive 1-to-1 tutor for CBSE Class 10 Maths and Science. Same syllabus, a different path for every student.',
+  description: 'CBSE Class 10 board preparation: find learning gaps, practise with a personalised plan, and track progress toward the 2027 board exams.',
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

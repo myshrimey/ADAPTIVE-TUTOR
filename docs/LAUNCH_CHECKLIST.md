@@ -40,5 +40,16 @@ Matches the brief's Section 15 release gates. Do not accept real paid pilot cust
 - [ ] A parent can clearly see what the pilot includes and its limitations before paying.
 - [ ] Outstanding known limitations are documented and, where relevant, visible to the customer (Pilot Limitations page).
 
+## v34 additions (Complete Board Preparation)
+- [ ] Migration 0013 applied in Supabase; `select slug, status from subjects` shows maths/science = ready, the other four = pilot.
+- [ ] Founder confirmed the ₹999 price and the 240-day access length (or changed `BOARD_PREP_OFFER`).
+- [ ] Refund/cancellation wording written and approved (currently "handled individually").
+- [ ] Sign-up with several subjects works; `/subjects` can add one later; coming-soon subjects can't be added.
+- [ ] A new-subject diagnostic (English, Hindi, Computer Applications, Social Science) runs start to finish and the result persists after refresh.
+- [ ] Check-in appears before a learning session, can be skipped, and the "how confident now" prompt saves after the session; `/report` shows a confidence trend after a few sessions.
+- [ ] Two-account test also covers `session_checkins` (Student B cannot see Student A's check-ins).
+- [ ] A teacher has looked at a sample of the pilot-subject questions (see `docs/CONTENT_STATUS.md`) before pilot subjects are promoted or promised in marketing.
+- [ ] Decide whether paid access should be enforced (today nothing blocks a non-paying signed-in student).
+
 ## Narrower pilot, if a gate fails
 If any Security or Payment gate fails, do not accept payments yet — the rest of the product can still be used for a free, unpaid trial with a small number of families while that gate is fixed.

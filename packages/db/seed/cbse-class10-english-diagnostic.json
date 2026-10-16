@@ -1,0 +1,398 @@
+{
+  "subject_slug": "english",
+  "questions": [
+    {
+      "skill_slug": "explain-lencho-faith-irony",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "In \"A Letter to God\", why does Lencho call the post-office employees \"a bunch of crooks\"?",
+      "expected_answer": {
+        "value": "He received only seventy pesos instead of the hundred he had asked for"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "He received only seventy pesos instead of the hundred he had asked for",
+        "He never received any reply to his letter",
+        "The letter was returned because it had no stamp",
+        "He was asked to pay a fee to collect the money"
+      ],
+      "explanation": "Lencho asked God for one hundred pesos but the postmaster could gather only seventy. Lencho trusted God completely, so he assumed the employees had kept the rest."
+    },
+    {
+      "skill_slug": "explain-mandela-courage",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "According to Nelson Mandela in \"Long Walk to Freedom\", courage is:",
+      "expected_answer": {
+        "value": "not the absence of fear, but the triumph over it"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "the absence of all fear",
+        "not the absence of fear, but the triumph over it",
+        "the ability to defeat any opponent",
+        "something only soldiers possess"
+      ],
+      "explanation": "Mandela says the brave man is not he who does not feel afraid, but he who conquers that fear."
+    },
+    {
+      "skill_slug": "identify-apartheid-context",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "Which system of racial discrimination was ended in South Africa when Mandela became president in 1994?",
+      "expected_answer": {
+        "value": "Apartheid"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "Colonialism",
+        "Feudalism",
+        "Apartheid",
+        "Segregation of caste"
+      ],
+      "explanation": "Apartheid was South Africa's system of legalised racial discrimination. Mandela became the first democratically elected president of the country in 1994."
+    },
+    {
+      "skill_slug": "identify-anne-frank-diary-address",
+      "difficulty": 1,
+      "question_type": "short_answer",
+      "prompt": "By what name does Anne Frank address her diary?",
+      "expected_answer": {
+        "value": "Kitty"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "explanation": "Anne calls her diary \"Kitty\" and writes to it as if to a close friend."
+    },
+    {
+      "skill_slug": "explain-valli-bus-journey",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Which incident on the return journey saddens Valli in \"Madam Rides the Bus\"?",
+      "expected_answer": {
+        "value": "Seeing a dead cow by the roadside"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Losing her bus fare",
+        "Being scolded by the conductor",
+        "Missing her stop",
+        "Seeing a dead cow by the roadside"
+      ],
+      "explanation": "Valli's first sight of death, a dead cow, moves her and shows she has gained a more mature view of the world."
+    },
+    {
+      "skill_slug": "interpret-dust-of-snow",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "In \"Dust of Snow\", what shook down the dust of snow on the speaker?",
+      "expected_answer": {
+        "value": "A crow sitting in a hemlock tree"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "A crow sitting in a hemlock tree",
+        "A gust of wind",
+        "A child playing below",
+        "A falling icicle"
+      ],
+      "explanation": "The crow shook snow from a hemlock tree, and this small moment changed the speaker's mood and saved part of his day."
+    },
+    {
+      "skill_slug": "interpret-fire-and-ice",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "In Robert Frost's \"Fire and Ice\", what does fire symbolise?",
+      "expected_answer": {
+        "value": "Desire"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Hatred",
+        "Desire",
+        "Courage",
+        "Hunger"
+      ],
+      "explanation": "Frost links fire with desire and ice with hatred, suggesting both could destroy the world."
+    },
+    {
+      "skill_slug": "identify-poetic-devices",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "\"The wind whispered through the trees.\" Which device is used in this line?",
+      "expected_answer": {
+        "value": "Personification"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "Simile",
+        "Hyperbole",
+        "Personification",
+        "Alliteration"
+      ],
+      "explanation": "Giving the human action of whispering to the wind is personification."
+    },
+    {
+      "skill_slug": "explain-tricki-overfeeding",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Why did Tricki, the Pekinese, become ill in \"A Triumph of Surgery\"?",
+      "expected_answer": {
+        "value": "Mrs Pumphrey overfed and over-pampered him"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "He was bitten by another dog",
+        "He swallowed a bone",
+        "He was kept without any food",
+        "Mrs Pumphrey overfed and over-pampered him"
+      ],
+      "explanation": "Mrs Pumphrey gave Tricki too many rich treats. Mr Herriot cured him by putting him on a strict diet at the surgery."
+    },
+    {
+      "skill_slug": "identify-thief-story-characters",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "In \"The Thief's Story\", what does Anil offer to teach Hari Singh?",
+      "expected_answer": {
+        "value": "Reading and writing"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Reading and writing",
+        "Cooking",
+        "Wrestling",
+        "Carpentry"
+      ],
+      "explanation": "Anil, a young writer, trusts the thief and offers to teach him to read and write."
+    },
+    {
+      "skill_slug": "identify-midnight-visitor-characters",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Who is the secret agent in \"The Midnight Visitor\"?",
+      "expected_answer": {
+        "value": "Ausable"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Fowler",
+        "Ausable",
+        "Max's servant",
+        "The hotel manager"
+      ],
+      "explanation": "Ausable is the secret agent. Fowler is the young aspiring writer who first meets him, and Max is the rival agent."
+    },
+    {
+      "skill_slug": "explain-ebright-curiosity",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "What hobby did the young Richard Ebright begin that led him towards science?",
+      "expected_answer": {
+        "value": "Collecting butterflies"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Collecting coins",
+        "Building radios",
+        "Collecting butterflies",
+        "Stargazing with a telescope"
+      ],
+      "explanation": "Ebright started by collecting butterflies, which grew into serious scientific work."
+    },
+    {
+      "skill_slug": "apply-past-perfect-tense",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Choose the correct option: By the time we reached the station, the train ___.",
+      "expected_answer": {
+        "value": "had left"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "has left",
+        "was leaving",
+        "leaves",
+        "had left"
+      ],
+      "explanation": "The past perfect shows an action completed before another past event, here the arrival at the station."
+    },
+    {
+      "skill_slug": "apply-modals-prohibition",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Choose the correct modal: You ___ park here. It is strictly prohibited.",
+      "expected_answer": {
+        "value": "must not"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "must not",
+        "need not",
+        "ought to",
+        "may"
+      ],
+      "explanation": "\"Must not\" expresses prohibition, while \"need not\" means something is unnecessary."
+    },
+    {
+      "skill_slug": "convert-active-passive",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Which is the passive form of \"The teacher praised the student\"?",
+      "expected_answer": {
+        "value": "The student was praised by the teacher."
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "The student is praised by the teacher.",
+        "The student was praised by the teacher.",
+        "The student had praised the teacher.",
+        "The teacher was praised by the student."
+      ],
+      "explanation": "The simple past active becomes \"was/were + past participle\" in the passive, with the object becoming the subject."
+    },
+    {
+      "skill_slug": "convert-direct-reported-speech",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "prompt": "Choose the correct reported form: She said, \"I am tired.\"",
+      "expected_answer": {
+        "value": "She said that she was tired."
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "She said that she is tired.",
+        "She said that I was tired.",
+        "She said that she was tired.",
+        "She said that she had been tired."
+      ],
+      "explanation": "With a past reporting verb, the present tense \"am\" backshifts to \"was\" and the pronoun \"I\" changes to \"she\"."
+    },
+    {
+      "skill_slug": "apply-subject-verb-agreement",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "Choose the correct option: Neither of the two answers ___ correct.",
+      "expected_answer": {
+        "value": "is"
+      },
+      "misconception_tags": [
+        "PREREQUISITE_GAP"
+      ],
+      "options": [
+        "are",
+        "were",
+        "have been",
+        "is"
+      ],
+      "explanation": "\"Neither\" takes a singular verb when it is followed by \"of the two answers\"."
+    },
+    {
+      "skill_slug": "identify-clause-types",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "prompt": "In \"I know that he is honest\", the underlined clause \"that he is honest\" is a:",
+      "expected_answer": {
+        "value": "noun clause"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "noun clause",
+        "adjective clause",
+        "adverb clause",
+        "main clause"
+      ],
+      "explanation": "The clause acts as the object of the verb \"know\", so it works as a noun clause."
+    },
+    {
+      "skill_slug": "compose-formal-letter",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "prompt": "A formal letter that begins with \"Dear Sir\" should end with:",
+      "expected_answer": {
+        "value": "Yours faithfully"
+      },
+      "misconception_tags": [
+        "CONCEPT_CONFUSION"
+      ],
+      "options": [
+        "Yours sincerely",
+        "Yours faithfully",
+        "Your loving",
+        "Best wishes"
+      ],
+      "explanation": "When the salutation is \"Dear Sir/Madam\", the correct complimentary close is \"Yours faithfully\"."
+    },
+    {
+      "skill_slug": "compose-analytical-paragraph",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "prompt": "An analytical paragraph based on a chart should mainly:",
+      "expected_answer": {
+        "value": "describe trends and compare the data given, without personal opinion"
+      },
+      "misconception_tags": [
+        "INCOMPLETE_REASONING"
+      ],
+      "options": [
+        "tell a story about the people in the chart",
+        "list only the title and source of the chart",
+        "describe trends and compare the data given, without personal opinion",
+        "argue for the writer's own point of view"
+      ],
+      "explanation": "An analytical paragraph reports and compares what the data shows, such as highs, lows and trends."
+    },
+    {
+      "skill_slug": "infer-from-passage",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "prompt": "Rina closed her umbrella, shook off the water and hung her dripping coat by the door. What can be inferred?",
+      "expected_answer": {
+        "value": "It had been raining outside."
+      },
+      "misconception_tags": [
+        "INCOMPLETE_REASONING"
+      ],
+      "options": [
+        "It was a very sunny day.",
+        "Rina was leaving the house.",
+        "Rina had been swimming.",
+        "It had been raining outside."
+      ],
+      "explanation": "The umbrella and the dripping coat are clues that it was raining."
+    }
+  ]
+}

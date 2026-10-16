@@ -5,6 +5,7 @@ import { logEvent } from '../analytics/events';
 import { computeMasteryScore, bandForScore, RETENTION_DEFAULT_SCORE } from '../mastery/types';
 import { gradeAnswer, extractString } from '../question-engine/grading';
 import { ensureExplanation } from '../explanations/ensure-explanation';
+import { generateQuestionWithSolution, validateGeneratedQuestion } from '../question-engine/ai-question-generator';
 
 // Human-readable form of a stored/submitted answer for the diagnostic review
 // screen — same extraction gradeAnswer() itself uses (a bare value, or
@@ -20,6 +21,8 @@ export interface DiagnosticQuestionView {
   questionType: 'mcq' | 'short_answer' | 'numeric';
   options: unknown;
   difficulty: number;
+  figureUrl: string | null;
+  figureCaption: string | null;
 }
 
 export interface DiagnosticResult {
@@ -45,6 +48,8 @@ export interface QuestionReviewEntry {
   correctAnswer: string;
   isCorrect: boolean;
   explanation: string | null;
+  figureUrl: string | null;
+  figureCaption: string | null;
 }
 
 interface DiagnosticPlanState {
@@ -79,7 +84,8 @@ const PREFERRED_DIFFICULTY = 3;
 export async function startDiagnostic(
   supabase: SupabaseClient,
   studentId: string,
-  subjectId: string
+  subjectId: string,
+  aiProvider: AIProvider = createDefaultAIProvider()
 ): Promise<{ attemptId: string; firstQuestion: DiagnosticQuestionView; resumed: boolean; answeredCount: number }> {
   const { data: test, error: testErr } = await supabase
     .from('diagnostic_tests')
@@ -119,7 +125,7 @@ export async function startDiagnostic(
 
   const plan: string[] = [];
   for (const skillId of anchorSkillIds) {
-    const q = await pickQuestionForSkill(supabase, test.id, skillId);
+    const q = await pickOrGenerateQuestionForSkill(supabase, aiProvider, test.id, subjectId, skillId);
     if (q) plan.push(q.id);
     if (plan.length >= MAX_QUESTIONS) break;
   }
@@ -164,7 +170,7 @@ export async function answerDiagnosticQuestion(
 
   const { data: question, error: qErr } = await supabase
     .from('diagnostic_questions')
-    .select('id, skill_id, prompt, question_type, options, expected_answer, explanation')
+    .select('id, skill_id, prompt, question_type, options, expected_answer, explanation, figure_url, figure_caption')
     .eq('id', params.questionId)
     .single();
   if (qErr || !question) throw qErr ?? new Error('question_not_found');
@@ -206,10 +212,12 @@ export async function answerDiagnosticQuestion(
     correctAnswer,
     isCorrect,
     explanation,
+    figureUrl: question.figure_url ?? null,
+    figureCaption: question.figure_caption ?? null,
   });
 
   if (!isCorrect && !state.insertedForSkill[question.skill_id] && state.plan.length < MAX_QUESTIONS) {
-    const prereqQuestion = await pickPrerequisiteCheckQuestion(supabase, attempt.diagnostic_test_id, question.skill_id, state.plan);
+    const prereqQuestion = await pickPrerequisiteCheckQuestion(supabase, aiProvider, attempt.diagnostic_test_id, question.skill_id, state.plan);
     if (prereqQuestion) {
       const currentIndex = state.plan.indexOf(question.id);
       state.plan.splice(currentIndex + 1, 0, prereqQuestion.id);
@@ -273,7 +281,8 @@ async function pickQuestionForSkill(supabase: SupabaseClient, testId: string, sk
     .from('diagnostic_questions')
     .select('id, difficulty')
     .eq('diagnostic_test_id', testId)
-    .eq('skill_id', skillId);
+    .eq('skill_id', skillId)
+    .neq('content_status', 'rejected');
   if (!data || data.length === 0) return null;
 
   const exact = data.filter((q) => q.difficulty === PREFERRED_DIFFICULTY);
@@ -281,10 +290,16 @@ async function pickQuestionForSkill(supabase: SupabaseClient, testId: string, sk
   return pool[Math.floor(Math.random() * pool.length)];
 }
 
-async function pickPrerequisiteCheckQuestion(supabase: SupabaseClient, testId: string, skillId: string, existingPlan: string[]) {
+async function pickPrerequisiteCheckQuestion(
+  supabase: SupabaseClient,
+  aiProvider: AIProvider,
+  testId: string,
+  skillId: string,
+  existingPlan: string[]
+) {
   const { data: prereqs } = await supabase.from('prerequisites').select('requires_skill_id').eq('skill_id', skillId);
   for (const p of prereqs ?? []) {
-    const q = await pickQuestionForSkill(supabase, testId, p.requires_skill_id);
+    const q = await pickOrGenerateQuestionForSkill(supabase, aiProvider, testId, null, p.requires_skill_id);
     // Skip if this prerequisite's question is already in the plan — its own
     // anchor slot already covers it, no need to test it twice.
     if (q && !existingPlan.includes(q.id)) return q;
@@ -292,14 +307,103 @@ async function pickPrerequisiteCheckQuestion(supabase: SupabaseClient, testId: s
   return null;
 }
 
+/**
+ * Picks a bank question for this skill (pickQuestionForSkill's existing
+ * behavior); if the bank has none for this test+skill, generates one via AI
+ * and persists it into diagnostic_questions (source: 'generated') before
+ * returning it — same shared generator used for learning-session practice
+ * and the post-session quiz (question-engine/ai-question-generator.ts).
+ *
+ * This is a safety net, not the normal path: anchor skills and their
+ * prerequisites are expected to already have authored bank questions, and
+ * in the common case this never touches the AI at all. It exists so a
+ * newly added chapter/skill with no diagnostic question yet doesn't block a
+ * student's diagnostic outright — deliberately NOT a way to replace the
+ * diagnostic's curated bank with AI variety by default (see
+ * docs/DECISIONS.md: the diagnostic intentionally favors a fixed, known,
+ * consistent baseline over variety, unlike the quiz/practice flows).
+ *
+ * subjectId is optional and only fetched (via testId -> diagnostic_tests)
+ * when actually falling back to generation, so the common bank-hit path
+ * costs nothing extra.
+ */
+async function pickOrGenerateQuestionForSkill(
+  supabase: SupabaseClient,
+  aiProvider: AIProvider,
+  testId: string,
+  subjectId: string | null,
+  skillId: string
+) {
+  const bankQuestion = await pickQuestionForSkill(supabase, testId, skillId);
+  if (bankQuestion) return bankQuestion;
+
+  let resolvedSubjectId = subjectId;
+  if (!resolvedSubjectId) {
+    const { data: test } = await supabase.from('diagnostic_tests').select('subject_id').eq('id', testId).single();
+    resolvedSubjectId = test?.subject_id ?? null;
+  }
+  const { data: skillRow } = await supabase.from('skills').select('name').eq('id', skillId).single();
+  const { data: subjectRow } = resolvedSubjectId
+    ? await supabase.from('subjects').select('name').eq('id', resolvedSubjectId).single()
+    : { data: null };
+  const skillName = skillRow?.name ?? 'this skill';
+  const subjectName = subjectRow?.name ?? 'Mathematics';
+
+  try {
+    const generated = await generateQuestionWithSolution(aiProvider, { subjectName, skillName, difficulty: PREFERRED_DIFFICULTY });
+    const validation = validateGeneratedQuestion(generated);
+    // diagnostic_questions has no 'step' type (see quiz/skill-quiz.engine.ts's
+    // generateQuizTopUp for the same constraint) — treat it as invalid here.
+    if (!validation.valid || generated.questionType === 'step') {
+      console.error('pickOrGenerateQuestionForSkill: generated question unusable', skillId, validation.reason ?? 'step_type_not_supported');
+      return null;
+    }
+
+    const { data: inserted, error } = await supabase
+      .from('diagnostic_questions')
+      .insert({
+        diagnostic_test_id: testId,
+        skill_id: skillId,
+        difficulty: PREFERRED_DIFFICULTY,
+        question_type: generated.questionType,
+        prompt: generated.prompt,
+        options: generated.options ?? null,
+        expected_answer: generated.expectedAnswer,
+        explanation: generated.explanation,
+        source: 'generated',
+        content_status: 'needs_review',
+        validated: true,
+      })
+      .select('id, difficulty')
+      .single();
+    if (error || !inserted) {
+      console.error('pickOrGenerateQuestionForSkill: failed to persist generated question', skillId, error);
+      return null;
+    }
+    return inserted;
+  } catch (err) {
+    console.error('pickOrGenerateQuestionForSkill: generation failed', skillId, err);
+    return null;
+  }
+}
+
 async function loadQuestionView(supabase: SupabaseClient, questionId: string): Promise<DiagnosticQuestionView> {
   const { data, error } = await supabase
     .from('diagnostic_questions')
-    .select('id, skill_id, prompt, question_type, options, difficulty')
+    .select('id, skill_id, prompt, question_type, options, difficulty, figure_url, figure_caption')
     .eq('id', questionId)
     .single();
   if (error || !data) throw error ?? new Error('question_not_found');
-  return { id: data.id, skillId: data.skill_id, prompt: data.prompt, questionType: data.question_type, options: data.options, difficulty: data.difficulty };
+  return {
+    id: data.id,
+    skillId: data.skill_id,
+    prompt: data.prompt,
+    questionType: data.question_type,
+    options: data.options,
+    difficulty: data.difficulty,
+    figureUrl: data.figure_url ?? null,
+    figureCaption: data.figure_caption ?? null,
+  };
 }
 
 // (grading now shared via ../question-engine/grading.ts)

@@ -31,7 +31,10 @@ export const DICTIONARY: Dict = {
   'nav.takeTest': { en: 'Take a test', hi: 'टेस्ट दें' },
   'nav.signOut': { en: 'Sign out', hi: 'साइन आउट करें' },
   'nav.hi': { en: 'Hi, {name}', hi: 'नमस्ते, {name}' },
-  'nav.pilotOffer': { en: 'Join the pilot', hi: 'पायलट में शामिल हों' },
+  'nav.pilotOffer': {
+    en: 'Complete Board Prep',
+    hi: 'संपूर्ण बोर्ड तैयारी',
+  },
 
   // ---- Sign in / Sign up ----
   'auth.signUp': { en: 'Sign up', hi: 'साइन अप करें' },
@@ -51,9 +54,15 @@ export const DICTIONARY: Dict = {
   'auth.checkEmailReset': { en: 'Check your email for a password reset link.', hi: 'अपने ईमेल में पासवर्ड रीसेट लिंक देखें।' },
 
   // ---- Onboarding ----
-  'onboarding.oneLastStep': { en: 'One last step — what should we call you, and which subject?', hi: 'आखिरी कदम — हम आपको क्या कहकर बुलाएँ, और कौन सा विषय?' },
+  'onboarding.oneLastStep': {
+    en: 'One last step — what should we call you, and which subjects are you registered for?',
+    hi: 'आखिरी कदम — हम आपको क्या कहकर बुलाएँ, और आपने कौन से विषय लिए हैं?',
+  },
   'onboarding.yourName': { en: 'What should we call you?', hi: 'हम आपको क्या कहकर बुलाएँ?' },
-  'onboarding.whichSubject': { en: 'Which subject?', hi: 'कौन सा विषय?' },
+  'onboarding.whichSubject': {
+    en: 'Which subjects are you registered for in school? (choose all that apply)',
+    hi: 'स्कूल में आपने कौन से विषय लिए हैं? (जो लागू हों सभी चुनें)',
+  },
   'onboarding.startDiagnostic': { en: 'Start the diagnostic', hi: 'डायग्नोस्टिक शुरू करें' },
   'onboarding.starting': { en: 'Starting…', hi: 'शुरू हो रहा है…' },
 
@@ -124,8 +133,14 @@ export const DICTIONARY: Dict = {
   },
 
   // ---- Pilot offer / pricing ----
-  'pilot.title': { en: 'Founding-family early access', hi: 'संस्थापक-परिवार प्रारंभिक पहुँच' },
-  'pilot.price': { en: '₹{amount} for {days} days', hi: '{days} दिनों के लिए ₹{amount}' },
+  'pilot.title': {
+    en: 'Sahayak Complete Board Preparation',
+    hi: 'सहायक संपूर्ण बोर्ड तैयारी',
+  },
+  'pilot.price': {
+    en: '₹{amount} per child · {days} days of access',
+    hi: 'प्रति बच्चा ₹{amount} · {days} दिनों की पहुँच',
+  },
   'pilot.noAutoRenew': { en: 'No automatic renewal.', hi: 'कोई स्वचालित नवीनीकरण नहीं।' },
   'pilot.noGuarantee': { en: 'No guaranteed examination results.', hi: 'परीक्षा परिणाम की कोई गारंटी नहीं।' },
   'pilot.contactForPayment': {
@@ -157,14 +172,240 @@ export const DICTIONARY: Dict = {
   // ---- Legal / footer links ----
   'legal.terms': { en: 'Terms and Conditions', hi: 'नियम और शर्तें' },
   'legal.privacy': { en: 'Privacy Policy', hi: 'गोपनीयता नीति' },
-  'legal.pilotLimitations': { en: 'Early Access / Pilot Limitations', hi: 'प्रारंभिक पहुँच / पायलट सीमाएँ' },
+  'legal.pilotLimitations': { en: 'Scope and Limitations', hi: 'दायरा और सीमाएँ' },
   'legal.paymentPolicy': { en: 'Payment, Refund & Cancellation Policy', hi: 'भुगतान, धनवापसी और रद्दीकरण नीति' },
   'legal.contact': { en: 'Contact / Support', hi: 'संपर्क / सहायता' },
 
   // ---- Footer ----
   'footer.about': {
-    en: 'Sahayak is an adaptive 1-to-1 tutor for CBSE Class 10 Maths and Science, currently in early access.',
-    hi: 'सहायक CBSE कक्षा 10 गणित और विज्ञान के लिए एक अनुकूली 1-से-1 ट्यूटर है, जो फिलहाल प्रारंभिक पहुँच में है।',
+    en: 'Sahayak helps CBSE Class 10 students see where they stand, find their learning gaps, practise with a personalised plan, and track progress toward the 2027 board exams.',
+    hi: 'सहायक CBSE कक्षा 10 के विद्यार्थियों को यह देखने में मदद करता है कि वे कहाँ हैं, उनकी सीखने की कमियाँ क्या हैं, व्यक्तिगत योजना से अभ्यास करना, और 2027 बोर्ड परीक्षा की ओर प्रगति को ट्रैक करना।',
+  },
+
+  // ---- v34: board-prep offer, subject status, check-in ----
+  'pilot.lede': {
+    en: 'How prepared is your child for the 2027 board exams, what is holding them back, and what should they do next? Sahayak finds the gaps, teaches from there, and shows you the evidence.',
+    hi: 'आपका बच्चा 2027 बोर्ड परीक्षा के लिए कितना तैयार है, उसे क्या रोक रहा है, और आगे क्या करना चाहिए? सहायक कमियाँ ढूँढता है, वहीं से सिखाता है, और आपको प्रमाण दिखाता है।',
+  },
+  'pilot.includesTitle': {
+    en: "What's included",
+    hi: 'इसमें क्या शामिल है',
+  },
+  'pilot.inc1': {
+    en: 'An adaptive diagnostic in each subject you register for',
+    hi: 'आपके चुने हर विषय में एक अनुकूली डायग्नोस्टिक',
+  },
+  'pilot.inc2': {
+    en: 'AI-guided learning sessions with hints before answers, practice questions and a short quiz after each session',
+    hi: 'संकेत पहले-उत्तर बाद वाले AI-निर्देशित अध्ययन सत्र, अभ्यास प्रश्न और हर सत्र के बाद एक छोटी क्विज़',
+  },
+  'pilot.inc3': {
+    en: 'A short check-in before each session so the session fits how the student feels and the time they have',
+    hi: 'हर सत्र से पहले एक छोटा चेक-इन ताकि सत्र विद्यार्थी की स्थिति और उपलब्ध समय के अनुसार हो',
+  },
+  'pilot.inc4': {
+    en: 'A parent report built only from real evidence: progress, syllabus covered, and confidence trend',
+    hi: 'केवल वास्तविक प्रमाण से बनी अभिभावक रिपोर्ट: प्रगति, पूरा किया पाठ्यक्रम और आत्मविश्वास की प्रवृत्ति',
+  },
+  'pilot.notIncludedTitle': {
+    en: 'What is not included',
+    hi: 'इसमें क्या शामिल नहीं है',
+  },
+  'pilot.not1': {
+    en: 'No guaranteed marks, rank or score improvement, and no predicted board score.',
+    hi: 'अंकों, रैंक या स्कोर सुधार की कोई गारंटी नहीं, और बोर्ड स्कोर की कोई भविष्यवाणी नहीं।',
+  },
+  'pilot.not2': {
+    en: 'Subjects marked Pilot are still being reviewed; subjects marked Coming soon are not available yet.',
+    hi: "'पायलट' वाले विषयों की समीक्षा अभी जारी है; 'जल्द आ रहा है' वाले विषय अभी उपलब्ध नहीं हैं।",
+  },
+  'pilot.not3': {
+    en: 'Questions and explanations are in English for now. The interface can be shown in Hindi.',
+    hi: 'प्रश्न और स्पष्टीकरण अभी अंग्रेज़ी में हैं। इंटरफ़ेस हिंदी में दिखाया जा सकता है।',
+  },
+  'pilot.not4': {
+    en: 'No live teacher. Support comes directly from the founder.',
+    hi: 'कोई लाइव शिक्षक नहीं। सहायता सीधे संस्थापक से मिलती है।',
+  },
+  'pilot.subjectsTitle': {
+    en: 'Subjects and their status',
+    hi: 'विषय और उनकी स्थिति',
+  },
+  'pilot.priceNote': {
+    en: '₹999 is an introductory price for this first group of families and may change later. Access does not renew automatically.',
+    hi: '₹999 पहले परिवार-समूह के लिए परिचयात्मक मूल्य है और बाद में बदल सकता है। पहुँच अपने-आप नवीनीकृत नहीं होती।',
+  },
+  'pilot.refundNote': {
+    en: 'Refunds are handled individually — see the payment policy.',
+    hi: 'धनवापसी व्यक्तिगत रूप से संभाली जाती है — भुगतान नीति देखें।',
+  },
+  'subject.status.ready': {
+    en: 'Ready',
+    hi: 'तैयार',
+  },
+  'subject.status.pilot': {
+    en: 'Pilot',
+    hi: 'पायलट',
+  },
+  'subject.status.in_development': {
+    en: 'In development',
+    hi: 'विकास में',
+  },
+  'subject.status.coming_soon': {
+    en: 'Coming soon',
+    hi: 'जल्द आ रहा है',
+  },
+  'subject.manageTitle': {
+    en: 'Your subjects',
+    hi: 'आपके विषय',
+  },
+  'subject.manageIntro': {
+    en: 'Choose the subjects you are registered for in school. Pilot subjects work, but their questions are still being reviewed.',
+    hi: 'स्कूल में आपके लिए पंजीकृत विषय चुनें। पायलट विषय काम करते हैं, लेकिन उनके प्रश्नों की समीक्षा अभी जारी है।',
+  },
+  'subject.add': {
+    en: 'Add',
+    hi: 'जोड़ें',
+  },
+  'subject.registered': {
+    en: 'Registered',
+    hi: 'पंजीकृत',
+  },
+  'subject.manageLink': {
+    en: 'Manage subjects',
+    hi: 'विषय प्रबंधित करें',
+  },
+  'checkin.title': {
+    en: 'Quick check-in',
+    hi: 'त्वरित चेक-इन',
+  },
+  'checkin.intro': {
+    en: "Takes about 30 seconds. It helps shape today's session. There are no right or wrong answers.",
+    hi: 'लगभग 30 सेकंड लगते हैं। इससे आज का सत्र आपके अनुसार बनता है। कोई उत्तर सही या गलत नहीं है।',
+  },
+  'checkin.mood': {
+    en: 'How are you feeling right now?',
+    hi: 'आप अभी कैसा महसूस कर रहे हैं?',
+  },
+  'checkin.focus': {
+    en: 'How focused do you feel?',
+    hi: 'आप कितना ध्यान केंद्रित महसूस कर रहे हैं?',
+  },
+  'checkin.confidence': {
+    en: "How confident do you feel about today's topic? (0 = not at all, 10 = very)",
+    hi: 'आज के विषय को लेकर आप कितने आश्वस्त हैं? (0 = बिल्कुल नहीं, 10 = बहुत)',
+  },
+  'checkin.time': {
+    en: 'How much time do you have?',
+    hi: 'आपके पास कितना समय है?',
+  },
+  'checkin.goal': {
+    en: 'What do you want to do?',
+    hi: 'आप क्या करना चाहते हैं?',
+  },
+  'checkin.start': {
+    en: 'Start session',
+    hi: 'सत्र शुरू करें',
+  },
+  'checkin.skip': {
+    en: 'Skip for now',
+    hi: 'अभी छोड़ें',
+  },
+  'checkin.afterTitle': {
+    en: 'How confident do you feel about this topic now? (0–10)',
+    hi: 'अब इस विषय को लेकर आप कितने आश्वस्त हैं? (0–10)',
+  },
+  'checkin.afterSave': {
+    en: 'Save',
+    hi: 'सहेजें',
+  },
+  'checkin.recoveryNote': {
+    en: "Let's start gently today — a shorter, easier warm-up first.",
+    hi: 'आज धीरे से शुरू करते हैं — पहले एक छोटा, आसान वार्म-अप।',
+  },
+  'report.confidenceTitle': {
+    en: 'Student confidence (self-reported)',
+    hi: 'विद्यार्थी का आत्मविश्वास (स्वयं बताया गया)',
+  },
+  'report.confidenceIntro': {
+    en: 'Asked before each session on a 0–10 scale. Confidence is shown separately from marks — they measure different things.',
+    hi: 'हर सत्र से पहले 0–10 के पैमाने पर पूछा जाता है। आत्मविश्वास अंकों से अलग दिखाया जाता है — दोनों अलग चीज़ें मापते हैं।',
+  },
+  'report.confLatest': {
+    en: 'Latest',
+    hi: 'नवीनतम',
+  },
+  'report.confLast': {
+    en: 'Previous session',
+    hi: 'पिछला सत्र',
+  },
+  'report.conf7': {
+    en: '7-day average',
+    hi: '7-दिन औसत',
+  },
+  'report.conf30': {
+    en: '30-day average',
+    hi: '30-दिन औसत',
+  },
+  'report.confTrend': {
+    en: 'Trend',
+    hi: 'प्रवृत्ति',
+  },
+  'report.trend.improving': {
+    en: 'Improving ↑',
+    hi: 'सुधर रहा है ↑',
+  },
+  'report.trend.steady': {
+    en: 'Steady →',
+    hi: 'स्थिर →',
+  },
+  'report.trend.declining': {
+    en: 'Lower recently ↓',
+    hi: 'हाल में कम ↓',
+  },
+  'report.trend.not_enough_data': {
+    en: 'Not enough check-ins yet',
+    hi: 'अभी पर्याप्त चेक-इन नहीं',
+  },
+  'report.confChange': {
+    en: 'Average change during a session',
+    hi: 'सत्र के दौरान औसत बदलाव',
+  },
+  'report.confNone': {
+    en: 'No check-ins yet. Confidence appears here once the student has done a few sessions.',
+    hi: 'अभी कोई चेक-इन नहीं। कुछ सत्रों के बाद आत्मविश्वास यहाँ दिखेगा।',
+  },
+  'report.coverage': {
+    en: 'Syllabus assessed',
+    hi: 'पाठ्यक्रम का आकलन',
+  },
+  'report.evidence': {
+    en: 'Evidence',
+    hi: 'प्रमाण',
+  },
+  'report.evidence.insufficient': {
+    en: 'Insufficient so far — numbers here are not yet reliable',
+    hi: 'अभी अपर्याप्त — यहाँ की संख्याएँ अभी भरोसेमंद नहीं',
+  },
+  'report.evidence.limited': {
+    en: 'Limited — a fair indication, not yet a full picture',
+    hi: 'सीमित — एक उचित संकेत, अभी पूरी तस्वीर नहीं',
+  },
+  'report.evidence.good': {
+    en: 'Good — based on a broad part of the syllabus',
+    hi: 'अच्छा — पाठ्यक्रम के बड़े हिस्से पर आधारित',
+  },
+  'report.evidenceNote': {
+    en: '"Evidence" describes how much data Sahayak has, not a judgement about the child.',
+    hi: '"प्रमाण" बताता है कि सहायक के पास कितना डेटा है, बच्चे के बारे में कोई निर्णय नहीं।',
+  },
+  'report.pilotSubjectNote': {
+    en: 'Pilot subject: questions are still being reviewed.',
+    hi: 'पायलट विषय: प्रश्नों की समीक्षा अभी जारी है।',
+  },
+  'report.diagnosticNeeded': {
+    en: 'Diagnostic needed — no evidence yet.',
+    hi: 'डायग्नोस्टिक ज़रूरी — अभी कोई प्रमाण नहीं।',
   },
 };
 

@@ -1,0 +1,283 @@
+{
+  "curriculum": {
+    "board": "CBSE",
+    "class": "10",
+    "version": "v1"
+  },
+  "subject": {
+    "name": "Hindi Course A",
+    "slug": "hindi",
+    "status": "pilot",
+    "description": "Seeded this round; AI-assisted content pending founder/teacher review — see CONTENT_STATUS.md. Latin-script questions only for now."
+  },
+  "chapters": [
+    {
+      "name": "Kshitij Prose I: Sketches and Satire",
+      "slug": "kshitij-prose-1",
+      "sequence": 1,
+      "topics": [
+        {
+          "name": "Netaji ka Chashma",
+          "slug": "netaji-ka-chashma",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Identify the central subject of Netaji ka Chashma",
+              "slug": "identify-netaji-ka-chashma-subject",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Lakhnavi Andaz",
+          "slug": "lakhnavi-andaz",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain the satire in Lakhnavi Andaz",
+              "slug": "explain-lakhnavi-andaz-satire",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kshitij Prose II: Memoir and Essay",
+      "slug": "kshitij-prose-2",
+      "sequence": 2,
+      "topics": [
+        {
+          "name": "Balgobin Bhagat",
+          "slug": "balgobin-bhagat",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Identify Balgobin Bhagat's character and devotion",
+              "slug": "identify-balgobin-bhagat-devotion",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Stri Shiksha ke Virodhi Kutarkon ka Khandan",
+          "slug": "stri-shiksha-kutark",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain the central argument of the essay on women's education",
+              "slug": "explain-stri-shiksha-argument",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kshitij Poetry I: Bhakti Poetry",
+      "slug": "kshitij-poetry-1",
+      "sequence": 3,
+      "topics": [
+        {
+          "name": "Surdas ke Pad",
+          "slug": "surdas-pad",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain the dialogue between Uddhav and the gopis",
+              "slug": "explain-uddhav-gopi-sandesh",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Ram-Lakshman-Parashuram Samvad",
+          "slug": "ram-lakshman-parashuram-samvad",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain why Parashuram is angry in the Samvad",
+              "slug": "explain-parshuram-anger",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kshitij Poetry II: Modern Poems",
+      "slug": "kshitij-poetry-2",
+      "sequence": 4,
+      "topics": [
+        {
+          "name": "Authors of Modern Poems",
+          "slug": "modern-poem-authors",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Identify the poets of Kshitij modern poems",
+              "slug": "identify-aatmakathya-poet",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Kanyadaan",
+          "slug": "kanyadaan",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain the message of Kanyadaan",
+              "slug": "explain-kanyadaan-message",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kritika: Supplementary Reader",
+      "slug": "kritika",
+      "sequence": 5,
+      "topics": [
+        {
+          "name": "Mata ka Aanchal",
+          "slug": "mata-ka-aanchal",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Identify the author and theme of Mata ka Aanchal",
+              "slug": "identify-mata-ka-aanchal-author",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "George Pancham ki Naak",
+          "slug": "george-pancham-ki-naak",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain what George Pancham ki Naak satirises",
+              "slug": "explain-george-pancham-satire",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vyakaran I: Ras, Alankar and Muhavare",
+      "slug": "vyakaran-ras-alankar-muhavare",
+      "sequence": 6,
+      "topics": [
+        {
+          "name": "Ras and Alankar",
+          "slug": "ras-alankar",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Identify the ras and its sthayi bhav",
+              "slug": "identify-ras-sthayi-bhav",
+              "requires": []
+            },
+            {
+              "name": "Identify common alankar in a sentence",
+              "slug": "identify-alankar-upama",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Muhavare",
+          "slug": "muhavare",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain the meaning of common muhavare",
+              "slug": "explain-muhavare-meaning",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vyakaran II: Samas, Sandhi, Vakya and Vachya",
+      "slug": "vyakaran-samas-sandhi-vakya",
+      "sequence": 7,
+      "topics": [
+        {
+          "name": "Samas and Sandhi",
+          "slug": "samas-sandhi",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Identify the type of samas in a compound word",
+              "slug": "identify-samas-type",
+              "requires": []
+            },
+            {
+              "name": "Identify types of sandhi",
+              "slug": "identify-sandhi-type",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Vakya Bhed and Vachya",
+          "slug": "vakya-vachya",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Identify sentence types by structure",
+              "slug": "identify-vakya-bhed",
+              "requires": []
+            },
+            {
+              "name": "Identify the vachya of a sentence",
+              "slug": "identify-vachya",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lekhan: Writing Skills",
+      "slug": "lekhan",
+      "sequence": 8,
+      "topics": [
+        {
+          "name": "Patra Lekhan",
+          "slug": "patra-lekhan",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Compose a formal letter (aupcharik patra)",
+              "slug": "compose-aupcharik-patra",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Anuchchhed and Suchna Lekhan",
+          "slug": "anuchchhed-suchna",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Compose a unified paragraph (anuchchhed)",
+              "slug": "compose-anuchchhed",
+              "requires": []
+            },
+            {
+              "name": "Compose a notice (suchna)",
+              "slug": "compose-suchna",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

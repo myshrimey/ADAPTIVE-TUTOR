@@ -1,7 +1,9 @@
 import { redirect } from 'next/navigation';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { buildParentReport, formatReportForWhatsApp, t } from '@adaptive-tutor/core';
+import { buildParentReport, formatReportForWhatsApp, bandForScore, t } from '@adaptive-tutor/core';
 import { getServerLang } from '@/lib/language';
+import { MasteryArc } from '@/components/MasteryArc';
+import { ConfidenceChart } from '@/components/ConfidenceChart';
 
 // Parent-facing progress summary. Built only from real mastery/diagnostic
 // data already in the database — no invented percentages. When a subject
@@ -35,28 +37,104 @@ export default async function ReportPage() {
           </p>
         )}
 
+        <section className="chapter-row" style={{ marginTop: 'var(--space-3)', alignItems: 'flex-start' }}>
+          <div className="chapter-row__body">
+            <div className="chapter-row__title">{t('report.confidenceTitle', lang)}</div>
+            <p style={{ margin: '0.2rem 0', color: 'var(--slate)', fontSize: '0.88rem' }}>{t('report.confidenceIntro', lang)}</p>
+            {report.confidence.count === 0 ? (
+              <p style={{ margin: '0.4rem 0', color: 'var(--slate)' }}>{t('report.confNone', lang)}</p>
+            ) : (
+              <>
+                <div className="stat-tile-row" style={{ marginTop: '0.4rem' }}>
+                  <div className="stat-tile">
+                    <span className="stat-tile__value">{report.confidence.current}/10</span>
+                    <span className="stat-tile__label">{t('report.confLatest', lang)}</span>
+                  </div>
+                  {report.confidence.lastSession !== null && (
+                    <div className="stat-tile">
+                      <span className="stat-tile__value">{report.confidence.lastSession}/10</span>
+                      <span className="stat-tile__label">{t('report.confLast', lang)}</span>
+                    </div>
+                  )}
+                  {report.confidence.avg7Days !== null && (
+                    <div className="stat-tile">
+                      <span className="stat-tile__value">{report.confidence.avg7Days}/10</span>
+                      <span className="stat-tile__label">{t('report.conf7', lang)}</span>
+                    </div>
+                  )}
+                  {report.confidence.avg30Days !== null && (
+                    <div className="stat-tile">
+                      <span className="stat-tile__value">{report.confidence.avg30Days}/10</span>
+                      <span className="stat-tile__label">{t('report.conf30', lang)}</span>
+                    </div>
+                  )}
+                </div>
+                <p style={{ margin: '0.3rem 0' }}>
+                  <strong>{t('report.confTrend', lang)}:</strong> {t(`report.trend.${report.confidence.direction}` as any, lang)}
+                </p>
+                <ConfidenceChart series={report.confidence.series} />
+                {report.confidence.avgChangeInSession !== null && (
+                  <p style={{ margin: '0.3rem 0', fontSize: '0.88rem' }}>
+                    {t('report.confChange', lang)}: {report.confidence.avgChangeInSession > 0 ? '+' : ''}
+                    {report.confidence.avgChangeInSession}
+                  </p>
+                )}
+                {report.confidence.bySubject.length > 0 && (
+                  <ul style={{ margin: '0.3rem 0', paddingLeft: '1.1rem', fontSize: '0.9rem' }}>
+                    {report.confidence.bySubject.map((b) => (
+                      <li key={b.subjectId}>
+                        {b.subjectName}: {b.first} → {b.latest}{' '}
+                        {b.direction === 'improving' ? '↑' : b.direction === 'declining' ? '↓' : b.direction === 'steady' ? '→' : ''}
+                        <span style={{ color: 'var(--slate)' }}> ({b.count} check-in{b.count === 1 ? '' : 's'})</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {report.confidence.mismatchNote && <p style={{ margin: '0.3rem 0', fontSize: '0.9rem' }}>{report.confidence.mismatchNote}</p>}
+              </>
+            )}
+          </div>
+        </section>
+
         {report.subjects.map((s) => (
           <section key={s.subjectId} className="chapter-row" style={{ marginTop: 'var(--space-3)', alignItems: 'flex-start' }}>
             <div className="chapter-row__body">
-              <div className="chapter-row__title">{s.subjectName}</div>
+              <div className="chapter-row__title">
+                {s.subjectName}
+                {s.subjectStatus === 'pilot' && <span className="subject-chip__score" style={{ marginLeft: '0.5rem' }}>{t('subject.status.pilot', lang)}</span>}
+              </div>
+              {s.subjectStatus === 'pilot' && (
+                <p style={{ margin: '0.2rem 0', color: 'var(--slate)', fontSize: '0.85rem' }}>{t('report.pilotSubjectNote', lang)}</p>
+              )}
 
               {s.hasEnoughDataForComparison ? (
-                <p style={{ margin: '0.4rem 0', fontFamily: 'var(--font-mono)' }}>
-                  {Math.round(s.baselineAvgPercent!)}% (diagnostic baseline) → {Math.round(s.currentAvgPercent!)}% (current mastery)
-                </p>
+                <div className="score-gauge-row">
+                  <MasteryArc score={s.baselineAvgPercent!} band={bandForScore(s.baselineAvgPercent!)} label="Diagnostic baseline" size={100} />
+                  <MasteryArc score={s.currentAvgPercent!} band={bandForScore(s.currentAvgPercent!)} label="Current mastery" size={100} />
+                </div>
               ) : s.hasCurrentMastery ? (
-                <p style={{ margin: '0.4rem 0', fontFamily: 'var(--font-mono)' }}>
-                  {Math.round(s.currentAvgPercent!)}% current mastery (no diagnostic baseline on record)
-                </p>
+                <div className="score-gauge-row">
+                  <MasteryArc score={s.currentAvgPercent!} band={bandForScore(s.currentAvgPercent!)} label="Current mastery" size={100} />
+                  <p style={{ margin: 0, color: 'var(--slate)', fontSize: '0.88rem' }}>No diagnostic baseline on record.</p>
+                </div>
               ) : s.hasBaseline ? (
-                <p style={{ margin: '0.4rem 0' }}>
-                  <span style={{ fontFamily: 'var(--font-mono)' }}>{Math.round(s.baselineAvgPercent!)}%</span> diagnostic baseline.{' '}
-                  {t('report.baselineNote', lang)}
-                </p>
+                <div className="score-gauge-row">
+                  <MasteryArc score={s.baselineAvgPercent!} band={bandForScore(s.baselineAvgPercent!)} label="Diagnostic baseline" size={100} />
+                  <p style={{ margin: 0, color: 'var(--slate)', fontSize: '0.88rem' }}>{t('report.baselineNote', lang)}</p>
+                </div>
               ) : (
                 <p style={{ margin: '0.4rem 0', color: 'var(--slate)' }}>{t('report.baselineNote', lang)}</p>
               )}
 
+              {s.skillsTotal > 0 && (
+                <p style={{ margin: '0.3rem 0' }}>
+                  <strong>{t('report.coverage', lang)}:</strong> {Math.round(s.coveragePercent)}% ({s.skillsAssessed}/{s.skillsTotal}) ·{' '}
+                  <strong>{t('report.evidence', lang)}:</strong> {t(`report.evidence.${s.evidence}` as any, lang)}
+                </p>
+              )}
+              {!s.hasBaseline && !s.hasCurrentMastery && (
+                <p style={{ margin: '0.3rem 0', color: 'var(--slate)' }}>{t('report.diagnosticNeeded', lang)}</p>
+              )}
               {s.topicsStudied.length > 0 && (
                 <p style={{ margin: '0.3rem 0' }}>
                   <strong>{t('report.topicsStudied', lang)}:</strong> {s.topicsStudied.join(', ')}
@@ -78,6 +156,8 @@ export default async function ReportPage() {
             </div>
           </section>
         ))}
+
+        <p style={{ color: 'var(--slate)', fontSize: '0.85rem', marginTop: 'var(--space-3)' }}>{t('report.evidenceNote', lang)}</p>
 
         {report.subjects.length > 0 && (
           <div style={{ marginTop: 'var(--space-4)' }}>
