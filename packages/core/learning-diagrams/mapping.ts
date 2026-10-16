@@ -111,5 +111,7 @@ export const LEARNING_DIAGRAMS: Record<string, LearningDiagram> = {
 
 export function getLearningDiagram(skillSlug: string | undefined | null): LearningDiagram | null {
   if (!skillSlug) return null;
-  return LEARNING_DIAGRAMS[skillSlug] ?? null;
+  // Mathematics (Basic) skills are copies of the Standard ones with a '-basic'
+  // slug suffix (migration 0014) — they use the same teaching diagrams.
+  return LEARNING_DIAGRAMS[skillSlug] ?? LEARNING_DIAGRAMS[skillSlug.replace(/-basic$/, '')] ?? null;
 }

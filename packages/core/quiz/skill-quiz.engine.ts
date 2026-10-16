@@ -161,7 +161,8 @@ async function generateQuizTopUp(
   // keeps this from firing several AI calls at once for one small quiz.
   for (let i = 0; i < count; i++) {
     try {
-      const difficulty = [2, 3, 3, 4, 2][i % 5];
+      // Maths (Basic) is capped at difficulty 3 (direct, single-concept items).
+      const difficulty = Math.min([2, 3, 3, 4, 2][i % 5], /\(Basic\)/i.test(subjectName) ? 3 : 5);
       const generated = await generateQuestionWithSolution(aiProvider, {
         subjectName,
         skillName,

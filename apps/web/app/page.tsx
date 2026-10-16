@@ -4,12 +4,14 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase-client';
 import { useLanguage } from '@/components/LanguageProvider';
+import { FaqSection } from '@/components/FaqSection';
 
 // Shown at sign-up. `status` mirrors subjects.status in the database (the
 // database is the real gate — registerSubject rejects anything not usable);
 // keep the two in sync when a subject's readiness changes.
 const SUBJECTS: { slug: string; name: string; note: string; status: 'ready' | 'pilot' }[] = [
-  { slug: 'maths', name: 'Mathematics', note: '14 chapters — Real Numbers through Probability', status: 'ready' },
+  { slug: 'maths', name: 'Mathematics (Standard)', note: '14 chapters — Real Numbers through Probability. Full-difficulty questions.', status: 'ready' },
+  { slug: 'maths-basic', name: 'Mathematics (Basic)', note: 'Same chapters as Standard, with easier, more direct questions. Choose one Maths level.', status: 'pilot' },
   { slug: 'science', name: 'Science', note: '10 chapters across Physics, Chemistry, and Biology', status: 'ready' },
   { slug: 'social-science', name: 'Social Science', note: '24 chapters across History, Geography, Civics, and Economics', status: 'pilot' },
   { slug: 'english', name: 'English Language & Literature', note: 'First Flight, Footprints Without Feet, grammar and writing', status: 'pilot' },
@@ -21,7 +23,7 @@ type Mode = 'signup' | 'signin' | 'forgot';
 
 export default function Home() {
   const router = useRouter();
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [mode, setMode] = useState<Mode>('signup');
 
   const [email, setEmail] = useState('');
@@ -230,7 +232,12 @@ export default function Home() {
                         value={s.slug}
                         checked={chosenSubjects.includes(s.slug)}
                         onChange={(e) =>
-                          setChosenSubjects((prev) => (e.target.checked ? [...prev, s.slug] : prev.filter((x) => x !== s.slug)))
+                          setChosenSubjects((prev) => {
+                            if (!e.target.checked) return prev.filter((x) => x !== s.slug);
+                            // Maths Standard and Basic are alternatives: picking one unticks the other.
+                            const other = s.slug === 'maths' ? 'maths-basic' : s.slug === 'maths-basic' ? 'maths' : null;
+                            return [...prev.filter((x) => x !== other), s.slug];
+                          })
                         }
                         style={{ accentColor: 'var(--marigold-deep)' }}
                       />
@@ -373,6 +380,10 @@ export default function Home() {
             <a className="btn btn--ghost" href="/pilot">See what&apos;s included and the price (₹999)</a>
           </p>
         </section>
+
+        <div style={{ paddingBottom: 'var(--space-4)' }}>
+          <FaqSection lang={lang} />
+        </div>
       </div>
     </main>
   );

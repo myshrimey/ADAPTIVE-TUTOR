@@ -43,6 +43,8 @@ Requirements:
 - The question must test exactly the named skill, at exactly the named difficulty (1 = foundational recall,
   5 = multi-step/applied), strictly within the CBSE Class 10 syllabus for that skill — nothing from a later
   grade and nothing off-syllabus.
+- If the subject name contains "(Basic)", pitch the question at CBSE Mathematics BASIC level: a direct, single-concept
+  application with simple numbers, never a multi-step or proof-style question (same syllabus unit, easier paper).
 - It must have exactly one unambiguous correct answer (no "it depends", no open-ended opinion).
 - "explanation" is a short, correct, step-by-step solution a student could follow to independently reach
   expectedAnswer.value — not just a restatement of the answer.

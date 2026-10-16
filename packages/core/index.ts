@@ -35,3 +35,7 @@ export * from './pilot/pilot-payment.service';
 export * from './reports/parent-report.service';
 export * from './subjects/subject.service';
 export * from './checkins/checkin.service';
+export * from './mock/mock-exam.service';
+export * from './readiness/readiness.service';
+export * from './content/faq';
+export * from './learning-animation/level';

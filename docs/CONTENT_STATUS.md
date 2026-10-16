@@ -11,7 +11,8 @@ What each subject actually contains, how far it has been checked, and what Sahay
 ## Per-subject state (as of 2026-10-15, v34 — not yet deployed)
 | Subject | App status | Curriculum | Diagnostic bank | Review state |
 |---|---|---|---|---|
-| Mathematics | ready | 14 chapters, 41 skills | ~1000+ questions | Curated earlier; no teacher review on record |
+| Mathematics (Standard) | ready | 14 chapters, 41 skills | ~1000+ questions | Curated earlier; no teacher review on record |
+| Mathematics (Basic) | pilot | same chapters/skills as Standard (cloned) | Standard's difficulty 1-3 questions copied; AI top-up capped at 3 | needs_review; teacher should confirm scope vs the real CBSE Basic paper |
 | Science | ready | 10 chapters, 18 skills | ~900+ questions | Curated earlier; no teacher review on record |
 | Social Science | pilot | 24 chapters (seeded earlier) | thin | needs_review |
 | English Language & Literature | pilot | 8 chapters, 21 skills | 21 (1 per skill) | AI-written; needs_review |
@@ -24,8 +25,8 @@ Depth beyond those starter questions comes from the generate-and-persist mechani
 - Hindi: the "Kanyadaan" poem question tests a general reading rather than a specific fact; Lekhan (formal letter / notice) questions are general rather than tied to a specific marking rule.
 - Computer Applications: verify the chapter list against the current official CBSE Class 10 syllabus (cbseacademic.nic.in) before calling it anything beyond pilot.
 - English: only one `short_answer` question exists; the rest are MCQ. Written-answer quality is not assessed anywhere yet.
-- Mathematics Basic vs Standard, and Hindi Course A vs B, are **not** separate courses yet.
-- No subject has a timed board-style paper or mock exam.
+- Hindi Course A vs B is **not** a separate course yet. Mathematics Basic exists (v35) but is a derived, Pilot copy of Standard at lower difficulty.
+- Timed mock exams (v35) are objective-style practice papers drawn from the question bank — not a board-style paper (no long answer / case study sections).
 
 ## Promotion checklist (pilot → ready)
 Follow master-prompt quality gates 1–10: official syllabus mapped; a teacher reviews questions and answer keys (flip rows to `verified`, reject bad ones); diagnostic produces sensible results on real students; results persist across refresh/logout; mastery updates correctly; parent report matches database evidence; two-account privacy test passes; a parent and student finish the flow unaided; no critical errors. Then `update subjects set status = 'ready' where slug = '...'`.

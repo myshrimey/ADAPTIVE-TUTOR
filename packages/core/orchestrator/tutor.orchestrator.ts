@@ -125,6 +125,8 @@ export async function runOrchestratorTurn(
       .eq('session_id', input.sessionId);
     if ((attemptsSoFar ?? 0) < 3) difficulty = Math.max(1, difficulty - 1);
   }
+  // Maths (Basic): same syllabus, easier questions — never above difficulty 3.
+  if (/\(Basic\)/i.test(subjectName)) difficulty = Math.min(3, difficulty);
 
   const { data: recentMessages } = await supabase
     .from('messages')
@@ -374,6 +376,7 @@ async function handleAnswerTurn(
   let nextTurnDifficulty = ctx.difficulty;
   if (QUESTION_STRATEGIES.includes(nextAction)) {
     nextTurnDifficulty = nextDifficulty({ previousDifficulty: question.difficulty, isCorrect, masteryScore: updatedMastery.score, trend: ctx.trend });
+    if (/\(Basic\)/i.test(ctx.subjectName)) nextTurnDifficulty = Math.min(3, nextTurnDifficulty);
     const { data: recentAttempts } = await supabase
       .from('question_attempts')
       .select('question_id')

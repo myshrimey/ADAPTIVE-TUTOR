@@ -5,6 +5,10 @@ import { CheckInForm, type CheckinAnswers } from '@/components/CheckInForm';
 import { MathText } from '@/components/MathText';
 import { QuestionFigure } from '@/components/QuestionFigure';
 import { MasteryArc } from '@/components/MasteryArc';
+import { AnimatedDiagram } from '@/components/AnimatedDiagram';
+import { AnswerFeedback } from '@/components/AnswerFeedback';
+import { SessionProgressReveal, type SessionProgress } from '@/components/SessionProgressReveal';
+import { animationLevelForScore } from '@adaptive-tutor/core';
 
 interface ChatMessage {
   role: 'tutor' | 'student';
@@ -26,6 +30,7 @@ interface SessionSummary {
   whatYouCanNowDo: string[];
   needsPractice: string[];
   nextRecommendation: { skillId: string | null; reason: string };
+  progress?: SessionProgress;
 }
 
 // What's being taught right now, for the sidebar — fetched once at session
@@ -100,6 +105,8 @@ export default function LearnPage() {
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [skillId, setSkillId] = useState<string | null>(null);
   const [context, setContext] = useState<SessionContext | null>(null);
+  // Presentation pacing follows the student's level on THIS skill at session start. Never affects mastery or difficulty.
+  const animLevel = context ? animationLevelForScore(context.masteryScore) : 'standard';
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [activeQuestion, setActiveQuestion] = useState<ActiveQuestion | null>(null);
   const [input, setInput] = useState('');
@@ -121,6 +128,13 @@ export default function LearnPage() {
   // come back from /api/session/answer.
   const [answered, setAnswered] = useState(0);
   const [correct, setCorrect] = useState(0);
+  // Brief level-matched cue after each answer (see components/AnswerFeedback.tsx).
+  const [lastFeedback, setLastFeedback] = useState<{ correct: boolean; n: number } | null>(null);
+  useEffect(() => {
+    if (!lastFeedback) return;
+    const id = window.setTimeout(() => setLastFeedback(null), 2400);
+    return () => window.clearTimeout(id);
+  }, [lastFeedback]);
 
   // Set once the session is actually closed — switches the whole page over
   // to the summary view instead of silently redirecting to /dashboard with
@@ -209,6 +223,7 @@ export default function LearnPage() {
     if (wasAnswer && json.data.evaluation) {
       setAnswered((n) => n + 1);
       if (json.data.evaluation.isCorrect) setCorrect((n) => n + 1);
+      setLastFeedback((f) => ({ correct: !!json.data.evaluation.isCorrect, n: (f?.n ?? 0) + 1 }));
     }
     setMessages((m) => [...m, { role: 'tutor', content: json.data.tutorMessage, diagram: json.data.diagram ?? null }]);
     setActiveQuestion(json.data.activeQuestion ?? null);
@@ -447,6 +462,8 @@ export default function LearnPage() {
             </p>
           </div>
 
+          {summary.progress && <SessionProgressReveal progress={summary.progress} />}
+
           {hadCheckin && (
             <section style={{ marginTop: 'var(--space-3)' }}>
               <h2 style={{ fontSize: 'var(--step-1)', marginBottom: '0.4rem' }}>How confident do you feel about this topic now? (0–10)</h2>
@@ -540,13 +557,7 @@ export default function LearnPage() {
             {messages.map((m, i) => (
               <div key={i} className={`chat-msg chat-msg--${m.role} fade-slide-in`}>
                 <span className="chat-msg__role">{m.role === 'tutor' ? 'Tutor' : 'You'}</span>
-                {m.diagram && (
-                  <img
-                    src={m.diagram.url}
-                    alt={m.diagram.caption}
-                    style={{ maxWidth: '100%', maxHeight: '260px', display: 'block', margin: '0.4rem 0 0.6rem', borderRadius: '8px', border: '1px solid var(--line)' }}
-                  />
-                )}
+                {m.diagram && <AnimatedDiagram url={m.diagram.url} caption={m.diagram.caption} level={animLevel} />}
                 <MathText text={m.content} />
               </div>
             ))}
@@ -575,6 +586,8 @@ export default function LearnPage() {
               ))}
             </div>
           )}
+
+          {lastFeedback && <AnswerFeedback key={lastFeedback.n} correct={lastFeedback.correct} level={animLevel} />}
 
           <form onSubmit={send} className="composer">
             <input

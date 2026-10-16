@@ -407,6 +407,290 @@ export const DICTIONARY: Dict = {
     en: 'Diagnostic needed — no evidence yet.',
     hi: 'डायग्नोस्टिक ज़रूरी — अभी कोई प्रमाण नहीं।',
   },
+  'nav.mock': {
+    en: "Mock exam",
+    hi: "मॉक परीक्षा",
+  },
+  'mock.title': {
+    en: "Timed mock exam",
+    hi: "समयबद्ध मॉक परीक्षा",
+  },
+  'mock.intro': {
+    en: "A timed practice paper of objective-style questions (multiple-choice, numeric and short answer) spread across the chapters. It is practice for speed and exam habit — not a copy of the CBSE board paper, and not a prediction of your board marks. Your mock result does not change your learning progress.",
+    hi: "अध्याय-वार फैले वस्तुनिष्ठ प्रश्नों (बहुविकल्पीय, संख्यात्मक और लघु उत्तर) का समयबद्ध अभ्यास पत्र। यह गति और परीक्षा की आदत के लिए अभ्यास है — CBSE बोर्ड पेपर की नकल नहीं, और आपके बोर्ड अंकों की भविष्यवाणी भी नहीं। मॉक का परिणाम आपकी सीखने की प्रगति नहीं बदलता।",
+  },
+  'mock.pickSubject': {
+    en: "Choose a subject",
+    hi: "विषय चुनें",
+  },
+  'mock.noSubjects': {
+    en: "Register a subject first, then come back for a mock.",
+    hi: "पहले कोई विषय पंजीकृत करें, फिर मॉक के लिए लौटें।",
+  },
+  'mock.start': {
+    en: "Start mock exam",
+    hi: "मॉक परीक्षा शुरू करें",
+  },
+  'mock.resume': {
+    en: "Resume mock in progress",
+    hi: "चल रही मॉक परीक्षा जारी रखें",
+  },
+  'mock.starting': {
+    en: "Preparing your paper…",
+    hi: "आपका पेपर तैयार हो रहा है…",
+  },
+  'mock.timeLeft': {
+    en: "Time left",
+    hi: "बचा समय",
+  },
+  'mock.answered': {
+    en: "{n} of {total} answered",
+    hi: "{total} में से {n} के उत्तर दिए",
+  },
+  'mock.saved': {
+    en: "Answers saved",
+    hi: "उत्तर सहेजे गए",
+  },
+  'mock.saveFailed': {
+    en: "Could not save just now — your answers are kept on this screen and will retry.",
+    hi: "अभी सहेज नहीं पाए — आपके उत्तर इस स्क्रीन पर हैं, फिर कोशिश होगी।",
+  },
+  'mock.submit': {
+    en: "Submit exam",
+    hi: "परीक्षा जमा करें",
+  },
+  'mock.submitConfirm': {
+    en: "Submit now? {n} question(s) are still unanswered.",
+    hi: "अभी जमा करें? {n} प्रश्न अभी भी अनुत्तरित हैं।",
+  },
+  'mock.timeUp': {
+    en: "Time is up — your paper was submitted automatically.",
+    hi: "समय समाप्त — आपका पेपर अपने-आप जमा हो गया।",
+  },
+  'mock.question': {
+    en: "Question {n}",
+    hi: "प्रश्न {n}",
+  },
+  'mock.typeAnswer': {
+    en: "Type your answer",
+    hi: "अपना उत्तर लिखें",
+  },
+  'mock.resultTitle': {
+    en: "Mock exam result",
+    hi: "मॉक परीक्षा परिणाम",
+  },
+  'mock.score': {
+    en: "{score} out of {total} correct ({percent}%)",
+    hi: "{total} में से {score} सही ({percent}%)",
+  },
+  'mock.unanswered': {
+    en: "Unanswered: {n}",
+    hi: "अनुत्तरित: {n}",
+  },
+  'mock.timeUsed': {
+    en: "Time used: {m} min",
+    hi: "लगा समय: {m} मिनट",
+  },
+  'mock.byChapter': {
+    en: "By chapter",
+    hi: "अध्याय-वार",
+  },
+  'mock.review': {
+    en: "Review your answers",
+    hi: "अपने उत्तर देखें",
+  },
+  'mock.yourAnswer': {
+    en: "Your answer",
+    hi: "आपका उत्तर",
+  },
+  'mock.correctAnswer': {
+    en: "Correct answer",
+    hi: "सही उत्तर",
+  },
+  'mock.notAnswered': {
+    en: "Not answered",
+    hi: "उत्तर नहीं दिया",
+  },
+  'mock.again': {
+    en: "Take another mock",
+    hi: "एक और मॉक दें",
+  },
+  'mock.note': {
+    en: "One mock is a small sample. Several mocks over time say more than any single one.",
+    hi: "एक मॉक एक छोटा नमूना है। समय के साथ कई मॉक किसी एक से ज़्यादा बताते हैं।",
+  },
+  'mock.pilotNote': {
+    en: "This subject is in pilot: its questions are still being reviewed.",
+    hi: "यह विषय पायलट में है: इसके प्रश्नों की समीक्षा अभी जारी है।",
+  },
+  'mock.notEnough': {
+    en: "This subject does not have enough questions for a mock yet.",
+    hi: "इस विषय में अभी मॉक के लिए पर्याप्त प्रश्न नहीं हैं।",
+  },
+  'mock.correct': {
+    en: "Correct",
+    hi: "सही",
+  },
+  'mock.incorrect': {
+    en: "Not correct",
+    hi: "सही नहीं",
+  },
+  'readiness.title': {
+    en: "Preparation level",
+    hi: "तैयारी का स्तर",
+  },
+  'readiness.intro': {
+    en: "This describes how well the evidence so far supports readiness for each subject. It is not a predicted board mark and not a promise, and it can change as more practice is done.",
+    hi: "यह बताता है कि अब तक के प्रमाण हर विषय की तैयारी को कितना समर्थन देते हैं। यह बोर्ड अंकों की भविष्यवाणी या वादा नहीं है, और अधिक अभ्यास के साथ बदल सकता है।",
+  },
+  'readiness.summary': {
+    en: "{n} of {assessed} assessed subjects are at 'On track' or above ({total} registered).",
+    hi: "आकलन किए गए {assessed} विषयों में से {n} 'सही राह पर' या उससे ऊपर हैं ({total} पंजीकृत)।",
+  },
+  'readiness.summaryNone': {
+    en: "No subject has enough evidence for a preparation level yet.",
+    hi: "अभी किसी विषय के लिए तैयारी का स्तर बताने लायक पर्याप्त प्रमाण नहीं है।",
+  },
+  'readiness.band.insufficient_evidence': {
+    en: "Not enough evidence yet",
+    hi: "अभी पर्याप्त प्रमाण नहीं",
+  },
+  'readiness.band.building': {
+    en: "Building foundations",
+    hi: "नींव बन रही है",
+  },
+  'readiness.band.developing': {
+    en: "Developing",
+    hi: "विकसित हो रही है",
+  },
+  'readiness.band.on_track': {
+    en: "On track",
+    hi: "सही राह पर",
+  },
+  'readiness.band.well_prepared': {
+    en: "Well prepared",
+    hi: "अच्छी तैयारी",
+  },
+  'readiness.reason.too_little_assessed': {
+    en: "Only {assessed} of {total} skills have been assessed so far — too little to say anything firm.",
+    hi: "अब तक {total} में से केवल {assessed} कौशल आँके गए हैं — कुछ पक्का कहने के लिए बहुत कम।",
+  },
+  'readiness.reason.mastery_summary': {
+    en: "Average mastery across assessed skills: about {percent}%.",
+    hi: "आँके गए कौशलों में औसत महारत: लगभग {percent}%।",
+  },
+  'readiness.reason.mocks_summary': {
+    en: "Latest {n} timed mock(s) averaged {percent}%.",
+    hi: "पिछली {n} समयबद्ध मॉक का औसत {percent}% रहा।",
+  },
+  'readiness.reason.no_mock': {
+    en: "No timed mock has been taken yet, so the highest level is not shown.",
+    hi: "अभी कोई समयबद्ध मॉक नहीं दी गई, इसलिए सबसे ऊँचा स्तर नहीं दिखाया जा रहा।",
+  },
+  'readiness.reason.mock_gap': {
+    en: "Timed mocks ({mock}%) are lower than practice mastery ({mastery}%), so speed and exam-style practice need attention.",
+    hi: "समयबद्ध मॉक ({mock}%) अभ्यास की महारत ({mastery}%) से कम हैं, इसलिए गति और परीक्षा-शैली के अभ्यास पर ध्यान चाहिए।",
+  },
+  'readiness.reason.coverage_cap': {
+    en: "Only about {percent}% of the syllabus has been assessed, which limits how high the level can go.",
+    hi: "पाठ्यक्रम का केवल लगभग {percent}% आँका गया है, जिससे स्तर की ऊपरी सीमा तय होती है।",
+  },
+  'readiness.reason.pilot_cap': {
+    en: "This is a pilot subject whose questions are still being reviewed, so the top level is not shown.",
+    hi: "यह पायलट विषय है जिसके प्रश्नों की समीक्षा जारी है, इसलिए सबसे ऊँचा स्तर नहीं दिखाया जा रहा।",
+  },
+  'readiness.next.finish_diagnostic': {
+    en: "Next step: take the diagnostic test for this subject.",
+    hi: "अगला कदम: इस विषय का डायग्नोस्टिक टेस्ट दें।",
+  },
+  'readiness.next.more_sessions': {
+    en: "Next step: complete a few more learning sessions so more skills are assessed.",
+    hi: "अगला कदम: कुछ और लर्निंग सेशन पूरे करें ताकि अधिक कौशल आँके जा सकें।",
+  },
+  'readiness.next.practise_weak': {
+    en: "Next step: practise the skills listed under 'Needs more practice'.",
+    hi: "अगला कदम: 'और अभ्यास चाहिए' में दिए कौशलों का अभ्यास करें।",
+  },
+  'readiness.next.take_mock': {
+    en: "Next step: take a timed mock exam to check speed and exam habit.",
+    hi: "अगला कदम: गति और परीक्षा की आदत जाँचने के लिए समयबद्ध मॉक दें।",
+  },
+  'readiness.next.keep_going': {
+    en: "Next step: keep revising and take a mock every week or two.",
+    hi: "अगला कदम: दोहराते रहें और हर एक-दो हफ़्ते में एक मॉक दें।",
+  },
+  'report.mockLine': {
+    en: "Timed mocks: {n}, latest {percent}%",
+    hi: "समयबद्ध मॉक: {n}, नवीनतम {percent}%",
+  },
+  'faq.title': {
+    en: "Frequently asked questions",
+    hi: "अक्सर पूछे जाने वाले प्रश्न",
+  },
+  'anim.replay': {
+    en: "Replay",
+    hi: "फिर से देखें",
+  },
+  'anim.guidedHint': {
+    en: "Take your time — look at each label one by one.",
+    hi: "आराम से देखें — हर लेबल को एक-एक करके पढ़ें।",
+  },
+  'anim.ok.guided': {
+    en: "Yes — that's it! Well done.",
+    hi: "हाँ — बिल्कुल सही! शाबाश।",
+  },
+  'anim.ok.standard': {
+    en: "Correct.",
+    hi: "सही।",
+  },
+  'anim.ok.brisk': {
+    en: "Correct ✓",
+    hi: "सही ✓",
+  },
+  'anim.retry.guided': {
+    en: "Not quite — that's okay. Let's look at it together.",
+    hi: "बिल्कुल नहीं — कोई बात नहीं। आइए साथ में देखें।",
+  },
+  'anim.retry.standard': {
+    en: "Not quite — have another look.",
+    hi: "ठीक नहीं — एक बार फिर देखें।",
+  },
+  'anim.retry.brisk': {
+    en: "Not quite.",
+    hi: "ठीक नहीं।",
+  },
+  'anim.band.needs_foundation': {
+    en: "Building foundation",
+    hi: "नींव बन रही है",
+  },
+  'anim.band.emerging': {
+    en: "Emerging",
+    hi: "उभर रहा है",
+  },
+  'anim.band.developing': {
+    en: "Developing",
+    hi: "विकसित हो रहा है",
+  },
+  'anim.band.strong': {
+    en: "Strong",
+    hi: "मज़बूत",
+  },
+  'anim.band.mastered': {
+    en: "Mastered",
+    hi: "पूर्ण महारत",
+  },
+  'anim.levelUp': {
+    en: "Level up! This skill moved from {from} to {to}.",
+    hi: "लेवल अप! यह कौशल {from} से {to} पर पहुँचा।",
+  },
+  'anim.progressUp': {
+    en: "This skill moved from {from}% to {to}% this session.",
+    hi: "इस सेशन में यह कौशल {from}% से {to}% पर पहुँचा।",
+  },
+  'anim.progressSteady': {
+    en: "Progress on a skill builds over several sessions — each one counts.",
+    hi: "किसी कौशल में प्रगति कई सेशन में बनती है — हर सेशन मायने रखता है।",
+  },
 };
 
 export function t(key: keyof typeof DICTIONARY, lang: Lang, vars?: Record<string, string | number>): string {

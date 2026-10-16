@@ -1221,3 +1221,33 @@ a {
     bottom: var(--space-2);
   }
 }
+
+/* ---- v35: FAQ accordion ---- */
+.faq__item { border-bottom: 1px solid var(--line, rgba(0,0,0,0.12)); padding: 0.2rem 0; }
+.faq__q { cursor: pointer; font-weight: 600; padding: 0.7rem 0; list-style-position: outside; }
+.faq__q:focus-visible { outline: 2px solid var(--marigold-deep, #c77700); outline-offset: 2px; }
+.faq__a { margin: 0 0 0.8rem; color: var(--slate); line-height: 1.55; }
+
+/* ---- v35: level-adaptive learning animations ----
+   All of these are switched off by the global prefers-reduced-motion rule above. */
+.diagram-anim__img { max-width: 100%; max-height: 260px; display: block; border-radius: 8px; border: 1px solid var(--line); margin-bottom: 0.3rem; }
+.diagram-anim--guided .diagram-anim__img { animation: diagramWipe 2.4s ease-out both, diagramPulse 1.6s ease-in-out 2.4s 2; }
+.diagram-anim--standard .diagram-anim__img { animation: diagramWipe 0.9s ease-out both; }
+.diagram-anim--brisk .diagram-anim__img { animation: fadeSlideIn 0.2s ease both; }
+.diagram-anim__hint { font-size: 0.85rem; color: var(--slate); margin: 0 0 0.3rem; }
+@keyframes diagramWipe { from { clip-path: inset(0 100% 0 0); opacity: 0.4; } to { clip-path: inset(0 0 0 0); opacity: 1; } }
+@keyframes diagramPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(200,129,31,0); } 50% { box-shadow: 0 0 0 6px rgba(200,129,31,0.28); } }
+
+.answer-pop { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.8rem; border-radius: 999px; margin: 0.3rem 0; background: var(--mastered-bg, #e7f3ec); color: var(--mastered, #3f7a5c); animation: answerPop 2.2s ease both; }
+.answer-pop--retry { background: var(--paper-2, #f3efe6); color: var(--ink-soft, #444); }
+.answer-pop__icon { font-weight: 700; }
+.answer-pop--guided { font-size: 1.05rem; padding: 0.55rem 1rem; }
+.answer-pop--guided.answer-pop--ok .answer-pop__icon { animation: iconBounce 0.7s ease 2; }
+.answer-pop--brisk { font-size: 0.85rem; padding: 0.25rem 0.6rem; }
+@keyframes answerPop { 0% { opacity: 0; transform: scale(0.85); } 12% { opacity: 1; transform: scale(1.05); } 20% { transform: scale(1); } 85% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes iconBounce { 0%, 100% { transform: translateY(0); } 40% { transform: translateY(-5px) scale(1.3); } }
+
+.progress-reveal__track { position: relative; height: 12px; border-radius: 999px; background: var(--line, #e6e1d6); overflow: visible; }
+.progress-reveal__fill { height: 100%; border-radius: 999px; background: var(--marigold-deep, #c8811f); transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.progress-reveal__burst { position: absolute; right: 0; top: 50%; width: 14px; height: 14px; margin: -7px -3px 0 0; border-radius: 50%; border: 3px solid var(--mastered, #3f7a5c); animation: burstRing 1.2s ease-out 1.5s 2 both; }
+@keyframes burstRing { 0% { transform: scale(0.6); opacity: 1; } 100% { transform: scale(3.2); opacity: 0; } }

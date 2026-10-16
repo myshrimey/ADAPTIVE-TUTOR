@@ -1,5 +1,7 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { loadConfidenceTrend, type ConfidenceTrend } from '../checkins/checkin.service';
+import { assessReadiness, summariseReadiness, type ReadinessAssessment } from '../readiness/readiness.service';
+import { t as translate } from '../i18n/dictionary';
 
 // Parent-facing progress summary (brief Section 9). Built entirely from data
 // that already exists — no invented improvement percentages, no guaranteed
@@ -41,18 +43,25 @@ export interface ParentReportSubject {
    * evidence, NOT the child: 'insufficient' = too little to say anything firm.
    */
   evidence: 'insufficient' | 'limited' | 'good';
+  // v35: board-readiness band + the timed-mock results it used.
+  readiness: ReadinessAssessment;
+  mockCount: number;
+  latestMockPercent: number | null;
 }
 
 export interface ParentReport {
   studentName: string | null;
   confidence: ConfidenceTrend;
   subjects: ParentReportSubject[];
+  readinessSummary: { assessed: number; onTrackOrAbove: number; total: number };
   generatedAt: string;
 }
 
 export async function buildParentReport(supabase: SupabaseClient, studentId: string): Promise<ParentReport> {
-  const [{ data: student }, { data: masteryRows }, { data: attempts }, { data: sessions }, { data: skillRows }, { data: subjectRows }, { data: goalRows }, confidence] = await Promise.all([
+  const [{ data: student }, { data: mockRows }, { data: masteryRows }, { data: attempts }, { data: sessions }, { data: skillRows }, { data: subjectRows }, { data: goalRows }, confidence] = await Promise.all([
     supabase.from('students').select('display_name').eq('id', studentId).single(),
+    // Submitted mock exams (migration 0015). If that migration is not applied yet this just returns no rows.
+    supabase.from('mock_exams').select('subject_id, score, total, submitted_at').eq('student_id', studentId).eq('status', 'submitted').order('submitted_at', { ascending: false }).limit(60),
     supabase
       .from('mastery_states')
       .select('skill_id, score, band, skills(name, topics(chapters(subject_id, subjects(id, name))))')
@@ -127,7 +136,16 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
     const evidence: ParentReportSubject['evidence'] =
       skillsAssessed < 3 || coveragePercent < 20 ? 'insufficient' : coveragePercent < 60 ? 'limited' : 'good';
 
+    const mockPercents = ((mockRows ?? []) as any[])
+      .filter((m) => m.subject_id === subjectId && m.total)
+      .map((m) => Math.round((Number(m.score) / Number(m.total)) * 100));
+    const subjectStatus = (meta?.status ?? 'ready') as ParentReportSubject['subjectStatus'];
+    const readiness = assessReadiness({ subjectStatus, skillsAssessed, skillsTotal, coveragePercent, evidence, masteryAvgPercent: currentAvg, mockPercents });
+
     return {
+      readiness,
+      mockCount: mockPercents.length,
+      latestMockPercent: mockPercents[0] ?? null,
       subjectId,
       subjectName: meta?.name ?? baseline?.subjectName ?? current?.subjectName ?? 'Subject',
       subjectStatus: (meta?.status ?? 'ready') as ParentReportSubject['subjectStatus'],
@@ -151,6 +169,7 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
     studentName: student?.display_name ?? null,
     confidence,
     subjects,
+    readinessSummary: summariseReadiness(subjects.map((x) => x.readiness.band)),
     generatedAt: new Date().toISOString(),
   };
 }
@@ -172,6 +191,7 @@ export function formatReportForWhatsApp(report: ParentReport): string {
       lines.push('- Not started yet');
     }
     if (s.skillsTotal > 0) lines.push(`- Syllabus assessed so far: ${Math.round(s.coveragePercent)}% (${s.skillsAssessed} of ${s.skillsTotal} skills)${s.evidence === 'insufficient' ? ' — not enough evidence yet' : ''}`);
+    lines.push(`- Preparation level: ${translate(`readiness.band.${s.readiness.band}` as any, 'en')}${s.mockCount > 0 ? ` (${s.mockCount} timed mock${s.mockCount === 1 ? '' : 's'}, latest ${s.latestMockPercent}%)` : ''}`);
     if (s.needsPractice.length) lines.push(`- Needs more practice: ${s.needsPractice.slice(0, 3).join(', ')}`);
     if (s.nextRecommendedSkillName) lines.push(`- Suggested next: ${s.nextRecommendedSkillName}`);
   }
@@ -180,6 +200,6 @@ export function formatReportForWhatsApp(report: ParentReport): string {
     lines.push(`Confidence (self-reported, 0-10): latest ${report.confidence.current}${report.confidence.avg7Days !== null ? `, 7-day average ${report.confidence.avg7Days}` : ''}`);
   }
   lines.push('');
-  lines.push('(This is a learning summary, not a guarantee of exam results.)');
+  lines.push('(This is a learning summary based on the evidence so far — not a prediction of board marks and not a guarantee of exam results.)');
   return lines.join('\n');
 }

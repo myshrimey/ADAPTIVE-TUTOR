@@ -96,6 +96,28 @@ export default async function ReportPage() {
           </div>
         </section>
 
+        {report.subjects.length > 0 && (
+          <section className="chapter-row" style={{ marginTop: 'var(--space-3)', alignItems: 'flex-start' }}>
+            <div className="chapter-row__body">
+              <div className="chapter-row__title">{t('readiness.title', lang)}</div>
+              <p style={{ margin: '0.2rem 0', color: 'var(--slate)', fontSize: '0.88rem' }}>{t('readiness.intro', lang)}</p>
+              <p style={{ margin: '0.3rem 0', fontWeight: 600 }}>
+                {report.readinessSummary.assessed === 0
+                  ? t('readiness.summaryNone', lang)
+                  : t('readiness.summary', lang, { n: report.readinessSummary.onTrackOrAbove, assessed: report.readinessSummary.assessed, total: report.readinessSummary.total })}
+              </p>
+              <div className="subject-chip-row">
+                {report.subjects.map((s) => (
+                  <span key={s.subjectId} className="subject-chip" data-band={s.readiness.band}>
+                    <span className="subject-chip__name">{s.subjectName}</span>
+                    <span className="subject-chip__score">{t(`readiness.band.${s.readiness.band}` as any, lang)}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {report.subjects.map((s) => (
           <section key={s.subjectId} className="chapter-row" style={{ marginTop: 'var(--space-3)', alignItems: 'flex-start' }}>
             <div className="chapter-row__body">
@@ -132,6 +154,16 @@ export default async function ReportPage() {
                   <strong>{t('report.evidence', lang)}:</strong> {t(`report.evidence.${s.evidence}` as any, lang)}
                 </p>
               )}
+              <p style={{ margin: '0.3rem 0' }}>
+                <strong>{t('readiness.title', lang)}:</strong> {t(`readiness.band.${s.readiness.band}` as any, lang)}
+                {s.mockCount > 0 && s.latestMockPercent !== null && <span style={{ color: 'var(--slate)' }}> · {t('report.mockLine', lang, { n: s.mockCount, percent: s.latestMockPercent })}</span>}
+              </p>
+              <ul style={{ margin: '0.2rem 0', paddingLeft: '1.1rem', fontSize: '0.88rem', color: 'var(--slate)' }}>
+                {s.readiness.reasons.map((r, i) => (
+                  <li key={i}>{t(`readiness.reason.${r.code}` as any, lang, r.params)}</li>
+                ))}
+              </ul>
+              <p style={{ margin: '0.2rem 0', fontSize: '0.9rem' }}>{t(`readiness.next.${s.readiness.nextStep}` as any, lang)}</p>
               {!s.hasBaseline && !s.hasCurrentMastery && (
                 <p style={{ margin: '0.3rem 0', color: 'var(--slate)' }}>{t('report.diagnosticNeeded', lang)}</p>
               )}

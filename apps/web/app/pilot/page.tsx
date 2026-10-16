@@ -2,6 +2,7 @@ import { createServerClient, createServiceClient } from '@/lib/supabase-server';
 import { FOUNDER, BOARD_PREP_OFFER, t } from '@adaptive-tutor/core';
 import { getServerLang } from '@/lib/language';
 import { PilotPaymentForm } from '@/components/PilotPaymentForm';
+import { FaqSection } from '@/components/FaqSection';
 
 // The ₹999 "Sahayak Complete Board Preparation" offer page (master prompt
 // sec. 29): states duration, supported subjects (with honest status), what is
@@ -84,6 +85,8 @@ export default async function BoardPrepOfferPage() {
             </p>
           )}
         </section>
+
+        <FaqSection lang={lang} />
 
         <section style={{ marginTop: 'var(--space-4)', fontSize: '0.85rem', color: 'var(--slate)' }}>
           <a href="/legal/pilot-limitations">{t('legal.pilotLimitations', lang)}</a>

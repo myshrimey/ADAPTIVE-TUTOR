@@ -2,6 +2,7 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import type { AIProvider } from '../ai-provider/ai-provider.interface';
 import { createDefaultAIProvider } from '../ai-provider/factory';
 import { updateMastery } from '../mastery/mastery.service';
+import { bandForScore } from '../mastery/types';
 import { logEvent } from '../analytics/events';
 
 export interface SessionSummary {
@@ -9,6 +10,8 @@ export interface SessionSummary {
   whatYouCanNowDo: string[];
   needsPractice: string[];
   nextRecommendation: { skillId: string | null; reason: string };
+  /** v35: where mastery of this skill moved during the session — drives the level-up animation. */
+  progress?: { startingScore: number; endingScore: number; startingBand: string; endingBand: string };
 }
 
 const SUMMARY_SYSTEM_PROMPT = `You write a short, encouraging end-of-session summary for a Class 10 Maths
@@ -82,6 +85,12 @@ export async function completeSession(
     whatYouCanNowDo: phrased.whatYouCanNowDo ?? [],
     needsPractice: phrased.needsPractice ?? [],
     nextRecommendation,
+    progress: {
+      startingScore: Math.round(startingScore),
+      endingScore: Math.round(endingMastery.score),
+      startingBand: bandForScore(startingScore),
+      endingBand: endingMastery.band,
+    },
   };
 
   await supabase
