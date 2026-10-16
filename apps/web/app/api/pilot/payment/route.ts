@@ -17,12 +17,12 @@ export async function POST(request: Request) {
   try {
     const studentId = await getCurrentStudentId();
     const body = await request.json();
-    const { amount, paymentDate, transactionReference } = body as { amount: number; paymentDate: string; transactionReference?: string };
+    const { amount, paymentDate, transactionReference, planCode } = body as { amount: number; paymentDate: string; transactionReference?: string; planCode?: string };
     if (!amount || !paymentDate) {
       return NextResponse.json({ data: null, error: 'missing_required_fields' }, { status: 400 });
     }
     const supabase = await createServerClient();
-    await submitPaymentClaim(supabase, studentId, { amount, paymentDate, transactionReference });
+    await submitPaymentClaim(supabase, studentId, { amount, paymentDate, transactionReference, planCode });
     return NextResponse.json({ data: { submitted: true }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });

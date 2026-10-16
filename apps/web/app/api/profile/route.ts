@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
+import { createServerClient, createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import {
   getStudentProfileDetails,
   upsertStudentProfileDetails,
@@ -47,6 +47,9 @@ export async function POST(request: Request) {
       await upsertAcademicHistory(supabase, studentId, academicHistory as any);
     }
     const savedHistory = await listAcademicHistory(supabase, studentId);
+
+    // First-login step done (id derived from the session above, never from the request).
+    await createServiceClient().from('students').update({ must_complete_profile: false }).eq('id', studentId);
 
     return NextResponse.json({ data: { details: savedDetails, academicHistory: savedHistory }, error: null });
   } catch (err: any) {

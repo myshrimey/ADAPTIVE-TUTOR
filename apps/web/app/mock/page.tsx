@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { MathText } from '@/components/MathText';
 import { QuestionFigure } from '@/components/QuestionFigure';
+import { accessErrorMessage } from '@/lib/access-errors';
 import { useLanguage } from '@/components/LanguageProvider';
 
 interface SubjectOpt {
@@ -115,7 +116,7 @@ export default function MockPage() {
       if (json.error) throw new Error(json.error);
       beginExam(json.data);
     } catch (e: any) {
-      setError(e.message === 'not_enough_questions' ? tt('mock.notEnough') : e.message);
+      setError(e.message === 'not_enough_questions' ? tt('mock.notEnough') : accessErrorMessage(e.message) ?? e.message);
     } finally {
       setLoading(false);
     }

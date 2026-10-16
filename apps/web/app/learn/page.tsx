@@ -5,6 +5,7 @@ import { CheckInForm, type CheckinAnswers } from '@/components/CheckInForm';
 import { MathText } from '@/components/MathText';
 import { QuestionFigure } from '@/components/QuestionFigure';
 import { MasteryArc } from '@/components/MasteryArc';
+import { accessErrorMessage } from '@/lib/access-errors';
 import { AnimatedDiagram } from '@/components/AnimatedDiagram';
 import { AnswerFeedback } from '@/components/AnswerFeedback';
 import { SessionProgressReveal, type SessionProgress } from '@/components/SessionProgressReveal';
@@ -76,6 +77,8 @@ interface QuizResult {
 // student's screen. This translates the ones worth explaining differently;
 // anything unmatched just shows as-is rather than hiding a real signal.
 function friendlyError(raw: string): string {
+  const accessMsg = accessErrorMessage(raw);
+  if (accessMsg) return accessMsg;
   // Every free-tier AI provider in the chain (ai-provider/factory.ts) failed
   // for this turn — not just one hiccup. Distinct from a single provider's
   // own error below: this is the "capacity is genuinely exhausted right

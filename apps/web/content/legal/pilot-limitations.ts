@@ -8,7 +8,7 @@ export const PILOT_LIMITATIONS_EN: LegalContent = {
     {
       heading: 'What is included',
       body: [
-        'For the subjects you register for: adaptive diagnostic testing, AI-guided learning sessions with a short check-in before each, practice questions and quizzes, a progress view, and a parent report (progress, syllabus covered and confidence trend), for 240 days from the date your payment is confirmed.',
+        'For the subjects you register for: adaptive diagnostic testing, AI-guided learning sessions with a short check-in before each, practice questions and quizzes, a progress view, and a parent report (progress, syllabus covered and confidence trend), for the plan you have paid for, until the end date shown on your account.',
       ],
     },
     {
@@ -30,7 +30,7 @@ export const PILOT_LIMITATIONS_EN: LegalContent = {
     {
       heading: 'Pricing is an experiment',
       body: [
-        'The current price (₹999 per child) is an introductory, experimental price, not an established market price, and may change for future cohorts.',
+        'The current prices (₹300 per subject per month, ₹999 per month for up to five subjects, or ₹4500 one time for up to five subjects till March 2027) are introductory, experimental prices, not an established market price, and may change for future cohorts.',
       ],
     },
   ],
@@ -43,7 +43,7 @@ export const PILOT_LIMITATIONS_HI: LegalContent = {
   sections: [
     {
       heading: 'क्या शामिल है',
-      body: ['आपके चुने विषयों के लिए: अनुकूली डायग्नोस्टिक, हर सत्र से पहले छोटे चेक-इन के साथ AI-निर्देशित अध्ययन सत्र, अभ्यास प्रश्न और क्विज़, एक प्रगति दृश्य, और एक अभिभावक रिपोर्ट (प्रगति, पूरा किया पाठ्यक्रम और आत्मविश्वास की प्रवृत्ति), आपके भुगतान की पुष्टि की तारीख से 240 दिनों के लिए।'],
+      body: ['आपके चुने विषयों के लिए: अनुकूली डायग्नोस्टिक, हर सत्र से पहले छोटे चेक-इन के साथ AI-निर्देशित अध्ययन सत्र, अभ्यास प्रश्न और क्विज़, एक प्रगति दृश्य, और एक अभिभावक रिपोर्ट (प्रगति, पूरा किया पाठ्यक्रम और आत्मविश्वास की प्रवृत्ति), आपके द्वारा चुने गए प्लान के लिए, आपके खाते पर दिखाई गई समाप्ति तिथि तक।'],
     },
     {
       heading: 'इसमें क्या शामिल नहीं है',
@@ -61,7 +61,7 @@ export const PILOT_LIMITATIONS_HI: LegalContent = {
     },
     {
       heading: 'मूल्य निर्धारण एक प्रयोग है',
-      body: ['वर्तमान मूल्य (₹999 प्रति बच्चा) एक परिचयात्मक, प्रायोगिक मूल्य है, स्थापित बाज़ार मूल्य नहीं, और भविष्य के समूहों के लिए बदल सकता है।'],
+      body: ['वर्तमान मूल्य (₹300 प्रति विषय प्रति माह, ₹999 प्रति माह 5 विषयों तक, या ₹4500 एक बार 5 विषयों के लिए मार्च 2027 तक) परिचयात्मक, प्रायोगिक मूल्य हैं, स्थापित बाज़ार मूल्य नहीं, और भविष्य के समूहों के लिए बदल सकता है।'],
     },
   ],
 };

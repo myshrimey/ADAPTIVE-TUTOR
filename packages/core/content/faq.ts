@@ -1,11 +1,11 @@
 import type { Lang } from '../i18n/dictionary';
-import { BOARD_PREP_OFFER } from '../pilot/pilot-payment.service';
+import { PLANS } from '../plans/plans';
 import { FOUNDER } from '../branding/founder';
 
 // Landing-page / offer-page FAQ. Every answer is deliberately plain and
 // non-promotional: no guaranteed marks, no "fully supported" claim for pilot
 // subjects, no invented policy. Price, duration and the phone number come from
-// the same single sources the rest of the app uses (BOARD_PREP_OFFER, FOUNDER),
+// the same single sources the rest of the app uses (PLANS, FOUNDER),
 // so this text cannot drift from the offer page.
 
 export interface FaqItem {
@@ -14,14 +14,16 @@ export interface FaqItem {
 }
 
 export function getFaq(lang: Lang): FaqItem[] {
-  const price = BOARD_PREP_OFFER.priceInr;
-  const days = BOARD_PREP_OFFER.days;
+  const p1 = PLANS.per_subject_monthly.priceInr;
+  const p2 = PLANS.five_monthly.priceInr;
+  const p3 = PLANS.five_till_march.priceInr;
   const phone = FOUNDER.contactPhone;
 
   if (lang === 'hi') {
     return [
       { q: 'सहायक क्या है?', a: 'सहायक CBSE कक्षा 10 के लिए एक अनुकूली AI ट्यूटर है। यह हर विषय में एक छोटा डायग्नोस्टिक करता है, देखता है कि समझ कहाँ कमज़ोर पड़ती है, वहीं से सिखाता है, और माता-पिता को प्रमाण के साथ दिखाता है कि क्या सुधरा और क्या ध्यान माँगता है।' },
-      { q: 'इसकी कीमत और अवधि क्या है?', a: `₹${price}, एक बार, लगभग ${days} दिनों की पहुँच के लिए। कोई स्वचालित नवीनीकरण नहीं है। ₹${price} पहले परिवार-समूह के लिए परिचयात्मक मूल्य है और बाद में बदल सकता है।` },
+      { q: 'इसकी कीमत और अवधि क्या है?', a: `तीन प्लान हैं: ₹${p1} प्रति विषय प्रति माह; ₹${p2} प्रति माह 5 विषयों तक (फ़रवरी 2027 तक); और ₹${p3} एक बार 5 विषयों तक (मार्च 2027 तक)। कोई स्वचालित नवीनीकरण नहीं है। ये पहले परिवार-समूह के लिए परिचयात्मक मूल्य हैं और बाद में बदल सकते हैं।` },
+      { q: 'मैं कैसे जुड़ूँ?', a: 'शुरुआती पहुँच आमंत्रण पर है। हमसे संपर्क करें; हम आपका खाता बनाएँगे और आपका प्लान सक्रिय करेंगे। पहली बार साइन इन करने पर आप अपनी प्रोफ़ाइल पूरी करेंगे और फिर विषय चुनेंगे।' },
       { q: 'कौन-से विषय उपलब्ध हैं?', a: 'गणित (स्टैंडर्ड और बेसिक) और विज्ञान "तैयार" हैं। सामाजिक विज्ञान, अंग्रेज़ी, हिंदी (कोर्स A), कंप्यूटर एप्लिकेशन और गणित (बेसिक) "पायलट" में हैं — इनके प्रश्नों की समीक्षा अभी जारी है, इसलिए इन्हें पूरी तरह समर्थित न समझें। हर विषय पर उसकी स्थिति दिखाई जाती है।' },
       { q: 'गणित स्टैंडर्ड और बेसिक में क्या अंतर है?', a: 'दोनों में अध्याय एक जैसे हैं। बेसिक में प्रश्न आसान और सीधे होते हैं; स्टैंडर्ड में पूरे कठिनाई स्तर के प्रश्न आते हैं। आप स्कूल में जो स्तर चुन रहे हैं, वही चुनें।' },
       { q: 'क्या सहायक अंकों या रैंक की गारंटी देता है?', a: 'नहीं। हम बोर्ड अंकों की भविष्यवाणी या वादा नहीं करते। हम दिखाते हैं कि अब तक के प्रमाण क्या कहते हैं — और जब प्रमाण कम होता है तो साफ़ कहते हैं "अभी पर्याप्त प्रमाण नहीं"।' },
@@ -36,7 +38,8 @@ export function getFaq(lang: Lang): FaqItem[] {
 
   return [
     { q: 'What is Sahayak?', a: 'Sahayak is an adaptive AI tutor for CBSE Class 10. It runs a short diagnostic in each subject, finds where understanding starts to wobble, teaches from there, and shows parents the evidence — what has improved and what needs attention.' },
-    { q: 'What does it cost and how long does it last?', a: `₹${price}, one time, for about ${days} days of access. There is no automatic renewal. ₹${price} is an introductory price for the first group of families and may change later.` },
+    { q: 'What does it cost and how long does it last?', a: `Three plans: ₹${p1} per subject per month; ₹${p2} per month for up to 5 subjects (till February 2027); or ₹${p3} one time for up to 5 subjects (till March 2027). There is no automatic renewal. These are introductory prices for the first group of families and may change later.` },
+    { q: 'How do I join?', a: 'Early access is by invitation. Contact us and we will create your account and activate your plan. On your first sign-in you complete your profile and then choose your subjects.' },
     { q: 'Which subjects are available?', a: 'Mathematics (Standard) and Science are "Ready". Social Science, English, Hindi (Course A), Computer Applications and Mathematics (Basic) are in "Pilot" — their questions are still being reviewed, so please do not treat them as fully supported yet. Every subject shows its status.' },
     { q: 'What is the difference between Maths Standard and Basic?', a: 'Both cover the same chapters. Basic uses easier, more direct questions; Standard uses the full range of difficulty. Choose the level your school has you taking.' },
     { q: 'Does Sahayak guarantee marks or a rank?', a: 'No. We do not predict or promise board marks. We show what the evidence so far says — and when there is little evidence we say "not enough evidence yet" instead of guessing.' },

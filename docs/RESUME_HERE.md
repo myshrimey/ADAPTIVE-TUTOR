@@ -2,10 +2,13 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Exact current status (2026-10-15)
-v29 and v30 are **deployed and confirmed working live**. **v34** (which bundles v31-v33) and **v35** are **built, clean-built and zipped, NOT deployed**. The founder applies v34 first, then v35: `sahayak-v34-complete-board-prep-delta.zip`, then `sahayak-v35-maths-mock-readiness-delta.zip`. Don't re-build either; wait for the founder to report deployed-and-working (or a problem).
+## Exact current status (2026-10-16)
+v29 and v30 are **deployed and confirmed working live**. **v34** (bundles v31-v33), **v35** and **v36** are **built, clean-built and zipped, NOT deployed**. The founder applies them in order: `sahayak-v34-complete-board-prep-delta.zip`, `sahayak-v35-maths-mock-readiness-delta.zip`, `sahayak-v36-plans-teachers-delta.zip` (migrations 0013-0016). Don't re-build either; wait for the founder to report deployed-and-working (or a problem).
 
-## Last completed task — v35 (see `docs/BUILD_LOG.md` for the full entry)
+## Last completed task — v36 (see `docs/BUILD_LOG.md` for the full entry)
+Founder's three plans (Rs 300/subject/month; Rs 999/month up to 5 subjects till Feb 2027; Rs 4500 once up to 5 subjects till Mar 2027) enforced via `student_access`; sign-up closed (founder creates students at `/admin/students`, first sign-in goes to the profile page, then subject choice); teacher role with self-registration (needs approval) and a review dashboard (`/teacher`), with founder-side `/admin/teachers` and `/admin/reviews`. **Founder must switch OFF Supabase "Allow new users to sign up".** New admin/teacher routes are untested against real Supabase.
+
+## Previous task — v35 (see `docs/BUILD_LOG.md`)
 Founder asked for: Maths Standard/Basic split, timed mock exams, board-readiness bands, landing-page FAQ, level-adaptive animations in the learning module. Built:
 - Maths: `maths` renamed "Mathematics (Standard)" (slug and mastery untouched); new Pilot subject `maths-basic` cloned from it (migration 0014), difficulty capped at 3, derived `needs_review` questions.
 - Mock exams: migration 0015 (`mock_exams`, student read-only via RLS), `packages/core/mock/`, `/mock`, `/api/mock/*`. 20 questions / 30 min, server clock, autosave, auto-submit, review. Never touches mastery.

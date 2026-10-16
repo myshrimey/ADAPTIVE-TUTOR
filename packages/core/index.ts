@@ -39,3 +39,5 @@ export * from './mock/mock-exam.service';
 export * from './readiness/readiness.service';
 export * from './content/faq';
 export * from './learning-animation/level';
+export * from './plans/plans';
+export * from './access/access.service';

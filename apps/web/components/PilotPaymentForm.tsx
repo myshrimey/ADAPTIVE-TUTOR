@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useLanguage } from './LanguageProvider';
+import { PLANS, PLAN_LABELS, PLAN_CODES, type PlanCode } from '@adaptive-tutor/core';
 
 interface Claim {
   id: string;
@@ -15,7 +16,8 @@ interface Claim {
 export function PilotPaymentForm({ priceInr }: { priceInr: number }) {
   const { t } = useLanguage();
   const [claims, setClaims] = useState<Claim[] | null>(null);
-  const [amount, setAmount] = useState(String(priceInr));
+  const [planCode, setPlanCode] = useState<PlanCode>('five_monthly');
+  const [amount, setAmount] = useState(String(PLANS.five_monthly.priceInr));
   const [paymentDate, setPaymentDate] = useState(() => new Date().toISOString().slice(0, 10));
   const [reference, setReference] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -38,7 +40,7 @@ export function PilotPaymentForm({ priceInr }: { priceInr: number }) {
     const res = await fetch('/api/pilot/payment', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amount: Number(amount), paymentDate, transactionReference: reference || undefined }),
+      body: JSON.stringify({ amount: Number(amount), planCode, paymentDate, transactionReference: reference || undefined }),
     });
     const json = await res.json();
     setSubmitting(false);
@@ -57,7 +59,7 @@ export function PilotPaymentForm({ priceInr }: { priceInr: number }) {
       <div className="alert" style={{ borderLeftColor: 'var(--mastered)', background: 'var(--mastered-bg)', color: 'var(--mastered)' }}>
         <p style={{ margin: 0, fontWeight: 600 }}>{t('payment.confirmedNotice')}</p>
         <p style={{ margin: '0.3rem 0 0' }}>
-          {t('payment.accessStart')}: {latestConfirmed.pilotStartDate} · {t('payment.accessEnd')}: {latestConfirmed.pilotEndDate}
+          {latestConfirmed.pilotEndDate ? `${t('payment.accessStart')}: ${latestConfirmed.pilotStartDate} · ${t('payment.accessEnd')}: ${latestConfirmed.pilotEndDate}` : t('payment.accessSetByTeam')}
         </p>
       </div>
     );
@@ -75,6 +77,27 @@ export function PilotPaymentForm({ priceInr }: { priceInr: number }) {
     <form onSubmit={handleSubmit} style={{ maxWidth: 420 }}>
       <h3 style={{ fontSize: 'var(--step-1)' }}>{t('payment.formTitle')}</h3>
       {error && <p className="alert">{error}</p>}
+      <div className="field">
+        <label className="field__label" htmlFor="plan">
+          {t('payment.planLabel')}
+        </label>
+        <select
+          id="plan"
+          className="field__input"
+          value={planCode}
+          onChange={(e) => {
+            const c = e.target.value as PlanCode;
+            setPlanCode(c);
+            setAmount(String(PLANS[c].priceInr));
+          }}
+        >
+          {PLAN_CODES.map((c) => (
+            <option key={c} value={c}>
+              {PLAN_LABELS[c]}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="field">
         <label className="field__label" htmlFor="amount">
           {t('payment.amountPaid')}

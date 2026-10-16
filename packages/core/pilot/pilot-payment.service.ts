@@ -1,4 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { PLAN_LABELS, isPlanCode } from '../plans/plans';
 
 // Offline UPI/QR pilot payment tracking — see
 // packages/db/migrations/0009_pilot_payments.sql for the RLS rules that make
@@ -35,11 +36,11 @@ export interface PilotPaymentClaim {
 export async function submitPaymentClaim(
   supabase: SupabaseClient,
   studentId: string,
-  params: { amount: number; paymentDate: string; transactionReference?: string }
+  params: { amount: number; paymentDate: string; transactionReference?: string; planCode?: string }
 ): Promise<void> {
   const { error } = await supabase.from('pilot_payments').insert({
     student_id: studentId,
-    offer_label: PILOT_OFFER.label,
+    offer_label: isPlanCode(params.planCode) ? PLAN_LABELS[params.planCode] : PILOT_OFFER.label,
     amount: params.amount,
     payment_date: params.paymentDate,
     transaction_reference: params.transactionReference ?? null,
@@ -70,8 +71,9 @@ export async function getMyPaymentClaims(supabase: SupabaseClient, studentId: st
 /**
  * Admin-only (called from /admin/payments with a service-role client, itself
  * gated on ADMIN_EMAILS — never reachable by an ordinary signed-in user).
- * Confirming sets the pilot's start/end dates (today -> today + offer days)
- * unless explicit dates are given.
+ * Confirming records the payment as verified. It does NOT grant or extend access — since
+ * v36 access (plan, subject count, end date) is set per student at /admin/students. An end
+ * date is stored only if one is passed explicitly.
  */
 export async function confirmPayment(
   serviceClient: SupabaseClient,
@@ -79,9 +81,7 @@ export async function confirmPayment(
   params?: { pilotStartDate?: string; pilotEndDate?: string; adminNotes?: string }
 ): Promise<void> {
   const start = params?.pilotStartDate ?? new Date().toISOString().slice(0, 10);
-  const end =
-    params?.pilotEndDate ??
-    new Date(Date.now() + PILOT_OFFER.days * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  const end = params?.pilotEndDate ?? null;
 
   const { error } = await serviceClient
     .from('pilot_payments')

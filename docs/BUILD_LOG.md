@@ -4,6 +4,25 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## 2026-10-16 — v36: three paid plans (enforced), invitation-only students, first-login profile step, teacher review area
+
+**Task:** Founder set three plans — (i) Rs 300 per subject per month, (ii) Rs 999 per month for up to 5 subjects till Feb 2027, (iii) Rs 4500 one time for up to 5 subjects till March 2027 — and asked for: no self sign-up until March 2027 or until he says so; students get an email + password from him and land on the profile page after first sign-in; a teacher dashboard where teachers evaluate AI-generated questions/quizzes/answers and share feedback (payment to teachers optional for now); teachers can register themselves or be given credentials. Answers to my three questions: (ii) is billed monthly; self-registered teachers need his approval first; plans are enforced.
+
+**What was done:**
+1. **Plans (migration 0016, `packages/core/plans`, `packages/core/access`).** `student_access` (plan, subject limit, end date; read-only to the student via RLS). Existing students were given a one-time `grandfathered` row (no end date) so nobody is locked out; the backfill runs only when the table is first created. Rules: no row = no access; access lasts through `access_until`; expired students keep their dashboard/reports but cannot start new learning; Maths Standard + Basic count as one subject; monthly plans cannot be dated past their last date (Feb 28 / Mar 31 2027).
+2. **Enforcement** at session start, diagnostic start, quiz start, mock start, subject registration and onboarding (friendly English/Hindi messages).
+3. **Closed sign-up.** Home page shows sign-in only (plus an invitation note and a teacher-register link); `SIGNUPS_OPEN=true` re-opens the form. Onboarding refuses to create a student record for anyone the founder has not created. **Supabase's own "Allow new users to sign up" must also be switched off by the founder** (the site setting only hides the form).
+4. **Founder-created students (`/admin/students`).** Create an account (email, name, plan, subject count, end date, generated or chosen password shown once), edit a plan, set a new password. New students are flagged `must_complete_profile`; first sign-in goes to `/profile?welcome=1` (with an optional change-password box), then on to choosing subjects. Sign-in now routes by role (`/api/me`): admin, teacher, student.
+5. **Payments.** The payment form now asks which plan was paid. Confirming a payment no longer invents a 240-day window: access is set only at `/admin/students` (money and access are deliberately separate steps).
+6. **Offer page, FAQ, legal copy** now describe the three plans and invitation-only joining.
+7. **Teachers.** `users.role` gains `teacher`; `teacher_profiles` (pending / approved / suspended). Teachers self-register at `/teacher/register` (server-side, honeypot, pending until approved) or the founder creates approved accounts at `/admin/teachers`. `/teacher`: pick a subject and question set, see each question with its answer key and explanation, and send feedback (looks correct / needs a fix / reject, comment, optional corrected answer or explanation); counts of their reviews are shown. `content_reviews` stores feedback only. `/admin/reviews` groups feedback per question and lets the founder mark it verified, rejected (never served again) or back to needs-review. Payment to teachers: only review counts are shown; no payment feature.
+
+**Tests run:** `tsc` clean; `npm run build` clean (61 routes; font-stub, `layout.tsx` restored identical). Scratch Postgres 16: 0016 applies and re-runs cleanly; backfill gave existing students a grandfathered row once, a later plan change survived a re-run, a student added later got no row; role check now includes teacher. RLS with two accounts: a student sees only their own access row and cannot change it or insert one; a teacher sees only their own profile and reviews and cannot edit them. Unit checks (17 cases) for access evaluation, expiry on the last day, subject families and limits, plan end-date rules. **Not tested:** any of the new admin/teacher API routes or pages against real Supabase (account creation via the admin API, sign-in routing, the review queue), a real browser, or two real accounts end to end.
+
+**Deployment status:** Not deployed. Package: `sahayak-v36-plans-teachers-delta.zip` (apply after v34 and v35; migrations 0014, 0015, 0016).
+
+---
+
 ## 2026-10-15 — v35: Maths Standard/Basic, timed mock exams, board-readiness bands, landing-page FAQ, level-adaptive animations
 
 **Task:** Founder asked for five things: the split of Maths into Standard and Basic, timed mock exams, board-readiness bands, a landing-page FAQ, and animations that depend on the student's learning level in the learning module.

@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { loadLearnerState, resolveCurrentObjective, runOrchestratorTurn, logEvent, recordCheckin } from '@adaptive-tutor/core';
+import { assertAccess, loadLearnerState, resolveCurrentObjective, runOrchestratorTurn, logEvent, recordCheckin } from '@adaptive-tutor/core';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json().catch(() => ({}));
     const studentId = await getCurrentStudentId();
     const supabase = await createServerClient();
+    await assertAccess(supabase, studentId); // plan must be active (throws access_required / access_expired)
 
     // These two don't depend on each other — both just need studentId —
     // so they run concurrently instead of one after the other. Was the

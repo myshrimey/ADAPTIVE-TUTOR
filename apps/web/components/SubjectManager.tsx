@@ -1,5 +1,6 @@
 'use client';
 
+import { accessErrorMessage } from '@/lib/access-errors';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLanguage } from './LanguageProvider';
@@ -38,7 +39,7 @@ export function SubjectManager({ initial }: { initial: Entry[] }) {
       if (thenGo) router.push(thenGo);
       else router.refresh();
     } catch (e: any) {
-      setError(e.message);
+      setError(accessErrorMessage(e.message) ?? e.message);
     } finally {
       setBusyId(null);
     }

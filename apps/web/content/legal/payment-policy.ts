@@ -3,7 +3,7 @@ import type { LegalContent } from '@/components/LegalPageLayout';
 export const PAYMENT_POLICY_EN: LegalContent = {
   title: 'Payment, Refund, Cancellation and Expiry Policy',
   lastUpdated: 'Draft — last updated 15 October 2026. Pending founder review before publication.',
-  intro: 'Payments for Sahayak Complete Board Preparation (₹999 per child) are handled manually, by design, during this early-access phase.',
+  intro: 'Payments for Sahayak plans (₹300 per subject per month; ₹999 per month for up to five subjects till February 2027; ₹4500 one time for up to five subjects till March 2027) are handled manually, by design, during this early-access phase.',
   sections: [
     {
       heading: 'How payment works',
@@ -30,7 +30,7 @@ export const PAYMENT_POLICY_EN: LegalContent = {
     },
     {
       heading: 'Expiry',
-      body: ['Access lasts for the number of days stated in the offer (currently 240 days) from the date payment is confirmed, shown on your account.'],
+      body: ['Access lasts until the end date set on your account for the plan you paid for; monthly plans are extended each time a month is paid and confirmed.'],
     },
     {
       heading: 'Support',
@@ -42,7 +42,7 @@ export const PAYMENT_POLICY_EN: LegalContent = {
 export const PAYMENT_POLICY_HI: LegalContent = {
   title: 'भुगतान, धनवापसी, रद्दीकरण और समाप्ति नीति',
   lastUpdated: 'मसौदा — अंतिम अपडेट 15 अक्टूबर 2026। प्रकाशन से पहले संस्थापक की समीक्षा लंबित है।',
-  intro: 'इस प्रारंभिक-पहुँच चरण के दौरान सहायक संपूर्ण बोर्ड तैयारी (₹999 प्रति बच्चा) के भुगतान जानबूझकर मैन्युअल रूप से संभाले जाते हैं।',
+  intro: 'इस प्रारंभिक-पहुँच चरण के दौरान सहायक प्लान (₹300 प्रति विषय प्रति माह; ₹999 प्रति माह 5 विषयों तक, फ़रवरी 2027 तक; ₹4500 एक बार 5 विषयों के लिए, मार्च 2027 तक) के भुगतान जानबूझकर मैन्युअल रूप से संभाले जाते हैं।',
   sections: [
     {
       heading: 'भुगतान कैसे काम करता है',
@@ -67,7 +67,7 @@ export const PAYMENT_POLICY_HI: LegalContent = {
     },
     {
       heading: 'समाप्ति',
-      body: ['एक्सेस ऑफ़र में बताए गए दिनों (फिलहाल 240 दिन) तक चलता है, भुगतान सत्यापित होने की तारीख से, जो आपके खाते पर दिखाया जाता है।'],
+      body: ['एक्सेस आपके खाते पर तय समाप्ति तिथि तक चलता है; मासिक प्लान हर बार एक माह का भुगतान सत्यापित होने पर बढ़ाए जाते हैं।'],
     },
     {
       heading: 'सहायता',

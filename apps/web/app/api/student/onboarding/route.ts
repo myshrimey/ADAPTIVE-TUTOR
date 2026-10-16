@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient } from '@/lib/supabase-server';
-import { logEvent, registerSubject } from '@adaptive-tutor/core';
+import { logEvent, registerSubject, assertAccess, assertSubjectAllowed } from '@adaptive-tutor/core';
 
 interface OnboardingBody {
   displayName: string;
@@ -48,6 +48,9 @@ export async function POST(request: Request) {
     const isNewStudent = !studentId;
 
     if (!studentId) {
+      // Early access is invitation-only: the founder creates the student record. Nobody
+      // creates their own unless the founder has turned self sign-up back on.
+      if (process.env.SIGNUPS_OPEN !== 'true') throw new Error('invitation_required');
       const { data: studentRow, error: studentErr } = await service
         .from('students')
         .insert({ user_id: userRow.id, display_name: body.displayName, grade: body.grade })
@@ -81,6 +84,11 @@ export async function POST(request: Request) {
     const idBySlug = new Map((subjectRows ?? []).map((r: any) => [r.slug, r.id]));
     const missing = requestedSlugs.filter((slug) => !idBySlug.has(slug));
     if (missing.length > 0) throw new Error(`subject_not_found: ${missing.join(', ')}`);
+
+    // Plans are enforced: the student needs an active plan, and may register only as many
+    // subjects as it allows (Maths Standard + Basic count as one).
+    const access = await assertAccess(service, studentId);
+    await assertSubjectAllowed(service, studentId, requestedSlugs.map((slug) => idBySlug.get(slug) as string), access.subjectLimit);
 
     for (let i = 0; i < requestedSlugs.length; i++) {
       await registerSubject(service, studentId, idBySlug.get(requestedSlugs[i]) as string, {

@@ -61,5 +61,15 @@ Matches the brief's Section 15 release gates. Do not accept real paid pilot cust
 - [ ] Founder reviewed the readiness thresholds and the FAQ wording (data handling, refunds, access length).
 - [ ] Animations checked once on a phone, and once with the device's "reduce motion" setting on (motion should stop).
 
+## v36 additions (plans, invitation-only, teachers)
+- [ ] Migration 0016 applied; `select plan_code, count(*) from student_access group by 1` shows existing students as `grandfathered`.
+- [ ] **Supabase > Authentication > Providers/Settings: "Allow new users to sign up" switched OFF** (then a direct call to Supabase sign-up from the browser is refused). Confirm by trying to sign up from the app: no form, and a manual sign-up attempt is rejected.
+- [ ] ADMIN_EMAILS contains the founder's email; `SIGNUPS_OPEN` is unset or false in Vercel.
+- [ ] Create a test student at `/admin/students`; sign in as them: lands on the profile page, saves, then picks subjects (limited to the plan's number), then diagnostic works.
+- [ ] A student with an expired end date or no plan cannot start a session/diagnostic/quiz/mock and sees a clear message; dashboard and report still open.
+- [ ] Teacher: register at `/teacher/register` (shows waiting page), approve at `/admin/teachers`, sign in, review a question, see it in `/admin/reviews`, mark verified; a rejected question is no longer served.
+- [ ] Two-account test also covers `student_access`, `teacher_profiles`, `content_reviews`, `mock_exams`.
+- [ ] Founder gives existing (grandfathered) students real plans and end dates when ready.
+
 ## Narrower pilot, if a gate fails
 If any Security or Payment gate fails, do not accept payments yet — the rest of the product can still be used for a free, unpaid trial with a small number of families while that gate is fixed.

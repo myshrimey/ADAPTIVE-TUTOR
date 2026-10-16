@@ -232,8 +232,8 @@ export const DICTIONARY: Dict = {
     hi: 'विषय और उनकी स्थिति',
   },
   'pilot.priceNote': {
-    en: '₹999 is an introductory price for this first group of families and may change later. Access does not renew automatically.',
-    hi: '₹999 पहले परिवार-समूह के लिए परिचयात्मक मूल्य है और बाद में बदल सकता है। पहुँच अपने-आप नवीनीकृत नहीं होती।',
+    en: 'These are introductory prices for this first group of families and may change later. Access does not renew automatically.',
+    hi: 'ये पहले परिवार-समूह के लिए परिचयात्मक मूल्य हैं और बाद में बदल सकते हैं। पहुँच अपने-आप नवीनीकृत नहीं होती।',
   },
   'pilot.refundNote': {
     en: 'Refunds are handled individually — see the payment policy.',
@@ -690,6 +690,118 @@ export const DICTIONARY: Dict = {
   'anim.progressSteady': {
     en: "Progress on a skill builds over several sessions — each one counts.",
     hi: "किसी कौशल में प्रगति कई सेशन में बनती है — हर सेशन मायने रखता है।",
+  },
+  'auth.invitationOnly': {
+    en: "Sahayak is invitation-only during early access. Please ask for an account.",
+    hi: "सहायक अभी शुरुआती पहुँच में केवल आमंत्रण पर है। कृपया खाता माँगें।",
+  },
+  'auth.invitationNote': {
+    en: "Early access is by invitation: your account is created for you. Sign in with the email and password you were given.",
+    hi: "शुरुआती पहुँच आमंत्रण पर है: आपका खाता आपके लिए बनाया जाता है। दिए गए ईमेल और पासवर्ड से साइन इन करें।",
+  },
+  'auth.teacherRegister': {
+    en: "Are you a teacher? Register here.",
+    hi: "क्या आप शिक्षक हैं? यहाँ पंजीकरण करें।",
+  },
+  'profile.welcomeTitle': {
+    en: "Welcome! Let's complete your profile first.",
+    hi: "स्वागत है! पहले अपनी प्रोफ़ाइल पूरी करें।",
+  },
+  'profile.welcomeIntro': {
+    en: "A few details help us understand you better. Everything is optional except your name. After saving you will choose your subjects.",
+    hi: "कुछ जानकारी हमें आपको बेहतर समझने में मदद करती है। नाम के अलावा सब कुछ वैकल्पिक है। सहेजने के बाद आप अपने विषय चुनेंगे।",
+  },
+  'profile.saveContinue': {
+    en: "Save and continue",
+    hi: "सहेजें और आगे बढ़ें",
+  },
+  'profile.changePasswordTitle': {
+    en: "Set your own password (recommended)",
+    hi: "अपना पासवर्ड बदलें (अनुशंसित)",
+  },
+  'profile.newPassword': {
+    en: "New password (at least 8 characters)",
+    hi: "नया पासवर्ड (कम से कम 8 अक्षर)",
+  },
+  'profile.changePassword': {
+    en: "Change password",
+    hi: "पासवर्ड बदलें",
+  },
+  'profile.passwordChanged': {
+    en: "Password changed.",
+    hi: "पासवर्ड बदल गया।",
+  },
+  'access.required': {
+    en: "Your account does not have an active plan yet. Please contact the Sahayak team to activate it.",
+    hi: "आपके खाते में अभी कोई सक्रिय प्लान नहीं है। कृपया सक्रिय करने के लिए सहायक टीम से संपर्क करें।",
+  },
+  'access.expired': {
+    en: "Your plan has ended. Your reports and progress are still here; contact the Sahayak team to renew.",
+    hi: "आपका प्लान समाप्त हो गया है। आपकी रिपोर्ट और प्रगति यहीं हैं; नवीनीकरण के लिए सहायक टीम से संपर्क करें।",
+  },
+  'access.subjectLimit': {
+    en: "Your plan allows a limited number of subjects and you have reached it. Contact the Sahayak team to add more.",
+    hi: "आपके प्लान में विषयों की सीमा है और आप उस तक पहुँच गए हैं। और जोड़ने के लिए सहायक टीम से संपर्क करें।",
+  },
+  'payment.planLabel': {
+    en: "Plan you paid for",
+    hi: "आपने किस प्लान का भुगतान किया",
+  },
+  'payment.accessSetByTeam': {
+    en: "Payment confirmed. The Sahayak team sets your subjects and access dates; they are shown on your account.",
+    hi: "भुगतान सत्यापित। आपके विषय और पहुँच की तारीखें सहायक टीम तय करती है; वे आपके खाते पर दिखती हैं।",
+  },
+  'plans.title': {
+    en: "Plans",
+    hi: "प्लान",
+  },
+  'plans.lede': {
+    en: "Choose the plan that fits. Access is activated by the Sahayak team after payment is confirmed.",
+    hi: "अपने अनुकूल प्लान चुनें। भुगतान सत्यापित होने के बाद सहायक टीम पहुँच सक्रिय करती है।",
+  },
+  'plans.perSubject.name': {
+    en: "Per subject",
+    hi: "प्रति विषय",
+  },
+  'plans.perSubject.price': {
+    en: "₹300 per subject per month",
+    hi: "₹300 प्रति विषय प्रति माह",
+  },
+  'plans.perSubject.desc': {
+    en: "Pay month by month for just the subjects you need.",
+    hi: "जितने विषय चाहिए, उतने के लिए माह-दर-माह भुगतान करें।",
+  },
+  'plans.fiveMonthly.name': {
+    en: "Five subjects, monthly",
+    hi: "पाँच विषय, मासिक",
+  },
+  'plans.fiveMonthly.price': {
+    en: "₹999 per month",
+    hi: "₹999 प्रति माह",
+  },
+  'plans.fiveMonthly.desc': {
+    en: "Up to 5 subjects, billed monthly, available till February 2027.",
+    hi: "5 विषयों तक, मासिक भुगतान, फ़रवरी 2027 तक उपलब्ध।",
+  },
+  'plans.fiveMarch.name': {
+    en: "Five subjects, till March 2027",
+    hi: "पाँच विषय, मार्च 2027 तक",
+  },
+  'plans.fiveMarch.price': {
+    en: "₹4500 one time",
+    hi: "₹4500 एक बार",
+  },
+  'plans.fiveMarch.desc': {
+    en: "Up to 5 subjects, one payment, access till 31 March 2027.",
+    hi: "5 विषयों तक, एक भुगतान, 31 मार्च 2027 तक पहुँच।",
+  },
+  'plans.maths': {
+    en: "Mathematics (Standard and Basic) counts as one subject.",
+    hi: "गणित (स्टैंडर्ड और बेसिक) एक विषय गिना जाता है।",
+  },
+  'plans.invite': {
+    en: "Early access is by invitation. To join, contact us — we will create your account and activate your plan.",
+    hi: "शुरुआती पहुँच आमंत्रण पर है। जुड़ने के लिए हमसे संपर्क करें — हम आपका खाता बनाएँगे और प्लान सक्रिय करेंगे।",
   },
 };
 

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase-client';
 import { useLanguage } from '@/components/LanguageProvider';
+import { accessErrorMessage } from '@/lib/access-errors';
 import { FaqSection } from '@/components/FaqSection';
 
 // Shown at sign-up. `status` mirrors subjects.status in the database (the
@@ -24,7 +25,9 @@ type Mode = 'signup' | 'signin' | 'forgot';
 export default function Home() {
   const router = useRouter();
   const { t, lang } = useLanguage();
-  const [mode, setMode] = useState<Mode>('signup');
+  const [mode, setMode] = useState<Mode>('signin');
+  // Self sign-up is closed during early access (accounts are created by the founder).
+  const [signupsOpen, setSignupsOpen] = useState(false);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -48,6 +51,10 @@ export default function Home() {
   const [checkingSession, setCheckingSession] = useState(true);
 
   useEffect(() => {
+    fetch('/api/public/config').then((r) => r.json()).then((j) => { if (j.data?.signupsOpen) setSignupsOpen(true); }).catch(() => {});
+  }, []);
+
+  useEffect(() => {
     const supabase = createClient();
     supabase.auth.getSession().then(({ data }) => {
       if (data.session) {
@@ -68,23 +75,39 @@ export default function Home() {
     // Signed in (or signed up with email confirmation off, which returns a
     // session immediately) — find out whether this account still needs the
     // name/subject step, or already has a student record from before.
-    const res = await fetch('/api/student/profile');
+    const res = await fetch('/api/me');
     const json = await res.json();
-    if (!json.error && json.data?.onboardingCompleted) {
-      // A full browser navigation here, not router.push(). router.push() asks
-      // the server for /dashboard over a soft (client-side) request, and that
-      // request can reach the server a moment before the sign-in cookie has
-      // actually been written to the browser — so the dashboard's own
-      // "redirect to / if not signed in" check fires and bounces straight
-      // back to this page, which looks exactly like "nothing happened after
-      // sign in". A real page load always carries whatever cookies exist at
-      // that moment, so it doesn't hit that race.
-      window.location.href = '/dashboard';
+    const me = json.data;
+    // A full browser navigation (not router.push) so the freshly written sign-in cookie
+    // is always sent — see the note in git history about the post-sign-in race.
+    if (me?.role === 'admin') {
+      window.location.href = '/admin/students';
       return;
     }
-    // Any error here (most commonly "student_not_found") or
-    // onboardingCompleted === false both mean: show the name/subject step.
-    setNeedsOnboarding(true);
+    if (me?.role === 'teacher') {
+      window.location.href = '/teacher';
+      return;
+    }
+    if (me?.role === 'student') {
+      // First sign-in for an account the founder created: complete the profile first.
+      if (me.mustCompleteProfile) {
+        window.location.href = '/profile?welcome=1';
+        return;
+      }
+      if (me.onboardingCompleted) {
+        window.location.href = '/dashboard';
+        return;
+      }
+      setNeedsOnboarding(true);
+      return;
+    }
+    // Signed in but not an invited student, teacher or admin.
+    if (signupsOpen) {
+      setNeedsOnboarding(true);
+      return;
+    }
+    await createClient().auth.signOut();
+    setError(t('auth.invitationOnly'));
   }
 
   async function handleSignUp(e: React.FormEvent) {
@@ -161,7 +184,7 @@ export default function Home() {
     setSubmitting(false);
 
     if (json.error) {
-      setError(json.error);
+      setError(accessErrorMessage(json.error) ?? json.error);
       return;
     }
     router.push('/diagnostic');
@@ -254,7 +277,7 @@ export default function Home() {
           ) : (
             <>
               <div style={{ display: 'flex', gap: '1.2rem', marginBottom: 'var(--space-2)', borderBottom: '1px solid var(--line)' }}>
-                {(['signup', 'signin'] as const).map((m) => (
+                {(signupsOpen ? (['signup', 'signin'] as const) : (['signin'] as const)).map((m) => (
                   <button
                     key={m}
                     type="button"
@@ -278,6 +301,12 @@ export default function Home() {
                   </button>
                 ))}
               </div>
+
+              {!signupsOpen && mode !== 'forgot' && (
+                <p style={{ color: 'var(--slate)', fontSize: '0.9rem', marginTop: 0 }}>
+                  {t('auth.invitationNote')} <a href="/teacher/register">{t('auth.teacherRegister')}</a>
+                </p>
+              )}
 
               {mode === 'forgot' ? (
                 <form onSubmit={handleForgotPassword}>
@@ -377,7 +406,7 @@ export default function Home() {
             promise marks or predict board scores.
           </p>
           <p>
-            <a className="btn btn--ghost" href="/pilot">See what&apos;s included and the price (₹999)</a>
+            <a className="btn btn--ghost" href="/pilot">See the plans and what&apos;s included (from ₹300 per subject per month)</a>
           </p>
         </section>
 

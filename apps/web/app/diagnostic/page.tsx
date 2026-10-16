@@ -5,6 +5,7 @@ import { MathText } from '@/components/MathText';
 import { SubjectIcon } from '@/components/SubjectIcon';
 import { QuestionFigure } from '@/components/QuestionFigure';
 import { MasteryArc } from '@/components/MasteryArc';
+import { accessErrorMessage } from '@/lib/access-errors';
 import { useLanguage } from '@/components/LanguageProvider';
 
 // Which subjects can be tested comes from each subject's readiness status in
@@ -82,7 +83,7 @@ export default function DiagnosticPage() {
           .map((s: any) => ({ id: s.id, slug: s.slug, name: s.name, chapterCount: s.chapters?.length ?? 0, status: s.status ?? 'ready' }));
         setSubjects(options);
       })
-      .catch((e) => setError(e.message))
+      .catch((e) => setError(accessErrorMessage(e.message) ?? e.message))
       .finally(() => setLoading(false));
   }, []);
 
@@ -107,7 +108,7 @@ export default function DiagnosticPage() {
       setAskedCount((json.data.answeredCount ?? 0) + 1);
       setResumedNotice(!!json.data.resumed);
     } catch (e: any) {
-      setError(e.message);
+      setError(accessErrorMessage(e.message) ?? e.message);
       setSubjectId(null);
     } finally {
       setStarting(false);

@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { createClient } from '@/lib/supabase-client';
+import { useLanguage } from '@/components/LanguageProvider';
 
 // School + family details and how the student did in classes 6-9 before
 // joining Sahayak. Entirely optional and editable any time — this isn't
@@ -25,6 +27,25 @@ function emptyHistory(): Record<number, AcademicRow> {
 }
 
 export default function ProfilePage() {
+  const { t } = useLanguage();
+  const tt = t as (k: string) => string;
+  // ?welcome=1 means this is the first sign-in for an account the founder created.
+  const [welcome, setWelcome] = useState(false);
+  const [newPassword, setNewPassword] = useState('');
+  const [pwMsg, setPwMsg] = useState<string | null>(null);
+  useEffect(() => {
+    setWelcome(new URLSearchParams(window.location.search).get('welcome') === '1');
+  }, []);
+
+  async function changePassword() {
+    setPwMsg(null);
+    if (newPassword.length < 8) return setPwMsg(tt('profile.newPassword'));
+    const { error: pwErr } = await createClient().auth.updateUser({ password: newPassword });
+    if (pwErr) return setPwMsg(pwErr.message);
+    setNewPassword('');
+    setPwMsg(tt('profile.passwordChanged'));
+  }
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [displayName, setDisplayName] = useState('');
@@ -131,6 +152,7 @@ export default function ProfilePage() {
       const json = await res.json();
       if (json.error) throw new Error(json.error);
       setSaved(true);
+      if (welcome) window.location.href = '/'; // on to choosing subjects
     } catch (e: any) {
       setError(e.message ?? 'Could not save your profile.');
     } finally {
@@ -159,6 +181,19 @@ export default function ProfilePage() {
             us understand our students better as we keep building Sahayak.
           </p>
         </div>
+
+        {welcome && (
+          <div className="alert" style={{ marginTop: 'var(--space-3)', borderLeftColor: 'var(--mastered)', background: 'var(--mastered-bg)', color: 'var(--ink)' }}>
+            <p style={{ margin: 0, fontWeight: 600 }}>{tt('profile.welcomeTitle')}</p>
+            <p style={{ margin: '0.3rem 0 0' }}>{tt('profile.welcomeIntro')}</p>
+            <div className="field" style={{ marginTop: '0.6rem' }}>
+              <label className="field__label" htmlFor="newPassword">{tt('profile.changePasswordTitle')}</label>
+              <input id="newPassword" type="password" className="field__input" value={newPassword} onChange={(e) => setNewPassword(e.target.value)} placeholder={tt('profile.newPassword')} autoComplete="new-password" />
+            </div>
+            <button type="button" className="btn btn--ghost btn--small" onClick={changePassword}>{tt('profile.changePassword')}</button>
+            {pwMsg && <p style={{ margin: '0.3rem 0 0', fontSize: '0.9rem' }}>{pwMsg}</p>}
+          </div>
+        )}
 
         {error && <p className="alert" style={{ marginTop: 'var(--space-3)' }}>{error}</p>}
 
@@ -262,7 +297,7 @@ export default function ProfilePage() {
           </section>
 
           <button type="submit" className="btn btn--accent" disabled={saving}>
-            {saving ? 'Saving…' : 'Save profile'}
+            {saving ? 'Saving…' : welcome ? tt('profile.saveContinue') : 'Save profile'}
           </button>
           {saved && <span style={{ marginLeft: '1rem', color: 'var(--subject-science)', fontWeight: 500 }}>Saved.</span>}
         </form>

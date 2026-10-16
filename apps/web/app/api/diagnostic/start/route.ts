@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { startDiagnostic, registerSubject } from '@adaptive-tutor/core';
+import { startDiagnostic, registerSubject, assertAccess, assertSubjectAllowed } from '@adaptive-tutor/core';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json().catch(() => ({}));
     const studentId = await getCurrentStudentId();
     const supabase = await createServerClient();
+    const access = await assertAccess(supabase, studentId);
 
     let subjectId = body.subjectId as string | undefined;
     if (!subjectId) {
@@ -44,6 +45,7 @@ export async function POST(request: Request) {
     // Choosing a subject for a diagnostic also makes it the student's active,
     // registered subject — so a later /learn session follows the subject they
     // just tested. Not-yet-available subjects are rejected here.
+    await assertSubjectAllowed(supabase, studentId, [subjectId as string], access.subjectLimit);
     await registerSubject(supabase, studentId, subjectId as string, { activate: true });
 
     const { attemptId, firstQuestion, resumed, answeredCount } = await startDiagnostic(supabase, studentId, subjectId as string);
