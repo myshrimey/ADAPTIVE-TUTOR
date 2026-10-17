@@ -47,3 +47,4 @@ export * from './pedagogy/session-plan';
 export * from './engagement/engagement.service';
 export * from './reports/change-report.service';
 export * from './metrics/founder-metrics';
+export * from './written/written-answer.service';

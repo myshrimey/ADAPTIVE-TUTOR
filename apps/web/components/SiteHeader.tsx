@@ -57,6 +57,7 @@ export function SiteHeader() {
           <a href="/learn">{t('nav.learn')}</a>
           <a href="/papers">{t('nav.pastPapers')}</a>
           {signedIn && <a href="/mock">{t('nav.mock')}</a>}
+          {signedIn && <a href="/written">Written</a>}
           {signedIn && <a href="/report">{t('nav.report')}</a>}
           {signedIn && <a href="/profile">{t('nav.profile')}</a>}
           <a href="/pilot">{t('nav.pilotOffer')}</a>

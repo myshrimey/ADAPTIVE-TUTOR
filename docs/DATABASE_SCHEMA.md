@@ -1,4 +1,4 @@
-# Database schema (generated 2026-10-17, after migration 0018)
+# Database schema (generated 2026-10-17, after migration 0019)
 
 Generated from a scratch Postgres 16 database with every migration applied. Source of truth is `packages/db/schema.sql` plus `packages/db/migrations/*.sql`. Regenerate this file after each migration so it never drifts. Storage-bucket policies for previous papers live in the `storage` schema and are not listed here.
 
@@ -501,3 +501,18 @@ RLS: on · policies: users_select_own (SELECT), users_update_own (UPDATE)
 | email | text | no |  |
 | role | text | no | 'student'::text |
 | created_at | timestamp with time zone | no | now() |
+## written_attempts
+RLS: on · policies: written_attempts_owner_read (SELECT)
+
+| Column | Type | Null | Default |
+|---|---|---|---|
+| id | uuid | no | gen_random_uuid() |
+| student_id | uuid | no |  |
+| question_id | uuid | no |  |
+| answer | text | no |  |
+| score | smallint | no |  |
+| max_score | smallint | no |  |
+| key_points | jsonb | no | '[]'::jsonb |
+| feedback | text | yes |  |
+| created_at | timestamp with time zone | no | now() |
+

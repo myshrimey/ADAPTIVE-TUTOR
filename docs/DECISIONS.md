@@ -102,3 +102,10 @@ Root cause found by reading real production data (not speculative): the save pat
 - **Intervention outcomes are founder-only and labelled association.** Not shown to families; not used to change the tutor automatically.
 - **Metrics count only**; no names or answers. Recurring-revenue/churn is not computed yet (needs plan start dates).
 - Deferred on purpose: written-answer assessment (needs a marking rubric and an AI-cost/accuracy decision), Hindi A/B (needs real course content), animated diagrams, teacher pay.
+
+
+### v40 (2026-10-17)
+- **Written answers are AI-suggested practice marks, not official marking.** Labelled as such on the page. Not used for mastery, readiness or the parent report until real marking quality is checked (suggest: teachers compare 30 AI-marked answers with their own marks before it feeds anything).
+- Paid plans only: each answer costs one AI call; free tier stays text-practice free.
+- Teacher pay: only counting (CSV with an optional per-review rate). Paying is the founder's call.
+- Hindi Course A/B and animated diagrams deferred: they need real content/design inputs, not code.

@@ -31,6 +31,17 @@ export default async function AdminMetricsPage() {
           <AdminNav />
         </div>
 
+        <p style={{ fontSize: '0.9rem' }}>
+          <a className="btn btn--ghost btn--small" href="/api/admin/metrics/export">Download this week&apos;s numbers (CSV, for your Excel tracker)</a>
+        </p>
+        <form method="get" action="/api/admin/teachers/activity" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center', fontSize: '0.9rem', margin: '0.4rem 0' }}>
+          <span>Teacher reviews, month</span>
+          <input className="field__input" style={{ width: 130 }} type="month" name="month" />
+          <span>rupees per review (optional)</span>
+          <input className="field__input" style={{ width: 90 }} type="number" min={0} name="rate" />
+          <button className="btn btn--ghost btn--small" type="submit">Download CSV</button>
+        </form>
+
         <h2 style={{ fontSize: 'var(--step-1)' }}>Students</h2>
         <div className="stat-tile-row">
           <Tile value={m.students.total} label="students" />

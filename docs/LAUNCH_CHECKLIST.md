@@ -100,5 +100,12 @@ Matches the brief's Section 15 release gates. Do not accept real paid pilot cust
 - [ ] The "What seems to help" table shows "not enough sessions yet" until 5+ finished sessions.
 - [ ] `docs/DATABASE_SCHEMA.md` and `docs/COMMERCIAL_METRICS.md` read correctly to you.
 
+## v40 additions (written answers, exports)
+- [ ] Migration 0019 applied (`select count(*) from written_attempts;` runs).
+- [ ] `/written` as a paid student: 5 questions, answer, get marks + key points + feedback; as a Free student: told it is part of the paid plans.
+- [ ] A teacher reads about 30 AI-marked answers and compares with their own marks before you rely on them.
+- [ ] `/admin/metrics`: both CSV downloads open in Excel.
+- [ ] Two-account test also covers `written_attempts`.
+
 ## Narrower pilot, if a gate fails
 If any Security or Payment gate fails, do not accept payments yet — the rest of the product can still be used for a free, unpaid trial with a small number of families while that gate is fixed.

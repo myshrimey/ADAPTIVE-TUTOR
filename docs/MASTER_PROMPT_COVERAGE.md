@@ -35,8 +35,9 @@ Method: the founder's pasted master prompt (54 sections) compared with the actua
 
 ## Not built (after v39)
 - 2 Hindi Course A vs B as distinct courses (only Hindi A); Sanskrit and other electives.
-- 9 Written-answer quality assessment.
 - Animated diagrams; teacher pay; automatic Excel tracker update.
+## Built in v40 (was Not built)
+- 9 Written-answer assessment: AI-suggested practice marks (`/written`), paid plans, not used for mastery or readiness yet. Teacher-pay counting and Excel CSV export.
 ## Built in v39 (was Not built)
 - 22 "What changed in 30 days" report. 26, 47 Intervention-to-outcome summary (founder page, association only). 35 Founder metrics page. 42 DATABASE_SCHEMA.md, COMMERCIAL_METRICS.md.
 
