@@ -25,4 +25,4 @@ alter table ai_usage enable row level security;
 -- The free plan: one subject, free-tier AI only, small daily limit of AI tutor replies.
 alter table student_access drop constraint if exists student_access_plan_code_check;
 alter table student_access add constraint student_access_plan_code_check
-  check (plan_code in ('free','per_subject_monthly','five_monthly','five_till_march','grandfathered','custom'));
+  check (plan_code in ('free','per_subject_monthly','five_monthly','five_till_march','founding_family','grandfathered','custom'));

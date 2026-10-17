@@ -1719,3 +1719,13 @@ a {
     transform: none;
   }
 }
+
+.plan-note {
+  margin: var(--space-2) 0 0;
+  padding: 0.7rem 0.9rem;
+  border-left: 4px solid var(--marigold);
+  background: var(--developing-bg);
+  border-radius: 0 0.6rem 0.6rem 0;
+  color: var(--ink);
+  font-size: 0.92rem;
+}

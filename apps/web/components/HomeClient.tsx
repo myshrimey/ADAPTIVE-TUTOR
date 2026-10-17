@@ -204,15 +204,16 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
         {!hideMarketing && (
         <section className="hero hero-banner">
           <p className="hero__eyebrow">CBSE Class 10 · Board Preparation 2027</p>
-          <h1>
-            Same syllabus.
-            <br />A different path for every student.
-          </h1>
+          <h1>How ready is your child for CBSE Class X 2027?</h1>
           <p className="hero__lede">
-            How ready is your child for the 2027 board exams? Sahayak runs a short diagnostic in each
-            subject, finds exactly where understanding starts to wobble, teaches from there, and shows
-            parents the evidence — what has improved, what needs attention, and what to do next.
+            Know where your child stands. Understand what is holding them back. Know what to do next.
           </p>
+          <p className="hero__lede" style={{ fontSize: '1rem' }}>
+            Sahayak assesses each subject, finds exactly where understanding starts to break down, teaches from there,
+            practises, reassesses, and shows parents the evidence: what has improved, what needs attention, and whether
+            it is working. Marks alone do not tell the whole story.
+          </p>
+          <p className="hero__note">Assess → Learn → Practise → Reassess → Improve</p>
         </section>
         )}
 

@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { buildParentReport, formatReportForWhatsApp, bandForScore, t } from '@adaptive-tutor/core';
+import { logEvent, buildParentReport, formatReportForWhatsApp, bandForScore, t } from '@adaptive-tutor/core';
 import { getServerLang } from '@/lib/language';
 import { MasteryArc } from '@/components/MasteryArc';
 import { ConfidenceChart } from '@/components/ConfidenceChart';
@@ -21,6 +21,8 @@ export default async function ReportPage() {
   const supabase = await createServerClient();
   const lang = await getServerLang();
   const report = await buildParentReport(supabase, studentId);
+  // Counted for the funnel (distinct students who looked at their report). Never blocks the page.
+  void logEvent({ studentId, eventType: 'report_viewed' });
   const shareText = formatReportForWhatsApp(report);
   const waHref = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
 

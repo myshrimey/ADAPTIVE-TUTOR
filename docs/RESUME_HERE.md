@@ -5,7 +5,12 @@ _This file is the single source of truth for "what's the exact current status." 
 ## Exact current status (2026-10-16)
 v29 and v30 are **deployed and confirmed working live**. **v34** (bundles v31-v33), **v35**, **v36** and **v37** are **built, and the founder reports (2026-10-16) that he has deployed and tested all of them live** (details of what he tested not recorded). They were applied in order: `sahayak-v34-complete-board-prep-delta.zip`, `sahayak-v35-maths-mock-readiness-delta.zip`, `sahayak-v36-plans-teachers-delta.zip`, `sahayak-v37-pricing-free-aicost-delta.zip` (migrations 0013-0017). Don't re-build either; wait for the founder to report deployed-and-working (or a problem).
 
-## Last completed task — v40 (see `docs/BUILD_LOG.md`)
+## Last completed task - v42 (see `docs/BUILD_LOG.md` and `docs/V3_REQUIREMENTS_MAP.md`)
+Master prompt v3 first slice: Founding Family plan (migration 0020), `/plan`, `/admin/funnel` + CSV exports, `/admin/questions`, homepage headline, `SAHAYAK_PROJECT_MEMORY.md`. Apply after v41: `sahayak-v42-v3-commercial-foundation-delta.zip`. Next: handwritten mock (needs founder decisions), data export/delete, blueprint mock.
+
+## Previous task - v41: new menu (`sahayak-v41-menu-delta.zip`, no migration)
+
+## Previous task — v40 (see `docs/BUILD_LOG.md`)
 Written-answer practice (`/written`, migration 0019) and CSV exports (`/admin/metrics`). Apply after v39: `sahayak-v40-written-answers-exports-delta.zip` (run `npm run db:migrate`). Not deployed.
 
 ## Previous task — v39 (see `docs/BUILD_LOG.md`)

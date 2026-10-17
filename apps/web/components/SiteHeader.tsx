@@ -123,6 +123,7 @@ export function SiteHeader() {
             )}
           </div>
 
+          {signedIn && link('/plan', t('nav.plan'))}
           {link('/progress', t('nav.progress'))}
           {signedIn && link('/report', t('nav.report'))}
         </nav>
@@ -179,6 +180,7 @@ export function SiteHeader() {
                 <span>{i.label}<small>{i.desc}</small></span>
               </a>
             ))}
+            {signedIn && <a href="/plan" className="nav-drawer__link">{t('nav.plan')}</a>}
             <a href="/progress" className="nav-drawer__link">{t('nav.progress')}</a>
             {signedIn && <a href="/report" className="nav-drawer__link">{t('nav.report')}</a>}
             {signedIn && <a href="/profile" className="nav-drawer__link">{t('nav.profile')}</a>}

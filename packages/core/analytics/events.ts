@@ -14,7 +14,8 @@ export type LearningEventType =
   | 'session_completed'
   | 'return_session'
   | 'feedback_submitted'
-  | 'post_session_quiz_completed';
+  | 'post_session_quiz_completed'
+  | 'report_viewed';
 
 // Writes via the service-role client — clients never insert learning_events
 // directly (see packages/db/migrations/0002_rls_policies.sql). Never throws on

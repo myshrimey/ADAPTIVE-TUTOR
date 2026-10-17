@@ -265,3 +265,10 @@ One entry per work session. Newest entry on top.
 ## 2026-10-17 — v41: new site menu
 **Built:** redesigned header (`SiteHeader.tsx` + styles at the end of `globals.css`): stays at the top while scrolling; Practice dropdown (Take a test, Mock exam, Written answers, Past papers, each with a one-line description); current page marked with a marigold underline; round name chip with Profile / Dashboard / Sign out; "Complete Board Prep" button; phone-size menu (hamburger drawer). Closes on Escape, outside click, page change. 9 new English/Hindi words in the dictionary. No database change.
 **Tested:** tsc, full build, screenshots at desktop and phone width (signed-out). **Not tested:** the signed-in menu in a real browser (name chip, Practice items with Take a test/Mock/Written) and Hindi text widths.
+
+
+## 2026-10-17 - v42: master prompt v3, first commercial slice
+**Founder asked:** has v2 been fully built; if so start v3. Answer and full map: `docs/V3_REQUIREMENTS_MAP.md`.
+**Built:** Founding Family plan (Rs 4,999, 5 subjects, till 31 Mar 2027, 50-place real counter on `/pilot`; migration 0020; 0016/0017 constraint lists now include every plan code so re-runs never fail); study plan `/plan` (`packages/core/planning/study-plan.ts`); funnel + economics `/admin/funnel` and CSV exports `/api/admin/export/[sheet]` (`metrics/funnel.ts`); question statistics `/admin/questions` (`question-intelligence/stats.ts`); `report_viewed` event; new homepage headline; `SAHAYAK_PROJECT_MEMORY.md`.
+**Tested:** tsc clean; full build clean; 14 study-plan checks, 24 statistics/economics/CSV/plan checks, 16 checks of the funnel loader against an in-memory fake database; migrations 0016, 0017, 0020 re-run with a founding_family row present. **Not tested:** real Supabase, a browser view of `/plan`, `/admin/funnel`, `/admin/questions`.
+**Not built:** handwritten mock (needs founder decisions listed in the map), blueprint mock/PDF/Challenge Mode, data export/delete.

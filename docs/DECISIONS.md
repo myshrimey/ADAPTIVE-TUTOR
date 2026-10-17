@@ -113,3 +113,11 @@ Root cause found by reading real production data (not speculative): the save pat
 
 ### v41 (2026-10-17)
 - Menu groups the four practice tools under one "Practice" dropdown to stop the old 10-link row wrapping on phones. Links, pages and permissions unchanged.
+
+
+### v42 (2026-10-17)
+- Founding Family price (Rs 4,999) is a test value in one place (`plans.ts`); `FOUNDING_FAMILY.enabled` hides it. The seat counter is real (student_access rows), never inflated. It sits next to the founder's own Rs 15,000 plan: confirm both are meant to be sold together.
+- Study plan assumes board exams start 2027-02-17 (planning date) and 5 study days a week; says so on the page.
+- Funnel counts only what is recorded; visits, content and referrals show "not tracked". Gross margin shows "not enough data" when there is no revenue; AI cost uses list price (the safe planning number); support time is not included.
+- Question difficulty is judged only after 20 answers and only flagged for a teacher; nothing changes automatically.
+- Handwritten mock deferred: it needs consent wording, retention rule and a vision-accuracy test first (see map).

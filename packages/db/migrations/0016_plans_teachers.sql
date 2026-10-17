@@ -35,7 +35,7 @@ end $$;
 
 alter table student_access drop constraint if exists student_access_plan_code_check;
 alter table student_access add constraint student_access_plan_code_check
-  check (plan_code in ('per_subject_monthly','five_monthly','five_till_march','grandfathered','custom'));
+  check (plan_code in ('free','per_subject_monthly','five_monthly','five_till_march','founding_family','grandfathered','custom'));
 
 alter table student_access enable row level security;
 drop policy if exists student_access_owner_read on student_access;

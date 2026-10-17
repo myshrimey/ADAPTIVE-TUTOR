@@ -1,5 +1,5 @@
 import { createServerClient, createServiceClient } from '@/lib/supabase-server';
-import { FOUNDER, PLANS, t } from '@adaptive-tutor/core';
+import { FOUNDER, FOUNDING_FAMILY, PLANS, t } from '@adaptive-tutor/core';
 import { getServerLang } from '@/lib/language';
 import { PilotPaymentForm } from '@/components/PilotPaymentForm';
 import { FaqSection } from '@/components/FaqSection';
@@ -23,6 +23,10 @@ export default async function BoardPrepOfferPage() {
     .from('subjects')
     .select('id, name, slug, status')
     .order('name');
+  const { count: foundingTaken } = await createServiceClient()
+    .from('student_access')
+    .select('student_id', { count: 'exact', head: true })
+    .eq('plan_code', FOUNDING_FAMILY.planCode);
   const order = ['ready', 'pilot', 'in_development', 'coming_soon'];
   const sorted = (subjects ?? []).slice().sort((a: any, b: any) => order.indexOf(a.status) - order.indexOf(b.status));
 
@@ -36,7 +40,7 @@ export default async function BoardPrepOfferPage() {
         </div>
 
         <section style={{ marginTop: 'var(--space-3)' }}>
-          <PlanCards lang={lang} />
+          <PlanCards lang={lang} foundingSeatsTaken={FOUNDING_FAMILY.enabled ? foundingTaken ?? 0 : null} />
         </section>
 
         <section style={{ marginTop: 'var(--space-4)' }}>

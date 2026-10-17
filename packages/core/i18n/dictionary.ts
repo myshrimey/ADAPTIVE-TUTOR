@@ -38,6 +38,7 @@ export const DICTIONARY: Dict = {
   'nav.practice': { en: 'Practice', hi: 'अभ्यास' },
   'nav.written': { en: 'Written answers', hi: 'लिखित उत्तर' },
   'nav.menu': { en: 'Menu', hi: 'मेन्यू' },
+  'nav.plan': { en: 'Study plan', hi: 'अध्ययन योजना' },
   'nav.account': { en: 'Your account', hi: 'आपका खाता' },
   'nav.descTest': { en: 'Find where you stand today', hi: 'जानें आप आज कहाँ हैं' },
   'nav.descMock': { en: 'Timed, board-style practice papers', hi: 'समयबद्ध, बोर्ड-शैली के अभ्यास पत्र' },
@@ -791,6 +792,19 @@ export const DICTIONARY: Dict = {
     en: "Up to 5 subjects, one payment, access till 31 March 2027.",
     hi: "5 विषयों तक, एक भुगतान, 31 मार्च 2027 तक पहुँच।",
   },
+  'plans.founding.name': {
+    en: "Founding Family Programme",
+    hi: "फ़ाउंडिंग फ़ैमिली प्रोग्राम",
+  },
+  'plans.founding.desc': {
+    en: "Up to 5 subjects, one payment, access till 31 March 2027. A limited first cohort of families who help shape Sahayak.",
+    hi: "5 विषयों तक, एक भुगतान, 31 मार्च 2027 तक पहुँच। परिवारों का सीमित पहला समूह जो Sahayak को आकार देने में मदद करता है।",
+  },
+  'plans.f.foundingCohort': {
+    en: "Limited first cohort. Your feedback shapes the product.",
+    hi: "सीमित पहला समूह। आपकी राय से उत्पाद बेहतर बनता है।",
+  },
+  'plans.badge.founding': { en: "Limited first cohort", hi: "सीमित पहला समूह" },
   'plans.maths': {
     en: "Mathematics (Standard and Basic) counts as one subject.",
     hi: "गणित (स्टैंडर्ड और बेसिक) एक विषय गिना जाता है।",

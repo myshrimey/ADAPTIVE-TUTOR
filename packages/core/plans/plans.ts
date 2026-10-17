@@ -15,7 +15,7 @@
 // subjects, and an end date. For the monthly plans the end date is the end of the
 // month that has been paid for; `lastDate` is the latest date the plan can ever run to.
 
-export type PlanCode = 'per_subject_monthly' | 'five_monthly' | 'five_till_march';
+export type PlanCode = 'per_subject_monthly' | 'five_monthly' | 'five_till_march' | 'founding_family';
 export type AccessPlanCode = PlanCode | 'free' | 'grandfathered' | 'custom';
 
 export interface PlanInfo {
@@ -33,12 +33,23 @@ export const PLANS: Record<PlanCode, PlanInfo> = {
   per_subject_monthly: { code: 'per_subject_monthly', priceInr: 1000, billing: 'per_subject_per_month', subjects: null, lastDate: null },
   five_monthly: { code: 'five_monthly', priceInr: 3300, billing: 'per_month', subjects: 5, lastDate: '2027-02-28' },
   five_till_march: { code: 'five_till_march', priceInr: 15000, billing: 'one_time', subjects: 5, lastDate: '2027-03-31' },
+  // Founding Family Programme (v42, master prompt v3 sec. 7). A TEST price, not a permanent one:
+  // change priceInr / seatCap / enabled here and every page, form and check follows.
+  founding_family: { code: 'founding_family', priceInr: 4999, billing: 'one_time', subjects: 5, lastDate: '2027-03-31' },
 };
+
+/**
+ * Founding Family Programme settings. `enabled: false` hides the plan card everywhere (existing
+ * founding families keep their access). `seatCap` is a real cap: the offer page shows seats
+ * taken from student_access and says "full" when the cap is reached - no fake scarcity.
+ */
+export const FOUNDING_FAMILY = { enabled: true, seatCap: 50, planCode: 'founding_family' as const };
 
 export const PLAN_LABELS: Record<PlanCode, string> = {
   per_subject_monthly: `Sahayak — Rs ${PLANS.per_subject_monthly.priceInr} per subject per month`,
   five_monthly: `Sahayak — Rs ${PLANS.five_monthly.priceInr} per month, 5 subjects (till Feb 2027)`,
   five_till_march: `Sahayak — Rs ${PLANS.five_till_march.priceInr} one time, 5 subjects (till Mar 2027)`,
+  founding_family: `Sahayak Founding Family Programme — Rs ${PLANS.founding_family.priceInr} one time, 5 subjects (till Mar 2027)`,
 };
 
 export const PLAN_CODES = Object.keys(PLANS) as PlanCode[];
@@ -81,6 +92,7 @@ export const PLAN_FEATURE_KEYS: Record<PricingCardId, string[]> = {
   per_subject_monthly: ['plans.f.chooseSubjects', 'plans.f.aiFull', 'plans.f.adaptive', 'plans.f.mocks', 'plans.f.readiness', 'plans.f.checkins', 'plans.f.report'],
   five_monthly: ['plans.f.fiveSubjects', 'plans.f.everythingPaid', 'plans.f.monthToMonth', 'plans.f.tillFeb'],
   five_till_march: ['plans.f.fiveSubjects', 'plans.f.everythingPaid', 'plans.f.onePayment', 'plans.f.tillMarch'],
+  founding_family: ['plans.f.fiveSubjects', 'plans.f.everythingPaid', 'plans.f.onePayment', 'plans.f.tillMarch', 'plans.f.foundingCohort'],
 };
 
 /** The plan's end date can never be later than its lastDate. Returns an error code or null. */
@@ -96,10 +108,15 @@ export function validateAccessUntil(plan: AccessPlanCode, accessUntil: string | 
 
 /** A sensible default end date to pre-fill when the founder grants this plan today. */
 export function defaultAccessUntil(plan: AccessPlanCode, today: Date = new Date()): string | null {
-  if (plan === 'five_till_march') return PLANS.five_till_march.lastDate;
+  if (plan === 'five_till_march' || plan === 'founding_family') return PLANS[plan].lastDate;
   if (plan === 'grandfathered' || plan === 'custom' || plan === 'free') return null;
   const d = new Date(today.getTime() + 30 * 24 * 3600 * 1000);
   const iso = d.toISOString().slice(0, 10);
   const last = PLANS[plan].lastDate;
   return last && iso > last ? last : iso;
+}
+
+/** Seats left in the founding cohort (never below 0). */
+export function foundingSeatsLeft(taken: number): number {
+  return Math.max(0, FOUNDING_FAMILY.seatCap - taken);
 }

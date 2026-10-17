@@ -8,7 +8,7 @@ const STRATEGY_LABEL: Record<string, string> = {
   EXPLAIN: 'Explain', EXAMPLE: 'Worked example', GUIDED_PRACTICE: 'Guided practice', SOCRATIC: 'Questioning', HINT: 'Hint', SIMPLIFY: 'Simplify',
   PREREQUISITE_REPAIR: 'Repair a prerequisite', REMEDIATION: 'Remediation', CHALLENGE: 'Challenge', REVIEW: 'Review', INDEPENDENT_TEST: 'Independent test', gentler_pace: 'Gentler pace after a hard day or several misses',
 };
-const PLAN_LABEL: Record<string, string> = { free: 'Free', per_subject_monthly: 'Per subject, monthly', five_monthly: 'Five subjects, monthly', five_till_march: 'Five subjects, till March', grandfathered: 'Early access (grandfathered)', custom: 'Custom' };
+const PLAN_LABEL: Record<string, string> = { free: 'Free', per_subject_monthly: 'Per subject, monthly', five_monthly: 'Five subjects, monthly', five_till_march: 'Five subjects, till March', founding_family: 'Founding Family', grandfathered: 'Early access (grandfathered)', custom: 'Custom' };
 
 function Tile({ value, label }: { value: string | number; label: string }) {
   return (

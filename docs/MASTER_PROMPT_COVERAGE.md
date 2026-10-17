@@ -51,3 +51,6 @@ Note: master prompt section 48 says do not overbuild; the plan/teacher/cost work
 3. 31/30: sample readiness report, About and trust section, standalone refund/cancellation page.
 4. 35: founder metrics page (activation, sessions per week, paid conversion).
 5. 12/20E: response time, abandonment, return frequency in an engagement section.
+
+## v3 prompt (Oct 2026)
+See `docs/V3_REQUIREMENTS_MAP.md`. Built in v42: Founding Family plan, study plan, funnel/economics/CSV, question statistics, new homepage headline, project memory file.

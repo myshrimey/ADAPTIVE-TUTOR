@@ -20,6 +20,7 @@ const PLAN_OPTIONS: { code: AccessPlanCode; label: string }[] = [
   { code: 'per_subject_monthly', label: `Rs ${PLANS.per_subject_monthly.priceInr} per subject per month` },
   { code: 'five_monthly', label: `Rs ${PLANS.five_monthly.priceInr} per month, up to 5 subjects (till Feb 2027)` },
   { code: 'five_till_march', label: `Rs ${PLANS.five_till_march.priceInr} one time, up to 5 subjects (till Mar 2027)` },
+  { code: 'founding_family', label: `Rs ${PLANS.founding_family.priceInr} Founding Family Programme, up to 5 subjects (till Mar 2027)` },
   { code: 'custom', label: 'Custom (you choose subjects and end date; full paid features)' },
   { code: 'grandfathered', label: 'Early access (existing students; full paid features)' },
 ];
