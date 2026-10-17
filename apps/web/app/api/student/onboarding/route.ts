@@ -10,6 +10,9 @@ interface OnboardingBody {
   subject?: string; // legacy single subject slug; kept so older clients keep working
   subjects?: string[]; // subject slugs the family registers for, e.g. ['maths','science','english']
   targetDate?: string;
+  examYear?: number;
+  preferredLanguage?: string;
+  dailyStudyMinutes?: number;
 }
 
 export async function POST(request: Request) {
@@ -104,7 +107,20 @@ export async function POST(request: Request) {
 
     await service
       .from('learning_profiles')
-      .upsert({ student_id: studentId, onboarding_completed: true, updated_at: new Date().toISOString() }, { onConflict: 'student_id' });
+      .upsert(
+        {
+          student_id: studentId,
+          onboarding_completed: true,
+          exam_year: body.examYear === 2028 ? 2028 : 2027,
+          preferred_language: body.preferredLanguage === 'hi' ? 'hi' : 'en',
+          daily_study_minutes:
+            Number.isFinite(body.dailyStudyMinutes) && (body.dailyStudyMinutes as number) >= 5 && (body.dailyStudyMinutes as number) <= 480
+              ? Math.round(body.dailyStudyMinutes as number)
+              : null,
+          updated_at: new Date().toISOString(),
+        },
+        { onConflict: 'student_id' }
+      );
 
     await logEvent({ studentId, eventType: 'onboarding_completed' });
 

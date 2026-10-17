@@ -2,13 +2,18 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import { gradeAnswer, extractString } from '../question-engine/grading';
 import { isUsableSubjectStatus } from '../subjects/subject.service';
 
-// Timed mock exams — objective-style practice papers.
+// Timed practice papers — the assessment ladder after the diagnostic:
+//   chapter_check  one chapter, short            (did the chapter stick?)
+//   subject_check  a short paper across chapters (periodic check-up)
+//   full_mock      the longer objective paper across the syllabus
+//   board_style    sections by marks (1-mark MCQ, 2-mark short/numeric), timed from each
+//                  question's planning time; only the auto-gradable part of a board paper.
 //
 // What this is: a timed set of questions (MCQ / numeric / short-answer) drawn
 // from the subject's question bank, spread across chapters, auto-graded.
 // What this is NOT: a replica of the CBSE board paper (no long-answer or
-// case-study sections, no board marking scheme) and not a prediction of a
-// board score. It never writes to mastery_states — it is a practice
+// case-study sections, not the official blueprint or marking scheme) and not a
+// prediction of a board score. It never writes to mastery_states — it is a practice
 // measurement, kept apart from learning evidence.
 //
 // Security: every function here takes a SERVICE client plus a studentId that the
@@ -18,6 +23,11 @@ import { isUsableSubjectStatus } from '../subjects/subject.service';
 
 export const MOCK_QUESTION_COUNT = 20;
 export const MOCK_MIN_QUESTIONS = 8;
+export type MockKind = 'full_mock' | 'subject_check' | 'chapter_check' | 'board_style';
+export const MOCK_KINDS: MockKind[] = ['chapter_check', 'subject_check', 'full_mock', 'board_style'];
+const KIND_QUESTIONS: Record<MockKind, number> = { chapter_check: 8, subject_check: 10, full_mock: MOCK_QUESTION_COUNT, board_style: 18 };
+/** Marks for a question with no marks set: 1 for MCQ, 2 for short-answer / numeric (planning default). */
+export function defaultMarks(questionType: string): number { return questionType === 'mcq' ? 1 : 2; }
 const MINUTES_PER_QUESTION = 1.5;
 /** Extra seconds allowed after the deadline for a submit already in flight. */
 const SUBMIT_GRACE_SECONDS = 30;
@@ -30,6 +40,7 @@ export interface MockQuestionView {
   options: string[] | null;
   figureUrl: string | null;
   figureCaption: string | null;
+  marks: number | null; // shown on board-style papers only
 }
 
 export interface MockReviewEntry {
@@ -45,6 +56,7 @@ export interface MockReviewEntry {
   explanation: string | null;
   figureUrl: string | null;
   figureCaption: string | null;
+  marks: number;
 }
 
 export interface MockChapterResult {
@@ -60,6 +72,9 @@ export interface MockResult {
   unanswered: number;
   timeUsedSeconds: number;
   autoSubmitted: boolean;
+  kind?: MockKind;
+  /** True when score/total are marks (board-style paper), false when they are question counts. */
+  inMarks?: boolean;
   byChapter: MockChapterResult[];
   review: MockReviewEntry[];
 }
@@ -69,6 +84,9 @@ export interface MockExamView {
   subjectId: string;
   subjectName: string;
   status: 'in_progress' | 'submitted';
+  kind: MockKind;
+  chapterName: string | null;
+  totalMarks: number | null;
   durationMinutes: number;
   deadlineAt: string;
   serverNow: string;
@@ -86,6 +104,7 @@ export interface MockExamSummary {
   percent: number;
   autoSubmitted: boolean;
   unanswered: number;
+  kind: MockKind;
 }
 
 function shuffle<T>(arr: T[]): T[] {
@@ -127,11 +146,11 @@ function cleanAnswers(raw: unknown, allowedIds: Set<string>): Record<string, str
   return out;
 }
 
-async function loadQuestionViews(service: SupabaseClient, ids: string[]): Promise<MockQuestionView[]> {
+async function loadQuestionViews(service: SupabaseClient, ids: string[], showMarks: boolean): Promise<MockQuestionView[]> {
   if (ids.length === 0) return [];
   const { data, error } = await service
     .from('diagnostic_questions')
-    .select('id, prompt, question_type, options, figure_url, figure_caption')
+    .select('id, prompt, question_type, options, figure_url, figure_caption, marks')
     .in('id', ids);
   if (error) throw error;
   const byId = new Map((data ?? []).map((q: any) => [q.id, q]));
@@ -145,6 +164,7 @@ async function loadQuestionViews(service: SupabaseClient, ids: string[]): Promis
       options: q.options ?? null,
       figureUrl: q.figure_url ?? null,
       figureCaption: q.figure_caption ?? null,
+      marks: showMarks ? (q.marks ?? defaultMarks(q.question_type)) : null,
     }));
 }
 
@@ -153,14 +173,16 @@ async function finalise(service: SupabaseClient, studentId: string, exam: any, a
   const ids: string[] = exam.question_ids ?? [];
   const { data: rows, error } = await service
     .from('diagnostic_questions')
-    .select('id, prompt, question_type, options, expected_answer, explanation, figure_url, figure_caption, skills(topics(chapters(name)))')
+    .select('id, prompt, question_type, options, expected_answer, explanation, figure_url, figure_caption, marks, skills(topics(chapters(name)))')
     .in('id', ids);
   if (error) throw error;
   const byId = new Map((rows ?? []).map((q: any) => [q.id, q]));
 
   const review: MockReviewEntry[] = [];
   const chapterTotals = new Map<string, { correct: number; total: number }>();
+  const inMarks = exam.kind === 'board_style';
   let score = 0;
+  let totalMarks = 0;
   let unanswered = 0;
   for (const id of ids) {
     const q: any = byId.get(id);
@@ -169,11 +191,13 @@ async function finalise(service: SupabaseClient, studentId: string, exam: any, a
     const answered = given.length > 0;
     const isCorrect = answered && gradeAnswer(q.expected_answer, given);
     if (!answered) unanswered++;
-    if (isCorrect) score++;
+    const marks = inMarks ? (q.marks ?? defaultMarks(q.question_type)) : 1;
+    totalMarks += marks;
+    if (isCorrect) score += marks;
     const chapter: string = q.skills?.topics?.chapters?.name ?? 'Other';
     const ct = chapterTotals.get(chapter) ?? { correct: 0, total: 0 };
-    ct.total++;
-    if (isCorrect) ct.correct++;
+    ct.total += marks;
+    if (isCorrect) ct.correct += marks;
     chapterTotals.set(chapter, ct);
     review.push({
       questionId: id,
@@ -188,9 +212,10 @@ async function finalise(service: SupabaseClient, studentId: string, exam: any, a
       explanation: q.explanation ?? null,
       figureUrl: q.figure_url ?? null,
       figureCaption: q.figure_caption ?? null,
+      marks,
     });
   }
-  const total = review.length;
+  const total = totalMarks;
   const startedMs = new Date(exam.started_at).getTime();
   const endMs = Math.min(Date.now(), new Date(exam.deadline_at).getTime());
   const result: MockResult = {
@@ -200,6 +225,8 @@ async function finalise(service: SupabaseClient, studentId: string, exam: any, a
     unanswered,
     timeUsedSeconds: Math.max(0, Math.round((endMs - startedMs) / 1000)),
     autoSubmitted: auto,
+    kind: (exam.kind ?? 'full_mock') as MockKind,
+    inMarks,
     byChapter: [...chapterTotals.entries()].map(([chapter, v]) => ({ chapter, ...v })).sort((a, b) => a.chapter.localeCompare(b.chapter)),
     review,
   };
@@ -232,7 +259,15 @@ async function finalise(service: SupabaseClient, studentId: string, exam: any, a
  * Starts a mock for a subject, or resumes the unexpired one already in progress.
  * An in-progress exam whose time ran out is auto-submitted first, then a new one starts.
  */
-export async function startMockExam(service: SupabaseClient, studentId: string, subjectId: string): Promise<MockExamView> {
+export async function startMockExam(
+  service: SupabaseClient,
+  studentId: string,
+  subjectId: string,
+  opts: { kind?: MockKind; chapterId?: string | null } = {}
+): Promise<MockExamView> {
+  const kind: MockKind = opts.kind && MOCK_KINDS.includes(opts.kind) ? opts.kind : 'full_mock';
+  const chapterId = kind === 'chapter_check' ? opts.chapterId ?? null : null;
+  if (kind === 'chapter_check' && !chapterId) throw new Error('chapter_required');
   const { data: subject } = await service.from('subjects').select('id, name, status').eq('id', subjectId).single();
   if (!subject) throw new Error('subject_not_found');
   if (!isUsableSubjectStatus(subject.status)) throw new Error('subject_not_available');
@@ -245,26 +280,48 @@ export async function startMockExam(service: SupabaseClient, studentId: string, 
     .eq('status', 'in_progress')
     .order('started_at', { ascending: false });
   for (const ex of open ?? []) {
-    if (new Date(ex.deadline_at).getTime() > Date.now()) return getMockExam(service, studentId, ex.id);
+    // Resume only the same kind of paper (and chapter); a different one starts fresh.
+    if (new Date(ex.deadline_at).getTime() > Date.now() && (ex.kind ?? 'full_mock') === kind && (ex.chapter_id ?? null) === chapterId) return getMockExam(service, studentId, ex.id);
+    if (new Date(ex.deadline_at).getTime() > Date.now()) continue;
     await finalise(service, studentId, ex, cleanAnswers(ex.answers, new Set(ex.question_ids ?? [])), true);
   }
 
   const { data: bank, error } = await service
     .from('diagnostic_questions')
-    .select('id, skills(topics(chapters(id))), diagnostic_tests!inner(subject_id, is_active)')
+    .select('id, question_type, expected_time_seconds, marks, skills(topics(chapters(id))), diagnostic_tests!inner(subject_id, is_active)')
     .eq('diagnostic_tests.subject_id', subjectId)
     .eq('diagnostic_tests.is_active', true)
     .neq('content_status', 'rejected');
   if (error) throw error;
-  const items = (bank ?? []).map((q: any) => ({ id: q.id as string, chapterId: (q.skills?.topics?.chapters?.id as string) ?? 'none' }));
-  if (items.length < MOCK_MIN_QUESTIONS) throw new Error('not_enough_questions');
+  let items = (bank ?? []).map((q: any) => ({
+    id: q.id as string,
+    chapterId: (q.skills?.topics?.chapters?.id as string) ?? 'none',
+    type: q.question_type as string,
+    seconds: (q.expected_time_seconds as number | null) ?? 90,
+  }));
+  if (chapterId) items = items.filter((i) => i.chapterId === chapterId);
+  // A chapter has fewer questions than a whole subject, so its minimum is lower.
+  const minNeeded = kind === 'chapter_check' ? 5 : MOCK_MIN_QUESTIONS;
+  if (items.length < minNeeded) throw new Error('not_enough_questions');
 
-  const picked = spreadAcrossChapters(items, MOCK_QUESTION_COUNT);
-  const duration = Math.max(5, Math.ceil(picked.length * MINUTES_PER_QUESTION));
+  let picked: typeof items;
+  if (kind === 'board_style') {
+    // Section A: 1-mark MCQs; Section B: 2-mark short-answer / numeric. Whatever the bank can supply.
+    const mcq = spreadAcrossChapters(items.filter((i) => i.type === 'mcq'), 12);
+    const other = spreadAcrossChapters(items.filter((i) => i.type !== 'mcq'), 6);
+    picked = [...mcq, ...other];
+    if (picked.length < minNeeded) throw new Error('not_enough_questions');
+  } else {
+    picked = spreadAcrossChapters(items, KIND_QUESTIONS[kind]);
+  }
+  const duration =
+    kind === 'board_style'
+      ? Math.max(15, Math.ceil((picked.reduce((a, p) => a + p.seconds, 0) / 60) * 1.2))
+      : Math.max(5, Math.ceil(picked.length * MINUTES_PER_QUESTION));
   const deadline = new Date(Date.now() + duration * 60_000).toISOString();
   const { data: created, error: cErr } = await service
     .from('mock_exams')
-    .insert({ student_id: studentId, subject_id: subjectId, duration_minutes: duration, question_ids: picked.map((p) => p.id), deadline_at: deadline })
+    .insert({ student_id: studentId, subject_id: subjectId, kind, chapter_id: chapterId, duration_minutes: duration, question_ids: picked.map((p) => p.id), deadline_at: deadline })
     .select('id')
     .single();
   if (cErr || !created) throw cErr ?? new Error('mock_create_failed');
@@ -274,7 +331,7 @@ export async function startMockExam(service: SupabaseClient, studentId: string, 
 export async function getMockExam(service: SupabaseClient, studentId: string, examId: string): Promise<MockExamView> {
   const { data: ex, error } = await service
     .from('mock_exams')
-    .select('*, subjects(name)')
+    .select('*, subjects(name), chapters(name)')
     .eq('id', examId)
     .eq('student_id', studentId)
     .single();
@@ -289,18 +346,24 @@ export async function getMockExam(service: SupabaseClient, studentId: string, ex
   }
 
   const inProgress = exam.status === 'in_progress';
-  return {
+  const questions = inProgress ? await loadQuestionViews(service, exam.question_ids ?? [], exam.kind === 'board_style') : [];
+  const view: MockExamView = {
     id: exam.id,
     subjectId: exam.subject_id,
     subjectName: exam.subjects?.name ?? 'Subject',
     status: exam.status,
+    kind: (exam.kind ?? 'full_mock') as MockKind,
+    chapterName: exam.chapters?.name ?? null,
+    totalMarks: null as number | null,
     durationMinutes: exam.duration_minutes,
     deadlineAt: exam.deadline_at,
     serverNow: new Date().toISOString(),
-    questions: inProgress ? await loadQuestionViews(service, exam.question_ids ?? []) : [],
+    questions,
     answers: inProgress ? cleanAnswers(exam.answers, new Set(exam.question_ids ?? [])) : {},
     result,
   };
+  if (exam.kind === 'board_style') view.totalMarks = inProgress ? questions.reduce((a, q) => a + (q.marks ?? 0), 0) : result?.total ?? null;
+  return view;
 }
 
 /** Autosave. Ignored (not an error) once the exam is submitted or well past its deadline. */
@@ -339,7 +402,7 @@ export async function submitMockExam(service: SupabaseClient, studentId: string,
 export async function listSubmittedMocks(service: SupabaseClient, studentId: string, subjectId?: string): Promise<MockExamSummary[]> {
   let q = service
     .from('mock_exams')
-    .select('id, subject_id, submitted_at, score, total, auto_submitted, result')
+    .select('id, subject_id, submitted_at, score, total, auto_submitted, kind, result')
     .eq('student_id', studentId)
     .eq('status', 'submitted')
     .order('submitted_at', { ascending: false })
@@ -355,5 +418,6 @@ export async function listSubmittedMocks(service: SupabaseClient, studentId: str
     percent: r.total ? Math.round(((r.score ?? 0) / r.total) * 100) : 0,
     autoSubmitted: !!r.auto_submitted,
     unanswered: r.result?.unanswered ?? 0,
+    kind: (r.kind ?? 'full_mock') as MockKind,
   }));
 }

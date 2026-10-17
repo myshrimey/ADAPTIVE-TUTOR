@@ -129,6 +129,7 @@ export default function LearnPage() {
   // Live progress, tracked client-side from each answer turn's evaluation —
   // no extra backend call needed, just a running count of what's already
   // come back from /api/session/answer.
+  const [plan, setPlan] = useState<{ done: number; target: number | null; finalQuestion: boolean; finished: boolean; gentler: boolean } | null>(null);
   const [answered, setAnswered] = useState(0);
   const [correct, setCorrect] = useState(0);
   // Brief level-matched cue after each answer (see components/AnswerFeedback.tsx).
@@ -177,6 +178,7 @@ export default function LearnPage() {
         setRecoveryMode(!!json.data.recoveryMode);
         setMessages([{ role: 'tutor', content: json.data.turn.tutorMessage, diagram: json.data.turn.diagram ?? null }]);
         setActiveQuestion(json.data.turn.activeQuestion ?? null);
+        setPlan(json.data.turn.plan ?? null);
       })
       .catch((e) => setError(friendlyError(e.message)))
       .finally(() => setLoading(false));
@@ -230,6 +232,7 @@ export default function LearnPage() {
     }
     setMessages((m) => [...m, { role: 'tutor', content: json.data.tutorMessage, diagram: json.data.diagram ?? null }]);
     setActiveQuestion(json.data.activeQuestion ?? null);
+    if (json.data.plan) setPlan(json.data.plan);
   }
 
   async function requestHint() {
@@ -549,7 +552,7 @@ export default function LearnPage() {
         <div className="learn-main shell--narrow" style={{ padding: 0 }}>
           <div style={{ paddingTop: 'var(--space-3)', display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
             <h1 style={{ fontSize: 'var(--step-2)' }}>Learning session</h1>
-            <button onClick={endSession} className="btn btn--ghost btn--small" disabled={loading || ending || !sessionId}>
+            <button onClick={endSession} className={plan?.finished ? 'btn btn--accent btn--small' : 'btn btn--ghost btn--small'} disabled={loading || ending || !sessionId}>
               {ending ? 'Finishing…' : 'End session'}
             </button>
           </div>
@@ -588,6 +591,19 @@ export default function LearnPage() {
                 </label>
               ))}
             </div>
+          )}
+
+          {plan?.target && !plan.finished && (
+            <p style={{ margin: '0 0 0.4rem', fontSize: '0.88rem', color: 'var(--slate)' }}>
+              Today&apos;s plan: question {Math.min(plan.done + 1, plan.target)} of about {plan.target}
+              {plan.finalQuestion ? ' — the last one' : ''}
+              {plan.gentler ? ' · a gentler pace for the next few questions' : ''}
+            </p>
+          )}
+          {plan?.finished && (
+            <p className="alert" style={{ borderLeftColor: 'var(--mastered)', background: 'var(--mastered-bg)', color: 'var(--mastered)' }}>
+              That was the last planned question for today. Press <strong>End session</strong> to see your summary.
+            </p>
           )}
 
           {lastFeedback && <AnswerFeedback key={lastFeedback.n} correct={lastFeedback.correct} level={animLevel} />}

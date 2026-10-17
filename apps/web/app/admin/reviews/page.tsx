@@ -12,7 +12,7 @@ export default async function AdminReviewsPage({ searchParams }: { searchParams:
   const service = createServiceClient();
   const { data: reviews } = await service
     .from('content_reviews')
-    .select('teacher_user_id, item_table, item_id, verdict, comment, suggested_answer, suggested_explanation, updated_at')
+    .select('teacher_user_id, item_table, item_id, verdict, comment, suggested_answer, suggested_explanation, suggested_marks, suggested_cognitive_level, updated_at')
     .order('updated_at', { ascending: false })
     .limit(1500);
 
@@ -35,7 +35,7 @@ export default async function AdminReviewsPage({ searchParams }: { searchParams:
   const fetchItems = async (table: 'questions' | 'diagnostic_questions') => {
     const ids = list.filter((x) => x.table === table).map((x) => x.id);
     if (!ids.length) return new Map<string, any>();
-    const { data } = await service.from(table).select('id, prompt, options, expected_answer, explanation, difficulty, source, content_status').in('id', ids);
+    const { data } = await service.from(table).select('id, prompt, options, expected_answer, explanation, difficulty, source, content_status, marks, cognitive_level').in('id', ids);
     return new Map((data ?? []).map((d: any) => [d.id, d]));
   };
   const [qMap, dMap] = await Promise.all([fetchItems('questions'), fetchItems('diagnostic_questions')]);
@@ -74,10 +74,20 @@ export default async function AdminReviewsPage({ searchParams }: { searchParams:
                     {r.comment ? ` — ${r.comment}` : ''}
                     {r.suggested_answer ? ` (suggested answer: ${r.suggested_answer})` : ''}
                     {r.suggested_explanation ? ` (suggested explanation: ${r.suggested_explanation})` : ''}
+                    {r.suggested_marks ? ` (suggested marks: ${r.suggested_marks})` : ''}
+                    {r.suggested_cognitive_level ? ` (suggested level: ${r.suggested_cognitive_level})` : ''}
                   </li>
                 ))}
               </ul>
-              <AdminReviewActions table={grp.table} itemId={grp.id} status={item.content_status} />
+              <AdminReviewActions
+                table={grp.table}
+                itemId={grp.id}
+                status={item.content_status}
+                marks={item.marks}
+                level={item.cognitive_level}
+                sugMarks={grp.items.find((r) => r.suggested_marks)?.suggested_marks ?? null}
+                sugLevel={grp.items.find((r) => r.suggested_cognitive_level)?.suggested_cognitive_level ?? null}
+              />
             </article>
           );
         })}

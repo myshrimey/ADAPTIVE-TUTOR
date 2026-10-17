@@ -15,7 +15,11 @@ export async function POST(request: Request) {
     const access = await assertAccess(service, studentId);
     // Timed mock exams are part of the paid plans.
     if (!planAllows(access.planCode, 'mock_exams')) throw new Error('plan_upgrade_required');
-    const exam = await startMockExam(service, studentId, body.subjectId);
+    const kind = ['chapter_check', 'subject_check', 'full_mock', 'board_style'].includes(body.kind) ? body.kind : 'full_mock';
+    const exam = await startMockExam(service, studentId, body.subjectId, {
+      kind,
+      chapterId: typeof body.chapterId === 'string' ? body.chapterId : null,
+    });
     return NextResponse.json({ data: exam, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });

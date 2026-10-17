@@ -18,6 +18,9 @@ interface Item {
   figureUrl: string | null;
   figureCaption: string | null;
   source: string;
+  marks: number | null;
+  cognitiveLevel: string | null;
+  expectedTimeSeconds: number | null;
 }
 interface Stats { total: number; last30Days: number; approve: number; needsFix: number; reject: number }
 
@@ -38,6 +41,8 @@ export default function TeacherPage() {
   const [comment, setComment] = useState('');
   const [sugAnswer, setSugAnswer] = useState('');
   const [sugExpl, setSugExpl] = useState('');
+  const [sugMarks, setSugMarks] = useState('');
+  const [sugLevel, setSugLevel] = useState('');
   const [mode, setMode] = useState<'idle' | 'needs_fix' | 'reject'>('idle');
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -95,7 +100,7 @@ export default function TeacherPage() {
     const res = await fetch('/api/teacher/review', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ table: current.table, itemId: current.id, verdict, comment, suggestedAnswer: sugAnswer, suggestedExplanation: sugExpl }),
+      body: JSON.stringify({ table: current.table, itemId: current.id, verdict, comment, suggestedAnswer: sugAnswer, suggestedExplanation: sugExpl, suggestedMarks: sugMarks, suggestedCognitiveLevel: sugLevel }),
     });
     const json = await res.json();
     setBusy(false);
@@ -103,6 +108,8 @@ export default function TeacherPage() {
     setComment('');
     setSugAnswer('');
     setSugExpl('');
+    setSugMarks('');
+    setSugLevel('');
     setMode('idle');
     setItems((prev) => prev.slice(1));
     loadStats();
@@ -175,6 +182,24 @@ export default function TeacherPage() {
             )}
             <p><strong>Answer key:</strong> <MathText text={current.expectedAnswer} /></p>
             <p><strong>Explanation:</strong> {current.explanation ? <MathText text={current.explanation} /> : <em>none written yet</em>}</p>
+
+            <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', alignItems: 'center', margin: '0.4rem 0', fontSize: '0.9rem' }}>
+              <span style={{ color: 'var(--slate)' }}>
+                Marks: {current.marks ?? 'not set'} · Level: {current.cognitiveLevel ?? 'not set'} · Planning time: {current.expectedTimeSeconds ? `${current.expectedTimeSeconds}s` : 'not set'}
+              </span>
+              <label>Suggest marks{' '}
+                <input className="field__input" style={{ width: 70, display: 'inline-block' }} type="number" min={1} max={20} value={sugMarks} onChange={(e) => setSugMarks(e.target.value)} />
+              </label>
+              <label>Suggest level{' '}
+                <select className="field__input" style={{ width: 150, display: 'inline-block' }} value={sugLevel} onChange={(e) => setSugLevel(e.target.value)}>
+                  <option value="">no suggestion</option>
+                  <option value="recall">recall</option>
+                  <option value="understand">understand</option>
+                  <option value="apply">apply</option>
+                  <option value="analyse">analyse</option>
+                </select>
+              </label>
+            </div>
 
             {mode !== 'idle' && (
               <div style={{ marginTop: '0.6rem' }}>

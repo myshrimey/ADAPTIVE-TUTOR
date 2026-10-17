@@ -13,7 +13,47 @@ export const MISCONCEPTION_TAXONOMY: Record<MisconceptionTag, { description: str
   ARITHMETIC_ERROR: { description: 'Correct method, wrong basic arithmetic.' },
   PREREQUISITE_GAP: { description: 'Missing a foundational skill this skill depends on.' },
   INCOMPLETE_REASONING: { description: 'Reasoning stops short of a full justification/solution.' },
+  // Science
+  TERMINOLOGY_CONFUSION: { description: 'Mixes up two similar-sounding scientific terms.' },
+  APPLICATION_GAP: { description: 'Knows the idea but does not apply it to the situation in the question.' },
+  QUESTION_INTERPRETATION: { description: 'Reads the question differently from what it asks.' },
+  ATTENTION_SLIP: { description: 'The answer suggests a one-off slip rather than a gap in understanding.' },
+  // Languages
+  COMPREHENSION_GAP: { description: 'Missed the meaning of the passage or the point of the question.' },
+  GRAMMAR_RULE: { description: 'Applies a grammar rule incorrectly.' },
+  VOCABULARY_GAP: { description: 'Does not know or mixes up a word or its meaning.' },
+  STRUCTURE_FORMAT: { description: 'The format or structure expected (letter, notice, paragraph) is not followed.' },
+  WRITTEN_EXPRESSION: { description: 'The idea is there but the written expression is unclear.' },
+  INCOMPLETE_ANSWER: { description: 'The answer stops before covering all that was asked.' },
 };
+
+export type CauseFamily = 'maths' | 'science' | 'language' | 'other';
+
+/** Which family of likely causes applies to a subject (by its display name). */
+export function causeFamily(subjectName: string): CauseFamily {
+  const n = subjectName.toLowerCase();
+  if (/math/.test(n)) return 'maths';
+  if (/science/.test(n) && !/social/.test(n)) return 'science';
+  if (/english|hindi|language/.test(n)) return 'language';
+  return 'other';
+}
+
+const FAMILY_TAGS: Record<CauseFamily, MisconceptionTag[]> = {
+  maths: [],
+  science: ['TERMINOLOGY_CONFUSION', 'CONCEPT_CONFUSION', 'APPLICATION_GAP', 'FORMULA_MISUSE', 'QUESTION_INTERPRETATION', 'ATTENTION_SLIP', 'PREREQUISITE_GAP'],
+  language: ['COMPREHENSION_GAP', 'GRAMMAR_RULE', 'VOCABULARY_GAP', 'STRUCTURE_FORMAT', 'WRITTEN_EXPRESSION', 'INCOMPLETE_ANSWER'],
+  other: [],
+};
+
+/** Subject-specific candidate tags used when a question carries none of its own. Maths keeps its existing behaviour (no guess). */
+export function candidateTagsForSubject(subjectName: string): MisconceptionTag[] {
+  return FAMILY_TAGS[causeFamily(subjectName)];
+}
+
+/** Neutral wording shown to families. Never a label for the child. */
+export const LIKELY_CAUSE_WORDING: Record<MisconceptionTag, string> = Object.fromEntries(
+  Object.entries(MISCONCEPTION_TAXONOMY).map(([k, v]) => [k, v.description])
+) as Record<MisconceptionTag, string>;
 
 // Implemented as a real two-stage detector: deterministic pattern match first
 // (numeric sign-flip check, catches the single most common algebra slip
@@ -26,7 +66,7 @@ export const MISCONCEPTION_TAXONOMY: Record<MisconceptionTag, { description: str
 export async function detectMisconception(
   supabase: SupabaseClient,
   aiProvider: AIProvider,
-  params: { questionId: string; expectedAnswer: unknown; studentAnswer: unknown; isCorrect: boolean }
+  params: { questionId: string; expectedAnswer: unknown; studentAnswer: unknown; isCorrect: boolean; subjectName?: string }
 ): Promise<{ tag: MisconceptionTag; confidence: number } | null> {
   if (params.isCorrect) return null;
 
@@ -35,7 +75,11 @@ export async function detectMisconception(
     .select('misconception_tags')
     .eq('id', params.questionId)
     .maybeSingle();
-  const candidateTags: MisconceptionTag[] = (question?.misconception_tags as MisconceptionTag[] | undefined) ?? [];
+  let candidateTags: MisconceptionTag[] = (question?.misconception_tags as MisconceptionTag[] | undefined) ?? [];
+  // Science and language questions rarely carry their own tags: fall back to that subject's set.
+  // The result stays a low-confidence "likely cause", never a finding.
+  const fromSubject = candidateTags.length === 0 && !!params.subjectName;
+  if (fromSubject) candidateTags = candidateTagsForSubject(params.subjectName!);
 
   const signFlip = detectSignFlip(params.expectedAnswer, params.studentAnswer);
   if (signFlip) return { tag: 'SIGN_ERROR', confidence: 0.7 };
@@ -47,23 +91,23 @@ export async function detectMisconception(
 
   if (candidateTags.length === 0) return null; // nothing to narrow down to — leave unclassified rather than guess
 
-  if (candidateTags.length === 1) return { tag: candidateTags[0], confidence: 0.4 };
+  if (candidateTags.length === 1 && !fromSubject) return { tag: candidateTags[0], confidence: 0.4 };
 
   try {
     const result = await aiProvider.complete({
-      systemPrompt: `Classify a Class 10 Maths student's incorrect answer into exactly one of these tags: ${candidateTags.join(', ')}.
+      systemPrompt: `Classify a Class 10 ${params.subjectName ?? 'Maths'} student's incorrect answer into exactly one of these tags: ${candidateTags.join(', ')}.
 Respond ONLY with JSON: {"tag": string, "confidence": number}. tag must be one of the given options.`,
       userMessage: `Expected: ${JSON.stringify(params.expectedAnswer)}\nStudent answered: ${JSON.stringify(params.studentAnswer)}`,
       responseFormat: 'json',
       feature: 'misconception',
     });
     const parsed = JSON.parse(result.text) as { tag: MisconceptionTag; confidence: number };
-    if (candidateTags.includes(parsed.tag)) return parsed;
+    if (candidateTags.includes(parsed.tag)) return fromSubject ? { tag: parsed.tag, confidence: Math.min(0.5, Number(parsed.confidence) || 0.3) } : parsed;
   } catch {
     // Classification is a nice-to-have, not load-bearing — fall through to the coarse guess below.
   }
 
-  return { tag: candidateTags[0], confidence: 0.3 };
+  return fromSubject ? null : { tag: candidateTags[0], confidence: 0.3 };
 }
 
 /**

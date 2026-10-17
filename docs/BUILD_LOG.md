@@ -227,3 +227,24 @@ One entry per work session. Newest entry on top.
 **Outstanding issues:** see `docs/RESUME_HERE.md`.
 
 ---
+
+
+## 2026-10-17 — v38: every "partly built" item of the master prompt finished
+**Founder request:** "complete this first: Partly built ... than what has not been built." So v38 closes the Partly-built list (sections 5, 7, 10, 11, 12, 18, 19, 20, 23, 24, 30, 31-33, 36). The Not-built list is untouched.
+
+**Migration 0018** (additive, re-runnable): onboarding fields on `learning_profiles` (exam_year, preferred_language, daily_study_minutes); `curricula.academic_year`; question details on `questions` and `diagnostic_questions` (marks, expected_time_seconds, cognitive_level, language); teacher suggestions on `content_reviews`; ten more likely-cause tags on `misconceptions`; `learning_sessions.active_question_posed_at`; `recovery_events` (owner read/insert RLS, one per session+trigger); `mock_exams.kind` + `chapter_id`; `diagnostic_attempts.chapter_id` (reserved, not used yet); `subject_gate_signoffs` (RLS on, no policies: server only).
+
+**What changed**
+- Onboarding (5): exam year, preferred language (applied at once), daily study time asked and stored; board/class shown (CBSE Class 10).
+- Question details (7): marks and cognitive level are NOT invented (left empty until a person sets them); expected time backfilled with a planning default by type; language 'en'. Teachers can suggest marks/level; founder saves them at /admin/reviews.
+- Quality gates (36): `/admin/quality`: ten gates per subject signed off by the founder, with computed evidence next to them; Promote to Ready only when all ten are signed off; Put back to Pilot.
+- Error types (11): Science and language tag sets; used only when a question carries no tags of its own; low confidence; never shown as a label.
+- Engagement (12): answer time measured on the server; `packages/core/engagement` (median answer time, unfinished sessions, study days, streak).
+- Session adaptation (18/19): `planSession` (minutes x goal -> number of questions), goal revise = gentler, goal test_myself = independent test; recovery now also triggers from performance (3 misses in 4, or 2 hinted misses in a row), recorded in `recovery_events`; the planned last question is easier; after it the session wraps up (UI shows plan and a finish prompt).
+- Assessment ladder (10): chapter check, subject check, full mock, board-style paper (1-mark MCQ then 2-mark short answers, scored in marks, duration from planning times). Chapter/subject checks are practice measurements built on the mock engine; they do not change mastery.
+- Parent report and parent link (20/23): subject matrix with priority, engagement section, assessment history, patterns in wrong answers.
+- Student dashboard (24): today's recommended session and streak.
+- Public (30-33): /about, /trust, /legal/refund (draft, no invented terms), /sample-report (clearly labelled made-up data), /check (free, no sign-in, nothing saved, no answer key leaked).
+
+**Tests run**: tsc clean; full `npm run build` clean (font-stub, layout restored and diffed); migration 0018 applied twice cleanly on scratch Postgres 16; SQL checks: new tags accepted, unknown tag/marks/level/kind/language rejected, student cannot see or write another's `recovery_events`, nobody can write `subject_gate_signoffs`, one recovery event per session+trigger; 18 service tests of the mock engine against an in-memory stand-in (board-style sections, marks scoring, chapter filter, resume rules, thin bank refused); 20 logic tests (session plan, recovery trigger, streak, IST day, median, cause families); report extras rendered with sample and empty data (no label wording).
+**NOT tested**: anything against live Supabase, a live AI provider, a real browser; answer timing in a real session; the new admin page with real data; Hindi for the new text (new text is English only).

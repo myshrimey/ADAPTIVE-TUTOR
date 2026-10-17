@@ -81,7 +81,12 @@ export async function Footer() {
           <a href="/legal/privacy">{t('legal.privacy', lang)}</a>
           <a href="/legal/pilot-limitations">{t('legal.pilotLimitations', lang)}</a>
           <a href="/legal/payment-policy">{t('legal.paymentPolicy', lang)}</a>
+          <a href="/legal/refund">Refund policy</a>
           <a href="/contact">{t('legal.contact', lang)}</a>
+          <a href="/about">About</a>
+          <a href="/trust">Trust</a>
+          <a href="/sample-report">Sample report</a>
+          <a href="/check">Free readiness check</a>
         </nav>
         <LanguageToggle />
       </div>

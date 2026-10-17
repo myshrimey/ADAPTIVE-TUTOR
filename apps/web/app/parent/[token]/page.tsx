@@ -1,5 +1,6 @@
 import { createServiceClient } from '@/lib/supabase-server';
-import { loadCurriculum } from '@adaptive-tutor/core';
+import { loadCurriculum, buildParentReport, type ParentReport } from '@adaptive-tutor/core';
+import { ReportExtras } from '@/components/ReportExtras';
 import { MasteryArc } from '@/components/MasteryArc';
 
 // Deliberately public: a parent opening this link has no account and no
@@ -40,6 +41,14 @@ export default async function ParentViewPage({ params }: { params: Promise<{ tok
     .order('started_at', { ascending: false })
     .limit(5);
 
+  // Subject matrix, study pattern and assessment history: counts and dates only.
+  let extras: ParentReport | null = null;
+  try {
+    extras = await buildParentReport(service, student.id);
+  } catch {
+    extras = null;
+  }
+
   return (
     <main className="page">
       <div className="shell">
@@ -47,6 +56,8 @@ export default async function ParentViewPage({ params }: { params: Promise<{ tok
           <p className="hero__eyebrow">Read-only progress view</p>
           <h1 style={{ fontSize: 'var(--step-3)' }}>{student.display_name}'s progress</h1>
         </div>
+
+        {extras && <ReportExtras report={extras} />}
 
         {curriculum.subjects.map((subject) => {
           const subjectScores = subject.chapters.flatMap((c) => c.topics.flatMap((t) => t.skills)).map((s) => masteryBySkill.get(s.id)?.score ?? 0);

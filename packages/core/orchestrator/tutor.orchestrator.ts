@@ -14,6 +14,7 @@ import { updateMastery } from '../mastery/mastery.service';
 import { logEvent } from '../analytics/events';
 import { getLearningDiagram, type LearningDiagram } from '../learning-diagrams/mapping';
 import { getSessionCheckin } from '../checkins/checkin.service';
+import { planSession, shouldTriggerRecovery } from '../pedagogy/session-plan';
 
 export interface OrchestratorTurnInput {
   studentId: string;
@@ -29,8 +30,11 @@ export interface OrchestratorTurnResult {
   updatedMastery?: { skillId: string; score: number };
   nextAction: PedagogyStrategy;
   activeQuestion?: { id: string; prompt: string; questionType: string; options?: unknown; figureUrl?: string | null; figureCaption?: string | null };
+  plan?: { done: number; target: number | null; finalQuestion: boolean; finished: boolean; gentler: boolean };
   diagram?: LearningDiagram; // present when this turn's skill has a teaching diagram (learning-diagrams/mapping.ts) — distinct from a question's own image_url
 }
+
+interface SessionPlanInfo { done: number; target: number | null; gentler: boolean; perfRecoveryLogged: boolean; history: { correct: boolean; hints: number }[] }
 
 const QUESTION_STRATEGIES: PedagogyStrategy[] = ['GUIDED_PRACTICE', 'INDEPENDENT_TEST', 'CHALLENGE', 'REVIEW'];
 const RECENT_MESSAGE_WINDOW = 3;
@@ -109,22 +113,46 @@ export async function runOrchestratorTurn(
     sessionObjectiveReached: masteryScore >= 90,
     masteredAndDueForReview: masteryScore >= 90 && state.difficultyResponse.trend === 'comfortable',
   };
-  const strategy = selectStrategy(signal);
+  let strategy = selectStrategy(signal);
   let difficulty = selectDifficulty({ masteryScore, trend: state.difficultyResponse.trend });
   if (studentCommand === 'easier') difficulty = Math.max(1, difficulty - 1);
   if (studentCommand === 'challenge') difficulty = Math.min(5, difficulty + 1);
 
-  // Recovery mode (pre-session check-in signalled a harder day than usual):
-  // make the first few questions of THIS session one step easier. This only
-  // changes what is asked today — it never touches stored mastery.
+  // Session adaptation (master prompt §18-19). What the student told us before the session
+  // (time available, goal) sets how long it runs; a hard day (check-in) or a run of misses
+  // (performance) makes the next few questions one step easier. None of this touches stored
+  // mastery: it only changes what is asked and how long today's session is.
   const checkin = await getSessionCheckin(supabase, input.sessionId);
-  if (checkin?.recoveryMode) {
-    const { count: attemptsSoFar } = await supabase
-      .from('question_attempts')
-      .select('id', { count: 'exact', head: true })
-      .eq('session_id', input.sessionId);
-    if ((attemptsSoFar ?? 0) < 3) difficulty = Math.max(1, difficulty - 1);
+  const { data: sessionAttempts } = await supabase
+    .from('question_attempts')
+    .select('is_correct, hints_used')
+    .eq('session_id', input.sessionId)
+    .order('created_at', { ascending: true });
+  const attemptsDone = (sessionAttempts ?? []).length;
+  const history = (sessionAttempts ?? []).map((a: any) => ({ correct: !!a.is_correct, hints: a.hints_used ?? 0 }));
+
+  const { data: events } = await supabase.from('recovery_events').select('trigger, details').eq('session_id', input.sessionId);
+  let selfEvent = (events ?? []).find((e: any) => e.trigger === 'self_report');
+  let perfEvent = (events ?? []).find((e: any) => e.trigger === 'performance');
+  if (checkin?.recoveryMode && !selfEvent) {
+    await supabase.from('recovery_events').insert({ student_id: input.studentId, session_id: input.sessionId, trigger: 'self_report', details: { attemptsAtTrigger: attemptsDone } });
+    selfEvent = { trigger: 'self_report', details: { attemptsAtTrigger: attemptsDone } };
   }
+  if (!perfEvent && attemptsDone >= 2 && shouldTriggerRecovery(history)) {
+    await supabase.from('recovery_events').insert({ student_id: input.studentId, session_id: input.sessionId, trigger: 'performance', details: { attemptsAtTrigger: attemptsDone } });
+    perfEvent = { trigger: 'performance', details: { attemptsAtTrigger: attemptsDone } };
+  }
+  const activeSince = (e: any) => attemptsDone - Number(e?.details?.attemptsAtTrigger ?? 0) < 3;
+  const gentler = (!!selfEvent && activeSince(selfEvent)) || (!!perfEvent && activeSince(perfEvent));
+  if (gentler) difficulty = Math.max(1, difficulty - 1);
+
+  const plan = planSession({ availableMinutes: checkin?.availableMinutes ?? null, goal: checkin?.sessionGoal ?? null, recoveryMode: !!selfEvent || !!perfEvent });
+  // Goal shapes the kind of work: revising is gentler, testing yourself is independent.
+  if (checkin?.sessionGoal === 'revise') difficulty = Math.max(1, difficulty - 1);
+  let strategyOverride: PedagogyStrategy | null = null;
+  if (checkin?.sessionGoal === 'test_myself' && strategy === 'GUIDED_PRACTICE' && masteryScore >= 40) strategyOverride = 'INDEPENDENT_TEST';
+  if (strategyOverride) strategy = strategyOverride;
+  const sessionPlan = { done: attemptsDone, target: plan.targetQuestions, gentler, perfRecoveryLogged: !!perfEvent, history };
   // Maths (Basic): same syllabus, easier questions — never above difficulty 3.
   if (/\(Basic\)/i.test(subjectName)) difficulty = Math.min(3, difficulty);
 
@@ -154,6 +182,7 @@ export async function runOrchestratorTurn(
       masteryScore,
       lastMessages,
       trend: state.difficultyResponse.trend,
+      sessionPlan,
     });
   }
 
@@ -169,6 +198,7 @@ export async function runOrchestratorTurn(
     activeMisconceptionText: activeMisconceptionEntry ? MISCONCEPTION_TAXONOMY[activeMisconceptionEntry.tag].description : undefined,
     lastMessages,
     effectiveSkillId,
+    sessionPlan,
   });
 }
 
@@ -188,6 +218,7 @@ async function handleMessageTurn(
     activeMisconceptionText?: string;
     lastMessages: TutorTurnContext['lastMessages'];
     effectiveSkillId: string;
+    sessionPlan: SessionPlanInfo;
   }
 ): Promise<OrchestratorTurnResult> {
   let questionToPose: TutorTurnContext['questionToPose'];
@@ -222,7 +253,7 @@ async function handleMessageTurn(
       figureCaption: question.figureCaption,
     };
     // New question -> hint count resets (it's tracked per active question, not per session).
-    await supabase.from('learning_sessions').update({ active_question_id: question.id, hint_count_for_active_question: 0 }).eq('id', input.sessionId);
+    await supabase.from('learning_sessions').update({ active_question_id: question.id, hint_count_for_active_question: 0, active_question_posed_at: new Date().toISOString() }).eq('id', input.sessionId);
   }
 
   if (ctx.strategy === 'HINT') {
@@ -247,6 +278,7 @@ async function handleMessageTurn(
     activeMisconception: ctx.activeMisconceptionText,
     questionToPose,
     diagramCaption: diagram?.caption,
+    sessionNote: ctx.sessionPlan.gentler ? 'Keep this turn calm and encouraging; take smaller steps.' : undefined,
     lastMessages: ctx.lastMessages,
     studentMessage: input.studentMessage ?? '(session just started)',
   });
@@ -258,7 +290,14 @@ async function handleMessageTurn(
   }
   await supabase.from('messages').insert({ session_id: input.sessionId, role: 'tutor', content: completion.text, strategy: ctx.strategy });
 
-  return { tutorMessage: completion.text, strategyUsed: ctx.strategy, nextAction: ctx.strategy, activeQuestion, diagram };
+  return {
+    tutorMessage: completion.text,
+    strategyUsed: ctx.strategy,
+    nextAction: ctx.strategy,
+    activeQuestion,
+    diagram,
+    plan: { done: ctx.sessionPlan.done, target: ctx.sessionPlan.target, finalQuestion: false, finished: false, gentler: ctx.sessionPlan.gentler },
+  };
 }
 
 async function handleAnswerTurn(
@@ -278,6 +317,7 @@ async function handleAnswerTurn(
     masteryScore: number;
     lastMessages: TutorTurnContext['lastMessages'];
     trend: LearnerState['difficultyResponse']['trend'];
+    sessionPlan: SessionPlanInfo;
   }
 ): Promise<OrchestratorTurnResult> {
   const answer = input.studentAnswer!;
@@ -318,6 +358,7 @@ async function handleAnswerTurn(
       expectedAnswer: question.expected_answer,
       studentAnswer: answer.answer,
       isCorrect,
+      subjectName: ctx.subjectName,
     });
     if (detected) {
       misconceptionTag = detected.tag;
@@ -332,8 +373,14 @@ async function handleAnswerTurn(
     misconceptionTag = undefined;
   }
 
-  const { data: sessionRow } = await supabase.from('learning_sessions').select('hint_count_for_active_question').eq('id', input.sessionId).single();
+  const { data: sessionRow } = await supabase.from('learning_sessions').select('hint_count_for_active_question, active_question_posed_at').eq('id', input.sessionId).single();
   const hintsUsed = sessionRow?.hint_count_for_active_question ?? 0;
+  // Answer time is measured on the server (question shown -> answer received), capped at 30 minutes.
+  let timeTaken: number | null = null;
+  if (sessionRow?.active_question_posed_at) {
+    const secs = Math.round((Date.now() - new Date(sessionRow.active_question_posed_at).getTime()) / 1000);
+    if (secs >= 1) timeTaken = Math.min(secs, 1800);
+  }
 
   await supabase.from('question_attempts').insert({
     student_id: input.studentId,
@@ -342,6 +389,7 @@ async function handleAnswerTurn(
     answer: answer.answer,
     is_correct: isCorrect,
     hints_used: hintsUsed,
+    time_taken_seconds: timeTaken,
     detected_misconception_id: detectedMisconceptionId ?? null,
   });
 
@@ -364,7 +412,21 @@ async function handleAnswerTurn(
     sessionObjectiveReached: updatedMastery.score >= 90,
     masteredAndDueForReview: false,
   };
-  const nextAction = selectStrategy(nextSignal);
+  let nextAction = selectStrategy(nextSignal);
+
+  // Where this session stands now. The last planned question is a gentle "success" question;
+  // after it the session wraps up instead of posing another.
+  const answered = ctx.sessionPlan.done + 1;
+  const target = ctx.sessionPlan.target;
+  const finished = target !== null && answered >= target;
+  const finalQuestion = target !== null && answered === target - 1;
+  const historyNow = [...ctx.sessionPlan.history, { correct: isCorrect, hints: hintsUsed }];
+  const triggeredNow = !ctx.sessionPlan.perfRecoveryLogged && historyNow.length >= 2 && shouldTriggerRecovery(historyNow);
+  if (triggeredNow) {
+    await supabase.from('recovery_events').insert({ student_id: input.studentId, session_id: input.sessionId, trigger: 'performance', details: { attemptsAtTrigger: answered } });
+  }
+  const gentlerNext = ctx.sessionPlan.gentler || triggeredNow;
+  if (finished) nextAction = 'REVIEW';
 
   // If the next strategy calls for a question, pose it in this same turn
   // rather than waiting for a separate free-text round trip — this is what
@@ -374,9 +436,12 @@ async function handleAnswerTurn(
   let questionToPose: TutorTurnContext['questionToPose'];
   let activeQuestion: OrchestratorTurnResult['activeQuestion'];
   let nextTurnDifficulty = ctx.difficulty;
-  if (QUESTION_STRATEGIES.includes(nextAction)) {
+  if (QUESTION_STRATEGIES.includes(nextAction) && !finished) {
     nextTurnDifficulty = nextDifficulty({ previousDifficulty: question.difficulty, isCorrect, masteryScore: updatedMastery.score, trend: ctx.trend });
     if (/\(Basic\)/i.test(ctx.subjectName)) nextTurnDifficulty = Math.min(3, nextTurnDifficulty);
+    if (gentlerNext) nextTurnDifficulty = Math.max(1, nextTurnDifficulty - 1);
+    // The closing question should be one the student can succeed at.
+    if (finalQuestion) nextTurnDifficulty = Math.max(1, Math.min(nextTurnDifficulty, 3) - 1);
     const { data: recentAttempts } = await supabase
       .from('question_attempts')
       .select('question_id')
@@ -415,6 +480,13 @@ async function handleAnswerTurn(
     evaluationFeedback: `${isCorrect ? 'Correct' : 'Incorrect'}. ${feedbackText}`,
     questionToPose,
     diagramCaption: diagram?.caption,
+    sessionNote: finished
+      ? "That was the student's last planned question. Wrap up in 2-3 short sentences: one thing they did well, one thing to practise next. Do NOT ask a new question."
+      : finalQuestion
+        ? 'The next question is the final one of this session; keep the tone encouraging.'
+        : gentlerNext
+          ? 'Keep this turn calm and encouraging; take smaller steps.'
+          : undefined,
     lastMessages: ctx.lastMessages,
     studentMessage: `(submitted answer: ${JSON.stringify(answer.answer)})`,
   });
@@ -424,7 +496,7 @@ async function handleAnswerTurn(
   await supabase.from('messages').insert({ session_id: input.sessionId, role: 'tutor', content: completion.text, strategy: nextAction });
   await supabase
     .from('learning_sessions')
-    .update({ active_question_id: activeQuestion?.id ?? null, hint_count_for_active_question: 0 })
+    .update({ active_question_id: activeQuestion?.id ?? null, hint_count_for_active_question: 0, active_question_posed_at: activeQuestion ? new Date().toISOString() : null })
     .eq('id', input.sessionId);
 
   return {
@@ -435,6 +507,7 @@ async function handleAnswerTurn(
     nextAction,
     activeQuestion,
     diagram,
+    plan: { done: answered, target, finalQuestion, finished, gentler: gentlerNext },
   };
 }
 

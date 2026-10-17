@@ -80,5 +80,19 @@ Matches the brief's Section 15 release gates. Do not accept real paid pilot cust
 - [ ] Signed in on any page, opening the home page (logo) goes straight to your page and never shows sign-in/sign-up.
 - [ ] The name badge is visible on a phone.
 
+## v38 additions (partly-built items finished)
+- [ ] Migration 0018 applied (`select count(*) from recovery_events;` and `select count(*) from subject_gate_signoffs;` both run without error).
+- [ ] Sign-up of a new invited student shows exam year, language and study-time questions; choosing Hindi switches the app to Hindi straight away.
+- [ ] A learning session: after a check-in with 20 minutes and a goal, the page shows "question x of about N"; the last planned question is easy; afterwards "End session" is highlighted.
+- [ ] Answer 3 questions wrong in a row on purpose: the next questions are easier and the report later shows a gentler-pace session.
+- [ ] `/mock`: start a Chapter check, a Subject check, a Full mock and a Board-style paper; the board-style result is in marks.
+- [ ] `/report` and a parent link show the subjects table, study pattern and assessment history; no label like "lazy" or "weak" appears anywhere.
+- [ ] `/dashboard` shows Today's session (and a streak after two days of use).
+- [ ] `/admin/quality`: sign off one gate, reload (it stays); Promote to Ready stays disabled until all ten are signed.
+- [ ] `/teacher`: suggest marks and level; `/admin/reviews`: the suggestion appears and "Save marks and level" works.
+- [ ] `/check` works without signing in and never shows correct answers; `/sample-report`, `/about`, `/trust`, `/legal/refund` open; the sample report is clearly marked as made up.
+- [ ] Founder approved the About / Trust text and filled in the real refund periods.
+- [ ] Two-account test also covers `recovery_events`.
+
 ## Narrower pilot, if a gate fails
 If any Security or Payment gate fails, do not accept payments yet — the rest of the product can still be used for a free, unpaid trial with a small number of families while that gate is fixed.

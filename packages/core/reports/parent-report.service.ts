@@ -2,6 +2,9 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import { loadConfidenceTrend, type ConfidenceTrend } from '../checkins/checkin.service';
 import { assessReadiness, summariseReadiness, type ReadinessAssessment } from '../readiness/readiness.service';
 import { t as translate } from '../i18n/dictionary';
+import { loadEngagement, type EngagementSummary } from '../engagement/engagement.service';
+import { LIKELY_CAUSE_WORDING } from '../misconceptions/taxonomy';
+import type { MisconceptionTag } from '../learner-model/types';
 
 // Parent-facing progress summary (brief Section 9). Built entirely from data
 // that already exists — no invented improvement percentages, no guaranteed
@@ -47,6 +50,23 @@ export interface ParentReportSubject {
   readiness: ReadinessAssessment;
   mockCount: number;
   latestMockPercent: number | null;
+  /** Where to put effort first (subject matrix, master prompt §23). Describes the plan, not the child. */
+  priority: 'start' | 'focus' | 'steady' | 'insufficient';
+  lastAssessmentAt: string | null;
+  /** Patterns seen in wrong answers, in neutral words; low-confidence "likely causes", never findings. */
+  likelyCauses: string[];
+}
+
+export interface AssessmentHistoryEntry {
+  id: string;
+  subjectName: string;
+  kind: 'chapter_check' | 'subject_check' | 'full_mock' | 'board_style' | 'diagnostic';
+  at: string;
+  /** Count or marks, see inMarks. */
+  score: number | null;
+  total: number | null;
+  percent: number | null;
+  inMarks: boolean;
 }
 
 export interface ParentReport {
@@ -54,6 +74,10 @@ export interface ParentReport {
   confidence: ConfidenceTrend;
   subjects: ParentReportSubject[];
   readinessSummary: { assessed: number; onTrackOrAbove: number; total: number };
+  engagement: EngagementSummary;
+  /** Sessions that started gentler (after a hard day or a run of misses) in the last 30 days. */
+  gentlerSessions: number;
+  assessmentHistory: AssessmentHistoryEntry[];
   generatedAt: string;
 }
 
@@ -61,7 +85,7 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
   const [{ data: student }, { data: mockRows }, { data: masteryRows }, { data: attempts }, { data: sessions }, { data: skillRows }, { data: subjectRows }, { data: goalRows }, confidence] = await Promise.all([
     supabase.from('students').select('display_name').eq('id', studentId).single(),
     // Submitted mock exams (migration 0015). If that migration is not applied yet this just returns no rows.
-    supabase.from('mock_exams').select('subject_id, score, total, submitted_at').eq('student_id', studentId).eq('status', 'submitted').order('submitted_at', { ascending: false }).limit(60),
+    supabase.from('mock_exams').select('id, subject_id, kind, score, total, submitted_at').eq('student_id', studentId).eq('status', 'submitted').order('submitted_at', { ascending: false }).limit(60),
     supabase
       .from('mastery_states')
       .select('skill_id, score, band, skills(name, topics(chapters(subject_id, subjects(id, name))))')
@@ -78,6 +102,19 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
     supabase.from('learning_goals').select('subject_id').eq('student_id', studentId).eq('status', 'active'),
     loadConfidenceTrend(supabase, studentId),
   ]);
+  const [engagement, { data: recoveryRows }, { data: causeRows }] = await Promise.all([
+    loadEngagement(supabase, studentId, 30),
+    supabase.from('recovery_events').select('id').eq('student_id', studentId).gte('created_at', new Date(Date.now() - 30 * 86400000).toISOString()),
+    supabase.from('misconceptions').select('tag, confidence, skills(topics(chapters(subject_id)))').eq('student_id', studentId).eq('resolved', false),
+  ]);
+  const causesBySubject = new Map<string, Map<string, number>>();
+  for (const c of (causeRows ?? []) as any[]) {
+    const sid = c.skills?.topics?.chapters?.subject_id;
+    if (!sid || !(c.tag in LIKELY_CAUSE_WORDING)) continue;
+    const m = causesBySubject.get(sid) ?? new Map<string, number>();
+    m.set(c.tag, (m.get(c.tag) ?? 0) + 1);
+    causesBySubject.set(sid, m);
+  }
 
   const skillsTotalBySubject = new Map<string, number>();
   for (const sk of (skillRows ?? []) as any[]) {
@@ -136,14 +173,26 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
     const evidence: ParentReportSubject['evidence'] =
       skillsAssessed < 3 || coveragePercent < 20 ? 'insufficient' : coveragePercent < 60 ? 'limited' : 'good';
 
+    // Readiness counts papers that sample the whole subject; a one-chapter check does not.
     const mockPercents = ((mockRows ?? []) as any[])
-      .filter((m) => m.subject_id === subjectId && m.total)
+      .filter((m) => m.subject_id === subjectId && m.total && (m.kind ?? 'full_mock') !== 'chapter_check')
       .map((m) => Math.round((Number(m.score) / Number(m.total)) * 100));
     const subjectStatus = (meta?.status ?? 'ready') as ParentReportSubject['subjectStatus'];
     const readiness = assessReadiness({ subjectStatus, skillsAssessed, skillsTotal, coveragePercent, evidence, masteryAvgPercent: currentAvg, mockPercents });
 
+    const lastMock = ((mockRows ?? []) as any[]).find((m) => m.subject_id === subjectId)?.submitted_at ?? null;
+    const lastDiag = ((attempts ?? []) as any[]).filter((a) => a.diagnostic_tests?.subject_id === subjectId).map((a) => a.completed_at).filter(Boolean).sort().pop() ?? null;
+    const lastAssessmentAt = [lastMock, lastDiag].filter(Boolean).sort().pop() ?? null;
+    const likelyCauses = [...(causesBySubject.get(subjectId)?.entries() ?? [])]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 3)
+      .map(([tag]) => LIKELY_CAUSE_WORDING[tag as MisconceptionTag]);
+
     return {
       readiness,
+      priority: 'steady' as ParentReportSubject['priority'], // set below once every subject is known
+      lastAssessmentAt,
+      likelyCauses,
       mockCount: mockPercents.length,
       latestMockPercent: mockPercents[0] ?? null,
       subjectId,
@@ -165,8 +214,54 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
     };
   });
 
+  // Priority: subjects not started come first, then the lowest evidence-based bands.
+  const bandRank: Record<string, number> = { building: 0, developing: 1, on_track: 2, well_prepared: 3 };
+  const assessed = subjects.filter((x) => x.readiness.band !== 'insufficient_evidence');
+  const lowest = assessed.length ? Math.min(...assessed.map((x) => bandRank[x.readiness.band])) : null;
+  for (const x of subjects) {
+    if (!x.hasBaseline && !x.hasCurrentMastery) x.priority = 'start';
+    else if (x.readiness.band === 'insufficient_evidence') x.priority = 'insufficient';
+    else if (assessed.length > 1 && bandRank[x.readiness.band] === lowest && lowest < 3) x.priority = 'focus';
+    else if (assessed.length === 1 && bandRank[x.readiness.band] < 2) x.priority = 'focus';
+    else x.priority = 'steady';
+  }
+
+  const nameById = new Map(subjects.map((x) => [x.subjectId, x.subjectName]));
+  const history: AssessmentHistoryEntry[] = [];
+  for (const m of (mockRows ?? []) as any[]) {
+    history.push({
+      id: m.id,
+      subjectName: nameById.get(m.subject_id) ?? (subjectMeta.get(m.subject_id) as any)?.name ?? 'Subject',
+      kind: (m.kind ?? 'full_mock') as AssessmentHistoryEntry['kind'],
+      at: m.submitted_at,
+      score: m.score ?? null,
+      total: m.total ?? null,
+      percent: m.total ? Math.round((Number(m.score) / Number(m.total)) * 100) : null,
+      inMarks: m.kind === 'board_style',
+    });
+  }
+  for (const a of (attempts ?? []) as any[]) {
+    const r = a.result as { strengths?: string[]; weakSkills?: string[]; prerequisiteGaps?: string[] } | null;
+    const correct = r?.strengths?.length ?? 0;
+    const total = correct + (r?.weakSkills?.length ?? 0) + (r?.prerequisiteGaps?.length ?? 0);
+    history.push({
+      id: a.id,
+      subjectName: a.diagnostic_tests?.subjects?.name ?? 'Subject',
+      kind: 'diagnostic',
+      at: a.completed_at,
+      score: total ? correct : null,
+      total: total || null,
+      percent: total ? Math.round((correct / total) * 100) : null,
+      inMarks: false,
+    });
+  }
+  history.sort((a, b) => (a.at < b.at ? 1 : -1));
+
   return {
     studentName: student?.display_name ?? null,
+    engagement,
+    gentlerSessions: (recoveryRows ?? []).length,
+    assessmentHistory: history.slice(0, 15),
     confidence,
     subjects,
     readinessSummary: summariseReadiness(subjects.map((x) => x.readiness.band)),

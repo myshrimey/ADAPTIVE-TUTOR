@@ -34,7 +34,7 @@ export async function GET(request: Request) {
 
     let q = service
       .from(bank)
-      .select('id, skill_id, difficulty, question_type, prompt, options, expected_answer, explanation, figure_url, figure_caption, source')
+      .select('id, skill_id, difficulty, question_type, prompt, options, expected_answer, explanation, figure_url, figure_caption, source, marks, cognitive_level, expected_time_seconds')
       .eq('content_status', 'needs_review')
       .in('skill_id', skillIds)
       .order('created_at', { ascending: false })
@@ -66,6 +66,9 @@ export async function GET(request: Request) {
         figureUrl: r.figure_url ?? null,
         figureCaption: r.figure_caption ?? null,
         source: r.source,
+        marks: r.marks ?? null,
+        cognitiveLevel: r.cognitive_level ?? null,
+        expectedTimeSeconds: r.expected_time_seconds ?? null,
       }));
     return NextResponse.json({ data: { items, nextOffset: offset + SCAN, exhausted: (rows ?? []).length < SCAN }, error: null });
   } catch (err: any) {

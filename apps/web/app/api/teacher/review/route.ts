@@ -3,6 +3,7 @@ import { createServiceClient } from '@/lib/supabase-server';
 import { requireApprovedTeacher } from '@/lib/teacher';
 
 const VERDICTS = ['approve', 'needs_fix', 'reject'];
+const LEVELS = ['recall', 'understand', 'apply', 'analyse'];
 const TABLES = ['questions', 'diagnostic_questions'];
 
 // Saves one teacher's feedback on one question. The teacher id always comes from the
@@ -18,6 +19,10 @@ export async function POST(request: Request) {
     const suggestedAnswer = String(body.suggestedAnswer ?? '').trim().slice(0, 500) || null;
     const suggestedExplanation = String(body.suggestedExplanation ?? '').trim().slice(0, 2000) || null;
 
+    const marksNum = Number(body.suggestedMarks);
+    const suggestedMarks = Number.isInteger(marksNum) && marksNum >= 1 && marksNum <= 20 ? marksNum : null;
+    const suggestedLevel = LEVELS.includes(String(body.suggestedCognitiveLevel ?? '')) ? String(body.suggestedCognitiveLevel) : null;
+
     if (!TABLES.includes(table) || !itemId) return NextResponse.json({ data: null, error: 'invalid_item' }, { status: 400 });
     if (!VERDICTS.includes(verdict)) return NextResponse.json({ data: null, error: 'invalid_verdict' }, { status: 400 });
     if ((verdict === 'needs_fix' || verdict === 'reject') && !comment) return NextResponse.json({ data: null, error: 'comment_required' }, { status: 400 });
@@ -27,7 +32,7 @@ export async function POST(request: Request) {
     if (!exists) return NextResponse.json({ data: null, error: 'item_not_found' }, { status: 404 });
 
     const { error } = await service.from('content_reviews').upsert(
-      { teacher_user_id: teacher.userId, item_table: table, item_id: itemId, verdict, comment, suggested_answer: suggestedAnswer, suggested_explanation: suggestedExplanation, updated_at: new Date().toISOString() },
+      { teacher_user_id: teacher.userId, item_table: table, item_id: itemId, verdict, comment, suggested_answer: suggestedAnswer, suggested_explanation: suggestedExplanation, suggested_marks: suggestedMarks, suggested_cognitive_level: suggestedLevel, updated_at: new Date().toISOString() },
       { onConflict: 'teacher_user_id,item_table,item_id' }
     );
     if (error) throw error;

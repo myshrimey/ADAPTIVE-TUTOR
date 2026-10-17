@@ -6,6 +6,14 @@ import { QuestionFigure } from '@/components/QuestionFigure';
 import { accessErrorMessage } from '@/lib/access-errors';
 import { useLanguage } from '@/components/LanguageProvider';
 
+type Kind = 'chapter_check' | 'subject_check' | 'full_mock' | 'board_style';
+const KIND_INFO: Record<Kind, { label: string; blurb: string }> = {
+  chapter_check: { label: 'Chapter check', blurb: 'About 8 questions from one chapter. A quick way to see whether a chapter has stuck.' },
+  subject_check: { label: 'Subject check', blurb: 'About 10 questions across the subject. A periodic check-up, about 15 minutes.' },
+  full_mock: { label: 'Full mock', blurb: 'About 20 objective questions across the syllabus, timed.' },
+  board_style: { label: 'Board-style paper', blurb: 'Sections by marks: 1-mark multiple-choice, then 2-mark short answers, timed. Only the auto-marked part of a board paper: no long-answer or case-study sections, and not the official CBSE blueprint.' },
+};
+
 interface SubjectOpt {
   id: string;
   name: string;
@@ -19,6 +27,7 @@ interface QView {
   options: string[] | null;
   figureUrl: string | null;
   figureCaption: string | null;
+  marks?: number | null;
 }
 interface Review {
   questionId: string;
@@ -31,6 +40,7 @@ interface Review {
   explanation: string | null;
   figureUrl: string | null;
   figureCaption: string | null;
+  marks?: number;
 }
 interface Result {
   score: number;
@@ -39,6 +49,7 @@ interface Result {
   unanswered: number;
   timeUsedSeconds: number;
   autoSubmitted: boolean;
+  inMarks?: boolean;
   byChapter: { chapter: string; correct: number; total: number }[];
   review: Review[];
 }
@@ -46,6 +57,9 @@ interface Exam {
   id: string;
   subjectName: string;
   status: 'in_progress' | 'submitted';
+  kind?: Kind;
+  chapterName?: string | null;
+  totalMarks?: number | null;
   deadlineAt: string;
   serverNow: string;
   questions: QView[];
@@ -72,6 +86,9 @@ export default function MockPage() {
   const [error, setError] = useState<string | null>(null);
   const [saveState, setSaveState] = useState<'idle' | 'saved' | 'failed'>('idle');
   const [autoNote, setAutoNote] = useState(false);
+  const [kind, setKind] = useState<Kind>('full_mock');
+  const [chapters, setChapters] = useState<{ id: string; name: string }[]>([]);
+  const [chapterId, setChapterId] = useState('');
 
   const answersRef = useRef(answers);
   const examRef = useRef<Exam | null>(null);
@@ -96,6 +113,18 @@ export default function MockPage() {
       .catch(() => setSubjects([]));
   }, []);
 
+  useEffect(() => {
+    if (!subjectId || kind !== 'chapter_check') return;
+    fetch(`/api/mock/chapters?subjectId=${subjectId}`)
+      .then((r) => r.json())
+      .then((j) => {
+        const list = j.data?.chapters ?? [];
+        setChapters(list);
+        setChapterId((cur) => (list.some((c: any) => c.id === cur) ? cur : list[0]?.id ?? ''));
+      })
+      .catch(() => setChapters([]));
+  }, [subjectId, kind]);
+
   const beginExam = useCallback((e: Exam) => {
     offsetRef.current = new Date(e.serverNow).getTime() - Date.now();
     setExam(e);
@@ -111,7 +140,7 @@ export default function MockPage() {
     setError(null);
     setResult(null);
     try {
-      const res = await fetch('/api/mock/start', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ subjectId }) });
+      const res = await fetch('/api/mock/start', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ subjectId, kind, chapterId: kind === 'chapter_check' ? chapterId : undefined }) });
       const json = await res.json();
       if (json.error) throw new Error(json.error);
       beginExam(json.data);
@@ -207,7 +236,7 @@ export default function MockPage() {
           <h1 style={{ fontSize: 'var(--step-2)' }}>{tt('mock.resultTitle')}</h1>
           <p style={{ color: 'var(--slate)' }}>{exam.subjectName}</p>
           {autoNote && <p role="status">{tt('mock.timeUp')}</p>}
-          <p style={{ fontSize: 'var(--step-1)', fontWeight: 600 }}>{tt('mock.score', { score: result.score, total: result.total, percent: result.percent })}</p>
+          <p style={{ fontSize: 'var(--step-1)', fontWeight: 600 }}>{result.inMarks ? `Marks: ${result.score} out of ${result.total} (${result.percent}%)` : tt('mock.score', { score: result.score, total: result.total, percent: result.percent })}</p>
           <p style={{ color: 'var(--slate)' }}>
             {tt('mock.unanswered', { n: result.unanswered })} · {tt('mock.timeUsed', { m: Math.max(1, Math.round(result.timeUsedSeconds / 60)) })}
           </p>
@@ -288,7 +317,7 @@ export default function MockPage() {
             style={{ position: 'sticky', top: 0, zIndex: 5, background: 'var(--paper, #fff)', padding: '0.6rem 0', borderBottom: '1px solid var(--line, #ddd)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}
           >
             <div>
-              <strong>{exam.subjectName}</strong>
+              <strong>{exam.subjectName}</strong>{exam.kind ? ` · ${KIND_INFO[exam.kind].label}${exam.chapterName ? `: ${exam.chapterName}` : ''}${exam.totalMarks ? ` · ${exam.totalMarks} marks` : ''}` : ''}
               <div style={{ fontSize: '0.8rem', color: 'var(--slate)' }}>{tt('mock.answered', { n: answeredCount, total: exam.questions.length })}</div>
             </div>
             <div style={{ textAlign: 'right' }}>
@@ -305,7 +334,7 @@ export default function MockPage() {
 
           {exam.questions.map((q, i) => (
             <div key={q.id} style={{ padding: '0.9rem 0', borderBottom: '1px solid var(--line, #eee)' }}>
-              <div style={{ fontSize: '0.8rem', color: 'var(--slate)' }}>{tt('mock.question', { n: i + 1 })}</div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--slate)' }}>{tt('mock.question', { n: i + 1 })}{q.marks ? ` · ${q.marks} ${q.marks === 1 ? 'mark' : 'marks'}` : ''}</div>
               <QuestionFigure url={q.figureUrl} caption={q.figureCaption} />
               <p>
                 <MathText text={q.prompt} />
@@ -361,6 +390,23 @@ export default function MockPage() {
                 ))}
               </select>
             </div>
+            <div className="field">
+              <span className="field__label">What kind of paper?</span>
+              {(Object.keys(KIND_INFO) as Kind[]).map((k) => (
+                <label key={k} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', margin: '0.3rem 0' }}>
+                  <input type="radio" name="mock-kind" checked={kind === k} onChange={() => setKind(k)} style={{ marginTop: '0.3rem' }} />
+                  <span><strong>{KIND_INFO[k].label}</strong><br /><span style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>{KIND_INFO[k].blurb}</span></span>
+                </label>
+              ))}
+            </div>
+            {kind === 'chapter_check' && (
+              <div className="field">
+                <label className="field__label" htmlFor="mock-chapter">Chapter</label>
+                <select id="mock-chapter" className="field__input" value={chapterId} onChange={(e) => setChapterId(e.target.value)}>
+                  {chapters.map((c) => (<option key={c.id} value={c.id}>{c.name}</option>))}
+                </select>
+              </div>
+            )}
             {chosen?.status === 'pilot' && <p style={{ color: 'var(--slate)', fontSize: '0.9rem' }}>{tt('mock.pilotNote')}</p>}
             {error && <p className="field__error">{error}</p>}
             <div className="hero__actions">

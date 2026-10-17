@@ -25,7 +25,7 @@ type Mode = 'signup' | 'signin' | 'forgot';
 
 export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
   const router = useRouter();
-  const { t, lang } = useLanguage();
+  const { t, lang, setLang } = useLanguage();
   const [mode, setMode] = useState<Mode>('signin');
   // Self sign-up is closed during early access (accounts are created by the founder).
   const [signupsOpen, setSignupsOpen] = useState(false);
@@ -34,6 +34,9 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [chosenSubjects, setChosenSubjects] = useState<string[]>(['maths']);
+  const [examYear, setExamYear] = useState<number>(2027);
+  const [prefLanguage, setPrefLanguage] = useState<'en' | 'hi'>('en');
+  const [dailyMinutes, setDailyMinutes] = useState<number>(45);
 
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -182,7 +185,7 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
     const res = await fetch('/api/student/onboarding', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ displayName, grade: 'CBSE-10', subjects: chosenSubjects, board: 'CBSE', class: '10' }),
+      body: JSON.stringify({ displayName, grade: 'CBSE-10', subjects: chosenSubjects, board: 'CBSE', class: '10', examYear, preferredLanguage: prefLanguage, dailyStudyMinutes: dailyMinutes }),
     });
     const json = await res.json();
     setSubmitting(false);
@@ -191,6 +194,7 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
       setError(accessErrorMessage(json.error) ?? json.error);
       return;
     }
+    if (prefLanguage !== lang) setLang(prefLanguage);
     router.push('/diagnostic');
   }
 
@@ -238,6 +242,30 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
                   required
                   autoFocus
                 />
+              </div>
+              <div className="field">
+                <span className="field__label">{t('onboarding.boardClass')}</span>
+                <div style={{ color: 'var(--slate)' }}>CBSE · Class 10</div>
+              </div>
+              <div className="field">
+                <label className="field__label" htmlFor="examYear">{t('onboarding.examYear')}</label>
+                <select id="examYear" className="field__input" value={examYear} onChange={(e) => setExamYear(Number(e.target.value))}>
+                  <option value={2027}>2027</option>
+                  <option value={2028}>2028</option>
+                </select>
+              </div>
+              <div className="field">
+                <label className="field__label" htmlFor="prefLang">{t('onboarding.language')}</label>
+                <select id="prefLang" className="field__input" value={prefLanguage} onChange={(e) => setPrefLanguage(e.target.value as 'en' | 'hi')}>
+                  <option value="en">English</option>
+                  <option value="hi">हिन्दी</option>
+                </select>
+              </div>
+              <div className="field">
+                <label className="field__label" htmlFor="dailyMin">{t('onboarding.studyTime')}</label>
+                <select id="dailyMin" className="field__input" value={dailyMinutes} onChange={(e) => setDailyMinutes(Number(e.target.value))}>
+                  {[20, 30, 45, 60, 90, 120].map((m) => (<option key={m} value={m}>{m} {t('onboarding.minutes')}</option>))}
+                </select>
               </div>
               <div className="field">
                 <span className="field__label">{t('onboarding.whichSubject')}</span>
@@ -404,6 +432,19 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
               summary of what was learned after every session.
             </div>
           </div>
+        </section>
+
+        <section style={{ marginTop: 'var(--space-4)' }}>
+          <h2 style={{ fontSize: 'var(--step-1)' }}>See it before you decide</h2>
+          <p style={{ color: 'var(--slate)' }}>
+            Look at a made-up example of the parent report, try eight free questions with no sign-in, or read how we keep this honest and trustworthy.
+          </p>
+          <p style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+            <a className="btn btn--accent" href="/check">Free readiness check</a>
+            <a className="btn btn--ghost" href="/sample-report">Sample report</a>
+            <a className="btn btn--ghost" href="/trust">How we keep this trustworthy</a>
+            <a className="btn btn--ghost" href="/about">About Sahayak</a>
+          </p>
         </section>
 
         <section id="plans" style={{ marginTop: 'var(--space-4)', paddingBottom: 'var(--space-4)' }}>

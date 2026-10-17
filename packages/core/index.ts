@@ -42,3 +42,6 @@ export * from './content/faq';
 export * from './learning-animation/level';
 export * from './plans/plans';
 export * from './access/access.service';
+export * from './quality/quality-gates';
+export * from './pedagogy/session-plan';
+export * from './engagement/engagement.service';

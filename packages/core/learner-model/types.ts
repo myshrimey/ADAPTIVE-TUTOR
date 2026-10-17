@@ -27,7 +27,19 @@ export type MisconceptionTag =
   | 'PROCEDURAL_ERROR'
   | 'ARITHMETIC_ERROR'
   | 'PREREQUISITE_GAP'
-  | 'INCOMPLETE_REASONING';
+  | 'INCOMPLETE_REASONING'
+  // Science
+  | 'TERMINOLOGY_CONFUSION'
+  | 'APPLICATION_GAP'
+  | 'QUESTION_INTERPRETATION'
+  | 'ATTENTION_SLIP'
+  // Languages (English / Hindi)
+  | 'COMPREHENSION_GAP'
+  | 'GRAMMAR_RULE'
+  | 'VOCABULARY_GAP'
+  | 'STRUCTURE_FORMAT'
+  | 'WRITTEN_EXPRESSION'
+  | 'INCOMPLETE_ANSWER';
 
 export interface DetectedMisconception {
   tag: MisconceptionTag;

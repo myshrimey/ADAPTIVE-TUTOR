@@ -3,9 +3,12 @@
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
 ## Exact current status (2026-10-16)
-v29 and v30 are **deployed and confirmed working live**. **v34** (bundles v31-v33), **v35**, **v36** and **v37** are **built, clean-built and zipped, NOT deployed**. The founder applies them in order: `sahayak-v34-complete-board-prep-delta.zip`, `sahayak-v35-maths-mock-readiness-delta.zip`, `sahayak-v36-plans-teachers-delta.zip`, `sahayak-v37-pricing-free-aicost-delta.zip` (migrations 0013-0017). Don't re-build either; wait for the founder to report deployed-and-working (or a problem).
+v29 and v30 are **deployed and confirmed working live**. **v34** (bundles v31-v33), **v35**, **v36** and **v37** are **built, and the founder reports (2026-10-16) that he has deployed and tested all of them live** (details of what he tested not recorded). They were applied in order: `sahayak-v34-complete-board-prep-delta.zip`, `sahayak-v35-maths-mock-readiness-delta.zip`, `sahayak-v36-plans-teachers-delta.zip`, `sahayak-v37-pricing-free-aicost-delta.zip` (migrations 0013-0017). Don't re-build either; wait for the founder to report deployed-and-working (or a problem).
 
-## Last completed task — v37 (see `docs/BUILD_LOG.md` for the full entry)
+## Last completed task — v38 (see `docs/BUILD_LOG.md`)
+Every "partly built" master-prompt item finished (onboarding fields, question details, quality-gates page `/admin/quality`, Science/Language error types, engagement signals, session planning + performance recovery + success question, assessment ladder incl. board-style paper, parent report matrix/engagement/history, dashboard recommendation + streak, About / Trust / Refund / Sample report / free readiness check). Migration 0018. Built and checked in the test setup only; not deployed. Apply after v37: `sahayak-v38-partly-built-complete-delta.zip`.
+
+## Previous task — v37 (see `docs/BUILD_LOG.md` for the full entry)
 New prices (Rs 1000/subject/month; Rs 3,300/month for 5 subjects till Feb 2027; Rs 15,000 once till Mar 2027 — last two are Claude's proposal), a Free plan (1 subject, free-tier AI only, 10 tutor replies/day, no mocks), AI usage/cost log + `/admin/ai-costs`, four plan cards on the home/offer pages, server-side redirect so signed-in people never see sign-in/sign-up, brighter header name. Untested against real Supabase.
 
 ## Previous task — v36 (see `docs/BUILD_LOG.md`)
@@ -27,18 +30,19 @@ v29 + v30: live. v34 + v35: `tsc` clean, `npm run build` clean, migrations 0002-
 2. Apply v35: copy files, `npm run db:migrate` (applies 0014 and 0015), `npm run db:seed` (so the Maths name stays "Standard"), `npm run build`, commit, push.
 3. Smoke test (list in v35 INSTRUCTIONS.txt).
 
-## Current blockers / open items
-1. **v34 and v35 not deployed or confirmed.**
-2. **Founder to confirm:** the 240-day access length; refund wording; whether paid access should be enforced (still not enforced); the FAQ wording; the readiness thresholds.
-3. **Pilot-subject content needs a human** (English, Hindi, Computer Applications, Social Science, and now Maths Basic). See `docs/CONTENT_STATUS.md`. A teacher should confirm Basic's scope against the real CBSE Basic paper.
-4. **Two-account privacy test still not run** (now also covers `session_checkins` and `mock_exams`). Blocks accepting real payments.
-5. Founder-attribution wording and the legal-page drafts still need explicit approval.
-6. Not built (by decision): Hindi Course A/B split, 7-stage assessment ladder, true animated (moving-part) diagrams, hard paywall, Excel tracker update.
+## Current blockers / open items (updated 2026-10-16, after v37)
+1. v34-v37 deployed by the founder (his report); what he tested is not itemised. Master-prompt coverage evaluation: see `docs/MASTER_PROMPT_COVERAGE.md`.
+2. **Founder to confirm:** the new prices (Rs 1000 / 3,300 / 15,000 — the last two are Claude's proposal) and GST; refund wording; FAQ, legal and plan wording; readiness thresholds. (The 240-day idea is obsolete; access is now set per student at `/admin/students`. Paid access IS enforced since v36.)
+3. **Founder must turn OFF Supabase "Allow new users to sign up"** and set `AI_FREE_PROVIDERS` in Vercel.
+4. **Pilot-subject content needs a human** (English, Hindi, Computer Applications, Social Science, Maths Basic). Teachers can now give feedback at `/teacher`; the founder applies it at `/admin/reviews`. See `docs/CONTENT_STATUS.md`.
+5. **Two-account privacy test still not run** (now also covers `student_access`, `teacher_profiles`, `content_reviews`, `ai_usage`, `mock_exams`, `session_checkins`). Blocks accepting real payments.
+6. Founder-attribution wording and the legal-page drafts still need explicit approval.
+7. Not built: Hindi Course A/B split, "what changed in 30 days" narrative, written-answer assessment, intervention-to-outcome history, founder metrics page, true animated diagrams, teacher pay, Excel tracker update, DATABASE_SCHEMA.md / COMMERCIAL_METRICS.md. Founder still to do for v38: approve refund wording (fill in periods), About/Trust text; set marks/levels via teachers; sign off gates at /admin/quality as evidence arrives.
 
 ## Next three tasks, in order
-1. Founder deploys v34 then v35 and reports what works / what doesn't.
-2. Founder answers the open questions in blocker #2.
-3. Two-account privacy test; teacher reviews a sample of pilot-subject questions; decide which pilot subjects to promote.
+1. Founder deploys v38 (after v37) and runs the smoke tests in its INSTRUCTIONS.txt; reports what works / what doesn't.
+2. Founder answers blocker #2 and #3; gives existing students real plans/end dates.
+3. Two-account privacy test; teachers review pilot-subject questions; read `/admin/ai-costs` after a week and decide the AI model mix.
 
 ## Precise instruction for the next Claude session
 Read this file, `PROJECT_CONTEXT.md`, `docs/DECISIONS.md` (v34 and v35 entries), `docs/CONTENT_STATUS.md`, then the latest `docs/BUILD_LOG.md` entry. Don't rebuild v34/v35. If the founder reports a bug, read the specific symptom first. A mock-exam bug is most likely in `packages/core/mock/mock-exam.service.ts` (writes go through the service client; RLS only allows reads). If a Basic question looks too hard, check its `difficulty` and the cap in `tutor.orchestrator.ts` / `skill-quiz.engine.ts`. Readiness thresholds live only in `packages/core/readiness/readiness.service.ts`. If asked to enforce paid access, design it first and confirm with the founder (it touches auth/payments). Never mark a pilot subject `ready` without the founder saying a human reviewed it.

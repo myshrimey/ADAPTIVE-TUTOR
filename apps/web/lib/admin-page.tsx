@@ -32,7 +32,7 @@ export async function adminPageGate(): Promise<{ email: string } | { gate: React
 export function AdminNav() {
   return (
     <p style={{ color: 'var(--slate)' }}>
-      <a href="/admin/students">Students and plans</a> · <a href="/admin/payments">Payments</a> · <a href="/admin/teachers">Teachers</a> · <a href="/admin/reviews">Question reviews</a> · <a href="/admin/ai-costs">AI cost</a> · <a href="/admin/feedback">Feedback</a>
+      <a href="/admin/students">Students and plans</a> · <a href="/admin/payments">Payments</a> · <a href="/admin/teachers">Teachers</a> · <a href="/admin/reviews">Question reviews</a> · <a href="/admin/quality">Quality gates</a> · <a href="/admin/ai-costs">AI cost</a> · <a href="/admin/feedback">Feedback</a>
     </p>
   );
 }

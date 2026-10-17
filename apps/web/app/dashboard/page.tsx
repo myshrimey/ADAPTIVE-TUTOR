@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { loadCurriculum, loadSubjectCatalogue, t } from '@adaptive-tutor/core';
+import { loadCurriculum, loadSubjectCatalogue, loadLearnerState, loadEngagement, planSession, t } from '@adaptive-tutor/core';
 import { SubjectIcon } from '@/components/SubjectIcon';
 import { CountUp } from '@/components/CountUp';
 import { getServerLang } from '@/lib/language';
@@ -67,6 +67,31 @@ export default async function DashboardOverviewPage() {
     return { id: subject.id, name: subject.name, slug: subject.slug, status: subject.status, avg, started: touched.length > 0, active: subject.id === activeSubjectId };
   });
 
+  // Today's recommended session: the skill the learner model says to work on next, sized to the
+  // study time the student gave at sign-up. Falls back quietly if anything is missing.
+  let todaySkill: { name: string; subject: string; mastery: number | null } | null = null;
+  let todayQuestions: number | null = null;
+  let streak = 0;
+  try {
+    const [state, engagement, { data: profile }] = await Promise.all([
+      masteryRows && masteryRows.length > 0 ? loadLearnerState(supabase, studentId) : Promise.resolve(null),
+      loadEngagement(supabase, studentId, 30),
+      supabase.from('learning_profiles').select('daily_study_minutes').eq('student_id', studentId).maybeSingle(),
+    ]);
+    streak = engagement.currentStreakDays;
+    todayQuestions = planSession({ availableMinutes: profile?.daily_study_minutes ?? null, goal: null, recoveryMode: false }).targetQuestions;
+    const objectiveId = state?.currentObjective?.skillId;
+    if (objectiveId) {
+      for (const subject of curriculum.subjects) {
+        for (const ch of subject.chapters) for (const tp of ch.topics) for (const sk of tp.skills) {
+          if (sk.id === objectiveId) todaySkill = { name: sk.name, subject: subject.name, mastery: masteryBySkill.has(sk.id) ? Math.round(masteryBySkill.get(sk.id)!) : null };
+        }
+      }
+    }
+  } catch {
+    // The dashboard still works without the recommendation.
+  }
+
   const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
   const tip = TIPS[dayOfYear % TIPS.length];
 
@@ -82,6 +107,23 @@ export default async function DashboardOverviewPage() {
             {skillsTouched > 0 ? "Here's where things stand today." : 'Start a session or take a diagnostic to get going.'}
           </p>
         </div>
+
+        <section className="tip-card fade-slide-in" style={{ marginTop: 'var(--space-3)' }}>
+          <span className="tip-card__eyebrow">Today&apos;s session{streak > 0 ? ` · ${streak}-day streak` : ''}</span>
+          {todaySkill ? (
+            <p className="tip-card__body">
+              Suggested: <strong>{todaySkill.name}</strong> ({todaySkill.subject}
+              {todaySkill.mastery !== null ? `, currently ${todaySkill.mastery}%` : ''}).
+              {todayQuestions ? ` About ${todayQuestions} questions fit the study time you chose.` : ''}{' '}
+              <a href="/learn">Start today&apos;s session</a>
+            </p>
+          ) : (
+            <p className="tip-card__body">
+              {skillsTouched === 0 ? 'Take a short diagnostic first so Sahayak can suggest where to begin.' : 'Open a session to carry on where you left off.'}{' '}
+              <a href={skillsTouched === 0 ? '/diagnostic' : '/learn'}>{skillsTouched === 0 ? 'Start the diagnostic' : 'Start a session'}</a>
+            </p>
+          )}
+        </section>
 
         <div className="stat-tile-row fade-slide-in" style={{ animationDelay: '0.05s' }}>
           <div className="stat-tile stat-tile--gradient">

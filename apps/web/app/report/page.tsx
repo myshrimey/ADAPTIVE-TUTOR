@@ -4,6 +4,7 @@ import { buildParentReport, formatReportForWhatsApp, bandForScore, t } from '@ad
 import { getServerLang } from '@/lib/language';
 import { MasteryArc } from '@/components/MasteryArc';
 import { ConfidenceChart } from '@/components/ConfidenceChart';
+import { ReportExtras } from '@/components/ReportExtras';
 
 // Parent-facing progress summary. Built only from real mastery/diagnostic
 // data already in the database — no invented percentages. When a subject
@@ -118,6 +119,8 @@ export default async function ReportPage() {
           </section>
         )}
 
+        <ReportExtras report={report} />
+
         {report.subjects.map((s) => (
           <section key={s.subjectId} className="chapter-row" style={{ marginTop: 'var(--space-3)', alignItems: 'flex-start' }}>
             <div className="chapter-row__body">
@@ -175,6 +178,11 @@ export default async function ReportPage() {
               {s.needsPractice.length > 0 && (
                 <p style={{ margin: '0.3rem 0' }}>
                   <strong>{t('report.needsPractice', lang)}:</strong> {s.needsPractice.join(', ')}
+                </p>
+              )}
+              {s.likelyCauses.length > 0 && (
+                <p style={{ margin: '0.3rem 0', fontSize: '0.9rem' }}>
+                  <strong>Patterns we are watching in wrong answers:</strong> {s.likelyCauses.join(' ')} <span style={{ color: 'var(--slate)' }}>(These are possibilities from the answers given, not a finding about your child.)</span>
                 </p>
               )}
               {s.nextRecommendedSkillName && (

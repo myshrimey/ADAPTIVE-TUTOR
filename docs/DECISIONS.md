@@ -84,3 +84,14 @@ Terms, Privacy, Pilot Limitations, and the Payment/Refund policy are being draft
 
 ### Diagnostic-save symptom — RESOLVED (2026-10-13)
 Root cause found by reading real production data (not speculative): the save path itself always worked; students were re-opening an unfinished diagnostic and getting a brand-new attempt each time, orphaning the old one. Fixed in v30 (resume-in-progress logic), confirmed working live by the founder. See `docs/BUILD_LOG.md`'s 2026-10-13 entries for the full root-cause trail.
+
+
+### v38 (2026-10-17): finishing the partly-built items
+- **Question marks and cognitive level stay empty until a person sets them.** Inventing them would put made-up numbers on exams. Board-style papers fall back to a stated default (1 mark MCQ, 2 marks other) and say so. Expected time is a planning default by question type, not a measurement.
+- **Chapter and subject checks run on the mock engine, not the diagnostic engine.** Simpler and safer: they are practice measurements and never change mastery. The alternative (a chapter-scoped diagnostic that updates mastery) can come later; `diagnostic_attempts.chapter_id` is already reserved.
+- **Board-style paper = only the auto-marked part** (1-mark MCQ, 2-mark short/numeric). No long-answer or case-study sections and not the official blueprint; the page says so. Written answers are still not assessed.
+- **Quality gates are founder sign-offs.** Computed evidence is shown beside them but never signs a gate. Promote needs all ten.
+- **Performance recovery** triggers on answers only (3 misses in the last 4, or 2 hinted misses in a row). It changes difficulty and tone for the next 3 questions; it never touches stored mastery. One recorded event per session and trigger.
+- **Free readiness check leaks nothing**: only right/wrong per chapter comes back, never the key or explanations.
+- **Refund page is a draft with no invented terms**; the founder must supply periods/amounts.
+- New public/report text is English only for now.

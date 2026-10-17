@@ -26,10 +26,11 @@ Depth beyond those starter questions comes from the generate-and-persist mechani
 - Computer Applications: verify the chapter list against the current official CBSE Class 10 syllabus (cbseacademic.nic.in) before calling it anything beyond pilot.
 - English: only one `short_answer` question exists; the rest are MCQ. Written-answer quality is not assessed anywhere yet.
 - Hindi Course A vs B is **not** a separate course yet. Mathematics Basic exists (v35) but is a derived, Pilot copy of Standard at lower difficulty.
-- Timed mock exams (v35) are objective-style practice papers drawn from the question bank — not a board-style paper (no long answer / case study sections).
+- Timed papers (v35, extended v38) are objective-style practice papers drawn from the question bank. The "board-style" kind uses marks (1 for MCQ, 2 for others unless a person set marks) but has no long-answer or case-study sections and is not the official CBSE blueprint.
+- Question marks and cognitive level are empty until teachers/founder set them (v38).
 
 ## Promotion checklist (pilot → ready)
-Follow master-prompt quality gates 1–10: official syllabus mapped; a teacher reviews questions and answer keys (flip rows to `verified`, reject bad ones); diagnostic produces sensible results on real students; results persist across refresh/logout; mastery updates correctly; parent report matches database evidence; two-account privacy test passes; a parent and student finish the flow unaided; no critical errors. Then `update subjects set status = 'ready' where slug = '...'`.
+Follow master-prompt quality gates 1–10: official syllabus mapped; a teacher reviews questions and answer keys (flip rows to `verified`, reject bad ones); diagnostic produces sensible results on real students; results persist across refresh/logout; mastery updates correctly; parent report matches database evidence; two-account privacy test passes; a parent and student finish the flow unaided; no critical errors. Since v38 this is done at `/admin/quality`: the founder signs each of the ten gates, then presses Promote to Ready (only enabled when all ten are signed).
 
 ## How to review in Supabase (no code)
 Table Editor → `diagnostic_questions` (or `questions`) → filter `content_status` = `needs_review` → read prompt/answer/explanation → set `content_status` to `verified` or `rejected`.

@@ -923,6 +923,26 @@ export const DICTIONARY: Dict = {
     en: "This is part of the paid plans. Please ask the Sahayak team about upgrading.",
     hi: "यह पेड प्लान का हिस्सा है। कृपया सहायक टीम से अपग्रेड के बारे में पूछें।",
   },
+  'onboarding.boardClass': {
+    en: "Board and class",
+    hi: "बोर्ड और कक्षा",
+  },
+  'onboarding.examYear': {
+    en: "Board exam year",
+    hi: "बोर्ड परीक्षा का वर्ष",
+  },
+  'onboarding.language': {
+    en: "Preferred language",
+    hi: "पसंदीदा भाषा",
+  },
+  'onboarding.studyTime': {
+    en: "Study time on a normal day",
+    hi: "एक सामान्य दिन में पढ़ाई का समय",
+  },
+  'onboarding.minutes': {
+    en: "minutes",
+    hi: "मिनट",
+  },
 };
 
 export function t(key: keyof typeof DICTIONARY, lang: Lang, vars?: Record<string, string | number>): string {
