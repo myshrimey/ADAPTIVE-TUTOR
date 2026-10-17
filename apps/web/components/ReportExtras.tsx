@@ -69,6 +69,26 @@ export function ReportExtras({ report }: { report: ParentReport }) {
       )}
 
       <section className="chapter-row" style={{ marginTop: 'var(--space-3)', display: 'block' }}>
+        <div className="chapter-row__title">What changed in the last 30 days</div>
+        <p style={{ margin: '0.2rem 0', color: 'var(--slate)', fontSize: '0.85rem' }}>The last 30 days against the 30 before, from real answers and papers. A comparison is shown only where there is enough to compare fairly.</p>
+        <ul style={{ margin: '0.3rem 0', paddingLeft: '1.1rem' }}>
+          {report.change.headline.map((h, i) => (<li key={i}>{h}</li>))}
+        </ul>
+        {report.change.subjects.map((s) => (
+          <div key={s.subjectName} style={{ margin: '0.5rem 0' }}>
+            <strong>{s.subjectName}</strong>
+            <ul style={{ margin: '0.1rem 0', paddingLeft: '1.1rem', fontSize: '0.9rem' }}>
+              {s.statements.map((x, i) => (<li key={i}>{x}</li>))}
+            </ul>
+          </div>
+        ))}
+        <p style={{ margin: '0.4rem 0 0.1rem' }}><strong>What to do next</strong></p>
+        <ul style={{ margin: '0.1rem 0', paddingLeft: '1.1rem', fontSize: '0.9rem' }}>
+          {report.change.whatNext.map((x, i) => (<li key={i}>{x}</li>))}
+        </ul>
+      </section>
+
+      <section className="chapter-row" style={{ marginTop: 'var(--space-3)', display: 'block' }}>
         <div className="chapter-row__title">How study has gone in the last {e.days} days</div>
         {e.sessionsStarted === 0 ? (
           <p style={{ margin: '0.3rem 0', color: 'var(--slate)' }}>No learning sessions yet in this period.</p>

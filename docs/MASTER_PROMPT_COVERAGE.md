@@ -33,13 +33,12 @@ Method: the founder's pasted master prompt (54 sections) compared with the actua
 - 30-33 Funnel and landing: /check (free, no sign-in), /sample-report, /about, /trust, /legal/refund. Limit: refund terms are a draft; new text is English only.
 - 36 Quality gates: /admin/quality sign-offs and promote-to-ready. Limit: no subject has passed any gate yet; that needs people.
 
-## Not built
-- 2 Hindi Course A vs B as distinct courses (only Hindi A); Sanskrit and other electives (future by design).
-- 9 Written-answer quality assessment; time-management signal beyond mock score.
-- 22 Parent "what changed in 30 days" report.
-- 26, 47 Intervention -> outcome history (which intervention works for which gap).
-- 35 Founder metrics dashboard / tracker update (only `/admin/ai-costs` and payments list exist).
-- 42 DATABASE_SCHEMA.md, COMMERCIAL_METRICS.md.
+## Not built (after v39)
+- 2 Hindi Course A vs B as distinct courses (only Hindi A); Sanskrit and other electives.
+- 9 Written-answer quality assessment.
+- Animated diagrams; teacher pay; automatic Excel tracker update.
+## Built in v39 (was Not built)
+- 22 "What changed in 30 days" report. 26, 47 Intervention-to-outcome summary (founder page, association only). 35 Founder metrics page. 42 DATABASE_SCHEMA.md, COMMERCIAL_METRICS.md.
 
 ## Built beyond the prompt (founder requests)
 Teacher review area, three paid plans + free plan with enforcement, invitation-only accounts, AI usage/cost log, mock exams, Maths Basic, level-adaptive animations, FAQ.

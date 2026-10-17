@@ -94,5 +94,11 @@ Matches the brief's Section 15 release gates. Do not accept real paid pilot cust
 - [ ] Founder approved the About / Trust text and filled in the real refund periods.
 - [ ] Two-account test also covers `recovery_events`.
 
+## v39 additions (change report, metrics)
+- [ ] `/report` and a parent link show "What changed in the last 30 days"; with little data it says there is not enough to compare, and it never predicts marks.
+- [ ] `/admin/metrics` opens for you only; numbers look plausible against what you know (students, sessions, payments).
+- [ ] The "What seems to help" table shows "not enough sessions yet" until 5+ finished sessions.
+- [ ] `docs/DATABASE_SCHEMA.md` and `docs/COMMERCIAL_METRICS.md` read correctly to you.
+
 ## Narrower pilot, if a gate fails
 If any Security or Payment gate fails, do not accept payments yet — the rest of the product can still be used for a free, unpaid trial with a small number of families while that gate is fixed.

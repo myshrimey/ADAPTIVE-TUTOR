@@ -95,3 +95,10 @@ Root cause found by reading real production data (not speculative): the save pat
 - **Free readiness check leaks nothing**: only right/wrong per chapter comes back, never the key or explanations.
 - **Refund page is a draft with no invented terms**; the founder must supply periods/amounts.
 - New public/report text is English only for now.
+
+
+### v39 (2026-10-17)
+- **30-day report compares only with enough evidence** (10+ answers in each period per subject) and otherwise says so. Wording is rule-based from numbers, no AI, so it cannot invent a cause. It never predicts marks.
+- **Intervention outcomes are founder-only and labelled association.** Not shown to families; not used to change the tutor automatically.
+- **Metrics count only**; no names or answers. Recurring-revenue/churn is not computed yet (needs plan start dates).
+- Deferred on purpose: written-answer assessment (needs a marking rubric and an AI-cost/accuracy decision), Hindi A/B (needs real course content), animated diagrams, teacher pay.

@@ -5,7 +5,10 @@ _This file is the single source of truth for "what's the exact current status." 
 ## Exact current status (2026-10-16)
 v29 and v30 are **deployed and confirmed working live**. **v34** (bundles v31-v33), **v35**, **v36** and **v37** are **built, and the founder reports (2026-10-16) that he has deployed and tested all of them live** (details of what he tested not recorded). They were applied in order: `sahayak-v34-complete-board-prep-delta.zip`, `sahayak-v35-maths-mock-readiness-delta.zip`, `sahayak-v36-plans-teachers-delta.zip`, `sahayak-v37-pricing-free-aicost-delta.zip` (migrations 0013-0017). Don't re-build either; wait for the founder to report deployed-and-working (or a problem).
 
-## Last completed task — v38 (see `docs/BUILD_LOG.md`)
+## Last completed task — v39 (see `docs/BUILD_LOG.md`)
+30-day "what changed" report (report, parent link), `/admin/metrics` (activity, retention, payments, content, what-helps), `docs/DATABASE_SCHEMA.md`, `docs/COMMERCIAL_METRICS.md`. No migration. Apply after v38: `sahayak-v39-change-report-metrics-delta.zip`. Not deployed.
+
+## Previous task — v38 (see `docs/BUILD_LOG.md`)
 Every "partly built" master-prompt item finished (onboarding fields, question details, quality-gates page `/admin/quality`, Science/Language error types, engagement signals, session planning + performance recovery + success question, assessment ladder incl. board-style paper, parent report matrix/engagement/history, dashboard recommendation + streak, About / Trust / Refund / Sample report / free readiness check). Migration 0018. Built and checked in the test setup only; not deployed. Apply after v37: `sahayak-v38-partly-built-complete-delta.zip`.
 
 ## Previous task — v37 (see `docs/BUILD_LOG.md` for the full entry)
@@ -37,7 +40,7 @@ v29 + v30: live. v34 + v35: `tsc` clean, `npm run build` clean, migrations 0002-
 4. **Pilot-subject content needs a human** (English, Hindi, Computer Applications, Social Science, Maths Basic). Teachers can now give feedback at `/teacher`; the founder applies it at `/admin/reviews`. See `docs/CONTENT_STATUS.md`.
 5. **Two-account privacy test still not run** (now also covers `student_access`, `teacher_profiles`, `content_reviews`, `ai_usage`, `mock_exams`, `session_checkins`). Blocks accepting real payments.
 6. Founder-attribution wording and the legal-page drafts still need explicit approval.
-7. Not built: Hindi Course A/B split, "what changed in 30 days" narrative, written-answer assessment, intervention-to-outcome history, founder metrics page, true animated diagrams, teacher pay, Excel tracker update, DATABASE_SCHEMA.md / COMMERCIAL_METRICS.md. Founder still to do for v38: approve refund wording (fill in periods), About/Trust text; set marks/levels via teachers; sign off gates at /admin/quality as evidence arrives.
+7. Not built: Hindi Course A/B split, written-answer assessment, true animated diagrams, teacher pay, Excel tracker update. Founder still to do for v38: approve refund wording (fill in periods), About/Trust text; set marks/levels via teachers; sign off gates at /admin/quality as evidence arrives.
 
 ## Next three tasks, in order
 1. Founder deploys v38 (after v37) and runs the smoke tests in its INSTRUCTIONS.txt; reports what works / what doesn't.

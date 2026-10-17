@@ -46,6 +46,16 @@ export default function SampleReportPage() {
         </section>
 
         <section className="chapter-row" style={{ display: 'block', marginTop: 'var(--space-3)' }}>
+          <div className="chapter-row__title">What changed in the last 30 days</div>
+          <ul style={{ margin: '0.3rem 0', paddingLeft: '1.1rem' }}>
+            <li>13 learning sessions in the last 30 days, against 8 in the 30 days before.</li>
+            <li>More accurate answers in Mathematics.</li>
+          </ul>
+          <p style={{ margin: '0.2rem 0' }}><strong>Mathematics:</strong> answers became more accurate: 71% correct now, up from 58%. Fewer answers needed hints (22% now, 35% before).</p>
+          <p style={{ margin: '0.2rem 0' }}><strong>What to do next:</strong> a few more practice questions in English would make next month&apos;s comparison reliable.</p>
+        </section>
+
+        <section className="chapter-row" style={{ display: 'block', marginTop: 'var(--space-3)' }}>
           <div className="chapter-row__title">How study has gone in the last 30 days</div>
           <p style={{ margin: '0.3rem 0' }}>9 study days (2.1 a week) · 11 of 13 sessions finished · typical time to answer 48 seconds · current streak 3 days.</p>
           <p style={{ margin: '0.3rem 0', fontSize: '0.9rem' }}>2 sessions were left before the end. Shorter sessions can help on busy days.</p>

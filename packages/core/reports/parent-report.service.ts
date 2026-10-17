@@ -3,6 +3,7 @@ import { loadConfidenceTrend, type ConfidenceTrend } from '../checkins/checkin.s
 import { assessReadiness, summariseReadiness, type ReadinessAssessment } from '../readiness/readiness.service';
 import { t as translate } from '../i18n/dictionary';
 import { loadEngagement, type EngagementSummary } from '../engagement/engagement.service';
+import { buildChangeReport, type ChangeReport } from './change-report.service';
 import { LIKELY_CAUSE_WORDING } from '../misconceptions/taxonomy';
 import type { MisconceptionTag } from '../learner-model/types';
 
@@ -75,6 +76,7 @@ export interface ParentReport {
   subjects: ParentReportSubject[];
   readinessSummary: { assessed: number; onTrackOrAbove: number; total: number };
   engagement: EngagementSummary;
+  change: ChangeReport;
   /** Sessions that started gentler (after a hard day or a run of misses) in the last 30 days. */
   gentlerSessions: number;
   assessmentHistory: AssessmentHistoryEntry[];
@@ -102,8 +104,9 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
     supabase.from('learning_goals').select('subject_id').eq('student_id', studentId).eq('status', 'active'),
     loadConfidenceTrend(supabase, studentId),
   ]);
-  const [engagement, { data: recoveryRows }, { data: causeRows }] = await Promise.all([
+  const [engagement, change, { data: recoveryRows }, { data: causeRows }] = await Promise.all([
     loadEngagement(supabase, studentId, 30),
+    buildChangeReport(supabase, studentId),
     supabase.from('recovery_events').select('id').eq('student_id', studentId).gte('created_at', new Date(Date.now() - 30 * 86400000).toISOString()),
     supabase.from('misconceptions').select('tag, confidence, skills(topics(chapters(subject_id)))').eq('student_id', studentId).eq('resolved', false),
   ]);
@@ -260,6 +263,7 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
   return {
     studentName: student?.display_name ?? null,
     engagement,
+    change,
     gentlerSessions: (recoveryRows ?? []).length,
     assessmentHistory: history.slice(0, 15),
     confidence,
