@@ -109,3 +109,7 @@ Root cause found by reading real production data (not speculative): the save pat
 - Paid plans only: each answer costs one AI call; free tier stays text-practice free.
 - Teacher pay: only counting (CSV with an optional per-review rate). Paying is the founder's call.
 - Hindi Course A/B and animated diagrams deferred: they need real content/design inputs, not code.
+
+
+### v41 (2026-10-17)
+- Menu groups the four practice tools under one "Practice" dropdown to stop the old 10-link row wrapping on phones. Links, pages and permissions unchanged.

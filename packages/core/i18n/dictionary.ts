@@ -35,6 +35,14 @@ export const DICTIONARY: Dict = {
     en: 'Complete Board Prep',
     hi: 'संपूर्ण बोर्ड तैयारी',
   },
+  'nav.practice': { en: 'Practice', hi: 'अभ्यास' },
+  'nav.written': { en: 'Written answers', hi: 'लिखित उत्तर' },
+  'nav.menu': { en: 'Menu', hi: 'मेन्यू' },
+  'nav.account': { en: 'Your account', hi: 'आपका खाता' },
+  'nav.descTest': { en: 'Find where you stand today', hi: 'जानें आप आज कहाँ हैं' },
+  'nav.descMock': { en: 'Timed, board-style practice papers', hi: 'समयबद्ध, बोर्ड-शैली के अभ्यास पत्र' },
+  'nav.descWritten': { en: 'Write answers and get suggested marks', hi: 'उत्तर लिखें, सुझाए गए अंक पाएँ' },
+  'nav.descPapers': { en: 'Questions from earlier years', hi: 'पिछले वर्षों के प्रश्न' },
 
   // ---- Sign in / Sign up ----
   'auth.signUp': { en: 'Sign up', hi: 'साइन अप करें' },
