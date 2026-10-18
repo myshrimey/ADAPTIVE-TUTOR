@@ -6,7 +6,7 @@ import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
 const BY_STUDENT = [
   'student_profile_details', 'student_academic_history', 'student_access', 'learning_profiles', 'learning_goals',
   'learning_sessions', 'mastery_states', 'question_attempts', 'misconceptions', 'session_checkins', 'recovery_events',
-  'mock_exams', 'written_attempts', 'diagnostic_attempts', 'learning_events', 'pilot_payments', 'feedback',
+  'mock_exams', 'written_attempts', 'answer_sheets', 'handwritten_evaluations', 'diagnostic_attempts', 'learning_events', 'pilot_payments', 'feedback',
 ];
 
 export async function GET() {

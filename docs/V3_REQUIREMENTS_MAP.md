@@ -32,8 +32,8 @@ Question the founder asked: "has everything from MVP v2 been built?" Answer: all
 ## Not built yet (and why)
 | v3 section | Status | What it needs |
 |---|---|---|
-| 19-21 handwritten mock: print paper, photo upload, vision reading, AI marking, confidence, teacher review queue, AI-vs-teacher agreement | NOT BUILT (typed mock and typed written answers exist) | Founder decisions below, then a two-step build (upload + image check first; marking second) |
-| 22-25 full blueprint-driven CBSE mock, PDF paper, Challenge Mode | Partly: mock kinds exist, chapter-spread selection exists; no formal marks blueprint, no PDF, no Challenge Mode | Official CBSE blueprint numbers per subject (from sample papers) and teacher-set marks |
+| 19-21 handwritten mock: print paper, photo upload, vision reading, AI marking, confidence, teacher review queue, AI-vs-teacher agreement | BUILT v46 (upload, quality check, AI marking, teacher queue, agreement table); NOT proven: no real photos or AI image reading tested yet | Test on about 20 real answer sheets; lawyer check of consent wording |
+| 22-25 full blueprint-driven CBSE mock, PDF paper, Challenge Mode | BUILT v46: planning blueprints (Maths, Science, Social Science), Challenge Mode, print / Save-as-PDF paper; papers are PARTIAL until the bank has 3/4/5-mark questions | Official CBSE blueprint numbers per subject (from sample papers) and teacher-set marks |
 | 18 readiness dimensions 6, 8, 9, 10 (retention, question-type coverage, written-answer quality, recurring error patterns) | Partly shown separately; not combined | Written-answer marks checked by teachers first |
 | 31 landing sections: example readiness dashboard, example mock analysis, "complements school/tuition", founder section | Partly (sample report, FAQ, pricing, trust exist) | Content from founder |
 | 34-36 marketing scripts and content calendar | Not code | Claude can draft on request |

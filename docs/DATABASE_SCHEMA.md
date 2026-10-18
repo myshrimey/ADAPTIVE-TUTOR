@@ -536,3 +536,15 @@ RLS: on, no policy (server only). Columns: id uuid, ip_hash text, created_at tim
 
 ## users (v45 additions)
 username text (unique, lower-case), contact_email text, consent_at timestamptz, consent_version text.
+
+## answer_sheets (v46)
+RLS: on · answer_sheets_owner_read (SELECT). Columns: id, student_id, mock_exam_id, page_no, storage_path, content_type, bytes, quality jsonb, status, created_at. Files live in private storage bucket `answer-sheets`.
+
+## handwritten_evaluations (v46)
+RLS: on · handwritten_evaluations_owner_read (SELECT). Columns: id, student_id, mock_exam_id, question_id, question_no, extracted_text, ai_score, max_score, confidence, ai_feedback, status (ai_marked/needs_teacher/teacher_done/unreadable), teacher_score, teacher_note, teacher_user_id, reviewed_at, created_at.
+
+## answer_bank (v46)
+RLS: on, no policy (server only). De-identified: subject_id, question_id, extracted_text, score, max_score, photo_path. Filled only if ANSWER_BANK_ENABLED and the family consented.
+
+## students / mock_exams (v46 additions)
+students: handwriting_consent_at, handwriting_consent_version, answer_bank_consent. mock_exams: delivery, challenge, blueprint_id, paper_layout, validation; kind 'blueprint'.

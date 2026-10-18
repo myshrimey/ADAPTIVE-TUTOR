@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { requireAdmin } from '@/lib/admin';
 import { createServiceClient } from '@/lib/supabase-server';
+import { retainAnswerBank, removeAllSheets } from '@adaptive-tutor/core';
 
 // Founder-only. Permanently deletes one student's learning data and sign-in account for a request a family made.
 // action 'cancel' just closes the request. Teachers and admins are never deleted by this route.
@@ -25,6 +26,9 @@ export async function POST(req: Request) {
       // These two only unlink (set null) when a student is deleted; remove the rows themselves (feedback holds an email and free text).
       const { data: stRows } = await service.from('students').select('id').eq('user_id', user.id);
       for (const st of stRows ?? []) {
+        // Handwritten answers: keep a de-identified answer bank ONLY if the founder switched it on and this family consented; then remove every photo.
+        await retainAnswerBank(service, st.id);
+        await removeAllSheets(service, st.id);
         await service.from('feedback').delete().eq('student_id', st.id);
         await service.from('learning_events').delete().eq('student_id', st.id);
       }
