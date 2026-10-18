@@ -6,6 +6,7 @@ const KIND_LABEL: Record<string, string> = {
   subject_check: 'Subject check',
   full_mock: 'Full mock',
   board_style: 'Board-style paper',
+  blueprint: 'Blueprint paper',
 };
 const PRIORITY_LABEL: Record<string, string> = {
   start: 'Start here: no diagnostic yet',

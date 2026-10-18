@@ -40,7 +40,10 @@ export class FallbackAIProvider implements AIProvider {
     const failures: string[] = [];
     const feature = params.feature ?? 'other';
 
-    for (const { name, provider } of this.chain) {
+    const needsImages = !!params.images?.length;
+    const candidates = needsImages ? this.chain.filter((c) => c.provider.supportsImages) : this.chain;
+    if (needsImages && candidates.length === 0) throw new Error('no_vision_provider: set GEMINI_API_KEY to read photos');
+    for (const { name, provider } of candidates) {
       const started = Date.now();
       try {
         const result = await provider.complete(params);

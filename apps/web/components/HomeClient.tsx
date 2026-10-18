@@ -7,6 +7,7 @@ import { useLanguage } from '@/components/LanguageProvider';
 import { accessErrorMessage } from '@/lib/access-errors';
 import { FaqSection } from '@/components/FaqSection';
 import { PlanCards } from '@/components/PlanCards';
+import { validateUsername, validatePassword, validateOptionalEmail, IDENTITY_ERROR_TEXT } from '@adaptive-tutor/core';
 
 // Shown at sign-up. `status` mirrors subjects.status in the database (the
 // database is the real gate — registerSubject rejects anything not usable);
@@ -29,9 +30,12 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
   const { t, lang, setLang } = useLanguage();
   const [mode, setMode] = useState<Mode>('signin');
   // Self sign-up is closed during early access (accounts are created by the founder).
-  const [signupsOpen, setSignupsOpen] = useState(false);
+  const [signupsOpen, setSignupsOpen] = useState(true);
 
   const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [website, setWebsite] = useState(''); // hidden trap field; real people leave it empty
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [chosenSubjects, setChosenSubjects] = useState<string[]>(['maths']);
@@ -59,7 +63,7 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
   const [checkingSession, setCheckingSession] = useState(true);
 
   useEffect(() => {
-    fetch('/api/public/config').then((r) => r.json()).then((j) => { if (j.data?.signupsOpen) setSignupsOpen(true); }).catch(() => {});
+    fetch('/api/public/config').then((r) => r.json()).then((j) => { setSignupsOpen(j.data?.signupsOpen !== false); }).catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -121,45 +125,54 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
   async function handleSignUp(e: React.FormEvent) {
     e.preventDefault();
     resetMessages();
+    const bad = validateUsername(username) ?? validatePassword(password, username) ?? validateOptionalEmail(email);
+    if (bad) { setError(IDENTITY_ERROR_TEXT[bad]); return; }
+    if (!consent) { setError('Please tick the box to confirm a parent or guardian agrees.'); return; }
     setSubmitting(true);
-    const supabase = createClient();
-    const { data, error: signUpError } = await supabase.auth.signUp({ email, password });
-    setSubmitting(false);
-
-    if (signUpError) {
-      setError(signUpError.message);
+    const res = await fetch('/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password, email: email.trim(), displayName, consent, website }),
+    });
+    const json = await res.json().catch(() => ({ error: 'register_failed' }));
+    if (json.error) {
+      setSubmitting(false);
+      const known: Record<string, string> = {
+        username_taken: 'That username is already taken. Please choose another.',
+        email_already_registered: 'That email is already used for another account. Sign in instead, or leave the email empty.',
+        too_many_attempts: 'Too many sign-ups from this network just now. Please try again in an hour.',
+        daily_cap_reached: 'We are at our daily limit for new sign-ups. Please try again tomorrow.',
+        signups_closed: 'Sign-up is closed right now.',
+        missing_name: "Please enter the student's name.",
+        consent_required: 'Please tick the box to confirm a parent or guardian agrees.',
+      };
+      setError(known[json.error] ?? (IDENTITY_ERROR_TEXT as any)[json.error] ?? 'Could not create the account. Please try again.');
       return;
     }
-    if (data.session) {
-      // Email confirmation is off for this project — straight in.
-      await afterAuthEstablished();
-    } else {
-      // Email confirmation is required. There's no session yet, so we can't
-      // create the student record now — the name/subject step runs after
-      // they confirm and sign in.
-      setNotice(t('auth.checkEmailConfirm'));
-      setMode('signin');
-    }
+    // Account exists on the server; sign in with the same details and go on to choosing subjects.
+    const login = await fetch('/api/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ identifier: username, password }) });
+    setSubmitting(false);
+    if (!login.ok) { setNotice('Account created. Please sign in with your username and password.'); setMode('signin'); return; }
+    await afterAuthEstablished();
   }
 
   async function handleSignIn(e: React.FormEvent) {
     e.preventDefault();
     resetMessages();
     setSubmitting(true);
-    const supabase = createClient();
-    const { error: signInError } = await supabase.auth.signInWithPassword({ email, password });
+    const res = await fetch('/api/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ identifier: email.trim(), password }) });
     setSubmitting(false);
-
-    if (signInError) {
-      setError(signInError.message);
-      return;
-    }
+    if (!res.ok) { setError('Username, email or password is not right. Please check and try again.'); return; }
     await afterAuthEstablished();
   }
 
   async function handleForgotPassword(e: React.FormEvent) {
     e.preventDefault();
     resetMessages();
+    if (!email.includes('@')) {
+      setNotice('Accounts made without an email cannot reset the password here. Please contact us (the number is at the bottom of the page) and we will set a new one.');
+      return;
+    }
     setSubmitting(true);
     const supabase = createClient();
     const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
@@ -351,7 +364,7 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
                     <label className="field__label" htmlFor="email">
                       {t('auth.email')}
                     </label>
-                    <input id="email" type="email" className="field__input" value={email} onChange={(e) => setEmail(e.target.value)} required autoFocus />
+                    <input id="email" className="field__input" value={email} onChange={(e) => setEmail(e.target.value)} required autoFocus />
                   </div>
                   <div className="hero__actions">
                     <button type="submit" className="btn btn--accent" disabled={submitting}>
@@ -364,12 +377,24 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
                 </form>
               ) : (
                 <form onSubmit={mode === 'signup' ? handleSignUp : handleSignIn}>
-                  <div className="field">
-                    <label className="field__label" htmlFor="email">
-                      {t('auth.email')}
-                    </label>
-                    <input id="email" type="email" className="field__input" value={email} onChange={(e) => setEmail(e.target.value)} required autoFocus />
-                  </div>
+                  {mode === 'signup' ? (
+                    <>
+                      <div className="field">
+                        <label className="field__label" htmlFor="displayName">Student&apos;s name</label>
+                        <input id="displayName" className="field__input" value={displayName} onChange={(e) => setDisplayName(e.target.value)} maxLength={60} required autoFocus />
+                      </div>
+                      <div className="field">
+                        <label className="field__label" htmlFor="username">Choose a username</label>
+                        <input id="username" className="field__input" value={username} onChange={(e) => setUsername(e.target.value)} autoCapitalize="none" autoCorrect="off" spellCheck={false} maxLength={20} required />
+                        <span className="hero__note">3 to 20 small letters or numbers (dot and underscore allowed). Do not use your full name or phone number.</span>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="field">
+                      <label className="field__label" htmlFor="email">Username or email</label>
+                      <input id="email" className="field__input" value={email} onChange={(e) => setEmail(e.target.value)} autoCapitalize="none" autoCorrect="off" spellCheck={false} required autoFocus />
+                    </div>
+                  )}
                   <div className="field">
                     <label className="field__label" htmlFor="password">
                       {t('auth.password')}
@@ -380,10 +405,27 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
                       className="field__input"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      minLength={6}
+                      minLength={8}
                       required
                     />
                   </div>
+
+                  {mode === 'signup' && (
+                    <>
+                      <div className="field">
+                        <label className="field__label" htmlFor="optEmail">Email (optional)</label>
+                        <input id="optEmail" type="email" className="field__input" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <span className="hero__note">Only needed if you want to reset a forgotten password yourself. Without an email, we can reset it for you if you contact us.</span>
+                      </div>
+                      <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', height: 0, overflow: 'hidden' }}>
+                        <label>Website <input tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} /></label>
+                      </div>
+                      <label style={{ display: 'flex', gap: 8, alignItems: 'flex-start', fontSize: '0.9rem', marginBottom: 'var(--space-2)' }}>
+                        <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} style={{ marginTop: 4 }} />
+                        <span>I am the parent or guardian, or my parent or guardian has agreed that the student may use Sahayak. We have read the <a href="/legal/privacy">privacy policy</a> and <a href="/legal/terms">terms</a>.</span>
+                      </label>
+                    </>
+                  )}
 
                   {mode === 'signin' && (
                     <button

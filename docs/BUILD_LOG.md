@@ -283,3 +283,8 @@ One entry per work session. Newest entry on top.
 ## 2026-10-18 - v44: data export/delete, Social Science gap questions
 **Built:** `/my-data` (download JSON, request deletion), `/admin/data-requests` (founder executes), migration 0022 `data_requests`; 38 new Social Science questions for the 19 skills that had none (62 total, needs_review; generator `gen_ss_gap.py`).
 **Tested:** tsc, migration 0022 re-run, all student-linked foreign keys are cascade or set-null (checked in database), bank audit 0 problems. **Not tested:** real Supabase deletion incl. auth user removal, export in a browser, any question by a teacher.
+
+## 2026-10-18 - v45: self sign-up with username
+**Founder asked:** students/parents register themselves with username + password, email optional.
+**Built:** `/api/auth/register`, `/api/auth/login`, `packages/core/auth/identity.ts`, new sign-up/sign-in forms, migration 0023 (users.username/contact_email/consent_*, `signup_log`), privacy text updated (English only).
+**Tested:** 18 identity-rule checks, tsc, migration re-run, username uniqueness (case-insensitive) in database. **Not tested:** real Supabase (placeholder `.invalid` email accepted by Supabase auth? cookie set from the login route?), browser.

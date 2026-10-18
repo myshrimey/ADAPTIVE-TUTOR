@@ -61,7 +61,7 @@ export interface ParentReportSubject {
 export interface AssessmentHistoryEntry {
   id: string;
   subjectName: string;
-  kind: 'chapter_check' | 'subject_check' | 'full_mock' | 'board_style' | 'diagnostic';
+  kind: 'chapter_check' | 'subject_check' | 'full_mock' | 'board_style' | 'blueprint' | 'diagnostic';
   at: string;
   /** Count or marks, see inMarks. */
   score: number | null;
@@ -241,7 +241,7 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
       score: m.score ?? null,
       total: m.total ?? null,
       percent: m.total ? Math.round((Number(m.score) / Number(m.total)) * 100) : null,
-      inMarks: m.kind === 'board_style',
+      inMarks: m.kind === 'board_style' || m.kind === 'blueprint',
     });
   }
   for (const a of (attempts ?? []) as any[]) {

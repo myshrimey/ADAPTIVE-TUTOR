@@ -15,6 +15,7 @@ const endpointFor = (model: string) => `https://generativelanguage.googleapis.co
 // and turns the failure into real JSON the UI can show instead of a
 // platform-level timeout response.
 const REQUEST_TIMEOUT_MS = 20_000;
+const IMAGE_REQUEST_TIMEOUT_MS = 60_000; // reading several photos takes longer than a chat turn
 
 // Google's own "high demand" response for this model (503 UNAVAILABLE) is a
 // transient capacity hiccup, not a real failure — seen live: a student's
@@ -32,6 +33,7 @@ function sleep(ms: number): Promise<void> {
 }
 
 export class GeminiProvider implements AIProvider {
+  readonly supportsImages = true;
   // `model` lets the same API key be tried against a second Gemini model as
   // a fallback rung (see ai-provider/factory.ts) — a different model can
   // have different capacity even when one is overloaded, at no extra signup.
@@ -65,19 +67,20 @@ export class GeminiProvider implements AIProvider {
   private async attemptComplete(params: AICompletionParams): Promise<AICompletionResult> {
     const body = {
       systemInstruction: { parts: [{ text: params.systemPrompt }] },
-      contents: [{ role: 'user', parts: [{ text: params.userMessage }] }],
+      contents: [{ role: 'user', parts: [{ text: params.userMessage }, ...(params.images ?? []).map((im) => ({ inline_data: { mime_type: im.mimeType, data: im.base64 } }))] }],
       generationConfig: {
         // Cost control (docs/architecture.md §13): short, focused turns.
         // Tutor turns don't need much room; raise this if a strategy (e.g.
         // EXAMPLE with a worked solution) starts getting truncated.
-        maxOutputTokens: 512,
+        maxOutputTokens: params.images?.length ? 4096 : 512,
         temperature: 0.4,
         ...(params.responseFormat === 'json' ? { responseMimeType: 'application/json' } : {}),
       },
     };
 
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+    const timeoutMs = params.images?.length ? IMAGE_REQUEST_TIMEOUT_MS : REQUEST_TIMEOUT_MS;
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
 
     let res: Response;
     try {
@@ -89,7 +92,7 @@ export class GeminiProvider implements AIProvider {
       });
     } catch (err: any) {
       if (err?.name === 'AbortError') {
-        throw new Error(`gemini_request_timeout: no response within ${REQUEST_TIMEOUT_MS / 1000}s`);
+        throw new Error(`gemini_request_timeout: no response within ${timeoutMs / 1000}s`);
       }
       throw new Error(`gemini_request_network_error: ${err?.message ?? err}`);
     } finally {

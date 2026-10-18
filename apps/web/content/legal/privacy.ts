@@ -8,7 +8,7 @@ export const PRIVACY_EN: LegalContent = {
     {
       heading: '1. What we collect',
       body: [
-        'Account details: email address and a securely hashed password (via Supabase Authentication — we never see or store your plain password).',
+        'Account details: a username, a securely hashed password (via Supabase Authentication — we never see or store your plain password), and an email address only if you choose to give one. At sign-up we also record that a parent or guardian agreed, and when. To limit abuse we keep a one-way scrambled form of the internet address used to sign up for up to 2 days, and for each login we keep the browser description, internet address and dates of the (at most 2) devices used.',
         'Learning data: diagnostic answers, learning-session activity, quiz results, and the resulting mastery scores per skill — this is what lets Sahayak adapt to a student.',
         'Optional profile details: school, family/contact information, and academic history for classes 6–9, provided voluntarily on the Profile page. This is used only to help us understand our users and to improve and describe the product — it is never used to decide what a student is taught.',
         'Payment records: for a paid pilot, we record the amount, date, an optional minimal transaction reference, and status (pending/confirmed) — never a UPI PIN, password, OTP, or full bank/card details.',
@@ -27,7 +27,7 @@ export const PRIVACY_EN: LegalContent = {
     {
       heading: '4. Data access and deletion',
       body: [
-        'We collect the minimum information needed to run the product. Account deletion and data-export requests, where supported, can be requested via the Help & Contact page; we will confirm what we can do manually during this early-access phase.',
+        'We collect the minimum information needed to run the product. From the "My data" page a family can download a copy of the student\'s data and ask for it to be deleted; the founder carries out deletion by hand and confirms. Some records (for example payment records) may have to be kept longer for accounting reasons; this section will say so once that is decided.',
       ],
     },
     {

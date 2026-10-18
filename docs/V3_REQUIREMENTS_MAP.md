@@ -44,3 +44,6 @@ Question the founder asked: "has everything from MVP v2 been built?" Answer: all
 1. Photos of a child's handwriting are personal data of a minor. They would be kept in Supabase Storage (free tier: about 1 GB) and shown only to the family, the founder and reviewing teachers. Do you accept this, and will the consent line be shown to parents at sign-up?
 2. Reading handwriting needs an AI that can see images. Gemini's free tier can; accuracy on handwritten maths is unknown until tested on real sheets and the free daily limit may stop many uploads. Start with a test of 20 real sheets before promising anything to parents?
 3. How many photos per mock page are allowed, and how long are photos kept (suggestion: delete 90 days after the exam date)?
+
+## Added v45
+Self sign-up (username, optional email, parent/guardian consent, abuse limits) - built. Forgot-password works only for accounts with an email; others contact the founder (admin reset exists).

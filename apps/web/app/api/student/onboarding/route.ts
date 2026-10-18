@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient } from '@/lib/supabase-server';
+import { signupsOpen } from '@/lib/signups';
 import { logEvent, registerSubject, assertAccess, assertSubjectAllowed } from '@adaptive-tutor/core';
 
 interface OnboardingBody {
@@ -53,7 +54,7 @@ export async function POST(request: Request) {
     if (!studentId) {
       // Early access is invitation-only: the founder creates the student record. Nobody
       // creates their own unless the founder has turned self sign-up back on.
-      if (process.env.SIGNUPS_OPEN !== 'true') throw new Error('invitation_required');
+      if (!signupsOpen()) throw new Error('invitation_required');
       const { data: studentRow, error: studentErr } = await service
         .from('students')
         .insert({ user_id: userRow.id, display_name: body.displayName, grade: body.grade })

@@ -8,9 +8,17 @@ export interface AICompletionParams {
   responseFormat?: 'text' | 'json';
   /** What this call is for ('tutor', 'evaluation', ...). Only used for the usage/cost log. */
   feature?: AIFeature;
+  /** Photos for the model to read (handwritten answers). Only providers with supportsImages receive such a call. */
+  images?: AIImage[];
 }
 
-export type AIFeature = 'tutor' | 'evaluation' | 'summary' | 'explanation' | 'question_generation' | 'misconception' | 'other';
+export interface AIImage {
+  mimeType: 'image/jpeg' | 'image/png' | 'image/webp';
+  /** Plain base64, no data: prefix. */
+  base64: string;
+}
+
+export type AIFeature = 'tutor' | 'evaluation' | 'summary' | 'explanation' | 'question_generation' | 'misconception' | 'handwriting' | 'other';
 
 export interface AICompletionResult {
   text: string;
@@ -18,5 +26,7 @@ export interface AICompletionResult {
 }
 
 export interface AIProvider {
+  /** True when complete() can read params.images. */
+  readonly supportsImages?: boolean;
   complete(params: AICompletionParams): Promise<AICompletionResult>;
 }

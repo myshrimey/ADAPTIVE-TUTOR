@@ -530,3 +530,9 @@ RLS: on · policies: data_requests_select_own (SELECT). Inserts are server-only.
 | status | text | no | 'requested' |
 | requested_at | timestamp with time zone | no | now() |
 | completed_at | timestamp with time zone | yes |  |
+
+## signup_log
+RLS: on, no policy (server only). Columns: id uuid, ip_hash text, created_at timestamptz.
+
+## users (v45 additions)
+username text (unique, lower-case), contact_email text, consent_at timestamptz, consent_version text.

@@ -6,12 +6,13 @@ import { QuestionFigure } from '@/components/QuestionFigure';
 import { accessErrorMessage } from '@/lib/access-errors';
 import { useLanguage } from '@/components/LanguageProvider';
 
-type Kind = 'chapter_check' | 'subject_check' | 'full_mock' | 'board_style';
+type Kind = 'chapter_check' | 'subject_check' | 'full_mock' | 'board_style' | 'blueprint';
 const KIND_INFO: Record<Kind, { label: string; blurb: string }> = {
   chapter_check: { label: 'Chapter check', blurb: 'About 8 questions from one chapter. A quick way to see whether a chapter has stuck.' },
   subject_check: { label: 'Subject check', blurb: 'About 10 questions across the subject. A periodic check-up, about 15 minutes.' },
   full_mock: { label: 'Full mock', blurb: 'About 20 objective questions across the syllabus, timed.' },
   board_style: { label: 'Board-style paper', blurb: 'Sections by marks: 1-mark multiple-choice, then 2-mark short answers, timed. Only the auto-marked part of a board paper: no long-answer or case-study sections, and not the official CBSE blueprint.' },
+  blueprint: { label: 'Board-pattern paper (sections A to E)', blurb: 'Built section by section from a planning blueprint of the CBSE paper: marks per section, chapter weights and a spread of easy and hard questions. It is only as complete as the question bank, and it says clearly which sections could not be filled. Do it on screen, or print it and write on paper.' },
 };
 
 interface SubjectOpt {
@@ -89,6 +90,8 @@ export default function MockPage() {
   const [kind, setKind] = useState<Kind>('full_mock');
   const [chapters, setChapters] = useState<{ id: string; name: string }[]>([]);
   const [chapterId, setChapterId] = useState('');
+  const [delivery, setDelivery] = useState<'screen' | 'paper'>('paper');
+  const [challenge, setChallenge] = useState(false);
 
   const answersRef = useRef(answers);
   const examRef = useRef<Exam | null>(null);
@@ -140,9 +143,10 @@ export default function MockPage() {
     setError(null);
     setResult(null);
     try {
-      const res = await fetch('/api/mock/start', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ subjectId, kind, chapterId: kind === 'chapter_check' ? chapterId : undefined }) });
+      const res = await fetch('/api/mock/start', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ subjectId, kind, chapterId: kind === 'chapter_check' ? chapterId : undefined, delivery: kind === 'blueprint' ? delivery : undefined, challenge: kind === 'blueprint' ? challenge : undefined }) });
       const json = await res.json();
       if (json.error) throw new Error(json.error);
+      if (kind === 'blueprint' && delivery === 'paper') { window.location.href = `/mock/paper/${json.data.id}`; return; }
       beginExam(json.data);
     } catch (e: any) {
       setError(e.message === 'not_enough_questions' ? tt('mock.notEnough') : accessErrorMessage(e.message) ?? e.message);
@@ -399,6 +403,14 @@ export default function MockPage() {
                 </label>
               ))}
             </div>
+            {kind === 'blueprint' && (
+              <div className="field">
+                <span className="field__label">How will you sit it?</span>
+                <label style={{ display: 'flex', gap: '0.5rem', margin: '0.3rem 0' }}><input type="radio" name="mock-delivery" checked={delivery === 'paper'} onChange={() => setDelivery('paper')} /> <span>Print it and write on paper (then type the multiple-choice answers and photograph the written ones)</span></label>
+                <label style={{ display: 'flex', gap: '0.5rem', margin: '0.3rem 0' }}><input type="radio" name="mock-delivery" checked={delivery === 'screen'} onChange={() => setDelivery('screen')} /> <span>Answer on screen, timed</span></label>
+                <label style={{ display: 'flex', gap: '0.5rem', margin: '0.6rem 0 0' }}><input type="checkbox" checked={challenge} onChange={(e) => setChallenge(e.target.checked)} /> <span><strong>Challenge Mode</strong>: more application questions, more difficult ones and about 10% less time. Practice only; it is not a claim about how hard the board paper is.</span></label>
+              </div>
+            )}
             {kind === 'chapter_check' && (
               <div className="field">
                 <label className="field__label" htmlFor="mock-chapter">Chapter</label>

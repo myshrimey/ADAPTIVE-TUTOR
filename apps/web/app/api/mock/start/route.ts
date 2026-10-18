@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { startMockExam, assertAccess, planAllows } from '@adaptive-tutor/core';
+import { startMockExam, startBlueprintPaper, assertAccess, planAllows } from '@adaptive-tutor/core';
 
 // Starts (or resumes) a timed mock. The student id comes from the session; the
 // service client is used only so the student cannot write their own deadline/score.
@@ -15,6 +15,10 @@ export async function POST(request: Request) {
     const access = await assertAccess(service, studentId);
     // Timed mock exams are part of the paid plans.
     if (!planAllows(access.planCode, 'mock_exams')) throw new Error('plan_upgrade_required');
+    if (body.kind === 'blueprint') {
+      const exam = await startBlueprintPaper(service, studentId, body.subjectId, { delivery: body.delivery === 'screen' ? 'screen' : 'paper', challenge: body.challenge === true });
+      return NextResponse.json({ data: exam, error: null });
+    }
     const kind = ['chapter_check', 'subject_check', 'full_mock', 'board_style'].includes(body.kind) ? body.kind : 'full_mock';
     const exam = await startMockExam(service, studentId, body.subjectId, {
       kind,

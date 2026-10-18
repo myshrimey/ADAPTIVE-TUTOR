@@ -23,9 +23,12 @@ import { isUsableSubjectStatus } from '../subjects/subject.service';
 
 export const MOCK_QUESTION_COUNT = 20;
 export const MOCK_MIN_QUESTIONS = 8;
-export type MockKind = 'full_mock' | 'subject_check' | 'chapter_check' | 'board_style';
+export type MockKind = 'full_mock' | 'subject_check' | 'chapter_check' | 'board_style' | 'blueprint';
+/** Kinds startMockExam can assemble itself. 'blueprint' papers are made by startBlueprintPaper (blueprint-paper.service.ts). */
 export const MOCK_KINDS: MockKind[] = ['chapter_check', 'subject_check', 'full_mock', 'board_style'];
-const KIND_QUESTIONS: Record<MockKind, number> = { chapter_check: 8, subject_check: 10, full_mock: MOCK_QUESTION_COUNT, board_style: 18 };
+/** Papers whose score is in marks, not question counts. */
+export const isMarksKind = (k: string | null | undefined) => k === 'board_style' || k === 'blueprint';
+const KIND_QUESTIONS: Record<Exclude<MockKind, 'blueprint'>, number> = { chapter_check: 8, subject_check: 10, full_mock: MOCK_QUESTION_COUNT, board_style: 18 };
 /** Marks for a question with no marks set: 1 for MCQ, 2 for short-answer / numeric (planning default). */
 export function defaultMarks(questionType: string): number { return questionType === 'mcq' ? 1 : 2; }
 const MINUTES_PER_QUESTION = 1.5;
@@ -57,6 +60,8 @@ export interface MockReviewEntry {
   figureUrl: string | null;
   figureCaption: string | null;
   marks: number;
+  /** Paper delivery: a written answer waiting for handwritten marking; not counted in the score yet. */
+  pendingHandwritten?: boolean;
 }
 
 export interface MockChapterResult {
@@ -77,6 +82,8 @@ export interface MockResult {
   inMarks?: boolean;
   byChapter: MockChapterResult[];
   review: MockReviewEntry[];
+  /** Written answers on a paper mock, marked from photos; their marks are added later. */
+  pendingWritten?: { questionId: string; marks: number }[];
 }
 
 export interface MockExamView {
@@ -90,6 +97,8 @@ export interface MockExamView {
   durationMinutes: number;
   deadlineAt: string;
   serverNow: string;
+  delivery?: 'screen' | 'paper';
+  challenge?: boolean;
   questions: MockQuestionView[]; // empty once submitted (the review has them)
   answers: Record<string, string>;
   result: MockResult | null;
@@ -180,7 +189,9 @@ async function finalise(service: SupabaseClient, studentId: string, exam: any, a
 
   const review: MockReviewEntry[] = [];
   const chapterTotals = new Map<string, { correct: number; total: number }>();
-  const inMarks = exam.kind === 'board_style';
+  const inMarks = isMarksKind(exam.kind);
+  const paper = exam.delivery === 'paper';
+  const pendingWritten: { questionId: string; marks: number }[] = [];
   let score = 0;
   let totalMarks = 0;
   let unanswered = 0;
@@ -189,14 +200,17 @@ async function finalise(service: SupabaseClient, studentId: string, exam: any, a
     if (!q) continue;
     const given = (answers[id] ?? '').trim();
     const answered = given.length > 0;
-    const isCorrect = answered && gradeAnswer(q.expected_answer, given);
-    if (!answered) unanswered++;
     const marks = inMarks ? (q.marks ?? defaultMarks(q.question_type)) : 1;
-    totalMarks += marks;
+    // On a paper mock, written (short-answer) questions are marked from photos, not from typed text.
+    const pending = paper && q.question_type === 'short_answer';
+    const isCorrect = !pending && answered && gradeAnswer(q.expected_answer, given);
+    if (pending) pendingWritten.push({ questionId: id, marks });
+    else if (!answered) unanswered++;
+    if (!pending) totalMarks += marks;
     if (isCorrect) score += marks;
     const chapter: string = q.skills?.topics?.chapters?.name ?? 'Other';
     const ct = chapterTotals.get(chapter) ?? { correct: 0, total: 0 };
-    ct.total += marks;
+    if (!pending) ct.total += marks;
     if (isCorrect) ct.correct += marks;
     chapterTotals.set(chapter, ct);
     review.push({
@@ -209,6 +223,7 @@ async function finalise(service: SupabaseClient, studentId: string, exam: any, a
       correctAnswer: extractString(q.expected_answer),
       answered,
       isCorrect,
+      pendingHandwritten: pending || undefined,
       explanation: q.explanation ?? null,
       figureUrl: q.figure_url ?? null,
       figureCaption: q.figure_caption ?? null,
@@ -229,6 +244,7 @@ async function finalise(service: SupabaseClient, studentId: string, exam: any, a
     inMarks,
     byChapter: [...chapterTotals.entries()].map(([chapter, v]) => ({ chapter, ...v })).sort((a, b) => a.chapter.localeCompare(b.chapter)),
     review,
+    ...(pendingWritten.length ? { pendingWritten } : {}),
   };
 
   // The status guard makes a double submit (button + timer firing together) harmless.
@@ -312,7 +328,7 @@ export async function startMockExam(
     picked = [...mcq, ...other];
     if (picked.length < minNeeded) throw new Error('not_enough_questions');
   } else {
-    picked = spreadAcrossChapters(items, KIND_QUESTIONS[kind]);
+    picked = spreadAcrossChapters(items, KIND_QUESTIONS[kind as Exclude<MockKind, 'blueprint'>]);
   }
   const duration =
     kind === 'board_style'
@@ -346,13 +362,15 @@ export async function getMockExam(service: SupabaseClient, studentId: string, ex
   }
 
   const inProgress = exam.status === 'in_progress';
-  const questions = inProgress ? await loadQuestionViews(service, exam.question_ids ?? [], exam.kind === 'board_style') : [];
+  const questions = inProgress ? await loadQuestionViews(service, exam.question_ids ?? [], isMarksKind(exam.kind)) : [];
   const view: MockExamView = {
     id: exam.id,
     subjectId: exam.subject_id,
     subjectName: exam.subjects?.name ?? 'Subject',
     status: exam.status,
     kind: (exam.kind ?? 'full_mock') as MockKind,
+    delivery: (exam.delivery ?? 'screen') as 'screen' | 'paper',
+    challenge: !!exam.challenge,
     chapterName: exam.chapters?.name ?? null,
     totalMarks: null as number | null,
     durationMinutes: exam.duration_minutes,
@@ -362,7 +380,7 @@ export async function getMockExam(service: SupabaseClient, studentId: string, ex
     answers: inProgress ? cleanAnswers(exam.answers, new Set(exam.question_ids ?? [])) : {},
     result,
   };
-  if (exam.kind === 'board_style') view.totalMarks = inProgress ? questions.reduce((a, q) => a + (q.marks ?? 0), 0) : result?.total ?? null;
+  if (isMarksKind(exam.kind)) view.totalMarks = inProgress ? questions.reduce((a, q) => a + (q.marks ?? 0), 0) : result?.total ?? null;
   return view;
 }
 
