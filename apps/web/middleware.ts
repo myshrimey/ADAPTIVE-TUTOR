@@ -24,6 +24,14 @@ export async function middleware(request: NextRequest) {
   );
 
   await supabase.auth.getUser();
+
+  // Device id for the 2-device limit (see packages/core/devices). A random id per browser; it
+  // identifies a browser, not a person, and is only used while someone is signed in.
+  if (!request.cookies.get('sahayak_did')) {
+    const id = crypto.randomUUID();
+    request.cookies.set('sahayak_did', id);
+    response.cookies.set('sahayak_did', id, { httpOnly: true, sameSite: 'lax', secure: process.env.NODE_ENV === 'production', maxAge: 60 * 60 * 24 * 730, path: '/' });
+  }
   return response;
 }
 

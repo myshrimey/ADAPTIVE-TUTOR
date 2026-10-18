@@ -26,6 +26,10 @@ export async function POST(request: Request) {
     const isReturningStudent = (priorCompletedCountResult.count ?? 0) > 0;
 
     const objective = body.skillId ? { ...resolveCurrentObjective(state), skillId: body.skillId } : resolveCurrentObjective(state);
+    if (body.skillId) {
+      const { data: sk } = await supabase.from('skills').select('retired').eq('id', body.skillId).maybeSingle();
+      if (sk?.retired) return NextResponse.json({ data: null, error: 'skill_retired' }, { status: 400 });
+    }
     const startingMastery = state.masteryBySkill[objective.skillId]?.score ?? 0;
 
     const { data: session, error } = await supabase

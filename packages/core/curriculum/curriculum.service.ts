@@ -60,7 +60,7 @@ export async function loadCurriculum(
 
   const [{ data: skillRows, error: sErr }] = await Promise.all([
     topicIds.length
-      ? supabase.from('skills').select('id, topic_id, name, slug').in('topic_id', topicIds)
+      ? supabase.from('skills').select('id, topic_id, name, slug').in('topic_id', topicIds).eq('retired', false)
       : Promise.resolve({ data: [], error: null }),
   ]);
   if (sErr) throw sErr;

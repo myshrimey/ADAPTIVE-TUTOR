@@ -133,12 +133,13 @@ export async function loadWeakSkills(supabase: SupabaseClient, studentId: string
   const [{ data: mastery }, { data: prereqs }] = await Promise.all([
     supabase
       .from('mastery_states')
-      .select('skill_id, score, skills(name, topics(chapters(subject_id)))')
+      .select('skill_id, score, skills(name, retired, topics(chapters(subject_id)))')
       .eq('student_id', studentId),
     supabase.from('prerequisites').select('skill_id, requires_skill_id, strength'),
   ]);
   const byId = new Map<string, { name: string; score: number; subjectId: string | null }>();
   for (const m of (mastery ?? []) as any[]) {
+    if (m.skills?.retired) continue;
     byId.set(m.skill_id, { name: m.skills?.name ?? 'a skill', score: Number(m.score), subjectId: m.skills?.topics?.chapters?.subject_id ?? null });
   }
   const reqs = new Map<string, string[]>();

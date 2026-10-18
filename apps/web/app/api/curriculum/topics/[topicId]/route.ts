@@ -17,7 +17,8 @@ export async function GET(_request: Request, { params }: { params: Promise<{ top
     const { data: skills, error: skillErr } = await supabase
       .from('skills')
       .select('id, name, slug')
-      .eq('topic_id', topic.id);
+      .eq('topic_id', topic.id)
+      .eq('retired', false);
     if (skillErr) throw skillErr;
 
     const skillsWithPrereqs = await Promise.all(

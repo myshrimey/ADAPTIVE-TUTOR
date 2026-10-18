@@ -16,8 +16,8 @@ export const PILOT_LIMITATIONS_EN: LegalContent = {
       body: [
         'No guaranteed examination results or score improvements.',
         'The question bank and AI explanations are currently in English only; a Hindi interface is provided for navigation and instructions, but question content is clearly labeled when it is not yet available in Hindi.',
-        'Each subject shows a status. "Ready" subjects have been reviewed more fully. "Pilot" subjects (currently Social Science, English Language & Literature, Hindi Course A and Computer Applications) work, but their questions and answer keys are AI-assisted and still being reviewed, so occasional mistakes are possible. "Coming soon" subjects are not available.',
-        'Hindi is currently supported as an interface language. Hindi Course A questions are written in English letters for now.',
+        'Each subject shows a status. "Ready" subjects have been reviewed more fully. "Pilot" subjects (currently Social Science, English Language & Literature, Hindi Course A, Hindi Course B and Computer Applications) work, but their questions and answer keys are AI-assisted and still being reviewed, so occasional mistakes are possible. "Coming soon" subjects are not available.',
+        'Hindi is currently supported as an interface language. Hindi Course A and B questions are written in Devanagari and are still being checked by a Hindi teacher.',
         'Support is provided directly by the founder (contact details on the Help & Contact page), not a support team, during this early phase.',
       ],
     },
@@ -30,7 +30,7 @@ export const PILOT_LIMITATIONS_EN: LegalContent = {
     {
       heading: 'Pricing is an experiment',
       body: [
-        'The current prices (₹1000 per subject per month, ₹3300 per month for up to five subjects, or ₹15000 one time for up to five subjects till March 2027) are introductory, experimental prices, not an established market price, and may change for future cohorts.',
+        'The current prices (₹4999 one time for up to five subjects till March 2027, or ₹14999 one time for up to five subjects till 28 February 2027) are introductory, experimental prices, not an established market price, and may change for future cohorts.',
       ],
     },
   ],
@@ -61,7 +61,7 @@ export const PILOT_LIMITATIONS_HI: LegalContent = {
     },
     {
       heading: 'मूल्य निर्धारण एक प्रयोग है',
-      body: ['वर्तमान मूल्य (₹1000 प्रति विषय प्रति माह, ₹3300 प्रति माह 5 विषयों तक, या ₹15000 एक बार 5 विषयों के लिए मार्च 2027 तक) परिचयात्मक, प्रायोगिक मूल्य हैं, स्थापित बाज़ार मूल्य नहीं, और भविष्य के समूहों के लिए बदल सकता है।'],
+      body: ['वर्तमान मूल्य (₹4999 एक बार 5 विषयों के लिए मार्च 2027 तक, या ₹14999 एक बार 5 विषयों के लिए 28 फ़रवरी 2027 तक) परिचयात्मक, प्रायोगिक मूल्य हैं, स्थापित बाज़ार मूल्य नहीं, और भविष्य के समूहों के लिए बदल सकता है।'],
     },
   ],
 };

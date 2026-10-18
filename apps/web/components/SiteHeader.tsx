@@ -59,6 +59,17 @@ export function SiteHeader() {
     };
   }, []);
 
+  // 2-device limit: if this browser is not allowed to use this login, explain why instead of failing page by page.
+  useEffect(() => {
+    if (!signedIn || pathname.startsWith('/device-limit')) return;
+    fetch('/api/device/status')
+      .then((r) => r.json())
+      .then((j) => {
+        if (j.data && j.data.signedIn && j.data.allowed === false) router.push('/device-limit');
+      })
+      .catch(() => {});
+  }, [signedIn, pathname, router]);
+
   async function handleSignOut() {
     const supabase = createClient();
     await supabase.auth.signOut();

@@ -52,3 +52,4 @@ export * from './written/written-answer.service';
 export * from './planning/study-plan';
 export * from './metrics/funnel';
 export * from './question-intelligence/stats';
+export * from './devices/devices';

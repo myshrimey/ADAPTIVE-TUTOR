@@ -90,7 +90,7 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
     supabase.from('mock_exams').select('id, subject_id, kind, score, total, submitted_at').eq('student_id', studentId).eq('status', 'submitted').order('submitted_at', { ascending: false }).limit(60),
     supabase
       .from('mastery_states')
-      .select('skill_id, score, band, skills(name, topics(chapters(subject_id, subjects(id, name))))')
+      .select('skill_id, score, band, skills(name, retired, topics(chapters(subject_id, subjects(id, name))))')
       .eq('student_id', studentId),
     supabase
       .from('diagnostic_attempts')
@@ -99,7 +99,7 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
       .eq('status', 'completed')
       .order('completed_at', { ascending: true }),
     supabase.from('learning_sessions').select('id, status').eq('student_id', studentId).eq('status', 'completed'),
-    supabase.from('skills').select('id, topics(chapters(subject_id))'),
+    supabase.from('skills').select('id, topics(chapters(subject_id))').eq('retired', false),
     supabase.from('subjects').select('id, name, status'),
     supabase.from('learning_goals').select('subject_id').eq('student_id', studentId).eq('status', 'active'),
     loadConfidenceTrend(supabase, studentId),
@@ -148,6 +148,7 @@ export async function buildParentReport(supabase: SupabaseClient, studentId: str
     { subjectName: string; scores: number[]; topics: string[]; needsPractice: string[]; lowest: { name: string; score: number } | null }
   >();
   for (const row of (masteryRows ?? []) as any[]) {
+    if (row.skills?.retired) continue; // lessons CBSE removed from the exam do not count towards coverage or averages
     const subjectId = row.skills?.topics?.chapters?.subject_id;
     const subjectName = row.skills?.topics?.chapters?.subjects?.name;
     const skillName = row.skills?.name;

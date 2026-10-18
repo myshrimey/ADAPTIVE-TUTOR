@@ -26,7 +26,7 @@ export default async function BoardPrepOfferPage() {
   const { count: foundingTaken } = await createServiceClient()
     .from('student_access')
     .select('student_id', { count: 'exact', head: true })
-    .eq('plan_code', FOUNDING_FAMILY.planCode);
+    .in('plan_code', [FOUNDING_FAMILY.planCode, 'five_till_march']); // both Founding Family plans share the 50 places
   const order = ['ready', 'pilot', 'in_development', 'coming_soon'];
   const sorted = (subjects ?? []).slice().sort((a: any, b: any) => order.indexOf(a.status) - order.indexOf(b.status));
 
@@ -85,7 +85,7 @@ export default async function BoardPrepOfferPage() {
 
         <section style={{ marginTop: 'var(--space-4)' }}>
           {user ? (
-            <PilotPaymentForm priceInr={PLANS.five_monthly.priceInr} />
+            <PilotPaymentForm priceInr={PLANS.founding_family.priceInr} />
           ) : (
             <p>
               <a href="/">{t('auth.signIn', lang)}</a> {lang === 'hi' ? 'सबसे पहले भुगतान सबमिट करने के लिए।' : 'first, to submit a payment confirmation.'}

@@ -70,7 +70,7 @@ const GLYPHS: Record<string, { path: ReactNode; bg: string; fg: string }> = {
 };
 
 export function SubjectIcon({ slug, size = 40 }: { slug: string; size?: number }) {
-  const glyph = GLYPHS[slug] ?? GLYPHS[slug.replace(/-basic$/, '')] ?? GLYPHS.maths;
+  const glyph = GLYPHS[slug] ?? GLYPHS[slug.replace(/-basic$/, '').replace(/^hindi-b$/, 'hindi')] ?? GLYPHS.maths;
   return (
     <span
       style={{

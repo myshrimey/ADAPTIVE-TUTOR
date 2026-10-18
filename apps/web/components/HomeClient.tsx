@@ -17,7 +17,8 @@ const SUBJECTS: { slug: string; name: string; note: string; status: 'ready' | 'p
   { slug: 'science', name: 'Science', note: '10 chapters across Physics, Chemistry, and Biology', status: 'ready' },
   { slug: 'social-science', name: 'Social Science', note: '24 chapters across History, Geography, Civics, and Economics', status: 'pilot' },
   { slug: 'english', name: 'English Language & Literature', note: 'First Flight, Footprints Without Feet, grammar and writing', status: 'pilot' },
-  { slug: 'hindi', name: 'Hindi Course A', note: 'Kshitij, Kritika, grammar and writing (questions in English letters for now)', status: 'pilot' },
+  { slug: 'hindi', name: 'Hindi Course A', note: 'Kshitij, Kritika, grammar and writing (Devanagari questions, being reviewed by a teacher). Choose Course A or B, not both.', status: 'pilot' },
+  { slug: 'hindi-b', name: 'Hindi Course B', note: 'Sparsh, Sanchayan, grammar and writing (Devanagari questions, being reviewed by a teacher). Choose Course A or B, not both.', status: 'pilot' },
   { slug: 'computer-applications', name: 'Computer Applications', note: 'Networking, HTML, cyber safety, logic and productivity tools', status: 'pilot' },
 ];
 
@@ -292,8 +293,9 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
                         onChange={(e) =>
                           setChosenSubjects((prev) => {
                             if (!e.target.checked) return prev.filter((x) => x !== s.slug);
-                            // Maths Standard and Basic are alternatives: picking one unticks the other.
-                            const other = s.slug === 'maths' ? 'maths-basic' : s.slug === 'maths-basic' ? 'maths' : null;
+                            // Maths Standard/Basic and Hindi A/B are alternatives: picking one unticks the other.
+                            const ALT: Record<string, string> = { maths: 'maths-basic', 'maths-basic': 'maths', hindi: 'hindi-b', 'hindi-b': 'hindi' };
+                            const other = ALT[s.slug] ?? null;
                             return [...prev.filter((x) => x !== other), s.slug];
                           })
                         }

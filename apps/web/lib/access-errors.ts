@@ -10,6 +10,7 @@ const KEYS: Record<string, string> = {
   invitation_required: 'auth.invitationOnly',
   daily_ai_limit: 'access.dailyAiLimit',
   plan_upgrade_required: 'access.upgradeRequired',
+  device_limit: 'access.deviceLimit',
 };
 
 export function accessErrorMessage(raw: string | undefined | null): string | null {

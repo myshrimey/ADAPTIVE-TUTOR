@@ -1,0 +1,1031 @@
+{
+ "subject_slug": "hindi-b",
+ "questions": [
+  {
+   "skill_slug": "hb-padbandh-bhed",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"वह सुबह से शाम तक काम करता रहा।\" इस वाक्य में \"सुबह से शाम तक\" किस प्रकार का पदबंध है?",
+   "expected_answer": {
+    "value": "क्रियाविशेषण पदबंध"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "क्रियाविशेषण पदबंध",
+    "संज्ञा पदबंध",
+    "विशेषण पदबंध",
+    "सर्वनाम पदबंध"
+   ],
+   "explanation": "\"सुबह से शाम तक\" काम होने का समय बताता है, इसलिए यह क्रियाविशेषण पदबंध है।"
+  },
+  {
+   "skill_slug": "hb-padbandh-bhed",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"वह खाना खा रहा होगा।\" इस वाक्य में \"खा रहा होगा\" कौन-सा पदबंध है?",
+   "expected_answer": {
+    "value": "क्रिया पदबंध"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "संज्ञा पदबंध",
+    "विशेषण पदबंध",
+    "क्रियाविशेषण पदबंध",
+    "क्रिया पदबंध"
+   ],
+   "explanation": "एक से अधिक शब्द मिलकर वाक्य में क्रिया का काम कर रहे हैं, इसलिए यह क्रिया पदबंध है।"
+  },
+  {
+   "skill_slug": "hb-padbandh-bhed",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"वह बहुत ही सुंदर और आकर्षक लड़की है।\" इसमें \"बहुत ही सुंदर और आकर्षक\" कौन-सा पदबंध है?",
+   "expected_answer": {
+    "value": "विशेषण पदबंध"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "सर्वनाम पदबंध",
+    "क्रिया पदबंध",
+    "विशेषण पदबंध",
+    "संज्ञा पदबंध"
+   ],
+   "explanation": "यह शब्द-समूह \"लड़की\" की विशेषता बता रहा है, अतः विशेषण पदबंध है।"
+  },
+  {
+   "skill_slug": "hb-padbandh-bhed",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "पदबंध की सही परिभाषा कौन-सी है?",
+   "expected_answer": {
+    "value": "वाक्य में एक पद का काम करने वाला शब्द-समूह, जिसमें क्रिया का विधान न हो"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "दो वाक्यों को जोड़ने वाला शब्द",
+    "वाक्य में एक पद का काम करने वाला शब्द-समूह, जिसमें क्रिया का विधान न हो",
+    "वाक्य का वह भाग जिसमें उद्देश्य और विधेय दोनों हों",
+    "केवल एक शब्द जो वाक्य में आए"
+   ],
+   "explanation": "पदबंध कई शब्दों का समूह है जो वाक्य में एक पद की तरह काम करता है; उसमें उद्देश्य-विधेय वाला पूरा उपवाक्य नहीं होता।"
+  },
+  {
+   "skill_slug": "hb-vakya-rupantaran",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"मैं जानता हूँ कि वह ईमानदार है।\" रचना के आधार पर यह कौन-सा वाक्य है?",
+   "expected_answer": {
+    "value": "मिश्र वाक्य"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "मिश्र वाक्य",
+    "सरल वाक्य",
+    "संयुक्त वाक्य",
+    "आज्ञार्थक वाक्य"
+   ],
+   "explanation": "इसमें एक प्रधान उपवाक्य और \"कि\" से जुड़ा आश्रित उपवाक्य है, इसलिए यह मिश्र वाक्य है।"
+  },
+  {
+   "skill_slug": "hb-vakya-rupantaran",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"सूरज निकला और अँधेरा मिट गया।\" यह किस प्रकार का वाक्य है?",
+   "expected_answer": {
+    "value": "संयुक्त वाक्य"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "सरल वाक्य",
+    "मिश्र वाक्य",
+    "प्रश्नवाचक वाक्य",
+    "संयुक्त वाक्य"
+   ],
+   "explanation": "दो स्वतंत्र उपवाक्य \"और\" से जुड़े हैं, इसलिए यह संयुक्त वाक्य है।"
+  },
+  {
+   "skill_slug": "hb-vakya-rupantaran",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "सरल वाक्य \"परिश्रम करके वह सफल हुआ।\" का संयुक्त वाक्य में सही रूपांतरण कौन-सा है?",
+   "expected_answer": {
+    "value": "उसने परिश्रम किया और वह सफल हुआ।"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "जो परिश्रम करता है वह सफल होता है।",
+    "वह परिश्रम करके सफल हुआ।",
+    "उसने परिश्रम किया और वह सफल हुआ।",
+    "यदि वह परिश्रम करता तो सफल होता।"
+   ],
+   "explanation": "दो स्वतंत्र उपवाक्यों को \"और\" से जोड़ने पर संयुक्त वाक्य बनता है।"
+  },
+  {
+   "skill_slug": "hb-vakya-rupantaran",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "संयुक्त वाक्य \"वह गरीब है परंतु ईमानदार है।\" का सरल वाक्य में सही रूप कौन-सा है?",
+   "expected_answer": {
+    "value": "वह गरीब होने पर भी ईमानदार है।"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "क्या वह गरीब और ईमानदार है?",
+    "वह गरीब होने पर भी ईमानदार है।",
+    "वह गरीब है और ईमानदार भी है।",
+    "यद्यपि वह गरीब है तथापि ईमानदार है।"
+   ],
+   "explanation": "सरल वाक्य में एक ही उपवाक्य रहता है; \"होने पर भी\" से दोनों बातें एक वाक्य में आ जाती हैं।"
+  },
+  {
+   "skill_slug": "hb-vakya-rupantaran",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "\"जब वर्षा हुई तब किसान खुश हुए।\" यह वाक्य कैसा है?",
+   "expected_answer": {
+    "value": "मिश्र वाक्य"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "मिश्र वाक्य",
+    "सरल वाक्य",
+    "संयुक्त वाक्य",
+    "विस्मयादिबोधक वाक्य"
+   ],
+   "explanation": "\"जब\" से जुड़ा उपवाक्य आश्रित है और \"तब\" वाला प्रधान, इसलिए मिश्र वाक्य है।"
+  },
+  {
+   "skill_slug": "hb-samas-pehchan",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"माता-पिता\" में कौन-सा समास है?",
+   "expected_answer": {
+    "value": "द्वंद्व समास"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "तत्पुरुष समास",
+    "बहुव्रीहि समास",
+    "अव्ययीभाव समास",
+    "द्वंद्व समास"
+   ],
+   "explanation": "दोनों पद प्रधान हैं और \"और\" के अर्थ में जुड़े हैं (माता और पिता), इसलिए द्वंद्व समास।"
+  },
+  {
+   "skill_slug": "hb-samas-pehchan",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"यथाशक्ति\" में कौन-सा समास है?",
+   "expected_answer": {
+    "value": "अव्ययीभाव समास"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "द्विगु समास",
+    "कर्मधारय समास",
+    "अव्ययीभाव समास",
+    "तत्पुरुष समास"
+   ],
+   "explanation": "पहला पद अव्यय (यथा) है और पूरा समस्त पद अव्यय की तरह काम करता है, इसलिए अव्ययीभाव।"
+  },
+  {
+   "skill_slug": "hb-samas-pehchan",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"नवरात्र\" का समास-भेद क्या है?",
+   "expected_answer": {
+    "value": "द्विगु समास"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "अव्ययीभाव समास",
+    "द्विगु समास",
+    "द्वंद्व समास",
+    "बहुव्रीहि समास"
+   ],
+   "explanation": "पहला पद संख्यावाचक (नौ) है और समूह का बोध कराता है (नौ रात्रियों का समूह), इसलिए द्विगु।"
+  },
+  {
+   "skill_slug": "hb-samas-pehchan",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"नीलकमल\" का विग्रह और समास क्या है?",
+   "expected_answer": {
+    "value": "नीला है जो कमल, कर्मधारय समास"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "नीला है जो कमल, कर्मधारय समास",
+    "नीले कमल का, तत्पुरुष समास",
+    "नील और कमल, द्वंद्व समास",
+    "नीला है कमल जिसका, बहुव्रीहि समास"
+   ],
+   "explanation": "पहला पद विशेषण (नील) और दूसरा विशेष्य (कमल) है, इसलिए कर्मधारय।"
+  },
+  {
+   "skill_slug": "hb-samas-pehchan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"पीतांबर\" (पीत अंबर है जिसका अर्थात् विष्णु) में कौन-सा समास है?",
+   "expected_answer": {
+    "value": "बहुव्रीहि समास"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "कर्मधारय समास",
+    "तत्पुरुष समास",
+    "द्विगु समास",
+    "बहुव्रीहि समास"
+   ],
+   "explanation": "दोनों पद मिलकर किसी तीसरे (विष्णु) का बोध कराते हैं, इसलिए बहुव्रीहि।"
+  },
+  {
+   "skill_slug": "hb-samas-pehchan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"गंगाजल\" (गंगा का जल) में कौन-सा समास है?",
+   "expected_answer": {
+    "value": "तत्पुरुष समास"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "कर्मधारय समास",
+    "बहुव्रीहि समास",
+    "तत्पुरुष समास",
+    "द्वंद्व समास"
+   ],
+   "explanation": "\"का\" कारक-चिह्न का लोप हुआ है और उत्तर पद प्रधान है, इसलिए तत्पुरुष।"
+  },
+  {
+   "skill_slug": "hb-samas-pehchan",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "\"लंबोदर\" (लंबा है उदर जिसका) किसका बोध कराता है और कौन-सा समास है?",
+   "expected_answer": {
+    "value": "गणेश, बहुव्रीहि समास"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "लंबा और पेट, द्वंद्व समास",
+    "गणेश, बहुव्रीहि समास",
+    "लंबा पेट, कर्मधारय समास",
+    "गणेश, तत्पुरुष समास"
+   ],
+   "explanation": "समस्त पद अपने दोनों पदों से भिन्न किसी तीसरे (गणेश) का बोध कराता है, इसलिए बहुव्रीहि।"
+  },
+  {
+   "skill_slug": "hb-muhavare-arth",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"नौ दो ग्यारह होना\" मुहावरे का अर्थ है:",
+   "expected_answer": {
+    "value": "भाग जाना"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "भाग जाना",
+    "गिनती करना",
+    "बहुत धनी होना",
+    "आपस में लड़ना"
+   ],
+   "explanation": "यह मुहावरा चुपचाप भाग जाने के अर्थ में आता है।"
+  },
+  {
+   "skill_slug": "hb-muhavare-arth",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"आँखों का तारा\" मुहावरे का अर्थ है:",
+   "expected_answer": {
+    "value": "बहुत प्यारा"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "अंधा होना",
+    "रात में जागना",
+    "बहुत शरमीला",
+    "बहुत प्यारा"
+   ],
+   "explanation": "जो अत्यंत प्रिय हो उसे आँखों का तारा कहते हैं।"
+  },
+  {
+   "skill_slug": "hb-muhavare-arth",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"दाँतों तले उँगली दबाना\" का अर्थ है:",
+   "expected_answer": {
+    "value": "आश्चर्यचकित होना"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "चुप रहना",
+    "बहुत क्रोध करना",
+    "आश्चर्यचकित होना",
+    "बहुत डरना"
+   ],
+   "explanation": "अचरज में पड़ जाने के लिए यह मुहावरा प्रयुक्त होता है।"
+  },
+  {
+   "skill_slug": "hb-muhavare-arth",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"कान पर जूँ न रेंगना\" का अर्थ है:",
+   "expected_answer": {
+    "value": "कोई असर न होना"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "सावधान रहना",
+    "कोई असर न होना",
+    "बहुत गंदा रहना",
+    "धीरे सुनना"
+   ],
+   "explanation": "बार-बार कहने पर भी ध्यान न देने या असर न होने को यह मुहावरा बताता है।"
+  },
+  {
+   "skill_slug": "hb-muhavare-arth",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"पानी-पानी होना\" मुहावरे का अर्थ है:",
+   "expected_answer": {
+    "value": "बहुत लज्जित होना"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "बहुत लज्जित होना",
+    "बहुत प्यासा होना",
+    "रोने लगना",
+    "बहुत प्रसन्न होना"
+   ],
+   "explanation": "शर्मिंदगी से भर जाने के अर्थ में यह मुहावरा आता है।"
+  },
+  {
+   "skill_slug": "hb-muhavare-arth",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"घी के दिए जलाना\" का अर्थ है:",
+   "expected_answer": {
+    "value": "बहुत खुशी मनाना"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "धन बरबाद करना",
+    "पूजा करना",
+    "अँधेरा दूर करना",
+    "बहुत खुशी मनाना"
+   ],
+   "explanation": "हर्ष और उत्सव मनाने के अर्थ में प्रयुक्त होता है।"
+  },
+  {
+   "skill_slug": "hb-muhavare-arth",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"हाथ मलना\" का अर्थ है:",
+   "expected_answer": {
+    "value": "पछताना"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "बहुत मेहनत करना",
+    "धन्यवाद देना",
+    "पछताना",
+    "सफाई करना"
+   ],
+   "explanation": "अवसर चूक जाने पर पछताने को हाथ मलना कहते हैं।"
+  },
+  {
+   "skill_slug": "hb-muhavare-arth",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"अंगूठा दिखाना\" मुहावरे का अर्थ है:",
+   "expected_answer": {
+    "value": "साफ़ मना कर देना"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "गिनती करना",
+    "साफ़ मना कर देना",
+    "इशारा करना",
+    "अपमान सहना"
+   ],
+   "explanation": "ऐन मौके पर काम से साफ़ इनकार कर देने को अंगूठा दिखाना कहते हैं।"
+  },
+  {
+   "skill_slug": "hb-apathit-bhav",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "अपठित गद्यांश का मुख्य भाव कैसे पहचाना जाता है?",
+   "expected_answer": {
+    "value": "पूरे गद्यांश को पढ़कर उसके केंद्रीय विचार को समझने से"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "पूरे गद्यांश को पढ़कर उसके केंद्रीय विचार को समझने से",
+    "केवल पहली पंक्ति से",
+    "सबसे कठिन शब्द से",
+    "केवल अंतिम शब्द से"
+   ],
+   "explanation": "मुख्य भाव पूरे अनुच्छेद के विचारों का सार होता है।"
+  },
+  {
+   "skill_slug": "hb-apathit-shabdarth",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "प्रसंग में किसी वाक्यांश का अर्थ लिखने के लिए क्या करना चाहिए?",
+   "expected_answer": {
+    "value": "आसपास के वाक्यों के आधार पर उसका संदर्भ-सहित अर्थ समझना"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "केवल शब्दकोश का पहला अर्थ लिखना",
+    "अनुमान से कुछ भी लिख देना",
+    "वाक्यांश को दोहरा देना",
+    "आसपास के वाक्यों के आधार पर उसका संदर्भ-सहित अर्थ समझना"
+   ],
+   "explanation": "एक ही शब्द के प्रसंग के अनुसार अलग अर्थ हो सकते हैं।"
+  },
+  {
+   "skill_slug": "hb-bade-bhai-sandesh",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"बड़े भाई साहब\" कहानी के लेखक कौन हैं?",
+   "expected_answer": {
+    "value": "प्रेमचंद"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "जैनेंद्र कुमार",
+    "फणीश्वरनाथ रेणु",
+    "प्रेमचंद",
+    "यशपाल"
+   ],
+   "explanation": "यह कहानी मुंशी प्रेमचंद की रचना है।"
+  },
+  {
+   "skill_slug": "hb-bade-bhai-sandesh",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"बड़े भाई साहब\" कहानी मुख्य रूप से क्या संदेश देती है?",
+   "expected_answer": {
+    "value": "केवल किताबी रटंत नहीं, अनुभव और समझ के साथ पढ़ाई ज़रूरी है"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "परीक्षा में अव्वल आना ही जीवन है",
+    "केवल किताबी रटंत नहीं, अनुभव और समझ के साथ पढ़ाई ज़रूरी है",
+    "खेलकूद समय की बरबादी है",
+    "बड़े भाई हमेशा सही होते हैं"
+   ],
+   "explanation": "कहानी दिखाती है कि बड़े भाई के उपदेशों के बावजूद जीवन का अनुभव और समझ अधिक महत्त्वपूर्ण है।"
+  },
+  {
+   "skill_slug": "hb-diary-vishay",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"डायरी का एक पन्ना\" के लेखक कौन हैं?",
+   "expected_answer": {
+    "value": "सीताराम सेकसरिया"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "सीताराम सेकसरिया",
+    "प्रेमचंद",
+    "लीलाधर मंडलोई",
+    "हबीब तनवीर"
+   ],
+   "explanation": "यह पाठ सीताराम सेकसरिया की डायरी का अंश है।"
+  },
+  {
+   "skill_slug": "hb-diary-vishay",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"डायरी का एक पन्ना\" में किस दिन का वर्णन है?",
+   "expected_answer": {
+    "value": "26 जनवरी 1931, कलकत्ता का स्वतंत्रता-दिवस उत्सव"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "15 अगस्त 1947, दिल्ली",
+    "2 अक्टूबर 1930, मुंबई",
+    "26 जनवरी 1950, कलकत्ता",
+    "26 जनवरी 1931, कलकत्ता का स्वतंत्रता-दिवस उत्सव"
+   ],
+   "explanation": "पाठ में 26 जनवरी 1931 को कलकत्ते में मनाए गए स्वतंत्रता-दिवस का वर्णन है।"
+  },
+  {
+   "skill_slug": "hb-tantara-vishay",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"तताँरा-वामीरो कथा\" के लेखक कौन हैं?",
+   "expected_answer": {
+    "value": "लीलाधर मंडलोई"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "रवींद्र केलेकर",
+    "प्रह्लाद अग्रवाल",
+    "लीलाधर मंडलोई",
+    "सीताराम सेकसरिया"
+   ],
+   "explanation": "यह कथा लीलाधर मंडलोई की है।"
+  },
+  {
+   "skill_slug": "hb-tantara-vishay",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"तताँरा-वामीरो कथा\" किस क्षेत्र की लोककथा है?",
+   "expected_answer": {
+    "value": "अंदमान-निकोबार द्वीप समूह"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "केरल",
+    "अंदमान-निकोबार द्वीप समूह",
+    "राजस्थान",
+    "कश्मीर"
+   ],
+   "explanation": "कथा का परिवेश निकोबार द्वीप (लिटिल और ग्रेट निकोबार) का है।"
+  },
+  {
+   "skill_slug": "hb-shailendra-vishay",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"तीसरी कसम के शिल्पकार शैलेंद्र\" के लेखक कौन हैं?",
+   "expected_answer": {
+    "value": "प्रह्लाद अग्रवाल"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "प्रह्लाद अग्रवाल",
+    "निदा फ़ाज़ली",
+    "हबीब तनवीर",
+    "प्रेमचंद"
+   ],
+   "explanation": "यह पाठ प्रह्लाद अग्रवाल ने लिखा है।"
+  },
+  {
+   "skill_slug": "hb-shailendra-vishay",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"तीसरी कसम\" फ़िल्म किस कहानी पर आधारित है?",
+   "expected_answer": {
+    "value": "फणीश्वरनाथ रेणु की \"मारे गए गुलफ़ाम\""
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "प्रेमचंद की \"कफ़न\"",
+    "यशपाल की \"दुःख\"",
+    "हरिशंकर परसाई की \"भोलाराम का जीव\"",
+    "फणीश्वरनाथ रेणु की \"मारे गए गुलफ़ाम\""
+   ],
+   "explanation": "यह फ़िल्म रेणु की कहानी \"मारे गए गुलफ़ाम\" पर बनी थी।"
+  },
+  {
+   "skill_slug": "hb-nida-vishay",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"अब कहाँ दूसरे के दुख से दुखी होने वाले\" के लेखक कौन हैं?",
+   "expected_answer": {
+    "value": "निदा फ़ाज़ली"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "रवींद्र केलेकर",
+    "सीताराम सेकसरिया",
+    "निदा फ़ाज़ली",
+    "प्रेमचंद"
+   ],
+   "explanation": "यह पाठ निदा फ़ाज़ली का है।"
+  },
+  {
+   "skill_slug": "hb-patjhar-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"पतझर में टूटी पत्तियाँ\" के लेखक कौन हैं?",
+   "expected_answer": {
+    "value": "रवींद्र केलेकर"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "हबीब तनवीर",
+    "रवींद्र केलेकर",
+    "निदा फ़ाज़ली",
+    "लीलाधर मंडलोई"
+   ],
+   "explanation": "यह पाठ रवींद्र केलेकर ने लिखा है।"
+  },
+  {
+   "skill_slug": "hb-kartoos-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"कारतूस\" पाठ के लेखक कौन हैं?",
+   "expected_answer": {
+    "value": "हबीब तनवीर"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "हबीब तनवीर",
+    "प्रेमचंद",
+    "रवींद्र केलेकर",
+    "निदा फ़ाज़ली"
+   ],
+   "explanation": "\"कारतूस\" हबीब तनवीर की रचना है।"
+  },
+  {
+   "skill_slug": "hb-kabir-meera-kavi",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"साखी\" के रचयिता कौन हैं?",
+   "expected_answer": {
+    "value": "कबीर"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "मीराबाई",
+    "सूरदास",
+    "तुलसीदास",
+    "कबीर"
+   ],
+   "explanation": "पाठ्यपुस्तक में कबीर की साखियाँ संकलित हैं।"
+  },
+  {
+   "skill_slug": "hb-kabir-meera-kavi",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"मीरा के पद\" में मीरा किस देवता की भक्ति करती हैं?",
+   "expected_answer": {
+    "value": "श्रीकृष्ण (गिरधर नागर)"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "शिव",
+    "हनुमान",
+    "श्रीकृष्ण (गिरधर नागर)",
+    "श्रीराम"
+   ],
+   "explanation": "मीराबाई श्रीकृष्ण को \"गिरधर नागर\" कहकर अपना आराध्य मानती हैं।"
+  },
+  {
+   "skill_slug": "hb-manushyata-sandesh",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"मनुष्यता\" कविता के कवि कौन हैं?",
+   "expected_answer": {
+    "value": "मैथिलीशरण गुप्त"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "रवींद्रनाथ ठाकुर",
+    "मैथिलीशरण गुप्त",
+    "सुमित्रानंदन पंत",
+    "कैफ़ी आज़मी"
+   ],
+   "explanation": "\"मनुष्यता\" मैथिलीशरण गुप्त की कविता है।"
+  },
+  {
+   "skill_slug": "hb-manushyata-sandesh",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"मनुष्यता\" कविता का मूल संदेश क्या है?",
+   "expected_answer": {
+    "value": "मनुष्य वही है जो दूसरों के लिए जिए और मरे"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "मनुष्य वही है जो दूसरों के लिए जिए और मरे",
+    "केवल अपने सुख के लिए जीना",
+    "धन-संग्रह करना",
+    "एकांत में रहना"
+   ],
+   "explanation": "कविता परोपकार और परस्पर सहयोग को सच्ची मनुष्यता बताती है।"
+  },
+  {
+   "skill_slug": "hb-pavas-kavi",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"पर्वत प्रदेश में पावस\" के कवि कौन हैं?",
+   "expected_answer": {
+    "value": "सुमित्रानंदन पंत"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "मैथिलीशरण गुप्त",
+    "वीरेंद्र मिश्र",
+    "कबीर",
+    "सुमित्रानंदन पंत"
+   ],
+   "explanation": "यह कविता सुमित्रानंदन पंत की है।"
+  },
+  {
+   "skill_slug": "hb-top-fida-kavi",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"कर चले हम फ़िदा\" गीत के रचयिता कौन हैं?",
+   "expected_answer": {
+    "value": "कैफ़ी आज़मी"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "मीराबाई",
+    "रवींद्रनाथ ठाकुर",
+    "कैफ़ी आज़मी",
+    "वीरेंद्र मिश्र"
+   ],
+   "explanation": "यह गीत कैफ़ी आज़मी का लिखा है।"
+  },
+  {
+   "skill_slug": "hb-top-fida-kavi",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"तोप\" कविता के कवि कौन हैं?",
+   "expected_answer": {
+    "value": "वीरेंद्र मिश्र"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "सुमित्रानंदन पंत",
+    "वीरेंद्र मिश्र",
+    "कैफ़ी आज़मी",
+    "मैथिलीशरण गुप्त"
+   ],
+   "explanation": "\"तोप\" वीरेंद्र मिश्र की कविता है।"
+  },
+  {
+   "skill_slug": "hb-atmatran-bhav",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"आत्मत्राण\" कविता में कवि ईश्वर से क्या माँगता है?",
+   "expected_answer": {
+    "value": "विपत्ति में भय से मुक्ति और संघर्ष की शक्ति"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "विपत्ति में भय से मुक्ति और संघर्ष की शक्ति",
+    "धन और सुख-सुविधाएँ",
+    "विपत्तियों का पूरा अभाव",
+    "दूसरों से अधिक प्रसिद्धि"
+   ],
+   "explanation": "कवि विपदाओं से बचाने की नहीं, उनसे जूझने की शक्ति माँगता है।"
+  },
+  {
+   "skill_slug": "hb-atmatran-bhav",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"आत्मत्राण\" मूल रूप से किस कवि की रचना है (हिंदी अनुवाद हज़ारीप्रसाद द्विवेदी का)?",
+   "expected_answer": {
+    "value": "रवींद्रनाथ ठाकुर"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "कबीर",
+    "मैथिलीशरण गुप्त",
+    "कैफ़ी आज़मी",
+    "रवींद्रनाथ ठाकुर"
+   ],
+   "explanation": "यह कविता गुरुदेव रवींद्रनाथ ठाकुर की बंगला रचना का अनुवाद है।"
+  },
+  {
+   "skill_slug": "hb-harihar-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"हरिहर काका\" कहानी के लेखक कौन हैं?",
+   "expected_answer": {
+    "value": "मिथिलेश्वर"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "राही मासूम रज़ा",
+    "प्रेमचंद",
+    "मिथिलेश्वर",
+    "गुरदयाल सिंह"
+   ],
+   "explanation": "\"हरिहर काका\" मिथिलेश्वर की कहानी है।"
+  },
+  {
+   "skill_slug": "hb-sapno-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"सपनों के-से दिन\" के लेखक कौन हैं?",
+   "expected_answer": {
+    "value": "गुरदयाल सिंह"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "प्रह्लाद अग्रवाल",
+    "गुरदयाल सिंह",
+    "मिथिलेश्वर",
+    "राही मासूम रज़ा"
+   ],
+   "explanation": "यह संस्मरण गुरदयाल सिंह का है।"
+  },
+  {
+   "skill_slug": "hb-topi-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"टोपी शुक्ला\" के लेखक कौन हैं?",
+   "expected_answer": {
+    "value": "राही मासूम रज़ा"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "राही मासूम रज़ा",
+    "गुरदयाल सिंह",
+    "मिथिलेश्वर",
+    "यशपाल"
+   ],
+   "explanation": "\"टोपी शुक्ला\" राही मासूम रज़ा का उपन्यास है।"
+  },
+  {
+   "skill_slug": "hb-anuchhed-gun",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "अच्छे अनुच्छेद का कौन-सा गुण नहीं है?",
+   "expected_answer": {
+    "value": "विषय से हटकर अनावश्यक बातें जोड़ना"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "क्रमबद्धता",
+    "विषय-केंद्रित होना",
+    "पूर्णता और संक्षिप्तता",
+    "विषय से हटकर अनावश्यक बातें जोड़ना"
+   ],
+   "explanation": "अनुच्छेद आरंभ से अंत तक एक ही विषय पर केंद्रित होना चाहिए।"
+  },
+  {
+   "skill_slug": "hb-patra-roop",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "औपचारिक पत्र में कौन-सा अंश अनिवार्य है?",
+   "expected_answer": {
+    "value": "प्रेषक का पता, दिनांक, संबोधन, विषय, मुख्य भाग और अभिवादन"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "केवल मुख्य भाग",
+    "केवल हस्ताक्षर",
+    "प्रेषक का पता, दिनांक, संबोधन, विषय, मुख्य भाग और अभिवादन",
+    "केवल नाम"
+   ],
+   "explanation": "औपचारिक पत्र निश्चित प्रारूप में लिखा जाता है।"
+  },
+  {
+   "skill_slug": "hb-vigyapan-tatva",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "विज्ञापन में स्लोगन (नारा) का उद्देश्य क्या है?",
+   "expected_answer": {
+    "value": "वस्तु की ओर ध्यान खींचना और बात याद रखवाना"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "केवल शब्द-संख्या बढ़ाना",
+    "वस्तु की ओर ध्यान खींचना और बात याद रखवाना",
+    "लंबी जानकारी देना",
+    "वस्तु की आलोचना करना"
+   ],
+   "explanation": "स्लोगन छोटा, आकर्षक और प्रभावी होता है।"
+  },
+  {
+   "skill_slug": "hb-email-roop",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "ई-मेल में \"To\", \"Cc\" और \"Subject\" क्या दर्शाते हैं?",
+   "expected_answer": {
+    "value": "क्रमशः प्राप्तकर्ता, प्रतिलिपि पाने वाला और विषय"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "क्रमशः प्राप्तकर्ता, प्रतिलिपि पाने वाला और विषय",
+    "क्रमशः तारीख, पता और समय",
+    "क्रमशः लेखक, प्रकाशक और भाषा",
+    "इनका कोई अर्थ नहीं है"
+   ],
+   "explanation": "To में मुख्य प्राप्तकर्ता, Cc में प्रतिलिपि पाने वाले और Subject में उद्देश्य लिखा जाता है।"
+  },
+  {
+   "skill_slug": "hb-laghukatha-tatva",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "लघुकथा में किस बात का होना आवश्यक है?",
+   "expected_answer": {
+    "value": "कथात्मकता, संक्षिप्तता और प्रभावी अंत"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "लंबे भाषण",
+    "अनेक अप्रासंगिक पात्र",
+    "कोई कथानक नहीं",
+    "कथात्मकता, संक्षिप्तता और प्रभावी अंत"
+   ],
+   "explanation": "लघुकथा कम शब्दों में एक कथानक और प्रभावी अंत प्रस्तुत करती है।"
+  }
+ ]
+}

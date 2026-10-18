@@ -14,8 +14,8 @@ export default async function ReportPage() {
   let studentId: string;
   try {
     studentId = await getCurrentStudentId();
-  } catch {
-    redirect('/');
+  } catch (e: any) {
+    redirect(e?.message === 'device_limit' ? '/device-limit' : '/');
   }
 
   const supabase = await createServerClient();

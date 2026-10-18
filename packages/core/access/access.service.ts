@@ -34,8 +34,9 @@ export function evaluateAccess(row: AccessRow | null | undefined, today: string)
   return { status: 'active', planCode: row.plan_code, subjectLimit: row.subject_limit, accessUntil: row.access_until, daysLeft };
 }
 
-/** Maths (Basic) and Maths (Standard) are one subject for plan limits. */
+/** Maths Basic/Standard and Hindi Course A/B are one subject each for plan limits. */
 export function subjectFamily(slug: string): string {
+  if (slug === 'hindi-b') return 'hindi';
   return slug.replace(/-basic$/, '');
 }
 

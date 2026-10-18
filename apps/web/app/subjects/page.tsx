@@ -8,8 +8,8 @@ export default async function SubjectsPage() {
   let studentId: string;
   try {
     studentId = await getCurrentStudentId();
-  } catch {
-    redirect('/');
+  } catch (e: any) {
+    redirect(e?.message === 'device_limit' ? '/device-limit' : '/');
   }
   const lang = await getServerLang();
   const supabase = await createServerClient();

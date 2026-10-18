@@ -57,3 +57,6 @@ v29 + v30: live. v34 + v35: `tsc` clean, `npm run build` clean, migrations 0002-
 
 ## Precise instruction for the next Claude session
 Read this file, `PROJECT_CONTEXT.md`, `docs/DECISIONS.md` (v34 and v35 entries), `docs/CONTENT_STATUS.md`, then the latest `docs/BUILD_LOG.md` entry. Don't rebuild v34/v35. If the founder reports a bug, read the specific symptom first. A mock-exam bug is most likely in `packages/core/mock/mock-exam.service.ts` (writes go through the service client; RLS only allows reads). If a Basic question looks too hard, check its `difficulty` and the cap in `tutor.orchestrator.ts` / `skill-quiz.engine.ts`. Readiness thresholds live only in `packages/core/readiness/readiness.service.ts`. If asked to enforce paid access, design it first and confirm with the founder (it touches auth/payments). Never mark a pilot subject `ready` without the founder saying a human reviewed it.
+
+## Update after v43 (2026-10-18)
+Next: (1) founder deploys v43, answers what the Rs 14,999 plan includes beyond Rs 4,999, gives the exam date; (2) Hindi teacher reviews Hindi A/B questions, English and Social Science banks are small (21 and 24 questions; Social Science has 19 skills with none); (3) build handwritten mock only after consent wording is approved and a lawyer has seen the "keep as Q/A bank after parent deletes" plan (DPDP Act risk).

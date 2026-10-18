@@ -4,7 +4,9 @@
 //  free                : Rs 0. One subject, free-tier AI only, a small daily limit of AI tutor replies.
 //  per_subject_monthly : Rs 1000 per subject per month
 //  five_monthly        : Rs 3300 per month for up to 5 subjects, billed monthly, plan ends Feb 2027
-//  five_till_march     : Rs 15000 one time for up to 5 subjects, access till 31 Mar 2027
+//  five_till_march     : Rs 14999 one time for up to 5 subjects, access till 28 Feb 2027 (sold as a Founding Family plan since v43)
+//  founding_family     : Rs 4999 one time for up to 5 subjects, access till 31 Mar 2027 (Founding Family Programme)
+//  Since v43 only Free, founding_family and five_till_march are on sale (`onSale`).
 //
 // Prices were re-set on 2026-10-16 (v37): the founder moved the per-subject price from
 // Rs 300 to Rs 1000, and the other two were scaled by the same ratio as before
@@ -21,6 +23,8 @@ export type AccessPlanCode = PlanCode | 'free' | 'grandfathered' | 'custom';
 export interface PlanInfo {
   code: PlanCode;
   priceInr: number;
+  /** Offered to new families? false = no longer sold (students already on it keep access). */
+  onSale: boolean;
   /** How the price is charged. */
   billing: 'per_subject_per_month' | 'per_month' | 'one_time';
   /** Subjects included (null = chosen by the founder when granting, e.g. 1, 2, 3). */
@@ -30,12 +34,12 @@ export interface PlanInfo {
 }
 
 export const PLANS: Record<PlanCode, PlanInfo> = {
-  per_subject_monthly: { code: 'per_subject_monthly', priceInr: 1000, billing: 'per_subject_per_month', subjects: null, lastDate: null },
-  five_monthly: { code: 'five_monthly', priceInr: 3300, billing: 'per_month', subjects: 5, lastDate: '2027-02-28' },
-  five_till_march: { code: 'five_till_march', priceInr: 15000, billing: 'one_time', subjects: 5, lastDate: '2027-03-31' },
+  per_subject_monthly: { code: 'per_subject_monthly', priceInr: 1000, billing: 'per_subject_per_month', subjects: null, lastDate: null, onSale: false },
+  five_monthly: { code: 'five_monthly', priceInr: 3300, billing: 'per_month', subjects: 5, lastDate: '2027-02-28', onSale: false },
+  five_till_march: { code: 'five_till_march', priceInr: 14999, billing: 'one_time', subjects: 5, lastDate: '2027-02-28', onSale: true },
   // Founding Family Programme (v42, master prompt v3 sec. 7). A TEST price, not a permanent one:
   // change priceInr / seatCap / enabled here and every page, form and check follows.
-  founding_family: { code: 'founding_family', priceInr: 4999, billing: 'one_time', subjects: 5, lastDate: '2027-03-31' },
+  founding_family: { code: 'founding_family', priceInr: 4999, billing: 'one_time', subjects: 5, lastDate: '2027-03-31', onSale: true },
 };
 
 /**
@@ -48,11 +52,13 @@ export const FOUNDING_FAMILY = { enabled: true, seatCap: 50, planCode: 'founding
 export const PLAN_LABELS: Record<PlanCode, string> = {
   per_subject_monthly: `Sahayak — Rs ${PLANS.per_subject_monthly.priceInr} per subject per month`,
   five_monthly: `Sahayak — Rs ${PLANS.five_monthly.priceInr} per month, 5 subjects (till Feb 2027)`,
-  five_till_march: `Sahayak — Rs ${PLANS.five_till_march.priceInr} one time, 5 subjects (till Mar 2027)`,
+  five_till_march: `Sahayak Founding Family — Rs ${PLANS.five_till_march.priceInr} one time, 5 subjects (till Feb 2027)`,
   founding_family: `Sahayak Founding Family Programme — Rs ${PLANS.founding_family.priceInr} one time, 5 subjects (till Mar 2027)`,
 };
 
 export const PLAN_CODES = Object.keys(PLANS) as PlanCode[];
+/** Plans offered to new families (v43: the founder switched the monthly plans off; students already on them keep access). */
+export const SALE_PLAN_CODES = PLAN_CODES.filter((c) => PLANS[c].onSale);
 export const ACCESS_PLAN_CODES: AccessPlanCode[] = ['free', ...PLAN_CODES, 'grandfathered', 'custom'];
 
 export function isPlanCode(v: unknown): v is PlanCode {
@@ -91,7 +97,7 @@ export const PLAN_FEATURE_KEYS: Record<PricingCardId, string[]> = {
   free: ['plans.f.oneSubject', 'plans.f.diagnostic', 'plans.f.quizzes', 'plans.f.aiLimited', 'plans.f.report', 'plans.f.papers'],
   per_subject_monthly: ['plans.f.chooseSubjects', 'plans.f.aiFull', 'plans.f.adaptive', 'plans.f.mocks', 'plans.f.readiness', 'plans.f.checkins', 'plans.f.report'],
   five_monthly: ['plans.f.fiveSubjects', 'plans.f.everythingPaid', 'plans.f.monthToMonth', 'plans.f.tillFeb'],
-  five_till_march: ['plans.f.fiveSubjects', 'plans.f.everythingPaid', 'plans.f.onePayment', 'plans.f.tillMarch'],
+  five_till_march: ['plans.f.fiveSubjects', 'plans.f.everythingPaid', 'plans.f.onePayment', 'plans.f.tillFebFounding', 'plans.f.foundingCohort'],
   founding_family: ['plans.f.fiveSubjects', 'plans.f.everythingPaid', 'plans.f.onePayment', 'plans.f.tillMarch', 'plans.f.foundingCohort'],
 };
 

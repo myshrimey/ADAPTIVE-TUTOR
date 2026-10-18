@@ -5,12 +5,10 @@ import { FOUNDING_FAMILY, foundingSeatsLeft, PLANS, PLAN_FEATURE_KEYS, FREE_TUTO
 // app actually enforces. Used on the home page and on the offer page.
 const CARDS: { id: PricingCardId; nameKey: string; descKey: string; unitKey: string; badge?: 'start' | 'best' | 'founding' }[] = [
   { id: 'free', nameKey: 'plans.free.name', descKey: 'plans.free.desc', unitKey: 'plans.unit.free', badge: 'start' },
-  { id: 'per_subject_monthly', nameKey: 'plans.perSubject.name', descKey: 'plans.perSubject.desc', unitKey: 'plans.unit.perSubjectMonth' },
-  { id: 'five_monthly', nameKey: 'plans.fiveMonthly.name', descKey: 'plans.fiveMonthly.desc', unitKey: 'plans.unit.perMonth' },
   ...(FOUNDING_FAMILY.enabled
     ? [{ id: 'founding_family' as PricingCardId, nameKey: 'plans.founding.name', descKey: 'plans.founding.desc', unitKey: 'plans.unit.oneTime', badge: 'founding' as const }]
     : []),
-  { id: 'five_till_march', nameKey: 'plans.fiveMarch.name', descKey: 'plans.fiveMarch.desc', unitKey: 'plans.unit.oneTime', badge: 'best' },
+  { id: 'five_till_march', nameKey: 'plans.fiveMarch.name', descKey: 'plans.fiveMarch.desc', unitKey: 'plans.unit.oneTime', badge: 'founding' },
 ];
 
 function inr(n: number): string {

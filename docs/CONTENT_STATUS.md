@@ -34,3 +34,6 @@ Follow master-prompt quality gates 1–10: official syllabus mapped; a teacher r
 
 ## How to review in Supabase (no code)
 Table Editor → `diagnostic_questions` (or `questions`) → filter `content_status` = `needs_review` → read prompt/answer/explanation → set `content_status` to `verified` or `rejected`.
+
+## Hindi (v43)
+Hindi Course A (`hindi`) and B (`hindi-b`) are pilot, `needs_review`, Devanagari MCQs. Source: CBSE syllabus PDFs 2026-27 (Class 10 only). Excluded for 2026-27: Stri Shiksha ke Kutark, Kanyadaan, George Pancham ki Naak (A); Bihari ke Dohe, Madhur-madhur mere deepak jal, Girgit (B). Every question needs a Hindi teacher before Ready.

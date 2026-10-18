@@ -1,0 +1,341 @@
+{
+ "curriculum": {
+  "board": "CBSE",
+  "class": "10",
+  "version": "v1"
+ },
+ "subject": {
+  "name": "Hindi Course B",
+  "slug": "hindi-b",
+  "status": "pilot",
+  "description": "CBSE Class 10 Hindi Course B (code 085), syllabus 2026-27: Sparsh Part 2 (Bihari dohe, Madhur madhur mere deepak jal and Girgit excluded) and Sanchayan Part 2, grammar, unseen passages and writing. AI-assisted content pending teacher review. Questions in Devanagari."
+ },
+ "chapters": [
+  {
+   "name": "अपठित बोध",
+   "slug": "hb-apathit",
+   "sequence": 1,
+   "topics": [
+    {
+     "name": "अपठित गद्यांश",
+     "slug": "hb-apathit-gadyansh",
+     "sequence": 1,
+     "skills": [
+      {
+       "name": "अपठित गद्यांश का मुख्य भाव पहचानना",
+       "slug": "hb-apathit-bhav",
+       "requires": []
+      },
+      {
+       "name": "प्रसंग में शब्द या वाक्यांश का अर्थ समझना",
+       "slug": "hb-apathit-shabdarth",
+       "requires": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "व्यावहारिक व्याकरण",
+   "slug": "hb-vyakaran",
+   "sequence": 2,
+   "topics": [
+    {
+     "name": "पदबंध",
+     "slug": "hb-padbandh",
+     "sequence": 1,
+     "skills": [
+      {
+       "name": "पदबंध के भेद पहचानना",
+       "slug": "hb-padbandh-bhed",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "वाक्य रूपांतरण",
+     "slug": "hb-vakya",
+     "sequence": 2,
+     "skills": [
+      {
+       "name": "वाक्य को सरल, संयुक्त या मिश्र वाक्य में बदलना",
+       "slug": "hb-vakya-rupantaran",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "समास",
+     "slug": "hb-samas",
+     "sequence": 3,
+     "skills": [
+      {
+       "name": "समास पहचानना और विग्रह करना",
+       "slug": "hb-samas-pehchan",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "मुहावरे",
+     "slug": "hb-muhavare",
+     "sequence": 4,
+     "skills": [
+      {
+       "name": "मुहावरों का अर्थ जानना",
+       "slug": "hb-muhavare-arth",
+       "requires": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "स्पर्श भाग 2: गद्य",
+   "slug": "hb-sparsh-gadya",
+   "sequence": 3,
+   "topics": [
+    {
+     "name": "बड़े भाई साहब",
+     "slug": "hb-bade-bhai",
+     "sequence": 1,
+     "skills": [
+      {
+       "name": "\"बड़े भाई साहब\" का मुख्य संदेश समझना",
+       "slug": "hb-bade-bhai-sandesh",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "डायरी का एक पन्ना",
+     "slug": "hb-diary",
+     "sequence": 2,
+     "skills": [
+      {
+       "name": "\"डायरी का एक पन्ना\" का प्रसंग समझना",
+       "slug": "hb-diary-vishay",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "तताँरा-वामीरो कथा",
+     "slug": "hb-tantara",
+     "sequence": 3,
+     "skills": [
+      {
+       "name": "\"तताँरा-वामीरो कथा\" की पृष्ठभूमि और संदेश समझना",
+       "slug": "hb-tantara-vishay",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "तीसरी कसम के शिल्पकार शैलेंद्र",
+     "slug": "hb-shailendra",
+     "sequence": 4,
+     "skills": [
+      {
+       "name": "\"तीसरी कसम के शिल्पकार शैलेंद्र\" का विषय समझना",
+       "slug": "hb-shailendra-vishay",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "अब कहाँ दूसरे के दुख से दुखी होने वाले",
+     "slug": "hb-nida",
+     "sequence": 5,
+     "skills": [
+      {
+       "name": "निदा फ़ाज़ली के पाठ का संदेश समझना",
+       "slug": "hb-nida-vishay",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "पतझर में टूटी पत्तियाँ",
+     "slug": "hb-patjhar",
+     "sequence": 6,
+     "skills": [
+      {
+       "name": "\"पतझर में टूटी पत्तियाँ\" के लेखक और विधा पहचानना",
+       "slug": "hb-patjhar-lekhak",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "कारतूस",
+     "slug": "hb-kartoos",
+     "sequence": 7,
+     "skills": [
+      {
+       "name": "\"कारतूस\" के लेखक पहचानना",
+       "slug": "hb-kartoos-lekhak",
+       "requires": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "स्पर्श भाग 2: काव्य",
+   "slug": "hb-sparsh-kavya",
+   "sequence": 4,
+   "topics": [
+    {
+     "name": "कबीर की साखियाँ, मीरा के पद",
+     "slug": "hb-kabir-meera",
+     "sequence": 1,
+     "skills": [
+      {
+       "name": "कबीर और मीरा की रचनाओं का भाव और कवि पहचानना",
+       "slug": "hb-kabir-meera-kavi",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "मनुष्यता",
+     "slug": "hb-manushyata",
+     "sequence": 2,
+     "skills": [
+      {
+       "name": "\"मनुष्यता\" कविता का संदेश समझना",
+       "slug": "hb-manushyata-sandesh",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "पर्वत प्रदेश में पावस",
+     "slug": "hb-pavas",
+     "sequence": 3,
+     "skills": [
+      {
+       "name": "\"पर्वत प्रदेश में पावस\" के कवि और विषय पहचानना",
+       "slug": "hb-pavas-kavi",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "तोप, कर चले हम फ़िदा",
+     "slug": "hb-top-fida",
+     "sequence": 4,
+     "skills": [
+      {
+       "name": "\"तोप\" और \"कर चले हम फ़िदा\" के कवि पहचानना",
+       "slug": "hb-top-fida-kavi",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "आत्मत्राण",
+     "slug": "hb-atmatran",
+     "sequence": 5,
+     "skills": [
+      {
+       "name": "\"आत्मत्राण\" का भाव समझना",
+       "slug": "hb-atmatran-bhav",
+       "requires": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "संचयन भाग 2",
+   "slug": "hb-sanchayan",
+   "sequence": 5,
+   "topics": [
+    {
+     "name": "हरिहर काका",
+     "slug": "hb-harihar",
+     "sequence": 1,
+     "skills": [
+      {
+       "name": "\"हरिहर काका\" के लेखक और विषय पहचानना",
+       "slug": "hb-harihar-lekhak",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "सपनों के-से दिन",
+     "slug": "hb-sapno",
+     "sequence": 2,
+     "skills": [
+      {
+       "name": "\"सपनों के-से दिन\" के लेखक पहचानना",
+       "slug": "hb-sapno-lekhak",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "टोपी शुक्ला",
+     "slug": "hb-topi-shukla",
+     "sequence": 3,
+     "skills": [
+      {
+       "name": "\"टोपी शुक्ला\" के लेखक पहचानना",
+       "slug": "hb-topi-lekhak",
+       "requires": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "रचनात्मक लेखन",
+   "slug": "hb-lekhan",
+   "sequence": 6,
+   "topics": [
+    {
+     "name": "अनुच्छेद और पत्र लेखन",
+     "slug": "hb-lekhan-anuchhed",
+     "sequence": 1,
+     "skills": [
+      {
+       "name": "अनुच्छेद लेखन के गुण जानना",
+       "slug": "hb-anuchhed-gun",
+       "requires": []
+      },
+      {
+       "name": "औपचारिक पत्र का प्रारूप जानना",
+       "slug": "hb-patra-roop",
+       "requires": []
+      }
+     ]
+    },
+    {
+     "name": "व्यावहारिक लेखन: सूचना, विज्ञापन, ई-मेल, लघुकथा",
+     "slug": "hb-lekhan-vyavaharik",
+     "sequence": 2,
+     "skills": [
+      {
+       "name": "विज्ञापन लेखन के तत्व जानना",
+       "slug": "hb-vigyapan-tatva",
+       "requires": []
+      },
+      {
+       "name": "ई-मेल का प्रारूप जानना",
+       "slug": "hb-email-roop",
+       "requires": []
+      },
+      {
+       "name": "लघुकथा के तत्व जानना",
+       "slug": "hb-laghukatha-tatva",
+       "requires": []
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

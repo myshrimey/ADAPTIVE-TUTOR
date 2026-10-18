@@ -253,7 +253,7 @@ export async function answerDiagnosticQuestion(
 async function getAnchorSkillIds(supabase: SupabaseClient, subjectId: string): Promise<string[]> {
   const { data: chapters, error: chErr } = await supabase
     .from('chapters')
-    .select('id, sequence, topics(id, sequence, skills(id))')
+    .select('id, sequence, topics(id, sequence, skills(id, retired))')
     .eq('subject_id', subjectId);
   if (chErr) throw chErr;
 
@@ -262,7 +262,8 @@ async function getAnchorSkillIds(supabase: SupabaseClient, subjectId: string): P
   for (const chapter of sortedChapters as any[]) {
     const topics = [...(chapter.topics ?? [])].sort((a: any, b: any) => a.sequence - b.sequence);
     const firstTopic = topics[0];
-    const firstSkill = firstTopic?.skills?.[0];
+    // Retired skills (lessons CBSE removed from the exam) are never used as an anchor.
+    const firstSkill = (firstTopic?.skills ?? []).find((s: any) => !s.retired);
     if (firstSkill) anchors.push(firstSkill.id);
   }
   return anchors;

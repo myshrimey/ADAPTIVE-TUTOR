@@ -101,7 +101,7 @@ export default async function AdminAiCostsPage({ searchParams }: { searchParams:
 
   const active = studentIds.length;
   const avgList = active ? report.total.listPriceInr / active : 0;
-  const example = PLANS.five_monthly.priceInr;
+  const example = PLANS.founding_family.priceInr;
   const studentRows = Object.entries(report.byStudent)
     .sort((a, b) => b[1].listPriceInr - a[1].listPriceInr)
     .slice(0, 100)
@@ -134,7 +134,7 @@ export default async function AdminAiCostsPage({ searchParams }: { searchParams:
           </section>
 
           <p style={{ marginTop: 'var(--space-2)' }}>
-            Average AI list-price cost per student this month: <strong>{inr(avgList)}</strong>. For a student on the {inr(example)} per month plan that is{' '}
+            Average AI list-price cost per student this month: <strong>{inr(avgList)}</strong>. For a student who paid the {inr(example)} Founding Family fee, one month of that is{' '}
             <strong>{((avgList / example) * 100).toFixed(1)}%</strong> of the fee (before GST, hosting and teacher pay).
           </p>
 

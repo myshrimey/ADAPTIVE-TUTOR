@@ -3,7 +3,7 @@ import type { LegalContent } from '@/components/LegalPageLayout';
 export const PAYMENT_POLICY_EN: LegalContent = {
   title: 'Payment, Refund, Cancellation and Expiry Policy',
   lastUpdated: 'Draft — last updated 15 October 2026. Pending founder review before publication.',
-  intro: 'Payments for Sahayak plans (₹1000 per subject per month; ₹3300 per month for up to five subjects till February 2027; ₹15000 one time for up to five subjects till March 2027) are handled manually, by design, during this early-access phase.',
+  intro: 'Payments for Sahayak plans (₹4999 one time for up to five subjects till March 2027; ₹14999 one time for up to five subjects till 28 February 2027) are handled manually, by design, during this early-access phase.',
   sections: [
     {
       heading: 'How payment works',
@@ -42,7 +42,7 @@ export const PAYMENT_POLICY_EN: LegalContent = {
 export const PAYMENT_POLICY_HI: LegalContent = {
   title: 'भुगतान, धनवापसी, रद्दीकरण और समाप्ति नीति',
   lastUpdated: 'मसौदा — अंतिम अपडेट 15 अक्टूबर 2026। प्रकाशन से पहले संस्थापक की समीक्षा लंबित है।',
-  intro: 'इस प्रारंभिक-पहुँच चरण के दौरान सहायक प्लान (₹1000 प्रति विषय प्रति माह; ₹3300 प्रति माह 5 विषयों तक, फ़रवरी 2027 तक; ₹15000 एक बार 5 विषयों के लिए, मार्च 2027 तक) के भुगतान जानबूझकर मैन्युअल रूप से संभाले जाते हैं।',
+  intro: 'इस प्रारंभिक-पहुँच चरण के दौरान सहायक प्लान (₹4999 एक बार 5 विषयों के लिए, मार्च 2027 तक; ₹14999 एक बार 5 विषयों के लिए, 28 फ़रवरी 2027 तक) के भुगतान जानबूझकर मैन्युअल रूप से संभाले जाते हैं।',
   sections: [
     {
       heading: 'भुगतान कैसे काम करता है',

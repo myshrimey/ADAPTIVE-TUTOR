@@ -38,6 +38,10 @@ export const DICTIONARY: Dict = {
   'nav.practice': { en: 'Practice', hi: 'अभ्यास' },
   'nav.written': { en: 'Written answers', hi: 'लिखित उत्तर' },
   'nav.menu': { en: 'Menu', hi: 'मेन्यू' },
+  'access.deviceLimit': {
+    en: "This login is already used on 2 devices. Please contact Sahayak to change your registered devices.",
+    hi: "यह लॉगिन पहले से 2 डिवाइस पर उपयोग में है। अपने पंजीकृत डिवाइस बदलने के लिए कृपया सहायक से संपर्क करें।",
+  },
   'nav.plan': { en: 'Study plan', hi: 'अध्ययन योजना' },
   'nav.account': { en: 'Your account', hi: 'आपका खाता' },
   'nav.descTest': { en: 'Find where you stand today', hi: 'जानें आप आज कहाँ हैं' },
@@ -785,12 +789,12 @@ export const DICTIONARY: Dict = {
     hi: "5 विषयों तक, मासिक भुगतान, फ़रवरी 2027 तक उपलब्ध।",
   },
   'plans.fiveMarch.name': {
-    en: "Five subjects, till March 2027",
-    hi: "पाँच विषय, मार्च 2027 तक",
+    en: "Founding Family, till February 2027",
+    hi: "फ़ाउंडिंग फ़ैमिली, फ़रवरी 2027 तक",
   },
   'plans.fiveMarch.desc': {
-    en: "Up to 5 subjects, one payment, access till 31 March 2027.",
-    hi: "5 विषयों तक, एक भुगतान, 31 मार्च 2027 तक पहुँच।",
+    en: "Up to 5 subjects, one payment, access till 28 February 2027. For founding families.",
+    hi: "5 विषयों तक, एक भुगतान, 28 फ़रवरी 2027 तक पहुँच। फ़ाउंडिंग फ़ैमिली के लिए।",
   },
   'plans.founding.name': {
     en: "Founding Family Programme",
@@ -904,6 +908,10 @@ export const DICTIONARY: Dict = {
   'plans.f.onePayment': {
     en: "One payment, nothing to renew each month",
     hi: "एक भुगतान, हर माह नवीनीकरण की ज़रूरत नहीं",
+  },
+  'plans.f.tillFebFounding': {
+    en: "Access till 28 February 2027, just before board exams begin",
+    hi: "28 फ़रवरी 2027 तक पहुँच, बोर्ड परीक्षा शुरू होने से ठीक पहले तक",
   },
   'plans.f.tillMarch': {
     en: "Access till 31 March 2027, through board exam season",

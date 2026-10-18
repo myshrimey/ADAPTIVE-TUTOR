@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useLanguage } from './LanguageProvider';
-import { PLANS, PLAN_LABELS, PLAN_CODES, type PlanCode } from '@adaptive-tutor/core';
+import { PLANS, PLAN_LABELS, SALE_PLAN_CODES, type PlanCode } from '@adaptive-tutor/core';
 
 interface Claim {
   id: string;
@@ -16,8 +16,8 @@ interface Claim {
 export function PilotPaymentForm({ priceInr }: { priceInr: number }) {
   const { t } = useLanguage();
   const [claims, setClaims] = useState<Claim[] | null>(null);
-  const [planCode, setPlanCode] = useState<PlanCode>('five_monthly');
-  const [amount, setAmount] = useState(String(PLANS.five_monthly.priceInr));
+  const [planCode, setPlanCode] = useState<PlanCode>('founding_family');
+  const [amount, setAmount] = useState(String(PLANS.founding_family.priceInr));
   const [paymentDate, setPaymentDate] = useState(() => new Date().toISOString().slice(0, 10));
   const [reference, setReference] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -91,7 +91,7 @@ export function PilotPaymentForm({ priceInr }: { priceInr: number }) {
             setAmount(String(PLANS[c].priceInr));
           }}
         >
-          {PLAN_CODES.map((c) => (
+          {SALE_PLAN_CODES.map((c) => (
             <option key={c} value={c}>
               {PLAN_LABELS[c]}
             </option>

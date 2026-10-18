@@ -17,10 +17,10 @@ export interface AdminStudentRow {
 
 const PLAN_OPTIONS: { code: AccessPlanCode; label: string }[] = [
   { code: 'free', label: 'Free plan (1 subject, free-tier AI only, daily limit, no mock exams)' },
-  { code: 'per_subject_monthly', label: `Rs ${PLANS.per_subject_monthly.priceInr} per subject per month` },
-  { code: 'five_monthly', label: `Rs ${PLANS.five_monthly.priceInr} per month, up to 5 subjects (till Feb 2027)` },
-  { code: 'five_till_march', label: `Rs ${PLANS.five_till_march.priceInr} one time, up to 5 subjects (till Mar 2027)` },
   { code: 'founding_family', label: `Rs ${PLANS.founding_family.priceInr} Founding Family Programme, up to 5 subjects (till Mar 2027)` },
+  { code: 'five_till_march', label: `Rs ${PLANS.five_till_march.priceInr} Founding Family, up to 5 subjects (till 28 Feb 2027)` },
+  { code: 'per_subject_monthly', label: `Rs ${PLANS.per_subject_monthly.priceInr} per subject per month (no longer on sale)` },
+  { code: 'five_monthly', label: `Rs ${PLANS.five_monthly.priceInr} per month, up to 5 subjects (no longer on sale)` },
   { code: 'custom', label: 'Custom (you choose subjects and end date; full paid features)' },
   { code: 'grandfathered', label: 'Early access (existing students; full paid features)' },
 ];
@@ -47,9 +47,9 @@ function errText(e: string) {
 export function AdminStudents({ students }: { students: AdminStudentRow[] }) {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
-  const [plan, setPlan] = useState<AccessPlanCode>('five_monthly');
-  const [limit, setLimit] = useState(String(planDefaults('five_monthly').limit));
-  const [until, setUntil] = useState(planDefaults('five_monthly').until);
+  const [plan, setPlan] = useState<AccessPlanCode>('founding_family');
+  const [limit, setLimit] = useState(String(planDefaults('founding_family').limit));
+  const [until, setUntil] = useState(planDefaults('founding_family').until);
   const [password, setPassword] = useState('');
   const [notes, setNotes] = useState('');
   const [busy, setBusy] = useState(false);
