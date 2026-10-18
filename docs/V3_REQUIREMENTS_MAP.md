@@ -37,7 +37,7 @@ Question the founder asked: "has everything from MVP v2 been built?" Answer: all
 | 18 readiness dimensions 6, 8, 9, 10 (retention, question-type coverage, written-answer quality, recurring error patterns) | Partly shown separately; not combined | Written-answer marks checked by teachers first |
 | 31 landing sections: example readiness dashboard, example mock analysis, "complements school/tuition", founder section | Partly (sample report, FAQ, pricing, trust exist) | Content from founder |
 | 34-36 marketing scripts and content calendar | Not code | Claude can draft on request |
-| 41 export and delete a student's data | NOT BUILT | Small build; needs your rule for what a parent may delete |
+| 41 export and delete a student's data | BUILT v44: `/my-data`, `/admin/data-requests` | Founder to agree what must be kept (e.g. payment records) with an accountant/lawyer |
 | Hindi Course A vs B; animated diagrams; automatic teacher pay | NOT BUILT | Course content; topic choice; your payment decision |
 
 ## Decisions needed before the handwritten mock (cost, privacy, legal)

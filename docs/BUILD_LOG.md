@@ -279,3 +279,7 @@ One entry per work session. Newest entry on top.
 **Animation:** already level-based (guided/standard/brisk from mastery) and shown beside the tutor's text; no change this version.
 **Tested:** tsc; device decisions (18 checks); migration 0021 applies and re-runs; seed JSON structure self-checks; bank audit. **Not tested:** real Supabase, browser, a Hindi teacher's review of any question.
 **Not built:** handwritten mock + Q/A-bank retention (needs consent wording and legal review first), blueprint mock/PDF, data export/delete.
+
+## 2026-10-18 - v44: data export/delete, Social Science gap questions
+**Built:** `/my-data` (download JSON, request deletion), `/admin/data-requests` (founder executes), migration 0022 `data_requests`; 38 new Social Science questions for the 19 skills that had none (62 total, needs_review; generator `gen_ss_gap.py`).
+**Tested:** tsc, migration 0022 re-run, all student-linked foreign keys are cascade or set-null (checked in database), bank audit 0 problems. **Not tested:** real Supabase deletion incl. auth user removal, export in a browser, any question by a teacher.

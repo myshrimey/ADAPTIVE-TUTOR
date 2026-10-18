@@ -516,3 +516,17 @@ RLS: on · policies: written_attempts_owner_read (SELECT)
 | feedback | text | yes |  |
 | created_at | timestamp with time zone | no | now() |
 
+
+## data_requests
+RLS: on · policies: data_requests_select_own (SELECT). Inserts are server-only.
+
+| Column | Type | Null | Default |
+|---|---|---|---|
+| id | uuid | no | gen_random_uuid() |
+| auth_user_id | uuid | no |  |
+| student_id | uuid | yes |  |
+| student_label | text | yes |  |
+| kind | text | no | 'delete' |
+| status | text | no | 'requested' |
+| requested_at | timestamp with time zone | no | now() |
+| completed_at | timestamp with time zone | yes |  |
