@@ -176,6 +176,7 @@ export function SiteHeader() {
                   {role === 'teacher' && <a href="/teacher" className="nav-panel__row" role="menuitem">Teacher area</a>}
                   {isPortal && <a href={'/' + role} className="nav-panel__row" role="menuitem">{portalLabel}</a>}
                   {!staff && <>
+                  <a href="/reports" className="nav-panel__row" role="menuitem">My test reports</a>
                   <a href="/sharing" className="nav-panel__row" role="menuitem">Sharing</a>
                   <a href="/profile" className="nav-panel__row" role="menuitem">{t('nav.profile')}</a>
                   <a href="/my-data" className="nav-panel__row" role="menuitem">My data</a>
@@ -221,6 +222,7 @@ export function SiteHeader() {
             <a href="/progress" className="nav-drawer__link">{t('nav.progress')}</a>
             {signedIn && <a href="/report" className="nav-drawer__link">{t('nav.report')}</a>}
             {signedIn && <a href="/profile" className="nav-drawer__link">{t('nav.profile')}</a>}
+            {signedIn && <a href="/reports" className="nav-drawer__link">My test reports</a>}
             {signedIn && <a href="/sharing" className="nav-drawer__link">Sharing</a>}
             {signedIn && <a href="/my-data" className="nav-drawer__link">My data</a>}
             <a href="/pilot" className="nav-cta nav-cta--block">{t('nav.pilotOffer')}</a>

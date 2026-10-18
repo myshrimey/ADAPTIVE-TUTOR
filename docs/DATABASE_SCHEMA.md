@@ -563,3 +563,6 @@ RLS: on · student_links_student_read, student_links_adult_read (SELECT only). C
 
 ## link_attempts (v50)
 RLS: on, no policy (server only). adult_user_id, created_at; limits wrong-code guessing to 10 per hour.
+
+## test_reports (v49)
+RLS: on · test_reports_student_read (SELECT, only audience='student' and the student's own). Columns: id, student_id, kind (diagnostic/skill_quiz/mock), audience (student/adult), source_id, subject_id, title, taken_at, score, total, in_marks, data jsonb, created_at. Unique (student_id, kind, source_id, audience). Writes: server only. The 'adult' rows have NO policy: students cannot read them; linked adults read them through server code after the student_links check.

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { answerDiagnosticQuestion } from '@adaptive-tutor/core';
 import { aiForStudent } from '@/lib/ai';
+import { saveDiagnosticReport } from '@/lib/reports';
 
 export async function POST(request: Request) {
   try {
@@ -18,6 +19,7 @@ export async function POST(request: Request) {
     const result = await answerDiagnosticQuestion(supabase, { attemptId, questionId, answer }, await aiForStudent(studentId));
 
     if ('completed' in result) {
+      await saveDiagnosticReport(studentId, result.result);
       return NextResponse.json({ data: { completed: true, result: result.result }, error: null });
     }
     return NextResponse.json({

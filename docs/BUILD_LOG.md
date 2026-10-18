@@ -311,3 +311,9 @@ One entry per work session. Newest entry on top.
 - Students can't open adult pages (server role check redirects) and adult accounts can't become student accounts (onboarding guard).
 - Tested: migration 0025 twice; database-level privacy checks (student sees only own links/codes, parent cannot read students/codes directly, no cross-student reads); code format tests (1005 checks); full build; browser: all new pages render, signed-out visits redirect to the right sign-in, consent button disabled, APIs refuse bad calls.
 - NOT tested: real registration and sign-in against Supabase, the code-linking flow end to end, the dashboards with real linked data. New pages are English only.
+
+## v49 (2026-10-18) saved dated test reports
+- Every finished diagnostic, quick quiz and mock/paper is saved with its date and time (India) in `test_reports`, in two versions: student (full question-by-question review, with labelled figures) at /reports and /reports/[id]; adult (summary by topic, went well / worth practising again, neutral notes, no question text) in the parent/tutor/centre student page and /{role}/student/[id]/report/[rid]. Print / Save as PDF button on each.
+- Students can't read adult reports (no database policy for them; the page and API for adults check the active student link on the server).
+- Tested: migration 0026 twice; database checks (student sees only own student-version rows; cannot see adult rows or another student's; a parent cannot read the table directly); report builders (12 checks: adult report has no question text, neutral wording, notes for timer/pending); saving twice leaves one row per version; full build; signed-out visits redirect.
+- NOT tested live: saving after a real diagnostic/quiz/mock in Supabase, reading on the live site. Limits: tests finished BEFORE this update have no saved report; a paper mock's report is saved at submit and is not refreshed when handwritten marks arrive later; reports are English only.

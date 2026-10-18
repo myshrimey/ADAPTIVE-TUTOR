@@ -1745,3 +1745,9 @@ a {
 .site-footer button[aria-pressed="true"] {
   background: rgba(255, 255, 255, 0.18) !important;
 }
+
+/* Printing a saved test report: hide navigation and buttons (v49) */
+@media print {
+  .no-print, .site-header, .site-footer, header, footer, nav { display: none !important; }
+  .chapter-row { break-inside: avoid; }
+}

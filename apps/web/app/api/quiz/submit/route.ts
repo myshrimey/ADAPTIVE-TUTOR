@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { gradeSkillQuiz } from '@adaptive-tutor/core';
 import { aiForStudent } from '@/lib/ai';
+import { saveQuizReport } from '@/lib/reports';
 
 export async function POST(request: Request) {
   try {
@@ -14,6 +15,7 @@ export async function POST(request: Request) {
 
     const supabase = await createServerClient();
     const result = await gradeSkillQuiz(supabase, studentId, sessionId ?? null, answers, await aiForStudent(studentId));
+    await saveQuizReport(studentId, result);
     return NextResponse.json({ data: result, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });

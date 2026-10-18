@@ -263,6 +263,7 @@ export default function MockPage() {
           </div>
           <p style={{ color: 'var(--slate)', fontSize: '0.9rem' }}>{tt('mock.note')}</p>
 
+          <p style={{ color: 'var(--slate)', fontSize: '0.9rem' }}>Saved with its date and time in <a href="/reports">My test reports</a>.</p>
           <h2 style={{ fontSize: 'var(--step-1)', marginTop: 'var(--space-3)' }}>{tt('mock.review')}</h2>
           {result.review.map((r, i) => (
             <div key={r.questionId} className="mock-review" data-correct={r.isCorrect} style={{ padding: '0.8rem 0', borderTop: '1px solid var(--line, #ddd)' }}>

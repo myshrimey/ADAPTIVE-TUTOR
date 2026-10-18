@@ -231,6 +231,7 @@ export default function DiagnosticPage() {
               exactly where the first session will begin.
             </p>
           )}
+          <p style={{ color: 'var(--slate)', marginTop: 'var(--space-3)' }}>This report is saved with today&apos;s date and time in <a href="/reports">My test reports</a>.</p>
           <section style={{ marginTop: 'var(--space-4)' }}>
             <h2 style={{ fontSize: 'var(--step-1)', marginBottom: '0.6rem' }}>Your answers, question by question</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>

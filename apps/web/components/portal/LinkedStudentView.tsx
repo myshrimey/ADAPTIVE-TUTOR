@@ -4,6 +4,7 @@ import { buildParentReport } from '@adaptive-tutor/core';
 import { ReportExtras } from '@/components/ReportExtras';
 import { type PortalUser, isLinked } from '@/lib/portal';
 import { UnlinkButton } from './UnlinkButton';
+import { ReportList, type ReportRow } from '@/components/reports/ReportList';
 
 // One linked student, seen by an adult. Access = an ACTIVE link row, checked here on the server every time.
 export async function LinkedStudentView({ me, studentId }: { me: PortalUser; studentId: string }) {
@@ -13,6 +14,8 @@ export async function LinkedStudentView({ me, studentId }: { me: PortalUser; stu
   if (!st) notFound();
   let report = null;
   try { report = await buildParentReport(service, studentId); } catch { report = null; }
+  // Saved ADULT reports for this student: read with the service key only after the link check above.
+  const { data: reports } = await service.from('test_reports').select('id, title, kind, taken_at, score, total, in_marks').eq('student_id', studentId).eq('audience', 'adult').order('taken_at', { ascending: false }).limit(100);
   const home = `/${me.role}`;
   return (
     <main className="page">
@@ -22,6 +25,8 @@ export async function LinkedStudentView({ me, studentId }: { me: PortalUser; stu
           <h1 style={{ fontSize: 'var(--step-3)' }}>{st.display_name}</h1>
           <p style={{ color: 'var(--slate)' }}>Read-only view. Only counts and dates from the student&apos;s own practice. Never a prediction of marks or rank.</p>
         </div>
+        <h2 style={{ fontSize: 'var(--step-1)', marginTop: 'var(--space-3)' }}>Saved test reports</h2>
+        <ReportList rows={(reports ?? []) as ReportRow[]} hrefBase={`${home}/student/${studentId}/report`} empty="No tests finished yet. Each diagnostic, quiz and mock the student finishes will be saved here with its date and time." />
         {report ? <ReportExtras report={report} /> : <p style={{ color: 'var(--slate)' }}>No practice recorded yet.</p>}
         <div style={{ marginTop: 'var(--space-4)' }}><UnlinkButton studentId={studentId} home={home} /></div>
       </div>
