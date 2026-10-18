@@ -60,3 +60,4 @@ export * from './handwriting/quality-rules';
 export * from './handwriting/marking';
 export * from './handwriting/handwriting.service';
 export * from './auth/identity';
+export * from './portals/portals';

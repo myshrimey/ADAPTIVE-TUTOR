@@ -1,8 +1,9 @@
 import { createServerClient, createServiceClient } from '@/lib/supabase-server';
 import { getAdminUser } from '@/lib/admin';
+import { portalHome } from '@adaptive-tutor/core';
 
 export interface Me {
-  role: 'admin' | 'teacher' | 'student' | 'none';
+  role: 'admin' | 'teacher' | 'parent' | 'tutor' | 'centre' | 'student' | 'none';
   teacherStatus: string | null;
   hasStudent: boolean;
   onboardingCompleted: boolean;
@@ -33,7 +34,7 @@ export async function getMe(): Promise<Me | null> {
 
   let student: { id: string; must_complete_profile: boolean } | null = null;
   let onboardingCompleted = false;
-  if (userRow && userRow.role !== 'teacher') {
+  if (userRow && ['student', 'admin'].includes(userRow.role)) {
     const { data: st } = await service.from('students').select('id, must_complete_profile').eq('user_id', userRow.id).maybeSingle();
     if (st) {
       student = st;
@@ -42,13 +43,15 @@ export async function getMe(): Promise<Me | null> {
     }
   }
 
-  const role = isAdmin ? 'admin' : userRow?.role === 'teacher' ? 'teacher' : student ? 'student' : 'none';
+  const r = userRow?.role;
+  const role = isAdmin ? 'admin' : r === 'teacher' || r === 'parent' || r === 'tutor' || r === 'centre' ? r : student ? 'student' : 'none';
   return { role, teacherStatus, hasStudent: !!student, onboardingCompleted, mustCompleteProfile: !!student?.must_complete_profile };
 }
 
 /** Where a signed-in person belongs, or null when they need the home page's own onboarding step. */
 export function homeFor(me: Me): string | null {
-  if (me.role === 'admin') return '/admin/students';
+  if (me.role === 'admin') return '/admin';
+  if (me.role === 'parent' || me.role === 'tutor' || me.role === 'centre') return portalHome(me.role);
   if (me.role === 'teacher') return '/teacher';
   if (me.role === 'student') {
     if (me.mustCompleteProfile) return '/profile?welcome=1';

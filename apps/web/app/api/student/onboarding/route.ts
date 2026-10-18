@@ -41,6 +41,8 @@ export async function POST(request: Request) {
       .select()
       .single();
     if (userErr || !userRow) throw userErr ?? new Error('user_upsert_failed');
+    // Parent, tutor, centre and teacher accounts must never become student accounts.
+    if (['parent', 'tutor', 'centre', 'teacher'].includes((userRow as any).role)) throw new Error('not_a_student_account');
 
     const { data: existingStudent } = await service
       .from('students')

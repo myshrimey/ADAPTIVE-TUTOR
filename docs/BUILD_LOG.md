@@ -304,3 +304,10 @@ One entry per work session. Newest entry on top.
 - New `/admin` analytics dashboard (counts only, 14-day chart); "Dashboard" is the first admin menu link; admin sign-in lands there.
 - Figures: every figure now shows a visible "Figure N. caption" label (alt text the same). Migration 0024 attaches the labelled teaching diagram to questions that point at a figure for any skill that has one (re-run twice on a scratch DB, no errors). NOT done: new drawings for apply-right-hand-thumb-rule and describe-reflex-action-pathway.
 - Not yet built (next versions): saved dated test reports (v49), separate parent/teacher/tutor/coaching-centre portals (v50), Hindi-medium mock questions for all subjects (v51).
+
+## v50 (2026-10-18) role portals
+- Separate sign-up, sign-in and dashboards: parent (/parent), tutor (/tutor), coaching centre (/centre); teachers get /teacher/login. Hub page /portals. Each sign-in page rejects the wrong kind of account (`portal` check in /api/auth/login).
+- Parents are active immediately; tutors and centres wait for approval at /admin/partners. Nobody sees any student until the student's family gives a one-time code (made at /sharing, 8 characters, 7 days, once, stored only as a fingerprint, wrong guesses limited to 10/hour). Families can stop sharing any time; adults can stop following.
+- Students can't open adult pages (server role check redirects) and adult accounts can't become student accounts (onboarding guard).
+- Tested: migration 0025 twice; database-level privacy checks (student sees only own links/codes, parent cannot read students/codes directly, no cross-student reads); code format tests (1005 checks); full build; browser: all new pages render, signed-out visits redirect to the right sign-in, consent button disabled, APIs refuse bad calls.
+- NOT tested: real registration and sign-in against Supabase, the code-linking flow end to end, the dashboards with real linked data. New pages are English only.

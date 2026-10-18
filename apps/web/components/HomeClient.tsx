@@ -101,6 +101,10 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
       window.location.href = '/teacher';
       return;
     }
+    if (me?.role === 'parent' || me?.role === 'tutor' || me?.role === 'centre') {
+      window.location.href = '/' + me.role;
+      return;
+    }
     if (me?.role === 'student') {
       // First sign-in for an account the founder created: complete the profile first.
       if (me.mustCompleteProfile) {
@@ -359,6 +363,7 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
               {mode !== 'forgot' && (
                 <p style={{ color: 'var(--slate)', fontSize: '0.9rem', marginTop: 0 }}>
                   <a href="/teacher/register">{t('auth.teacherRegister')}</a>
+                  <br />Parent, tutor or coaching centre? <a href="/portals">Use your own sign in</a>.
                 </p>
               )}
 

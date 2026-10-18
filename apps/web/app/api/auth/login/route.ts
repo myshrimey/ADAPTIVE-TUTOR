@@ -21,7 +21,21 @@ export async function POST(request: Request) {
     const supabase = await createServerClient(); // writes the session cookie on success
     const { error } = await supabase.auth.signInWithPassword({ email: loginEmail, password });
     if (error) return NextResponse.json({ data: null, error: 'invalid_login' }, { status: 401 });
-    return NextResponse.json({ data: { ok: true }, error: null });
+
+    // Each kind of account has its own sign-in page. If the page says which one it is (portal) and this account
+    // belongs elsewhere, sign out again and say where to go. Admin emails may use any page.
+    const portal = typeof body.portal === 'string' ? body.portal : null;
+    const { data: authData } = await supabase.auth.getUser();
+    const service2 = createServiceClient();
+    const { data: row } = await service2.from('users').select('role').eq('auth_user_id', authData.user?.id ?? '').maybeSingle();
+    const role = row?.role ?? 'none';
+    const adminList = (process.env.ADMIN_EMAILS ?? '').split(',').map((e) => e.trim().toLowerCase()).filter(Boolean);
+    const isAdmin = !!authData.user?.email && adminList.includes(authData.user.email.toLowerCase());
+    if (portal && !isAdmin && role !== portal) {
+      await supabase.auth.signOut();
+      return NextResponse.json({ data: { role }, error: 'wrong_portal' }, { status: 403 });
+    }
+    return NextResponse.json({ data: { ok: true, role }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: 'login_failed' }, { status: 500 });
   }

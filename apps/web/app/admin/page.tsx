@@ -17,7 +17,7 @@ export default async function AdminHome() {
     return q.then((r: any) => r.count ?? 0);
   };
 
-  const [students, newWeek, newMonth, mocks, diag7, attempts7, written, teachersPending, teachersApproved, payPending, dataReq, hwQueue, feedback7, revQ, planRows, usersRows, sessionRows, qStatus, qTotal] = await Promise.all([
+  const [students, newWeek, newMonth, mocks, diag7, attempts7, written, teachersPending, teachersApproved, payPending, dataReq, hwQueue, feedback7, revQ, planRows, usersRows, sessionRows, qStatus, qTotal, parents, tutors, centres, partnersPending, linksActive] = await Promise.all([
     head('students'),
     head('users', (q) => q.eq('role', 'student').gte('created_at', day(7))),
     head('users', (q) => q.eq('role', 'student').gte('created_at', day(30))),
@@ -37,6 +37,11 @@ export default async function AdminHome() {
     sv.from('learning_sessions').select('student_id, started_at').gte('started_at', day(14)).limit(50000),
     sv.from('diagnostic_questions').select('content_status').limit(50000),
     head('diagnostic_questions'),
+    head('adult_profiles', (q: any) => q.eq('role', 'parent')).catch(() => 0),
+    head('adult_profiles', (q: any) => q.eq('role', 'tutor')).catch(() => 0),
+    head('adult_profiles', (q: any) => q.eq('role', 'centre')).catch(() => 0),
+    head('adult_profiles', (q: any) => q.eq('status', 'pending')).catch(() => 0),
+    head('student_links', (q: any) => q.eq('status', 'active')).catch(() => 0),
   ]);
 
   const revenue = ((revQ as any).data ?? []).reduce((a: number, r: any) => a + Number(r.amount || 0), 0);
@@ -80,6 +85,7 @@ export default async function AdminHome() {
         <div style={{ display: 'grid', gap: 12, gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))' }}>
           <Card label="Payments waiting to be confirmed" value={payPending} href="/admin/payments" />
           <Card label="Teachers waiting for approval" value={teachersPending} href="/admin/teachers" />
+          <Card label="Tutors / centres waiting for approval" value={partnersPending} href="/admin/partners" />
           <Card label="Data deletion requests" value={dataReq} href="/admin/data-requests" />
           <Card label="Handwritten answers waiting for a teacher" value={hwQueue} href="/admin/handwriting" />
           <Card label="Feedback messages, last 7 days" value={feedback7} href="/admin/feedback" />
@@ -95,6 +101,15 @@ export default async function AdminHome() {
           <Card label="Questions answered, 7 days" value={attempts7} />
           <Card label="Mock papers submitted (all)" value={mocks} />
           <Card label="Written answers marked by AI (all)" value={written} />
+        </div>
+
+        <h2 style={{ fontSize: 'var(--step-1)', marginTop: 'var(--space-4)' }}>Parents, teachers, tutors and centres</h2>
+        <div style={{ display: 'grid', gap: 12, gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))' }}>
+          <Card label="Parent accounts" value={parents} href="/admin/partners" />
+          <Card label="Tutor accounts" value={tutors} href="/admin/partners" />
+          <Card label="Coaching centre accounts" value={centres} href="/admin/partners" />
+          <Card label="Teachers (approved)" value={teachersApproved} href="/admin/teachers" />
+          <Card label="Active student links" value={linksActive} note="families sharing progress with an adult" />
         </div>
 
         <h2 style={{ fontSize: 'var(--step-1)', marginTop: 'var(--space-4)' }}>Last 14 days</h2>

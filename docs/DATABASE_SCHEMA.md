@@ -548,3 +548,18 @@ RLS: on, no policy (server only). De-identified: subject_id, question_id, extrac
 
 ## students / mock_exams (v46 additions)
 students: handwriting_consent_at, handwriting_consent_version, answer_bank_consent. mock_exams: delivery, challenge, blueprint_id, paper_layout, validation; kind 'blueprint'.
+
+## users (v50 change)
+role now allows: student, parent, admin, teacher, tutor, centre.
+
+## adult_profiles (v50)
+RLS: on · adult_profiles_owner_read (SELECT). Columns: user_id (pk), role (parent/tutor/centre), display_name, contact_name, city, qualification, subjects, status (pending/active/suspended), approved_at, created_at. Writes: server only.
+
+## link_codes (v50)
+RLS: on · link_codes_owner_read (the student's own). Columns: id, student_id, for_role, code_hash (fingerprint only), expires_at, used_at, created_at. Writes: server only.
+
+## student_links (v50)
+RLS: on · student_links_student_read, student_links_adult_read (SELECT only). Columns: id, student_id, adult_user_id, link_type, status (active/revoked), created_at, revoked_at, revoked_by. Unique (student_id, adult_user_id). Adults read a student's data only through server code that checks an ACTIVE row here.
+
+## link_attempts (v50)
+RLS: on, no policy (server only). adult_user_id, created_at; limits wrong-code guessing to 10 per hour.
