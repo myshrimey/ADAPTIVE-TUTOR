@@ -14,6 +14,8 @@ export function SiteHeader() {
   const { t } = useLanguage();
   const [signedIn, setSignedIn] = useState(false);
   const [displayName, setDisplayName] = useState<string | null>(null);
+  // Role comes from the server (/api/me); the Admin link only ever appears for an admin.
+  const [role, setRole] = useState<'admin' | 'teacher' | 'student' | 'none' | null>(null);
   const [open, setOpen] = useState<null | 'practice' | 'account' | 'mobile'>(null);
   const rowRef = useRef<HTMLDivElement>(null);
 
@@ -32,8 +34,10 @@ export function SiteHeader() {
   useEffect(() => {
     if (!signedIn) {
       setDisplayName(null);
+      setRole(null);
       return;
     }
+    fetch('/api/me').then((r) => r.json()).then((j) => setRole(j.data?.role ?? 'none')).catch(() => setRole('none'));
     fetch('/api/student/profile')
       .then((r) => r.json())
       .then((json) => {
@@ -104,6 +108,9 @@ export function SiteHeader() {
         </a>
 
         <nav className="site-header__nav" aria-label="Main">
+          {role === 'admin' && link('/admin', 'Admin')}
+          {role === 'teacher' && link('/teacher', 'Teacher area')}
+          {(role === 'admin' || role === 'teacher') ? null : <>
           {signedIn && link('/dashboard', t('nav.dashboard'))}
           {link('/learn', t('nav.learn'))}
 
@@ -137,10 +144,13 @@ export function SiteHeader() {
           {signedIn && link('/plan', t('nav.plan'))}
           {link('/progress', t('nav.progress'))}
           {signedIn && link('/report', t('nav.report'))}
+          </>}
         </nav>
 
         <div className="site-header__right">
-          <a href="/pilot" className="nav-cta">{t('nav.pilotOffer')}</a>
+          {role === 'admin' && <a href="/admin" className="nav-cta">Admin</a>}
+          {!signedIn && <a href="/teacher/register" className="nav-link">For teachers</a>}
+          {role !== 'admin' && role !== 'teacher' && <a href="/pilot" className="nav-cta">{t('nav.pilotOffer')}</a>}
           <LanguageToggle />
           {signedIn && (
             <div className="nav-menu">
@@ -158,9 +168,13 @@ export function SiteHeader() {
               {open === 'account' && (
                 <div className="nav-panel nav-panel--right nav-panel--narrow" role="menu">
                   {displayName && <p className="nav-panel__hello">{t('nav.hi', { name: displayName })}</p>}
+                  {role === 'admin' && <a href="/admin" className="nav-panel__row" role="menuitem">Admin dashboard</a>}
+                  {role === 'teacher' && <a href="/teacher" className="nav-panel__row" role="menuitem">Teacher area</a>}
+                  {role !== 'admin' && role !== 'teacher' && <>
                   <a href="/profile" className="nav-panel__row" role="menuitem">{t('nav.profile')}</a>
                   <a href="/my-data" className="nav-panel__row" role="menuitem">My data</a>
                   <a href="/dashboard" className="nav-panel__row" role="menuitem">{t('nav.dashboard')}</a>
+                  </>}
                   <button type="button" className="nav-panel__row nav-panel__row--quiet" role="menuitem" onClick={handleSignOut}>
                     {t('nav.signOut')}
                   </button>
@@ -184,6 +198,10 @@ export function SiteHeader() {
         <div className="nav-drawer">
           <div className="shell">
             {signedIn && displayName && <p className="nav-panel__hello">{t('nav.hi', { name: displayName })}</p>}
+            {role === 'admin' && <a href="/admin" className="nav-drawer__link">Admin dashboard</a>}
+            {role === 'teacher' && <a href="/teacher" className="nav-drawer__link">Teacher area</a>}
+            {!signedIn && <a href="/teacher/register" className="nav-drawer__link">For teachers</a>}
+            {role !== 'admin' && role !== 'teacher' && <>
             {signedIn && <a href="/dashboard" className="nav-drawer__link">{t('nav.dashboard')}</a>}
             <a href="/learn" className="nav-drawer__link">{t('nav.learn')}</a>
             {practice.map((i) => (
@@ -198,6 +216,7 @@ export function SiteHeader() {
             {signedIn && <a href="/profile" className="nav-drawer__link">{t('nav.profile')}</a>}
             {signedIn && <a href="/my-data" className="nav-drawer__link">My data</a>}
             <a href="/pilot" className="nav-cta nav-cta--block">{t('nav.pilotOffer')}</a>
+            </>}
             {signedIn && (
               <button type="button" className="nav-drawer__link nav-drawer__link--quiet" onClick={handleSignOut}>
                 {t('nav.signOut')}

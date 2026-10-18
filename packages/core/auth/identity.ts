@@ -60,3 +60,11 @@ export const IDENTITY_ERROR_TEXT: Record<IdentityError, string> = {
 /** Max sign-ups from one internet address in an hour, and the default for all families in a day. */
 export const SIGNUPS_PER_IP_PER_HOUR = 5;
 export const DEFAULT_DAILY_SIGNUP_CAP = 100;
+
+/** A random, easy-to-copy password (no look-alike characters such as 0/O or l/1). Runs in the browser or on the server. */
+export function generateReadablePassword(length = 10): string {
+  const chars = 'abcdefghjkmnpqrstuvwxyzACDEFGHJKLMNPQRTUVWXYZ2346789';
+  const bytes = new Uint8Array(length);
+  globalThis.crypto.getRandomValues(bytes);
+  return Array.from(bytes, (b) => chars[b % chars.length]).join('');
+}

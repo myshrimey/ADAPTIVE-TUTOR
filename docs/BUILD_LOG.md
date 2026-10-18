@@ -292,3 +292,15 @@ One entry per work session. Newest entry on top.
 ## 2026-10-18 - v46: blueprint papers + handwritten marking finished
 **Built:** (blueprint, challenge mode, paper delivery, quality check, marking logic were already in the tree) now added: migration 0023_blueprint_handwritten re-run check, API routes (`/api/handwriting/consent`, `/api/mock/[id]/sheets|evaluate|paper-report`, `/api/teacher/handwriting`), pages `/mock/paper/[id]`, `/teacher/handwriting`, `/admin/handwriting`; deletion tool now removes photos and (only if switched on) keeps a de-identified answer bank; export includes sheets and evaluations; privacy text.
 **Tested:** 33 checks of blueprint assembly, Challenge Mode, marking parser/router, agreement, image quality with real synthetic photos; 16 checks of the handwriting service against an in-memory database (marking, teacher override kept on re-run, queue shows no student info, answer bank off, photos removed); migration 0023_blueprint_handwritten re-run. **Not tested:** real Gemini image reading (no AI key here), real phone photos, real Supabase storage, browser.
+
+## 2026-10-18 - v47: sign-up tab visible, suggest-password link
+**Founder report:** the live page showed only "Sign in" with the "early access by invitation" note. Likely cause: the old `SIGNUPS_OPEN` setting in Vercel (set to false or cached). Sign-up now opens unless `SIGNUPS_CLOSED=true`; the old setting is ignored; the settings route is read on every request. Added "Suggest a strong password" link and "Show password" to the sign-up form.
+**Tested:** built and opened the home page in a real browser (headless Chromium, stubbed fonts): Sign up tab shown, suggested password filled (10 characters). **Not tested:** live Supabase sign-up.
+
+## v48 (2026-10-18) quick fixes
+- Footer text now contrasts with its background (globals.css).
+- Study plan works in Hindi (`composeStudyPlan` takes `lang`; /plan reads the language). Tested: Hindi and English notes both produced.
+- Header is role-aware: the Admin link shows only for admin accounts (role from /api/me); signed-out visitors see "For teachers". Teacher registration link is now always shown on the sign-in page.
+- New `/admin` analytics dashboard (counts only, 14-day chart); "Dashboard" is the first admin menu link; admin sign-in lands there.
+- Figures: every figure now shows a visible "Figure N. caption" label (alt text the same). Migration 0024 attaches the labelled teaching diagram to questions that point at a figure for any skill that has one (re-run twice on a scratch DB, no errors). NOT done: new drawings for apply-right-hand-thumb-rule and describe-reflex-action-pathway.
+- Not yet built (next versions): saved dated test reports (v49), separate parent/teacher/tutor/coaching-centre portals (v50), Hindi-medium mock questions for all subjects (v51).

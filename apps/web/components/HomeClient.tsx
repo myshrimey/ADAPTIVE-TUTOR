@@ -7,7 +7,7 @@ import { useLanguage } from '@/components/LanguageProvider';
 import { accessErrorMessage } from '@/lib/access-errors';
 import { FaqSection } from '@/components/FaqSection';
 import { PlanCards } from '@/components/PlanCards';
-import { validateUsername, validatePassword, validateOptionalEmail, IDENTITY_ERROR_TEXT } from '@adaptive-tutor/core';
+import { validateUsername, validatePassword, validateOptionalEmail, generateReadablePassword, IDENTITY_ERROR_TEXT } from '@adaptive-tutor/core';
 
 // Shown at sign-up. `status` mirrors subjects.status in the database (the
 // database is the real gate — registerSubject rejects anything not usable);
@@ -35,6 +35,7 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [consent, setConsent] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [website, setWebsite] = useState(''); // hidden trap field; real people leave it empty
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
@@ -93,7 +94,7 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
     // A full browser navigation (not router.push) so the freshly written sign-in cookie
     // is always sent — see the note in git history about the post-sign-in race.
     if (me?.role === 'admin') {
-      window.location.href = '/admin/students';
+      window.location.href = '/admin';
       return;
     }
     if (me?.role === 'teacher') {
@@ -353,8 +354,11 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
               </div>
 
               {!signupsOpen && mode !== 'forgot' && (
+                <p style={{ color: 'var(--slate)', fontSize: '0.9rem', marginTop: 0 }}>{t('auth.invitationNote')}</p>
+              )}
+              {mode !== 'forgot' && (
                 <p style={{ color: 'var(--slate)', fontSize: '0.9rem', marginTop: 0 }}>
-                  {t('auth.invitationNote')} <a href="/teacher/register">{t('auth.teacherRegister')}</a>
+                  <a href="/teacher/register">{t('auth.teacherRegister')}</a>
                 </p>
               )}
 
@@ -401,13 +405,23 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
                     </label>
                     <input
                       id="password"
-                      type="password"
+                      type={showPassword ? 'text' : 'password'}
                       className="field__input"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      minLength={8}
+                      minLength={mode === 'signup' ? 8 : undefined}
+                      autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}
                       required
                     />
+                    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: 6, fontSize: '0.85rem' }}>
+                      {mode === 'signup' && (
+                        <button type="button" onClick={() => { setPassword(generateReadablePassword()); setShowPassword(true); }} style={{ background: 'none', border: 'none', padding: 0, color: 'var(--ink)', textDecoration: 'underline', cursor: 'pointer', font: 'inherit' }}>
+                          Suggest a strong password
+                        </button>
+                      )}
+                      <label style={{ display: 'inline-flex', gap: 6, alignItems: 'center' }}><input type="checkbox" checked={showPassword} onChange={(e) => setShowPassword(e.target.checked)} /> Show password</label>
+                    </div>
+                    {mode === 'signup' && <span className="hero__note">At least 8 characters. If you use the suggested one, write it down before you continue.</span>}
                   </div>
 
                   {mode === 'signup' && (

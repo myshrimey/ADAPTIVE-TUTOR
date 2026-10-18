@@ -1,8 +1,8 @@
 import { DEFAULT_DAILY_SIGNUP_CAP } from '@adaptive-tutor/core';
 
-/** Self sign-up is open unless the founder sets SIGNUPS_OPEN=false in Vercel. */
+/** Self sign-up is open unless the founder sets SIGNUPS_CLOSED=true in Vercel. (The old SIGNUPS_OPEN setting is ignored on purpose.) */
 export function signupsOpen(): boolean {
-  return process.env.SIGNUPS_OPEN !== 'false';
+  return process.env.SIGNUPS_CLOSED !== 'true';
 }
 
 export function dailySignupCap(): number {

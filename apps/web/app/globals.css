@@ -33,7 +33,7 @@
   --footer-bg: #142238;
   --footer-bg-deep: #0d1829;
   --footer-ink: #f3efe4;
-  --footer-ink-soft: #b7c2d6;
+  --footer-ink-soft: #cdd6e6;
   --footer-line: rgba(255, 255, 255, 0.12);
 
   /* Type */
@@ -912,6 +912,13 @@ a {
   gap: 0.35rem;
 }
 
+.site-footer a,
+.site-footer__legal-row a {
+  color: var(--footer-ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .site-footer__list a {
   color: var(--marigold);
 }
@@ -922,13 +929,13 @@ a {
 
 .site-footer__note {
   font-size: 0.78rem;
-  color: rgba(183, 194, 214, 0.75);
+  color: #c9d3e4;
   margin: 0.5rem 0 0;
 }
 
 .site-footer__fine-print {
   font-size: 0.75rem;
-  color: rgba(183, 194, 214, 0.65);
+  color: #c0cbdd;
   margin: var(--space-3) 0 0;
   padding-top: var(--space-2);
   border-top: 1px solid var(--footer-line);
@@ -1728,4 +1735,13 @@ a {
   border-radius: 0 0.6rem 0.6rem 0;
   color: var(--ink);
   font-size: 0.92rem;
+}
+
+/* Footer: the language buttons carry inline dark colours; make them readable on the dark footer */
+.site-footer button {
+  color: var(--footer-ink) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+}
+.site-footer button[aria-pressed="true"] {
+  background: rgba(255, 255, 255, 0.18) !important;
 }

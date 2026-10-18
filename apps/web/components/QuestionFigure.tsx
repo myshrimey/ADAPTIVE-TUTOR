@@ -1,17 +1,26 @@
 // Renders a question's optional figure (a geometry diagram, a circuit, a
-// function graph, a labeled process) above its prompt. Most questions still
-// have no figure at all — this renders nothing in that case rather than an
-// empty box. The same generic-diagram approach as
-// packages/core/learning-diagrams/mapping.ts: the image is shared across
-// every question on a skill and stays non-specific (no baked-in numbers),
-// so the question's own prompt text carries the actual values for that
-// question.
-export function QuestionFigure({ url, caption }: { url: string | null | undefined; caption?: string | null }) {
+// function graph, a labeled process) above its prompt. Questions without a
+// figure render nothing. Every figure carries a visible label ("Figure" plus
+// its caption) so a diagram is never shown unlabelled, in a diagnostic, quiz,
+// mock test or printed paper. The image is shared across a skill and
+// non-specific; the question text carries the actual values.
+export function QuestionFigure({
+  url,
+  caption,
+  number,
+}: {
+  url: string | null | undefined;
+  caption?: string | null;
+  number?: number;
+}) {
   if (!url) return null;
+  const text = caption && caption.trim() ? caption.trim() : 'Diagram for this question';
   return (
-    <div className="question-figure">
-      <img src={url} alt={caption ?? 'Question figure'} className="question-figure__img" />
-      {caption && <p className="question-figure__caption">{caption}</p>}
-    </div>
+    <figure className="question-figure">
+      <img src={url} alt={`Figure${number ? ' ' + number : ''}: ${text}`} className="question-figure__img" />
+      <figcaption className="question-figure__caption">
+        <strong>Figure{number ? ' ' + number : ''}.</strong> {text}
+      </figcaption>
+    </figure>
   );
 }
