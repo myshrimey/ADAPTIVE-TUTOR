@@ -8,7 +8,7 @@ import { QuestionFigure } from '@/components/QuestionFigure';
 // Steps: 1 print or save as PDF  2 sit it on paper  3 type the objective answers  4 photograph the written pages  5 marks.
 // The answer key is never on this page.
 
-interface PQ { no: number; id: string; prompt: string; questionType: 'mcq' | 'short_answer' | 'numeric'; options: string[] | null; figureUrl: string | null; figureCaption: string | null; marks: number }
+interface PQ { no: number; id: string; prompt: string; questionType: 'mcq' | 'short_answer' | 'numeric'; options: string[] | null; optionLabels?: string[] | null; figureUrl: string | null; figureCaption: string | null; marks: number }
 interface Paper { id: string; subjectName: string; title: string; challenge: boolean; status: 'in_progress' | 'submitted'; durationMinutes: number; totalMarks: number; blueprintMarks: number; complete: boolean; issues: string[]; basis: string; sections: { id: string; name: string; marksPerQuestion: number; questions: PQ[] }[]; answers: Record<string, string> }
 interface Report { autoScore: number; autoTotal: number; writtenScore: number; writtenTotalMarked: number; writtenTotalAll: number; waitingForTeacher: number; unreadable: number; pendingNotMarked: number; items: { questionNo: number; maxScore: number; score: number | null; status: string; feedback: string | null; teacherNote: string | null }[]; complete: boolean; note: string }
 interface Consent { given: boolean; current: boolean; bankAvailable: boolean; bank: boolean }
@@ -141,7 +141,7 @@ export default function PaperPage({ params }: { params: Promise<{ id: string }> 
               <div className="paper-q" key={q.id}>
                 <div><strong>{q.no}.</strong> <MathText text={q.prompt} /> <span style={{ float: 'right' }}>[{q.marks}]</span></div>
                 {q.figureUrl && <QuestionFigure url={q.figureUrl} caption={q.figureCaption} />}
-                {q.options && <ol type="A" style={{ margin: '.3rem 0 0 1.4rem' }}>{q.options.map((o, i) => <li key={i}><MathText text={o} /></li>)}</ol>}
+                {q.options && <ol type="A" style={{ margin: '.3rem 0 0 1.4rem' }}>{(q.optionLabels ?? q.options).map((o, i) => <li key={i}><MathText text={o} /></li>)}</ol>}
                 {q.questionType === 'short_answer' && <div className="paper-lines">{Array.from({ length: Math.min(6, 2 + q.marks) }).map((_, i) => <div key={i} />)}</div>}
               </div>
             ))}

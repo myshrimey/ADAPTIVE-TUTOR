@@ -2,6 +2,8 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import { assemblePaper, blueprintFor, type AssembledPaper, type PoolQuestion, type QType } from '../blueprint/blueprint';
 import { defaultMarks, getMockExam, type MockExamView } from './mock-exam.service';
 import { isUsableSubjectStatus } from '../subjects/subject.service';
+import { loadHindi, ensureHindiTranslations, HINDI_MEDIUM_EXCLUDED_SUBJECTS } from '../translation/hindi';
+import type { AIProvider } from '../ai-provider/ai-provider.interface';
 
 // Blueprint papers (v45): assembled by section from the question bank (see blueprint/blueprint.ts), either answered on screen
 // like any other mock, or printed and written on paper ("paper" delivery: self-timed, then answers typed in and photos uploaded).
@@ -17,6 +19,7 @@ export interface PaperQuestionView {
   prompt: string;
   questionType: QType;
   options: string[] | null;
+  optionLabels?: string[] | null;
   figureUrl: string | null;
   figureCaption: string | null;
   marks: number;
@@ -29,6 +32,7 @@ export interface PaperView {
   challenge: boolean;
   status: 'in_progress' | 'submitted';
   delivery: 'screen' | 'paper';
+  language?: 'en' | 'hi';
   durationMinutes: number;
   totalMarks: number;
   blueprintMarks: number;
@@ -74,22 +78,23 @@ export async function startBlueprintPaper(
   service: SupabaseClient,
   studentId: string,
   subjectId: string,
-  opts: { challenge?: boolean; delivery?: 'screen' | 'paper' } = {}
+  opts: { challenge?: boolean; delivery?: 'screen' | 'paper'; language?: 'en' | 'hi'; ai?: AIProvider } = {}
 ): Promise<MockExamView> {
   const delivery = opts.delivery === 'paper' ? 'paper' : 'screen';
   const challenge = !!opts.challenge;
   const { data: subject } = await service.from('subjects').select('id, slug, name, status').eq('id', subjectId).single();
   if (!subject) throw new Error('subject_not_found');
   if (!isUsableSubjectStatus(subject.status)) throw new Error('subject_not_available');
+  const language: 'en' | 'hi' = opts.language === 'hi' && !HINDI_MEDIUM_EXCLUDED_SUBJECTS.includes(subject.slug) ? 'hi' : 'en';
 
   // Resume an unexpired paper of the same shape instead of making a second one.
   const { data: open } = await service
     .from('mock_exams')
-    .select('id, deadline_at, delivery, challenge')
+    .select('id, deadline_at, delivery, challenge, language')
     .eq('student_id', studentId).eq('subject_id', subjectId).eq('status', 'in_progress').eq('kind', 'blueprint')
     .order('started_at', { ascending: false });
   for (const ex of open ?? []) {
-    if (new Date(ex.deadline_at).getTime() > Date.now() && ex.delivery === delivery && !!ex.challenge === challenge) return getMockExam(service, studentId, ex.id);
+    if (new Date(ex.deadline_at).getTime() > Date.now() && ex.delivery === delivery && !!ex.challenge === challenge && (ex.language ?? 'en') === language) return getMockExam(service, studentId, ex.id);
   }
 
   const bp = blueprintFor(subject.slug);
@@ -99,12 +104,13 @@ export async function startBlueprintPaper(
 
   const ids = paper.sections.flatMap((s) => s.questions.map((q) => q.id));
   const layout = paper.sections.filter((s) => s.questions.length > 0).map((s) => ({ id: s.section.id, name: s.section.name, marksPerQuestion: s.section.marksPerQuestion, questionIds: s.questions.map((q) => q.id) }));
+  if (language === 'hi' && opts.ai) await ensureHindiTranslations(service, opts.ai, ids);
   const deadline = new Date(Date.now() + paper.durationMinutes * 60_000 + (delivery === 'paper' ? PAPER_SIT_WINDOW_HOURS * 3600_000 : 0)).toISOString();
   const { data: created, error } = await service
     .from('mock_exams')
     .insert({
       student_id: studentId, subject_id: subjectId, kind: 'blueprint', delivery, challenge, blueprint_id: bp.id,
-      duration_minutes: paper.durationMinutes, question_ids: ids, deadline_at: deadline, paper_layout: layout, validation: paper.validation,
+      duration_minutes: paper.durationMinutes, language, question_ids: ids, deadline_at: deadline, paper_layout: layout, validation: paper.validation,
     })
     .select('id')
     .single();
@@ -124,6 +130,7 @@ export async function getPaperView(service: SupabaseClient, studentId: string, e
     .in('id', ids.length ? ids : ['00000000-0000-0000-0000-000000000000']);
   if (error) throw error;
   const byId = new Map((rows ?? []).map((q: any) => [q.id, q]));
+  const hi = ex.language === 'hi' ? await loadHindi(service, ids) : new Map();
   let no = 0;
   const sections: PaperSectionView[] = layout.map((s) => ({
     id: s.id,
@@ -135,9 +142,10 @@ export async function getPaperView(service: SupabaseClient, studentId: string, e
       .map((q: any) => ({
         no: ++no,
         id: q.id,
-        prompt: q.prompt,
+        prompt: hi.get(q.id)?.prompt ?? q.prompt,
         questionType: q.question_type,
         options: q.options ?? null,
+        optionLabels: hi.get(q.id)?.options && q.options && hi.get(q.id)!.options!.length === q.options.length ? hi.get(q.id)!.options : null,
         figureUrl: q.figure_url ?? null,
         figureCaption: q.figure_caption ?? null,
         marks: q.marks ?? defaultMarks(q.question_type),
@@ -152,6 +160,7 @@ export async function getPaperView(service: SupabaseClient, studentId: string, e
     challenge: !!ex.challenge,
     status: ex.status,
     delivery: ex.delivery,
+    language: ex.language === 'hi' ? 'hi' : 'en',
     durationMinutes: ex.duration_minutes,
     totalMarks: v.totalMarks ?? sections.reduce((a, s) => a + s.questions.reduce((m, q) => m + q.marks, 0), 0),
     blueprintMarks: v.blueprintMarks ?? bp.totalMarks,

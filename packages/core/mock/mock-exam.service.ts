@@ -1,4 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { loadHindi, ensureHindiTranslations, HINDI_MEDIUM_EXCLUDED_SUBJECTS, hasDevanagari } from '../translation/hindi';
+import type { AIProvider } from '../ai-provider/ai-provider.interface';
 import { gradeAnswer, extractString } from '../question-engine/grading';
 import { isUsableSubjectStatus } from '../subjects/subject.service';
 
@@ -41,6 +43,8 @@ export interface MockQuestionView {
   prompt: string;
   questionType: 'mcq' | 'short_answer' | 'numeric';
   options: string[] | null;
+  /** Hindi medium: the options as shown, in the same order as `options`. The student's choice is still stored as the English `options` value. */
+  optionLabels?: string[] | null;
   figureUrl: string | null;
   figureCaption: string | null;
   marks: number | null; // shown on board-style papers only
@@ -99,6 +103,9 @@ export interface MockExamView {
   serverNow: string;
   delivery?: 'screen' | 'paper';
   challenge?: boolean;
+  language?: 'en' | 'hi';
+  /** Hindi medium: how many questions are still shown in English because their Hindi is not ready. */
+  untranslated?: number;
   questions: MockQuestionView[]; // empty once submitted (the review has them)
   answers: Record<string, string>;
   result: MockResult | null;
@@ -155,26 +162,34 @@ function cleanAnswers(raw: unknown, allowedIds: Set<string>): Record<string, str
   return out;
 }
 
-async function loadQuestionViews(service: SupabaseClient, ids: string[], showMarks: boolean): Promise<MockQuestionView[]> {
-  if (ids.length === 0) return [];
+async function loadQuestionViews(service: SupabaseClient, ids: string[], showMarks: boolean, language: 'en' | 'hi' = 'en'): Promise<{ views: MockQuestionView[]; untranslated: number }> {
+  if (ids.length === 0) return { views: [], untranslated: 0 };
   const { data, error } = await service
     .from('diagnostic_questions')
     .select('id, prompt, question_type, options, figure_url, figure_caption, marks')
     .in('id', ids);
   if (error) throw error;
   const byId = new Map((data ?? []).map((q: any) => [q.id, q]));
-  return ids
+  const hi = language === 'hi' ? await loadHindi(service, ids) : new Map();
+  let untranslated = 0;
+  const views = ids
     .map((id) => byId.get(id))
     .filter(Boolean)
-    .map((q: any) => ({
-      id: q.id,
-      prompt: q.prompt,
-      questionType: q.question_type,
-      options: q.options ?? null,
-      figureUrl: q.figure_url ?? null,
-      figureCaption: q.figure_caption ?? null,
-      marks: showMarks ? (q.marks ?? defaultMarks(q.question_type)) : null,
-    }));
+    .map((q: any) => {
+      const tr = hi.get(q.id);
+      if (language === 'hi' && !tr && !hasDevanagari(q.prompt)) untranslated++;
+      return {
+        id: q.id,
+        prompt: tr?.prompt ?? q.prompt,
+        questionType: q.question_type,
+        options: q.options ?? null,
+        optionLabels: tr?.options && q.options && tr.options.length === q.options.length ? tr.options : null,
+        figureUrl: q.figure_url ?? null,
+        figureCaption: q.figure_caption ?? null,
+        marks: showMarks ? (q.marks ?? defaultMarks(q.question_type)) : null,
+      } as MockQuestionView;
+    });
+  return { views, untranslated };
 }
 
 /** Grade and store an in-progress exam. Safe to call twice: the second call returns the stored result. */
@@ -186,6 +201,7 @@ async function finalise(service: SupabaseClient, studentId: string, exam: any, a
     .in('id', ids);
   if (error) throw error;
   const byId = new Map((rows ?? []).map((q: any) => [q.id, q]));
+  const hiTr = exam.language === 'hi' ? await loadHindi(service, ids) : new Map();
 
   const review: MockReviewEntry[] = [];
   const chapterTotals = new Map<string, { correct: number; total: number }>();
@@ -203,7 +219,9 @@ async function finalise(service: SupabaseClient, studentId: string, exam: any, a
     const marks = inMarks ? (q.marks ?? defaultMarks(q.question_type)) : 1;
     // On a paper mock, written (short-answer) questions are marked from photos, not from typed text.
     const pending = paper && q.question_type === 'short_answer';
-    const isCorrect = !pending && answered && gradeAnswer(q.expected_answer, given);
+    const tr = hiTr.get(id);
+    // Marking always uses the English answer key. A Hindi short answer is also accepted when we hold its Hindi answer.
+    const isCorrect = !pending && answered && (gradeAnswer(q.expected_answer, given) || (q.question_type === 'short_answer' && !!tr?.answerText && gradeAnswer(tr.answerText, given)));
     if (pending) pendingWritten.push({ questionId: id, marks });
     else if (!answered) unanswered++;
     if (!pending) totalMarks += marks;
@@ -213,18 +231,22 @@ async function finalise(service: SupabaseClient, studentId: string, exam: any, a
     if (!pending) ct.total += marks;
     if (isCorrect) ct.correct += marks;
     chapterTotals.set(chapter, ct);
+    // Hindi medium: show the Hindi wording; the student's choice and the key are matched by option position.
+    const engOpts: string[] | null = Array.isArray(q.options) ? q.options : null;
+    const hiOpts = tr?.options && engOpts && tr.options.length === engOpts.length ? tr.options : null;
+    const shown = (v: string) => { const i = hiOpts && engOpts ? engOpts.indexOf(v) : -1; return i >= 0 && hiOpts ? hiOpts[i] : v; };
     review.push({
       questionId: id,
-      prompt: q.prompt,
+      prompt: tr?.prompt ?? q.prompt,
       questionType: q.question_type,
-      options: q.options ?? null,
+      options: hiOpts ?? q.options ?? null,
       chapter,
-      yourAnswer: given,
-      correctAnswer: extractString(q.expected_answer),
+      yourAnswer: shown(given),
+      correctAnswer: shown(extractString(q.expected_answer)),
       answered,
       isCorrect,
       pendingHandwritten: pending || undefined,
-      explanation: q.explanation ?? null,
+      explanation: tr?.explanation ?? q.explanation ?? null,
       figureUrl: q.figure_url ?? null,
       figureCaption: q.figure_caption ?? null,
       marks,
@@ -279,13 +301,15 @@ export async function startMockExam(
   service: SupabaseClient,
   studentId: string,
   subjectId: string,
-  opts: { kind?: MockKind; chapterId?: string | null } = {}
+  opts: { kind?: MockKind; chapterId?: string | null; language?: 'en' | 'hi'; ai?: AIProvider } = {}
 ): Promise<MockExamView> {
   const kind: MockKind = opts.kind && MOCK_KINDS.includes(opts.kind) ? opts.kind : 'full_mock';
   const chapterId = kind === 'chapter_check' ? opts.chapterId ?? null : null;
   if (kind === 'chapter_check' && !chapterId) throw new Error('chapter_required');
-  const { data: subject } = await service.from('subjects').select('id, name, status').eq('id', subjectId).single();
+  const { data: subject } = await service.from('subjects').select('id, name, status, slug').eq('id', subjectId).single();
   if (!subject) throw new Error('subject_not_found');
+  // Hindi medium applies to subjects that are taught in English; language subjects stay as they are.
+  const language: 'en' | 'hi' = opts.language === 'hi' && !HINDI_MEDIUM_EXCLUDED_SUBJECTS.includes((subject as any).slug) ? 'hi' : 'en';
   if (!isUsableSubjectStatus(subject.status)) throw new Error('subject_not_available');
 
   const { data: open } = await service
@@ -297,7 +321,7 @@ export async function startMockExam(
     .order('started_at', { ascending: false });
   for (const ex of open ?? []) {
     // Resume only the same kind of paper (and chapter); a different one starts fresh.
-    if (new Date(ex.deadline_at).getTime() > Date.now() && (ex.kind ?? 'full_mock') === kind && (ex.chapter_id ?? null) === chapterId) return getMockExam(service, studentId, ex.id);
+    if (new Date(ex.deadline_at).getTime() > Date.now() && (ex.kind ?? 'full_mock') === kind && (ex.chapter_id ?? null) === chapterId && (ex.language ?? 'en') === language) return getMockExam(service, studentId, ex.id);
     if (new Date(ex.deadline_at).getTime() > Date.now()) continue;
     await finalise(service, studentId, ex, cleanAnswers(ex.answers, new Set(ex.question_ids ?? [])), true);
   }
@@ -334,10 +358,12 @@ export async function startMockExam(
     kind === 'board_style'
       ? Math.max(15, Math.ceil((picked.reduce((a, p) => a + p.seconds, 0) / 60) * 1.2))
       : Math.max(5, Math.ceil(picked.length * MINUTES_PER_QUESTION));
+  // Hindi medium: get the Hindi ready BEFORE the clock starts, so translation time is not taken from the student.
+  if (language === 'hi' && opts.ai) await ensureHindiTranslations(service, opts.ai, picked.map((p) => p.id));
   const deadline = new Date(Date.now() + duration * 60_000).toISOString();
   const { data: created, error: cErr } = await service
     .from('mock_exams')
-    .insert({ student_id: studentId, subject_id: subjectId, kind, chapter_id: chapterId, duration_minutes: duration, question_ids: picked.map((p) => p.id), deadline_at: deadline })
+    .insert({ student_id: studentId, subject_id: subjectId, kind, chapter_id: chapterId, duration_minutes: duration, question_ids: picked.map((p) => p.id), deadline_at: deadline, language })
     .select('id')
     .single();
   if (cErr || !created) throw cErr ?? new Error('mock_create_failed');
@@ -362,7 +388,9 @@ export async function getMockExam(service: SupabaseClient, studentId: string, ex
   }
 
   const inProgress = exam.status === 'in_progress';
-  const questions = inProgress ? await loadQuestionViews(service, exam.question_ids ?? [], isMarksKind(exam.kind)) : [];
+  const language: 'en' | 'hi' = exam.language === 'hi' ? 'hi' : 'en';
+  const loaded = inProgress ? await loadQuestionViews(service, exam.question_ids ?? [], isMarksKind(exam.kind), language) : { views: [] as MockQuestionView[], untranslated: 0 };
+  const questions = loaded.views;
   const view: MockExamView = {
     id: exam.id,
     subjectId: exam.subject_id,
@@ -371,6 +399,8 @@ export async function getMockExam(service: SupabaseClient, studentId: string, ex
     kind: (exam.kind ?? 'full_mock') as MockKind,
     delivery: (exam.delivery ?? 'screen') as 'screen' | 'paper',
     challenge: !!exam.challenge,
+    language,
+    untranslated: language === 'hi' ? loaded.untranslated : 0,
     chapterName: exam.chapters?.name ?? null,
     totalMarks: null as number | null,
     durationMinutes: exam.duration_minutes,

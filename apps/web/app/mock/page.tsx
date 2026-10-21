@@ -26,6 +26,7 @@ interface QView {
   prompt: string;
   questionType: 'mcq' | 'short_answer' | 'numeric';
   options: string[] | null;
+  optionLabels?: string[] | null;
   figureUrl: string | null;
   figureCaption: string | null;
   marks?: number | null;
@@ -61,6 +62,8 @@ interface Exam {
   kind?: Kind;
   chapterName?: string | null;
   totalMarks?: number | null;
+  language?: 'en' | 'hi';
+  untranslated?: number;
   deadlineAt: string;
   serverNow: string;
   questions: QView[];
@@ -74,7 +77,7 @@ function fmt(sec: number) {
 }
 
 export default function MockPage() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const tt = t as (k: string, v?: Record<string, string | number>) => string;
 
   const [subjects, setSubjects] = useState<SubjectOpt[] | null>(null);
@@ -88,6 +91,7 @@ export default function MockPage() {
   const [saveState, setSaveState] = useState<'idle' | 'saved' | 'failed'>('idle');
   const [autoNote, setAutoNote] = useState(false);
   const [kind, setKind] = useState<Kind>('full_mock');
+  const [medium, setMedium] = useState<'en' | 'hi'>(lang === 'hi' ? 'hi' : 'en');
   const [chapters, setChapters] = useState<{ id: string; name: string }[]>([]);
   const [chapterId, setChapterId] = useState('');
   const [delivery, setDelivery] = useState<'screen' | 'paper'>('paper');
@@ -143,7 +147,7 @@ export default function MockPage() {
     setError(null);
     setResult(null);
     try {
-      const res = await fetch('/api/mock/start', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ subjectId, kind, chapterId: kind === 'chapter_check' ? chapterId : undefined, delivery: kind === 'blueprint' ? delivery : undefined, challenge: kind === 'blueprint' ? challenge : undefined }) });
+      const res = await fetch('/api/mock/start', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ subjectId, kind, chapterId: kind === 'chapter_check' ? chapterId : undefined, delivery: kind === 'blueprint' ? delivery : undefined, challenge: kind === 'blueprint' ? challenge : undefined, language: medium }) });
       const json = await res.json();
       if (json.error) throw new Error(json.error);
       if (kind === 'blueprint' && delivery === 'paper') { window.location.href = `/mock/paper/${json.data.id}`; return; }
@@ -337,6 +341,7 @@ export default function MockPage() {
             {saveState === 'failed' && tt('mock.saveFailed')}
           </div>
 
+          {exam.language === 'hi' && (exam.untranslated ?? 0) > 0 && <p style={{ color: 'var(--slate)', fontSize: '0.88rem' }}>{exam.untranslated} question(s) are shown in English because their Hindi is not ready yet.</p>}
           {exam.questions.map((q, i) => (
             <div key={q.id} style={{ padding: '0.9rem 0', borderBottom: '1px solid var(--line, #eee)' }}>
               <div style={{ fontSize: '0.8rem', color: 'var(--slate)' }}>{tt('mock.question', { n: i + 1 })}{q.marks ? ` · ${q.marks} ${q.marks === 1 ? 'mark' : 'marks'}` : ''}</div>
@@ -346,10 +351,10 @@ export default function MockPage() {
               </p>
               {q.questionType === 'mcq' && q.options ? (
                 <div className="mcq-options">
-                  {q.options.map((opt) => (
+                  {q.options.map((opt, oi) => (
                     <label key={opt} className="mcq-option">
                       <input type="radio" name={`q-${q.id}`} value={opt} checked={answers[q.id] === opt} onChange={() => setAnswer(q.id, opt)} />
-                      {opt}
+                      {q.optionLabels?.[oi] ?? opt}
                     </label>
                   ))}
                 </div>
@@ -412,6 +417,12 @@ export default function MockPage() {
                 <label style={{ display: 'flex', gap: '0.5rem', margin: '0.6rem 0 0' }}><input type="checkbox" checked={challenge} onChange={(e) => setChallenge(e.target.checked)} /> <span><strong>Challenge Mode</strong>: more application questions, more difficult ones and about 10% less time. Practice only; it is not a claim about how hard the board paper is.</span></label>
               </div>
             )}
+            <div className="field">
+              <span className="field__label">Language of the questions</span>
+              <label style={{ display: 'flex', gap: '0.5rem', margin: '0.3rem 0' }}><input type="radio" name="mock-medium" checked={medium === 'en'} onChange={() => setMedium('en')} /> <span>English</span></label>
+              <label style={{ display: 'flex', gap: '0.5rem', margin: '0.3rem 0' }}><input type="radio" name="mock-medium" checked={medium === 'hi'} onChange={() => setMedium('hi')} /> <span>हिंदी (Hindi medium). Starting may take up to a minute the first time while the Hindi is prepared.</span></label>
+              {medium === 'hi' && <span style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>Hindi questions are translated by AI and are being checked by teachers. Numbers and formulas stay the same. English, Hindi A and Hindi B papers always stay in their own language. If a question looks wrong, tell us using the feedback button.</span>}
+            </div>
             {kind === 'chapter_check' && (
               <div className="field">
                 <label className="field__label" htmlFor="mock-chapter">Chapter</label>
