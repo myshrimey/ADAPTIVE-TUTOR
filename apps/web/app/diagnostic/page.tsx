@@ -321,7 +321,7 @@ export default function DiagnosticPage() {
                   {question.options.map((opt) => (
                     <label key={opt} className="mcq-option">
                       <input type="radio" name="answer" value={opt} checked={answer === opt} onChange={() => setAnswer(opt)} />
-                      {opt}
+                      <MathText text={opt} />
                     </label>
                   ))}
                 </div>

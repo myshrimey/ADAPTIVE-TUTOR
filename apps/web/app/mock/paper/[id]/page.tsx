@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { MathText } from '@/components/MathText';
 import { QuestionFigure } from '@/components/QuestionFigure';
+import { PrintButton } from '@/components/reports/PrintButton';
 
 // Board-pattern paper that is PRINTED and written on paper (v46).
 // Steps: 1 print or save as PDF  2 sit it on paper  3 type the objective answers  4 photograph the written pages  5 marks.
@@ -124,7 +125,7 @@ export default function PaperPage({ params }: { params: Promise<{ id: string }> 
         </ol>
         {!paper.complete && paper.issues.length > 0 && <p style={{ color: 'var(--slate)', fontSize: '0.9rem' }}>Note: {paper.issues.join(' ')}</p>}
         <p style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>{paper.basis}</p>
-        <p><button className="btn btn--accent" onClick={() => window.print()}>Print or save as PDF</button> <a className="btn btn--ghost" href="/mock">Back</a></p>
+        <p><PrintButton fileName="sahayak-mock-paper" /> <a className="btn btn--ghost" href="/mock">Back</a></p>
       </div>
 
       <article className="paper-sheet" aria-label="Question paper">

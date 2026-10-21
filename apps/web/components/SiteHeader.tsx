@@ -107,7 +107,7 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="shell site-header__row" ref={rowRef}>
         <a href="/" className="wordmark">
-          <span className="wordmark__mark">∠</span>Sahayak
+          <img src="/logo-mark.png" alt="" className="wordmark__img" width={34} height={34} />Sahayak
         </a>
 
         <nav className="site-header__nav" aria-label="Main">

@@ -360,7 +360,7 @@ export default function LearnPage() {
                     {q.options.map((opt) => (
                       <label key={opt} className="mcq-option">
                         <input type="radio" name="quiz-answer" value={opt} checked={quizInput === opt} onChange={() => setQuizInput(opt)} />
-                        {opt}
+                        <MathText text={opt} />
                       </label>
                     ))}
                   </div>
@@ -587,7 +587,7 @@ export default function LearnPage() {
               {activeQuestion.options.map((opt) => (
                 <label key={opt} className="mcq-option">
                   <input type="radio" name="mcq-answer" value={opt} checked={input === opt} onChange={() => setInput(opt)} />
-                  {opt}
+                  <MathText text={opt} />
                 </label>
               ))}
             </div>

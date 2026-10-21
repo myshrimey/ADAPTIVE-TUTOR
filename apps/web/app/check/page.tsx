@@ -100,7 +100,7 @@ export default function CheckPage() {
                     {q.options.map((opt) => (
                       <label key={opt} className="mcq-option">
                         <input type="radio" name={`q-${q.id}`} value={opt} checked={answers[q.id] === opt} onChange={() => setAnswers((a) => ({ ...a, [q.id]: opt }))} />
-                        {opt}
+                        <MathText text={opt} />
                       </label>
                     ))}
                   </div>

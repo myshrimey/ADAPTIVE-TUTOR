@@ -31,6 +31,8 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata = {
   title: 'Sahayak — Adaptive CBSE Class 10 Tutor',
+  icons: { icon: [{ url: '/icon-32.png', sizes: '32x32' }, { url: '/icon-192.png', sizes: '192x192' }], apple: '/apple-touch-icon.png' },
+  openGraph: { title: 'Sahayak — Measure Your Growth, Master Your Subjects', images: [{ url: '/logo.png' }] },
   description: 'CBSE Class 10 board preparation: find learning gaps, practise with a personalised plan, and track progress toward the 2027 board exams.',
 };
 

@@ -2,6 +2,7 @@
 
 import katex from 'katex';
 import { useMemo } from 'react';
+import { formatMath } from '@adaptive-tutor/core';
 
 // Renders text that may contain inline ($...$) or block ($$...$$) LaTeX
 // alongside plain prose — used anywhere the tutor's message or a question
@@ -19,7 +20,7 @@ import { useMemo } from 'react';
 // malformed or unanticipated expression should never blank out the rest of
 // a tutor's message.
 export function MathText({ text }: { text: string }) {
-  const segments = useMemo(() => splitMath(text), [text]);
+  const segments = useMemo(() => formatMath(String(text ?? '')), [text]);
   return (
     <>
       {segments.map((seg, i) =>
@@ -36,7 +37,7 @@ export function MathText({ text }: { text: string }) {
 function MathSpan({ latex, block }: { latex: string; block: boolean }) {
   const html = useMemo(() => {
     try {
-      return katex.renderToString(toLatexish(latex), { throwOnError: false, displayMode: block });
+      return katex.renderToString(latex, { throwOnError: false, displayMode: block });
     } catch {
       return null;
     }
@@ -52,49 +53,4 @@ function MathSpan({ latex, block }: { latex: string; block: boolean }) {
   ) : (
     <span dangerouslySetInnerHTML={{ __html: html }} />
   );
-}
-
-type Segment = { type: 'text' | 'inline' | 'block'; content: string };
-
-// Splits on $$...$$ first (block), then $...$ (inline), leaving everything
-// else as plain text. Unmatched/stray "$" (e.g. a price like "$5") is left
-// as literal text rather than misparsed — only a closed pair is treated as
-// math.
-function splitMath(text: string): Segment[] {
-  const segments: Segment[] = [];
-  const pattern = /\$\$([^$]+?)\$\$|\$([^$\n]+?)\$/g;
-  let lastIndex = 0;
-  let match: RegExpExecArray | null;
-
-  while ((match = pattern.exec(text)) !== null) {
-    if (match.index > lastIndex) {
-      segments.push({ type: 'text', content: text.slice(lastIndex, match.index) });
-    }
-    if (match[1] !== undefined) {
-      segments.push({ type: 'block', content: match[1] });
-    } else {
-      segments.push({ type: 'inline', content: match[2] });
-    }
-    lastIndex = match.index + match[0].length;
-  }
-  if (lastIndex < text.length) {
-    segments.push({ type: 'text', content: text.slice(lastIndex) });
-  }
-  return segments.length > 0 ? segments : [{ type: 'text', content: text }];
-}
-
-// Upgrades the plain-text math notation already present in the CBSE seed
-// content into LaTeX KaTeX can render. Deliberately narrow — only the
-// patterns actually seen in the seed JSON, not a general math parser.
-function toLatexish(src: string): string {
-  return src
-    .replace(/√(\d+|\([^)]+\))/g, (_m, inner) => `\\sqrt{${inner.replace(/[()]/g, '')}}`)
-    .replace(/×/g, '\\times ')
-    .replace(/÷/g, '\\div ')
-    .replace(/≤/g, '\\le ')
-    .replace(/≥/g, '\\ge ')
-    .replace(/≠/g, '\\ne ')
-    .replace(/π/g, '\\pi ')
-    .replace(/²/g, '^2')
-    .replace(/³/g, '^3');
 }

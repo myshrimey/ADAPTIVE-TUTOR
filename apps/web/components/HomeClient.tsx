@@ -39,6 +39,8 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
   const [website, setWebsite] = useState(''); // hidden trap field; real people leave it empty
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
+  const [addParent, setAddParent] = useState(false);
+  const [parentF, setParentF] = useState({ displayName: '', username: '', password: '', email: '' });
   const [chosenSubjects, setChosenSubjects] = useState<string[]>(['maths']);
   const [examYear, setExamYear] = useState<number>(2027);
   const [prefLanguage, setPrefLanguage] = useState<'en' | 'hi'>('en');
@@ -132,12 +134,19 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
     resetMessages();
     const bad = validateUsername(username) ?? validatePassword(password, username) ?? validateOptionalEmail(email);
     if (bad) { setError(IDENTITY_ERROR_TEXT[bad]); return; }
+    if (addParent) {
+      const pBad = validateUsername(parentF.username) ?? validatePassword(parentF.password, parentF.username) ?? validateOptionalEmail(parentF.email);
+      if (pBad) { setError('Parent account: ' + IDENTITY_ERROR_TEXT[pBad]); return; }
+      if (!parentF.displayName.trim()) { setError("Please enter the parent's name."); return; }
+    }
     if (!consent) { setError('Please tick the box to confirm a parent or guardian agrees.'); return; }
     setSubmitting(true);
-    const res = await fetch('/api/auth/register', {
+    const res = await fetch(addParent ? '/api/auth/register-family' : '/api/auth/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password, email: email.trim(), displayName, consent, website }),
+      body: JSON.stringify(addParent
+        ? { student: { username, password, email: email.trim(), displayName }, parent: { ...parentF, email: parentF.email.trim() }, consent, website }
+        : { username, password, email: email.trim(), displayName, consent, website }),
     });
     const json = await res.json().catch(() => ({ error: 'register_failed' }));
     if (json.error) {
@@ -222,6 +231,7 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
       <div className="shell">
         {!hideMarketing && (
         <section className="hero hero-banner">
+          <img src="/logo.png" alt="Sahayak — Measure Your Growth, Master Your Subjects" className="brand-logo" width={120} height={151} />
           <p className="hero__eyebrow">CBSE Class 10 · Board Preparation 2027</p>
           <h1>How ready is your child for CBSE Class X 2027?</h1>
           <p className="hero__lede">
@@ -436,6 +446,19 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
                         <input id="optEmail" type="email" className="field__input" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <span className="hero__note">Only needed if you want to reset a forgotten password yourself. Without an email, we can reset it for you if you contact us.</span>
                       </div>
+                      <label style={{ display: 'flex', gap: 8, alignItems: 'flex-start', fontSize: '0.92rem', marginBottom: 'var(--space-2)' }}>
+                        <input type="checkbox" checked={addParent} onChange={(e) => setAddParent(e.target.checked)} style={{ marginTop: 4 }} />
+                        <span><strong>Also create the parent&apos;s account now.</strong> It is linked to this student automatically and the parent sees the test reports straight away. The student can stop the sharing later on the Sharing page.</span>
+                      </label>
+                      {addParent && (
+                        <fieldset style={{ border: '1px solid var(--line)', borderRadius: 8, padding: '0.7rem', marginBottom: 'var(--space-2)' }}>
+                          <legend style={{ padding: '0 0.4rem' }}>Parent account</legend>
+                          <div className="field"><label className="field__label" htmlFor="pfName">Parent&apos;s name</label><input id="pfName" className="field__input" value={parentF.displayName} onChange={(e) => setParentF({ ...parentF, displayName: e.target.value })} required /></div>
+                          <div className="field"><label className="field__label" htmlFor="pfUser">Parent&apos;s username</label><input id="pfUser" className="field__input" value={parentF.username} onChange={(e) => setParentF({ ...parentF, username: e.target.value })} autoCapitalize="none" autoCorrect="off" spellCheck={false} maxLength={20} required /></div>
+                          <div className="field"><label className="field__label" htmlFor="pfPass">Parent&apos;s password (at least 8 characters)</label><input id="pfPass" type={showPassword ? 'text' : 'password'} className="field__input" value={parentF.password} onChange={(e) => setParentF({ ...parentF, password: e.target.value })} autoComplete="new-password" required /></div>
+                          <div className="field"><label className="field__label" htmlFor="pfMail">Parent&apos;s email (optional)</label><input id="pfMail" type="email" className="field__input" value={parentF.email} onChange={(e) => setParentF({ ...parentF, email: e.target.value })} /></div>
+                        </fieldset>
+                      )}
                       <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', height: 0, overflow: 'hidden' }}>
                         <label>Website <input tabIndex={-1} autoComplete="off" value={website} onChange={(e) => setWebsite(e.target.value)} /></label>
                       </div>

@@ -354,7 +354,7 @@ export default function MockPage() {
                   {q.options.map((opt, oi) => (
                     <label key={opt} className="mcq-option">
                       <input type="radio" name={`q-${q.id}`} value={opt} checked={answers[q.id] === opt} onChange={() => setAnswer(q.id, opt)} />
-                      {q.optionLabels?.[oi] ?? opt}
+                      <MathText text={q.optionLabels?.[oi] ?? opt} />
                     </label>
                   ))}
                 </div>

@@ -4,6 +4,7 @@ import { logEvent, buildParentReport, formatReportForWhatsApp, bandForScore, t }
 import { getServerLang } from '@/lib/language';
 import { MasteryArc } from '@/components/MasteryArc';
 import { ConfidenceChart } from '@/components/ConfidenceChart';
+import { PrintButton } from '@/components/reports/PrintButton';
 import { ReportExtras } from '@/components/ReportExtras';
 
 // Parent-facing progress summary. Built only from real mastery/diagnostic
@@ -31,6 +32,7 @@ export default async function ReportPage() {
       <div className="shell">
         <div style={{ paddingTop: 'var(--space-4)' }}>
           <h1 style={{ fontSize: 'var(--step-3)' }}>{t('report.title', lang)}</h1>
+          <PrintButton fileName="sahayak-progress-report" />
           <p style={{ color: 'var(--slate)' }}>{t('report.noGuarantee', lang)}</p>
         </div>
 

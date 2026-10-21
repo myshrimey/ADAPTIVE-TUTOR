@@ -8,10 +8,11 @@ export function AdultReportView({ studentName, title, takenAt, score, total, inM
     <main className="page">
       <div className="shell shell--narrow">
         <div style={{ paddingTop: 'var(--space-4)' }}>
+          <div className="report-brand"><img src="/logo-mark.png" alt="" /><strong>Sahayak</strong></div>
           <p className="no-print"><a href={back}>← Back to {studentName}</a></p>
           <h1 style={{ fontSize: 'var(--step-2)' }}>{title}</h1>
           <p style={{ color: 'var(--slate)' }}>{studentName} · taken on {fmtDateTime(takenAt)} · Score {fmtScore(score, total, inMarks)}{dur ? ` · Time used ${dur}` : ''}</p>
-          <PrintButton />
+          <PrintButton fileName={`sahayak-${title}-${takenAt.slice(0, 10)}`} />
         </div>
         <section className="chapter-row" style={{ display: 'block', marginTop: 'var(--space-3)' }}>
           <div className="chapter-row__title">By topic</div>

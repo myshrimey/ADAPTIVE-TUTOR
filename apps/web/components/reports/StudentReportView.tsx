@@ -11,12 +11,13 @@ export function StudentReportView({ title, takenAt, score, total, inMarks, data,
     <main className="page">
       <div className="shell shell--narrow">
         <div style={{ paddingTop: 'var(--space-4)' }}>
+          <div className="report-brand"><img src="/logo-mark.png" alt="" /><strong>Sahayak</strong></div>
           <p className="no-print"><a href={back}>← All my test reports</a></p>
           <h1 style={{ fontSize: 'var(--step-2)' }}>{title}</h1>
           <p style={{ color: 'var(--slate)' }}>Taken on {fmtDateTime(takenAt)} · Score {fmtScore(score, total, inMarks)}{dur ? ` · Time used ${dur}` : ''}</p>
           {data.autoSubmitted && <p style={{ color: 'var(--slate)' }}>The timer ended and the test was submitted automatically.</p>}
           {data.pendingWritten > 0 && <p style={{ color: 'var(--slate)' }}>{data.pendingWritten} written answer(s) are waiting for handwritten marking and are not in the score yet.</p>}
-          <PrintButton />
+          <PrintButton fileName={`sahayak-${title}-${takenAt.slice(0, 10)}`} />
         </div>
 
         {data.byGroup.length > 0 && (

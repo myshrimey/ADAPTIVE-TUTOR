@@ -1751,3 +1751,8 @@ a {
   .no-print, .site-header, .site-footer, header, footer, nav { display: none !important; }
   .chapter-row { break-inside: avoid; }
 }
+
+.wordmark__img { width: 34px; height: 34px; object-fit: contain; vertical-align: middle; margin-right: 8px; }
+.brand-logo { display: block; margin: 0 0 16px; width: 120px; height: auto; background: #fff; padding: 8px 10px; border-radius: 12px; }
+.report-brand { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.report-brand img { width:44px; height:44px; object-fit:contain; }

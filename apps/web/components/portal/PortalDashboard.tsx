@@ -1,6 +1,7 @@
 import { PORTAL_INFO } from '@adaptive-tutor/core';
 import { type PortalUser, linkedStudentIds, summariseStudents } from '@/lib/portal';
 import { LinkStudentForm } from './LinkStudentForm';
+import { createServiceClient } from '@/lib/supabase-server';
 import { SignOutButton } from '@/components/SignOutButton';
 
 function day(iso: string | null) {
@@ -14,6 +15,15 @@ export async function PortalDashboard({ me }: { me: PortalUser }) {
   const ids = await linkedStudentIds(me);
   const rows = await summariseStudents(ids);
   const base = `/${me.role}/student/`;
+  // Parents see each child's latest saved reports right here (read with the service key only for children they are linked to).
+  const latest: Record<string, { id: string; title: string; taken_at: string }[]> = {};
+  if (me.role === 'parent' && me.status === 'active' && ids.length) {
+    const service = createServiceClient();
+    for (const sid of ids) {
+      const { data } = await service.from('test_reports').select('id, title, taken_at').eq('student_id', sid).eq('audience', 'adult').order('taken_at', { ascending: false }).limit(5);
+      latest[sid] = data ?? [];
+    }
+  }
   const active7 = rows.filter((r) => r.lastActive && Date.now() - Date.parse(r.lastActive) < 7 * 86400000).length;
   const withEv = rows.filter((r) => r.averageMastery !== null);
   const avg = withEv.length ? Math.round(withEv.reduce((a, r) => a + (r.averageMastery ?? 0), 0) / withEv.length) : null;
@@ -43,14 +53,19 @@ export async function PortalDashboard({ me }: { me: PortalUser }) {
         <div style={{ marginTop: 'var(--space-3)' }}><LinkStudentForm disabled={me.status !== 'active'} /></div>
 
         <h2 style={{ fontSize: 'var(--step-1)', marginTop: 'var(--space-4)' }}>{me.role === 'parent' ? 'Your children' : me.role === 'tutor' ? 'Your students' : 'Enrolled students'} ({rows.length})</h2>
-        {rows.length === 0 && <p style={{ color: 'var(--slate)' }}>No one is linked yet. Add a student with a code above.</p>}
+        {rows.length === 0 && <p style={{ color: 'var(--slate)' }}>No one is linked yet. {me.role === 'parent' ? 'If your child signed up with you, they appear here automatically; otherwise add them with a code above.' : 'Add a student with a code above.'}</p>}
 
         {me.role === 'parent' && rows.map((r) => (
-          <a key={r.studentId} href={base + r.studentId} className="chapter-row" style={{ display: 'block', marginTop: '0.6rem', textDecoration: 'none', color: 'inherit' }}>
-            <strong style={{ fontSize: 'var(--step-1)' }}>{r.name}</strong>
+          <div key={r.studentId} className="chapter-row" style={{ display: 'block', marginTop: '0.6rem' }}>
+            <a href={base + r.studentId} style={{ fontSize: 'var(--step-1)', fontWeight: 700 }}>{r.name}</a>
             <div style={{ color: 'var(--slate)' }}>{masteryText(r.averageMastery)}</div>
             <div style={{ color: 'var(--slate)', fontSize: '0.88rem' }}>Last practised: {day(r.lastActive)} · {r.sessions14d} learning session{r.sessions14d === 1 ? '' : 's'} in the last 14 days</div>
-          </a>
+            <div style={{ marginTop: '0.5rem', fontWeight: 600 }}>Latest test reports</div>
+            {(latest[r.studentId] ?? []).length === 0
+              ? <div style={{ color: 'var(--slate)', fontSize: '0.9rem' }}>No test has been finished yet. Reports appear here, with date and time, as soon as {r.name} finishes one.</div>
+              : <ul style={{ margin: '0.2rem 0 0', paddingLeft: '1.1rem' }}>{(latest[r.studentId] ?? []).map((x) => <li key={x.id}><a href={`${base}${r.studentId}/report/${x.id}`}>{x.title}</a> <span style={{ color: 'var(--slate)', fontSize: '0.85rem' }}>· {day(x.taken_at)}</span></li>)}</ul>}
+            <div style={{ marginTop: '0.4rem', fontSize: '0.9rem' }}><a href={base + r.studentId}>See everything for {r.name} →</a></div>
+          </div>
         ))}
 
         {me.role !== 'parent' && rows.length > 0 && (
