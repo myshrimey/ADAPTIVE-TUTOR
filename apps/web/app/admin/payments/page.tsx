@@ -47,7 +47,7 @@ export default async function AdminPaymentsPage() {
   const service = createServiceClient();
   const { data: rows, error } = await service
     .from('pilot_payments')
-    .select('id, created_at, offer_label, amount, payment_date, transaction_reference, status, pilot_start_date, pilot_end_date, student_id, students(display_name)')
+    .select('id, created_at, offer_label, amount, payment_date, transaction_reference, status, pilot_start_date, pilot_end_date, student_id, students(display_name), product_code, list_amount, discount_amount, offer_code, quantity, subject_slugs, activated_at')
     .order('created_at', { ascending: false })
     .limit(200);
 
@@ -75,13 +75,20 @@ export default async function AdminPaymentsPage() {
                 Paid {r.payment_date} · submitted {new Date(r.created_at).toLocaleString()} · status: <strong>{r.status}</strong>
                 {r.transaction_reference && <> · ref: {r.transaction_reference}</>}
               </div>
+              {r.product_code && (
+                <div className="chapter-row__skills">
+                  Product: {r.product_code}{r.quantity > 1 ? ` × ${r.quantity}` : ''} · list ₹{r.list_amount ?? r.amount}{Number(r.discount_amount) > 0 ? ` · discount ₹${r.discount_amount} (${r.offer_code ?? 'offer'})` : ''}{r.subject_slugs?.length ? ` · subjects: ${r.subject_slugs.join(', ')}` : ''}{r.activated_at ? ' · ACTIVATED' : ''}
+                </div>
+              )}
               {r.status === 'confirmed' && (
                 <div className="chapter-row__skills">
                   Access {r.pilot_start_date} → {r.pilot_end_date}
                 </div>
               )}
-              {r.status === 'pending' && <AdminPaymentActions paymentId={r.id} />}
-              {r.status === 'confirmed' && <AdminPaymentActions paymentId={r.id} status="confirmed" />}
+              {r.status === 'pending' && <AdminPaymentActions paymentId={r.id} activatable={!!r.product_code} />}
+              {r.status === 'confirmed' && r.product_code && !r.activated_at && <AdminPaymentActions paymentId={r.id} activatable activateOnly />}
+              {r.status === 'confirmed' && r.activated_at && <AdminPaymentActions paymentId={r.id} status="confirmed" />}
+              {r.status === 'confirmed' && !r.product_code && <AdminPaymentActions paymentId={r.id} status="confirmed" />}
             </div>
           </div>
         ))}

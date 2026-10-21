@@ -575,3 +575,6 @@ language text ('en'/'hi', default 'en').
 
 ## question_bank_growth (0028)
 subject_id (pk), pending, produced_total, rejected_total, locked_until, last_run_at, last_run_made, updated_at. RLS on, no policies (server only).
+
+## Commerce (0029)
+commerce_products(code pk, name, kind, price_inr, subject_count, credits, credits_per_month, student_limit, validity_until, active, recommended, sort...); commerce_offers(code pk, kind, percent/amount, applies_to, starts/ends, active); commerce_settings(key pk, value jsonb); mock_credit_ledger(student_id, ref, delta, reason; unique(student_id, ref)); commerce_events; commerce_interest; wtp_responses. pilot_payments + product_code, list_amount, discount_amount, offer_code, quantity, subject_slugs, activated_at/by, payment_method. student_access + product_code, starts_on. mock_exams + max_pages, eval_runs. RLS on; server-only except owner reads where noted in the migration.

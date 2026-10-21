@@ -56,8 +56,8 @@ export async function listSheets(service: SupabaseClient, studentId: string, exa
   return data ?? [];
 }
 
-export async function saveSheet(service: SupabaseClient, studentId: string, examId: string, pageNo: number, jpeg: Buffer, quality: object, bytes: number): Promise<void> {
-  if (!Number.isInteger(pageNo) || pageNo < 1 || pageNo > MAX_SHEET_PAGES) throw new Error('bad_page_number');
+export async function saveSheet(service: SupabaseClient, studentId: string, examId: string, pageNo: number, jpeg: Buffer, quality: object, bytes: number, maxPages: number = MAX_SHEET_PAGES): Promise<void> {
+  if (!Number.isInteger(pageNo) || pageNo < 1 || pageNo > maxPages) throw new Error('bad_page_number');
   const path = `${studentId}/${examId}/${pageNo}.jpg`;
   const { error: upErr } = await service.storage.from(SHEET_BUCKET).upload(path, jpeg, { contentType: 'image/jpeg', upsert: true });
   if (upErr) throw upErr;

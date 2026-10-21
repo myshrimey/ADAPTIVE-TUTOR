@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { MathText } from '@/components/MathText';
 import { QuestionFigure } from '@/components/QuestionFigure';
+import { UpgradeCta } from '@/components/commerce/UpgradeCta';
 import { PrintButton } from '@/components/reports/PrintButton';
 
 // Board-pattern paper that is PRINTED and written on paper (v46).
@@ -21,6 +22,8 @@ const ERR: Record<string, string> = {
   image_reading_unavailable: 'Reading handwriting is not available right now. Please try again later.',
   no_pages_uploaded: 'Please upload at least one page first.',
   plan_upgrade_required: 'Handwritten papers are part of the paid plans.',
+  no_credits: 'You have no handwritten-evaluation credits left. You can buy a handwritten mock evaluation on the Plans page.',
+  too_many_runs: 'This paper has already been read the allowed number of times.',
   handwriting_unreadable_response: 'The reading did not work this time. Please press the button again.',
 };
 
@@ -179,7 +182,7 @@ export default function PaperPage({ params }: { params: Promise<{ id: string }> 
               </div>
             ) : (
               <div>
-                <p>Take a clear photo of each page, in good light, with the whole page in the picture. Up to {maxPages} pages.</p>
+                <p>Take a clear photo of each page, in good light, with the whole page in the picture. This examination allows up to {maxPages} answer-sheet images.</p>
                 <label>Page number <input type="number" min={1} max={maxPages} value={uploadPage} onChange={(e) => setUploadPage(Number(e.target.value))} style={{ width: 70, marginRight: 8 }} /></label>
                 <input ref={fileRef} type="file" accept="image/jpeg,image/png,image/webp" capture="environment" disabled={busy === 'upload'} onChange={(e) => e.target.files?.[0] && upload(e.target.files[0])} />
                 <ul>{pages.map((p) => <li key={p.page_no}>Page {p.page_no} saved <button className="btn btn--ghost" onClick={() => removePage(p.page_no)}>Remove</button></li>)}</ul>
@@ -195,6 +198,7 @@ export default function PaperPage({ params }: { params: Promise<{ id: string }> 
             <h2>Step 5: marks</h2>
             <p>Auto-marked: <strong>{report.autoScore} / {report.autoTotal}</strong>. Written (counted so far): <strong>{report.writtenScore} / {report.writtenTotalMarked}</strong> of {report.writtenTotalAll} written marks.</p>
             <p style={{ color: 'var(--slate)' }}>{report.note}</p>
+            <UpgradeCta kind="mock" source="paper_result" />
             <ul>{report.items.map((it) => <li key={it.questionNo}>Q{it.questionNo}: {it.score === null ? (it.status === 'needs_teacher' ? 'waiting for a teacher' : it.status === 'unreadable' ? 'could not be read, please retake the photo' : 'not marked yet') : `${it.score} / ${it.maxScore}`}{it.feedback ? ` — ${it.feedback}` : ''}{it.teacherNote ? ` Teacher: ${it.teacherNote}` : ''}</li>)}</ul>
             <p style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>These are practice marks. They do not change your learning progress and are not a prediction of board marks.</p>
           </>

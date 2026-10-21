@@ -1,18 +1,31 @@
-SAHAYAK v53 - diagnostic questions never repeat; the question bank grows by 50 every session start
-Apply AFTER v52.
+SAHAYAK v54 - plans, prices, offers, credits and offline (UPI) payment, all changeable without code
+Apply AFTER v53.
 
 HOW TO PUT IT ON THE WEBSITE
 1. Unzip. Copy every folder/file over your project folder ("Replace" when asked).
-2. Supabase: open your project > SQL Editor > New query. Run the project's usual migration command (npm run db:migrate) OR paste the file packages/db/migrations/0028_question_bank_growth.sql and press Run. It is safe to run twice.
+2. Supabase: run the project's usual migration command (npm run db:migrate) OR paste packages/db/migrations/0029_commerce.sql into SQL Editor and press Run. SAFE to run twice. DO THIS BEFORE deploying, otherwise the new pages show empty plans.
 3. Deploy to Vercel the usual way. No new environment variables.
 
-WHAT TO CHECK (10 minutes)
-1. Sign in as a student who has done a diagnostic before; start the diagnostic for the same subject again. The questions should be ones the student has not been asked before (if the subject has run out of unseen ones, a new one is written; this may take a few seconds longer).
-2. Start a learning session, wait a minute, then open /admin/question-bank. The subject shows "Owed" going down and "Written" going up. Press "Write what is owed" to carry on by hand (takes up to 45 seconds per press).
-3. In /admin/reviews the new questions appear as AI-written and unreviewed.
+THINGS ONLY YOU CAN DO (the app never invents these)
+1. Open /admin/pricing > "payment_instructions" and type your UPI ID / QR text. Until then buyers see no payment details.
+2. Same page > "economics": fill your own cost assumptions (AI cost per image, review cost, etc.). Until filled, the commercial dashboard says "insufficient data" instead of guessing a margin.
+3. When you want the handwritten mock to need credits, switch ON "handwritten.credits_required" in /admin/pricing. It is OFF now, so nothing changes for existing users.
+4. HOW TO CHANGE A PRICE: /admin/pricing > the product > edit price > Save. Offers/coupons: same page > Offers. Nothing needs redeploying.
+
+WHAT TO CHECK (15 minutes)
+1. Open /plans on your phone. All prices come from the database: Founding Family 7,999; subject plans 1,499 / 2,499 / 3,499 / 4,999 / 6,999; handwritten mock 499. Every card shows "Terms & Conditions Apply."
+2. Sign in as a test student > pick a plan > buy page shows price and your payment instructions > submit a fake transaction reference.
+3. /admin/payments shows the request with product, discount and subjects. Press "Verify payment and activate": the student gets the plan, subjects and credits. Pressing it twice must not double the credits.
+4. Mock paper: upload more photos than the limit - it is refused with a clear message. Upload the same photo twice - refused.
+5. /admin/commercial and /admin/interest show the numbers; Export buttons give CSV files.
+
+IMPORTANT DIFFERENCES FROM EARLIER RULES (please read)
+- Old prices (4,999 / 14,999) are replaced by the new pricing prompt. Old code constants remain but are no longer shown.
+- Earlier rule "payment confirmation never grants access" is changed: the new button "Verify payment and activate" grants access, only when YOU press it. The old "Only record as paid" button still grants nothing.
+- The 499 handwritten mock stays the list price; a 399 offer exists but is switched OFF.
 
 HONEST STATUS
-Tested with a practice database and a pretend AI: unseen questions preferred; a new question is written when all are seen; the oldest-seen is reused if the AI is down; 50 written per request; wrong-answer questions dropped by the second check; no double running; nothing lost when the AI is down. Build and type-check pass.
-NOT tested: the real AI (speed, how often the second check rejects), the admin counts on your real Supabase.
-Honest limits: on the free AI tier one run may write fewer than 50; the rest stays "owed" and continues at the next start. The second check catches many wrong answers but is not proof; teachers must still review. Questions are never repeated while an unseen one exists; if the bank and the AI both fail, the oldest-seen one is reused rather than leaving the student without a question.
-ROLLBACK: restore the previous files; the new table can stay (it is unused by older code).
+Tested with a practice database: price calculation on the server, offers/coupons, duplicate payment protection, activation only once, credits (given once, charged only after a successful evaluation, never twice), image limits, retry limit, economics maths (48 checks pass). Type-check and full build pass.
+NOT tested: your real Supabase, a real payment, the pages in a real browser, the real AI evaluation with credits switched on.
+NOT BUILT yet: Tutor/Centre plans are applications only (no student seats yet); parents without a child account cannot buy; paid Board Readiness report, preparation programme and exam rescue are only buttons and price-interest questions; voice/visual limits are stored but those features do not exist; AI_EVALUATED / HUMAN_REVIEW statuses and the staged AI pipeline are not added. No exam dates are hard-coded.
+ROLLBACK: restore previous files. The new tables can stay; older code ignores them.

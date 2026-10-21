@@ -6,7 +6,6 @@ import { createClient } from '@/lib/supabase-client';
 import { useLanguage } from '@/components/LanguageProvider';
 import { accessErrorMessage } from '@/lib/access-errors';
 import { FaqSection } from '@/components/FaqSection';
-import { PlanCards } from '@/components/PlanCards';
 import { validateUsername, validatePassword, validateOptionalEmail, generateReadablePassword, IDENTITY_ERROR_TEXT } from '@adaptive-tutor/core';
 
 // Shown at sign-up. `status` mirrors subjects.status in the database (the
@@ -536,7 +535,10 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
 
         <section id="plans" style={{ marginTop: 'var(--space-4)', paddingBottom: 'var(--space-4)' }}>
           <h2 style={{ fontSize: 'var(--step-1)' }}>{t('plans.home.title')}</h2>
-          <PlanCards lang={lang} />
+          <div className="plan-grid">
+            <div className="plan-card"><h3 className="plan-card__name">Free founding access</h3><p className="plan-card__desc">Diagnostic, personalised practice, chapter quizzes, a limited AI tutor and a basic parent report. Daily limits apply.</p><a className="btn btn--ghost" href="#">Create a free account</a></div>
+            <div className="plan-card plan-card--featured"><h3 className="plan-card__name">Founding Family, subject plans and handwritten mock evaluation</h3><p className="plan-card__desc">Detailed board readiness, handwritten mock evaluation, a full parent dashboard and complete Class X 2027 preparation. See the current prices and what each includes.</p><a className="btn btn--accent" href="/plans">See plans and prices</a><p style={{ fontSize: '0.8rem', color: 'var(--slate)', margin: '0.5rem 0 0' }}>Terms &amp; Conditions Apply.</p></div>
+          </div>
           <p style={{ color: 'var(--slate)', marginTop: 'var(--space-3)' }}>
             Sahayak Complete Board Preparation shows where your child stands in each registered subject,
             what is holding them back, and what to do next — from real evidence, not guesses. We do not

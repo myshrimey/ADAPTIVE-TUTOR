@@ -17,7 +17,7 @@ export interface AdminStudentRow {
 
 const PLAN_OPTIONS: { code: AccessPlanCode; label: string }[] = [
   { code: 'free', label: 'Free plan (1 subject, free-tier AI only, daily limit, no mock exams)' },
-  { code: 'founding_family', label: `Rs ${PLANS.founding_family.priceInr} Founding Family Programme, up to 5 subjects (till Mar 2027)` },
+  { code: 'founding_family', label: 'Paid plan (Founding Family / subject plans: set automatically when you verify a payment at /admin/payments; or by hand here)' },
   { code: 'five_till_march', label: `Rs ${PLANS.five_till_march.priceInr} Founding Family, up to 5 subjects (till 28 Feb 2027)` },
   { code: 'per_subject_monthly', label: `Rs ${PLANS.per_subject_monthly.priceInr} per subject per month (no longer on sale)` },
   { code: 'five_monthly', label: `Rs ${PLANS.five_monthly.priceInr} per month, up to 5 subjects (no longer on sale)` },

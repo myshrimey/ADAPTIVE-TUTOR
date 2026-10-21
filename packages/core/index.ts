@@ -21,6 +21,7 @@ export * from './question-engine/selector';
 export * from './question-engine/grading';
 export * from './question-engine/ai-question-generator';
 export * from './question-engine/bank-growth';
+export * from './commerce/commerce.service';
 export * from './orchestrator/tutor.orchestrator';
 export * from './orchestrator/session-summary.service';
 export * from './prompts/tutor.prompt';

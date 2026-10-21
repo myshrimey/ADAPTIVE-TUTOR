@@ -1,5 +1,5 @@
 import type { AIProvider } from '@adaptive-tutor/core';
-import { createAIProvider, getAccess, aiTierForPlan, tutorRepliesPerDay, assertTutorAllowance, recordAIAttempt } from '@adaptive-tutor/core';
+import { createAIProvider, getAccess, aiTierForPlan, tutorRepliesPerDay, assertTutorAllowance, recordAIAttempt, loadSettings } from '@adaptive-tutor/core';
 import { createServiceClient } from '@/lib/supabase-server';
 
 /**
@@ -16,6 +16,15 @@ export async function aiForStudent(studentId: string, options: { tutor?: boolean
   const access = await getAccess(service, studentId);
   const planCode = access.status === 'active' ? access.planCode : 'free';
   const tier = aiTierForPlan(planCode);
-  if (options.tutor) await assertTutorAllowance(service, studentId, tutorRepliesPerDay(planCode));
+  if (options.tutor) {
+    // Daily limits are editable at /admin/pricing (settings); the built-in numbers are only the fallback.
+    let limit = tutorRepliesPerDay(planCode);
+    try {
+      const st = await loadSettings(service);
+      const v = tier === 'free' ? st.free_limits.tutor_replies_per_day : st.paid_limits.tutor_replies_per_day;
+      if (Number.isFinite(v) && v >= 0) limit = v;
+    } catch { /* keep fallback */ }
+    await assertTutorAllowance(service, studentId, limit);
+  }
   return createAIProvider({ tier, onAttempt: recordAIAttempt(service, studentId, tier) });
 }

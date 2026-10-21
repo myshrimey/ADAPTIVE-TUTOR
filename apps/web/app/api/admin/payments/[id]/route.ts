@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient } from '@/lib/supabase-server';
-import { confirmPayment, rejectPayment, refundPayment } from '@adaptive-tutor/core';
+import { confirmPayment, rejectPayment, refundPayment, verifyAndActivate, revokeActivation } from '@adaptive-tutor/core';
 
 // Admin-only: confirm or reject a pilot payment claim. Gated on ADMIN_EMAILS,
 // checked against the caller's own authenticated session — never trusts a
@@ -8,7 +8,7 @@ import { confirmPayment, rejectPayment, refundPayment } from '@adaptive-tutor/co
 // check passes, so an ordinary signed-in user can never reach this path
 // (and even if they could, pilot_payments has no RLS update policy for
 // `authenticated` at all — see migration 0009).
-async function assertAdmin(): Promise<void> {
+async function assertAdmin(): Promise<string> {
   const supabase = await createServerClient();
   const {
     data: { user },
@@ -20,22 +20,26 @@ async function assertAdmin(): Promise<void> {
   if (!user?.email || !allowedEmails.includes(user.email.toLowerCase())) {
     throw new Error('not_authorized');
   }
+  return user.email;
 }
 
 export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    await assertAdmin();
+    const adminEmail = await assertAdmin();
     const { id } = await params;
     const body = await request.json().catch(() => ({}));
-    const action = body.action as 'confirm' | 'reject' | 'refund';
+    const action = body.action as 'confirm' | 'reject' | 'refund' | 'activate';
     const service = createServiceClient();
 
-    if (action === 'confirm') {
+    if (action === 'activate') {
+      await verifyAndActivate(service, id, adminEmail, body.adminNotes);
+    } else if (action === 'confirm') {
       await confirmPayment(service, id, { adminNotes: body.adminNotes });
     } else if (action === 'reject') {
       await rejectPayment(service, id, body.adminNotes);
     } else if (action === 'refund') {
       await refundPayment(service, id, body.adminNotes);
+      await revokeActivation(service, id);
     } else {
       return NextResponse.json({ data: null, error: 'invalid_action' }, { status: 400 });
     }

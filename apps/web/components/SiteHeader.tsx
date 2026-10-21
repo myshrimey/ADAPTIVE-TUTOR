@@ -154,7 +154,7 @@ export function SiteHeader() {
         <div className="site-header__right">
           {role === 'admin' && <a href="/admin" className="nav-cta">Admin</a>}
           {!signedIn && <a href="/portals" className="nav-link">Parents &amp; partners</a>}
-          {!staff && <a href="/pilot" className="nav-cta">{t('nav.pilotOffer')}</a>}
+          {!staff && <a href="/plans" className="nav-cta">{t('nav.pilotOffer')}</a>}
           <LanguageToggle />
           {signedIn && (
             <div className="nav-menu">
@@ -225,7 +225,7 @@ export function SiteHeader() {
             {signedIn && <a href="/reports" className="nav-drawer__link">My test reports</a>}
             {signedIn && <a href="/sharing" className="nav-drawer__link">Sharing</a>}
             {signedIn && <a href="/my-data" className="nav-drawer__link">My data</a>}
-            <a href="/pilot" className="nav-cta nav-cta--block">{t('nav.pilotOffer')}</a>
+            <a href="/plans" className="nav-cta nav-cta--block">{t('nav.pilotOffer')}</a>
             </>}
             {signedIn && (
               <button type="button" className="nav-drawer__link nav-drawer__link--quiet" onClick={handleSignOut}>

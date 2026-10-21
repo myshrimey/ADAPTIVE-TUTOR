@@ -5,6 +5,7 @@ import { getServerLang } from '@/lib/language';
 import { MasteryArc } from '@/components/MasteryArc';
 import { ConfidenceChart } from '@/components/ConfidenceChart';
 import { PrintButton } from '@/components/reports/PrintButton';
+import { UpgradeCta } from '@/components/commerce/UpgradeCta';
 import { ReportExtras } from '@/components/ReportExtras';
 
 // Parent-facing progress summary. Built only from real mastery/diagnostic
@@ -124,6 +125,7 @@ export default async function ReportPage() {
         )}
 
         <ReportExtras report={report} />
+        <UpgradeCta kind="readiness" source="parent_report" />
 
         {report.subjects.map((s) => (
           <section key={s.subjectId} className="chapter-row" style={{ marginTop: 'var(--space-3)', alignItems: 'flex-start' }}>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { UpgradeCta } from '@/components/commerce/UpgradeCta';
 import { MathText } from '@/components/MathText';
 import { SubjectIcon } from '@/components/SubjectIcon';
 import { QuestionFigure } from '@/components/QuestionFigure';
@@ -231,6 +232,7 @@ export default function DiagnosticPage() {
               exactly where the first session will begin.
             </p>
           )}
+          <UpgradeCta kind="readiness" source="diagnostic_result" />
           <p style={{ color: 'var(--slate)', marginTop: 'var(--space-3)' }}>This report is saved with today&apos;s date and time in <a href="/reports">My test reports</a>.</p>
           <section style={{ marginTop: 'var(--space-4)' }}>
             <h2 style={{ fontSize: 'var(--step-1)', marginBottom: '0.6rem' }}>Your answers, question by question</h2>
