@@ -31,6 +31,11 @@ export const DEFAULT_SETTINGS = {
   feature_flags: { plans_page: true, wtp_questions: true, tutor_centre_applications: true },
   entitlements: { enforce: true, paid_features: ['advanced_diagnostic', 'advanced_assessment', 'advanced_parent_report', 'board_readiness', 'board_preparation_programme', 'exam_rescue', 'advanced_analytics'] as string[] },
   seats: { enforce: false, credits_per_grant: 1 },
+  funding_probabilities: { researching: 0, shortlisted: 2, warm_intro_needed: 2, introduction_requested: 5, contacted: 5, initial_conversation: 10, deck_sent: 15, due_diligence: 40, term_discussion: 60, committed: 90, funds_received: 100, passed: 0, future_follow_up: 2 } as Record<string, number>,
+  crm_probabilities: { new_lead: 5, contacted: 10, interested: 25, demo: 35, trial_pilot: 50, negotiation: 65, payment_pending: 85, paid: 100, active: 100, renewal_upsell: 100, referral: 100 } as Record<string, number>,
+  rag: { diagnostic_completion: { green: 60, amber: 40 }, weekly_active_of_total: { green: 30, amber: 15 }, return_within_7_days: { green: 40, amber: 20 }, paid_conversion: { green: 5, amber: 2 }, contribution_margin: { green: 50, amber: 20 }, handwritten_human_review: { green: 30, amber: 50 } } as Record<string, { green: number; amber: number }>,
+  fit_weights: { education: 3, ai: 2, edtech: 3, stage: 3, cheque: 2, india: 2, strategic: 2, warm_intro: 2, portfolio: 2, founder: 1 } as Record<string, number>,
+  business: { assumed_lifetime_months: null as number | null, product_stage: 'CBSE Class X 2027' },
   boards: { board1_label: 'Board Exam 1', board1_date: null as string | null, board2_label: 'Board Exam 2', board2_date: null as string | null },
 };
 export type CommerceSettings = typeof DEFAULT_SETTINGS;

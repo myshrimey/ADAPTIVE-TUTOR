@@ -581,3 +581,6 @@ commerce_products(code pk, name, kind, price_inr, subject_count, credits, credit
 
 ## v54b (0030)
 org_plans(user_id pk, product_code, student_limit, credits_per_month, access_until, status, activated_by); org_credit_ledger(user_id, delta, reason, ref; unique(user_id, ref)); feature_usage(student_id, feature, day, used); pilot_payments.paid_by_user_id; handwritten_evaluations.review_status; mock_exams.review_status, eval_stages. Settings: entitlements, seats, boards.
+
+## v55 (0031) — all server-only (RLS on, no policies)
+crm_records, crm_activities, funding_records, funding_documents, expenses, revenue_entries, founder_tasks, system_changelog, founder_memory; users.source, users.utm.

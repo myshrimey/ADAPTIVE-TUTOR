@@ -1,3 +1,4 @@
+import { signupSourceFields } from '@/lib/source';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { signupsOpen, checkSignupLimits } from '@/lib/signups';
@@ -47,7 +48,7 @@ export async function POST(request: Request) {
     }
     try {
       const { data: userRow, error: uErr } = await service.from('users')
-        .upsert({ auth_user_id: created.user.id, email: loginEmail, role, username, contact_email: contactEmail || null, consent_at: new Date().toISOString(), consent_version: CONSENT_VERSION }, { onConflict: 'auth_user_id' })
+        .upsert({ auth_user_id: created.user.id, email: loginEmail, role, username, contact_email: contactEmail || null, consent_at: new Date().toISOString(), consent_version: CONSENT_VERSION, ...(await signupSourceFields()) }, { onConflict: 'auth_user_id' })
         .select('id').single();
       if (uErr || !userRow) throw uErr ?? new Error('user_row_failed');
       const { error: pErr } = await service.from('adult_profiles').insert({

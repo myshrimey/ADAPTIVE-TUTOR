@@ -1,3 +1,4 @@
+import { signupSourceFields } from '@/lib/source';
 import { NextResponse } from 'next/server';
 import { createHash } from 'crypto';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -57,7 +58,7 @@ export async function POST(request: Request) {
     const authId = created.user.id;
     try {
       const { data: userRow, error: uErr } = await service.from('users')
-        .upsert({ auth_user_id: authId, email: loginEmail, role: 'student', username, contact_email: contactEmail || null, consent_at: new Date().toISOString(), consent_version: CONSENT_VERSION }, { onConflict: 'auth_user_id' })
+        .upsert({ auth_user_id: authId, email: loginEmail, role: 'student', username, contact_email: contactEmail || null, consent_at: new Date().toISOString(), consent_version: CONSENT_VERSION, ...(await signupSourceFields()) }, { onConflict: 'auth_user_id' })
         .select('id').single();
       if (uErr || !userRow) throw uErr ?? new Error('user_row_failed');
       const { data: st, error: sErr } = await service.from('students').insert({ user_id: userRow.id, display_name: displayName, grade: 'CBSE-10' }).select('id').single();

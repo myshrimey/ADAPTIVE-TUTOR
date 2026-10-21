@@ -70,3 +70,7 @@ export * from './portals/portals';
 export * from './reports/test-report.service';
 export * from './translation/hindi';
 export * from './format/math-format';
+export * from './founder/constants';
+export * from './founder/ranges';
+export * from './founder/scoring';
+export * from './founder/command-centre';

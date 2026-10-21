@@ -351,3 +351,10 @@ One entry per work session. Newest entry on top.
 - Read-aloud (browser voice) in the tutor chat counted against the free daily voice limit.
 - Tested: 45 new checks (seats, grants, entitlements, limits, statuses, rescue, programme) + earlier 48; migration 0030 runs twice cleanly on Postgres 16; tsc and full build clean. NOT tested: live Supabase, pages in a browser, real AI.
 - Still not built: visual-interaction limit (no such feature), exam-date-specific Board 1/Board 2 programmes (v56).
+
+## v55 — Founder Command Centre, CRM, funding, schools, expenses, tasks, change log, project memory
+- Migration 0031: crm_records, crm_activities, funding_records, funding_documents (32 items), expenses, revenue_entries, founder_tasks, system_changelog (seeded), founder_memory (15 sections), users.source/utm, settings rag/fit_weights/funding_probabilities/crm_probabilities/business.
+- Screens: /admin/command-centre (home), /admin/crm (+ ?group=institutions), /admin/funding, /admin/funding/documents, /admin/expenses, /admin/tasks, /admin/changelog, /admin/memory (+ markdown export), /admin/investor-metrics, CSV exports at /api/admin/founder/export?table=...
+- Engine: packages/core/founder (ranges, scoring, command-centre). Alerts, "What should I do next?", RAG, funnel, sources, unit economics (CAC, revenue per customer), weighted pipelines.
+- Tested: 62 checks (ranges, scoring, calculations, privacy, alerts) + earlier suites; migration 0031 runs twice on Postgres 16; API field names match table columns; tsc and full build clean. NOT tested: live Supabase, pages in a browser, the admin write API against a real database.
+- Not built: revenue by subject/board, funnel filters by board/class/subject/language, Excel export (CSV only), drag-and-drop pipeline (stage dropdown instead), school pilot scorecard form, per-batch centre dashboards.

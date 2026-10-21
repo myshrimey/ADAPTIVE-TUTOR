@@ -32,6 +32,15 @@ export async function middleware(request: NextRequest) {
     request.cookies.set('sahayak_did', id);
     response.cookies.set('sahayak_did', id, { httpOnly: true, sameSite: 'lax', secure: process.env.NODE_ENV === 'production', maxAge: 60 * 60 * 24 * 730, path: '/' });
   }
+  // First-touch acquisition source (?src=, ?utm_source=, ?ref=). Set once; a later link never overwrites it.
+  if (!request.cookies.get('sahayak_src')) {
+    const q = request.nextUrl.searchParams;
+    const src = q.get('src') || q.get('utm_source') || q.get('ref');
+    if (src) {
+      const v = encodeURIComponent(JSON.stringify({ s: src.slice(0, 40), m: (q.get('utm_medium') ?? '').slice(0, 40), c: (q.get('utm_campaign') ?? '').slice(0, 60) }));
+      response.cookies.set('sahayak_src', v, { httpOnly: true, sameSite: 'lax', secure: process.env.NODE_ENV === 'production', maxAge: 60 * 60 * 24 * 90, path: '/' });
+    }
+  }
   return response;
 }
 

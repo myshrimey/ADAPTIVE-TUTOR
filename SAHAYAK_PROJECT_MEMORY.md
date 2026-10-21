@@ -52,3 +52,6 @@ Founding Family 7,999 (5 subjects); individual/1-subject 1,499; subject plans 1,
 
 ## v54b (2026-10-20)
 Tutor/centre seats + shared credit pool (founder activates after checking payment; seats enforcement OFF by default). Parents can buy for linked children. Board Readiness / Exam Rescue / Preparation Programme pages exist and need a paid plan (founder can open them via setting entitlements.enforce=false). Handwritten review statuses added. Exam dates remain empty until the founder enters them.
+
+## v55 (2026-10-21)
+Founder Command Centre is the admin home. CRM, funding/investor CRM, schools, expenses, tasks, change log, project memory with export. All founder-entered; nothing invented. Funding probabilities and thresholds are assumptions the founder edits.
