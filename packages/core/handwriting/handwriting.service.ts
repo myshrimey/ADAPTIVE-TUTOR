@@ -97,7 +97,7 @@ export async function evaluateHandwrittenPaper(service: SupabaseClient, ai: AIPr
   if (!questions.length) return { marked: 0, needsTeacher: 0, unreadable: 0 };
   const images = await loadImages(service, studentId, examId);
   if (!images.length) throw new Error('no_pages_uploaded');
-  const res = await ai.complete({ systemPrompt: HANDWRITING_SYSTEM_PROMPT, userMessage: buildHandwritingUserMessage(questions, images.length), responseFormat: 'json', feature: 'handwriting', images });
+  const res = await ai.complete({ systemPrompt: HANDWRITING_SYSTEM_PROMPT, userMessage: buildHandwritingUserMessage(questions, images.length), responseFormat: 'json', feature: 'handwriting', images, ref: examId });
   const parsed = parseHandwritingResult(res.text, questions);
   if (!parsed) throw new Error('handwriting_unreadable_response');
 

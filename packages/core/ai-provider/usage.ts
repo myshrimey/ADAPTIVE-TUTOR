@@ -18,6 +18,8 @@ export interface AIAttempt {
   outputTokens: number;
   latencyMs: number;
   error?: string;
+  // v55b gateway fields (optional: the old chain does not set them)
+  model?: string; task?: string; taskTier?: number; images?: number; costEstInr?: number; costInr?: number; freeQuotaUsed?: boolean; ref?: string; statusCode?: number;
 }
 
 /** USD per 1 million tokens (input, output). Planning assumptions — edit when prices change. */
@@ -62,7 +64,7 @@ export function startOfTodayIst(now: Date = new Date()): string {
 export function recordAIAttempt(service: SupabaseClient, studentId: string | null, tier: AITier) {
   return async (a: AIAttempt): Promise<void> => {
     try {
-      await service.from('ai_usage').insert({
+      const base = {
         student_id: studentId,
         tier,
         provider: a.provider,
@@ -72,7 +74,13 @@ export function recordAIAttempt(service: SupabaseClient, studentId: string | nul
         output_tokens: a.outputTokens,
         latency_ms: a.latencyMs,
         error: a.error ? a.error.slice(0, 160) : null,
+      };
+      const { error } = await service.from('ai_usage').insert({
+        ...base, model: a.model ?? null, task: a.task ?? null, task_tier: a.taskTier ?? null, images: a.images ?? 0,
+        cost_est_inr: a.costEstInr ?? null, cost_inr: a.costInr ?? null, free_quota_used: a.freeQuotaUsed ?? false, ref: a.ref ?? null, status_code: a.statusCode ?? null,
       });
+      // Migration 0032 not run yet: keep logging with the old columns.
+      if (error) await service.from('ai_usage').insert(base);
     } catch {
       // Logging is best-effort and must never break a student's turn.
     }

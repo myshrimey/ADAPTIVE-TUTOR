@@ -10,6 +10,8 @@ export interface AICompletionParams {
   feature?: AIFeature;
   /** Photos for the model to read (handwritten answers). Only providers with supportsImages receive such a call. */
   images?: AIImage[];
+  /** Optional id to add costs up per piece of work (e.g. a mock exam id for cost per handwritten evaluation). Never a name or contact detail. */
+  ref?: string;
 }
 
 export interface AIImage {
@@ -18,7 +20,7 @@ export interface AIImage {
   base64: string;
 }
 
-export type AIFeature = 'tutor' | 'evaluation' | 'summary' | 'explanation' | 'question_generation' | 'misconception' | 'handwriting' | 'other';
+export type AIFeature = 'tutor' | 'evaluation' | 'summary' | 'explanation' | 'question_generation' | 'misconception' | 'handwriting' | 'translation' | 'benchmark' | 'provider_test' | 'other';
 
 export interface AICompletionResult {
   text: string;

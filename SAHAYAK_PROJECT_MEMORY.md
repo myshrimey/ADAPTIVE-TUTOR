@@ -55,3 +55,6 @@ Tutor/centre seats + shared credit pool (founder activates after checking paymen
 
 ## v55 (2026-10-21)
 Founder Command Centre is the admin home. CRM, funding/investor CRM, schools, expenses, tasks, change log, project memory with export. All founder-entered; nothing invented. Funding probabilities and thresholds are assumptions the founder edits.
+
+## v55b (2026-10-21)
+AI Gateway built before v56. All AI calls go through one gateway: provider registry in the database (5 existing + 16 unverified candidates, class F), routing (primary -> fallback -> rest, free before paid, unreliable providers to the back), free-quota tracking with 80/90/100% handling, spend limits, per-student call limit, cost log per call (model, task, tokens, images, list price, billed, free-quota flag), contact-detail removal, benchmark starter set, admin page /admin/ai-infrastructure. Free-only mode is ON; paid providers are never used unless the founder turns the paid rule on with both daily and monthly caps. NOTHING about any provider's current free tier/price/terms was verified: the founder must check official documentation before switching any new provider on. Tests: 115 + 12 new; migration 0032 twice on Postgres 16; not tested live.

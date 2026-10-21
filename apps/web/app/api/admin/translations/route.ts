@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { requireAdmin } from '@/lib/admin';
-import { createAIProvider, ensureHindiTranslations, hasDevanagari, HINDI_MEDIUM_EXCLUDED_SUBJECTS } from '@adaptive-tutor/core';
+import { createAIProvider, recordAIAttempt, ensureHindiTranslations, hasDevanagari, HINDI_MEDIUM_EXCLUDED_SUBJECTS } from '@adaptive-tutor/core';
 
 export const maxDuration = 60;
 
@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     const { data: done } = await service.from('question_translations').select('question_id').eq('lang', 'hi').limit(50000);
     const have = new Set((done ?? []).map((r: any) => r.question_id));
     const todo = (qs ?? []).filter((q: any) => !have.has(q.id) && !hasDevanagari(q.prompt)).map((q: any) => q.id as string);
-    const saved = await ensureHindiTranslations(service, createAIProvider({ tier: 'free' }), todo.slice(0, limit), { budgetMs: 45_000 });
+    const saved = await ensureHindiTranslations(service, createAIProvider({ tier: 'free', service, onAttempt: recordAIAttempt(service, null, 'free') }), todo.slice(0, limit), { budgetMs: 45_000 });
     return NextResponse.json({ data: { saved, remaining: Math.max(0, todo.length - saved) }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: err.message === 'not_authorized' ? 403 : 400 });

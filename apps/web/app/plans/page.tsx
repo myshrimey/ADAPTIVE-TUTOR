@@ -1,5 +1,5 @@
 import { createServiceClient } from '@/lib/supabase-server';
-import { loadProducts, loadOffers, loadSettings, quotePrice, FOUNDER, type Product } from '@adaptive-tutor/core';
+import { loadProducts, loadOffers, loadSettings, quotePrice, FOUNDER, FREE_CORE_NOTICE, type Product } from '@adaptive-tutor/core';
 import { PriceLine, inr } from '@/components/commerce/PriceLine';
 import { CardTerms, PageTerms } from '@/components/commerce/TermsNote';
 import { CtaLink } from '@/components/commerce/CtaLink';
@@ -69,6 +69,7 @@ export default async function PlansPage() {
         <section style={{ marginTop: 'var(--space-3)' }}>
           <h2 style={{ fontSize: 'var(--step-1)' }}>Start free</h2>
           <p>The free founding access lets you try the diagnostic, personalised practice, chapter quizzes, a limited AI tutor and a basic parent report, with daily limits. Then add what you need.</p>
+          <p style={{ fontSize: '0.86rem', color: 'var(--slate)' }}>{FREE_CORE_NOTICE.line} {FREE_CORE_NOTICE.terms}</p>
           <p><a className="btn btn--ghost" href="/">Create a free account</a></p>
         </section>
 

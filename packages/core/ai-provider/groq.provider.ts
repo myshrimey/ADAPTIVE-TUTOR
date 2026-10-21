@@ -12,13 +12,13 @@ const GROQ_ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
 const REQUEST_TIMEOUT_MS = 20_000;
 
 export class GroqProvider implements AIProvider {
-  constructor(private apiKey: string = process.env.GROQ_API_KEY!) {
+  constructor(private apiKey: string = process.env.GROQ_API_KEY!, private model: string = GROQ_MODEL) {
     if (!this.apiKey) throw new Error('missing_groq_api_key');
   }
 
   async complete(params: AICompletionParams): Promise<AICompletionResult> {
     const body = {
-      model: GROQ_MODEL,
+      model: this.model,
       messages: [
         { role: 'system', content: params.systemPrompt },
         { role: 'user', content: params.userMessage },

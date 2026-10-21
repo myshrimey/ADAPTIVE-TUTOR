@@ -11,13 +11,13 @@ const ANTHROPIC_VERSION = '2023-06-01';
 const REQUEST_TIMEOUT_MS = 20_000;
 
 export class ClaudeProvider implements AIProvider {
-  constructor(private apiKey: string = process.env.ANTHROPIC_API_KEY!) {
+  constructor(private apiKey: string = process.env.ANTHROPIC_API_KEY!, private model: string = CLAUDE_MODEL) {
     if (!this.apiKey) throw new Error('missing_claude_api_key');
   }
 
   async complete(params: AICompletionParams): Promise<AICompletionResult> {
     const body = {
-      model: CLAUDE_MODEL,
+      model: this.model,
       max_tokens: 1024,
       system: params.systemPrompt,
       messages: [{ role: 'user', content: params.userMessage }],

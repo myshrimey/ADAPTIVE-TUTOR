@@ -141,7 +141,7 @@ export async function ensureHindiTranslations(
       const group = batches.slice(i, i + 3);
       const results = await Promise.all(group.map(async (b) => {
         try {
-          const c = await ai.complete({ systemPrompt: TRANSLATION_SYSTEM_PROMPT, userMessage: buildTranslationUserMessage(b), responseFormat: 'json', feature: 'other' });
+          const c = await ai.complete({ systemPrompt: TRANSLATION_SYSTEM_PROMPT, userMessage: buildTranslationUserMessage(b), responseFormat: 'json', feature: 'translation' });
           return parseTranslations(c.text, b);
         } catch (e: any) {
           console.error('hindi translation batch failed', e?.message);

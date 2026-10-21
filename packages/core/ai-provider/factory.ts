@@ -6,6 +6,8 @@ import { ClaudeProvider } from './claude.provider';
 import { FallbackAIProvider } from './fallback.provider';
 import { freeProviderNames, type AIAttempt } from './usage';
 import type { AITier } from '../plans/plans';
+import type { SupabaseClient } from '@supabase/supabase-js';
+import { GatewayAIProvider, supabaseGatewayDeps } from '../ai-gateway/gateway';
 
 export interface CreateAIProviderOptions {
   /**
@@ -16,9 +18,23 @@ export interface CreateAIProviderOptions {
   tier?: AITier;
   /** Called for every attempt, for the usage/cost log. */
   onAttempt?: (attempt: AIAttempt) => Promise<void> | void;
+  /**
+   * v55b: when given, the request goes through the AI GATEWAY (registry, routing, quota, budget). The old key-by-key chain below is only a safety net
+   * for when the registry cannot be read (for example migration 0032 has not been run).
+   */
+  service?: SupabaseClient;
+  studentId?: string | null;
 }
 
 export function createAIProvider(options: CreateAIProviderOptions = {}): AIProvider {
+  if (options.service) {
+    const legacyOpts = { tier: options.tier, onAttempt: options.onAttempt };
+    return new GatewayAIProvider({ deps: supabaseGatewayDeps(options.service), studentId: options.studentId ?? null, tier: options.tier === 'free' ? 'free' : 'paid', onAttempt: options.onAttempt, legacy: () => createLegacyChain(legacyOpts) });
+  }
+  return createLegacyChain(options);
+}
+
+function createLegacyChain(options: CreateAIProviderOptions): AIProvider {
   const chain: Array<{ name: string; provider: AIProvider }> = [];
 
   if (process.env.GEMINI_API_KEY) {

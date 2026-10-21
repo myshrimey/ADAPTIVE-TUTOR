@@ -85,6 +85,9 @@ function friendlyError(raw: string): string {
   // own error below: this is the "capacity is genuinely exhausted right
   // now" message, which is also the natural place to mention a paid plan
   // once one exists — swap in the real link/name when it does.
+  if (raw.startsWith('all_ai_providers_unavailable: ai_budget_limit')) {
+    return "Today's AI help limit has been reached. Your practice, quizzes and progress still work; please try the AI tutor again later.";
+  }
   if (raw.startsWith('all_ai_providers_unavailable')) {
     return "The tutor is at capacity across every free AI service we use right now — this isn't something retrying will fix immediately. Please try again in a few minutes. If this keeps happening, a paid or priority version of this app (once available) would avoid shared free-tier limits like this entirely.";
   }

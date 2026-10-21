@@ -584,3 +584,9 @@ org_plans(user_id pk, product_code, student_limit, credits_per_month, access_unt
 
 ## v55 (0031) — all server-only (RLS on, no policies)
 crm_records, crm_activities, funding_records, funding_documents, expenses, revenue_entries, founder_tasks, system_changelog, founder_memory; users.source, users.utm.
+
+## v55b AI Gateway (0032) — all server-only (RLS on, no policies)
+ai_providers(id pk slug, adapter, provider_name, region, model, model_version, endpoint, auth_method, key_env [NAME of a server env var, never a key], priority, status candidate/testing/active/paused/retired, classification A-F, free_tier_available, free_quota_note, rpm/rpd/tpm/tpd, input/output/image/audio/tts prices, context_window, languages, vision, structured_output, tool_calling, commercial_use, data_policy, policy_status, verification_required, free_tier_expiry, quota_reset, last_verified, source_url, verification jsonb (9 checks), legacy, notes).
+ai_usage additions: model, task, task_tier, images, cost_est_inr (list price), cost_inr (billed), free_quota_used, ref, status_code. Still no prompt/answer text.
+ai_benchmark_cases(key unique, class_level, subject, language, kind, prompt, expected, active); ai_benchmark_runs(provider_id, model, model_version, run_at, cases, auto_total, auto_correct, failures, latency_ms_avg, cost_inr, scores jsonb, quality_score); ai_benchmark_results(run_id, case_id, output, ok, auto_correct, latency_ms, manual_score, error).
+commerce_settings key `ai_gateway` (controls and per-task routes).

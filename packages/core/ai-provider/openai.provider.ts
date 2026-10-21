@@ -5,7 +5,7 @@ const OPENAI_ENDPOINT = 'https://api.openai.com/v1/chat/completions';
 const REQUEST_TIMEOUT_MS = 20_000;
 
 export class OpenAIProvider implements AIProvider {
-  constructor(private apiKey: string = process.env.OPENAI_API_KEY!) {
+  constructor(private apiKey: string = process.env.OPENAI_API_KEY!, private model: string = OPENAI_MODEL) {
     if (!this.apiKey) throw new Error('missing_openai_api_key');
   }
 

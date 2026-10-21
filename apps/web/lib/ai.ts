@@ -26,5 +26,5 @@ export async function aiForStudent(studentId: string, options: { tutor?: boolean
     } catch { /* keep fallback */ }
     await assertTutorAllowance(service, studentId, limit);
   }
-  return createAIProvider({ tier, onAttempt: recordAIAttempt(service, studentId, tier) });
+  return createAIProvider({ tier, service, studentId, onAttempt: recordAIAttempt(service, studentId, tier) });
 }
