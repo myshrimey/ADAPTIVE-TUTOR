@@ -5,7 +5,7 @@ import { logEvent } from '../analytics/events';
 import { computeMasteryScore, bandForScore, RETENTION_DEFAULT_SCORE } from '../mastery/types';
 import { gradeAnswer, extractString } from '../question-engine/grading';
 import { ensureExplanation } from '../explanations/ensure-explanation';
-import { generateQuestionWithSolution, validateGeneratedQuestion } from '../question-engine/ai-question-generator';
+import { generateQuestionWithSolution, validateGeneratedQuestion, verifyGeneratedQuestion } from '../question-engine/ai-question-generator';
 
 // Human-readable form of a stored/submitted answer for the diagnostic review
 // screen — same extraction gradeAnswer() itself uses (a bare value, or
@@ -124,8 +124,10 @@ export async function startDiagnostic(
   const anchorSkillIds = await getAnchorSkillIds(supabase, subjectId);
 
   const plan: string[] = [];
+  // Questions this student has already been asked in any earlier diagnostic: never served again while a fresh one can be found.
+  const seen = await loadSeenQuestionOrder(supabase, studentId);
   for (const skillId of anchorSkillIds) {
-    const q = await pickOrGenerateQuestionForSkill(supabase, aiProvider, test.id, subjectId, skillId);
+    const q = await pickOrGenerateQuestionForSkill(supabase, aiProvider, test.id, subjectId, skillId, seen, plan);
     if (q) plan.push(q.id);
     if (plan.length >= MAX_QUESTIONS) break;
   }
@@ -217,7 +219,7 @@ export async function answerDiagnosticQuestion(
   });
 
   if (!isCorrect && !state.insertedForSkill[question.skill_id] && state.plan.length < MAX_QUESTIONS) {
-    const prereqQuestion = await pickPrerequisiteCheckQuestion(supabase, aiProvider, attempt.diagnostic_test_id, question.skill_id, state.plan);
+    const prereqQuestion = await pickPrerequisiteCheckQuestion(supabase, aiProvider, attempt.diagnostic_test_id, question.skill_id, state.plan, await loadSeenQuestionOrder(supabase, attempt.student_id));
     if (prereqQuestion) {
       const currentIndex = state.plan.indexOf(question.id);
       state.plan.splice(currentIndex + 1, 0, prereqQuestion.id);
@@ -277,18 +279,38 @@ async function getAnchorSkillIds(supabase: SupabaseClient, subjectId: string): P
 // than one authored question (see cbse-class10-*-diagnostic.json), which is
 // still a work in progress across subjects; a skill with just one question
 // simply always returns that one, same as before.
-async function pickQuestionForSkill(supabase: SupabaseClient, testId: string, skillId: string) {
+async function loadSeenQuestionOrder(supabase: SupabaseClient, studentId: string): Promise<Map<string, number>> {
+  // question id -> when last answered (ms). Empty on any error so a database hiccup never blocks a diagnostic.
+  const out = new Map<string, number>();
+  try {
+    const { data: attempts } = await supabase.from('diagnostic_attempts').select('id').eq('student_id', studentId);
+    const ids = (attempts ?? []).map((a: any) => a.id);
+    for (let i = 0; i < ids.length; i += 100) {
+      const { data } = await supabase.from('diagnostic_answers').select('diagnostic_question_id, responded_at').in('diagnostic_attempt_id', ids.slice(i, i + 100));
+      for (const r of data ?? []) {
+        const t = Date.parse((r as any).responded_at) || 0;
+        const q = (r as any).diagnostic_question_id as string;
+        if (t >= (out.get(q) ?? 0)) out.set(q, t);
+      }
+    }
+  } catch { /* ignore */ }
+  return out;
+}
+
+/** Random UNSEEN question for the skill (prefers the preferred difficulty). Returns the pool of all candidates too, for the fallback. */
+async function pickQuestionForSkill(supabase: SupabaseClient, testId: string, skillId: string, seen: Map<string, number>, plan: string[]) {
   const { data } = await supabase
     .from('diagnostic_questions')
-    .select('id, difficulty')
+    .select('id, difficulty, prompt')
     .eq('diagnostic_test_id', testId)
     .eq('skill_id', skillId)
     .neq('content_status', 'rejected');
-  if (!data || data.length === 0) return null;
-
-  const exact = data.filter((q) => q.difficulty === PREFERRED_DIFFICULTY);
-  const pool = exact.length > 0 ? exact : data;
-  return pool[Math.floor(Math.random() * pool.length)];
+  const all = (data ?? []).filter((q: any) => !plan.includes(q.id));
+  const unseen = all.filter((q: any) => !seen.has(q.id));
+  const exact = unseen.filter((q: any) => q.difficulty === PREFERRED_DIFFICULTY);
+  const pool = exact.length > 0 ? exact : unseen;
+  const pick = pool.length ? pool[Math.floor(Math.random() * pool.length)] : null;
+  return { pick, all, seenPrompts: all.filter((q: any) => seen.has(q.id)).map((q: any) => String(q.prompt)) };
 }
 
 async function pickPrerequisiteCheckQuestion(
@@ -296,11 +318,12 @@ async function pickPrerequisiteCheckQuestion(
   aiProvider: AIProvider,
   testId: string,
   skillId: string,
-  existingPlan: string[]
+  existingPlan: string[],
+  seen: Map<string, number>
 ) {
   const { data: prereqs } = await supabase.from('prerequisites').select('requires_skill_id').eq('skill_id', skillId);
   for (const p of prereqs ?? []) {
-    const q = await pickOrGenerateQuestionForSkill(supabase, aiProvider, testId, null, p.requires_skill_id);
+    const q = await pickOrGenerateQuestionForSkill(supabase, aiProvider, testId, null, p.requires_skill_id, seen, existingPlan);
     // Skip if this prerequisite's question is already in the plan — its own
     // anchor slot already covers it, no need to test it twice.
     if (q && !existingPlan.includes(q.id)) return q;
@@ -333,11 +356,44 @@ async function pickOrGenerateQuestionForSkill(
   aiProvider: AIProvider,
   testId: string,
   subjectId: string | null,
-  skillId: string
+  skillId: string,
+  seen: Map<string, number>,
+  plan: string[]
 ) {
-  const bankQuestion = await pickQuestionForSkill(supabase, testId, skillId);
-  if (bankQuestion) return bankQuestion;
+  const { pick, all, seenPrompts } = await pickQuestionForSkill(supabase, testId, skillId, seen, plan);
+  if (pick) return pick;
+  // Everything in the bank for this skill has been seen (or the bank is empty): make a new one; if that fails, reuse the
+  // question this student saw LONGEST ago rather than leave the diagnostic without a question.
+  const fresh = await generateFreshQuestion(supabase, aiProvider, testId, subjectId, skillId, seenPrompts);
+  if (fresh) return fresh;
+  if (all.length === 0) return null;
+  return [...all].sort((x: any, y: any) => (seen.get(x.id) ?? 0) - (seen.get(y.id) ?? 0))[0];
+}
 
+async function generateFreshQuestion(
+  supabase: SupabaseClient,
+  aiProvider: AIProvider,
+  testId: string,
+  subjectId: string | null,
+  skillId: string,
+  avoidPrompts: string[]
+) {
+  // Up to 3 tries: the second AI check can reject a question; a student should not get a repeat just because of one rejection.
+  for (let i = 0; i < 3; i++) {
+    const q = await generateFreshQuestionOnce(supabase, aiProvider, testId, subjectId, skillId, avoidPrompts);
+    if (q) return q;
+  }
+  return null;
+}
+
+async function generateFreshQuestionOnce(
+  supabase: SupabaseClient,
+  aiProvider: AIProvider,
+  testId: string,
+  subjectId: string | null,
+  skillId: string,
+  avoidPrompts: string[]
+) {
   let resolvedSubjectId = subjectId;
   if (!resolvedSubjectId) {
     const { data: test } = await supabase.from('diagnostic_tests').select('subject_id').eq('id', testId).single();
@@ -351,7 +407,7 @@ async function pickOrGenerateQuestionForSkill(
   const subjectName = subjectRow?.name ?? 'Mathematics';
 
   try {
-    const generated = await generateQuestionWithSolution(aiProvider, { subjectName, skillName, difficulty: PREFERRED_DIFFICULTY });
+    const generated = await generateQuestionWithSolution(aiProvider, { subjectName, skillName, difficulty: PREFERRED_DIFFICULTY, avoidPrompts: avoidPrompts.slice(-6) });
     const validation = validateGeneratedQuestion(generated);
     // diagnostic_questions has no 'step' type (see quiz/skill-quiz.engine.ts's
     // generateQuizTopUp for the same constraint) — treat it as invalid here.
@@ -360,6 +416,10 @@ async function pickOrGenerateQuestionForSkill(
       return null;
     }
 
+    if (!(await verifyGeneratedQuestion(aiProvider, generated))) {
+      console.error('generateFreshQuestion: second check disagreed, question dropped', skillId);
+      return null;
+    }
     const { data: inserted, error } = await supabase
       .from('diagnostic_questions')
       .insert({

@@ -1,4 +1,5 @@
 import type { AIProvider } from '../ai-provider/ai-provider.interface';
+import { gradeAnswer } from './grading';
 
 // The one place that actually asks the AI to invent a brand-new CBSE Class 10
 // question (prompt + answer + worked solution) for a given skill and
@@ -93,4 +94,28 @@ export function validateGeneratedQuestion(q: GeneratedQuestion): { valid: boolea
   if (!q.expectedAnswer || !q.expectedAnswer.value) return { valid: false, reason: 'missing_expected_answer' };
   if (!q.explanation || q.explanation.trim().length < 5) return { valid: false, reason: 'missing_explanation' };
   return { valid: true };
+}
+
+const SOLVER_PROMPT = `You are solving a CBSE Class 10 question independently. Work it out step by step yourself.
+Respond ONLY with JSON, no prose, no markdown fences: {"answer": string}.
+For a multiple-choice question give the exact text of the ONE option you pick. For a numeric or short-answer
+question give only the final value or short answer.`;
+
+/**
+ * Second, independent AI call: a solver that is NOT shown the stored answer or explanation. A generated question is
+ * kept only when the solver reaches the same answer. This catches many wrong answer keys, but it is not proof of
+ * correctness; generated questions stay "needs_review" until a person checks them.
+ */
+export async function verifyGeneratedQuestion(aiProvider: AIProvider, q: GeneratedQuestion): Promise<boolean> {
+  try {
+    const userMessage = [`Question: ${q.prompt}`, q.options?.length ? `Options:\n${q.options.map((o) => `- ${o}`).join('\n')}` : null].filter(Boolean).join('\n');
+    const r = await aiProvider.complete({ systemPrompt: SOLVER_PROMPT, userMessage, responseFormat: 'json', feature: 'question_generation' });
+    const solved = String((JSON.parse(r.text) as { answer?: unknown }).answer ?? '').trim();
+    if (!solved) return false;
+    const norm = (x: string) => x.replace(/\s+/g, ' ').trim().toLowerCase();
+    const expected = String(q.expectedAnswer?.value ?? '');
+    return norm(solved) === norm(expected) || gradeAnswer({ value: expected }, { value: solved });
+  } catch {
+    return false;
+  }
 }

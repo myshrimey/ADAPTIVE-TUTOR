@@ -20,6 +20,7 @@ export * from './diagnostic/engine';
 export * from './question-engine/selector';
 export * from './question-engine/grading';
 export * from './question-engine/ai-question-generator';
+export * from './question-engine/bank-growth';
 export * from './orchestrator/tutor.orchestrator';
 export * from './orchestrator/session-summary.service';
 export * from './prompts/tutor.prompt';

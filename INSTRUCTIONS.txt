@@ -1,100 +1,18 @@
-SAHAYAK — v29 (10-DAY MVP BUILD, PART 1)
-==========================================
+SAHAYAK v53 - diagnostic questions never repeat; the question bank grows by 50 every session start
+Apply AFTER v52.
 
-WHAT THIS IS
-------------
-This is a big round, built in one go on your instruction ("let's build first
-then deploy everything at once"). It covers most of the 10-day MVP brief you
-sent me:
-  - The explanation-caching bug fix (from the Day 1 report)
-  - A new, separate table/safety fix for offline UPI/QR pilot payments
-  - An English/Hindi language toggle across the main parts of the site
-  - A pilot offer page with a manual payment-confirmation form
-  - An admin-only page where YOU manually confirm or reject a payment
-    (a student/parent can never confirm their own payment)
-  - A parent-facing progress report page, built only from real data
-  - Five legal pages (Terms, Privacy, Pilot Limitations, Payment Policy,
-    Contact) in English and Hindi — DRAFTS for you to review, not final
-  - A founder-attribution line in the footer — DRAFT wording, not yet
-    approved by you
-  - A set of project-notes files (CLAUDE.md, PROJECT_CONTEXT.md, docs/...)
-    that let me (or any future Claude session) pick up exactly where this
-    left off, even in a brand-new chat
+HOW TO PUT IT ON THE WEBSITE
+1. Unzip. Copy every folder/file over your project folder ("Replace" when asked).
+2. Supabase: open your project > SQL Editor > New query. Run the project's usual migration command (npm run db:migrate) OR paste the file packages/db/migrations/0028_question_bank_growth.sql and press Run. It is safe to run twice.
+3. Deploy to Vercel the usual way. No new environment variables.
 
-It does NOT include a real UPI ID or QR code — you said you'll share that
-with parents yourself, so nothing needed to be built for that part.
+WHAT TO CHECK (10 minutes)
+1. Sign in as a student who has done a diagnostic before; start the diagnostic for the same subject again. The questions should be ones the student has not been asked before (if the subject has run out of unseen ones, a new one is written; this may take a few seconds longer).
+2. Start a learning session, wait a minute, then open /admin/question-bank. The subject shows "Owed" going down and "Written" going up. Press "Write what is owed" to carry on by hand (takes up to 45 seconds per press).
+3. In /admin/reviews the new questions appear as AI-written and unreviewed.
 
-It does NOT yet fix the "diagnostic results don't save" issue — I still
-haven't been able to confirm that bug is real from the code alone (see
-"STILL OPEN" below).
-
-STEP-BY-STEP: WHAT TO DO
---------------------------
-1. Copy every file in this zip into your real project folder, into the
-   exact same folder paths shown (e.g. a file at
-   `packages/db/migrations/0009_pilot_payments.sql` in this zip goes into
-   `packages/db/migrations/` in your project — same as every previous
-   round). Some of these are BRAND NEW files in brand new folders
-   (apps/web/app/pilot, apps/web/app/report, apps/web/app/admin/payments,
-   apps/web/app/legal, apps/web/app/contact, apps/web/content, and three
-   new folders under packages/core) — just create those folders if they
-   don't exist yet and put the files inside.
-
-2. Open a terminal in your project folder and run:
-     npm install
-     npm run db:migrate
-   What success looks like: no red error text. If you see "policy already
-   exists," that's fine.
-
-3. Then run:
-     npm run build
-   What success looks like: it ends with a list of routes (40 of them) and
-   no red "Failed to compile" text. I already ran this exact build myself
-   and it was clean — but please still run it yourself before pushing,
-   since your real project may have small differences from mine.
-
-4. Commit and push to GitHub the way you always have. Vercel will pick it
-   up and deploy automatically.
-
-5. Go through the smoke-test checklist in docs/DEPLOYMENT_GUIDE.md once
-   it's live.
-
-THREE THINGS THAT NEED A DECISION FROM YOU BEFORE THIS IS "DONE"
--------------------------------------------------------------------
-1. FOUNDER WORDING: the footer currently shows "Sahayak | Built by
-   Dr. Arvind Tiwari, Founder & Product Builder." I kept this restrained —
-   no degrees or credentials added, since I still can't verify your
-   LinkedIn from here. If you want this changed, tell me the exact wording
-   and I'll update it in one small file
-   (packages/core/branding/founder.ts) — nowhere else needs touching.
-
-2. LEGAL PAGES: Terms, Privacy, Pilot Limitations, and the Payment Policy
-   are drafts matching only what the app actually does today. Please read
-   them at /legal/terms, /legal/privacy, /legal/pilot-limitations, and
-   /legal/payment-policy once deployed. They don't invent any address,
-   registration number, or legal claim — but they're not reviewed by a
-   lawyer, and I'd treat them as a starting point, not final.
-
-3. STILL OPEN — the diagnostic-save bug: I still have not been able to
-   confirm this from the code alone (see my last report). To actually
-   track it down, either:
-   (a) tell me exactly what you saw last time it happened — which
-       subject, did you refresh/sign out, what the Progress page showed —
-       or
-   (b) I can give you one safe, read-only question to run in your
-       Supabase dashboard and paste back the result.
-
-WHAT'S DIFFERENT FROM HOW I'D NORMALLY SHIP
-----------------------------------------------
-I usually ship small rounds one at a time. This round is deliberately
-bigger, per your instruction to build everything first. That also means
-more to verify in one go — please go through the smoke-test checklist
-carefully rather than assuming it's all fine just because it built cleanly
-on my end.
-
-NOT YET BUILT (still coming, per the brief's own 10-day order)
--------------------------------------------------------------------
-- Live, two-account privacy testing (I can only read the security rules in
-  the code — I can't log in as two real students myself)
-- Testing with real families (Day 7)
-- Anything that needs your actual UPI ID/QR, once you're ready to share it
+HONEST STATUS
+Tested with a practice database and a pretend AI: unseen questions preferred; a new question is written when all are seen; the oldest-seen is reused if the AI is down; 50 written per request; wrong-answer questions dropped by the second check; no double running; nothing lost when the AI is down. Build and type-check pass.
+NOT tested: the real AI (speed, how often the second check rejects), the admin counts on your real Supabase.
+Honest limits: on the free AI tier one run may write fewer than 50; the rest stays "owed" and continues at the next start. The second check catches many wrong answers but is not proof; teachers must still review. Questions are never repeated while an unseen one exists; if the bank and the AI both fail, the oldest-seen one is reused rather than leaving the student without a question.
+ROLLBACK: restore the previous files; the new table can stay (it is unused by older code).

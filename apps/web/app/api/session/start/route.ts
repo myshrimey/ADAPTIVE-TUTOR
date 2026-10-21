@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { assertAccess, loadLearnerState, resolveCurrentObjective, runOrchestratorTurn, logEvent, recordCheckin } from '@adaptive-tutor/core';
 import { aiForStudent } from '@/lib/ai';
+import { kickBankGrowth } from '@/lib/bank-growth';
+
+export const maxDuration = 60;
 
 export async function POST(request: Request) {
   try {
@@ -65,12 +68,13 @@ export async function POST(request: Request) {
     // one small joined read, not a full curriculum load.
     const contextPromise = supabase
       .from('skills')
-      .select('name, topics(name, chapters(name, subjects(name)))')
+      .select('name, topics(name, chapters(name, subject_id, subjects(name)))')
       .eq('id', objective.skillId)
       .single();
 
     const [, contextResult] = await Promise.all([Promise.all(logPromises), contextPromise]);
     const skillMeta: any = contextResult.data;
+    kickBankGrowth(skillMeta?.topics?.chapters?.subject_id);
     const context = skillMeta
       ? {
           subjectName: skillMeta.topics?.chapters?.subjects?.name ?? null,

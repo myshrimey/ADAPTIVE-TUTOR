@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { startDiagnostic, registerSubject, assertAccess, assertSubjectAllowed } from '@adaptive-tutor/core';
 import { aiForStudent } from '@/lib/ai';
+import { kickBankGrowth } from '@/lib/bank-growth';
+
+export const maxDuration = 60;
 
 export async function POST(request: Request) {
   try {
@@ -50,6 +53,7 @@ export async function POST(request: Request) {
     await registerSubject(supabase, studentId, subjectId as string, { activate: true });
 
     const { attemptId, firstQuestion, resumed, answeredCount } = await startDiagnostic(supabase, studentId, subjectId as string, await aiForStudent(studentId));
+    if (!resumed) kickBankGrowth(subjectId);
     return NextResponse.json({ data: { attemptId, question: firstQuestion, resumed, answeredCount }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });

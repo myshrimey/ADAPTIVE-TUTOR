@@ -572,3 +572,6 @@ RLS: on, no policy (server only; holds answer text). Columns: question_id, lang 
 
 ## mock_exams (v51 addition)
 language text ('en'/'hi', default 'en').
+
+## question_bank_growth (0028)
+subject_id (pk), pending, produced_total, rejected_total, locked_until, last_run_at, last_run_made, updated_at. RLS on, no policies (server only).

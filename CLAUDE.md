@@ -1,6 +1,7 @@
 # Instructions for future Claude sessions working on Sahayak
 
 Read these in order at the start of every session, before touching code:
+0. `SAHAYAK_PROJECT_MEMORY.md` (single source of truth; update it after every major change; never put secrets in it)
 1. This file (`CLAUDE.md`)
 2. `PROJECT_CONTEXT.md`
 3. `docs/DECISIONS.md`
@@ -12,10 +13,39 @@ Confirm the next task with the founder before making any risky change (schema ch
 
 ## Architecture and conventions
 - Monorepo: `apps/web` (Next.js App Router) + `packages/core` (business logic, one export barrel at `packages/core/index.ts`) + `packages/db` (`schema.sql`, `migrations/`, seed scripts).
-- Migrations live in `packages/db/migrations/*.sql`, numbered in order (currently through `0009`), applied with `npm run db:migrate`. Every `create policy` must be preceded by a matching `drop policy if exists` — Postgres has no `create policy if not exists`, and this repo's migrations must stay safely re-runnable.
+- Migrations live in `packages/db/migrations/*.sql`, numbered in order (currently through `0023`, where TWO files share the number (`0023_blueprint_handwritten.sql` and `0023_self_signup.sql`); both are re-runnable, keep both; every file re-runs on each `npm run db:migrate`, so one-time backfills must be guarded — see 0013's `do $$` blocks), applied with `npm run db:migrate`. Every `create policy` must be preceded by a matching `drop policy if exists` — Postgres has no `create policy if not exists`, and this repo's migrations must stay safely re-runnable.
 - RLS ownership pattern used everywhere a table belongs to a student: `student_id in (select s.id from students s join users u on u.id = s.user_id where u.auth_user_id = auth.uid())`.
 - `createServerClient()` (in `apps/web/lib/supabase-server.ts`) is RLS-bound to the caller's session — use this for anything the student themselves reads/writes. `createServiceClient()` uses the service-role key and bypasses RLS — use ONLY for server-derived writes a client should never make directly, and never with a client-supplied ID that hasn't been re-derived from the authenticated session.
 - AI calls go through `packages/core/ai-provider/factory.ts`'s free-tier fallback chain (Gemini, then Groq). Don't add a new AI provider unless there's a real dependency forcing it.
+
+## Product rules from the master prompt (founder-approved, 2026-10-15)
+- Context affects the intervention; evidence determines the academic assessment. Mood/focus/confidence are stored in `session_checkins` and never written into `mastery_states`.
+- Never label a child ("lazy", "weak", "careless", "anxious"). Use neutral, supportive wording. Never diagnose.
+- Never promise marks, rank or a predicted board score. "Insufficient evidence" is an allowed answer.
+- A subject is only `ready` after the quality gates in `docs/CONTENT_STATUS.md`. AI-generated content is `needs_review` until a person checks it.
+- Subject availability comes from `subjects.status`, not hardcoded slug lists.
+
+## Access, plans and roles (v36)
+- Sign-up (v45, founder-approved 2026-10-18): families self-register with username + password (email optional) at `/api/auth/register` on the FREE plan; login at `/api/auth/login` (username or email). Supabase's own "Allow new users to sign up" stays OFF; accounts are made only by the server routes, with per-address and daily limits, a bot trap field and a required parent/guardian consent (`users.consent_at`). `SIGNUPS_CLOSED=true` closes it (the older `SIGNUPS_OPEN` setting is ignored). Paid plans are still set only by the founder (`/admin/students`). Teachers self-register as PENDING; the founder creates admin accounts. Never relax a role/plan check without the founder saying so.
+- A student needs an active `student_access` row to start learning (`assertAccess`); subject count is limited by `subject_limit` (`assertSubjectAllowed`). Payment confirmation never grants access by itself.
+- Teacher feedback (`content_reviews`) never changes `content_status`; only the founder does, at `/admin/reviews`.
+- AI calls: the app code must get its provider from `aiForStudent()` (apps/web/lib/ai.ts) so the call is logged to `ai_usage` and the free plan stays on free-tier models; never store prompt or answer text in `ai_usage`. Prices live only in `packages/core/plans/plans.ts`.
+- Never log or store a password the founder sets/generates; it is returned once to the admin UI only.
+
+## Assessment, signals and quality gates (v38)
+- Never invent question marks or cognitive levels; leave them NULL until a person sets them. Board-style papers use stated defaults.
+- Chapter/subject checks and mocks never write to `mastery_states`.
+- A subject becomes `ready` only through `/admin/quality` with all ten gates signed off by the founder.
+- Engagement and likely-cause patterns describe what happened in answers, never the child; keep the neutral wording in `LIKELY_CAUSE_WORDING`.
+- `/api/public/check` must never return answer keys or explanations.
+- The 30-day report compares only with enough evidence and uses rule-written sentences; never add AI-written causes or predictions. `/admin/metrics` shows counts only.
+- Regenerate `docs/DATABASE_SCHEMA.md` after every migration.
+- Written-answer marks (`written_attempts`) are AI-suggested practice marks: server-written only, never fed into mastery/readiness without the founder deciding, and student text is passed to the marker as quoted data only.
+
+## Plans, study plan, funnel (v42)
+- A new plan code must be added in three places: `plans.ts`, the `student_access_plan_code_check` list in 0016, 0017 and the newest migration (all re-run), and the admin form. Founding Family: change price, cap or on/off only in `plans.ts`.
+- Funnel/economics show counts the database holds; never estimate visits, referrals or margin. Gross margin is blank when there is no revenue.
+- The study plan is rule-based from recorded evidence only; keep `BOARD_EXAM_START` a stated planning assumption.
 
 ## Files not to change casually
 - `packages/db/migrations/0002_rls_policies.sql` and any RLS policy — a mistake here can expose one student's data to another. Read `docs/DECISIONS.md` and the security section of `PROJECT_CONTEXT.md` first.
@@ -37,3 +67,35 @@ Before calling any change "done":
 
 ## How to resume work
 Read `docs/RESUME_HERE.md` — it always holds the exact next three tasks, current blockers, and what the founder needs to do. Update it (and `docs/BUILD_LOG.md`) before ending any session or hitting a usage limit.
+
+## Devices, retired lessons, Hindi A/B (v43)
+- Max 2 devices per account (`account_devices`, cookie `sahayak_did`); admins exempt; fail-open on errors. A website cannot read a machine's hardware/MAC address, so the record is cookie + IP + browser label only. Do not claim otherwise.
+- `skills.retired = true` lessons (CBSE-removed for 2026-27) stay in the DB but must be filtered out of teaching, diagnostics, reports and plans.
+- Hindi Course A (`hindi`) and B (`hindi-b`) are one subject for plan limits (`subjectFamily`) and mutually exclusive at sign-up. Seeds are generated by `packages/db/seed-generators/gen_hindi.py`; edit the script, not the JSON.
+- Run `python3 scripts/qa-bank.py` after changing any seed; it writes `docs/QUESTION_BANK_AUDIT.md`.
+
+## Data export / delete (v44)
+- `/my-data`: families download their data (`/api/student/export`, session client only) or request deletion (`data_requests`, server-written with ids from the session). Only the founder executes deletion at `/admin/data-requests` (students cascade; feedback and learning_events are removed explicitly). Admin and teacher accounts are never deleted by that route. Payment records are deleted with the student: the founder must agree any retention rule with an accountant/lawyer and list it in the privacy policy.
+
+## Blueprint papers and handwritten answers (v46-v47)
+- Blueprint section layouts are PLANNING blueprints, not official; papers are labelled partial when the bank lacks 3/4/5-mark questions (marks are set only by a person). Challenge Mode only changes selection and time; never claim it is harder than the board paper. Printing uses the browser's print/Save-as-PDF (so Devanagari and maths render); no server PDF.
+- Handwritten photos: private bucket `answer-sheets`, consent per student with a version (`HANDWRITING_CONSENT_VERSION`, still a DRAFT until a lawyer approves), image quality check on the server, AI marks are suggestions; uncertain, high-value and a 10% sample go to a teacher (no student name shown). Marks never feed mastery or readiness. AI-vs-teacher agreement at `/admin/handwriting`; do not call the AI marking reliable before about 100 teacher-checked answers per subject.
+- `ANSWER_BANK_ENABLED` (packages/core/handwriting/config.ts) is OFF. Turn it on only after a lawyer approves the consent wording; when off, deleting an account deletes the photos and written answers.
+
+## Figures and header (v48)
+- Every question figure must render through `QuestionFigure` so it always shows a visible "Figure N. caption". The Admin link in the header shows only when `/api/me` says role = admin; never show it from client-side guesses. Migration `0024_figures_for_all_mapped_skills.sql` is re-runnable.
+
+## Portals (v50)
+- Roles: student, parent, tutor, centre, teacher, admin. Parent/tutor/centre accounts are made at `/api/portal/register` (tutor/centre `pending` until approved at `/admin/partners`). An adult sees a student ONLY through an ACTIVE `student_links` row created by a one-time code the student made at `/sharing`; every adult page checks `isLinked` on the server. Never add an RLS policy that lets adults read student tables. Student-facing pages must never show adult-facing reports or notes. Migration 0025 is re-runnable (migrations now go through `0025`).
+
+## Saved test reports (v49)
+- `test_reports` holds a STUDENT version and an ADULT version of every finished diagnostic/quiz/mock (saved by `apps/web/lib/reports.ts` from the submit routes; saving never blocks the test). The adult version has no RLS policy and must never be shown on a student-facing page or returned by a student API. Migrations now go through `0026`.
+
+## Hindi medium (v51)
+- Hindi question text lives in `question_translations` (AI-written, unreviewed until a teacher checks). Never alter English questions to add Hindi. Marking uses the English key; the Hindi short answer is an extra accepted answer. Keep the number-preservation check. Migrations now go through `0027`.
+
+## Logo, equations, PDF, family sign-up (v52)
+- Use `MathText` for every question prompt, option and explanation (never print raw maths text). Logo files are in `apps/web/public/`. PDF download is client-side (`lib/download-pdf.ts`). `/api/auth/register-family` makes a child and parent together, already linked; the student can still revoke at `/sharing`.
+
+## Question growth and diagnostics (v53)
+- Diagnostics never repeat a question for the same student while an unseen one exists (`engine.ts` seen-set). Generated questions need the second-solve check (`verifyGeneratedQuestion`) and stay `needs_review`. Growth is owed per session start (`question_bank_growth`, 0028); it is best-effort on free-tier AI. Migrations now go through `0028`.
