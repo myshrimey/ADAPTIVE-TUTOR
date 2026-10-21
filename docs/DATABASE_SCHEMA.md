@@ -578,3 +578,6 @@ subject_id (pk), pending, produced_total, rejected_total, locked_until, last_run
 
 ## Commerce (0029)
 commerce_products(code pk, name, kind, price_inr, subject_count, credits, credits_per_month, student_limit, validity_until, active, recommended, sort...); commerce_offers(code pk, kind, percent/amount, applies_to, starts/ends, active); commerce_settings(key pk, value jsonb); mock_credit_ledger(student_id, ref, delta, reason; unique(student_id, ref)); commerce_events; commerce_interest; wtp_responses. pilot_payments + product_code, list_amount, discount_amount, offer_code, quantity, subject_slugs, activated_at/by, payment_method. student_access + product_code, starts_on. mock_exams + max_pages, eval_runs. RLS on; server-only except owner reads where noted in the migration.
+
+## v54b (0030)
+org_plans(user_id pk, product_code, student_limit, credits_per_month, access_until, status, activated_by); org_credit_ledger(user_id, delta, reason, ref; unique(user_id, ref)); feature_usage(student_id, feature, day, used); pilot_payments.paid_by_user_id; handwritten_evaluations.review_status; mock_exams.review_status, eval_stages. Settings: entitlements, seats, boards.

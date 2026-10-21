@@ -46,6 +46,8 @@ export function formatLinkCode(code: string): string {
 }
 
 export const PORTAL_ERROR_TEXT: Record<string, string> = {
+  seat_limit: 'You have reached the number of students your plan includes. Please contact Sahayak to add more seats.',
+  no_active_plan: 'Your tutor/centre plan is not active yet. Please contact Sahayak to activate it.',
   signups_closed: 'Sign-up is closed right now.',
   consent_required: 'Please tick the box to agree.',
   missing_name: 'Please enter a name.',

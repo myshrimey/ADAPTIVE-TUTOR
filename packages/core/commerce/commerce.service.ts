@@ -29,6 +29,9 @@ export const DEFAULT_SETTINGS = {
   economics: { ai_cost_per_image_inr: null as number | null, ai_cost_per_eval_base_inr: null as number | null, human_review_cost_inr: null as number | null, infra_per_eval_inr: null as number | null },
   wtp: { enabled: true, features: { board_readiness: [199, 299, 399, 499, 699, 999], handwritten_mock: [299, 399, 499, 699] } as Record<string, number[]>, max_asks_per_user: 2 },
   feature_flags: { plans_page: true, wtp_questions: true, tutor_centre_applications: true },
+  entitlements: { enforce: true, paid_features: ['advanced_diagnostic', 'advanced_assessment', 'advanced_parent_report', 'board_readiness', 'board_preparation_programme', 'exam_rescue', 'advanced_analytics'] as string[] },
+  seats: { enforce: false, credits_per_grant: 1 },
+  boards: { board1_label: 'Board Exam 1', board1_date: null as string | null, board2_label: 'Board Exam 2', board2_date: null as string | null },
 };
 export type CommerceSettings = typeof DEFAULT_SETTINGS;
 
@@ -173,7 +176,7 @@ export async function chargeHandwritten(service: SupabaseClient, studentId: stri
 }
 
 // ---- Purchase and activation -----------------------------------------------------------------------------
-export interface PurchaseRequest { studentId: string; userId: string | null; productCode: string; subjectSlugs: string[]; coupon?: string | null; quantity?: number; paymentDate: string; reference: string | null }
+export interface PurchaseRequest { studentId: string; userId: string | null; productCode: string; subjectSlugs: string[]; coupon?: string | null; quantity?: number; paymentDate: string; reference: string | null; paidByUserId?: string | null }
 
 export async function createPurchaseRequest(service: SupabaseClient, r: PurchaseRequest): Promise<{ paymentId: string; quote: PriceQuote }> {
   const product = await loadProduct(service, r.productCode);
@@ -193,10 +196,10 @@ export async function createPurchaseRequest(service: SupabaseClient, r: Purchase
   const quote = quotePrice(product, offers, r.coupon, r.quantity ?? 1);
   const { data, error } = await service.from('pilot_payments').insert({
     student_id: r.studentId, offer_label: product.name, amount: quote.finalInr, payment_date: r.paymentDate, transaction_reference: ref, status: 'pending',
-    product_code: product.code, list_amount: quote.listInr, discount_amount: quote.discountInr, offer_code: quote.offer?.code ?? null, quantity: quote.quantity, subject_slugs: slugs.length ? slugs : null,
+    product_code: product.code, list_amount: quote.listInr, discount_amount: quote.discountInr, offer_code: quote.offer?.code ?? null, quantity: quote.quantity, subject_slugs: slugs.length ? slugs : null, paid_by_user_id: r.paidByUserId ?? null,
   }).select('id').single();
   if (error) { if (/uq_pilot_payments_ref|duplicate/i.test(error.message)) throw new Error('reference_already_used'); throw error; }
-  await recordCommerceEvent(service, 'payment_submitted', { userId: r.userId, studentId: r.studentId, productCode: product.code, amount: quote.finalInr, meta: { subjects: slugs } });
+  await recordCommerceEvent(service, 'payment_submitted', { userId: r.userId, studentId: r.studentId, productCode: product.code, amount: quote.finalInr, meta: { subjects: slugs, byParent: !!r.paidByUserId } });
   return { paymentId: data!.id, quote };
 }
 
@@ -251,7 +254,7 @@ export async function verifyAndActivate(service: SupabaseClient, paymentId: stri
 export const COMMERCE_EVENTS = [
   'pricing_page_view', 'plan_selected', 'subject_selected', 'checkout_started', 'payment_instructions_viewed', 'payment_submitted', 'payment_verified',
   'plan_activated', 'mock_purchased', 'mock_submitted', 'mock_completed', 'upgrade_clicked', 'tutor_interest', 'centre_interest', 'readiness_offer_viewed',
-  'readiness_purchase_intent', 'mock_offer_viewed', 'willingness_to_pay_response',
+  'readiness_purchase_intent', 'mock_offer_viewed', 'willingness_to_pay_response', 'readiness_report_viewed',
 ] as const;
 export type CommerceEvent = (typeof COMMERCE_EVENTS)[number];
 

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { CheckInForm, type CheckinAnswers } from '@/components/CheckInForm';
 import { MathText } from '@/components/MathText';
+import { ReadAloud } from '@/components/ReadAloud';
 import { QuestionFigure } from '@/components/QuestionFigure';
 import { MasteryArc } from '@/components/MasteryArc';
 import { accessErrorMessage } from '@/lib/access-errors';
@@ -565,6 +566,7 @@ export default function LearnPage() {
                 <span className="chat-msg__role">{m.role === 'tutor' ? 'Tutor' : 'You'}</span>
                 {m.diagram && <AnimatedDiagram url={m.diagram.url} caption={m.diagram.caption} level={animLevel} />}
                 <MathText text={m.content} />
+                {m.role === 'tutor' && <ReadAloud text={m.content} />}
               </div>
             ))}
             {loading && messages.length > 0 && (

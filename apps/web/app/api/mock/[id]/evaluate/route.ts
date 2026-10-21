@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { aiForStudent } from '@/lib/ai';
-import { evaluateHandwrittenPaper, getHandwritingConsent, assertAccess, planAllows, checkHandwritten, chargeHandwritten, loadSettings, recordCommerceEvent } from '@adaptive-tutor/core';
+import { evaluateHandwrittenPaper, getHandwritingConsent, assertAccess, planAllows, checkHandwritten, chargeHandwritten, loadSettings, recordCommerceEvent, recordEvalStage } from '@adaptive-tutor/core';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
@@ -26,7 +26,19 @@ export async function POST(_req: Request, ctx: { params: Promise<{ id: string }>
     const { data: ex } = await service.from('mock_exams').select('eval_runs').eq('id', id).eq('student_id', studentId).single();
     if ((ex?.eval_runs ?? 0) >= settings.handwritten.max_runs) return NextResponse.json({ data: null, error: 'too_many_runs' }, { status: 429 });
     await service.from('mock_exams').update({ eval_runs: (ex?.eval_runs ?? 0) + 1 }).eq('id', id).eq('student_id', studentId);
-    const out = await evaluateHandwrittenPaper(service, ai, studentId, id);
+    const rerun = (ex?.eval_runs ?? 0) > 0;
+    const stamp = () => new Date().toISOString();
+    // Staged pipeline: 1 quality check (done at upload) -> 2 AI reading + marking -> 3 confidence routing -> 4 teacher review (only when needed).
+    await recordEvalStage(service, id, { stage: 'quality_check', ok: true, at: stamp(), note: 'Photos checked when uploaded' }, rerun ? 'REPROCESSING' : undefined);
+    let out;
+    try {
+      out = await evaluateHandwrittenPaper(service, ai, studentId, id);
+    } catch (e: any) {
+      await recordEvalStage(service, id, { stage: 'ai_reading_and_marking', ok: false, at: stamp(), note: String(e?.message ?? 'failed').slice(0, 120) }, 'FAILED');
+      throw e; // no credit is charged: chargeHandwritten only runs after success
+    }
+    await recordEvalStage(service, id, { stage: 'ai_reading_and_marking', ok: true, at: stamp() });
+    await recordEvalStage(service, id, { stage: 'confidence_routing', ok: true, at: stamp(), note: `${out.needsTeacher + out.unreadable} sent for teacher check` });
     await chargeHandwritten(service, studentId, id);
     await recordCommerceEvent(service, 'mock_completed', { studentId, meta: { examId: id, marked: out.marked, needsTeacher: out.needsTeacher, unreadable: out.unreadable } });
     return NextResponse.json({ data: out, error: null });

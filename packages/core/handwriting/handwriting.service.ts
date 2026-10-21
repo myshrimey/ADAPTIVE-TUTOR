@@ -1,3 +1,4 @@
+import { reviewStatusForAnswer, rollUpReviewStatus, addStage, type ReviewStatus, type StageRecord } from './review-status';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { AIImage, AIProvider } from '../ai-provider/ai-provider.interface';
 import { ANSWER_BANK_ENABLED, ANSWER_BANK_KEEP_PHOTOS, HANDWRITING_CONSENT_VERSION, MAX_SHEET_PAGES } from './config';
@@ -112,14 +113,34 @@ export async function evaluateHandwrittenPaper(service: SupabaseClient, ai: AIPr
       student_id: studentId, mock_exam_id: examId, question_id: a.questionId, question_no: a.questionNo,
       extracted_text: a.transcription || null, ai_score: a.score, max_score: a.maxScore, confidence: a.confidence,
       ai_feedback: [a.feedback, route.reason && route.status !== 'ai_marked' ? `(Sent for teacher check: ${route.reason})` : ''].filter(Boolean).join(' ') || null,
-      status: route.status, teacher_score: null, teacher_note: null, reviewed_at: null,
+      status: route.status, review_status: reviewStatusForAnswer(route.status), teacher_score: null, teacher_note: null, reviewed_at: null,
     });
   }
   if (rows.length) {
     const { error } = await service.from('handwritten_evaluations').upsert(rows, { onConflict: 'mock_exam_id,question_id' });
     if (error) throw error;
   }
+  await syncPaperReviewStatus(service, examId);
   return { marked, needsTeacher, unreadable };
+}
+
+/** Rolls the answers' review statuses up to the paper (mock_exams.review_status). Best effort: never blocks marking. */
+export async function syncPaperReviewStatus(service: SupabaseClient, examId: string): Promise<void> {
+  try {
+    const { data } = await service.from('handwritten_evaluations').select('status').eq('mock_exam_id', examId);
+    const st = rollUpReviewStatus((data ?? []).map((r: any) => r.status));
+    if (st) await service.from('mock_exams').update({ review_status: st }).eq('id', examId);
+  } catch { /* the per-answer status is the source of truth */ }
+}
+
+/** Records one stage of the pipeline on the paper, so a failed run shows where it stopped. Best effort. */
+export async function recordEvalStage(service: SupabaseClient, examId: string, rec: StageRecord, review?: ReviewStatus): Promise<void> {
+  try {
+    const { data } = await service.from('mock_exams').select('eval_stages').eq('id', examId).maybeSingle();
+    const patch: Record<string, unknown> = { eval_stages: addStage((data?.eval_stages as StageRecord[] | null) ?? null, rec) };
+    if (review) patch.review_status = review;
+    await service.from('mock_exams').update(patch).eq('id', examId);
+  } catch { /* never blocks */ }
 }
 
 export interface PaperReport {
@@ -134,6 +155,7 @@ export interface PaperReport {
   items: { questionNo: number; maxScore: number; score: number | null; status: string; feedback: string | null; teacherNote: string | null }[];
   complete: boolean;
   note: string;
+  reviewStatus: ReviewStatus | null;
 }
 
 /** Typed (auto-marked) part plus handwritten part. Marks still waiting for a teacher are not counted, and said so. */
@@ -160,7 +182,7 @@ export async function getPaperReport(service: SupabaseClient, studentId: string,
     : complete
     ? 'All answers are marked. AI-assisted evaluation using CBSE-aligned marking criteria, with human review for uncertain responses.'
     : 'Some written answers are not counted yet: they are waiting for a teacher, could not be read, or have not been marked. AI-assisted evaluation with human review for uncertain responses.';
-  return { autoScore: result?.score ?? 0, autoTotal: result?.total ?? 0, writtenScore, writtenTotalMarked: markedTotal, writtenTotalAll, waitingForTeacher: waiting, unreadable, pendingNotMarked: notMarked, items, complete, note };
+  return { autoScore: result?.score ?? 0, autoTotal: result?.total ?? 0, writtenScore, writtenTotalMarked: markedTotal, writtenTotalAll, waitingForTeacher: waiting, unreadable, pendingNotMarked: notMarked, items, complete, note, reviewStatus: ((exam as any).review_status ?? rollUpReviewStatus((rows ?? []).map((r: any) => r.status))) as ReviewStatus | null };
 }
 
 // ---------- teacher side ----------
@@ -199,9 +221,11 @@ export async function submitTeacherScore(service: SupabaseClient, teacherUserId:
   if (!Number.isInteger(score) || score < 0 || score > ev.max_score) throw new Error('bad_score');
   const { error } = await service
     .from('handwritten_evaluations')
-    .update({ teacher_score: score, teacher_note: note.slice(0, 600) || null, teacher_user_id: teacherUserId, reviewed_at: new Date().toISOString(), status: 'teacher_done' })
+    .update({ teacher_score: score, teacher_note: note.slice(0, 600) || null, teacher_user_id: teacherUserId, reviewed_at: new Date().toISOString(), status: 'teacher_done', review_status: 'HUMAN_REVIEWED' })
     .eq('id', evalId);
   if (error) throw error;
+  const { data: ev2 } = await service.from('handwritten_evaluations').select('mock_exam_id').eq('id', evalId).maybeSingle();
+  if (ev2?.mock_exam_id) { await syncPaperReviewStatus(service, ev2.mock_exam_id); await recordEvalStage(service, ev2.mock_exam_id, { stage: 'teacher_review', ok: true, at: new Date().toISOString() }); }
 }
 
 export async function loadAgreement(service: SupabaseClient): Promise<{ overall: AgreementStats; bySubject: { subject: string; stats: AgreementStats }[]; queue: number; unreadable: number }> {

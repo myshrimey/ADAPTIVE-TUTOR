@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { MathText } from '@/components/MathText';
 import { QuestionFigure } from '@/components/QuestionFigure';
+import { REVIEW_STATUS_TEXT, type ReviewStatus } from '@adaptive-tutor/core';
 import { UpgradeCta } from '@/components/commerce/UpgradeCta';
 import { PrintButton } from '@/components/reports/PrintButton';
 
@@ -12,7 +13,7 @@ import { PrintButton } from '@/components/reports/PrintButton';
 
 interface PQ { no: number; id: string; prompt: string; questionType: 'mcq' | 'short_answer' | 'numeric'; options: string[] | null; optionLabels?: string[] | null; figureUrl: string | null; figureCaption: string | null; marks: number }
 interface Paper { id: string; subjectName: string; title: string; challenge: boolean; status: 'in_progress' | 'submitted'; durationMinutes: number; totalMarks: number; blueprintMarks: number; complete: boolean; issues: string[]; basis: string; sections: { id: string; name: string; marksPerQuestion: number; questions: PQ[] }[]; answers: Record<string, string> }
-interface Report { autoScore: number; autoTotal: number; writtenScore: number; writtenTotalMarked: number; writtenTotalAll: number; waitingForTeacher: number; unreadable: number; pendingNotMarked: number; items: { questionNo: number; maxScore: number; score: number | null; status: string; feedback: string | null; teacherNote: string | null }[]; complete: boolean; note: string }
+interface Report { autoScore: number; autoTotal: number; writtenScore: number; writtenTotalMarked: number; writtenTotalAll: number; waitingForTeacher: number; unreadable: number; pendingNotMarked: number; items: { questionNo: number; maxScore: number; score: number | null; status: string; feedback: string | null; teacherNote: string | null }[]; complete: boolean; note: string; reviewStatus?: string | null }
 interface Consent { given: boolean; current: boolean; bankAvailable: boolean; bank: boolean }
 
 const ERR: Record<string, string> = {
@@ -198,6 +199,7 @@ export default function PaperPage({ params }: { params: Promise<{ id: string }> 
             <h2>Step 5: marks</h2>
             <p>Auto-marked: <strong>{report.autoScore} / {report.autoTotal}</strong>. Written (counted so far): <strong>{report.writtenScore} / {report.writtenTotalMarked}</strong> of {report.writtenTotalAll} written marks.</p>
             <p style={{ color: 'var(--slate)' }}>{report.note}</p>
+            {report.reviewStatus && REVIEW_STATUS_TEXT[report.reviewStatus as ReviewStatus] && <p style={{ fontSize: '0.9rem' }}><strong>Review status:</strong> {report.reviewStatus.replace(/_/g, ' ').toLowerCase()} — {REVIEW_STATUS_TEXT[report.reviewStatus as ReviewStatus]}</p>}
             <UpgradeCta kind="mock" source="paper_result" />
             <ul>{report.items.map((it) => <li key={it.questionNo}>Q{it.questionNo}: {it.score === null ? (it.status === 'needs_teacher' ? 'waiting for a teacher' : it.status === 'unreadable' ? 'could not be read, please retake the photo' : 'not marked yet') : `${it.score} / ${it.maxScore}`}{it.feedback ? ` — ${it.feedback}` : ''}{it.teacherNote ? ` Teacher: ${it.teacherNote}` : ''}</li>)}</ul>
             <p style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>These are practice marks. They do not change your learning progress and are not a prediction of board marks.</p>

@@ -1,31 +1,28 @@
-SAHAYAK v54 - plans, prices, offers, credits and offline (UPI) payment, all changeable without code
-Apply AFTER v53.
+SAHAYAK v54b - Tutor/Centre seats, parents buying for a child, paid reports, review statuses, read-aloud
+Apply AFTER v54.
 
 HOW TO PUT IT ON THE WEBSITE
 1. Unzip. Copy every folder/file over your project folder ("Replace" when asked).
-2. Supabase: run the project's usual migration command (npm run db:migrate) OR paste packages/db/migrations/0029_commerce.sql into SQL Editor and press Run. SAFE to run twice. DO THIS BEFORE deploying, otherwise the new pages show empty plans.
+2. Supabase: run npm run db:migrate OR paste packages/db/migrations/0030_seats_entitlements_review.sql into SQL Editor and press Run. Safe to run twice. Do this BEFORE deploying.
 3. Deploy to Vercel the usual way. No new environment variables.
 
-THINGS ONLY YOU CAN DO (the app never invents these)
-1. Open /admin/pricing > "payment_instructions" and type your UPI ID / QR text. Until then buyers see no payment details.
-2. Same page > "economics": fill your own cost assumptions (AI cost per image, review cost, etc.). Until filled, the commercial dashboard says "insufficient data" instead of guessing a margin.
-3. When you want the handwritten mock to need credits, switch ON "handwritten.credits_required" in /admin/pricing. It is OFF now, so nothing changes for existing users.
-4. HOW TO CHANGE A PRICE: /admin/pricing > the product > edit price > Save. Offers/coupons: same page > Offers. Nothing needs redeploying.
+WHAT IS NEW AND WHAT YOU DECIDE
+1. Tutor/Centre plans: after you have checked a payment, go to /admin/partners, find the tutor/centre, press "Activate / renew paid plan (1 month)" and type the payment reference. Pressing again with the same reference does not extend twice. Their page then shows seats used and a pool of mock credits (20 for tutor, 50 for centre each month); they can press "Give 1 mock credit" next to a linked student.
+   Seat LIMITS are OFF so nobody is locked out today. To switch on: /admin/pricing > setting "seats" > change "enforce":false to true. Then a tutor/centre without an active plan cannot add NEW students, and no one can go over the limit.
+2. Parents: on a plan's buy page a parent now sees "This plan is for" with their linked children. The payment is recorded against that child; you verify it as usual at /admin/payments.
+3. Paid reports: /board-readiness, /exam-rescue, /board-programme (and for parents: the links under each child on the parent page). Free users see what it is and a "See plans" button. Which features need a paid plan is the setting "entitlements" in /admin/pricing. To open everything to everyone during founding access, set "enforce": false.
+4. Exam dates: /admin/pricing > setting "boards": type board1_date / board2_date as YYYY-MM-DD when you have them. Until then the programme covers the next 12 weeks and says so.
+5. Handwritten papers now show a review status (AI evaluated / waiting for a teacher / reviewed by a teacher / failed / marked again). A failed run does not use a credit.
+6. Read-aloud button under tutor messages (uses the phone/computer's own voice; free plan limit set in "free_limits" voice_per_day, default 5 a day).
 
 WHAT TO CHECK (15 minutes)
-1. Open /plans on your phone. All prices come from the database: Founding Family 7,999; subject plans 1,499 / 2,499 / 3,499 / 4,999 / 6,999; handwritten mock 499. Every card shows "Terms & Conditions Apply."
-2. Sign in as a test student > pick a plan > buy page shows price and your payment instructions > submit a fake transaction reference.
-3. /admin/payments shows the request with product, discount and subjects. Press "Verify payment and activate": the student gets the plan, subjects and credits. Pressing it twice must not double the credits.
-4. Mock paper: upload more photos than the limit - it is refused with a clear message. Upload the same photo twice - refused.
-5. /admin/commercial and /admin/interest show the numbers; Export buttons give CSV files.
-
-IMPORTANT DIFFERENCES FROM EARLIER RULES (please read)
-- Old prices (4,999 / 14,999) are replaced by the new pricing prompt. Old code constants remain but are no longer shown.
-- Earlier rule "payment confirmation never grants access" is changed: the new button "Verify payment and activate" grants access, only when YOU press it. The old "Only record as paid" button still grants nothing.
-- The 499 handwritten mock stays the list price; a 399 offer exists but is switched OFF.
+1. Run the migration, open /admin/pricing: settings "entitlements", "seats", "boards" appear.
+2. Sign in as a free student, open /board-readiness: you see the locked page. Give the student a paid plan (/admin/students) and refresh: the report shows.
+3. As an approved tutor, link a student with a code, then in /admin/partners activate the plan; the tutor page shows the plan and "Give 1 mock credit" works; the student's credit goes up by 1 and the pool down by 1.
+4. As a parent (linked child), open a plan buy page: child picker appears; submit a fake reference; see it in /admin/payments.
 
 HONEST STATUS
-Tested with a practice database: price calculation on the server, offers/coupons, duplicate payment protection, activation only once, credits (given once, charged only after a successful evaluation, never twice), image limits, retry limit, economics maths (48 checks pass). Type-check and full build pass.
-NOT tested: your real Supabase, a real payment, the pages in a real browser, the real AI evaluation with credits switched on.
-NOT BUILT yet: Tutor/Centre plans are applications only (no student seats yet); parents without a child account cannot buy; paid Board Readiness report, preparation programme and exam rescue are only buttons and price-interest questions; voice/visual limits are stored but those features do not exist; AI_EVALUATED / HUMAN_REVIEW statuses and the staged AI pipeline are not added. No exam dates are hard-coded.
-ROLLBACK: restore previous files. The new tables can stay; older code ignores them.
+Tested with a practice database: seat limit, activation and renewal (no double), monthly pool credits, giving a credit (once only, refused for unlinked/expired/empty), feature gating, daily voice limit, review status roll-up, rescue plan order (base skill before weak skill), programme weeks/checkpoints, parent payment record (45 checks). Migration runs twice cleanly on a real Postgres. Type-check and full build pass.
+NOT tested: your real Supabase, the new pages in a real browser, a real tutor/parent sign-in, the real AI evaluation, the browser voice on Hindi.
+HONEST LIMITS: "Visual interactions" limit is stored but no such feature exists. Board Readiness / Rescue / Programme use only recorded evidence, never predict marks, and have no separate purchase price yet (they come with any paid plan; a stand-alone price is your decision after the willingness-to-pay answers). Tutor/centre plans are activated by you by hand, no automatic renewal. Two separate Board 1 / Board 2 programmes arrive in v56.
+ROLLBACK: restore previous files; new tables can stay.

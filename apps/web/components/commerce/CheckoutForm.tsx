@@ -11,14 +11,16 @@ const ERR: Record<string, string> = {
   choose_subjects: 'Please choose the subjects.', too_many_subjects: 'You chose more subjects than this plan includes.',
   payment_reference_required: 'Please type the payment reference (UTR / transaction number) shown in your UPI app.',
   already_submitted: 'You already sent a request for this a few minutes ago. We are checking it.',
-  reference_already_used: 'This payment reference was already submitted.', bad_payment_date: 'Please choose the payment date.',
+  child_not_linked: 'This child is not linked to your account.', reference_already_used: 'This payment reference was already submitted.', bad_payment_date: 'Please choose the payment date.',
   product_not_available: 'This plan is not available right now.', student_not_found: 'Please sign in with the student account.',
 };
 
-export function CheckoutForm({ code, name, kind, subjectCount, billing, subjects, initial, upi }: {
+export function CheckoutForm({ code, name, kind, subjectCount, billing, subjects, initial, upi, kids }: {
+  kids?: { id: string; name: string }[];
   code: string; name: string; kind: string; subjectCount: number | null; billing: string; subjects: SubjectOpt[]; initial: Quote;
   upi: { upi_id: string; qr_image_url: string; payee_name: string; extra: string };
 }) {
+  const [child, setChild] = useState(kids && kids.length === 1 ? kids[0].id : '');
   const [chosen, setChosen] = useState<string[]>([]);
   const [coupon, setCoupon] = useState('');
   const [qty, setQty] = useState(1);
@@ -47,9 +49,11 @@ export function CheckoutForm({ code, name, kind, subjectCount, billing, subjects
     });
   }
   async function submit(e: React.FormEvent) {
-    e.preventDefault(); setBusy(true); setErr('');
+    e.preventDefault(); setErr('');
+    if (kids && !child) { setErr('Please choose which child this is for.'); return; }
+    setBusy(true);
     try {
-      const r = await fetch('/api/commerce/purchase', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ productCode: code, subjectSlugs: chosen, coupon, quantity: qty, paymentDate: date, reference: ref }) });
+      const r = await fetch('/api/commerce/purchase', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ childId: kids ? child : undefined, productCode: code, subjectSlugs: chosen, coupon, quantity: qty, paymentDate: date, reference: ref }) });
       const j = await r.json();
       if (j.error) setErr(ERR[j.error] ?? 'Something went wrong. Please try again, or contact us.'); else setDone(j.data.amount);
     } catch { setErr('Could not reach the server. Check your internet.'); }
@@ -66,6 +70,12 @@ export function CheckoutForm({ code, name, kind, subjectCount, billing, subjects
 
   return (
     <form onSubmit={submit}>
+      {kids && (
+        <div className="field"><label className="field__label" htmlFor="child">This plan is for</label>
+          {kids.length === 0 ? <p className="alert">No child is linked to your account yet. Link a child from your parent page first.</p>
+            : <select id="child" className="field__input" value={child} onChange={(e) => setChild(e.target.value)}><option value="">Choose a child</option>{kids.map((k) => <option key={k.id} value={k.id}>{k.name}</option>)}</select>}
+        </div>
+      )}
       <h2 style={{ fontSize: 'var(--step-1)' }}>1. Your price</h2>
       {kind === 'mock' && <div className="field"><label className="field__label" htmlFor="q">How many evaluations?</label><input id="q" type="number" min={1} max={20} className="field__input" value={qty} onChange={(e) => { const v = Math.min(20, Math.max(1, Number(e.target.value) || 1)); setQty(v); requote(coupon, v); }} style={{ maxWidth: 120 }} /></div>}
       <div className="chapter-row" style={{ display: 'block' }}>

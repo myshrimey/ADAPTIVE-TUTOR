@@ -341,3 +341,13 @@ One entry per work session. Newest entry on top.
 - Free limits (tutor questions per day) now read from settings. Willingness-to-pay prompts (199-999) and commercial events recorded.
 - Tested: 48 unit checks on the commerce service with an in-memory database; tsc and full build clean. NOT tested: live Supabase, real payments flow, browser walkthrough of the new pages.
 - Not built: B2B seat activation, Board Readiness paid report, preparation programme, exam rescue, voice/visual limits (stored only), AI_EVALUATED/HUMAN_REVIEW statuses and staged evaluation.
+
+## v54b — seats, parent purchase, paid reports, review statuses, read-aloud
+- Migration 0030: org_plans, org_credit_ledger, feature_usage, review_status columns, settings entitlements/seats/boards (empty exam dates).
+- Tutor/centre: admin "Activate / renew paid plan (1 month)" at /admin/partners; seat limit (off by default); shared monthly credit pool; "Give 1 mock credit" per linked student.
+- Parent buys for a linked child (child picker on the buy page; server checks the link). Payment records who paid.
+- Paid pages: /board-readiness, /exam-rescue, /board-programme, and parent versions at /parent/student/[id]/premium/[kind]; locked page for free users. Built only from recorded evidence; never predicts marks.
+- Handwritten pipeline stages recorded; per-answer and per-paper review statuses; FAILED never charges.
+- Read-aloud (browser voice) in the tutor chat counted against the free daily voice limit.
+- Tested: 45 new checks (seats, grants, entitlements, limits, statuses, rescue, programme) + earlier 48; migration 0030 runs twice cleanly on Postgres 16; tsc and full build clean. NOT tested: live Supabase, pages in a browser, real AI.
+- Still not built: visual-interaction limit (no such feature), exam-date-specific Board 1/Board 2 programmes (v56).

@@ -125,6 +125,7 @@ export default async function ReportPage() {
         )}
 
         <ReportExtras report={report} />
+        <p className="no-print" style={{ marginTop: 'var(--space-3)' }}><a href="/board-readiness">Board Readiness report</a> · <a href="/exam-rescue">Exam Rescue</a> · <a href="/board-programme">Preparation Programme</a></p>
         <UpgradeCta kind="readiness" source="parent_report" />
 
         {report.subjects.map((s) => (

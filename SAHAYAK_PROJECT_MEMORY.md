@@ -49,3 +49,6 @@ Each delta zip has `INSTRUCTIONS.txt`. Typical: copy files over the project, `np
 
 ## v54 pricing decisions (2026-10)
 Founding Family 7,999 (5 subjects); individual/1-subject 1,499; subject plans 1,499/2,499/3,499/4,999/6,999; handwritten mock 499 list (399 offer allowed); Tutor 3,499/mo (20 students); Centre 9,999/mo (50). All editable at /admin/pricing. Supersedes the older 4,999/14,999 constants. Free plan stays. Founder to supply UPI/QR text and economics assumptions; handwritten credit charging is OFF until the founder enables it.
+
+## v54b (2026-10-20)
+Tutor/centre seats + shared credit pool (founder activates after checking payment; seats enforcement OFF by default). Parents can buy for linked children. Board Readiness / Exam Rescue / Preparation Programme pages exist and need a paid plan (founder can open them via setting entitlements.enforce=false). Handwritten review statuses added. Exam dates remain empty until the founder enters them.

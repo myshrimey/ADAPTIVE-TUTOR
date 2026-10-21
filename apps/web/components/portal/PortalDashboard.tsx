@@ -3,6 +3,8 @@ import { type PortalUser, linkedStudentIds, summariseStudents } from '@/lib/port
 import { LinkStudentForm } from './LinkStudentForm';
 import { createServiceClient } from '@/lib/supabase-server';
 import { SignOutButton } from '@/components/SignOutButton';
+import { getOrgPlan, orgPlanActive, orgBalance, ensureOrgMonthlyCredits, loadSettings } from '@adaptive-tutor/core';
+import { GrantCreditButton } from './GrantCreditButton';
 
 function day(iso: string | null) {
   return iso ? new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Asia/Kolkata' }) : 'no activity yet';
@@ -24,6 +26,15 @@ export async function PortalDashboard({ me }: { me: PortalUser }) {
       latest[sid] = data ?? [];
     }
   }
+  // Tutor / centre plan: seats and the shared credit pool.
+  let orgPlan: Awaited<ReturnType<typeof getOrgPlan>> = null; let pool = 0; let seatsEnforced = false;
+  if ((me.role === 'tutor' || me.role === 'centre') && me.status === 'active') {
+    const service = createServiceClient();
+    orgPlan = await getOrgPlan(service, me.userId);
+    if (orgPlan && orgPlanActive(orgPlan)) { await ensureOrgMonthlyCredits(service, me.userId).catch(() => 0); pool = await orgBalance(service, me.userId); }
+    seatsEnforced = (await loadSettings(service)).seats.enforce;
+  }
+  const planLive = orgPlanActive(orgPlan);
   const active7 = rows.filter((r) => r.lastActive && Date.now() - Date.parse(r.lastActive) < 7 * 86400000).length;
   const withEv = rows.filter((r) => r.averageMastery !== null);
   const avg = withEv.length ? Math.round(withEv.reduce((a, r) => a + (r.averageMastery ?? 0), 0) / withEv.length) : null;
@@ -50,6 +61,23 @@ export async function PortalDashboard({ me }: { me: PortalUser }) {
           </div>
         )}
 
+        {(me.role === 'tutor' || me.role === 'centre') && me.status === 'active' && (
+          <div className="chapter-row" style={{ display: 'block', marginTop: 'var(--space-3)' }}>
+            <strong>Your plan</strong>
+            {orgPlan ? (
+              <div style={{ fontSize: '0.92rem' }}>
+                {planLive ? 'Active' : 'Ended or paused'} · students: {rows.length} of {orgPlan.studentLimit} · mock credits in your pool: {pool}
+                {orgPlan.accessUntil ? ` · until ${orgPlan.accessUntil}` : ''}
+                <div style={{ color: 'var(--slate)' }}>You can give one pool credit to a linked student below, so they can get a handwritten mock marked. Credits in the pool are added each month.</div>
+              </div>
+            ) : (
+              <div style={{ fontSize: '0.92rem', color: 'var(--slate)' }}>
+                No paid plan is active yet. {seatsEnforced ? 'You cannot add new students until it is activated.' : 'You can follow students as before.'} <a href="/plans/apply/tutor">Apply or ask about a plan</a>. Terms &amp; Conditions Apply.
+              </div>
+            )}
+          </div>
+        )}
+
         <div style={{ marginTop: 'var(--space-3)' }}><LinkStudentForm disabled={me.status !== 'active'} /></div>
 
         <h2 style={{ fontSize: 'var(--step-1)', marginTop: 'var(--space-4)' }}>{me.role === 'parent' ? 'Your children' : me.role === 'tutor' ? 'Your students' : 'Enrolled students'} ({rows.length})</h2>
@@ -65,13 +93,16 @@ export async function PortalDashboard({ me }: { me: PortalUser }) {
               ? <div style={{ color: 'var(--slate)', fontSize: '0.9rem' }}>No test has been finished yet. Reports appear here, with date and time, as soon as {r.name} finishes one.</div>
               : <ul style={{ margin: '0.2rem 0 0', paddingLeft: '1.1rem' }}>{(latest[r.studentId] ?? []).map((x) => <li key={x.id}><a href={`${base}${r.studentId}/report/${x.id}`}>{x.title}</a> <span style={{ color: 'var(--slate)', fontSize: '0.85rem' }}>· {day(x.taken_at)}</span></li>)}</ul>}
             <div style={{ marginTop: '0.4rem', fontSize: '0.9rem' }}><a href={base + r.studentId}>See everything for {r.name} →</a></div>
+            <div style={{ marginTop: '0.3rem', fontSize: '0.9rem' }}>
+              <a href={`/parent/student/${r.studentId}/premium/readiness`}>Board Readiness report</a> · <a href={`/parent/student/${r.studentId}/premium/rescue`}>Exam Rescue</a> · <a href={`/parent/student/${r.studentId}/premium/programme`}>Preparation Programme</a> · <a href="/plans">Plans</a>
+            </div>
           </div>
         ))}
 
         {me.role !== 'parent' && rows.length > 0 && (
           <div style={{ overflowX: 'auto', marginTop: '0.6rem' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.92rem' }}>
-              <thead><tr style={{ textAlign: 'left', borderBottom: '2px solid var(--line)' }}><th>Student</th><th>Skills practised</th><th>Average mastery</th><th>Sessions (14 days)</th><th>Last active</th></tr></thead>
+              <thead><tr style={{ textAlign: 'left', borderBottom: '2px solid var(--line)' }}><th>Student</th><th>Skills practised</th><th>Average mastery</th><th>Sessions (14 days)</th><th>Last active</th>{planLive && <th></th>}</tr></thead>
               <tbody>
                 {rows.map((r) => (
                   <tr key={r.studentId} style={{ borderBottom: '1px solid var(--line)' }}>
@@ -80,6 +111,7 @@ export async function PortalDashboard({ me }: { me: PortalUser }) {
                     <td>{r.averageMastery === null ? 'Not enough evidence' : r.averageMastery + '/100'}</td>
                     <td>{r.sessions14d}</td>
                     <td>{day(r.lastActive)}</td>
+                    {planLive && <td><GrantCreditButton studentId={r.studentId} /></td>}
                   </tr>
                 ))}
               </tbody>

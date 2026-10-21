@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { requireAdmin } from '@/lib/admin';
-import { DEFAULT_SETTINGS } from '@adaptive-tutor/core';
+import { DEFAULT_SETTINGS, activateOrgPlan } from '@adaptive-tutor/core';
 
 // Admin-only editing of prices, offers and settings (no code needed). Every change is checked here, never trusted from the browser.
 const int = (v: unknown, min = 0, max = 10_000_000) => { const n = Math.floor(Number(v)); if (!Number.isFinite(n) || n < min || n > max) throw new Error('bad_number'); return n; };
@@ -57,9 +57,19 @@ export async function POST(request: Request) {
       let value = b.value;
       if (typeof value === 'string') value = JSON.parse(value);
       if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('setting_must_be_an_object');
+      if (key === 'boards') for (const k of ['board1_date', 'board2_date']) if ((value as any)[k] !== null && (value as any)[k] !== undefined && (value as any)[k] !== '') dateOrNull((value as any)[k]);
+      if (key === 'boards') for (const k of ['board1_date', 'board2_date']) if ((value as any)[k] === '') (value as any)[k] = null;
+      if (key === 'entitlements' && (typeof (value as any).enforce !== 'boolean' || !Array.isArray((value as any).paid_features))) throw new Error('entitlements_need_enforce_and_paid_features');
+      if (key === 'seats' && typeof (value as any).enforce !== 'boolean') throw new Error('seats_need_enforce_true_or_false');
       const { error } = await s.from('commerce_settings').upsert({ key, value, updated_at: new Date().toISOString() }, { onConflict: 'key' });
       if (error) throw error;
       await log('setting_set', { key });
+    } else if (b.action === 'org_activate') {
+      const ref = String(b.ref ?? '').trim().slice(0, 60);
+      if (!ref) throw new Error('payment_reference_required');
+      const out = await activateOrgPlan(s, String(b.userId ?? ''), String(b.productCode ?? ''), admin.email, ref);
+      await log('org_activate', { userId: b.userId, productCode: b.productCode, ref });
+      return NextResponse.json({ data: out, error: null });
     } else if (b.action === 'interest_status') {
       const st = String(b.status ?? '');
       if (!['new', 'contacted', 'in_talks', 'done', 'not_a_fit'].includes(st)) throw new Error('bad_status');
