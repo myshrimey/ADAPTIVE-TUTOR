@@ -6,13 +6,13 @@
 // recalculated every time the page opens, so it moves with the child: weak skills that improve drop
 // off, a new weak skill appears, a prerequisite gap is repaired first.
 //
-// The board exam date is a PLANNING assumption (CBSE publishes the date sheet later). Change it in
-// one place: BOARD_EXAM_START.
+// The board exam date is the FOUNDER's to enter (setting "boards" at /admin/pricing). No date is built into the code: without one the plan
+// covers the next 12 weeks and says so (StudyPlan.datesSet = false).
 
 import type { SupabaseClient } from '@supabase/supabase-js';
 
-/** Planning date for the start of the CBSE Class 10 board exams, 2027. Update when CBSE publishes the date sheet. */
-export const BOARD_EXAM_START = '2027-02-17';
+/** Weeks shown when the founder has not entered an exam date yet. */
+export const NO_DATE_WEEKS = 12;
 export const DEFAULT_DAILY_MINUTES = 45;
 const WEAK_BELOW = 50; // mastery score (percent) below which a skill is treated as weak
 const MAX_WEAK_PER_SUBJECT = 3;
@@ -68,6 +68,8 @@ export interface StudyPlan {
   weeklyMinutes: number;
   usingDefaultMinutes: boolean;
   examStart: string;
+  /** false = the founder has not entered an exam date, so examStart is only 12 weeks from today. */
+  datesSet: boolean;
   subjects: PlanSubject[];
   notes: string[];
 }
@@ -81,7 +83,8 @@ export function phaseForDaysLeft(daysLeft: number): PlanPhase {
 }
 
 export function composeStudyPlan(input: PlanInput): StudyPlan {
-  const examStart = input.examStart ?? BOARD_EXAM_START;
+  const datesSet = !!input.examStart;
+  const examStart = input.examStart ?? new Date(input.today.getTime() + NO_DATE_WEEKS * 7 * 86400000).toISOString().slice(0, 10);
   const daysLeft = Math.max(0, Math.ceil((new Date(examStart + 'T00:00:00+05:30').getTime() - input.today.getTime()) / 86400000));
   const phase = phaseForDaysLeft(daysLeft);
   const usingDefaultMinutes = input.dailyMinutes === null;
@@ -129,7 +132,7 @@ export function composeStudyPlan(input: PlanInput): StudyPlan {
     };
   });
 
-  return { daysLeft, weeksLeft: Math.ceil(daysLeft / 7), phase, weeklyMinutes, usingDefaultMinutes, examStart, subjects, notes };
+  return { daysLeft, weeksLeft: Math.ceil(daysLeft / 7), phase, weeklyMinutes, usingDefaultMinutes, examStart, datesSet, subjects, notes };
 }
 
 /** Load weak skills (with weak prerequisites) per subject for one student. Uses the session-bound client (RLS). */

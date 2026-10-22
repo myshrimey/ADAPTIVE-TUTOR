@@ -59,6 +59,13 @@ export async function POST(request: Request) {
       if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('setting_must_be_an_object');
       if (key === 'boards') for (const k of ['board1_date', 'board2_date']) if ((value as any)[k] !== null && (value as any)[k] !== undefined && (value as any)[k] !== '') dateOrNull((value as any)[k]);
       if (key === 'boards') for (const k of ['board1_date', 'board2_date']) if ((value as any)[k] === '') (value as any)[k] = null;
+      if (key === 'boards') {
+        const v: any = value;
+        for (const k of ['board1_enabled', 'board2_enabled']) if (k in v && typeof v[k] !== 'boolean') throw new Error('board_enabled_must_be_true_or_false');
+        for (const k of ['board1_label', 'board2_label', 'programme_name']) if (k in v && (typeof v[k] !== 'string' || !v[k].trim() || v[k].length > 120)) throw new Error('board_labels_must_be_short_text');
+        for (const k of ['board1_subjects', 'board2_subjects']) if (v[k] !== null && v[k] !== undefined && (!Array.isArray(v[k]) || v[k].some((x: unknown) => typeof x !== 'string'))) throw new Error('board_subjects_must_be_a_list_or_null');
+        if (v.board1_date && v.board2_date && String(v.board2_date) <= String(v.board1_date)) throw new Error('board2_date_must_be_after_board1_date');
+      }
       if (key === 'entitlements' && (typeof (value as any).enforce !== 'boolean' || !Array.isArray((value as any).paid_features))) throw new Error('entitlements_need_enforce_and_paid_features');
       if (key === 'seats' && typeof (value as any).enforce !== 'boolean') throw new Error('seats_need_enforce_true_or_false');
       const { error } = await s.from('commerce_settings').upsert({ key, value, updated_at: new Date().toISOString() }, { onConflict: 'key' });

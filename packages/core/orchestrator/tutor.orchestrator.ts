@@ -1,3 +1,4 @@
+import { loadLangPrefs } from '../boards/language-store';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { AIProvider } from '../ai-provider/ai-provider.interface';
 import { createDefaultAIProvider } from '../ai-provider/factory';
@@ -268,7 +269,9 @@ async function handleMessageTurn(
       .eq('id', input.sessionId);
   }
 
+  const replyLanguage = (await loadLangPrefs(supabase, input.studentId)).learning;
   const prompt = buildTutorPrompt({
+    replyLanguage,
     skillName: ctx.skillName,
     learningObjective: ctx.learningObjectiveText,
     strategy: ctx.strategy,
@@ -470,7 +473,9 @@ async function handleAnswerTurn(
   }
 
   const diagram = getLearningDiagram(ctx.skillSlug) ?? undefined;
+  const replyLanguage = (await loadLangPrefs(supabase, input.studentId)).learning;
   const prompt = buildTutorPrompt({
+    replyLanguage,
     skillName: ctx.skillName,
     learningObjective: ctx.learningObjectiveText,
     strategy: nextAction,

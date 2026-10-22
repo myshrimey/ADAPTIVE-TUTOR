@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { aiForStudent } from '@/lib/ai';
-import { evaluateHandwrittenPaper, getHandwritingConsent, assertAccess, planAllows, checkHandwritten, chargeHandwritten, loadSettings, recordCommerceEvent, recordEvalStage } from '@adaptive-tutor/core';
+import { getServerLang } from '@/lib/language';
+import { languagesForStudent, evaluateHandwrittenPaper, getHandwritingConsent, assertAccess, planAllows, checkHandwritten, chargeHandwritten, loadSettings, recordCommerceEvent, recordEvalStage } from '@adaptive-tutor/core';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
@@ -32,7 +33,9 @@ export async function POST(_req: Request, ctx: { params: Promise<{ id: string }>
     await recordEvalStage(service, id, { stage: 'quality_check', ok: true, at: stamp(), note: 'Photos checked when uploaded' }, rerun ? 'REPROCESSING' : undefined);
     let out;
     try {
-      out = await evaluateHandwrittenPaper(service, ai, studentId, id);
+      // Feedback is written in the student's LEARNING language (independent of the app language).
+      const langs = await languagesForStudent(service, studentId, await getServerLang());
+      out = await evaluateHandwrittenPaper(service, ai, studentId, id, Math.random, { feedbackLang: langs.learning });
     } catch (e: any) {
       await recordEvalStage(service, id, { stage: 'ai_reading_and_marking', ok: false, at: stamp(), note: String(e?.message ?? 'failed').slice(0, 120) }, 'FAILED');
       throw e; // no credit is charged: chargeHandwritten only runs after success

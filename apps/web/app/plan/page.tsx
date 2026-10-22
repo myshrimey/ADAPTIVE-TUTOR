@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
-import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
+import { createServerClient, createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { getServerLang } from '@/lib/language';
-import { buildParentReport, composeStudyPlan, loadWeakSkills } from '@adaptive-tutor/core';
+import { buildParentReport, composeStudyPlan, loadWeakSkills, loadSettings } from '@adaptive-tutor/core';
 
 // "What should I do this week?" Built from recorded evidence only (see packages/core/planning/study-plan.ts).
 export default async function PlanPage() {
@@ -15,15 +15,17 @@ export default async function PlanPage() {
   const hi = lang === 'hi';
   const supabase = await createServerClient();
   const since = new Date(Date.now() - 14 * 86400000).toISOString();
-  const [report, weak, { data: profile }, { count }] = await Promise.all([
+  const [report, weak, { data: profile }, { count }, boardSettings] = await Promise.all([
     buildParentReport(supabase, studentId),
     loadWeakSkills(supabase, studentId),
     supabase.from('learning_profiles').select('daily_study_minutes').eq('student_id', studentId).maybeSingle(),
     supabase.from('learning_sessions').select('id', { count: 'exact', head: true }).eq('student_id', studentId).gte('started_at', since),
+    loadSettings(createServiceClient()),
   ]);
 
   const plan = composeStudyPlan({
     today: new Date(),
+    examStart: boardSettings.boards.board1_date ?? undefined,
     dailyMinutes: profile?.daily_study_minutes ?? null,
     sessionsLast14Days: count ?? 0,
     lang: hi ? 'hi' : 'en',
@@ -47,8 +49,8 @@ export default async function PlanPage() {
           <h1 style={{ fontSize: 'var(--step-3)' }}>{hi ? 'आपकी अध्ययन योजना' : 'Your study plan'}</h1>
           <p style={{ color: 'var(--slate)' }}>
             {hi
-              ? <>लगभग {plan.weeksLeft} सप्ताह बचे हैं (योजना की तिथि {plan.examStart}; CBSE की डेट शीट आने पर बदली जाएगी)। चरण: <strong>{phaseText}</strong>। सप्ताह में लगभग {plan.weeklyMinutes} मिनट, पाँच दिन; दो दिन छुट्टी।</>
-              : <>About {plan.weeksLeft} weeks to go (planning date {plan.examStart}; it will be updated when CBSE publishes the date sheet). Stage: <strong>{phaseText}</strong>. About {plan.weeklyMinutes} minutes a week, five days, two days free.</>}
+              ? <>{plan.datesSet ? `लगभग ${plan.weeksLeft} सप्ताह बचे हैं (परीक्षा की तिथि ${plan.examStart})।` : `परीक्षा की तिथि अभी दर्ज नहीं है, इसलिए अगले 12 सप्ताह की योजना दिखाई गई है।`} चरण: <strong>{phaseText}</strong>। सप्ताह में लगभग {plan.weeklyMinutes} मिनट, पाँच दिन; दो दिन छुट्टी।</>
+              : <>{plan.datesSet ? `About ${plan.weeksLeft} weeks to go (exam date ${plan.examStart}).` : 'The exam date has not been entered yet, so this shows the next 12 weeks.'} Stage: <strong>{phaseText}</strong>. About {plan.weeklyMinutes} minutes a week, five days, two days free.</>}
           </p>
           <p style={{ color: 'var(--slate)', fontSize: '0.88rem' }}>
             {hi ? 'यह योजना हर बार आपके ताज़ा अभ्यास से दोबारा बनती है। यह एक मार्गदर्शन है, अंकों की भविष्यवाणी नहीं।' : 'This plan is rebuilt from your latest practice every time you open it. It is a guide, not a prediction of marks.'}

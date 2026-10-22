@@ -1,3 +1,4 @@
+import { validateTranslation } from './validate';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { AIProvider } from '../ai-provider/ai-provider.interface';
 
@@ -99,8 +100,10 @@ export function parseTranslations(text: string, batch: QuestionToTranslate[]): H
 export async function loadHindi(service: SupabaseClient, ids: string[]): Promise<Map<string, HindiTranslation>> {
   const m = new Map<string, HindiTranslation>();
   if (ids.length === 0) return m;
-  const { data } = await service.from('question_translations').select('question_id, prompt, options, answer_text, explanation, status').eq('lang', 'hi').in('question_id', ids).neq('status', 'rejected');
-  for (const r of (data ?? []) as any[]) m.set(r.question_id, { questionId: r.question_id, prompt: r.prompt, options: r.options ?? null, answerText: r.answer_text ?? null, explanation: r.explanation ?? null, status: r.status });
+  let { data, error }: { data: any[] | null; error: any } = await service.from('question_translations').select('question_id, prompt, options, answer_text, explanation, status, validation').eq('lang', 'hi').in('question_id', ids).neq('status', 'rejected');
+  if (error) ({ data } = (await service.from('question_translations').select('question_id, prompt, options, answer_text, explanation, status').eq('lang', 'hi').in('question_id', ids).neq('status', 'rejected')) as any); // migration 0033 not run yet
+  // A version that failed its automatic checks is never shown to a student (validation is empty for older rows, which keep working).
+  for (const r of (data ?? []) as any[]) if (r.validation?.passed !== false) m.set(r.question_id, { questionId: r.question_id, prompt: r.prompt, options: r.options ?? null, answerText: r.answer_text ?? null, explanation: r.explanation ?? null, status: r.status });
   return m;
 }
 
@@ -148,9 +151,15 @@ export async function ensureHindiTranslations(
           return [] as HindiTranslation[];
         }
       }));
-      const rowsOut = results.flat().map((t) => ({ question_id: t.questionId, lang: 'hi', prompt: t.prompt, options: t.options, answer_text: t.answerText, explanation: t.explanation, status: t.status }));
+      const byId = new Map(todo.map((q) => [q.id, q]));
+      const rowsOut = results.flat().map((t) => {
+        const q = byId.get(t.questionId);
+        const validation = q ? validateTranslation({ prompt: q.prompt, options: q.options, answerText: q.expectedAnswerText, explanation: q.explanation }, { prompt: t.prompt, options: t.options, answerText: t.answerText, explanation: t.explanation }, 'hi') : null;
+        return { question_id: t.questionId, lang: 'hi', prompt: t.prompt, options: t.options, answer_text: t.answerText, explanation: t.explanation, status: t.status, validation };
+      });
       if (rowsOut.length) {
-        const { error } = await service.from('question_translations').upsert(rowsOut, { onConflict: 'question_id,lang' });
+        let { error } = await service.from('question_translations').upsert(rowsOut, { onConflict: 'question_id,lang' });
+        if (error) ({ error } = await service.from('question_translations').upsert(rowsOut.map(({ validation: _v, ...r }) => r), { onConflict: 'question_id,lang' })); // migration 0033 not run yet
         if (error) console.error('save translations failed', error.message);
         else saved += rowsOut.length;
       }

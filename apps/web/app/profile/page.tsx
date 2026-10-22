@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase-client';
 import { useLanguage } from '@/components/LanguageProvider';
+import { LanguagePrefs } from '@/components/LanguagePrefs';
 
 // School + family details and how the student did in classes 6-9 before
 // joining Sahayak. Entirely optional and editable any time — this isn't
@@ -176,6 +177,7 @@ export default function ProfilePage() {
         <div className="hero-banner fade-slide-in" style={{ marginTop: 'var(--space-4)' }}>
           <p className="hero__eyebrow">Your profile</p>
           <h1 style={{ fontSize: 'var(--step-3)' }}>{displayName ? `${displayName}'s profile` : 'Your profile'}</h1>
+          <LanguagePrefs />
           <p className="hero__lede" style={{ marginBottom: 0 }}>
             A bit more about you and your school — entirely optional, and only visible to you. It helps
             us understand our students better as we keep building Sahayak.

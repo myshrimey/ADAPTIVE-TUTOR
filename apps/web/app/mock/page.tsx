@@ -92,6 +92,8 @@ export default function MockPage() {
   const [autoNote, setAutoNote] = useState(false);
   const [kind, setKind] = useState<Kind>('full_mock');
   const [medium, setMedium] = useState<'en' | 'hi'>(lang === 'hi' ? 'hi' : 'en');
+  // The student's saved QUESTION language is the default medium for a new paper (they can still change it below).
+  useEffect(() => { fetch('/api/student/language').then((r) => r.json()).then((j) => { const q = j?.data?.effective?.question; if (q === 'hi' || q === 'en') setMedium(q); }).catch(() => {}); }, []);
   const [chapters, setChapters] = useState<{ id: string; name: string }[]>([]);
   const [chapterId, setChapterId] = useState('');
   const [delivery, setDelivery] = useState<'screen' | 'paper'>('paper');

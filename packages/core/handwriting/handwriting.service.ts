@@ -91,13 +91,13 @@ async function loadImages(service: SupabaseClient, studentId: string, examId: st
  * Reads the uploaded pages and stores AI-suggested marks. Tier 1 AI marks, Tier 2 rule checks, Tier 3 teacher queue.
  * Answers a teacher has already marked are never overwritten. Safe to run again.
  */
-export async function evaluateHandwrittenPaper(service: SupabaseClient, ai: AIProvider, studentId: string, examId: string, rng: () => number = Math.random): Promise<{ marked: number; needsTeacher: number; unreadable: number }> {
+export async function evaluateHandwrittenPaper(service: SupabaseClient, ai: AIProvider, studentId: string, examId: string, rng: () => number = Math.random, opts: { feedbackLang?: string } = {}): Promise<{ marked: number; needsTeacher: number; unreadable: number }> {
   const exam = await loadPaperExam(service, studentId, examId);
   const questions = await writtenQuestionsFor(service, exam);
   if (!questions.length) return { marked: 0, needsTeacher: 0, unreadable: 0 };
   const images = await loadImages(service, studentId, examId);
   if (!images.length) throw new Error('no_pages_uploaded');
-  const res = await ai.complete({ systemPrompt: HANDWRITING_SYSTEM_PROMPT, userMessage: buildHandwritingUserMessage(questions, images.length), responseFormat: 'json', feature: 'handwriting', images, ref: examId });
+  const res = await ai.complete({ systemPrompt: HANDWRITING_SYSTEM_PROMPT, userMessage: buildHandwritingUserMessage(questions, images.length, opts.feedbackLang), responseFormat: 'json', feature: 'handwriting', images, ref: examId });
   const parsed = parseHandwritingResult(res.text, questions);
   if (!parsed) throw new Error('handwriting_unreadable_response');
 
@@ -114,10 +114,13 @@ export async function evaluateHandwrittenPaper(service: SupabaseClient, ai: AIPr
       extracted_text: a.transcription || null, ai_score: a.score, max_score: a.maxScore, confidence: a.confidence,
       ai_feedback: [a.feedback, route.reason && route.status !== 'ai_marked' ? `(Sent for teacher check: ${route.reason})` : ''].filter(Boolean).join(' ') || null,
       status: route.status, review_status: reviewStatusForAnswer(route.status), teacher_score: null, teacher_note: null, reviewed_at: null,
+      answer_language: a.answerLanguage ?? 'unknown', feedback_language: opts.feedbackLang ?? 'en',
     });
   }
   if (rows.length) {
-    const { error } = await service.from('handwritten_evaluations').upsert(rows, { onConflict: 'mock_exam_id,question_id' });
+    let { error } = await service.from('handwritten_evaluations').upsert(rows, { onConflict: 'mock_exam_id,question_id' });
+    // Migration 0033 not run yet: save without the two language columns rather than losing the evaluation.
+    if (error) ({ error } = await service.from('handwritten_evaluations').upsert(rows.map(({ answer_language: _a, feedback_language: _f, ...r }) => r), { onConflict: 'mock_exam_id,question_id' }));
     if (error) throw error;
   }
   await syncPaperReviewStatus(service, examId);

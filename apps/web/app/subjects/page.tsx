@@ -3,6 +3,7 @@ import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { loadSubjectCatalogue, t } from '@adaptive-tutor/core';
 import { getServerLang } from '@/lib/language';
 import { SubjectManager } from '@/components/SubjectManager';
+import { SubjectRequestForm } from '@/components/SubjectRequestForm';
 
 export default async function SubjectsPage() {
   let studentId: string;
@@ -22,6 +23,7 @@ export default async function SubjectsPage() {
           <h1 style={{ fontSize: 'var(--step-2)' }}>{t('subject.manageTitle', lang)}</h1>
           <p style={{ color: 'var(--slate)' }}>{t('subject.manageIntro', lang)}</p>
           <SubjectManager initial={subjects} />
+          <SubjectRequestForm />
         </div>
       </div>
     </main>

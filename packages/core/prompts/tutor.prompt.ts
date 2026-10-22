@@ -1,3 +1,4 @@
+import { languageInstruction } from '../boards/languages';
 // Fixed system prompt + a small injected turn context. See docs/architecture.md §11
 // for the rationale (concise, no full history, no emotional/personal-relationship
 // language, no psychological speculation).
@@ -33,6 +34,8 @@ export const TUTOR_SYSTEM_PROMPT = `You are a patient, structured tutor for a CB
   between dollar signs as a typeset equation.`;
 
 export interface TutorTurnContext {
+  /** Learning language code (e.g. 'hi'). Empty or 'en' = English, as before. */
+  replyLanguage?: string | null;
   skillName: string;
   learningObjective: string;
   strategy: string;
@@ -77,5 +80,6 @@ export function buildTutorPrompt(context: TutorTurnContext): { system: string; u
     .filter(Boolean)
     .join('\n');
 
-  return { system: TUTOR_SYSTEM_PROMPT, user };
+  const li = languageInstruction(context.replyLanguage);
+  return { system: li ? `${TUTOR_SYSTEM_PROMPT}\n\n${li}` : TUTOR_SYSTEM_PROMPT, user };
 }

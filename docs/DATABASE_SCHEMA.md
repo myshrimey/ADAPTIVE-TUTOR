@@ -590,3 +590,6 @@ ai_providers(id pk slug, adapter, provider_name, region, model, model_version, e
 ai_usage additions: model, task, task_tier, images, cost_est_inr (list price), cost_inr (billed), free_quota_used, ref, status_code. Still no prompt/answer text.
 ai_benchmark_cases(key unique, class_level, subject, language, kind, prompt, expected, active); ai_benchmark_runs(provider_id, model, model_version, run_at, cases, auto_total, auto_correct, failures, latency_ms_avg, cost_inr, scores jsonb, quality_score); ai_benchmark_results(run_id, case_id, output, ok, auto_correct, latency_ms, manual_score, error).
 commerce_settings key `ai_gateway` (controls and per-task routes).
+
+## v56 Boards and languages (0033)
+supported_languages(code pk, label, native_label, script, enabled, sort) readable by all signed-in users. learning_profiles + app_language, question_language, learning_language, report_language (null = follow default). mock_exams.language and question_translations.lang reference supported_languages(code). question_translations + validation jsonb, checked_by, checked_at, reviewer_note. handwritten_evaluations + answer_language, feedback_language. subject_requests(user_id, board, class_level, subject_text, language, note, created_at) server-only. commerce_settings `boards` + programme_name, board1_enabled, board2_enabled, board1_subjects, board2_subjects.

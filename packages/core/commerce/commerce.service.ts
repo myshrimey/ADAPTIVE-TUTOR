@@ -36,7 +36,7 @@ export const DEFAULT_SETTINGS = {
   rag: { diagnostic_completion: { green: 60, amber: 40 }, weekly_active_of_total: { green: 30, amber: 15 }, return_within_7_days: { green: 40, amber: 20 }, paid_conversion: { green: 5, amber: 2 }, contribution_margin: { green: 50, amber: 20 }, handwritten_human_review: { green: 30, amber: 50 } } as Record<string, { green: number; amber: number }>,
   fit_weights: { education: 3, ai: 2, edtech: 3, stage: 3, cheque: 2, india: 2, strategic: 2, warm_intro: 2, portfolio: 2, founder: 1 } as Record<string, number>,
   business: { assumed_lifetime_months: null as number | null, product_stage: 'CBSE Class X 2027' },
-  boards: { board1_label: 'Board Exam 1', board1_date: null as string | null, board2_label: 'Board Exam 2', board2_date: null as string | null },
+  boards: { board1_label: 'Board Exam 1', board1_date: null as string | null, board2_label: 'Board Exam 2', board2_date: null as string | null, programme_name: 'Class X 2027 Two-Board Preparation Programme', board1_enabled: true, board2_enabled: true, board1_subjects: null as string[] | null, board2_subjects: null as string[] | null },
 };
 export type CommerceSettings = typeof DEFAULT_SETTINGS;
 

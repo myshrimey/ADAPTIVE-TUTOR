@@ -1,5 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
-import { buildParentReport, loadWeakSkills, composeStudyPlan, composeRescue, composeProgramme, loadSettings, type Feature } from '@adaptive-tutor/core';
+import { buildParentReport, loadWeakSkills, composeStudyPlan, composeRescue, composeProgramme, composeTwoBoardReadiness, composeTwoBoardProgramme, loadSettings, type Feature } from '@adaptive-tutor/core';
 import { createServiceClient } from '@/lib/supabase-server';
 
 export async function loadPremiumData(client: SupabaseClient, studentId: string, lang: 'en' | 'hi' = 'en') {
@@ -19,7 +19,17 @@ export async function loadPremiumData(client: SupabaseClient, studentId: string,
   const datesSet = !!b1;
   const examStart = b1 ?? new Date(Date.now() + 84 * 86400000).toISOString().slice(0, 10);
   const plan = composeStudyPlan({ today: new Date(), examStart, dailyMinutes, sessionsLast14Days: count ?? 0, lang, subjects });
-  return { report, weak, plan, dailyMinutes, settings, datesSet, subjects, programme: composeProgramme(plan, { datesSet }), rescue: (days: number) => composeRescue({ subjects, days, dailyMinutes }) };
+  const planSubjects = subjects;
+  // Board 2 plan: starts when Board 1 is over (or today if that date has passed) and runs to Board 2. Only built when both dates are entered.
+  const b2 = settings.boards.board2_date;
+  const b1Day = b1 ? new Date(`${b1}T00:00:00+05:30`) : null;
+  const plan2 = b1 && b2 ? composeStudyPlan({ today: b1Day && b1Day.getTime() > Date.now() ? b1Day : new Date(), examStart: b2, dailyMinutes, sessionsLast14Days: count ?? 0, lang, subjects: planSubjects }) : null;
+  const twoBoard = composeTwoBoardReadiness({
+    boards: settings.boards,
+    subjects: report.subjects.map((s) => ({ subjectId: s.subjectId, name: s.subjectName, band: s.readiness.band, coveragePercent: s.coveragePercent, hasBaseline: s.hasBaseline, priority: s.priority, weakSkillCount: (weak.get(s.subjectId) ?? []).length, mockCount: s.mockCount, latestMockPercent: s.latestMockPercent ?? null })),
+  });
+  const twoProgramme = composeTwoBoardProgramme({ name: settings.boards.programme_name, planBoard1: plan, planBoard2: plan2, boards: settings.boards });
+  return { report, weak, plan, dailyMinutes, settings, datesSet, subjects, twoBoard, twoProgramme, programme: composeProgramme(plan, { datesSet }), rescue: (days: number) => composeRescue({ subjects, days, dailyMinutes }) };
 }
 
 export const FEATURE_COPY: Record<'board_readiness' | 'exam_rescue' | 'board_preparation_programme', { title: string; body: string; bullets: string[]; wtp: string; event: string }> = {

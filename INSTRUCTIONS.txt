@@ -1,38 +1,33 @@
-SAHAYAK v55 - Founder Command Centre (admin only): business dashboard, customers & leads, schools, funding & investors, money in/out, tasks, change log, project memory
-Apply AFTER v54b.
+SAHAYAK v56 - Two exams (Board 1 / Board 2) and four separate languages
 
-HOW TO PUT IT ON THE WEBSITE
-1. Unzip. Copy every folder/file over your project folder ("Replace" when asked).
-2. Supabase: run npm run db:migrate OR paste packages/db/migrations/0031_founder_command_centre.sql into SQL Editor and press Run. Safe to run twice. Do this BEFORE deploying.
-3. Deploy to Vercel the usual way. No new environment variables. Only emails in ADMIN_EMAILS can open these pages.
+BEFORE YOU START
+1. Apply the v55b zip first (sahayak-v55b-ai-gateway-delta.zip) if you have not.
 
-WHAT YOU GET (all under /admin; the admin menu now starts with "Founder Command Centre")
-1. Founder Command Centre (/admin now opens it). Business health (green/amber/red), alerts, "What should I do next?", today's numbers, users, revenue, costs and profit, unit economics, handwritten economics ("REVIEW PRICING" if it loses money), funnel, where students came from, pipelines, tutors/centres/schools, funding. Time filter: today / 7 / 30 / 90 days / this month / quarter / year / all / custom dates.
-   Every number is tagged: ACTUAL (counted), ESTIMATED (partial data), ASSUMED (your assumption). If it cannot be worked out, it says "Insufficient data". Nothing is guessed.
-2. Customers and leads (/admin/crm): parents, tutors, centres, schools, partners. Stage list (new lead ... referral), next follow-up date, log of conversations, CSV download. "Schools only" view has principal, coordinator, pilot dates, procurement route. Government schools: do not assume the principal can buy.
-3. Funding and investors (/admin/funding): investors, government schemes, incubators, accelerators, CSR, loans. Unknown facts show UNKNOWN — VERIFY. Each record has source, date verified, confidence. Your own ratings give an "Internal Sahayak Fit Score" (your judgement, not a fact). Weighted pipeline uses chances you set.
-   Documents checklist (/admin/funding/documents): 32 items, COMPLETE / MISSING / NEEDS UPDATE.
-   Investor-safe metrics (/admin/investor-metrics): totals only; print or save as PDF.
-   LEGAL / CA / CS ADVICE IS REQUIRED for any actual investment agreement. Sahayak gives no legal advice.
-4. Money in and out (/admin/expenses): record costs (marketing, teachers, infrastructure...) and money received from tutors/centres/schools. Student plan payments are counted automatically; do not enter them again.
-5. Founder tasks, System change log (pre-filled for v52-v55), Project memory (write your vision/decisions; one button downloads a text file you can give to any future AI).
-6. Where students came from: share links like yoursite/?src=whatsapp or ?utm_source=instagram or ?ref=referral. The first link a person used is remembered and saved at sign-up. Older users show as "direct".
+HOW TO APPLY
+1. Unzip this folder on top of your project folder. Say yes to replace files.
+2. Open a terminal in the project folder and run:  npm run db:migrate
+   (this adds migration 0033; it is safe to run again)
+3. Push to GitHub / deploy to Vercel as usual.
 
-THINGS ONLY YOU CAN DO
-- Enter your costs (Money in and out) so profit, CAC and margin appear.
-- Check/change the starting assumptions in /admin/pricing: rag (green/amber thresholds), crm_probabilities, funding_probabilities, fit_weights, business. They are PLANNING ASSUMPTIONS, not facts.
-- Fill economics (AI cost per image etc.) in /admin/pricing > economics for handwritten economics.
-- Add investors/schemes only with facts you have verified.
+WHAT YOU CAN DO NOW
+- Admin > Pricing > "boards": type the two exam dates, names, and (optionally) which subjects each exam covers. Until you do, the app shows "Exam date not set yet" and never guesses a date.
+- Students: Profile page has four language choices: App, Question, Learning (tutor replies), Report.
+- Board Readiness and the Preparation Programme now show Board 1 and Board 2 side by side. They never predict marks. They say "Insufficient data" when there is not enough evidence.
+- Admin > "Check Hindi translations": pick a subject, read the English and Hindi side by side, mark Correct or Wrong. A wrong one is never shown to students. "Re-run automatic checks" tests numbers, signs and options again.
+- Admin > "Subject requests": see which subjects families ask for.
+- Hindi or mixed-language handwriting is sent to a teacher unless the AI is very sure.
 
-WHAT TO CHECK (15 minutes)
-1. Run the migration; open /admin: it opens the Command Centre. With no data most boxes say "Insufficient data": that is correct.
-2. Add one cost and one lead; refresh: cost appears, "Record your costs" advice disappears, the lead appears with its stage.
-3. Add an investor with only a name: other fields show UNKNOWN — VERIFY; set fit ratings and see the score.
-4. Open a share link like /?src=linkedin in a private window, sign up a test student, then check "Where students came from".
-5. Download a CSV from Customers and one from Funding.
+TESTED (honestly)
+- 64 new automatic checks (languages, version choice, translation checks, handwriting routing, two-board readiness, plan with no date, subject requests) all passed.
+- All earlier checks (48, 45, 62, 115, 12) still pass.
+- The database change ran twice on a test Postgres without errors.
+- Type check and full build are clean.
 
-HONEST STATUS
-Tested with a practice database (62 checks): date ranges in India time, scoring, weighted pipelines, revenue/cost/contribution/profit/CAC maths, privacy (no names/emails in the numbers), alerts, the action list. Migration runs twice cleanly on a real Postgres. Type-check and full build pass.
-NOT tested: your real Supabase, the pages in a real browser (especially on a phone), saving records through the screens against your real database, the sign-up source cookie in a live sign-up.
-NOT BUILT yet: revenue by subject or board; funnel filters by board/class/subject/language; Excel export (CSV only: Excel opens CSV); drag-and-drop pipeline (use the stage drop-down); school pilot scorecard form; centre batch dashboards; automatic investor research (by design nothing is fetched or invented); visits/landing-page tracking.
-ROLLBACK: restore previous files; the new tables can stay (nothing else uses them).
+NOT TESTED
+- Not tried on your real Supabase, with real AI, or in a browser.
+- Quality of the AI's Hindi has not been judged by a person: please check a sample at the review page.
+
+NOT BUILT
+- Hindi question text exists for mock tests only; diagnostics and practice are English.
+- No "improvement since Board 1" history yet.
+- Parent home page has no Board 1/Board 2 card; the parent sees both on the paid readiness page.
