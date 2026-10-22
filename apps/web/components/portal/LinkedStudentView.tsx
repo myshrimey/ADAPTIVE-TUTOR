@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { createServiceClient } from '@/lib/supabase-server';
-import { buildParentReport } from '@adaptive-tutor/core';
+import { buildParentReport, weeklySummary } from '@adaptive-tutor/core';
+import { engineCtx } from '@/lib/engagement';
 import { ReportExtras } from '@/components/ReportExtras';
 import { type PortalUser, isLinked } from '@/lib/portal';
 import { UnlinkButton } from './UnlinkButton';
@@ -16,6 +17,8 @@ export async function LinkedStudentView({ me, studentId }: { me: PortalUser; stu
   try { report = await buildParentReport(service, studentId); } catch { report = null; }
   // Saved ADULT reports for this student: read with the service key only after the link check above.
   const { data: reports } = await service.from('test_reports').select('id, title, kind, taken_at, score, total, in_marks').eq('student_id', studentId).eq('audience', 'adult').order('taken_at', { ascending: false }).limit(100);
+  let weekly: { sentence: string; facts: string[] } | null = null;
+  try { const ctx = await engineCtx(service); weekly = await weeklySummary(service, studentId, st.display_name, ctx.idx); } catch { weekly = null; }
   const home = `/${me.role}`;
   return (
     <main className="page">
@@ -25,6 +28,7 @@ export async function LinkedStudentView({ me, studentId }: { me: PortalUser; stu
           <h1 style={{ fontSize: 'var(--step-3)' }}>{st.display_name}</h1>
           <p style={{ color: 'var(--slate)' }}>Read-only view. Only counts and dates from the student&apos;s own practice. Never a prediction of marks or rank.</p>
         </div>
+        {weekly && <section className="tip-card" style={{ marginTop: 'var(--space-3)' }}><span className="tip-card__eyebrow">This week</span><p className="tip-card__body">{weekly.sentence}</p>{weekly.facts.length > 0 && <ul style={{ margin: 0 }}>{weekly.facts.map((f) => <li key={f}>{f}</li>)}</ul>}<p style={{ color: 'var(--slate)', fontSize: '0.8rem', margin: '0.4rem 0 0' }}>A weekly summary of counts, not every action. It is never a prediction of marks.</p></section>}
         <h2 style={{ fontSize: 'var(--step-1)', marginTop: 'var(--space-3)' }}>Saved test reports</h2>
         <ReportList rows={(reports ?? []) as ReportRow[]} hrefBase={`${home}/student/${studentId}/report`} empty="No tests finished yet. Each diagnostic, quiz and mock the student finishes will be saved here with its date and time." />
         {report ? <ReportExtras report={report} /> : <p style={{ color: 'var(--slate)' }}>No practice recorded yet.</p>}

@@ -79,6 +79,7 @@ export async function PortalDashboard({ me }: { me: PortalUser }) {
         )}
 
         <div style={{ marginTop: 'var(--space-3)' }}><LinkStudentForm disabled={me.status !== 'active'} /></div>
+        {me.role !== 'parent' && <p style={{ marginTop: 'var(--space-2)' }}><a className="btn btn--ghost btn--small" href={`/${me.role}/challenges`}>Set a challenge for your students</a></p>}
 
         <h2 style={{ fontSize: 'var(--step-1)', marginTop: 'var(--space-4)' }}>{me.role === 'parent' ? 'Your children' : me.role === 'tutor' ? 'Your students' : 'Enrolled students'} ({rows.length})</h2>
         {rows.length === 0 && <p style={{ color: 'var(--slate)' }}>No one is linked yet. {me.role === 'parent' ? 'If your child signed up with you, they appear here automatically; otherwise add them with a code above.' : 'Add a student with a code above.'}</p>}

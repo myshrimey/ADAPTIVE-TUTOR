@@ -1,33 +1,43 @@
-SAHAYAK v56 - Two exams (Board 1 / Board 2) and four separate languages
+SAHAYAK v57 - STUDENT ENGAGEMENT AND RETENTION ENGINE
+=====================================================
+Apply AFTER v55b and v56 (this zip builds on both).
 
-BEFORE YOU START
-1. Apply the v55b zip first (sahayak-v55b-ai-gateway-delta.zip) if you have not.
+WHAT THIS ADDS
+Today's Mission, Sahayak XP (you set the values), Beat Your Best, 22 achievements, streaks with friendly "welcome back" wording, My Mistake Book, Weakness Battle, Comeback Challenge, CBSE Challenge of the Day, Practice / Challenge / Mixed / Boss rounds, Study Journey, an optional nickname-only leaderboard, tutor and centre challenges, a weekly summary for parents/tutors/centres, and an admin Engagement dashboard and settings screen.
 
-HOW TO APPLY
-1. Unzip this folder on top of your project folder. Say yes to replace files.
-2. Open a terminal in the project folder and run:  npm run db:migrate
-   (this adds migration 0033; it is safe to run again)
-3. Push to GitHub / deploy to Vercel as usual.
+STEPS
+1. Copy the folders "apps", "packages" and "docs", and the two files CLAUDE.md and SAHAYAK_PROJECT_MEMORY.md, into your project folder. Choose Replace when asked. (Copy-merge the folders; do not unzip into a new subfolder.)
+2. Open a terminal in the project folder and run:  npm install
+3. Run:  npm run db:migrate
+   This applies migration 0034 (safe to run again).
+4. Run:  npm run build   - it should finish without errors.
+5. Push to GitHub as usual so Vercel redeploys.
+6. Sign in as admin. Open /admin/engagement-settings and review the XP values, mission size, daily limit and which features are switched on. Open /admin/engagement for the dashboard.
+7. Sign in as a student: you will see "Today" in the menu and a Today card on the dashboard. Try a Challenge of the Day.
+8. Tutors/centres: "Challenges" is on their dashboard (approved accounts only).
 
-WHAT YOU CAN DO NOW
-- Admin > Pricing > "boards": type the two exam dates, names, and (optionally) which subjects each exam covers. Until you do, the app shows "Exam date not set yet" and never guesses a date.
-- Students: Profile page has four language choices: App, Question, Learning (tutor replies), Report.
-- Board Readiness and the Preparation Programme now show Board 1 and Board 2 side by side. They never predict marks. They say "Insufficient data" when there is not enough evidence.
-- Admin > "Check Hindi translations": pick a subject, read the English and Hindi side by side, mark Correct or Wrong. A wrong one is never shown to students. "Re-run automatic checks" tests numbers, signs and options again.
-- Admin > "Subject requests": see which subjects families ask for.
-- Hindi or mixed-language handwriting is sent to a teacher unless the AI is very sure.
+HOW IT BEHAVES (so nothing surprises you)
+- XP is never given for opening the app, clicking, repeated submits, very fast random answers, or questions seen recently. Rushed rounds are quietly flagged for your review in the admin page; students are never accused.
+- Challenges never change a student's mastery score. Students are told so.
+- Weakness Battle never says "mastered".
+- Leaderboard is off for each student until they choose a nickname. It never shows real names, and is hidden until enough students join.
+- XP and achievements appear the next time the student opens a page (not instantly).
+- Admin numbers show "Insufficient data" when fewer than 5 students are behind them.
 
-TESTED (honestly)
-- 64 new automatic checks (languages, version choice, translation checks, handwriting routing, two-board readiness, plan with no date, subject requests) all passed.
-- All earlier checks (48, 45, 62, 115, 12) still pass.
-- The database change ran twice on a test Postgres without errors.
-- Type check and full build are clean.
+TESTED
+- 142 rule checks and 120 end-to-end checks on an in-memory database (missions, XP only once, mistakes, daily/weakness/boss/comeback rounds, personal bests, streaks, tutor challenges, leaderboard privacy, parent summary, admin numbers). Two real bugs were found and fixed this way.
+- All earlier test suites still pass. Migration 0034 runs twice cleanly on a test Postgres. Security rules are switched on for all 15 new tables. Type check and full build pass.
 
 NOT TESTED
-- Not tried on your real Supabase, with real AI, or in a browser.
-- Quality of the AI's Hindi has not been judged by a person: please check a sample at the review page.
+- On your live Supabase, with real AI, or in a browser.
+- The security rules for "a student sees only their own rows" were written but not tried as a real signed-in student.
+- Please try with two student accounts before telling families.
 
 NOT BUILT
-- Hindi question text exists for mock tests only; diagnostics and practice are English.
-- No "improvement since Board 1" history yet.
-- Parent home page has no Board 1/Board 2 card; the parent sees both on the paid readiness page.
+- Friend challenge and referral screens (only the database groundwork and an OFF switch).
+- Hindi text for these new screens (English only). Challenge questions are in English.
+- Push, email, SMS or WhatsApp reminders (in-app notices only).
+- A/B result screens (the switches and percentage split exist; reporting does not).
+- XP history before the last 30 days is not back-filled.
+- Study Journey stages are rule-based approximations of the 9 stages.
+- Which engagement features belong in Free versus paid is your decision; everything is currently available to all students.

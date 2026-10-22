@@ -4,6 +4,7 @@ import { loadCurriculum, loadSubjectCatalogue, loadLearnerState, loadEngagement,
 import { SubjectIcon } from '@/components/SubjectIcon';
 import { CountUp } from '@/components/CountUp';
 import { getServerLang } from '@/lib/language';
+import { TodayCard } from '@/components/engagement/TodayCard';
 
 // Short, varied study tips — picked by day of year so it changes daily
 // without needing any client-side state, rather than always showing the
@@ -107,6 +108,8 @@ export default async function DashboardOverviewPage() {
             {skillsTouched > 0 ? "Here's where things stand today." : 'Start a session or take a diagnostic to get going.'}
           </p>
         </div>
+
+        <TodayCard />
 
         <section className="tip-card fade-slide-in" style={{ marginTop: 'var(--space-3)' }}>
           <span className="tip-card__eyebrow">Today&apos;s session{streak > 0 ? ` · ${streak}-day streak` : ''}</span>

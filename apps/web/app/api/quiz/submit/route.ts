@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
-import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { gradeSkillQuiz } from '@adaptive-tutor/core';
+import { createServerClient, createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
+import { gradeSkillQuiz, recordQuizRound } from '@adaptive-tutor/core';
+import { engineCtx } from '@/lib/engagement';
 import { aiForStudent } from '@/lib/ai';
 import { saveQuizReport } from '@/lib/reports';
 
@@ -16,6 +17,13 @@ export async function POST(request: Request) {
     const supabase = await createServerClient();
     const result = await gradeSkillQuiz(supabase, studentId, sessionId ?? null, answers, await aiForStudent(studentId));
     await saveQuizReport(studentId, result);
+    // Engagement (best effort, never blocks the quiz): the round counts for streaks, XP, the Mistake Book and personal bests.
+    try {
+      const service = createServiceClient();
+      let skillId: string | null = null;
+      if (sessionId && /^[0-9a-f-]{36}$/i.test(sessionId)) { const { data: ls } = await service.from('learning_sessions').select('skill_id').eq('id', sessionId).eq('student_id', studentId).maybeSingle(); skillId = ls?.skill_id ?? null; }
+      await recordQuizRound(service, studentId, { skillId, review: result.review.map((r) => ({ questionId: r.questionId, isCorrect: r.isCorrect, yourAnswer: r.yourAnswer, correctAnswer: r.correctAnswer })) }, await engineCtx(service));
+    } catch { /* engagement must never break a quiz */ }
     return NextResponse.json({ data: result, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });

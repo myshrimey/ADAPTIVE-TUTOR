@@ -61,3 +61,6 @@ AI Gateway built before v56. All AI calls go through one gateway: provider regis
 
 ## v56 (2026-10-21)
 Two-board architecture (BOARD_EXAM_1/2, dates empty until the founder enters them in /admin/pricing > boards) and four independent languages (app, question, learning, report). Hindi translations get automatic checks and a teacher review page. Hindi/mixed handwriting is stricter. Subject requests are collected. Not built: Hindi for diagnostics/practice, improvement-since-Board-1 history. Next: v57 Student Engagement & Retention Engine.
+
+## v57 (2026-10-22)
+Engagement engine: daily mission, Sahayak XP (admin-configurable, anti-farming), personal bests, 22 achievements, streaks with friendly wording, Mistake Book, Weakness Battle, Comeback, Daily Challenge, Boss, Study Journey, optional nickname leaderboard, tutor/centre challenges, parent weekly summary, admin engagement dashboard. Founder to review XP values at /admin/engagement-settings. Friend challenge and referral not built.
