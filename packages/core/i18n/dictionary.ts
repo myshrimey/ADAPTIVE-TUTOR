@@ -973,6 +973,15 @@ export const DICTIONARY: Dict = {
     en: "minutes",
     hi: "मिनट",
   },
+  'nav.today': { en: 'Today', hi: 'आज' },
+  'nav.challenges': { en: 'Challenges', hi: 'चैलेंज' },
+  'nav.descChallenges': { en: 'Practice, Challenge, Mixed, Boss Battle', hi: 'अभ्यास, चैलेंज, मिक्स्ड, बॉस बैटल' },
+  'nav.mistakeBook': { en: 'My Mistake Book', hi: 'मेरी मिस्टेक बुक' },
+  'nav.descMistakeBook': { en: 'Review and fix your mistakes', hi: 'अपनी गलतियाँ देखिए और सुधारिए' },
+  'nav.achievements': { en: 'Achievements', hi: 'उपलब्धियाँ' },
+  'nav.descAchievements': { en: 'What you have earned', hi: 'आपने क्या कमाया' },
+  'nav.journey': { en: 'Study journey', hi: 'पढ़ाई का सफ़र' },
+  'nav.descJourney': { en: 'Where you are in each subject', hi: 'हर विषय में आप कहाँ हैं' },
 };
 
 export function t(key: keyof typeof DICTIONARY, lang: Lang, vars?: Record<string, string | number>): string {

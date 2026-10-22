@@ -6,7 +6,7 @@ import { aiForStudent } from '@/lib/ai';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
-const MODES: ChallengeMode[] = ['practice', 'challenge', 'mixed', 'boss', 'weakness', 'mistake_review', 'comeback', 'daily', 'org'];
+const MODES: ChallengeMode[] = ['practice', 'challenge', 'mixed', 'boss', 'weakness', 'mistake_review', 'comeback', 'daily', 'org', 'friend'];
 const uuid = (v: unknown) => (typeof v === 'string' && /^[0-9a-f-]{36}$/i.test(v) ? v : undefined);
 
 // Start a round or answer one question. The student is the signed-in student only; answer keys are returned only after an answer.
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
       const ctx = await engineCtx(service);
       const feat = b.mode === 'boss' ? 'boss' : b.mode === 'daily' ? 'daily_challenge' : null;
       if (feat && !featureOn(ctx.settings, studentId, feat as any)) throw new Error('This is not switched on yet.');
-      const r = await startChallenge(service, studentId, { mode: b.mode, subjectId: uuid(b.subjectId), skillId: uuid(b.skillId), chapterId: uuid(b.chapterId), category: typeof b.category === 'string' && /^[a-z]{3,12}$/.test(b.category) ? b.category : undefined, sourceAttemptId: uuid(b.sourceAttemptId), orgChallengeId: uuid(b.orgChallengeId) }, ctx);
+      const r = await startChallenge(service, studentId, { mode: b.mode, subjectId: uuid(b.subjectId), skillId: uuid(b.skillId), chapterId: uuid(b.chapterId), category: typeof b.category === 'string' && /^[a-z]{3,12}$/.test(b.category) ? b.category : undefined, sourceAttemptId: uuid(b.sourceAttemptId), orgChallengeId: uuid(b.orgChallengeId), friendChallengeId: uuid(b.friendChallengeId) }, ctx);
       return NextResponse.json({ data: r, error: null });
     }
     if (b.action === 'answer') {

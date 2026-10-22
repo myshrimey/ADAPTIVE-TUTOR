@@ -4,7 +4,7 @@ import { getEngagementRow, activeDays } from './store';
 import { featureOn, type EngagementSettings } from './config';
 import { dayOf } from './streak';
 
-const SCORED_MODES = ['practice', 'challenge', 'mixed', 'boss', 'weakness', 'daily', 'org', 'session_quiz'];
+const SCORED_MODES = ['practice', 'challenge', 'mixed', 'boss', 'weakness', 'daily', 'org', 'friend', 'session_quiz'];
 
 /** Joins the optional class board. Needs a nickname that reveals nothing about the child. Real names never leave this module. */
 export async function joinClassBoard(service: SupabaseClient, studentId: string, rawNickname: string, settings: EngagementSettings): Promise<string> {

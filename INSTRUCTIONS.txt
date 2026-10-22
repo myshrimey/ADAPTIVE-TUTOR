@@ -1,43 +1,31 @@
-SAHAYAK v57 - STUDENT ENGAGEMENT AND RETENTION ENGINE
-=====================================================
-Apply AFTER v55b and v56 (this zip builds on both).
+SAHAYAK v58 - ENGAGEMENT LEFTOVERS
+==================================
+Apply AFTER v57.
 
 WHAT THIS ADDS
-Today's Mission, Sahayak XP (you set the values), Beat Your Best, 22 achievements, streaks with friendly "welcome back" wording, My Mistake Book, Weakness Battle, Comeback Challenge, CBSE Challenge of the Day, Practice / Challenge / Mixed / Boss rounds, Study Journey, an optional nickname-only leaderboard, tutor and centre challenges, a weekly summary for parents/tutors/centres, and an admin Engagement dashboard and settings screen.
+1. Hindi text on the engagement screens (Today, Challenges, Mistake Book, Achievements, Study journey, Weakness Battle, Challenge of the Day, My progress, class board, the round screen, the dashboard Today card and the Practice menu). Students see Hindi when their app language is Hindi.
+2. Friend challenge: a student makes a challenge, shares an 8-character code with one friend, both play the same 5 verified questions. After both have played, each sees the other's NICKNAME and score. No chat, no names.
+3. Invite a friend (referral): each student has a personal code. A new student can enter one code in their first 14 days. A code works 50 times at most. Nothing is paid, discounted or credited automatically.
+4. Admin pages: "Referrals" (counts, and you set any reward by hand) and "Engagement experiments" (compares students who have a feature with those who do not).
+Also fixed: tutor/centre challenge rounds were saved without their subject.
 
 STEPS
-1. Copy the folders "apps", "packages" and "docs", and the two files CLAUDE.md and SAHAYAK_PROJECT_MEMORY.md, into your project folder. Choose Replace when asked. (Copy-merge the folders; do not unzip into a new subfolder.)
-2. Open a terminal in the project folder and run:  npm install
-3. Run:  npm run db:migrate
-   This applies migration 0034 (safe to run again).
-4. Run:  npm run build   - it should finish without errors.
-5. Push to GitHub as usual so Vercel redeploys.
-6. Sign in as admin. Open /admin/engagement-settings and review the XP values, mission size, daily limit and which features are switched on. Open /admin/engagement for the dashboard.
-7. Sign in as a student: you will see "Today" in the menu and a Today card on the dashboard. Try a Challenge of the Day.
-8. Tutors/centres: "Challenges" is on their dashboard (approved accounts only).
-
-HOW IT BEHAVES (so nothing surprises you)
-- XP is never given for opening the app, clicking, repeated submits, very fast random answers, or questions seen recently. Rushed rounds are quietly flagged for your review in the admin page; students are never accused.
-- Challenges never change a student's mastery score. Students are told so.
-- Weakness Battle never says "mastered".
-- Leaderboard is off for each student until they choose a nickname. It never shows real names, and is hidden until enough students join.
-- XP and achievements appear the next time the student opens a page (not instantly).
-- Admin numbers show "Insufficient data" when fewer than 5 students are behind them.
+1. Copy the folders "apps", "packages" and "docs", and the files CLAUDE.md and SAHAYAK_PROJECT_MEMORY.md, into your project folder. Choose Replace when asked.
+2. Open a terminal in the project folder:  npm install
+3. Run:  npm run db:migrate    (applies 0035, safe to run again)
+4. Run:  npm run build, then push to GitHub so Vercel redeploys.
+5. Friend challenge and Invite are OFF. To try them, open /admin/engagement-settings and tick "friend challenge" and/or "referral". Please read the privacy note on that page first: these are school-age students.
+6. To compare a feature, set its "share of students" between 1 and 99 in the same page, then look at /admin/engagement/ab after a week or two.
 
 TESTED
-- 142 rule checks and 120 end-to-end checks on an in-memory database (missions, XP only once, mistakes, daily/weakness/boss/comeback rounds, personal bests, streaks, tutor challenges, leaderboard privacy, parent summary, admin numbers). Two real bugs were found and fixed this way.
-- All earlier test suites still pass. Migration 0034 runs twice cleanly on a test Postgres. Security rules are switched on for all 15 new tables. Type check and full build pass.
+74 new checks (Hindi text, friend challenge rules, referral rules, A/B calculations) plus all earlier test suites. Migration 0035 runs twice cleanly. Security rules on for the new tables. Type check and full build pass.
 
 NOT TESTED
-- On your live Supabase, with real AI, or in a browser.
-- The security rules for "a student sees only their own rows" were written but not tried as a real signed-in student.
-- Please try with two student accounts before telling families.
+Live database, real browser, two real student accounts. Please try friend challenge with two test students before turning it on.
+
+IMPORTANT
+- The Hindi wording is my draft. Please have a Hindi-speaking teacher read it once (all text is in packages/core/engagement/i18n.ts).
+- Challenge QUESTIONS are still English.
 
 NOT BUILT
-- Friend challenge and referral screens (only the database groundwork and an OFF switch).
-- Hindi text for these new screens (English only). Challenge questions are in English.
-- Push, email, SMS or WhatsApp reminders (in-app notices only).
-- A/B result screens (the switches and percentage split exist; reporting does not).
-- XP history before the last 30 days is not back-filled.
-- Study Journey stages are rule-based approximations of the 9 stages.
-- Which engagement features belong in Free versus paid is your decision; everything is currently available to all students.
+Entering the invite code on the sign-up form (it is entered after sign-up), reminders by push/email/SMS/WhatsApp, Hindi challenge questions.

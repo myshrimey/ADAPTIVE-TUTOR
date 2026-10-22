@@ -64,3 +64,6 @@ Two-board architecture (BOARD_EXAM_1/2, dates empty until the founder enters the
 
 ## v57 (2026-10-22)
 Engagement engine: daily mission, Sahayak XP (admin-configurable, anti-farming), personal bests, 22 achievements, streaks with friendly wording, Mistake Book, Weakness Battle, Comeback, Daily Challenge, Boss, Study Journey, optional nickname leaderboard, tutor/centre challenges, parent weekly summary, admin engagement dashboard. Founder to review XP values at /admin/engagement-settings. Friend challenge and referral not built.
+
+## v58 (2026-10-22)
+Hindi engagement screens, friend challenge, referral loop (no automatic rewards), A/B result screens. Social features OFF until switched on in /admin/engagement-settings.

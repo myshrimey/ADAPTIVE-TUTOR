@@ -383,3 +383,11 @@ One entry per work session. Newest entry on top.
 - Student screens: /today (and card on dashboard), /challenge (+start, daily), /battle, /mistakes (+review), /achievements, /journey, /leaderboard. Tutor/centre: /tutor/challenges, /centre/challenges. Parent/tutor/centre: weekly summary card. Admin: /admin/engagement (dashboard), /admin/engagement-settings.
 - Tested: 142 rule checks + 120 end-to-end checks on an in-memory database (found and fixed: weakness battle ended after 2 questions because the stored total shrank; Mistake Review had no similar question when all had been seen recently) + all earlier suites; migration 0034 runs twice; RLS enabled on all 15 tables, no policies on server-only tables; typecheck and full build pass.
 - Not tested: live Supabase, real AI, a browser, RLS reads as a real signed-in student. Not built: Hindi UI strings for engagement, push/email/SMS notices, friend challenge and referral screens, A/B reporting screens.
+
+## v58 — Engagement leftovers
+- Migration 0035: friend round type, friend_challenges.subject_id, referral_codes, referrals (RLS on; students read only their own code).
+- Hindi text for Today, Challenges, Mistake Book, Achievements, Journey, Weakness Battle, Daily, My progress, leaderboard join, challenge runner and summary, Today card on the dashboard, and the Practice menu. English remains the source; unknown sentences stay English.
+- Friend challenge (/friend), referral (/invite), admin Referrals and Engagement experiments pages. Both social features OFF by default.
+- Fixed: tutor/centre challenge rounds were stored without their subject (so they did not count for personal best or mission).
+- Tested: 74 new checks + all earlier suites (48, 45, 62, 115, 12, 64, 142, 120); migration 0035 runs twice; typecheck and full build pass.
+- Not tested: live Supabase, browser. Hindi wording not reviewed by a teacher. Not built: Hindi challenge questions, referral at the sign-up form (code is entered after sign-up), push/email reminders.

@@ -1,7 +1,7 @@
 import type { XpRules } from './config';
 
 // XP rewards productive learning only. It never rewards opening the app, clicking, answering at random, or repeating the same question for points.
-export type ChallengeMode = 'practice' | 'challenge' | 'mixed' | 'boss' | 'weakness' | 'mistake_review' | 'comeback' | 'daily' | 'session_quiz' | 'org';
+export type ChallengeMode = 'practice' | 'challenge' | 'mixed' | 'boss' | 'weakness' | 'mistake_review' | 'comeback' | 'daily' | 'session_quiz' | 'org' | 'friend';
 export interface AnswerRec { qid: string; correct: boolean; seconds: number | null; role?: 'retry' | 'similar' | 'normal'; difficulty?: number }
 
 export interface XpResult { amount: number; breakdown: { label: string; xp: number }[]; fastAnswers: number; repeatedAnswers: number; capped: boolean }

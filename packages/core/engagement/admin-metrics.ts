@@ -26,7 +26,7 @@ export async function loadEngagementMetrics(service: SupabaseClient, settings: E
     service.from('student_achievements').select('code', { count: 'exact', head: true }).gte('unlocked_at', d30),
     service.from('student_engagement').select('student_id, current_streak, longest_streak').limit(20000),
     service.from('engagement_flags').select('id, student_id, kind, detail, created_at, reviewed').order('created_at', { ascending: false }).limit(50),
-    service.from('challenge_attempts').select('student_id, accuracy, total, completed_at, mode').eq('status', 'completed').gte('total', 5).in('mode', ['practice', 'challenge', 'mixed', 'boss', 'weakness', 'org', 'session_quiz']).gte('completed_at', d30).limit(50000),
+    service.from('challenge_attempts').select('student_id, accuracy, total, completed_at, mode').eq('status', 'completed').gte('total', 5).in('mode', ['practice', 'challenge', 'mixed', 'boss', 'weakness', 'org', 'friend', 'session_quiz']).gte('completed_at', d30).limit(50000),
     service.from('student_access').select('student_id, plan_code, access_until').limit(20000),
     service.from('student_links').select('student_id').eq('status', 'active').eq('link_type', 'parent').limit(20000),
   ]);

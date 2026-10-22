@@ -2,7 +2,8 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import type { AIProvider } from '../ai-provider/ai-provider.interface';
 import { gradeAnswer, extractString } from '../question-engine/grading';
 import { ensureExplanation } from '../explanations/ensure-explanation';
-import type { EngagementSettings } from './config';
+import { featureOn, type EngagementSettings } from './config';
+import { attachFriendAttempt } from './friend-link';
 import { xpForChallenge, suspiciousPattern, type AnswerRec, type ChallengeMode } from './xp';
 import { composeBoss, composeChallenge, composeMixed, composePractice, pickDaily, nextBattleDifficulty, startDifficulty, MODE_SIZE, shuffle, type BankQ } from './challenge-policy';
 import { applyRetry, recordMistake } from './mistakes';
@@ -16,7 +17,7 @@ import { afterActivity } from './sync';
 // Answer keys stay on the server: a question is sent without its key, and the key is returned only after the answer.
 // Challenges NEVER change mastery_states. Mastery moves only through lessons and diagnostics.
 export interface PlanItem { qid: string; table: 'diagnostic_questions' | 'questions'; role: 'normal' | 'retry' | 'similar'; mistakeId?: string; difficulty: number; skillId: string }
-export interface StartOpts { mode: ChallengeMode; subjectId?: string; skillId?: string; chapterId?: string; category?: string; sourceAttemptId?: string; orgChallengeId?: string }
+export interface StartOpts { mode: ChallengeMode; subjectId?: string; skillId?: string; chapterId?: string; category?: string; sourceAttemptId?: string; orgChallengeId?: string; friendChallengeId?: string }
 export interface ServedQuestion { attemptId: string; index: number; total: number; mode: ChallengeMode; id: string; prompt: string; questionType: string; options: string[] | null; figureUrl: string | null; figureCaption: string | null; role: PlanItem['role']; note: string | null }
 export interface StartResult { attemptId: string; question: ServedQuestion | null; completed: boolean; notice: string | null }
 export interface ChallengeSummary {
@@ -153,6 +154,17 @@ export async function startChallenge(service: SupabaseClient, studentId: string,
     const rng = () => { h = Math.imul(h ^ (h >>> 15), 2246822507) >>> 0; h = Math.imul(h ^ (h >>> 13), 3266489909) >>> 0; return ((h ^= h >>> 16) >>> 0) / 4294967296; };
     const picked = shuffle(pool, rng).slice(0, ch.size).sort((a, b) => a.difficulty - b.difficulty);
     plan = toPlan(picked); total = plan.length; o.subjectId = ch.subject_id ?? undefined;
+  } else if (mode === 'friend') {
+    if (!o.friendChallengeId) throw err('Missing challenge.');
+    if (!featureOn(ctx.settings, studentId, 'friend_challenge')) throw err('Friend challenges are not switched on yet.');
+    const { data: fc } = await service.from('friend_challenges').select('*').eq('id', o.friendChallengeId).maybeSingle();
+    if (!fc || (fc.created_by_student !== studentId && fc.joined_by_student !== studentId)) throw err('This friend challenge was not found.');
+    if (['cancelled', 'expired'].includes(fc.status) || (fc.status !== 'completed' && new Date(fc.expires_at).getTime() < Date.now())) throw err('This friend challenge has ended.');
+    if (fc.status === 'open' && fc.created_by_student !== studentId) throw err('This friend challenge was not found.');
+    ref = `fc:${fc.id}`;
+    const { data: mineF } = await service.from('challenge_attempts').select('*').eq('student_id', studentId).eq('ref', ref).limit(1).maybeSingle();
+    if (mineF) return mineF.status === 'completed' ? { attemptId: mineF.id, question: null, completed: true, notice: 'You have already played this one.' } : { attemptId: mineF.id, question: await serveQuestion(service, mineF, mineF.cursor), completed: false, notice: null };
+    plan = (fc.plan ?? []) as PlanItem[]; total = plan.length; o.subjectId = fc.subject_id ?? undefined;
   } else {
     const pool = await loadPool(service, ctx, skillIds ? { skillIds } : { subjectId });
     if (!pool.length) throw err('No questions are available here yet.');
@@ -164,7 +176,7 @@ export async function startChallenge(service: SupabaseClient, studentId: string,
     total = plan.length;
   }
   if (!plan.length) throw err('Could not build a round right now.');
-  const { data: row, error } = await service.from('challenge_attempts').insert({ student_id: studentId, mode, subject_id: subjectId ?? null, skill_id: o.skillId ?? null, chapter_id: chapterId ?? null, org_challenge_id: o.orgChallengeId ?? null, ref, plan, total, baseline }).select('*').single();
+  const { data: row, error } = await service.from('challenge_attempts').insert({ student_id: studentId, mode, subject_id: o.subjectId ?? subjectId ?? null, skill_id: o.skillId ?? null, chapter_id: chapterId ?? null, org_challenge_id: o.orgChallengeId ?? null, ref, plan, total, baseline }).select('*').single();
   if (error || !row) throw err('Could not start the round.');
   return { attemptId: row.id, question: await serveQuestion(service, row, 0), completed: false, notice };
 }
@@ -232,7 +244,7 @@ export async function finishAttempt(service: SupabaseClient, studentId: string, 
   const corrected = answers.filter((a) => a.role === 'retry' && a.correct).length;
 
   let best: BestResult | null = null;
-  const bestModes: ChallengeMode[] = ['practice', 'challenge', 'mixed', 'boss', 'weakness', 'org', 'session_quiz'];
+  const bestModes: ChallengeMode[] = ['practice', 'challenge', 'mixed', 'boss', 'weakness', 'org', 'friend', 'session_quiz'];
   if (ctx.settings.features.personal_best && bestModes.includes(mode) && attempted >= MIN_QUESTIONS_FOR_BEST && accuracy !== null && attempt.subject_id) {
     best = await recordBest(service, studentId, 'quiz_score', attempt.subject_id, Math.round(accuracy), ctx.settings);
   }
@@ -251,11 +263,13 @@ export async function finishAttempt(service: SupabaseClient, studentId: string, 
   let nextAction = { text: 'Come back tomorrow for another round.', href: '/today' };
   const wrong = attempted - correct;
   if (mode === 'weakness' && accuracy !== null) nextAction = accuracy < 50 ? { text: `Open a lesson on ${info?.name ?? 'this skill'} to build it up.`, href: '/learn' } : accuracy >= 75 ? { text: 'Try a Challenge round in this subject.', href: `/challenge/start?mode=challenge&subject=${attempt.subject_id ?? ''}` } : { text: `Tomorrow: continue the ${info?.name ?? 'skill'} Weakness Battle.`, href: `/battle?skill=${attempt.skill_id ?? ''}` };
+  else if (mode === 'friend') nextAction = { text: 'See your friend challenge.', href: '/friend' };
   else if (wrong >= 3 && mode !== 'comeback' && mode !== 'mistake_review') nextAction = { text: `Take the Comeback Challenge: fix the ${wrong} you missed.`, href: `/challenge/start?mode=comeback&source=${attempt.id}` };
   else if (mode === 'mistake_review' || mode === 'comeback') nextAction = { text: 'Keep going: your Mistake Book shows what is left.', href: '/mistakes' };
   const result = { attempted, correct, accuracy, xp: xp.amount, corrected, flagged: !!flag };
   const accRounded = accuracy;
   await service.from('challenge_attempts').update({ status: 'completed', completed_at: new Date().toISOString(), accuracy: accRounded, xp_awarded: xp.amount, correct, total: attempted, result }).eq('id', attempt.id);
+  if (mode === 'friend') { try { await attachFriendAttempt(service, studentId, { id: attempt.id, ref: attempt.ref ?? null }); } catch { /* best effort */ } }
   await logEngagementEvent(service, studentId, 'challenge_completed', attempt.id, { mode, attempted, correct });
   try { await afterActivity(service, studentId, ctx); } catch { /* best effort */ }
   return { mode, attempted, correct, accuracy, xp: { amount: xp.amount, breakdown: xp.breakdown, capped: xp.capped }, best, mistakesCorrected: corrected, conceptNote, nextAction, comeback, masteryNote: MASTERY_NOTE };

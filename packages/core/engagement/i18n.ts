@@ -1,0 +1,207 @@
+// Hindi text for the engagement screens. English stays the source: the engine writes English sentences, and screens call trE(text, lang) to show them in Hindi.
+// Unknown text is returned unchanged (English), never guessed. Hindi wording here is a draft: a Hindi-speaking teacher should read it once.
+export type ELang = 'en' | 'hi';
+
+const EXACT: Record<string, string> = {
+  // streak
+  'Start today. Your first study day begins your streak.': 'आज शुरू कीजिए। आपका पहला पढ़ाई का दिन आपकी स्ट्रीक शुरू करता है।',
+  'You studied today. Come back tomorrow to start a streak.': 'आपने आज पढ़ाई की। स्ट्रीक शुरू करने के लिए कल फिर आइए।',
+  'Welcome back! A short session today starts a new streak. Your longest streak is kept.': 'वापसी पर स्वागत है! आज का छोटा सा सत्र नई स्ट्रीक शुरू करेगा। आपकी सबसे लंबी स्ट्रीक सुरक्षित है।',
+  // missions
+  'Take your first diagnostic test': 'अपना पहला डायग्नोस्टिक टेस्ट दीजिए',
+  "Try today's CBSE Challenge of the Day": 'आज का CBSE चैलेंज ऑफ़ द डे आज़माइए',
+  'Your first steps': 'आपके पहले कदम',
+  'Fix 5 calculation mistakes': '5 गणना की गलतियाँ सुधारिए',
+  'Fix calculation mistakes': 'गणना की गलतियाँ सुधारिए',
+  'Review 3 mistakes': '3 गलतियों की समीक्षा कीजिए',
+  'Your next step': 'आपका अगला कदम',
+  'Beat your previous best': 'अपना पिछला सर्वश्रेष्ठ पार कीजिए',
+  // notices / today
+  'Your daily mission is ready.': 'आपका आज का मिशन तैयार है।',
+  'New personal best': 'नया व्यक्तिगत सर्वश्रेष्ठ',
+  "Today's mission complete": 'आज का मिशन पूरा',
+  'Tomorrow: try a new CBSE Challenge of the Day': 'कल: नया CBSE चैलेंज ऑफ़ द डे आज़माइए',
+  // journey
+  'Diagnostic': 'डायग्नोस्टिक', 'Foundation': 'बुनियाद', 'Concept mastery': 'अवधारणा में निपुणता', 'Practice': 'अभ्यास', 'Weakness repair': 'कमज़ोरी सुधार',
+  'Chapter mastery': 'अध्याय में निपुणता', 'Mock': 'मॉक टेस्ट', 'Reassessment': 'दोबारा जाँच', 'Board readiness': 'बोर्ड की तैयारी',
+  'Done': 'पूरा', 'Take the diagnostic to see where you are.': 'आप कहाँ हैं, यह देखने के लिए डायग्नोस्टिक दीजिए।',
+  'No skill needs foundation work right now.': 'अभी किसी कौशल को बुनियादी सुधार की ज़रूरत नहीं है।',
+  'No weak skills on the evidence so far.': 'अब तक के प्रमाण में कोई कमज़ोर कौशल नहीं है।',
+  'No chapter mastered yet.': 'अभी कोई अध्याय पूरी तरह नहीं सीखा गया।', 'No mock yet.': 'अभी कोई मॉक टेस्ट नहीं।',
+  'Re-checked after the first diagnostic.': 'पहले डायग्नोस्टिक के बाद दोबारा जाँच हो चुकी है।',
+  'A second check shows how far you have come.': 'दूसरी जाँच दिखाती है कि आप कितना आगे बढ़े।',
+  'Ongoing. It needs mock and re-check evidence; see your readiness page.': 'यह लगातार चलता है। इसके लिए मॉक और दोबारा जाँच के प्रमाण चाहिए; तैयारी वाला पेज देखिए।',
+  'Take the diagnostic test for this subject.': 'इस विषय का डायग्नोस्टिक टेस्ट दीजिए।',
+  'Repair your foundation skills with a Weakness Battle.': 'वीकनेस बैटल से अपनी बुनियादी कमज़ोरियाँ सुधारिए।',
+  'Keep learning: open a lesson on your next skill.': 'सीखते रहिए: अगले कौशल का पाठ खोलिए।',
+  'Answer a few practice questions today.': 'आज कुछ अभ्यास प्रश्न हल कीजिए।',
+  'Start a Weakness Battle on your weakest skill.': 'अपने सबसे कमज़ोर कौशल पर वीकनेस बैटल शुरू कीजिए।',
+  'Pick a chapter and practise until each skill is Strong.': 'एक अध्याय चुनिए और हर कौशल मज़बूत होने तक अभ्यास कीजिए।',
+  'Try a mock test.': 'एक मॉक टेस्ट दीजिए।', 'Take the diagnostic again to see your improvement.': 'अपना सुधार देखने के लिए डायग्नोस्टिक फिर से दीजिए।', 'See your board readiness.': 'अपनी बोर्ड तैयारी देखिए।',
+  // categories
+  'Not yet categorised': 'अभी वर्गीकृत नहीं', 'Concept misunderstanding': 'अवधारणा की गलत समझ', 'Calculation error': 'गणना की गलती', 'Careless mistake': 'लापरवाही की गलती', 'Misreading': 'प्रश्न गलत पढ़ना',
+  'Incomplete answer': 'अधूरा उत्तर', 'Incorrect method': 'गलत विधि', 'Recall issue': 'याद करने की समस्या', 'Application issue': 'प्रयोग की समस्या',
+  // personal best labels
+  'Best quiz score': 'सर्वश्रेष्ठ क्विज़ स्कोर', 'Best chapter score': 'सर्वश्रेष्ठ अध्याय स्कोर', 'Best mock score': 'सर्वश्रेष्ठ मॉक स्कोर', 'Best streak': 'सर्वश्रेष्ठ स्ट्रीक',
+  'Most mistakes corrected in a day': 'एक दिन में सबसे ज़्यादा गलतियाँ सुधारीं', 'Largest improvement': 'सबसे बड़ा सुधार',
+  // xp labels
+  'Boss Battle finished': 'बॉस बैटल पूरा', 'Challenge of the Day': 'चैलेंज ऑफ़ द डे', 'Weakness Battle finished': 'वीकनेस बैटल पूरा', 'Revision round': 'दोहराने का राउंड', 'Round finished': 'राउंड पूरा',
+  // summary
+  'See your friend challenge.': 'अपना दोस्त वाला चैलेंज देखिए।',
+  'Come back tomorrow for another round.': 'एक और राउंड के लिए कल आइए।',
+  'Try a Challenge round in this subject.': 'इस विषय में एक चैलेंज राउंड आज़माइए।',
+  'Keep going: your Mistake Book shows what is left.': 'लगे रहिए: आपकी मिस्टेक बुक दिखाती है कि क्या बाकी है।',
+  'Challenges do not change your mastery scores. Mastery moves through lessons and diagnostics.': 'चैलेंज आपके निपुणता स्कोर नहीं बदलते। निपुणता पाठों और डायग्नोस्टिक से बदलती है।',
+  // leaderboard
+  'Based on the last 7 days. Top Score needs at least 3 rounds. Time spent, clicks and logins are never used.': 'पिछले 7 दिनों पर आधारित। टॉप स्कोर के लिए कम से कम 3 राउंड चाहिए। बिताया समय, क्लिक और लॉगिन कभी नहीं गिने जाते।',
+  // achievements (titles then descriptions)
+  '3-day streak': '3 दिन की स्ट्रीक', '7-day streak': '7 दिन की स्ट्रीक', '14-day streak': '14 दिन की स्ट्रीक', '30-day streak': '30 दिन की स्ट्रीक',
+  'First diagnostic': 'पहला डायग्नोस्टिक', 'First lesson': 'पहला पाठ', 'First concept mastered': 'पहली अवधारणा में निपुणता', 'First chapter mastered': 'पहला अध्याय पूरा',
+  '+5 percentage points': '+5 प्रतिशत अंक', '+10 percentage points': '+10 प्रतिशत अंक', '+20 percentage points': '+20 प्रतिशत अंक',
+  'First quiz': 'पहला क्विज़', 'First mock': 'पहला मॉक', 'Improved mock score': 'मॉक स्कोर में सुधार', 'Completed a difficult challenge': 'कठिन चैलेंज पूरा किया',
+  'Corrected 10 mistakes': '10 गलतियाँ सुधारीं', 'Corrected 25 mistakes': '25 गलतियाँ सुधारीं', 'Reduced repeated mistakes': 'दोहराई जाने वाली गलतियाँ घटाईं',
+  'Chapter checkpoint': 'अध्याय चेकपॉइंट', 'Subject checkpoint': 'विषय चेकपॉइंट', 'Revision milestone': 'दोहराने का पड़ाव', 'Mock milestone': 'मॉक पड़ाव',
+  'Studied on 3 days in a row.': 'लगातार 3 दिन पढ़ाई की।', 'Studied on 7 days in a row.': 'लगातार 7 दिन पढ़ाई की।', 'Studied on 14 days in a row.': 'लगातार 14 दिन पढ़ाई की।', 'Studied on 30 days in a row.': 'लगातार 30 दिन पढ़ाई की।',
+  'Finished a diagnostic test.': 'एक डायग्नोस्टिक टेस्ट पूरा किया।', 'Finished a learning session with at least 3 questions answered.': 'कम से कम 3 प्रश्न हल करके एक सीखने का सत्र पूरा किया।',
+  'One skill reached the Mastered band (90+).': 'एक कौशल "निपुण" स्तर (90+) तक पहुँचा।',
+  'Every skill you have tried in a chapter is at Strong or above, and at least 70% of the chapter is covered.': 'अध्याय के आपके आज़माए हर कौशल "मज़बूत" या उससे ऊपर हैं, और अध्याय का कम से कम 70% हिस्सा पूरा है।',
+  'Your best score in a subject is 5 points above your first scored attempt (at least 3 scored attempts).': 'किसी विषय में आपका सर्वश्रेष्ठ स्कोर पहले स्कोर वाले प्रयास से 5 अंक ऊपर है (कम से कम 3 स्कोर वाले प्रयास)।',
+  'Your best score in a subject is 10 points above your first scored attempt (at least 3 scored attempts).': 'किसी विषय में आपका सर्वश्रेष्ठ स्कोर पहले स्कोर वाले प्रयास से 10 अंक ऊपर है (कम से कम 3 स्कोर वाले प्रयास)।',
+  'Your best score in a subject is 20 points above your first scored attempt (at least 3 scored attempts).': 'किसी विषय में आपका सर्वश्रेष्ठ स्कोर पहले स्कोर वाले प्रयास से 20 अंक ऊपर है (कम से कम 3 स्कोर वाले प्रयास)।',
+  'Finished a quiz of at least 5 questions.': 'कम से कम 5 प्रश्नों का क्विज़ पूरा किया।', 'Submitted a mock test.': 'एक मॉक टेस्ट जमा किया।',
+  'A later mock in a subject scored higher than an earlier one.': 'किसी विषय के बाद वाले मॉक में पहले से ज़्यादा स्कोर आया।',
+  'Finished a Challenge or Boss Battle with at least 5 questions and 50% correct.': 'कम से कम 5 प्रश्नों और 50% सही के साथ चैलेंज या बॉस बैटल पूरा किया।',
+  'Answered 10 earlier mistakes correctly on a retry.': 'पुरानी 10 गलतियों का दोबारा प्रयास में सही उत्तर दिया।', 'Answered 25 earlier mistakes correctly on a retry.': 'पुरानी 25 गलतियों का दोबारा प्रयास में सही उत्तर दिया।',
+  'Corrected 3 mistakes you had made more than once.': 'एक से ज़्यादा बार हुई 3 गलतियाँ सुधारीं।', 'Finished a chapter-level check or chapter challenge.': 'अध्याय-स्तर की जाँच या अध्याय चैलेंज पूरा किया।',
+  'Finished a full subject diagnostic.': 'पूरे विषय का डायग्नोस्टिक पूरा किया।', 'Finished 10 mistake-review or comeback rounds.': 'गलतियों की समीक्षा या कमबैक के 10 राउंड पूरे किए।', 'Submitted 3 mock tests.': '3 मॉक टेस्ट जमा किए।',
+  // referral / friend / AB static
+  'Learning first. Rewards are never automatic.': 'पहले सीखना। इनाम अपने-आप नहीं मिलते।',
+};
+
+const n = (x: string) => x;
+const PATTERNS: [RegExp, (m: RegExpMatchArray) => string][] = [
+  [/^(\d+) days in a row\. Nice work today\.$/, (m) => `लगातार ${m[1]} दिन। आज अच्छा काम किया।`],
+  [/^Ready to continue your learning streak\? You are on (\d+) days?\.$/, (m) => `अपनी सीखने की स्ट्रीक जारी रखने के लिए तैयार हैं? आप ${m[1]} दिन पर हैं।`],
+  [/^Repair (.+)$/, (m) => `${m[1]} सुधारिए`],
+  [/^10-minute (.+) challenge$/, (m) => `10 मिनट का ${m[1]} चैलेंज`],
+  [/^Answer (\d+) questions$/, (m) => `${m[1]} प्रश्न हल कीजिए`],
+  [/^You have (\d+) mistakes? waiting for review\.$/, (m) => `आपकी ${m[1]} गलतियाँ समीक्षा का इंतज़ार कर रही हैं।`],
+  [/^Can you beat your previous best of (\d+(?:\.\d+)?)% in (.+)\?$/, (m) => `क्या आप ${m[2]} में अपना पिछला सर्वश्रेष्ठ ${m[1]}% पार कर सकते हैं?`],
+  [/^You have studied on (\d+) of (\d+) days this week\. A short session still counts\.$/, (m) => `इस हफ़्ते आपने ${m[2]} में से ${m[1]} दिन पढ़ाई की। छोटा सत्र भी गिना जाता है।`],
+  [/^(\d+) questions? answered$/, (m) => `${m[1]} प्रश्न हल किए`],
+  [/^(\d+) mistakes? corrected$/, (m) => `${m[1]} गलतियाँ सुधारीं`],
+  [/^Tomorrow: continue the (.+) Weakness Battle\.?$/, (m) => `कल: ${m[1]} वीकनेस बैटल जारी रखिए`],
+  [/^Tomorrow: review (\d+) mistakes? in your Mistake Book$/, (m) => `कल: अपनी मिस्टेक बुक में ${m[1]} गलतियों की समीक्षा कीजिए`],
+  [/^(\d+) skills? need foundation work\.$/, (m) => `${m[1]} कौशलों को बुनियादी सुधार चाहिए।`],
+  [/^(\d+) of (\d+|\?) skills at Developing or above \(aim: 60% of the subject\)\.$/, (m) => `${m[2]} में से ${m[1]} कौशल "विकासशील" या उससे ऊपर (लक्ष्य: विषय का 60%)।`],
+  [/^(\d+) of (\d+) practice questions\.$/, (m) => `${m[2]} में से ${m[1]} अभ्यास प्रश्न।`],
+  [/^(\d+) skills? still below Developing\.$/, (m) => `${m[1]} कौशल अभी "विकासशील" से नीचे हैं।`],
+  [/^(\d+) chapters? mastered\.$/, (m) => `${m[1]} अध्याय पूरे सीखे।`],
+  [/^(\d+) mocks? done\.$/, (m) => `${m[1]} मॉक पूरे।`],
+  [/^First score recorded: (.+)\. This is your starting point\.$/, (m) => `पहला स्कोर दर्ज: ${m[1]}। यही आपका शुरुआती बिंदु है।`],
+  [/^NEW PERSONAL BEST! Previous best: (.+)\. New score: (.+)\.$/, (m) => `नया व्यक्तिगत सर्वश्रेष्ठ! पिछला सर्वश्रेष्ठ: ${m[1]}। नया स्कोर: ${m[2]}।`],
+  [/^Your best is still (.+)\. This round: (.+)\. Can you beat it\?$/, (m) => `आपका सर्वश्रेष्ठ अब भी ${m[1]} है। इस राउंड में: ${m[2]}। क्या आप इसे पार कर सकते हैं?`],
+  [/^(\d+) correct answers?$/, (m) => `${m[1]} सही उत्तर`],
+  [/^(\d+) honest attempts?$/, (m) => `${m[1]} ईमानदार प्रयास`],
+  [/^First 3 answers: (\d+)% correct\. Last 3 answers: (\d+)% correct\. Hardest level reached: (\d+) of 5\.$/, (m) => `पहले 3 उत्तर: ${m[1]}% सही। आख़िरी 3 उत्तर: ${m[2]}% सही। सबसे कठिन स्तर: 5 में से ${m[3]}।`],
+  [/^Open a lesson on (.+) to build it up\.$/, (m) => `${m[1]} को मज़बूत करने के लिए उसका पाठ खोलिए।`],
+  [/^Take the Comeback Challenge: fix the (\d+) you missed\.$/, (m) => `कमबैक चैलेंज लीजिए: छूटे हुए ${m[1]} प्रश्न सुधारिए।`],
+  [/^This board appears when at least (\d+) students have joined\.$/, (m) => `यह बोर्ड तब दिखेगा जब कम से कम ${m[1]} विद्यार्थी जुड़ जाएँगे।`],
+  [/^Not enough (.+)$/, (m) => `पर्याप्त ${m[1]} नहीं`],
+];
+void n;
+export function trE(text: string | null | undefined, lang: ELang): string {
+  const s = text ?? ''; if (lang !== 'hi' || !s) return s;
+  const hit = EXACT[s]; if (hit) return hit;
+  for (const [re, f] of PATTERNS) { const m = s.match(re); if (m) return f(m); }
+  const a = s.match(/^Tomorrow: continue the (.+) Weakness Battle$/); if (a) return `कल: ${a[1]} वीकनेस बैटल जारी रखिए`;
+  return s;
+}
+
+// Screen text. Keys are used with E(key, lang, vars) where vars replace {name}.
+export const EK: Record<string, { en: string; hi: string }> = {
+  'today.eyebrow': { en: 'Today', hi: 'आज' },
+  'greet.morning': { en: 'Good morning', hi: 'सुप्रभात' }, 'greet.afternoon': { en: 'Good afternoon', hi: 'नमस्कार' }, 'greet.evening': { en: 'Good evening', hi: 'शुभ संध्या' },
+  'today.newAch': { en: 'New achievements', hi: 'नई उपलब्धियाँ' },
+  'today.xp': { en: 'Sahayak XP · {n} today', hi: 'सहायक XP · आज {n}' },
+  'today.streak': { en: 'day streak · longest {n}', hi: 'दिन की स्ट्रीक · सबसे लंबी {n}' },
+  'today.mistakes': { en: 'mistakes to review', hi: 'समीक्षा की गलतियाँ' },
+  'today.last7': { en: 'last 7 days', hi: 'पिछले 7 दिन' },
+  'today.mission': { en: "Today's Mission", hi: 'आज का मिशन' },
+  'today.progress': { en: 'Progress: {a}/{b}', hi: 'प्रगति: {a}/{b}' },
+  'today.complete': { en: ' · Mission complete. Well done.', hi: ' · मिशन पूरा। शाबाश!' },
+  'today.battle': { en: 'Weakness Battle', hi: 'वीकनेस बैटल' }, 'today.battleSub': { en: 'Your current challenges:', hi: 'आपके मौजूदा चैलेंज:' }, 'today.startBattle': { en: 'Start battle', hi: 'बैटल शुरू करें' },
+  'today.org': { en: 'From your tutor or centre', hi: 'आपके ट्यूटर या सेंटर से' },
+  'today.orgLine': { en: '{n} questions · ends {d} · {f} of {g} finished', hi: '{n} प्रश्न · {d} को समाप्त · {g} में से {f} ने पूरा किया' },
+  'today.yourScore': { en: 'Your score {s}', hi: 'आपका स्कोर {s}' }, 'today.start': { en: 'Start', hi: 'शुरू करें' },
+  'today.challenges': { en: 'Challenges', hi: 'चैलेंज' }, 'today.modes': { en: 'Practice, Challenge, Mixed and Boss Battle', hi: 'अभ्यास, चैलेंज, मिक्स्ड और बॉस बैटल' },
+  'today.daily': { en: 'CBSE Challenge of the Day', hi: 'CBSE चैलेंज ऑफ़ द डे' }, 'today.done': { en: ' (done)', hi: ' (पूरा)' },
+  'today.mistakeBook': { en: 'My Mistake Book', hi: 'मेरी मिस्टेक बुक' }, 'today.journey': { en: 'Study journey', hi: 'पढ़ाई का सफ़र' }, 'today.achievements': { en: 'Achievements', hi: 'उपलब्धियाँ' },
+  'today.progressLb': { en: 'My progress & leaderboard', hi: 'मेरी प्रगति और लीडरबोर्ड' }, 'today.friend': { en: 'Challenge a friend', hi: 'दोस्त को चैलेंज करें' }, 'today.invite': { en: 'Invite a friend', hi: 'दोस्त को बुलाएँ' },
+  'today.best': { en: 'Beat your best', hi: 'अपना सर्वश्रेष्ठ पार करें' }, 'today.was': { en: 'was {v}', hi: 'पहले {v}' },
+  'today.achieved': { en: 'WHAT YOU ACHIEVED TODAY', hi: 'आज आपने क्या हासिल किया' }, 'today.nothing': { en: 'Nothing yet today. A short round is enough to begin.', hi: 'आज अभी कुछ नहीं। शुरू करने के लिए एक छोटा राउंड काफ़ी है।' },
+  'today.next': { en: 'YOUR NEXT STEP', hi: 'आपका अगला कदम' },
+  'today.foot': { en: 'XP rewards learning, not clicking. Challenges never change your mastery scores.', hi: 'XP सीखने के लिए मिलता है, क्लिक करने के लिए नहीं। चैलेंज आपके निपुणता स्कोर नहीं बदलते।' },
+  'card.mission': { en: "Today's Mission", hi: 'आज का मिशन' }, 'card.open': { en: 'Open Today', hi: 'आज का पेज खोलें' }, 'card.next': { en: 'Open Today to see your next step.', hi: 'अगला कदम देखने के लिए आज का पेज खोलें।' }, 'card.getting': { en: 'Getting your mission ready…', hi: 'आपका मिशन तैयार हो रहा है…' },
+  'ch.title': { en: 'Challenges', hi: 'चैलेंज' },
+  'ch.sub': { en: "Pick a subject and a type. Difficulty comes from the question bank's own levels. Nothing here is made hard just to be hard.", hi: 'विषय और प्रकार चुनिए। कठिनाई प्रश्न-बैंक के अपने स्तरों से आती है। यहाँ कुछ भी सिर्फ़ कठिन बनाने के लिए कठिन नहीं किया गया।' },
+  'ch.register': { en: 'Register for a subject first on the Subjects page.', hi: 'पहले विषय पेज पर किसी विषय के लिए पंजीकरण कीजिए।' },
+  'mode.practice': { en: 'Practice', hi: 'अभ्यास' }, 'mode.practice.t': { en: 'Questions at your current learning level.', hi: 'आपके मौजूदा स्तर के प्रश्न।' },
+  'mode.challenge': { en: 'Challenge', hi: 'चैलेंज' }, 'mode.challenge.t': { en: 'Harder questions, where the question bank has them.', hi: 'ज़्यादा कठिन प्रश्न, जहाँ प्रश्न-बैंक में हैं।' },
+  'mode.mixed': { en: 'Mixed', hi: 'मिक्स्ड' }, 'mode.mixed.t': { en: 'Several skills in one round.', hi: 'एक राउंड में कई कौशल।' },
+  'mode.boss': { en: 'Boss Battle', hi: 'बॉस बैटल' }, 'mode.boss.t': { en: '10 verified questions, rising in difficulty, ending with application and reasoning.', hi: '10 जाँचे हुए प्रश्न, बढ़ती कठिनाई के साथ, अंत में प्रयोग और तर्क वाले।' },
+  'mode.weakness': { en: 'Weakness Battle', hi: 'वीकनेस बैटल' }, 'mode.mistake_review': { en: 'Mistake review', hi: 'गलतियों की समीक्षा' }, 'mode.comeback': { en: 'Comeback Challenge', hi: 'कमबैक चैलेंज' },
+  'mode.daily': { en: 'CBSE Challenge of the Day', hi: 'CBSE चैलेंज ऑफ़ द डे' }, 'mode.org': { en: 'Challenge from your tutor', hi: 'आपके ट्यूटर का चैलेंज' }, 'mode.mixedRound': { en: 'Mixed round', hi: 'मिक्स्ड राउंड' }, 'mode.friend': { en: 'Friend challenge', hi: 'दोस्त का चैलेंज' },
+  'mb.title': { en: 'My Mistake Book', hi: 'मेरी मिस्टेक बुक' },
+  'mb.sub': { en: '{o} waiting for review · {c} corrected. A mistake is corrected when you get it right on a retry. A category is shown only when the system detected the likely cause; otherwise it says "Not yet categorised".', hi: '{o} समीक्षा के इंतज़ार में · {c} सुधारी गईं। दोबारा प्रयास में सही करने पर गलती सुधरी मानी जाती है। श्रेणी तभी दिखती है जब सिस्टम ने संभावित कारण पहचाना हो; वरना "अभी वर्गीकृत नहीं" लिखा होता है।' },
+  'mb.review': { en: 'Review mistakes', hi: 'गलतियों की समीक्षा' }, 'mb.fixCalc': { en: 'Fix calculation mistakes', hi: 'गणना की गलतियाँ सुधारें' },
+  'mb.show': { en: 'Show:', hi: 'दिखाएँ:' }, 'mb.open': { en: 'Open', hi: 'खुली' }, 'mb.corrected': { en: 'Corrected', hi: 'सुधारी' }, 'mb.all': { en: 'All', hi: 'सभी' }, 'mb.practising': { en: 'Practising', hi: 'अभ्यास में' },
+  'mb.empty': { en: 'Nothing here yet. Wrong answers in lessons, diagnostics, mocks and challenges are collected here automatically.', hi: 'यहाँ अभी कुछ नहीं। पाठों, डायग्नोस्टिक, मॉक और चैलेंज के गलत उत्तर अपने-आप यहाँ जमा होते हैं।' },
+  'mb.question': { en: 'Question', hi: 'प्रश्न' }, 'mb.seen': { en: 'seen {n}×', hi: '{n} बार' }, 'mb.gone': { en: 'Question no longer available', hi: 'प्रश्न अब उपलब्ध नहीं' },
+  'mb.your': { en: 'Your answer:', hi: 'आपका उत्तर:' }, 'mb.correct': { en: 'Correct answer:', hi: 'सही उत्तर:' },
+  'ach.title': { en: 'Sahayak Achievements', hi: 'सहायक उपलब्धियाँ' }, 'ach.sub': { en: '{a} of {b} unlocked. Each one is earned by a real learning behaviour, and the rule is written under it.', hi: '{b} में से {a} खुलीं। हर उपलब्धि असली सीखने के व्यवहार से मिलती है, और उसका नियम नीचे लिखा है।' },
+  'ach.unlocked': { en: 'Unlocked {d}.', hi: '{d} को खुली।' }, 'ach.way': { en: '{p}% of the way.', hi: '{p}% तक पहुँचे।' },
+  'cat.consistency': { en: 'Consistency', hi: 'निरंतरता' }, 'cat.learning': { en: 'Learning', hi: 'सीखना' }, 'cat.improvement': { en: 'Improvement', hi: 'सुधार' }, 'cat.assessment': { en: 'Assessment', hi: 'आकलन' }, 'cat.mistakes': { en: 'Mistakes', hi: 'गलतियाँ' }, 'cat.cbse': { en: 'CBSE preparation', hi: 'CBSE की तैयारी' },
+  'jr.title': { en: 'Study journey', hi: 'पढ़ाई का सफ़र' }, 'jr.sub': { en: 'Where you are in each subject, from your own evidence. "Board readiness" is never declared here: it is an ongoing stage that needs mock and re-check evidence.', hi: 'हर विषय में आप कहाँ हैं, आपके अपने प्रमाण से। "बोर्ड की तैयारी" यहाँ कभी घोषित नहीं होती: यह लगातार चलने वाला चरण है जिसे मॉक और दोबारा जाँच के प्रमाण चाहिए।' },
+  'jr.none': { en: 'Register for a subject on the Subjects page to see its journey.', hi: 'सफ़र देखने के लिए विषय पेज पर किसी विषय के लिए पंजीकरण कीजिए।' }, 'jr.here': { en: ' (you are here)', hi: ' (आप यहाँ हैं)' }, 'jr.next': { en: 'Next recommended step:', hi: 'अगला सुझाया गया कदम:' },
+  'bt.title': { en: 'Weakness Battle', hi: 'वीकनेस बैटल' }, 'bt.sub': { en: 'Questions start basic and move up or down with how you do. Mastery is not declared here: your mastery scores change through lessons and diagnostics.', hi: 'प्रश्न बुनियादी स्तर से शुरू होते हैं और आपके प्रदर्शन के साथ ऊपर-नीचे होते हैं। निपुणता यहाँ घोषित नहीं होती: आपके निपुणता स्कोर पाठों और डायग्नोस्टिक से बदलते हैं।' },
+  'bt.none': { en: 'No weak skills on the evidence so far. Take a diagnostic to find your starting point.', hi: 'अब तक के प्रमाण में कोई कमज़ोर कौशल नहीं। शुरुआती बिंदु जानने के लिए डायग्नोस्टिक दीजिए।' },
+  'dl.title': { en: 'CBSE Challenge of the Day', hi: 'CBSE चैलेंज ऑफ़ द डे' }, 'dl.sub': { en: 'One verified question for each subject, the same for everyone today. A question you answered before is skipped.', hi: 'हर विषय का एक जाँचा हुआ प्रश्न, आज सबके लिए एक जैसा। जो प्रश्न आप पहले हल कर चुके हैं वह छोड़ दिया जाता है।' },
+  'dl.done': { en: '· done today ✓', hi: '· आज पूरा ✓' }, 'dl.cont': { en: 'Continue', hi: 'जारी रखें' }, 'dl.try': { en: 'Try it', hi: 'आज़माएँ' },
+  'lb.title': { en: 'My progress', hi: 'मेरी प्रगति' }, 'lb.sub': { en: 'You mainly compete with yourself. Last {n} days:', hi: 'आप मुख्य रूप से खुद से मुक़ाबला करते हैं। पिछले {n} दिन:' },
+  'lb.rounds': { en: 'Rounds finished:', hi: 'पूरे किए राउंड:' }, 'lb.acc': { en: 'Accuracy:', hi: 'सटीकता:' }, 'lb.accNone': { en: 'not enough rounds yet', hi: 'अभी पर्याप्त राउंड नहीं' }, 'lb.prev': { en: ' (the week before: {p}%)', hi: ' (पिछले हफ़्ते: {p}%)' },
+  'lb.corr': { en: 'Mistakes corrected:', hi: 'सुधारी गई गलतियाँ:' }, 'lb.days': { en: 'Study days:', hi: 'पढ़ाई के दिन:' }, 'lb.bests': { en: 'Personal bests:', hi: 'व्यक्तिगत सर्वश्रेष्ठ:' },
+  'lb.class': { en: 'Class board (optional)', hi: 'क्लास बोर्ड (वैकल्पिक)' }, 'lb.top': { en: 'Top Score', hi: 'टॉप स्कोर' }, 'lb.most': { en: 'Most Improved', hi: 'सबसे ज़्यादा सुधार' }, 'lb.studyDays': { en: 'Study days', hi: 'पढ़ाई के दिन' }, 'lb.fixed': { en: 'Mistakes corrected', hi: 'सुधारी गई गलतियाँ' },
+  'lb.you': { en: ' (you)', hi: ' (आप)' }, 'lb.empty': { en: 'Not enough activity yet.', hi: 'अभी पर्याप्त गतिविधि नहीं।' },
+  'lb.on': { en: 'You are on the class board as', hi: 'आप क्लास बोर्ड पर इस नाम से हैं:' }, 'lb.leave': { en: 'Leave the board', hi: 'बोर्ड छोड़ें' },
+  'lb.intro': { en: 'The class board is optional. Others see only your nickname and learning scores, never your name, contact details or weak topics. You can leave any time.', hi: 'क्लास बोर्ड वैकल्पिक है। दूसरे सिर्फ़ आपका उपनाम और सीखने के स्कोर देखते हैं, आपका नाम, संपर्क या कमज़ोर विषय कभी नहीं। आप कभी भी छोड़ सकते हैं।' },
+  'lb.nick': { en: 'Choose a nickname', hi: 'उपनाम चुनिए' }, 'lb.suggest': { en: 'Suggest one', hi: 'एक सुझाइए' }, 'lb.join': { en: 'Join the board', hi: 'बोर्ड से जुड़ें' },
+  'run.loading': { en: 'Getting your questions ready…', hi: 'आपके प्रश्न तैयार हो रहे हैं…' }, 'run.signin': { en: 'Please sign in.', hi: 'कृपया साइन इन कीजिए।' }, 'run.back': { en: 'Back to Today', hi: 'आज के पेज पर वापस' }, 'run.finished': { en: 'Already finished.', hi: 'पहले ही पूरा हो चुका है।' },
+  'run.q': { en: 'Question {a} of {b}', hi: 'प्रश्न {a} / {b}' }, 'run.retry': { en: ' · Try it again', hi: ' · फिर से कोशिश कीजिए' }, 'run.similar': { en: ' · A similar one', hi: ' · एक मिलता-जुलता प्रश्न' },
+  'run.answer': { en: 'Your answer', hi: 'आपका उत्तर' }, 'run.check': { en: 'Check answer', hi: 'उत्तर जाँचें' }, 'run.checking': { en: 'Checking…', hi: 'जाँच हो रही है…' },
+  'run.right': { en: 'Correct.', hi: 'सही।' }, 'run.wrong': { en: 'Not this time. The answer is', hi: 'इस बार नहीं। उत्तर है' }, 'run.nextQ': { en: 'Next question', hi: 'अगला प्रश्न' }, 'run.see': { en: 'See what you achieved', hi: 'देखिए आपने क्या हासिल किया' },
+  'run.sumTitle': { en: 'WHAT YOU ACHIEVED', hi: 'आपने क्या हासिल किया' }, 'run.sumNext': { en: 'YOUR NEXT STEP', hi: 'आपका अगला कदम' },
+  'run.attempted': { en: '{a} questions attempted, {c} correct', hi: '{a} प्रश्न हल किए, {c} सही' }, 'run.corrected': { en: '{n} mistakes corrected', hi: '{n} गलतियाँ सुधारीं' },
+  'run.xp': { en: '{n} XP: ', hi: '{n} XP: ' }, 'run.cap': { en: ' · daily XP limit reached', hi: ' · आज की XP सीमा पूरी' },
+  'run.comeback': { en: 'Comeback:', hi: 'कमबैक:' },
+  'run.comebackBody': { en: 'Original round {a} of {b} ({p}%). Fixing those mistakes: {c} of {d} right ({q}%). {k} mistakes corrected.', hi: 'पहला राउंड {b} में से {a} ({p}%)। उन गलतियों को सुधारते हुए: {d} में से {c} सही ({q}%)। {k} गलतियाँ सुधारीं।' },
+  // friend challenge
+  'fr.title': { en: 'Challenge a friend', hi: 'दोस्त को चैलेंज करें' },
+  'fr.sub': { en: 'Both of you answer the same 5 questions. Your friend sees your nickname and your score, nothing else.', hi: 'आप दोनों एक ही 5 प्रश्न हल करते हैं। आपका दोस्त सिर्फ़ आपका उपनाम और स्कोर देखता है, और कुछ नहीं।' },
+  'fr.off': { en: 'Friend challenges are not switched on yet.', hi: 'दोस्त के चैलेंज अभी चालू नहीं हैं।' }, 'fr.need': { en: 'Choose a nickname on the leaderboard page first.', hi: 'पहले लीडरबोर्ड पेज पर उपनाम चुनिए।' },
+  'fr.create': { en: 'Create a challenge', hi: 'चैलेंज बनाएँ' }, 'fr.pick': { en: 'Pick a subject', hi: 'विषय चुनिए' }, 'fr.code': { en: 'Share this code with one friend:', hi: 'यह कोड एक दोस्त को भेजिए:' },
+  'fr.have': { en: 'Have a code?', hi: 'कोड है?' }, 'fr.enter': { en: 'Enter the code', hi: 'कोड डालिए' }, 'fr.join': { en: 'Join', hi: 'जुड़ें' },
+  'fr.mine': { en: 'Your friend challenges', hi: 'आपके दोस्त वाले चैलेंज' }, 'fr.play': { en: 'Play your round', hi: 'अपना राउंड खेलें' }, 'fr.waiting': { en: 'Waiting for your friend', hi: 'दोस्त का इंतज़ार' },
+  'fr.result': { en: 'You {a} · {n} {b}', hi: 'आप {a} · {n} {b}' }, 'fr.expired': { en: 'Expired', hi: 'समाप्त' }, 'fr.close': { en: 'Cancel', hi: 'रद्द करें' },
+  // referral
+  'rf.title': { en: 'Invite a friend', hi: 'दोस्त को बुलाएँ' },
+  'rf.sub': { en: 'Share your code with a friend or family. Rewards are never automatic: the Sahayak team checks and approves any reward by hand.', hi: 'अपना कोड किसी दोस्त या परिवार को भेजिए। इनाम अपने-आप नहीं मिलते: सहायक टीम हर इनाम खुद जाँचकर मंज़ूर करती है।' },
+  'rf.yourCode': { en: 'Your invite code', hi: 'आपका आमंत्रण कोड' }, 'rf.copy': { en: 'Copy message', hi: 'संदेश कॉपी करें' }, 'rf.msg': { en: 'Join me on Sahayak, a CBSE Class 10 study helper. Use my invite code {c} when you sign up.', hi: 'मेरे साथ सहायक पर जुड़िए, CBSE कक्षा 10 की पढ़ाई का साथी। साइन-अप करते समय मेरा आमंत्रण कोड {c} इस्तेमाल कीजिए।' },
+  'rf.stats': { en: 'Friends who signed up with your code: {n}. Friends who finished a first diagnostic: {m}.', hi: 'आपके कोड से साइन-अप करने वाले दोस्त: {n}। पहला डायग्नोस्टिक पूरा करने वाले: {m}।' },
+  'rf.own': { en: 'You cannot use your own code.', hi: 'आप अपना ही कोड इस्तेमाल नहीं कर सकते।' }, 'rf.note': { en: 'Learning comes first: an invite never changes your scores, XP or mastery.', hi: 'पहले सीखना: आमंत्रण आपके स्कोर, XP या निपुणता को कभी नहीं बदलता।' },
+};
+export function E(key: string, lang: ELang, vars?: Record<string, string | number>): string {
+  const e = EK[key]; let s = e ? (lang === 'hi' ? e.hi : e.en) : key;
+  if (vars) for (const [k, v] of Object.entries(vars)) s = s.split(`{${k}}`).join(String(v));
+  return s;
+}

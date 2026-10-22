@@ -76,7 +76,7 @@ export async function refreshStreak(service: SupabaseClient, studentId: string, 
 
 async function seriesBySubject(service: SupabaseClient, studentId: string) {
   const items: { at: string; subjectId: string; pct: number; mock: boolean }[] = [];
-  const { data: ch } = await service.from('challenge_attempts').select('subject_id, accuracy, total, completed_at, mode').eq('student_id', studentId).eq('status', 'completed').in('mode', ['practice', 'challenge', 'mixed', 'boss', 'weakness', 'org', 'session_quiz']).gte('total', 5).limit(1000);
+  const { data: ch } = await service.from('challenge_attempts').select('subject_id, accuracy, total, completed_at, mode').eq('student_id', studentId).eq('status', 'completed').in('mode', ['practice', 'challenge', 'mixed', 'boss', 'weakness', 'org', 'friend', 'session_quiz']).gte('total', 5).limit(1000);
   for (const r of (ch ?? []) as any[]) if (r.subject_id && r.accuracy !== null) items.push({ at: r.completed_at, subjectId: r.subject_id, pct: Number(r.accuracy), mock: false });
   const { data: mk } = await service.from('mock_exams').select('subject_id, score, total, submitted_at').eq('student_id', studentId).eq('status', 'submitted').gte('total', 5).limit(200);
   for (const r of (mk ?? []) as any[]) items.push({ at: r.submitted_at, subjectId: r.subject_id, pct: Math.round((r.score / r.total) * 100), mock: true });
@@ -192,7 +192,7 @@ export async function missionEvidence(service: SupabaseClient, studentId: string
     if (r.mode === 'daily') ev.dailyDoneToday = true;
     if (r.mode === 'challenge' || r.mode === 'boss') ev.challengeDoneToday = true;
     if (r.mode === 'weakness' && r.skill_id && (r.answers ?? []).length >= 3) ev.weaknessDoneToday.add(r.skill_id);
-    if (['practice', 'challenge', 'mixed', 'weakness', 'boss', 'org'].includes(r.mode) && r.subject_id) ev.practiceSubjectsToday.add(r.subject_id);
+    if (['practice', 'challenge', 'mixed', 'weakness', 'boss', 'org', 'friend'].includes(r.mode) && r.subject_id) ev.practiceSubjectsToday.add(r.subject_id);
   }
   return ev;
 }

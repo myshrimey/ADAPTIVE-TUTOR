@@ -109,7 +109,7 @@ export default async function DashboardOverviewPage() {
           </p>
         </div>
 
-        <TodayCard />
+        <TodayCard lang={lang} />
 
         <section className="tip-card fade-slide-in" style={{ marginTop: 'var(--space-3)' }}>
           <span className="tip-card__eyebrow">Today&apos;s session{streak > 0 ? ` · ${streak}-day streak` : ''}</span>

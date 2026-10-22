@@ -16,7 +16,7 @@ export function nextBattleDifficulty(current: number, history: { correct: boolea
   if (n >= 2 && history[n - 2].correct) return Math.min(5, current + 1);
   return current;
 }
-export const MODE_SIZE: Record<ChallengeMode, number> = { practice: 6, challenge: 6, mixed: 8, boss: 10, weakness: 8, mistake_review: 6, comeback: 8, daily: 1, session_quiz: 5, org: 8 };
+export const MODE_SIZE: Record<ChallengeMode, number> = { practice: 6, challenge: 6, mixed: 8, boss: 10, weakness: 8, mistake_review: 6, comeback: 8, daily: 1, session_quiz: 5, org: 8, friend: 5 };
 
 /** Boss Battle: ten questions in rising difficulty; the last three prefer application / reasoning (cognitive level) and the hardest the bank has. Returns [] when the bank is too thin to be a fair boss. */
 export function composeBoss(pool: BankQ[], size = 10): BankQ[] {

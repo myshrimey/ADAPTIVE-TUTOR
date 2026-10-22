@@ -89,7 +89,7 @@ export function SiteHeader() {
     ...(signedIn ? [{ href: '/mock', label: t('nav.mock'), desc: t('nav.descMock'), icon: '⏱' }] : []),
     ...(signedIn ? [{ href: '/written', label: t('nav.written'), desc: t('nav.descWritten'), icon: '✎' }] : []),
     { href: '/papers', label: t('nav.pastPapers'), desc: t('nav.descPapers'), icon: '❏' },
-    ...(signedIn ? [{ href: '/challenge', label: 'Challenges', desc: 'Practice, Challenge, Mixed, Boss Battle', icon: '⚔' }, { href: '/mistakes', label: 'My Mistake Book', desc: 'Review and fix your mistakes', icon: '✓' }, { href: '/achievements', label: 'Achievements', desc: 'What you have earned', icon: '🏅' }, { href: '/journey', label: 'Study journey', desc: 'Where you are in each subject', icon: '➤' }] : []),
+    ...(signedIn ? [{ href: '/challenge', label: t('nav.challenges'), desc: t('nav.descChallenges'), icon: '⚔' }, { href: '/mistakes', label: t('nav.mistakeBook'), desc: t('nav.descMistakeBook'), icon: '✓' }, { href: '/achievements', label: t('nav.achievements'), desc: t('nav.descAchievements'), icon: '🏅' }, { href: '/journey', label: t('nav.journey'), desc: t('nav.descJourney'), icon: '➤' }] : []),
   ];
 
   const active = (href: string) => pathname === href || pathname.startsWith(href + '/');
@@ -117,7 +117,7 @@ export function SiteHeader() {
           {isPortal && link('/' + role, portalLabel)}
           {staff ? null : <>
           {signedIn && link('/dashboard', t('nav.dashboard'))}
-          {signedIn && link('/today', 'Today')}
+          {signedIn && link('/today', t('nav.today'))}
           {link('/learn', t('nav.learn'))}
 
           <div className="nav-menu">
@@ -213,7 +213,7 @@ export function SiteHeader() {
             {!signedIn && <a href="/portals" className="nav-drawer__link">Parents &amp; partners</a>}
             {!staff && <>
             {signedIn && <a href="/dashboard" className="nav-drawer__link">{t('nav.dashboard')}</a>}
-            {signedIn && <a href="/today" className="nav-drawer__link">Today</a>}
+            {signedIn && <a href="/today" className="nav-drawer__link">{t('nav.today')}</a>}
             <a href="/learn" className="nav-drawer__link">{t('nav.learn')}</a>
             {practice.map((i) => (
               <a key={i.href} href={i.href} className="nav-drawer__link">
