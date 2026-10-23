@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { aiForStudent } from '@/lib/ai';
 import { getServerLang } from '@/lib/language';
-import { languagesForStudent, evaluateHandwrittenPaper, getHandwritingConsent, assertAccess, planAllows, checkHandwritten, chargeHandwritten, loadSettings, recordCommerceEvent, recordEvalStage } from '@adaptive-tutor/core';
+import { languagesForStudent, evaluateHandwrittenPaper, getHandwritingConsent, assertAccess, planAllows, checkHandwritten, chargeHandwritten, loadSettings, recordCommerceEvent, recordEvalStage, recordEvaluationEconomics } from '@adaptive-tutor/core';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
@@ -38,11 +38,14 @@ export async function POST(_req: Request, ctx: { params: Promise<{ id: string }>
       out = await evaluateHandwrittenPaper(service, ai, studentId, id, Math.random, { feedbackLang: langs.learning });
     } catch (e: any) {
       await recordEvalStage(service, id, { stage: 'ai_reading_and_marking', ok: false, at: stamp(), note: String(e?.message ?? 'failed').slice(0, 120) }, 'FAILED');
+      await recordEvaluationEconomics(service, id, studentId); // a failed run still cost money: record it (best effort)
       throw e; // no credit is charged: chargeHandwritten only runs after success
     }
     await recordEvalStage(service, id, { stage: 'ai_reading_and_marking', ok: true, at: stamp() });
     await recordEvalStage(service, id, { stage: 'confidence_routing', ok: true, at: stamp(), note: `${out.needsTeacher + out.unreadable} sent for teacher check` });
     await chargeHandwritten(service, studentId, id);
+    // v59: cost, price and contribution of this evaluation (best effort, never blocks). Teacher review cost counts only when an answer was sent to a teacher.
+    await recordEvaluationEconomics(service, id, studentId, { humanReviewed: out.needsTeacher + out.unreadable > 0, humanReviewCostInr: settings.economics.human_review_cost_inr, infraPerEvalInr: settings.economics.infra_per_eval_inr, questions: out.marked + out.needsTeacher + out.unreadable });
     await recordCommerceEvent(service, 'mock_completed', { studentId, meta: { examId: id, marked: out.marked, needsTeacher: out.needsTeacher, unreadable: out.unreadable } });
     return NextResponse.json({ data: out, error: null });
   } catch (err: any) {

@@ -599,3 +599,21 @@ student_engagement(student_id pk, xp_total, current_streak, longest_streak, last
 
 ## v58 Social (0035)
 challenge_attempts.mode now also allows 'friend'. friend_challenges + subject_id. referral_codes(student_id pk, code unique) own-read policy; referrals(code, referrer_student, referred_student unique, reward_status none/under_review/approved/declined, reward_note, reviewed_at) server-only.
+
+## ai_usage (v59 additions, migration 0036)
+request_id uuid, attempt_no int default 1, user_id uuid, organisation_id uuid, model_version text, retry_count int, fallback_count int, fallback_reason text, audio_seconds numeric, quota_type text (free_quota/promo_credit/paid/unknown), list_cost_inr, free_quota_value_inr, promo_credit_inr, actual_cost_inr (null unless known), economic_cost_inr, pricing_snapshot jsonb (rates + exchange rate used), quality_result text (passed/failed/not_checked), route_explanation jsonb (ADMIN ONLY). Still no prompt or answer text. RLS on, no policy.
+
+## ai_providers (v59 additions)
+quota_type (default unknown), quota_region, promo_credit_balance_inr, promo_credit_expiry, promo_credit_as_of, capabilities jsonb (missing key = unknown), production_status (unknown/test_only/pilot/production), price_last_verified. The five older providers: production, quota_type from their free flag.
+
+## ai_reconciliations (v59)
+RLS on, no policy. id, provider_id (fk ai_providers), period 'YYYY-MM', actual_inr, note, created_at. Unique (provider_id, period). Typed in by the founder from the provider's invoice.
+
+## ai_evaluation_costs (v59)
+RLS on, no policy. exam_id (pk), student_id, exam_label, questions, images, ai_calls, provider, model, input_tokens, output_tokens, ai_list_cost_inr, ai_billed_cost_inr, ai_economic_cost_inr, storage_cost_inr, processing_cost_inr, human_review_cost_inr, total_variable_cost_inr, selling_price_inr, price_basis (target), contribution_inr, margin_pct, margin_at_risk, incomplete (which cost inputs are missing), computed_at.
+
+## ai_benchmark_runs (v59 additions)
+subject, class_level, language, task, breakdown jsonb (accuracy by subject/class/language/task), cost_per_case_inr.
+
+## commerce_settings key ai_economics (v59)
+fx_usd_inr, cap_basis (billed/economic), route_objective (configured_order/lowest_cost_meeting_quality), spend_warn_pct 80, spend_critical_pct 90, handwritten_target_price_inr 499, handwritten_min_margin_pct 85, handwritten_min_contribution_inr, storage_cost_per_image_inr, processing_cost_per_eval_inr, quality_min / max_cost_per_call_inr / max_latency_ms per task.

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { requireAdmin } from '@/lib/admin';
-import { loadGatewayConfig, validateGatewayConfig, loadProviders, activationBlocker, buildAdapter, runBenchmark, qualityScore, MANUAL_DIMENSIONS, VERIFY_CHECKS, ADAPTERS, KEY_ENV_RE, computeCost, type ProviderRow } from '@adaptive-tutor/core';
+import { loadGatewayConfig, validateGatewayConfig, loadProviders, activationBlocker, buildAdapter, runBenchmark, qualityScore, validateEconomics, loadEconomics, MANUAL_DIMENSIONS, VERIFY_CHECKS, ADAPTERS, KEY_ENV_RE, computeCost, type ProviderRow } from '@adaptive-tutor/core';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
@@ -35,6 +35,19 @@ function cleanProvider(v: Record<string, any>, partial: boolean): Record<string,
   if (has('free_tier_expiry')) o.free_tier_expiry = date(v.free_tier_expiry, 'Free-tier expiry');
   if (has('last_verified')) o.last_verified = date(v.last_verified, 'Verified date');
   if (has('verification')) { const ver: Record<string, boolean> = {}; for (const k of VERIFY_CHECKS) ver[k] = v.verification?.[k] === true; o.verification = ver; }
+  // v59: exact quota/plan, promotional credit, capabilities, production status. Capabilities left unknown are simply not recorded.
+  if (has('quota_type')) o.quota_type = oneOf(v.quota_type, ['unknown', 'free_quota', 'promo_credit', 'paid'], 'quota type');
+  if (has('production_status')) o.production_status = oneOf(v.production_status, ['unknown', 'test_only', 'pilot', 'production'], 'production status');
+  if (has('quota_region')) o.quota_region = txt(v.quota_region, 120);
+  if (has('promo_credit_balance_inr')) { o.promo_credit_balance_inr = num(v.promo_credit_balance_inr, 'Promotional credit'); }
+  if (has('promo_credit_expiry')) o.promo_credit_expiry = date(v.promo_credit_expiry, 'Promotional credit expiry');
+  if (has('price_last_verified')) o.price_last_verified = date(v.price_last_verified, 'Price verified date');
+  if (has('cap_hindi') || has('cap_ocr') || has('cap_json')) {
+    const caps: Record<string, boolean> = {};
+    for (const [k, key] of [['cap_hindi', 'hindi'], ['cap_ocr', 'ocr'], ['cap_json', 'json']] as const) { const t = tri(v[k]); if (t !== null) caps[key] = t; }
+    if (tri(v.vision) !== null) caps.vision = tri(v.vision) as boolean;
+    o.capabilities = caps;
+  }
   if (!partial && !o.provider_name) throw bad('A provider name is required.');
   return o;
 }
@@ -60,8 +73,10 @@ export async function POST(req: Request) {
     if (action === 'provider_save') {
       const id = String(b.id ?? '');
       if (!/^[a-z][a-z0-9_]{1,39}$/.test(id)) throw bad('The provider id must be lower-case letters, numbers and underscores.');
-      const { data: ex } = await s.from('ai_providers').select('id').eq('id', id).maybeSingle();
+      const { data: ex } = await s.from('ai_providers').select('*').eq('id', id).maybeSingle();
       const values = cleanProvider(b.values ?? {}, !!ex);
+      // The credit balance is "as of" the moment it was entered; keep the old moment when the number did not change.
+      if ('promo_credit_balance_inr' in values && Number((ex as any)?.promo_credit_balance_inr ?? NaN) !== Number(values.promo_credit_balance_inr ?? NaN)) values.promo_credit_as_of = new Date().toISOString();
       if (!ex) {
         if (!values.adapter) values.adapter = 'openai_compatible';
         // A new provider always starts as an unapproved candidate; it can only become active through provider_status.
@@ -113,8 +128,28 @@ export async function POST(req: Request) {
       return NextResponse.json({ data: { ok: true }, error: null });
     }
 
+    if (action === 'economics_set') {
+      const cur = await loadEconomics(s);
+      const r = validateEconomics(b.economics ?? {}, cur);
+      if (!r.ok) throw bad(r.error);
+      const { error } = await s.from('commerce_settings').upsert({ key: 'ai_economics', value: r.value, note: 'AI economics assumptions (edited at /admin/ai-economics). Not provider facts.', updated_at: new Date().toISOString() } as any, { onConflict: 'key' });
+      if (error) throw bad('Could not save (has migration 0036 been run?).');
+      return NextResponse.json({ data: { economics: r.value }, error: null });
+    }
+
+    if (action === 'reconcile_save') {
+      const providerId = String(b.providerId ?? ''); const period = String(b.period ?? '');
+      if (!/^[a-z][a-z0-9_]{1,39}$/.test(providerId)) throw bad('Choose a provider.');
+      if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(period)) throw bad('Period must look like 2026-10.');
+      const n = Number(b.actualInr); if (!Number.isFinite(n) || n < 0 || n > 10_000_000) throw bad('Enter the invoice amount in rupees (0 or more).');
+      const { error } = await s.from('ai_reconciliations').upsert({ provider_id: providerId, period, actual_inr: n, note: txt(b.note, 300) }, { onConflict: 'provider_id,period' });
+      if (error) throw bad('Could not save (has migration 0036 been run? Is the provider id right?).');
+      return NextResponse.json({ data: { saved: true }, error: null });
+    }
+
     if (action === 'benchmark_run') {
-      const r = await runBenchmark(s, String(b.providerId ?? ''), { cases: 12 });
+      const opt = (v: any) => (typeof v === 'string' && /^[A-Za-z0-9 _.-]{1,40}$/.test(v) ? v : undefined);
+      const r = await runBenchmark(s, String(b.providerId ?? ''), { cases: 12, subject: opt(b.subject), classLevel: opt(b.classLevel), language: opt(b.language), kind: opt(b.kind) });
       return NextResponse.json({ data: r, error: null });
     }
 

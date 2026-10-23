@@ -17,7 +17,9 @@ export const TASKS: Record<string, TaskDef> = {
 };
 
 /** Work that is plain arithmetic / counting: never sent to a language model. */
-export const TIER0_TASKS = ['marks', 'percentage', 'xp', 'streak', 'leaderboard', 'badge', 'attendance', 'progress', 'question_count', 'chapter_completion', 'ranking', 'usage_stats'] as const;
+export const TIER0_TASKS = ['marks', 'percentage', 'xp', 'streak', 'leaderboard', 'badge', 'attendance', 'progress', 'question_count', 'chapter_completion', 'ranking', 'usage_stats',
+  // v59: the exact names in the founder's list, so a caller using them is refused too
+  'marks_calculation', 'percentage_calculation', 'leaderboard_ranking', 'xp_award', 'attempt_count', 'progress_calculation', 'subscription_status', 'billing_calculation'] as const;
 
 export function taskFor(feature: string | undefined): TaskDef & { key: string } {
   const key = feature && TASKS[feature] ? feature : 'other';

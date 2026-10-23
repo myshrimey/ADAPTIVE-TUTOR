@@ -60,3 +60,6 @@ Read this file, `PROJECT_CONTEXT.md`, `docs/DECISIONS.md` (v34 and v35 entries),
 
 ## Update after v43 (2026-10-18)
 Next: (1) founder deploys v43, answers what the Rs 14,999 plan includes beyond Rs 4,999, gives the exam date; (2) Hindi teacher reviews Hindi A/B questions, English and Social Science banks are small (21 and 24 questions; Social Science has 19 skills with none); (3) build handwritten mock only after consent wording is approved and a lawyer has seen the "keep as Q/A bank after parent deletes" plan (DPDP Act risk).
+
+## Update after v59 (2026-10-22)
+Apply v59 after v58 (migration 0036). Then: (1) at /admin/ai-infrastructure open each provider and enter the exact model, quota type, prices and the date you verified them from the provider's CURRENT official page; (2) at /admin/ai-economics enter storage and processing cost per evaluation, set limits, run the benchmark per model; (3) enter provider invoices monthly.

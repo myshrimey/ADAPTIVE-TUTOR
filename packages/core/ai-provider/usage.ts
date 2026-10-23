@@ -20,6 +20,10 @@ export interface AIAttempt {
   error?: string;
   // v55b gateway fields (optional: the old chain does not set them)
   model?: string; task?: string; taskTier?: number; images?: number; costEstInr?: number; costInr?: number; freeQuotaUsed?: boolean; ref?: string; statusCode?: number;
+  // v59 ledger fields (migration 0036)
+  requestId?: string; attemptNo?: number; modelVersion?: string | null; retryCount?: number; fallbackCount?: number; fallbackReason?: string | null; audioSeconds?: number | null;
+  quotaType?: string; listCostInr?: number; freeQuotaValueInr?: number; promoCreditInr?: number; economicCostInr?: number;
+  pricingSnapshot?: Record<string, unknown>; qualityResult?: 'passed' | 'failed' | 'not_checked'; routeExplanation?: Record<string, unknown>;
 }
 
 /** USD per 1 million tokens (input, output). Planning assumptions — edit when prices change. */
@@ -61,7 +65,24 @@ export function startOfTodayIst(now: Date = new Date()): string {
   return new Date(dayStartIst - 5.5 * 3600 * 1000).toISOString();
 }
 
+/** The adult account (tutor/centre) a student is linked to, if any, for the ledger's organisation_id. Best effort, looked up once per recorder. */
+async function lookupOwners(service: SupabaseClient, studentId: string | null): Promise<{ userId: string | null; organisationId: string | null }> {
+  if (!studentId) return { userId: null, organisationId: null };
+  try {
+    const { data: st } = await service.from('students').select('user_id').eq('id', studentId).maybeSingle();
+    const { data: links } = await service.from('student_links').select('adult_user_id, link_type').eq('student_id', studentId).eq('status', 'active');
+    const ids = (links ?? []).map((l: any) => l.adult_user_id);
+    let org: string | null = null;
+    if (ids.length) {
+      const { data: prof } = await service.from('adult_profiles').select('user_id, role').in('user_id', ids).in('role', ['tutor', 'centre']);
+      org = (prof ?? [])[0]?.user_id ?? null;
+    }
+    return { userId: st?.user_id ?? null, organisationId: org };
+  } catch { return { userId: null, organisationId: null }; }
+}
+
 export function recordAIAttempt(service: SupabaseClient, studentId: string | null, tier: AITier) {
+  let owners: Promise<{ userId: string | null; organisationId: string | null }> | null = null;
   return async (a: AIAttempt): Promise<void> => {
     try {
       const base = {
@@ -75,11 +96,21 @@ export function recordAIAttempt(service: SupabaseClient, studentId: string | nul
         latency_ms: a.latencyMs,
         error: a.error ? a.error.slice(0, 160) : null,
       };
-      const { error } = await service.from('ai_usage').insert({
-        ...base, model: a.model ?? null, task: a.task ?? null, task_tier: a.taskTier ?? null, images: a.images ?? 0,
+      const v55 = {
+        model: a.model ?? null, task: a.task ?? null, task_tier: a.taskTier ?? null, images: a.images ?? 0,
         cost_est_inr: a.costEstInr ?? null, cost_inr: a.costInr ?? null, free_quota_used: a.freeQuotaUsed ?? false, ref: a.ref ?? null, status_code: a.statusCode ?? null,
-      });
-      // Migration 0032 not run yet: keep logging with the old columns.
+      };
+      owners ??= lookupOwners(service, studentId);
+      const o = await owners;
+      const v59 = {
+        request_id: a.requestId ?? null, attempt_no: a.attemptNo ?? 1, user_id: o.userId, organisation_id: o.organisationId, model_version: a.modelVersion ?? null,
+        retry_count: a.retryCount ?? 0, fallback_count: a.fallbackCount ?? 0, fallback_reason: a.fallbackReason ? a.fallbackReason.slice(0, 160) : null, audio_seconds: a.audioSeconds ?? null,
+        quota_type: a.quotaType ?? null, list_cost_inr: a.listCostInr ?? null, free_quota_value_inr: a.freeQuotaValueInr ?? 0, promo_credit_inr: a.promoCreditInr ?? 0,
+        economic_cost_inr: a.economicCostInr ?? null, pricing_snapshot: a.pricingSnapshot ?? null, quality_result: a.qualityResult ?? null, route_explanation: a.routeExplanation ?? null,
+      };
+      let { error } = await service.from('ai_usage').insert({ ...base, ...v55, ...v59 });
+      // Migration 0036 not run yet: keep logging with the v55b columns, then the oldest ones.
+      if (error) ({ error } = await service.from('ai_usage').insert({ ...base, ...v55 }));
       if (error) await service.from('ai_usage').insert(base);
     } catch {
       // Logging is best-effort and must never break a student's turn.

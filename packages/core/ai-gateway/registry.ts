@@ -19,7 +19,11 @@ export interface ProviderRow {
   commercial_use: 'yes' | 'no' | 'unknown'; data_policy: string | null; policy_status: 'unknown' | 'acceptable' | 'not_acceptable'; verification_required: string | null;
   free_tier_expiry: string | null; quota_reset: 'daily' | 'monthly' | 'none'; last_verified: string | null; source_url: string | null;
   verification: Record<string, boolean>; legacy: boolean; notes: string | null;
+  // v59 (migration 0036). Optional so a registry read before the migration still works.
+  quota_type?: QuotaType; quota_region?: string | null; promo_credit_balance_inr?: number | null; promo_credit_expiry?: string | null; promo_credit_as_of?: string | null;
+  capabilities?: Record<string, boolean>; production_status?: 'unknown' | 'test_only' | 'pilot' | 'production'; price_last_verified?: string | null;
 }
+export type QuotaType = 'free_quota' | 'promo_credit' | 'paid' | 'unknown';
 
 export const KEY_ENV_RE = /^[A-Z][A-Z0-9_]{2,60}$/;
 export function keyPresent(p: Pick<ProviderRow, 'key_env'>, env: Record<string, string | undefined> = process.env): boolean {
@@ -28,10 +32,25 @@ export function keyPresent(p: Pick<ProviderRow, 'key_env'>, env: Record<string, 
 
 /** A route is "free" only while the provider is flagged free, is class A/B/C and its free tier has not expired. Anything else is treated as paid. */
 export function isFreeRoute(p: ProviderRow, today: string = new Date().toISOString().slice(0, 10)): boolean {
+  if (p.quota_type === 'paid' || p.quota_type === 'promo_credit') return false; // an exact plan was recorded: it is not a free quota
   if (p.free_tier_available !== true) return false;
   if (!['A', 'B', 'C'].includes(p.classification)) return false;
   if (p.free_tier_expiry && p.free_tier_expiry < today) return false;
   return true;
+}
+
+/** Promotional credit left, as entered by the founder minus what the ledger shows used since then. Expired credit counts as zero. */
+export function promoCreditLeft(p: ProviderRow, usedSinceInr = 0, today: string = new Date().toISOString().slice(0, 10)): number {
+  if (p.quota_type !== 'promo_credit') return 0;
+  if (p.promo_credit_expiry && p.promo_credit_expiry < today) return 0;
+  return Math.max(0, (p.promo_credit_balance_inr ?? 0) - usedSinceInr);
+}
+/** Which kind of money this route spends. A provider is never "free" as a whole: this is decided per exact model/plan row. */
+export function quotaTypeOf(p: ProviderRow, today: string = new Date().toISOString().slice(0, 10), promoUsedInr = 0): QuotaType {
+  if (isFreeRoute(p, today)) return 'free_quota';
+  if (promoCreditLeft(p, promoUsedInr, today) > 0) return 'promo_credit';
+  if (p.free_tier_available === null && (p.quota_type ?? 'unknown') === 'unknown') return 'unknown'; // billed at list price to stay on the safe side
+  return 'paid';
 }
 
 export function verificationComplete(p: Pick<ProviderRow, 'verification'>): boolean {

@@ -58,13 +58,13 @@ const FIELDS: [string, string, 'text' | 'int' | 'num' | 'date' | 'tri' | 'area']
   ['input_price_usd_m', 'Input price (US$ per 1M tokens)', 'num'], ['output_price_usd_m', 'Output price (US$ per 1M tokens)', 'num'], ['image_price_usd', 'Image price (US$ per image)', 'num'], ['audio_stt_price_usd', 'Audio / speech-to-text price', 'num'], ['tts_price_usd', 'Text-to-speech price', 'num'],
   ['context_window', 'Context window (tokens)', 'int'], ['languages', 'Supported languages', 'text'], ['vision', 'Reads images?', 'tri'], ['structured_output', 'Structured output?', 'tri'], ['tool_calling', 'Tool / function calling?', 'tri'],
   ['data_policy', 'Data retention / training policy (as stated)', 'area'], ['verification_required', 'Account verification required', 'text'], ['free_tier_expiry', 'Free-tier expiry', 'date'],
-  ['last_verified', 'Last verified date', 'date'], ['source_url', 'Official documentation URL you checked (https://…)', 'text'], ['notes', 'Notes', 'area'],
+  ['last_verified', 'Last verified date', 'date'], ['price_last_verified', 'Price last verified date', 'date'], ['quota_region', 'Quota region (where the quota applies)', 'text'], ['promo_credit_balance_inr', 'Promotional credit left (₹) — only if you hold one', 'num'], ['promo_credit_expiry', 'Promotional credit expiry', 'date'], ['cap_hindi', 'Good at Hindi? (capability)', 'tri'], ['cap_ocr', 'Reads handwriting / OCR? (capability)', 'tri'], ['cap_json', 'Reliable JSON output? (capability)', 'tri'], ['source_url', 'Official documentation URL you checked (https://…)', 'text'], ['notes', 'Notes', 'area'],
 ];
-const SELECTS: [string, string, string[]][] = [['classification', 'Classification (A free-suitable, B free-limited, C trial, D paid, E open-weight, F not approved)', ['A', 'B', 'C', 'D', 'E', 'F']], ['commercial_use', 'Commercial use permitted?', ['unknown', 'yes', 'no']], ['policy_status', 'Data policy acceptable for Sahayak?', ['unknown', 'acceptable', 'not_acceptable']], ['quota_reset', 'Quota resets', ['daily', 'monthly', 'none']]];
+const SELECTS: [string, string, string[]][] = [['classification', 'Classification (A free-suitable, B free-limited, C trial, D paid, E open-weight, F not approved)', ['A', 'B', 'C', 'D', 'E', 'F']], ['commercial_use', 'Commercial use permitted?', ['unknown', 'yes', 'no']], ['policy_status', 'Data policy acceptable for Sahayak?', ['unknown', 'acceptable', 'not_acceptable']], ['quota_reset', 'Quota resets', ['daily', 'monthly', 'none']], ['quota_type', 'Quota type of THIS model and plan (never of the whole provider)', ['unknown', 'free_quota', 'promo_credit', 'paid']], ['production_status', 'Production status', ['unknown', 'test_only', 'pilot', 'production']]];
 
 export function ProviderEditor({ p, blocker }: { p: any; blocker: string }) {
   const [open, setOpen] = useState(false);
-  const [v, setV] = useState<any>(() => ({ ...p, verification: { ...(p.verification ?? {}) } }));
+  const [v, setV] = useState<any>(() => ({ ...p, verification: { ...(p.verification ?? {}) }, cap_hindi: p.capabilities?.hindi, cap_ocr: p.capabilities?.ocr, cap_json: p.capabilities?.json }));
   const [msg, setMsg] = useState(''); const [busy, setBusy] = useState(false);
   const set = (k: string, val: any) => setV((x: any) => ({ ...x, [k]: val }));
   async function run(body: any, ok: (d: any) => string) { setBusy(true); setMsg('Working…'); const r = await post(body); setBusy(false); setMsg(r.error ? `⚠ ${r.error}` : ok(r.data)); if (!r.error) setTimeout(() => location.reload(), 1200); }
@@ -116,12 +116,18 @@ export function AddProvider() {
 
 export function BenchmarkPanel({ providers, runs, cases }: { providers: { id: string; name: string }[]; runs: any[]; cases: any[] }) {
   const [msg, setMsg] = useState(''); const [busy, setBusy] = useState(false);
+  const [scope, setScope] = useState<any>({ subject: '', classLevel: '', language: '', kind: '' });
   const [nc, setNc] = useState<any>({ class_level: '10', subject: '', language: 'en', kind: 'short', prompt: '', expected: '' });
-  async function run(id: string) { setBusy(true); setMsg('Running… (up to 12 questions; this can take a minute)'); const r = await post({ action: 'benchmark_run', providerId: id }); setBusy(false); setMsg(r.error ? `⚠ ${r.error}` : `Done: ${r.data.autoCorrect}/${r.data.autoTotal} auto-marked correct, ${r.data.failures} failed.`); if (!r.error) setTimeout(() => location.reload(), 1500); }
+  async function run(id: string) { setBusy(true); setMsg('Running… (up to 12 questions; this can take a minute)'); const r = await post({ action: 'benchmark_run', providerId: id, ...scope }); setBusy(false); setMsg(r.error ? `⚠ ${r.error}` : `Done: ${r.data.autoCorrect}/${r.data.autoTotal} auto-marked correct, ${r.data.failures} failed.`); if (!r.error) setTimeout(() => location.reload(), 1500); }
   async function addCase() { const r = await post({ action: 'case_save', values: nc }); setMsg(r.error ?? 'Question added.'); if (!r.error) setTimeout(() => location.reload(), 800); }
   return (
     <div>
       <p style={{ fontSize: '0.88rem' }}>{cases.filter((c) => c.active).length} active test question(s). Only providers set to <em>testing</em> or <em>active</em> with a key set can be run.</p>
+      <p style={{ fontSize: '0.85rem', display: 'flex', gap: '0.4rem', flexWrap: 'wrap', alignItems: 'center' }}>Limit a run to (optional):
+        <input className="field__input" style={{ width: 130 }} placeholder="Subject" value={scope.subject} onChange={(e) => setScope({ ...scope, subject: e.target.value })} />
+        <input className="field__input" style={{ width: 70 }} placeholder="Class" value={scope.classLevel} onChange={(e) => setScope({ ...scope, classLevel: e.target.value })} />
+        <select className="field__input" value={scope.language} onChange={(e) => setScope({ ...scope, language: e.target.value })}><option value="">Any language</option><option value="en">English</option><option value="hi">Hindi</option></select>
+        <select className="field__input" value={scope.kind} onChange={(e) => setScope({ ...scope, kind: e.target.value })}><option value="">Any task type</option>{['short', 'numeric', 'mcq', 'explain', 'translate'].map((k) => <option key={k}>{k}</option>)}</select></p>
       <div className="hero__actions" style={{ flexWrap: 'wrap' }}>{providers.map((p) => <button key={p.id} disabled={busy} className="btn btn--ghost btn--small" onClick={() => run(p.id)}>Run on {p.name}</button>)}</div>
       <h4 style={{ margin: '0.8rem 0 0.2rem' }}>Add a test question</h4>
       <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
@@ -139,13 +145,13 @@ export function BenchmarkPanel({ providers, runs, cases }: { providers: { id: st
     </div>
   );
 }
-const DIMS: [string, string][] = [['factual', 'Factual accuracy'], ['reasoning', 'Reasoning'], ['cbse_alignment', 'CBSE alignment'], ['explanation', 'Explanation quality'], ['marking_scheme', 'Marking scheme'], ['multilingual', 'Multilingual'], ['hallucination', 'No hallucination'], ['safety', 'Safety']];
+const DIMS: [string, string][] = [['factual', 'Factual accuracy'], ['reasoning', 'Reasoning'], ['cbse_alignment', 'CBSE alignment'], ['explanation', 'Explanation quality'], ['marking_scheme', 'Marking scheme'], ['multilingual', 'Multilingual'], ['hallucination', 'No hallucination'], ['safety', 'Safety'], ['vision_ocr', 'Vision / handwriting reading'], ['hindi', 'Hindi quality']];
 function RunRow({ r, name }: { r: any; name: string }) {
   const [s, setS] = useState<any>(r.scores ?? {}); const [msg, setMsg] = useState('');
   async function save() { const x = await post({ action: 'benchmark_scores', runId: r.id, scores: s }); setMsg(x.error ?? `Saved. Quality score ${x.data.quality ?? '—'}`); }
   return (
     <div className="chapter-row" style={{ display: 'block' }}>
-      <strong>{name}</strong> · {r.model ?? '—'} · {new Date(r.run_at).toLocaleString('en-IN')} · auto-marked {r.auto_correct}/{r.auto_total} · failed {r.failures} · avg {r.latency_ms_avg ?? '—'} ms · cost ₹{Number(r.cost_inr).toFixed(2)} · <strong>quality {r.quality_score ?? 'not enough data'}</strong>
+      <strong>{name}</strong> · {r.model ?? '—'}{r.model_version ? ` (${r.model_version})` : ''} · {[r.subject, r.class_level && `class ${r.class_level}`, r.language, r.task].filter(Boolean).join(' · ') || 'all cases'} · {new Date(r.run_at).toLocaleString('en-IN')} · auto-marked {r.auto_correct}/{r.auto_total} · failed {r.failures} · avg {r.latency_ms_avg ?? '—'} ms · cost ₹{Number(r.cost_inr).toFixed(2)} · <strong>quality {r.quality_score ?? 'not enough data'}</strong>
       <details><summary style={{ cursor: 'pointer', fontSize: '0.85rem' }}>Add your 0-5 ratings (a person must judge these)</summary>
         <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>{DIMS.map(([k, l]) => <label key={k} style={{ fontSize: '0.8rem' }}>{l}<br /><input className="field__input" style={{ width: 60 }} inputMode="numeric" value={s[k] ?? ''} onChange={(e) => setS({ ...s, [k]: e.target.value })} /></label>)}</div>
         <button className="btn btn--ghost btn--small" onClick={save}>Save ratings</button> <span style={{ fontSize: '0.85rem' }}>{msg}</span></details>

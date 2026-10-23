@@ -67,3 +67,6 @@ Engagement engine: daily mission, Sahayak XP (admin-configurable, anti-farming),
 
 ## v58 (2026-10-22)
 Hindi engagement screens, friend challenge, referral loop (no automatic rewards), A/B result screens. Social features OFF until switched on in /admin/engagement-settings.
+
+## v59 (2026-10-22)
+AI intelligence and economics audit + completion. Request-level ledger (request id links attempts; exact model/version; quota type; cost layers; pricing snapshot; quality result; admin-only routing explanation), routing by capability / quality / cost ceiling / latency with an optional lowest-cost objective, economics dashboard with projections (100 to 100,000 students), feature economics, per-evaluation contribution and MARGIN_AT_RISK (target price Rs 499, margin threshold 85% editable), 80/90/100% cost protection for every limit, benchmark scope and comparison, model switch simulator, Command Centre AI block. Nothing about any provider's current price, free quota or terms is verified; founder must check official documentation. Apply order: ...v57, v58, v59 (migration 0036).

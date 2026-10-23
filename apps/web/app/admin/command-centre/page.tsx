@@ -1,6 +1,6 @@
 import { createServiceClient } from '@/lib/supabase-server';
 import { adminPageGate, AdminNav } from '@/lib/admin-page';
-import { loadCommandCentre, rangeBounds, RANGES, CRM_STAGES, FUNDING_STAGES, FUNDING_KINDS, EXPENSE_CATEGORIES, CRM_KINDS } from '@adaptive-tutor/core';
+import { loadCommandCentreAi, loadCommandCentre, rangeBounds, RANGES, CRM_STAGES, FUNDING_STAGES, FUNDING_KINDS, EXPENSE_CATEGORIES, CRM_KINDS } from '@adaptive-tutor/core';
 import { Stat, Section, Grid, Tag, Dot, inr } from '@/components/founder/Cards';
 
 export const dynamic = 'force-dynamic';
@@ -13,6 +13,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ r
   const sp = await searchParams;
   const range = rangeBounds(sp.r ?? '30', { from: sp.from, to: sp.to });
   const d = await loadCommandCentre(createServiceClient(), range);
+  const ai = await loadCommandCentreAi(createServiceClient()).catch(() => null); // AI economics block; a failure here must not break the Command Centre
   const t = d.today;
   const stageName = (k: string, list: [string, string][]) => list.find((s) => s[0] === k)?.[1] ?? k;
   const healthText = { green: 'Healthy on the measures that have data', amber: 'Needs attention', red: 'Several measures need action', grey: 'Not enough data yet' }[d.health];
@@ -90,6 +91,23 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ r
           ? <p>Insufficient data: please fill in {d.handwritten.economics.missing.join(', ')} in <a href="/admin/pricing">Pricing and offers → economics</a>.</p>
           : <p><Dot rag={d.handwritten.economics.status === 'review_pricing' ? 'red' : 'green'} /> {inr(d.handwritten.economics.netPriceInr)} selling price − {inr(d.handwritten.economics.totalCostInr ?? 0)} estimated cost = <strong>{inr(d.handwritten.economics.contributionInr ?? 0)}</strong> contribution {d.handwritten.economics.status === 'review_pricing' && <strong style={{ color: '#d03a2f' }}>REVIEW PRICING</strong>} <Tag label="ASSUMED" /></p>}
         <Grid><Stat label="Answers needing a teacher" m={d.handwritten.humanReviewPercent} suffix="%" /><Stat label="Papers marked" m={d.handwritten.papers} /><Stat label="Papers failed" m={d.handwritten.failedPapers} /></Grid>
+      </Section>
+
+      <Section title="AI cost and margin risk (this month)" hint="From the AI request ledger. Economic cost = list price, so free-quota use is counted as the subsidy it is. Details and the model switch simulator: AI Economics.">
+        {!ai ? <p>Insufficient data (AI ledger unavailable: has migration 0036 been run?).</p> : <>
+          <Grid>
+            <Stat label="AI cost this month (economic)" m={{ value: ai.monthEconomicInr, label: 'ESTIMATED' } as any} money />
+            <Stat label="Billed this month (expected)" m={{ value: ai.monthBilledInr, label: 'ESTIMATED' } as any} money />
+            <Stat label="AI cost per student" m={{ value: ai.perStudentInr, label: 'ESTIMATED' } as any} money />
+            <Stat label="AI cost per active student" m={{ value: ai.perActiveStudentInr, label: 'ESTIMATED' } as any} money />
+            <Stat label="Free-quota use (value at list price)" m={{ value: ai.freeQuotaValueInr, label: 'ESTIMATED' } as any} money />
+            <Stat label="Handwritten AI cost per evaluation" m={{ value: ai.handwrittenAvgCostInr, label: 'ESTIMATED' } as any} money />
+            <Stat label="Projected AI cost / month at today's users" m={{ value: ai.projectedMonthAtCurrentUse, label: 'ESTIMATED' } as any} money />
+            <Stat label="Evaluations at MARGIN_AT_RISK" m={{ value: ai.evaluationsTracked ? ai.marginAtRisk : null, label: 'ACTUAL' } as any} />
+          </Grid>
+          <p style={{ fontSize: '0.88rem' }}>Calls on a free quota: <strong>{ai.freeCalls}</strong> · paid or unknown plan: <strong>{ai.paidCalls}</strong> · Most-used model: <strong>{ai.mostUsedModel ?? 'Insufficient data'}</strong> · Most expensive model: <strong>{ai.mostExpensiveModel ?? 'Insufficient data'}</strong> · Most expensive feature: <strong>{ai.mostExpensiveFeature ?? 'Insufficient data'}</strong>
+            {ai.worstCap && <> · <strong style={{ color: '#d03a2f' }}>{ai.worstCap.label}: {ai.worstCap.pct}% of limit ({ai.worstCap.level})</strong></>} · <a href="/admin/ai-economics">AI Economics →</a></p>
+        </>}
       </Section>
 
       <Section title="Funnel" hint={`${d.range.label}. Each step counts different students, so a step can be larger than the one before it.`}>

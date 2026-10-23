@@ -25,6 +25,8 @@ export type AIFeature = 'tutor' | 'evaluation' | 'summary' | 'explanation' | 'qu
 export interface AICompletionResult {
   text: string;
   usage: { inputTokens: number; outputTokens: number };
+  /** v59: id that links every attempt of this request in the ai_usage ledger (set by the gateway). */
+  requestId?: string;
 }
 
 export interface AIProvider {

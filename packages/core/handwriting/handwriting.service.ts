@@ -7,6 +7,7 @@ import {
   type AgreementStats, type WrittenQuestion,
 } from './marking';
 import { defaultMarks } from '../mock/mock-exam.service';
+import { markRequestQuality } from '../ai-gateway/ledger';
 
 // Server-only helpers for handwritten answers. Every function takes a SERVICE client plus ids the caller derived from the
 // signed-in session (or approved-teacher check). Answer keys are only read here, never returned to a student.
@@ -99,6 +100,7 @@ export async function evaluateHandwrittenPaper(service: SupabaseClient, ai: AIPr
   if (!images.length) throw new Error('no_pages_uploaded');
   const res = await ai.complete({ systemPrompt: HANDWRITING_SYSTEM_PROMPT, userMessage: buildHandwritingUserMessage(questions, images.length, opts.feedbackLang), responseFormat: 'json', feature: 'handwriting', images, ref: examId });
   const parsed = parseHandwritingResult(res.text, questions);
+  await markRequestQuality(service, res.requestId, parsed ? 'passed' : 'failed'); // quality result in the AI ledger
   if (!parsed) throw new Error('handwriting_unreadable_response');
 
   const { data: existing } = await service.from('handwritten_evaluations').select('question_id, status').eq('mock_exam_id', examId).eq('student_id', studentId);
