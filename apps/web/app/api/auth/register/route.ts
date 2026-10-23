@@ -1,4 +1,5 @@
 import { signupSourceFields } from '@/lib/source';
+import { attachReferralFromCookie } from '@/lib/referral';
 import { NextResponse } from 'next/server';
 import { createHash } from 'crypto';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -65,6 +66,7 @@ export async function POST(request: Request) {
       if (sErr || !st) throw sErr ?? new Error('student_row_failed');
       const { error: aErr } = await service.from('student_access').insert({ student_id: st.id, plan_code: 'free', subject_limit: 1, access_until: null, notes: 'Self sign-up: free plan' });
       if (aErr) throw aErr;
+      await attachReferralFromCookie(service, userRow.id, 'student');
       return NextResponse.json({ data: { ok: true }, error: null });
     } catch (inner: any) {
       await service.auth.admin.deleteUser(authId); // roll back so the family can simply try again

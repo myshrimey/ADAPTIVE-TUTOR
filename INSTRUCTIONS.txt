@@ -1,31 +1,32 @@
-SAHAYAK v58 - ENGAGEMENT LEFTOVERS
-==================================
-Apply AFTER v57.
+SAHAYAK - v60 UPDATE
+Simple step-by-step guide. Apply v59 (and everything before it) first.
 
-WHAT THIS ADDS
-1. Hindi text on the engagement screens (Today, Challenges, Mistake Book, Achievements, Study journey, Weakness Battle, Challenge of the Day, My progress, class board, the round screen, the dashboard Today card and the Practice menu). Students see Hindi when their app language is Hindi.
-2. Friend challenge: a student makes a challenge, shares an 8-character code with one friend, both play the same 5 verified questions. After both have played, each sees the other's NICKNAME and score. No chat, no names.
-3. Invite a friend (referral): each student has a personal code. A new student can enter one code in their first 14 days. A code works 50 times at most. Nothing is paid, discounted or credited automatically.
-4. Admin pages: "Referrals" (counts, and you set any reward by hand) and "Engagement experiments" (compares students who have a feature with those who do not).
-Also fixed: tutor/centre challenge rounds were saved without their subject.
+WHAT THIS UPDATE DOES
+1. Every diagnostic now has exactly 20 questions (no more "8-15"). If a student misses a question, a check on what it depends on replaces one of the extra questions, so the total stays 20. A diagnostic a student already started keeps its old length.
+2. Every answer box (diagnostic, quiz, practice chat, mock paper, challenge, written answers) now stops the wrong kind of typing. A number answer will not accept letters; a word answer will not accept digits. The student sees a short warning (English, and Hindi if the app is in Hindi). A "Symbols keypad" button opens a keypad with x squared, square root, pi, fractions, powers, less/greater-than, chemistry subscripts and arrows. Typed symbols are marked the same as plain text (x² = x^2, √3 = sqrt(3)).
+3. Admin > Question bank growth: a "Fill to 1,000" button per subject with a progress bar, and a plain explanation of what "Owed" means. Computer Applications questions on logic, addresses, spreadsheets, loops, HTML and number systems are written by computer code (the answer is calculated, so it cannot be wrong, and it costs no AI). Other subjects use the AI plus a second independent check. All new questions are marked "needs review".
+4. Referral links for everyone: students, parents, teachers, tutors, centres. The "Invite" box with Copy, WhatsApp and Share is on the homepage, dashboard, profile, parent/tutor/centre pages and the teacher page; sign-up pages say "You were invited". When the friend finishes a real first diagnostic (at least 10 answers), both get extra access days, once, automatically. Admin > "Referral links and rewards" shows counts and lets you set the days.
 
 STEPS
-1. Copy the folders "apps", "packages" and "docs", and the files CLAUDE.md and SAHAYAK_PROJECT_MEMORY.md, into your project folder. Choose Replace when asked.
-2. Open a terminal in the project folder:  npm install
-3. Run:  npm run db:migrate    (applies 0035, safe to run again)
-4. Run:  npm run build, then push to GitHub so Vercel redeploys.
-5. Friend challenge and Invite are OFF. To try them, open /admin/engagement-settings and tick "friend challenge" and/or "referral". Please read the privacy note on that page first: these are school-age students.
-6. To compare a feature, set its "share of students" between 1 and 99 in the same page, then look at /admin/engagement/ab after a week or two.
+1. Unzip over your project folder (replace files).
+2. Run: npm install
+3. Run: npm run db:migrate   (adds migration 0037; safe to run twice)
+4. Deploy as usual.
+5. Open Admin > Referral links and rewards. Type how many days each side should get, tick "Give extra access days automatically", press Save. Until you do this, invites are only counted and no days are given.
+6. Open Admin > Question bank growth and press "Fill to 1,000" for each subject. Each press works for up to about 45 seconds; press again to continue. Computer Applications will move fastest.
 
-TESTED
-74 new checks (Hindi text, friend challenge rules, referral rules, A/B calculations) plus all earlier test suites. Migration 0035 runs twice cleanly. Security rules on for the new tables. Type check and full build pass.
+WHAT WAS TESTED (on a test setup, not on your live site)
+- 38 checks on the answer rules, keypad symbols, 20-question plan and the "keep it at 20 after a miss" rule.
+- 32 checks on referrals: codes, one invite per person, minimum answers, reward once only, caps, same-internet-address limit, parent and teacher rules, bonus days on a paid plan and held days on the free plan, plus 2,400 code-written questions checked for consistency.
+- All earlier test suites (t53 and t57b were updated for the new rules; t54 to t59 pass).
+- Migration 0037 ran twice on Postgres 16 with security on for the new tables. Type check and full build pass.
 
 NOT TESTED
-Live database, real browser, two real student accounts. Please try friend challenge with two test students before turning it on.
+- Your live Supabase, a real AI writing questions, and how the pages and keypad look and feel in a browser or on a phone. Please try a number question, a maths question with the keypad, and a sign-up through an invite link.
+- The Hindi warning sentences have not been read by a Hindi teacher.
 
-IMPORTANT
-- The Hindi wording is my draft. Please have a Hindi-speaking teacher read it once (all text is in packages/core/engagement/i18n.ts).
-- Challenge QUESTIONS are still English.
-
-NOT BUILT
-Entering the invite code on the sign-up form (it is entered after sign-up), reminders by push/email/SMS/WhatsApp, Hindi challenge questions.
+NOT BUILT / THINGS TO KNOW
+- This does NOT reach 1,000 questions by itself. Computer Applications, English, Hindi A and Hindi B, Social Science are far below; filling depends on how much free AI quota you have each day. Maths and Science are close. There are no code generators yet for English, Hindi or Social Science.
+- Free-plan students cannot "use" extra days: their bonus days are kept and added when a paid plan is activated. If you want free-plan students to get a short paid-style trial instead, tell me.
+- Teachers, tutors and centres are counted but not paid in days; their rewards wait at Admin > Referral links and rewards for you to settle by hand.
+- Opening an invite link alone does nothing; the code is attached only when the new account is created.

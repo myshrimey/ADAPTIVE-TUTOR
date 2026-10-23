@@ -1,5 +1,6 @@
 'use client';
 
+import { InvitedNote } from '@/components/ReferralPanel';
 import { useState } from 'react';
 import { generateReadablePassword, PORTAL_INFO, PORTAL_ERROR_TEXT, type PortalRole } from '@adaptive-tutor/core';
 
@@ -54,6 +55,7 @@ export function PortalRegisterForm({ role }: { role: PortalRole }) {
   return (
     <form onSubmit={submit}>
       <h1 style={{ fontSize: 'var(--step-2)' }}>{info.label} sign up</h1>
+      <InvitedNote />
       <p style={{ color: 'var(--slate)' }}>{info.blurb} {role === 'parent' ? 'You only see a child after the child gives you a code.' : 'You only see a student after the student\'s family gives you a code.'}</p>
       <div className="field"><label className="field__label" htmlFor="pn">{nameLabel}</label><input id="pn" className="field__input" value={f.displayName} onChange={set('displayName')} required /></div>
       {role === 'centre' && <div className="field"><label className="field__label" htmlFor="pc">Contact person (optional)</label><input id="pc" className="field__input" value={f.contactName} onChange={set('contactName')} /></div>}

@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation';
+import { ReferralPanel } from '@/components/ReferralPanel';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { loadCurriculum, loadSubjectCatalogue, loadLearnerState, loadEngagement, planSession, t } from '@adaptive-tutor/core';
 import { SubjectIcon } from '@/components/SubjectIcon';
@@ -110,6 +111,7 @@ export default async function DashboardOverviewPage() {
         </div>
 
         <TodayCard lang={lang} />
+        <ReferralPanel compact />
 
         <section className="tip-card fade-slide-in" style={{ marginTop: 'var(--space-3)' }}>
           <span className="tip-card__eyebrow">Today&apos;s session{streak > 0 ? ` · ${streak}-day streak` : ''}</span>

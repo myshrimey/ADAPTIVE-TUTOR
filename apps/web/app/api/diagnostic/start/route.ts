@@ -52,9 +52,9 @@ export async function POST(request: Request) {
     await assertSubjectAllowed(supabase, studentId, [subjectId as string], access.subjectLimit);
     await registerSubject(supabase, studentId, subjectId as string, { activate: true });
 
-    const { attemptId, firstQuestion, resumed, answeredCount } = await startDiagnostic(supabase, studentId, subjectId as string, await aiForStudent(studentId));
+    const { attemptId, firstQuestion, resumed, answeredCount, total } = await startDiagnostic(supabase, studentId, subjectId as string, await aiForStudent(studentId));
     if (!resumed) kickBankGrowth(subjectId);
-    return NextResponse.json({ data: { attemptId, question: firstQuestion, resumed, answeredCount }, error: null });
+    return NextResponse.json({ data: { attemptId, question: firstQuestion, resumed, answeredCount, total }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
   }

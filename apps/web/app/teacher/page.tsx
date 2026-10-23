@@ -1,5 +1,6 @@
 'use client';
 
+import { ReferralPanel } from '@/components/ReferralPanel';
 import { useCallback, useEffect, useState } from 'react';
 import { MathText } from '@/components/MathText';
 import { QuestionFigure } from '@/components/QuestionFigure';
@@ -144,6 +145,7 @@ export default function TeacherPage() {
         <div style={{ paddingTop: 'var(--space-3)' }}>
           <h1 style={{ fontSize: 'var(--step-2)' }}>Question review</h1>
           <p><a href="/teacher/handwriting">Check handwritten answers</a></p>
+          <ReferralPanel compact />
           <p style={{ color: 'var(--slate)' }}>
             Hello, {me.displayName}. Check each question, its answer and its explanation. Your feedback helps decide what students see; nothing you do here changes a question by itself.
           </p>

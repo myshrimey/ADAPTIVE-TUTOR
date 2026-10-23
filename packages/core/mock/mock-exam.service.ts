@@ -1,3 +1,4 @@
+import { inputKindOf, type InputKind } from '../answers/input';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import { loadHindi, ensureHindiTranslations, HINDI_MEDIUM_EXCLUDED_SUBJECTS, hasDevanagari } from '../translation/hindi';
 import type { AIProvider } from '../ai-provider/ai-provider.interface';
@@ -47,6 +48,7 @@ export interface MockQuestionView {
   optionLabels?: string[] | null;
   figureUrl: string | null;
   figureCaption: string | null;
+  inputKind?: InputKind;
   marks: number | null; // shown on board-style papers only
 }
 
@@ -166,7 +168,7 @@ async function loadQuestionViews(service: SupabaseClient, ids: string[], showMar
   if (ids.length === 0) return { views: [], untranslated: 0 };
   const { data, error } = await service
     .from('diagnostic_questions')
-    .select('id, prompt, question_type, options, figure_url, figure_caption, marks')
+    .select('id, prompt, question_type, options, figure_url, figure_caption, marks, expected_answer')
     .in('id', ids);
   if (error) throw error;
   const byId = new Map((data ?? []).map((q: any) => [q.id, q]));
@@ -186,6 +188,7 @@ async function loadQuestionViews(service: SupabaseClient, ids: string[], showMar
         optionLabels: tr?.options && q.options && tr.options.length === q.options.length ? tr.options : null,
         figureUrl: q.figure_url ?? null,
         figureCaption: q.figure_caption ?? null,
+        inputKind: inputKindOf(q.question_type, q.expected_answer),
         marks: showMarks ? (q.marks ?? defaultMarks(q.question_type)) : null,
       } as MockQuestionView;
     });

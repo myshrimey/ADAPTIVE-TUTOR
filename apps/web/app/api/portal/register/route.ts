@@ -1,4 +1,5 @@
 import { signupSourceFields } from '@/lib/source';
+import { attachReferralFromCookie } from '@/lib/referral';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { signupsOpen, checkSignupLimits } from '@/lib/signups';
@@ -57,6 +58,7 @@ export async function POST(request: Request) {
         approved_at: info.needsApproval ? null : new Date().toISOString(),
       });
       if (pErr) throw pErr;
+      await attachReferralFromCookie(service, userRow.id, role);
       return NextResponse.json({ data: { ok: true, needsApproval: info.needsApproval }, error: null });
     } catch (inner: any) {
       await service.auth.admin.deleteUser(created.user.id);

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { UpgradeCta } from '@/components/commerce/UpgradeCta';
 import { MathText } from '@/components/MathText';
+import { AnswerInput, answerProblem } from '@/components/AnswerInput';
 import { SubjectIcon } from '@/components/SubjectIcon';
 import { QuestionFigure } from '@/components/QuestionFigure';
 import { MasteryArc } from '@/components/MasteryArc';
@@ -32,6 +33,7 @@ interface QuestionView {
   difficulty: number;
   figureUrl: string | null;
   figureCaption: string | null;
+  inputKind?: 'number' | 'text' | 'expression' | 'choice';
 }
 
 interface QuestionReviewEntry {
@@ -68,6 +70,8 @@ export default function DiagnosticPage() {
   const [starting, setStarting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [askedCount, setAskedCount] = useState(0);
+  const [total, setTotal] = useState(20);
+  const [problem, setProblem] = useState<string | null>(null);
   const [resumedNotice, setResumedNotice] = useState(false);
 
   // Load the subject picker first, instead of starting a diagnostic
@@ -108,6 +112,7 @@ export default function DiagnosticPage() {
       // on what's really their 4th question.
       setAskedCount((json.data.answeredCount ?? 0) + 1);
       setResumedNotice(!!json.data.resumed);
+      if (json.data.total) setTotal(json.data.total);
     } catch (e: any) {
       setError(accessErrorMessage(e.message) ?? e.message);
       setSubjectId(null);
@@ -119,6 +124,9 @@ export default function DiagnosticPage() {
   async function submitAnswer(e: React.FormEvent) {
     e.preventDefault();
     if (!question || !attemptId) return;
+    const bad = answerProblem(question.inputKind, question.questionType, answer);
+    if (bad) { setProblem(bad); return; }
+    setProblem(null);
     setLoading(true);
     setError(null);
 
@@ -131,10 +139,11 @@ export default function DiagnosticPage() {
     setLoading(false);
 
     if (json.error) {
-      setError(json.error);
+      setError(String(json.error).replace(/^invalid_answer_format:\s*/, ''));
       return;
     }
     setAnswer('');
+    if (json.data.total) setTotal(json.data.total);
     if (json.data.completed) {
       setResult(json.data.result);
       setQuestion(null);
@@ -173,7 +182,7 @@ export default function DiagnosticPage() {
         <div className="shell shell--narrow" style={{ paddingTop: 'var(--space-4)' }}>
           <p className="hero__eyebrow">Quick diagnostic</p>
           <h1 style={{ fontSize: 'var(--step-2)' }}>Which subject?</h1>
-          <p style={{ color: 'var(--slate)' }}>8–15 questions that adapt as you answer — about 10 minutes.</p>
+          <p style={{ color: 'var(--slate)' }}>20 questions that adapt as you answer — about 15 minutes.</p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.7rem', marginTop: 'var(--space-2)' }}>
             {(subjects ?? []).map((s) => (
@@ -298,7 +307,7 @@ export default function DiagnosticPage() {
   return (
     <main className="page">
       <div className="shell shell--narrow" style={{ paddingTop: 'var(--space-4)' }}>
-        <p className="hero__eyebrow">Question {askedCount} of roughly 8–15</p>
+        <p className="hero__eyebrow">Question {askedCount} of {total}</p>
         <h1 style={{ fontSize: 'var(--step-2)' }}>Quick diagnostic</h1>
         {resumedNotice && (
           <p className="alert" style={{ borderLeftColor: 'var(--mastered)', background: 'var(--mastered-bg)', color: 'var(--mastered)' }}>
@@ -328,15 +337,9 @@ export default function DiagnosticPage() {
                   ))}
                 </div>
               ) : (
-                <input
-                  className="field__input"
-                  value={answer}
-                  onChange={(e) => setAnswer(e.target.value)}
-                  placeholder="Your answer"
-                  autoFocus
-                  required
-                />
+                <AnswerInput value={answer} onChange={(v) => { setAnswer(v); setProblem(null); }} questionType={question.questionType} inputKind={question.inputKind} autoFocus />
               )}
+              {problem && <p role="alert" style={{ color: '#b45309', fontSize: '0.9rem' }}>⚠ {problem}</p>}
             </div>
 
             <button type="submit" className="btn btn--accent" disabled={loading}>

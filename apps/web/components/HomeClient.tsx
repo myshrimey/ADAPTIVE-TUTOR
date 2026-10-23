@@ -1,5 +1,6 @@
 'use client';
 
+import { ReferralPanel, InvitedNote } from '@/components/ReferralPanel';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase-client';
@@ -397,6 +398,7 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
                 <form onSubmit={mode === 'signup' ? handleSignUp : handleSignIn}>
                   {mode === 'signup' ? (
                     <>
+                      <InvitedNote />
                       <div className="field">
                         <label className="field__label" htmlFor="displayName">Student&apos;s name</label>
                         <input id="displayName" className="field__input" value={displayName} onChange={(e) => setDisplayName(e.target.value)} maxLength={60} required autoFocus />
@@ -497,7 +499,7 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
             <div className="step__number">01</div>
             <div className="step__title">A short diagnostic</div>
             <div className="step__body">
-              8–15 questions that adapt as you answer — a miss on a topic prompts a quick
+              20 questions that adapt as you answer — a miss on a topic prompts a quick
               check on what it depends on, so we find the real gap, not just the wrong answer.
             </div>
           </div>
@@ -548,6 +550,8 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
             <a className="btn btn--ghost" href="/pilot">{t('pilot.title')}</a>
           </p>
         </section>
+
+        <ReferralPanel />
 
         <div style={{ paddingBottom: 'var(--space-4)' }}>
           <FaqSection lang={lang} />

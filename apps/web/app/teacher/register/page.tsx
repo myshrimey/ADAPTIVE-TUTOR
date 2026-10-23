@@ -1,5 +1,6 @@
 'use client';
 
+import { InvitedNote } from '@/components/ReferralPanel';
 import { useState } from 'react';
 
 // Teachers can register themselves. The account waits for the founder's approval.
@@ -44,6 +45,7 @@ export default function TeacherRegisterPage() {
     <main className="page">
       <div className="shell shell--narrow" style={{ paddingTop: 'var(--space-4)' }}>
         <h1 style={{ fontSize: 'var(--step-2)' }}>Teacher registration</h1>
+        <InvitedNote />
         <p style={{ color: 'var(--slate)' }}>
           Help check the questions, answers and explanations that Sahayak&apos;s AI writes for CBSE Class 10 students. Your feedback decides what students see. Registrations are approved by the Sahayak team before you can start.
         </p>

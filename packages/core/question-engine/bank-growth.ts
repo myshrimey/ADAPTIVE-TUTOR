@@ -1,5 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { AIProvider } from '../ai-provider/ai-provider.interface';
+import { generateCodeQuestion, generatorFor } from './generators';
 import { generateQuestionWithSolution, validateGeneratedQuestion, verifyGeneratedQuestion } from './ai-question-generator';
 
 // Question-bank growth (v53). Every learning-session or diagnostic start adds GROWTH_PER_SESSION_START to the subject's
@@ -10,6 +11,8 @@ import { generateQuestionWithSolution, validateGeneratedQuestion, verifyGenerate
 // (or the admin button at /admin/question-bank) carries on.
 export const GROWTH_PER_SESSION_START = 50;
 export const GROWTH_PENDING_CAP = 400;
+/** v60: the founder's floor for every subject's diagnostic bank. */
+export const DIAGNOSTIC_BANK_TARGET = 1000;
 const DIAGNOSTIC_SHARE = 0.4; // 20 of every 50 go to the diagnostic bank, 30 to the practice bank
 
 export async function requestBankGrowth(service: SupabaseClient, subjectId: string, amount = GROWTH_PER_SESSION_START): Promise<void> {
@@ -25,14 +28,25 @@ export async function runBankGrowth(
   ai: AIProvider,
   subjectId: string,
   budgetMs = 40_000,
-): Promise<{ made: number; stillOwed: number; skipped?: 'locked' | 'nothing_owed' }> {
+  opts: { fillDiagnosticTo?: number } = {},
+): Promise<{ made: number; stillOwed: number; skipped?: 'locked' | 'nothing_owed'; fromCode?: number }> {
   const started = Date.now();
-  const { data: row } = await service.from('question_bank_growth').select('*').eq('subject_id', subjectId).maybeSingle();
+  const { data: row0 } = await service.from('question_bank_growth').select('*').eq('subject_id', subjectId).maybeSingle();
+  const fill = opts.fillDiagnosticTo;
+  let row = row0;
+  if (fill) {
+    // Fill mode: the work to do is "diagnostic questions still missing to reach the target", not the owed counter.
+    const have = await countDiagnostic(service, subjectId);
+    const missing = Math.max(0, fill - have);
+    if (missing === 0) return { made: 0, stillOwed: 0, skipped: 'nothing_owed' };
+    row = { ...(row0 ?? { subject_id: subjectId, produced_total: 0, rejected_total: 0 }), pending: missing };
+  }
   if (!row || row.pending <= 0) return { made: 0, stillOwed: row?.pending ?? 0, skipped: 'nothing_owed' };
   if (row.locked_until && Date.parse(row.locked_until) > Date.now()) return { made: 0, stillOwed: row.pending, skipped: 'locked' };
+  if (!row0) await service.from('question_bank_growth').upsert({ subject_id: subjectId, pending: 0, updated_at: new Date().toISOString() }, { onConflict: 'subject_id' });
   await service.from('question_bank_growth').update({ locked_until: new Date(Date.now() + budgetMs + 20_000).toISOString() }).eq('subject_id', subjectId);
 
-  let made = 0, rejected = 0, failStreak = 0;
+  let made = 0, rejected = 0, failStreak = 0, fromCode = 0, codeMiss = 0;
   try {
     const { data: subject } = await service.from('subjects').select('name').eq('id', subjectId).single();
     const subjectName = subject?.name ?? 'Mathematics';
@@ -55,10 +69,20 @@ export async function runBankGrowth(
     while (pending > 0 && Date.now() - started < budgetMs && failStreak < 5) {
       // the skill with the fewest questions gets the next one, so thin skills fill first
       const skill = [...skills].sort((a, b) => (count.get(a.id) ?? 0) - (count.get(b.id) ?? 0))[0];
-      const toDiagnostic = !!test && (n % 5 === 0 || n % 5 === 2);
+      const toDiagnostic = !!test && (!!fill || n % 5 === 0 || n % 5 === 2);
       n++;
       const difficulty = toDiagnostic ? 3 : [2, 3, 4][n % 3];
       try {
+        // Subjects whose answers can be computed (e.g. Computer Applications logic, addresses, spreadsheets) are filled by code first: free, and the key is exact.
+        const code = generatorFor(skill.name) ? generateCodeQuestion(skill.name) : null;
+        if (code && fill && toDiagnostic) {
+          if (prompts.get(skill.id)?.has(norm(code.prompt))) { codeMiss++; if (codeMiss > 60) { codeMiss = 0; } else { continue; } }
+          else {
+            const base = { skill_id: skill.id, difficulty: code.difficulty, question_type: code.questionType, prompt: code.prompt, options: code.options ?? null, expected_answer: code.expectedAnswer, explanation: code.explanation, source: 'generated', content_status: 'needs_review', validated: true, diagnostic_test_id: test!.id };
+            const { error } = await service.from('diagnostic_questions').insert(base);
+            if (!error) { made++; fromCode++; pending--; failStreak = 0; count.set(skill.id, (count.get(skill.id) ?? 0) + 1); prompts.get(skill.id)?.add(norm(code.prompt)); continue; }
+          }
+        }
         const g = await generateQuestionWithSolution(ai, { subjectName, skillName: skill.name, difficulty, avoidPrompts: [...(prompts.get(skill.id) ?? [])].slice(-6) });
         const v = validateGeneratedQuestion(g);
         if (!v.valid || g.questionType === 'step' && toDiagnostic) { rejected++; failStreak++; continue; }
@@ -74,14 +98,20 @@ export async function runBankGrowth(
         prompts.get(skill.id)?.add(norm(g.prompt));
       } catch { failStreak++; }
     }
-    return { made, stillOwed: pending };
+    return { made, stillOwed: pending, fromCode };
   } finally {
     const { data: cur } = await service.from('question_bank_growth').select('pending, produced_total, rejected_total').eq('subject_id', subjectId).maybeSingle();
     await service.from('question_bank_growth').update({
-      pending: Math.max(0, (cur?.pending ?? 0) - made),
+      pending: fill ? (cur?.pending ?? 0) : Math.max(0, (cur?.pending ?? 0) - made),
       produced_total: (cur?.produced_total ?? 0) + made,
       rejected_total: (cur?.rejected_total ?? 0) + rejected,
       locked_until: null, last_run_at: new Date().toISOString(), last_run_made: made, updated_at: new Date().toISOString(),
     }).eq('subject_id', subjectId);
   }
+}
+
+/** Questions in the subject's diagnostic bank that are not rejected. */
+export async function countDiagnostic(service: SupabaseClient, subjectId: string): Promise<number> {
+  const { count } = await service.from('diagnostic_questions').select('id, skills!inner(topics!inner(chapters!inner(subject_id)))', { count: 'exact', head: true }).eq('skills.topics.chapters.subject_id', subjectId).neq('content_status', 'rejected');
+  return count ?? 0;
 }

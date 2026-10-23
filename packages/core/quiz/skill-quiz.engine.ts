@@ -1,3 +1,4 @@
+import { inputKindOf, type InputKind } from '../answers/input';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { AIProvider } from '../ai-provider/ai-provider.interface';
 import { createDefaultAIProvider } from '../ai-provider/factory';
@@ -30,6 +31,7 @@ export interface QuizQuestionView {
   difficulty: number;
   figureUrl: string | null;
   figureCaption: string | null;
+  inputKind?: InputKind;
 }
 
 export interface QuizAnswerInput {
@@ -78,7 +80,7 @@ export async function generateSkillQuiz(
 ): Promise<QuizQuestionView[]> {
   const { data, error } = await supabase
     .from('diagnostic_questions')
-    .select('id, prompt, question_type, options, difficulty, figure_url, figure_caption')
+    .select('id, prompt, question_type, options, difficulty, figure_url, figure_caption, expected_answer')
     .eq('skill_id', skillId)
     .neq('content_status', 'rejected');
   if (error) throw error;
@@ -117,6 +119,7 @@ export async function generateSkillQuiz(
     difficulty: q.difficulty,
     figureUrl: q.figure_url ?? null,
     figureCaption: q.figure_caption ?? null,
+    inputKind: inputKindOf(q.question_type, q.expected_answer),
   }));
 }
 
@@ -135,7 +138,7 @@ async function generateQuizTopUp(
   skillId: string,
   count: number,
   avoidPrompts: string[]
-): Promise<Array<{ id: string; prompt: string; question_type: string; options: unknown; difficulty: number; figure_url: string | null; figure_caption: string | null }>> {
+): Promise<Array<{ id: string; prompt: string; question_type: string; options: unknown; difficulty: number; figure_url: string | null; figure_caption: string | null; expected_answer: unknown }>> {
   const { data: skillRow } = await supabase
     .from('skills')
     .select('id, name, topics(chapters(subjects(id, name)))')
@@ -155,7 +158,7 @@ async function generateQuizTopUp(
     return [];
   }
 
-  const results: Array<{ id: string; prompt: string; question_type: string; options: unknown; difficulty: number; figure_url: string | null; figure_caption: string | null }> = [];
+  const results: Array<{ id: string; prompt: string; question_type: string; options: unknown; difficulty: number; figure_url: string | null; figure_caption: string | null; expected_answer: unknown }> = [];
   const usedPrompts = [...avoidPrompts];
   // Sequential (not Promise.all), same reasoning as gradeSkillQuiz below —
   // keeps this from firing several AI calls at once for one small quiz.
@@ -200,7 +203,7 @@ async function generateQuizTopUp(
           content_status: 'needs_review',
           validated: true,
         })
-        .select('id, prompt, question_type, options, difficulty, figure_url, figure_caption')
+        .select('id, prompt, question_type, options, difficulty, figure_url, figure_caption, expected_answer')
         .single();
       if (error || !inserted) {
         console.error('generateQuizTopUp: failed to persist generated question', skillId, error);

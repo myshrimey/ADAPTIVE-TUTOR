@@ -1,3 +1,4 @@
+import { inputKindOf, type InputKind } from '../answers/input';
 import { loadLangPrefs } from '../boards/language-store';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { AIProvider } from '../ai-provider/ai-provider.interface';
@@ -30,7 +31,7 @@ export interface OrchestratorTurnResult {
   evaluation?: { isCorrect: boolean; misconceptionTag?: string };
   updatedMastery?: { skillId: string; score: number };
   nextAction: PedagogyStrategy;
-  activeQuestion?: { id: string; prompt: string; questionType: string; options?: unknown; figureUrl?: string | null; figureCaption?: string | null };
+  activeQuestion?: { id: string; prompt: string; questionType: string; options?: unknown; figureUrl?: string | null; figureCaption?: string | null; inputKind?: InputKind };
   plan?: { done: number; target: number | null; finalQuestion: boolean; finished: boolean; gentler: boolean };
   diagram?: LearningDiagram; // present when this turn's skill has a teaching diagram (learning-diagrams/mapping.ts) — distinct from a question's own image_url
 }
@@ -252,6 +253,7 @@ async function handleMessageTurn(
       options: question.options,
       figureUrl: question.figureUrl,
       figureCaption: question.figureCaption,
+      inputKind: inputKindOf(question.questionType, question.expectedAnswer),
     };
     // New question -> hint count resets (it's tracked per active question, not per session).
     await supabase.from('learning_sessions').update({ active_question_id: question.id, hint_count_for_active_question: 0, active_question_posed_at: new Date().toISOString() }).eq('id', input.sessionId);
@@ -469,6 +471,7 @@ async function handleAnswerTurn(
       options: nextQuestion.options,
       figureUrl: nextQuestion.figureUrl,
       figureCaption: nextQuestion.figureCaption,
+      inputKind: inputKindOf(nextQuestion.questionType, nextQuestion.expectedAnswer),
     };
   }
 

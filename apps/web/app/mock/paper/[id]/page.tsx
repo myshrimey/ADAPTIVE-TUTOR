@@ -1,4 +1,5 @@
 'use client';
+import { AnswerInput } from '@/components/AnswerInput';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { MathText } from '@/components/MathText';
@@ -11,7 +12,7 @@ import { PrintButton } from '@/components/reports/PrintButton';
 // Steps: 1 print or save as PDF  2 sit it on paper  3 type the objective answers  4 photograph the written pages  5 marks.
 // The answer key is never on this page.
 
-interface PQ { no: number; id: string; prompt: string; questionType: 'mcq' | 'short_answer' | 'numeric'; options: string[] | null; optionLabels?: string[] | null; figureUrl: string | null; figureCaption: string | null; marks: number }
+interface PQ { no: number; id: string; prompt: string; questionType: 'mcq' | 'short_answer' | 'numeric'; options: string[] | null; optionLabels?: string[] | null; figureUrl: string | null; figureCaption: string | null; marks: number; inputKind?: 'number' | 'text' | 'expression' | 'choice' }
 interface Paper { id: string; subjectName: string; title: string; challenge: boolean; status: 'in_progress' | 'submitted'; durationMinutes: number; totalMarks: number; blueprintMarks: number; complete: boolean; issues: string[]; basis: string; sections: { id: string; name: string; marksPerQuestion: number; questions: PQ[] }[]; answers: Record<string, string> }
 interface Report { autoScore: number; autoTotal: number; writtenScore: number; writtenTotalMarked: number; writtenTotalAll: number; waitingForTeacher: number; unreadable: number; pendingNotMarked: number; items: { questionNo: number; maxScore: number; score: number | null; status: string; feedback: string | null; teacherNote: string | null }[]; complete: boolean; note: string; reviewStatus?: string | null }
 interface Consent { given: boolean; current: boolean; bankAvailable: boolean; bank: boolean }
@@ -163,7 +164,7 @@ export default function PaperPage({ params }: { params: Promise<{ id: string }> 
                 <strong>{q.no}.</strong>{' '}
                 {q.questionType === 'mcq' && q.options ? q.options.map((o, i) => (
                   <label key={i} style={{ marginRight: 12 }}><input type="radio" name={`q${q.id}`} checked={answers[q.id] === o} onChange={() => setAnswers((a) => ({ ...a, [q.id]: o }))} /> {String.fromCharCode(65 + i)}</label>
-                )) : <input className="field__input" style={{ maxWidth: 200 }} value={answers[q.id] ?? ''} maxLength={200} onChange={(e) => setAnswers((a) => ({ ...a, [q.id]: e.target.value }))} />}
+                )) : <span style={{ display: 'inline-block', minWidth: 220, verticalAlign: 'top' }}><AnswerInput value={answers[q.id] ?? ''} questionType={q.questionType} inputKind={q.inputKind} maxLength={200} onChange={(v) => setAnswers((a) => ({ ...a, [q.id]: v }))} /></span>}
               </div>
             ))}
             <p><button className="btn btn--accent" disabled={busy === 'submit'} onClick={submitTyped}>Submit typed answers</button></p>

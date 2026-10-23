@@ -1,17 +1,17 @@
 'use client';
 import { useState } from 'react';
 
-export type BankRow = { subjectId: string; name: string; practice: number; diagnostic: number; needsReview: number; owed: number; produced: number; rejected: number; lastRun: string | null };
+export type BankRow = { subjectId: string; name: string; practice: number; diagnostic: number; needsReview: number; owed: number; target?: number; produced: number; rejected: number; lastRun: string | null };
 
 export function AdminQuestionBank({ rows }: { rows: BankRow[] }) {
   const [busy, setBusy] = useState<string | null>(null);
   const [msg, setMsg] = useState<Record<string, string>>({});
-  async function go(id: string, add: number) {
+  async function go(id: string, add: number, fillTo?: number) {
     setBusy(id);
     try {
-      const r = await fetch('/api/admin/question-bank', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ subjectId: id, add }) });
+      const r = await fetch('/api/admin/question-bank', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ subjectId: id, add, fillTo }) });
       const j = await r.json();
-      setMsg({ ...msg, [id]: j.error ? `Problem: ${j.error}` : j.data.skipped === 'locked' ? 'A run is already going. Try again in a minute.' : j.data.skipped === 'nothing_owed' ? 'Nothing is owed. Use "Add 50 and write".' : `Wrote ${j.data.made} new questions. Still owed: ${j.data.stillOwed}. Reload to see totals.` });
+      setMsg({ ...msg, [id]: j.error ? `Problem: ${j.error}` : j.data.skipped === 'locked' ? 'A run is already going. Try again in a minute.' : j.data.skipped === 'nothing_owed' ? 'Nothing is owed. Use "Add 50 and write".' : j.data.target ? `Wrote ${j.data.made} diagnostic questions${j.data.fromCode ? ` (${j.data.fromCode} by code, the rest by AI + second check)` : ''}. Diagnostic bank now ${j.data.diagnostic} of ${j.data.target}. Press again to continue.` : `Wrote ${j.data.made} new questions. Still owed: ${j.data.stillOwed}. Reload to see totals.` });
     } catch { setMsg({ ...msg, [id]: 'Could not reach the server.' }); }
     setBusy(null);
   }
@@ -22,10 +22,11 @@ export function AdminQuestionBank({ rows }: { rows: BankRow[] }) {
         <tbody>
           {rows.map((r) => (
             <tr key={r.subjectId} style={{ borderBottom: '1px solid var(--line)', verticalAlign: 'top' }}>
-              <td style={{ padding: '0.5rem 0.4rem' }}>{r.name}</td><td>{r.practice}</td><td>{r.diagnostic}</td><td>{r.needsReview}</td><td>{r.owed}</td><td>{r.produced} / {r.rejected}</td>
+              <td style={{ padding: '0.5rem 0.4rem' }}>{r.name}</td><td>{r.practice}</td><td>{r.diagnostic} <span style={{ color: 'var(--slate)', fontSize: '0.8rem' }}>/ 1000</span><div style={{ height: 6, background: '#e2e8f0', borderRadius: 3, width: 90 }}><div style={{ height: 6, borderRadius: 3, width: `${Math.min(100, r.diagnostic / 10)}%`, background: r.diagnostic >= 1000 ? '#16a34a' : '#f59e0b' }} /></div></td><td>{r.needsReview}</td><td>{r.owed}</td><td>{r.produced} / {r.rejected}</td>
               <td>
                 <button className="btn btn--small" disabled={busy === r.subjectId} onClick={() => go(r.subjectId, 0)}>{busy === r.subjectId ? 'Working (up to 45 s)…' : 'Write what is owed'}</button>{' '}
-                <button className="btn btn--ghost btn--small" disabled={busy === r.subjectId} onClick={() => go(r.subjectId, 50)}>Add 50 and write</button>
+                <button className="btn btn--ghost btn--small" disabled={busy === r.subjectId} onClick={() => go(r.subjectId, 50)}>Add 50 and write</button>{' '}
+                <button className="btn btn--accent btn--small" disabled={busy === r.subjectId || r.diagnostic >= 1000} onClick={() => go(r.subjectId, 0, 1000)}>{r.diagnostic >= 1000 ? 'At 1,000 ✓' : `Fill to 1,000 (${1000 - r.diagnostic} to go)`}</button>
                 {msg[r.subjectId] && <div style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>{msg[r.subjectId]}</div>}
               </td>
             </tr>

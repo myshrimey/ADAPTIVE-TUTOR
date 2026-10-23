@@ -1,4 +1,5 @@
 import { signupSourceFields } from '@/lib/source';
+import { attachReferralFromCookie } from '@/lib/referral';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { signupsOpen, checkSignupLimits } from '@/lib/signups';
@@ -80,6 +81,7 @@ export async function POST(request: Request) {
       { onConflict: 'student_id,adult_user_id' },
     );
     if (lErr) throw lErr;
+    await attachReferralFromCookie(service, childUserId, 'student'); // one referral per family, counted on the child
     return NextResponse.json({ data: { ok: true }, error: null });
   } catch (err: any) {
     for (const id of madeAuthIds) await service.auth.admin.deleteUser(id).catch(() => {}); // cascade removes rows made for them

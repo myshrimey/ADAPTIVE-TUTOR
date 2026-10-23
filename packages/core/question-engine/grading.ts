@@ -51,7 +51,12 @@ function normalize(s: string): string {
     .toLowerCase()
     .replace(/\s+/g, '')
     .replace(/\*\*/g, '^')
-    .replace(/×/g, '*');
+    .replace(/×/g, '*')
+    // v60 keypad symbols, written one way so "x²" == "x^2", "√3" == "sqrt(3)", "H₂O" == "H2O"
+    .replace(/[−–—]/g, '-').replace(/[÷]/g, '/').replace(/[·⋅]/g, '*').replace(/²/g, '^2').replace(/³/g, '^3').replace(/π/g, 'pi')
+    .replace(/[₀₁₂₃₄₅₆₇₈₉]/g, (c) => String('₀₁₂₃₄₅₆₇₈₉'.indexOf(c))).replace(/⁺/g, '+').replace(/⁻/g, '-').replace(/→/g, '->')
+    .replace(/(?:√|sqrt)\(([a-z0-9.]+)\)/g, 'sqrt$1').replace(/√/g, 'sqrt')
+    .replace(/\^\(([0-9a-z]+)\)/g, '^$1');
 }
 
 /**

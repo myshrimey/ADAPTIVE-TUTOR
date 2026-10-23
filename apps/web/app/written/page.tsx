@@ -1,4 +1,5 @@
 'use client';
+import { AnswerInput } from '@/components/AnswerInput';
 
 import { useEffect, useState } from 'react';
 import { MathText } from '@/components/MathText';
@@ -97,7 +98,7 @@ export default function WrittenPage() {
             <p style={{ fontSize: 'var(--step-1)' }}><MathText text={q.prompt} /></p>
             {!marking ? (
               <>
-                <textarea className="field__input" rows={6} value={answer} maxLength={1500} onChange={(e) => setAnswer(e.target.value)} placeholder="Write your answer here…" disabled={busy} />
+                <AnswerInput multiline value={answer} maxLength={1500} onChange={setAnswer} placeholder="Write your answer here…" disabled={busy} inputKind="expression" />
                 <div className="hero__actions" style={{ marginTop: '0.6rem' }}>
                   <button className="btn btn--accent" onClick={submit} disabled={busy || answer.trim().length < 3}>{busy ? 'Marking…' : 'Send for marking'}</button>
                 </div>

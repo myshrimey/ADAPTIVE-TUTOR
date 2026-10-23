@@ -2,6 +2,9 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
+## Latest delivery - v60 (2026-10-23)
+Fixed 20-question diagnostic, answer checking and keypad, Fill to 1,000 tool, referral links for every role with bonus days (migration 0037). Apply after v59: `sahayak-v60-diagnostic-answers-referrals-delta.zip`. Founder to do: set the referral days and switch rewards on at /admin/referral-rewards, press "Fill to 1,000" per subject, check the keypad on a phone, have a Hindi teacher read the warnings. Next: Hindi grammar generators, more code generators, reviewing the generated questions.
+
 ## Exact current status (2026-10-16)
 v29 and v30 are **deployed and confirmed working live**. **v34** (bundles v31-v33), **v35**, **v36** and **v37** are **built, and the founder reports (2026-10-16) that he has deployed and tested all of them live** (details of what he tested not recorded). They were applied in order: `sahayak-v34-complete-board-prep-delta.zip`, `sahayak-v35-maths-mock-readiness-delta.zip`, `sahayak-v36-plans-teachers-delta.zip`, `sahayak-v37-pricing-free-aicost-delta.zip` (migrations 0013-0017). Don't re-build either; wait for the founder to report deployed-and-working (or a problem).
 

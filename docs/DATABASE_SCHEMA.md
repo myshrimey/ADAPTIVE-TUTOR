@@ -617,3 +617,15 @@ subject, class_level, language, task, breakdown jsonb (accuracy by subject/class
 
 ## commerce_settings key ai_economics (v59)
 fx_usd_inr, cap_basis (billed/economic), route_objective (configured_order/lowest_cost_meeting_quality), spend_warn_pct 80, spend_critical_pct 90, handwritten_target_price_inr 499, handwritten_min_margin_pct 85, handwritten_min_contribution_inr, storage_cost_per_image_inr, processing_cost_per_eval_inr, quality_min / max_cost_per_call_inr / max_latency_ms per task.
+
+## user_referral_codes (v60)
+RLS on; a person reads only their own row. user_id (pk, fk users), code (unique, 8 characters), created_at.
+
+## referral_events (v60)
+RLS on, no policy (server only). id, code, referrer_user, referred_user (unique: one invite per person), referred_role, ip_hash, status (signed_up / qualified / rewarded / held / blocked), note, created_at, qualified_at.
+
+## bonus_days_ledger (v60)
+RLS on; a student reads their own rows. id, student_id, days (1-365), reason, ref (unique, makes a grant happen once), applied_at (null = held until a paid plan), created_at.
+
+## commerce_settings key referral (v60)
+links_on, rewards_on (default false), days_referrer, days_referred, max_rewarded_per_referrer, max_per_ip, min_answers.

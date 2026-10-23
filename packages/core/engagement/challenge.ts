@@ -1,3 +1,4 @@
+import { inputKindOf, validateAnswer, type InputKind } from '../answers/input';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { AIProvider } from '../ai-provider/ai-provider.interface';
 import { gradeAnswer, extractString } from '../question-engine/grading';
@@ -18,7 +19,7 @@ import { afterActivity } from './sync';
 // Challenges NEVER change mastery_states. Mastery moves only through lessons and diagnostics.
 export interface PlanItem { qid: string; table: 'diagnostic_questions' | 'questions'; role: 'normal' | 'retry' | 'similar'; mistakeId?: string; difficulty: number; skillId: string }
 export interface StartOpts { mode: ChallengeMode; subjectId?: string; skillId?: string; chapterId?: string; category?: string; sourceAttemptId?: string; orgChallengeId?: string; friendChallengeId?: string }
-export interface ServedQuestion { attemptId: string; index: number; total: number; mode: ChallengeMode; id: string; prompt: string; questionType: string; options: string[] | null; figureUrl: string | null; figureCaption: string | null; role: PlanItem['role']; note: string | null }
+export interface ServedQuestion { attemptId: string; index: number; total: number; mode: ChallengeMode; id: string; prompt: string; questionType: string; options: string[] | null; figureUrl: string | null; figureCaption: string | null; inputKind?: InputKind; role: PlanItem['role']; note: string | null }
 export interface StartResult { attemptId: string; question: ServedQuestion | null; completed: boolean; notice: string | null }
 export interface ChallengeSummary {
   mode: ChallengeMode; attempted: number; correct: number; accuracy: number | null; xp: { amount: number; breakdown: { label: string; xp: number }[]; capped: boolean };
@@ -70,9 +71,9 @@ function skillsOfChapter(ctx: EngineCtx, chapterId: string): string[] { return [
 
 export async function serveQuestion(service: SupabaseClient, attempt: any, index: number, note: string | null = null): Promise<ServedQuestion | null> {
   const item: PlanItem | undefined = (attempt.plan ?? [])[index]; if (!item) return null;
-  const { data: q } = await service.from(item.table).select('id, prompt, question_type, options, figure_url, figure_caption').eq('id', item.qid).maybeSingle();
+  const { data: q } = await service.from(item.table).select('id, prompt, question_type, options, figure_url, figure_caption, expected_answer').eq('id', item.qid).maybeSingle();
   if (!q) return null;
-  return { attemptId: attempt.id, index, total: attempt.total, mode: attempt.mode, id: q.id, prompt: q.prompt, questionType: q.question_type, options: q.options ?? null, figureUrl: q.figure_url ?? null, figureCaption: q.figure_caption ?? null, role: item.role, note };
+  return { attemptId: attempt.id, index, total: attempt.total, mode: attempt.mode, id: q.id, prompt: q.prompt, questionType: q.question_type, options: q.options ?? null, figureUrl: q.figure_url ?? null, figureCaption: q.figure_caption ?? null, inputKind: inputKindOf(q.question_type, q.expected_answer), role: item.role, note };
 }
 
 const toPlan = (qs: BankQ[], role: PlanItem['role'] = 'normal'): PlanItem[] => qs.map((q) => ({ qid: q.id, table: 'diagnostic_questions', role, difficulty: q.difficulty, skillId: q.skill_id }));
@@ -199,6 +200,7 @@ export async function answerChallenge(service: SupabaseClient, studentId: string
   const { data: q } = await service.from(item.table).select('id, skill_id, prompt, question_type, options, expected_answer, explanation').eq('id', item.qid).maybeSingle();
   if (!q) throw err('Question not found.');
   const secs = typeof seconds === 'number' && Number.isFinite(seconds) && seconds >= 0 && seconds < 3600 ? Math.round(seconds) : null;
+  { const bad = validateAnswer(inputKindOf(q.question_type, q.expected_answer), extractString(given)); if (bad) throw err(bad); }
   const correct = gradeAnswer(q.expected_answer, given); const correctAnswer = extractString(q.expected_answer);
   const info = ctx.idx.get(q.skill_id ?? item.skillId);
   const ref = `ch:${attemptId}`;

@@ -1,4 +1,5 @@
 import { PORTAL_INFO } from '@adaptive-tutor/core';
+import { ReferralPanel } from '@/components/ReferralPanel';
 import { type PortalUser, linkedStudentIds, summariseStudents } from '@/lib/portal';
 import { LinkStudentForm } from './LinkStudentForm';
 import { createServiceClient } from '@/lib/supabase-server';
@@ -49,6 +50,7 @@ export async function PortalDashboard({ me }: { me: PortalUser }) {
           <p style={{ margin: '0.4rem 0 0' }}>{info.blurb}</p>
         </div>
         <p style={{ marginTop: '0.6rem' }}><SignOutButton label="Sign out" /></p>
+        <ReferralPanel />
 
         {me.status === 'pending' && <p className="alert">Your account is waiting for approval by the Sahayak team. You will be able to add students once it is approved.</p>}
         {me.status === 'suspended' && <p className="alert">This account is not active. Please contact the Sahayak team.</p>}

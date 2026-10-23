@@ -11,6 +11,7 @@ import { AnimatedDiagram } from '@/components/AnimatedDiagram';
 import { AnswerFeedback } from '@/components/AnswerFeedback';
 import { SessionProgressReveal, type SessionProgress } from '@/components/SessionProgressReveal';
 import { animationLevelForScore } from '@adaptive-tutor/core';
+import { AnswerInput, answerProblem } from '@/components/AnswerInput';
 
 interface ChatMessage {
   role: 'tutor' | 'student';
@@ -22,6 +23,7 @@ interface ActiveQuestion {
   id: string;
   prompt: string;
   questionType: string;
+  inputKind?: 'number' | 'text' | 'expression' | 'choice';
   options?: string[];
   figureUrl?: string | null;
   figureCaption?: string | null;
@@ -50,6 +52,7 @@ interface QuizQuestion {
   id: string;
   prompt: string;
   questionType: 'mcq' | 'short_answer' | 'numeric';
+  inputKind?: 'number' | 'text' | 'expression' | 'choice';
   options: string[] | null;
   figureUrl?: string | null;
   figureCaption?: string | null;
@@ -210,6 +213,11 @@ export default function LearnPage() {
   async function send(e: React.FormEvent) {
     e.preventDefault();
     if (!sessionId || !input.trim()) return;
+    if (activeQuestion) {
+      const bad = answerProblem(activeQuestion.inputKind, activeQuestion.questionType, input);
+      if (bad) { setError(bad); return; }
+    }
+    setError(null);
     const text = input;
     const wasAnswer = !!activeQuestion;
     setInput('');
@@ -289,6 +297,8 @@ export default function LearnPage() {
     e.preventDefault();
     const q = quizQuestions[quizIndex];
     if (!q) return;
+    const badQ = q.questionType === 'mcq' ? (quizInput ? null : 'Please choose one option.') : answerProblem(q.inputKind, q.questionType, quizInput);
+    if (badQ) { setError(badQ); return; }
     const nextCollected = [...quizCollected, { questionId: q.id, answer: quizInput }];
     setQuizCollected(nextCollected);
     setQuizInput('');
@@ -369,14 +379,7 @@ export default function LearnPage() {
                     ))}
                   </div>
                 ) : (
-                  <input
-                    className="field__input"
-                    value={quizInput}
-                    onChange={(e) => setQuizInput(e.target.value)}
-                    placeholder="Your answer"
-                    autoFocus
-                    required
-                  />
+                  <AnswerInput value={quizInput} onChange={setQuizInput} questionType={q.questionType} inputKind={q.inputKind} autoFocus />
                 )}
               </div>
               <div style={{ display: 'flex', gap: '0.6rem' }}>
@@ -614,13 +617,20 @@ export default function LearnPage() {
           {lastFeedback && <AnswerFeedback key={lastFeedback.n} correct={lastFeedback.correct} level={animLevel} />}
 
           <form onSubmit={send} className="composer">
-            <input
-              className="composer__input"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder={activeQuestion ? 'Your answer…' : 'Type a message… (or "hint", "example", "easier")'}
-              disabled={loading}
-            />
+            {activeQuestion && activeQuestion.questionType !== 'mcq' ? (
+              <div style={{ flex: 1 }}>
+                <AnswerInput value={input} onChange={setInput} questionType={activeQuestion.questionType} inputKind={activeQuestion.inputKind} className="composer__input" placeholder="Your answer…" disabled={loading} />
+              </div>
+            ) : (
+              <input
+                className="composer__input"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder={activeQuestion ? 'Your answer…' : 'Type a message… (or "hint", "example", "easier")'}
+                disabled={loading}
+                maxLength={500}
+              />
+            )}
             <button type="submit" className="btn btn--accent" disabled={loading || !input.trim()}>
               Send
             </button>

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { answerDiagnosticQuestion } from '@adaptive-tutor/core';
+import { answerDiagnosticQuestion, qualifyReferralsForStudent } from '@adaptive-tutor/core';
+import { createServiceClient } from '@/lib/supabase-server';
 import { aiForStudent } from '@/lib/ai';
 import { saveDiagnosticReport } from '@/lib/reports';
 
@@ -20,10 +21,11 @@ export async function POST(request: Request) {
 
     if ('completed' in result) {
       await saveDiagnosticReport(studentId, result.result);
+      await qualifyReferralsForStudent(createServiceClient(), studentId, result.result.questionReview?.length ?? 0); // v60: a friend finishing their first diagnostic counts for whoever invited them
       return NextResponse.json({ data: { completed: true, result: result.result }, error: null });
     }
     return NextResponse.json({
-      data: { completed: false, question: result.nextQuestion, isCorrect: result.isCorrect, correctAnswer: result.correctAnswer },
+      data: { completed: false, question: result.nextQuestion, isCorrect: result.isCorrect, correctAnswer: result.correctAnswer, total: result.total },
       error: null,
     });
   } catch (err: any) {

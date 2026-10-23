@@ -4,6 +4,7 @@ import { createDefaultAIProvider } from '../ai-provider/factory';
 import { logEvent } from '../analytics/events';
 import { computeMasteryScore, bandForScore, RETENTION_DEFAULT_SCORE } from '../mastery/types';
 import { gradeAnswer, extractString } from '../question-engine/grading';
+import { inputKindOf, validateAnswer, type InputKind } from '../answers/input';
 import { ensureExplanation } from '../explanations/ensure-explanation';
 import { generateQuestionWithSolution, validateGeneratedQuestion, verifyGeneratedQuestion } from '../question-engine/ai-question-generator';
 
@@ -23,6 +24,8 @@ export interface DiagnosticQuestionView {
   difficulty: number;
   figureUrl: string | null;
   figureCaption: string | null;
+  /** v60: what kind of answer the box accepts (never the answer itself). */
+  inputKind?: InputKind;
 }
 
 export interface DiagnosticResult {
@@ -57,14 +60,20 @@ interface DiagnosticPlanState {
   answers: Array<{ questionId: string; skillId: string; correct: boolean }>;
   insertedForSkill: Record<string, boolean>; // anchor skillId -> already inserted a prereq check for it
   review: QuestionReviewEntry[];
+  /** v60: fixed length of this diagnostic. Attempts started before v60 have no target and keep their old plan (capped at 15). */
+  target?: number;
+  /** v60: ids of extra "filler" questions; on a miss the last unanswered filler makes room for the prerequisite check so the length stays fixed. */
+  optional?: string[];
 }
 
-const MAX_QUESTIONS = 15;
+/** v60: every new diagnostic has exactly this many questions (founder choice, 2026-10-23). */
+export const DIAGNOSTIC_LENGTH = 20;
+const MAX_QUESTIONS = 15; // legacy attempts only
 const PREFERRED_DIFFICULTY = 3;
 
 /**
  * Builds the anchor question plan — one diagnostic question per topic, walked
- * in curriculum order (docs/architecture.md §4: ~8-15 questions) — and creates
+ * in curriculum order (docs/architecture.md §4: a fixed 20 questions (v60)) — and creates
  * the diagnostic_attempts row. This plan is the "happy path" if every anchor is
  * answered correctly; a miss triggers an adaptive prerequisite-check insertion
  * in answerDiagnosticQuestion, not here.
@@ -86,7 +95,7 @@ export async function startDiagnostic(
   studentId: string,
   subjectId: string,
   aiProvider: AIProvider = createDefaultAIProvider()
-): Promise<{ attemptId: string; firstQuestion: DiagnosticQuestionView; resumed: boolean; answeredCount: number }> {
+): Promise<{ attemptId: string; firstQuestion: DiagnosticQuestionView; resumed: boolean; answeredCount: number; total: number }> {
   const { data: test, error: testErr } = await supabase
     .from('diagnostic_tests')
     .select('id')
@@ -117,23 +126,24 @@ export async function startDiagnostic(
     // rather than resuming into a dead end.
     if (nextQuestionId) {
       const firstQuestion = await loadQuestionView(supabase, nextQuestionId);
-      return { attemptId: existingAttempt.id, firstQuestion, resumed: true, answeredCount: state.answers.length };
+      return { attemptId: existingAttempt.id, firstQuestion, resumed: true, answeredCount: state.answers.length, total: state.target ?? state.plan.length };
     }
   }
 
-  const anchorSkillIds = await getAnchorSkillIds(supabase, subjectId);
+  const slots = await getPlanSkillSlots(supabase, subjectId, DIAGNOSTIC_LENGTH);
 
   const plan: string[] = [];
+  const optional: string[] = [];
   // Questions this student has already been asked in any earlier diagnostic: never served again while a fresh one can be found.
   const seen = await loadSeenQuestionOrder(supabase, studentId);
-  for (const skillId of anchorSkillIds) {
-    const q = await pickOrGenerateQuestionForSkill(supabase, aiProvider, test.id, subjectId, skillId, seen, plan);
-    if (q) plan.push(q.id);
-    if (plan.length >= MAX_QUESTIONS) break;
+  for (const slot of slots) {
+    const q = await pickOrGenerateQuestionForSkill(supabase, aiProvider, test.id, subjectId, slot.skillId, seen, plan);
+    if (q && !plan.includes(q.id)) { plan.push(q.id); if (slot.filler) optional.push(q.id); }
+    if (plan.length >= DIAGNOSTIC_LENGTH) break;
   }
   if (plan.length === 0) throw new Error('no_diagnostic_questions_available');
 
-  const state: DiagnosticPlanState = { plan, answers: [], insertedForSkill: {}, review: [] };
+  const state: DiagnosticPlanState = { plan, answers: [], insertedForSkill: {}, review: [], target: DIAGNOSTIC_LENGTH, optional };
 
   const { data: attempt, error: attemptErr } = await supabase
     .from('diagnostic_attempts')
@@ -145,7 +155,7 @@ export async function startDiagnostic(
   await logEvent({ studentId, eventType: 'diagnostic_started', payload: { attemptId: attempt.id } });
 
   const firstQuestion = await loadQuestionView(supabase, plan[0]);
-  return { attemptId: attempt.id, firstQuestion, resumed: false, answeredCount: 0 };
+  return { attemptId: attempt.id, firstQuestion, resumed: false, answeredCount: 0, total: state.target ?? plan.length };
 }
 
 /**
@@ -159,7 +169,7 @@ export async function answerDiagnosticQuestion(
   params: { attemptId: string; questionId: string; answer: unknown },
   aiProvider: AIProvider = createDefaultAIProvider()
 ): Promise<
-  | { nextQuestion: DiagnosticQuestionView; isCorrect: boolean; correctAnswer: string }
+  | { nextQuestion: DiagnosticQuestionView; isCorrect: boolean; correctAnswer: string; total: number }
   | { completed: true; result: DiagnosticResult }
 > {
   const { data: attempt, error: attemptErr } = await supabase
@@ -177,6 +187,8 @@ export async function answerDiagnosticQuestion(
     .single();
   if (qErr || !question) throw qErr ?? new Error('question_not_found');
 
+  const formatProblem = validateAnswer(inputKindOf(question.question_type, question.expected_answer), extractString(params.answer));
+  if (formatProblem) throw new Error('invalid_answer_format: ' + formatProblem);
   const isCorrect = gradeAnswer(question.expected_answer, params.answer);
   const correctAnswer = extractAnswerDisplay(question.expected_answer);
 
@@ -218,12 +230,15 @@ export async function answerDiagnosticQuestion(
     figureCaption: question.figure_caption ?? null,
   });
 
-  if (!isCorrect && !state.insertedForSkill[question.skill_id] && state.plan.length < MAX_QUESTIONS) {
+  const target = state.target ?? MAX_QUESTIONS;
+  if (!isCorrect && !state.insertedForSkill[question.skill_id] && (state.plan.length < target || hasDroppableFiller(state))) {
     const prereqQuestion = await pickPrerequisiteCheckQuestion(supabase, aiProvider, attempt.diagnostic_test_id, question.skill_id, state.plan, await loadSeenQuestionOrder(supabase, attempt.student_id));
     if (prereqQuestion) {
       const currentIndex = state.plan.indexOf(question.id);
       state.plan.splice(currentIndex + 1, 0, prereqQuestion.id);
       state.insertedForSkill[question.skill_id] = true;
+      // Fixed length: the prerequisite check takes the place of the last filler question that has not been asked yet.
+      if (state.target && state.plan.length > state.target) dropLastFiller(state);
     }
   }
 
@@ -233,7 +248,7 @@ export async function answerDiagnosticQuestion(
   if (nextQuestionId) {
     await supabase.from('diagnostic_attempts').update({ result: state }).eq('id', attempt.id);
     const nextQuestion = await loadQuestionView(supabase, nextQuestionId);
-    return { nextQuestion, isCorrect, correctAnswer };
+    return { nextQuestion, isCorrect, correctAnswer, total: state.target ?? state.plan.length };
   }
 
   const result = await finalizeDiagnostic(supabase, attempt.id, attempt.student_id, state);
@@ -244,7 +259,7 @@ export async function answerDiagnosticQuestion(
  * One anchor question per CHAPTER (the first skill of the chapter's first
  * topic), not per topic. This was a deliberate change from the original
  * 4-chapter pilot, which anchored one question per topic — that scaled fine
- * at 12 topics but would blow well past the "~8-15 questions" target
+ * at 12 topics but would blow well past the "a fixed 20 questions (v60)" target
  * (docs/architecture.md §4) as more chapters and subjects get added, since
  * topic count grows faster than chapter count. Chapter-level anchoring keeps
  * the diagnostic's length roughly proportional to how many chapters exist,
@@ -252,6 +267,61 @@ export async function answerDiagnosticQuestion(
  * within a chapter still gets assessed properly during real tutoring
  * sessions via the question bank, just not during the initial triage.
  */
+export function hasDroppableFiller(state: DiagnosticPlanState): boolean {
+  const answered = new Set(state.answers.map((a) => a.questionId));
+  return (state.optional ?? []).some((id) => !answered.has(id) && state.plan.includes(id));
+}
+export function dropLastFiller(state: DiagnosticPlanState): void {
+  const answered = new Set(state.answers.map((a) => a.questionId));
+  const cand = [...state.plan].reverse().find((id) => (state.optional ?? []).includes(id) && !answered.has(id));
+  if (!cand) return;
+  state.plan.splice(state.plan.indexOf(cand), 1);
+  state.optional = (state.optional ?? []).filter((x) => x !== cand);
+}
+
+export interface PlanSlot { skillId: string; filler: boolean }
+/**
+ * v60: exactly `length` question slots. One anchor per chapter in curriculum order (spread evenly when a subject has more chapters than
+ * `length`); when there are fewer chapters, the rest are filler slots taken round-robin from the chapters' other skills (a different skill
+ * of the same chapter first; a skill is repeated, with a different question, only when the subject has no more skills).
+ */
+export function buildPlanSlots(chapters: string[][], length: number): PlanSlot[] {
+  const ch = chapters.filter((c) => c.length > 0);
+  if (ch.length === 0) return [];
+  if (ch.length >= length) {
+    const out: PlanSlot[] = [];
+    for (let i = 0; i < length; i++) out.push({ skillId: ch[Math.floor((i * ch.length) / length)][0], filler: false });
+    return out;
+  }
+  const slots: PlanSlot[] = ch.map((c) => ({ skillId: c[0], filler: false }));
+  const next = ch.map(() => 1);
+  let guard = 0;
+  while (slots.length < length && guard++ < length * ch.length + 50) {
+    for (let i = 0; i < ch.length && slots.length < length; i++) {
+      const list = ch[i];
+      const idx = next[i]++;
+      slots.push({ skillId: list[idx % list.length], filler: true });
+    }
+  }
+  return slots;
+}
+
+async function getPlanSkillSlots(supabase: SupabaseClient, subjectId: string, length: number): Promise<PlanSlot[]> {
+  const { data: chapters, error: chErr } = await supabase
+    .from('chapters')
+    .select('id, sequence, topics(id, sequence, skills(id, retired))')
+    .eq('subject_id', subjectId);
+  if (chErr) throw chErr;
+  const sorted = [...(chapters ?? [])].sort((a: any, b: any) => a.sequence - b.sequence);
+  const lists: string[][] = sorted.map((chapter: any) => {
+    const topics = [...(chapter.topics ?? [])].sort((a: any, b: any) => a.sequence - b.sequence);
+    const out: string[] = [];
+    for (const t of topics) for (const s of (t.skills ?? [])) if (!s.retired) out.push(s.id);
+    return out;
+  });
+  return buildPlanSlots(lists, length);
+}
+
 async function getAnchorSkillIds(supabase: SupabaseClient, subjectId: string): Promise<string[]> {
   const { data: chapters, error: chErr } = await supabase
     .from('chapters')
@@ -451,7 +521,7 @@ async function generateFreshQuestionOnce(
 async function loadQuestionView(supabase: SupabaseClient, questionId: string): Promise<DiagnosticQuestionView> {
   const { data, error } = await supabase
     .from('diagnostic_questions')
-    .select('id, skill_id, prompt, question_type, options, difficulty, figure_url, figure_caption')
+    .select('id, skill_id, prompt, question_type, options, difficulty, figure_url, figure_caption, expected_answer')
     .eq('id', questionId)
     .single();
   if (error || !data) throw error ?? new Error('question_not_found');
@@ -464,6 +534,7 @@ async function loadQuestionView(supabase: SupabaseClient, questionId: string): P
     difficulty: data.difficulty,
     figureUrl: data.figure_url ?? null,
     figureCaption: data.figure_caption ?? null,
+    inputKind: inputKindOf(data.question_type, data.expected_answer),
   };
 }
 

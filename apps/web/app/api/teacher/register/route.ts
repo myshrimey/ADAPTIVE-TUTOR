@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
+import { attachReferralFromCookie } from '@/lib/referral';
 
 // Public: a teacher registers with their own credentials. The account is created PENDING
 // and gets no review tools until the founder approves it at /admin/teachers. This runs on
@@ -31,6 +32,7 @@ export async function POST(request: Request) {
       if (uErr || !userRow) throw uErr ?? new Error('user_row_failed');
       const { error: tErr } = await service.from('teacher_profiles').insert({ user_id: userRow.id, display_name: displayName, qualification, school, subjects, status: 'pending' });
       if (tErr) throw tErr;
+      await attachReferralFromCookie(service, userRow.id, 'teacher');
     } catch (inner) {
       await service.auth.admin.deleteUser(created.user.id);
       throw inner;
