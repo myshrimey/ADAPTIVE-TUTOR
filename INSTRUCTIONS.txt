@@ -1,29 +1,39 @@
-SAHAYAK - v61 UPDATE
-Simple step-by-step guide. Apply v60 (and everything before it) first.
+SAHAYAK - v62 UPDATE
+Apply v61 (and everything before it) first.
 
 WHAT THIS UPDATE DOES
-You sent a large "master upgrade" prompt. I first compared all 65 sections with what Sahayak already has. Most of it was already built in earlier updates (AI gateway and cost ledger, handwritten Rs 499 economics, plans with Terms and Conditions, parent/tutor/centre portals, engagement, Command Centre, investor tracking). The report is in docs/MASTER_UPGRADE_GAP_REPORT.md. This update builds the clear gaps:
-1. Founder Financial Simulator (Admin > Financial simulator). You type your average revenue per student/tutor/centre/school, AI cost, payment fee, fixed costs, tax reserve and target. It shows: how many students, tutors or centres are needed for Rs 1L, 2L, 3L, 5L and 10L net profit at 10%, 20%, 30%, 50%, 60%, 70% and 80% margin; a "what if I have this many" calculator; "what do I need to add to reach the target"; break-even; and a handwritten mock calculator for 100 to 5,000 mocks. Everything is labelled PLANNING SCENARIO.
-2. Admin > Boards, exams and country prices: exam sessions (you type the dates), a curriculum version register (draft, needs review, approved, published; approval needs a source), and country prices for families abroad (you type them).
-3. Admin > Audit log: who changed what.
-4. Country picker on the Profile page (country, time zone and currency are saved).
+1. ADAPTIVE CHECK (new page: /baseline, button "Find my starting point" on the student dashboard).
+   - It does NOT have a fixed number of questions. It asks while it still needs evidence and stops when enough topics are settled (limits you can change: Admin > Adaptive diagnostic engine; defaults 15 minimum, about 20-30 usual, 50 maximum).
+   - It starts at Class 10. A wrong answer is not a verdict: it first looks at why (a slip in working is re-checked with different numbers), then checks the prerequisite skills below it, class by class, only as far as needed.
+   - Result: a skill picture by area (not one class label), the gaps and how serious they are, and a personal learning path that repairs only the missing prerequisites, then returns to Class 10. Every step says "why you are learning this".
+   - Progress is saved after every answer; the student can stop and continue later.
+   - Later quizzes add evidence to the same picture. A short re-check button re-tests only repaired and uncertain skills.
+2. REPORTS: parent, tutor and centre pages show the starting point, gaps and path in careful wording (no "weak", no "Class 7 student"). Tutors and centres also get "common prerequisite gaps across your students" (shown only for 3 or more students, no names).
+3. QUESTION REGISTER (Admin > Question register): every question with where it came from, who uploaded it, who reviewed it, teacher feedback, and which request it answers. You can approve or reject, upload a question yourself, and handle requests.
+4. TEACHERS, TUTORS, CENTRES can add questions and ask for questions (link "Add questions or ask for questions" on their pages). Their questions always wait for your review; nobody except you can mark a question verified.
+5. YOUR NEW RULE: every session in every subject (diagnostic, quiz, mock, learning session, adaptive check) now owes that subject at least 10 new questions, written in the background and kept as "needs review" with the source recorded. (I read your sentence this way. If you meant something else, tell me.)
 
 STEPS
 1. Unzip over your project folder (replace files).
-2. Run: npm install
-3. Run: npm run db:migrate   (adds migration 0038; safe to run twice)
+2. npm install
+3. npm run db:migrate   (adds migration 0039; safe to run twice)
 4. Deploy as usual.
-5. Open Admin > Financial simulator and enter your real numbers, especially the AI cost per student, tutor and centre (see Admin > AI Economics). If AI cost is left at 0 the results look better than they will be, and the page warns you. Press "Save these numbers".
+5. Open Admin > Adaptive diagnostic engine and check the limits. Leave "allow questions not yet reviewed" ON for now, otherwise almost no question qualifies.
+6. Try it yourself at /baseline on a test student account. The first time you open it, it builds the skill map for Maths in the database (a few seconds).
 
 WHAT WAS TESTED (test setup, not your live site)
-- 54 new checks, including your own table: Rs 10 lakh net profit needs Rs 1 crore revenue at 10%, 50 lakh at 20%, 33.33 lakh at 30%, 20 lakh at 50%, 16.67 lakh at 60%, 14.29 lakh at 70%, 12.5 lakh at 80%; 2,000 students at Rs 1,000 and 50%. Also the mix calculator, the "what to add" suggestions (each one really reaches the target and is the smallest number), the approval steps, input checks and the audit log's secret filter.
-- All earlier test suites (t53 to t60) pass. Migration 0038 ran twice with security on for the new tables. Type check and full build pass.
+- Six simulated students (strong Class 10; mixed Class 9/10; strong basics but weak application; Class 8 prerequisite gaps; language difficulty; high marks but inconsistent reasoning): they got clearly different results. The strong one finished in 15 questions with no repeat of lower classes; the Class 8 one was routed to earlier-class prerequisites; a slip did not push anyone down a class; language difficulty created no serious gap; the check went past 20 when needed and stopped early when sure; every question choice has a stored reason.
+- The database layer end to end (127 checks in total with provenance): resume, no answer key reaches the browser, no repeated question, saved baseline versions, learning path, practice, quiz evidence, short re-check.
+- Provenance: uploads tagged by role, duplicates refused, a teacher cannot self-verify, reviews recorded, requests tracked, minimum 10 per session.
+- Earlier suites still pass. Migration 0039 ran twice on a real Postgres. Type check and full build pass.
 
 NOT TESTED
-- Your live Supabase and how the new pages look in a browser or on a phone. I did not deploy anything.
+- Your live Supabase, how pages look in a browser or phone, real students, real question quality. The thresholds are sensible defaults, not statistically validated. The readiness wording is "Sahayak readiness indicator", never a prediction of marks.
 
-NOT BUILT (honest list)
-- Tutor and coaching-centre batches, assignments, tutors under a centre, weak-topic heatmap.
-- School accounts, Class XI/XII transition benefit, an "add a new board" wizard, an AI tool that imports a syllabus, TAM/SAM/SOM screen, international checkout (country prices are stored but not used when someone pays), a voice tutor.
-- The audit log records changes to the simulator, referral settings and the new configuration screens; older admin actions (pricing, payments, AI providers) are not logged yet.
-- No curriculum dates, syllabus sources or foreign prices were invented: the new screens start empty.
+NOT BUILT / HONEST LIMITS
+- Only MATHS has an earlier-class (Class 6-9) skill map and code-written practice for it. I drafted those 38 skills and their links myself: a Maths teacher must check them. Other subjects get the check at Class 10 level only (it cannot look below Class 10 yet).
+- The main lesson page (/learn) still picks its own next skill; it does not yet follow the learning path. The path page opens lessons for Class 10 steps and has its own practice for earlier-class steps.
+- The short re-check is a button; it does not start by itself after a set time.
+- No separate misconception table, no AI in the engine (no open-ended answer marking), no partial-credit question type yet, no separate "student learning graph" screen.
+- The old fixed 20-question diagnostic is still there at /diagnostic. Your new prompt says no fixed 20; I kept it so nothing breaks. Tell me when to retire it.
+- Not deployed by me.

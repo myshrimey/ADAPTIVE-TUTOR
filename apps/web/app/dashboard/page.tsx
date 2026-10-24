@@ -160,6 +160,10 @@ export default async function DashboardOverviewPage() {
             <span className="quick-action-card__title">Take a diagnostic test</span>
             <span className="quick-action-card__body">Check where you stand on a subject, any time.</span>
           </a>
+          <a href="/baseline" className="quick-action-card">
+            <span className="quick-action-card__title">Find my starting point</span>
+            <span className="quick-action-card__body">An adaptive check that finds exactly which skills to build first, and your learning path.</span>
+          </a>
           <a href="/progress" className="quick-action-card">
             <span className="quick-action-card__title">View full progress</span>
             <span className="quick-action-card__body">See every chapter and skill, tracked individually.</span>

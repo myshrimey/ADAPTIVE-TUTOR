@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { aiForStudent } from '@/lib/ai';
+import { kickBankGrowth } from '@/lib/bank-growth';
 import { startMockExam, startBlueprintPaper, assertAccess, planAllows } from '@adaptive-tutor/core';
 
 // Hindi medium may need to translate a paper's questions the first time (saved afterwards), so allow the server up to a minute.
@@ -21,6 +22,7 @@ export async function POST(request: Request) {
     const access = await assertAccess(service, studentId);
     // Timed mock exams are part of the paid plans.
     if (!planAllows(access.planCode, 'mock_exams')) throw new Error('plan_upgrade_required');
+    kickBankGrowth(body.subjectId); // every session owes its subject at least 10 new questions
     if (body.kind === 'blueprint') {
       const exam = await startBlueprintPaper(service, studentId, body.subjectId, { delivery: body.delivery === 'screen' ? 'screen' : 'paper', challenge: body.challenge === true, language, ai });
       return NextResponse.json({ data: exam, error: null });

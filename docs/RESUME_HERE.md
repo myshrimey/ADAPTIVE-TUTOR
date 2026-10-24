@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v61 (2026-10-24)
+## Latest delivery - v62 (2026-10-24)
+Adaptive diagnostic and baseline engine + question provenance register (migration 0039). Apply after v61. Next candidates: make /learn read the learning path; automatic mini re-check after N sessions; teacher review of the Class 6-9 foundation graph and items; earlier-class graphs for Science/other subjects; tutor/centre batches.
+
+## Previous delivery - v61 (2026-10-24)
 Master-upgrade audit (docs/MASTER_UPGRADE_GAP_REPORT.md) + Founder financial simulator + exam sessions / curriculum versions / country prices + audit log (migration 0038). Apply after v60: `sahayak-v61-simulator-config-delta.zip`. Next candidates: tutor/centre batches and assignments, Class XI/XII transition entitlement, TAM/SAM/SOM, audit entries for older admin actions.
 
 ## Previous delivery - v60 (2026-10-23)

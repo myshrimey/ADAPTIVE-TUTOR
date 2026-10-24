@@ -76,3 +76,6 @@ Diagnostics are now a fixed 20 questions. Every answer box (diagnostic, quiz, pr
 
 ## v61 (2026-10-24)
 Master upgrade prompt audited (docs/MASTER_UPGRADE_GAP_REPORT.md): most items already built. Added: Founder financial simulator (planning scenarios only), exam sessions, curriculum version register with approval steps, country prices (not used at checkout), audit log, student country/timezone/currency. Not built: tutor/centre batches and assignments, school role, Class XI/XII transition, TAM/SAM/SOM, international checkout. Apply order ...v59, v60, v61 (migration 0038).
+
+## v62 (2026-10-24)
+Adaptive diagnostic and baseline engine (no fixed length; prerequisite graph; per-domain baseline; learning path; reports for student/parent/tutor/centre), question provenance register (who uploaded/reviewed/asked), min 10 new questions owed per session per subject. Maths only has a Class 6-9 foundation graph. Not built: /learn driven by the path, auto re-check, student_misconceptions, other-subject foundation graphs. Apply order ...v60, v61, v62 (migration 0039).

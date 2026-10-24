@@ -647,3 +647,6 @@ RLS on, server only. at, actor_email, action, entity, entity_id, detail jsonb (n
 
 ## commerce_settings key financial_simulator (v61)
 Founder's simulator inputs (average revenue, AI cost, payment fee, fixed costs, tax reserve, handwritten costs, target net profit).
+
+## v62 tables (all RLS on, server only)
+competencies (code unique, class_level, domain, importance, skill_id), competency_prerequisites, target_competency_requirements (created, not used yet), baseline_items (code-written questions for earlier classes), baseline_sessions (engine state, resume), student_competency_evidence, student_competency_mastery (unique per student+competency), adaptive_decisions (why each question), student_baselines (versioned), learning_paths, learning_path_nodes, question_requests (who asked for questions). Added to questions, diagnostic_questions, baseline_items: origin, contributed_by, contributed_role, contributor_org, reviewed_by, reviewed_at, review_note, request_id, competency_id. Setting `baseline_engine` in commerce_settings.

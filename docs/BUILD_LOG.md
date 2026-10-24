@@ -418,3 +418,10 @@ One entry per work session. Newest entry on top.
 - /admin/configuration (exam sessions, curriculum version workflow, country prices), /admin/audit-log, country picker on /profile.
 - Tested: 54 new checks (t61: the founder's 10 lakh table at all seven margins, combination maths, gap suggestions reach the target and are minimal, version workflow, validation, audit field filter); t53-t60 pass; migration 0038 twice; tsc and full build pass. NOT tested: live Supabase, browser.
 - Not built: tutor/centre batches and assignments, school role, Class XI/XII transition entitlement, add-a-board wizard, TAM/SAM/SOM screen, country prices at checkout, audit entries for older admin actions, live deployment.
+
+## v62 - Adaptive diagnostic and baseline intelligence engine + question provenance
+- Migration 0039: competencies, competency_prerequisites, target_competency_requirements, baseline_items, baseline_sessions, student_competency_evidence/mastery, adaptive_decisions, student_baselines, learning_paths(+nodes), question_requests; provenance columns on three question tables (backfilled origin).
+- Core: graph, evidence/mastery, error taxonomy, adaptive state machine (phases, downward/upward adaptation, slip re-check, stop rules), baseline + gaps + path, reports (student/parent/tutor/centre wording), database layer (store.ts), provenance.ts.
+- Pages: /baseline, /baseline/path, parent|tutor|centre `/student/[id]/baseline`, tutor|centre `/baseline` (group gaps), /admin/diagnostic-engine, /admin/question-register, teacher|tutor|centre `/questions`.
+- Rule: every session owes its subject at least 10 new questions (quiz, mock, baseline starts now trigger growth).
+- Tested: t62 (69: six simulated students A-F, acceptance tests), t62b (31: database layer end to end), t62c (27: provenance); t53, t56-t61 pass; migration twice on Postgres; tsc and full build pass. NOT tested: live Supabase, browser/phone, real students.
