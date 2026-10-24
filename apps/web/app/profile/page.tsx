@@ -1,6 +1,7 @@
 'use client';
 
 import { ReferralPanel } from '@/components/ReferralPanel';
+import { RegionPrefs } from '@/components/RegionPrefs';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase-client';
 import { useLanguage } from '@/components/LanguageProvider';
@@ -179,6 +180,7 @@ export default function ProfilePage() {
           <p className="hero__eyebrow">Your profile</p>
           <h1 style={{ fontSize: 'var(--step-3)' }}>{displayName ? `${displayName}'s profile` : 'Your profile'}</h1>
           <LanguagePrefs />
+          <RegionPrefs />
           <ReferralPanel />
           <p className="hero__lede" style={{ marginBottom: 0 }}>
             A bit more about you and your school — entirely optional, and only visible to you. It helps

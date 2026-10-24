@@ -36,6 +36,8 @@ export * from './question-engine/selector';
 export * from './question-engine/grading';
 export * from './answers/input';
 export * from './referral/referral';
+export * from './finance/simulator';
+export * from './config-engine/config-engine';
 export * from './question-engine/generators';
 export * from './question-engine/ai-question-generator';
 export * from './question-engine/bank-growth';

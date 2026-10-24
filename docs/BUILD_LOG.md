@@ -410,3 +410,11 @@ One entry per work session. Newest entry on top.
 - Tested: 33 + 5 (input rules, grading symbols, plan slots, filler drop) and 32 (referral rules, caps, idempotence, generators 2,400 questions self-consistent) new checks; t53 and t57b updated for the new behaviour; t54-t59 pass; migration 0037 runs twice on Postgres 16; tsc and full build pass.
 - NOT tested: live Supabase, real AI fill, the pages in a browser or on a phone (keypad feel), the sign-up cookie flow end to end, Hindi wording of the warnings (draft).
 - Not built: the 1,000 target is not reached by this delivery (Computer Applications and Hindi are far below; filling takes AI quota or time); Hindi grammar generators; referral rewards for teachers/tutors/centres are manual; free-plan bonus days are held until a paid plan starts.
+
+## v61 - Master upgrade prompt: audit, financial simulator, config registers, country, audit log
+- Audit: `docs/MASTER_UPGRADE_GAP_REPORT.md` (65 sections mapped; most already existed from v34-v60).
+- Migration 0038: users.country/timezone/currency, exam_sessions, curriculum_versions, country_prices, audit_logs (RLS on, server only).
+- Founder financial simulator (/admin/financial-simulator): presets, student/tutor/centre-only tables, combination, gap to target, break-even, handwritten calculator; inputs saved in setting `financial_simulator`.
+- /admin/configuration (exam sessions, curriculum version workflow, country prices), /admin/audit-log, country picker on /profile.
+- Tested: 54 new checks (t61: the founder's 10 lakh table at all seven margins, combination maths, gap suggestions reach the target and are minimal, version workflow, validation, audit field filter); t53-t60 pass; migration 0038 twice; tsc and full build pass. NOT tested: live Supabase, browser.
+- Not built: tutor/centre batches and assignments, school role, Class XI/XII transition entitlement, add-a-board wizard, TAM/SAM/SOM screen, country prices at checkout, audit entries for older admin actions, live deployment.

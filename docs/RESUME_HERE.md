@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v60 (2026-10-23)
+## Latest delivery - v61 (2026-10-24)
+Master-upgrade audit (docs/MASTER_UPGRADE_GAP_REPORT.md) + Founder financial simulator + exam sessions / curriculum versions / country prices + audit log (migration 0038). Apply after v60: `sahayak-v61-simulator-config-delta.zip`. Next candidates: tutor/centre batches and assignments, Class XI/XII transition entitlement, TAM/SAM/SOM, audit entries for older admin actions.
+
+## Previous delivery - v60 (2026-10-23)
 Fixed 20-question diagnostic, answer checking and keypad, Fill to 1,000 tool, referral links for every role with bonus days (migration 0037). Apply after v59: `sahayak-v60-diagnostic-answers-referrals-delta.zip`. Founder to do: set the referral days and switch rewards on at /admin/referral-rewards, press "Fill to 1,000" per subject, check the keypad on a phone, have a Hindi teacher read the warnings. Next: Hindi grammar generators, more code generators, reviewing the generated questions.
 
 ## Exact current status (2026-10-16)

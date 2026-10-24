@@ -629,3 +629,21 @@ RLS on; a student reads their own rows. id, student_id, days (1-365), reason, re
 
 ## commerce_settings key referral (v60)
 links_on, rewards_on (default false), days_referrer, days_referred, max_rewarded_per_referrer, max_per_ip, min_answers.
+
+## users (v61 additions)
+country, timezone, currency (all optional, set by the person on /profile).
+
+## exam_sessions (v61)
+RLS on, server only. board, academic_year, class_level, exam_type, session_label, start_date, end_date (both optional), subjects text[], rules jsonb, status draft/published/closed.
+
+## curriculum_versions (v61)
+RLS on, server only. board, academic_year, class_level, subject_id or subject_label, language, version, source_reference, status draft/needs_review/approved/published/retired, approved_by, approved_at, notes.
+
+## country_prices (v61)
+RLS on, server only. Unique (country, product_code). currency, price, tax_pct, payment_method, tier, promotion, active (default false), note.
+
+## audit_logs (v61)
+RLS on, server only. at, actor_email, action, entity, entity_id, detail jsonb (no secrets).
+
+## commerce_settings key financial_simulator (v61)
+Founder's simulator inputs (average revenue, AI cost, payment fee, fixed costs, tax reserve, handwritten costs, target net profit).

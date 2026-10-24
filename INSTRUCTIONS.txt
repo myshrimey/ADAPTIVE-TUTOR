@@ -1,32 +1,29 @@
-SAHAYAK - v60 UPDATE
-Simple step-by-step guide. Apply v59 (and everything before it) first.
+SAHAYAK - v61 UPDATE
+Simple step-by-step guide. Apply v60 (and everything before it) first.
 
 WHAT THIS UPDATE DOES
-1. Every diagnostic now has exactly 20 questions (no more "8-15"). If a student misses a question, a check on what it depends on replaces one of the extra questions, so the total stays 20. A diagnostic a student already started keeps its old length.
-2. Every answer box (diagnostic, quiz, practice chat, mock paper, challenge, written answers) now stops the wrong kind of typing. A number answer will not accept letters; a word answer will not accept digits. The student sees a short warning (English, and Hindi if the app is in Hindi). A "Symbols keypad" button opens a keypad with x squared, square root, pi, fractions, powers, less/greater-than, chemistry subscripts and arrows. Typed symbols are marked the same as plain text (x² = x^2, √3 = sqrt(3)).
-3. Admin > Question bank growth: a "Fill to 1,000" button per subject with a progress bar, and a plain explanation of what "Owed" means. Computer Applications questions on logic, addresses, spreadsheets, loops, HTML and number systems are written by computer code (the answer is calculated, so it cannot be wrong, and it costs no AI). Other subjects use the AI plus a second independent check. All new questions are marked "needs review".
-4. Referral links for everyone: students, parents, teachers, tutors, centres. The "Invite" box with Copy, WhatsApp and Share is on the homepage, dashboard, profile, parent/tutor/centre pages and the teacher page; sign-up pages say "You were invited". When the friend finishes a real first diagnostic (at least 10 answers), both get extra access days, once, automatically. Admin > "Referral links and rewards" shows counts and lets you set the days.
+You sent a large "master upgrade" prompt. I first compared all 65 sections with what Sahayak already has. Most of it was already built in earlier updates (AI gateway and cost ledger, handwritten Rs 499 economics, plans with Terms and Conditions, parent/tutor/centre portals, engagement, Command Centre, investor tracking). The report is in docs/MASTER_UPGRADE_GAP_REPORT.md. This update builds the clear gaps:
+1. Founder Financial Simulator (Admin > Financial simulator). You type your average revenue per student/tutor/centre/school, AI cost, payment fee, fixed costs, tax reserve and target. It shows: how many students, tutors or centres are needed for Rs 1L, 2L, 3L, 5L and 10L net profit at 10%, 20%, 30%, 50%, 60%, 70% and 80% margin; a "what if I have this many" calculator; "what do I need to add to reach the target"; break-even; and a handwritten mock calculator for 100 to 5,000 mocks. Everything is labelled PLANNING SCENARIO.
+2. Admin > Boards, exams and country prices: exam sessions (you type the dates), a curriculum version register (draft, needs review, approved, published; approval needs a source), and country prices for families abroad (you type them).
+3. Admin > Audit log: who changed what.
+4. Country picker on the Profile page (country, time zone and currency are saved).
 
 STEPS
 1. Unzip over your project folder (replace files).
 2. Run: npm install
-3. Run: npm run db:migrate   (adds migration 0037; safe to run twice)
+3. Run: npm run db:migrate   (adds migration 0038; safe to run twice)
 4. Deploy as usual.
-5. Open Admin > Referral links and rewards. Type how many days each side should get, tick "Give extra access days automatically", press Save. Until you do this, invites are only counted and no days are given.
-6. Open Admin > Question bank growth and press "Fill to 1,000" for each subject. Each press works for up to about 45 seconds; press again to continue. Computer Applications will move fastest.
+5. Open Admin > Financial simulator and enter your real numbers, especially the AI cost per student, tutor and centre (see Admin > AI Economics). If AI cost is left at 0 the results look better than they will be, and the page warns you. Press "Save these numbers".
 
-WHAT WAS TESTED (on a test setup, not on your live site)
-- 38 checks on the answer rules, keypad symbols, 20-question plan and the "keep it at 20 after a miss" rule.
-- 32 checks on referrals: codes, one invite per person, minimum answers, reward once only, caps, same-internet-address limit, parent and teacher rules, bonus days on a paid plan and held days on the free plan, plus 2,400 code-written questions checked for consistency.
-- All earlier test suites (t53 and t57b were updated for the new rules; t54 to t59 pass).
-- Migration 0037 ran twice on Postgres 16 with security on for the new tables. Type check and full build pass.
+WHAT WAS TESTED (test setup, not your live site)
+- 54 new checks, including your own table: Rs 10 lakh net profit needs Rs 1 crore revenue at 10%, 50 lakh at 20%, 33.33 lakh at 30%, 20 lakh at 50%, 16.67 lakh at 60%, 14.29 lakh at 70%, 12.5 lakh at 80%; 2,000 students at Rs 1,000 and 50%. Also the mix calculator, the "what to add" suggestions (each one really reaches the target and is the smallest number), the approval steps, input checks and the audit log's secret filter.
+- All earlier test suites (t53 to t60) pass. Migration 0038 ran twice with security on for the new tables. Type check and full build pass.
 
 NOT TESTED
-- Your live Supabase, a real AI writing questions, and how the pages and keypad look and feel in a browser or on a phone. Please try a number question, a maths question with the keypad, and a sign-up through an invite link.
-- The Hindi warning sentences have not been read by a Hindi teacher.
+- Your live Supabase and how the new pages look in a browser or on a phone. I did not deploy anything.
 
-NOT BUILT / THINGS TO KNOW
-- This does NOT reach 1,000 questions by itself. Computer Applications, English, Hindi A and Hindi B, Social Science are far below; filling depends on how much free AI quota you have each day. Maths and Science are close. There are no code generators yet for English, Hindi or Social Science.
-- Free-plan students cannot "use" extra days: their bonus days are kept and added when a paid plan is activated. If you want free-plan students to get a short paid-style trial instead, tell me.
-- Teachers, tutors and centres are counted but not paid in days; their rewards wait at Admin > Referral links and rewards for you to settle by hand.
-- Opening an invite link alone does nothing; the code is attached only when the new account is created.
+NOT BUILT (honest list)
+- Tutor and coaching-centre batches, assignments, tutors under a centre, weak-topic heatmap.
+- School accounts, Class XI/XII transition benefit, an "add a new board" wizard, an AI tool that imports a syllabus, TAM/SAM/SOM screen, international checkout (country prices are stored but not used when someone pays), a voice tutor.
+- The audit log records changes to the simulator, referral settings and the new configuration screens; older admin actions (pricing, payments, AI providers) are not logged yet.
+- No curriculum dates, syllabus sources or foreign prices were invented: the new screens start empty.
