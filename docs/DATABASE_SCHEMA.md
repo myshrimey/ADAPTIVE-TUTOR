@@ -650,3 +650,8 @@ Founder's simulator inputs (average revenue, AI cost, payment fee, fixed costs, 
 
 ## v62 tables (all RLS on, server only)
 competencies (code unique, class_level, domain, importance, skill_id), competency_prerequisites, target_competency_requirements (created, not used yet), baseline_items (code-written questions for earlier classes), baseline_sessions (engine state, resume), student_competency_evidence, student_competency_mastery (unique per student+competency), adaptive_decisions (why each question), student_baselines (versioned), learning_paths, learning_path_nodes, question_requests (who asked for questions). Added to questions, diagnostic_questions, baseline_items: origin, contributed_by, contributed_role, contributor_org, reviewed_by, reviewed_at, review_note, request_id, competency_id. Setting `baseline_engine` in commerce_settings.
+
+## v63 (migration 0040)
+questions: + tier ('core' default | 'stretch'), exam_style (olympiad|ntse|ioqm|jee_foundation|neet_foundation|general_challenge, nullable), stretch_level (1-3, nullable). Partial index idx_questions_tier on stretch rows.
+stretch_attempts: id, student_id, question_id, skill_id, subject_id, exam_style, stretch_level, correct, seconds, answered_at. Unique (student_id, question_id). RLS on; student own-read policy; writes server only.
+achievements: 9 new rows (codes stretch_*; xp 0). commerce_settings key `stretch` (enabled, allowUnreviewed, unlockScore, levelUpAfter, levelDownAfter, dailyLimit).

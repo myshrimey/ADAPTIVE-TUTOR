@@ -152,6 +152,7 @@ async function askableSet(service: SupabaseClient, graph: CompetencyGraph, setti
   for (const table of ['diagnostic_questions', 'questions']) {
     for (let i = 0; i < skillIds.length; i += 100) {
       let q = service.from(table).select('skill_id').in('skill_id', skillIds.slice(i, i + 100)).neq('content_status', 'rejected').limit(5000);
+      if (table === 'questions') q = q.neq('tier', 'stretch'); // v63: stretch questions are not baseline material
       if (!settings.allowUnreviewed) q = q.eq('content_status', 'verified');
       const { data } = await q;
       for (const r of (data ?? []) as any[]) have.add(r.skill_id);
@@ -177,6 +178,7 @@ async function pickItem(service: SupabaseClient, c: Competency, wanted: number, 
     const rows: Array<any> = [];
     for (const table of ['diagnostic_questions', 'questions'] as const) {
       let q = service.from(table).select('id, prompt, question_type, options, expected_answer, explanation, difficulty, figure_url, figure_caption').eq('skill_id', c.skillId).neq('content_status', 'rejected').limit(400);
+      if (table === 'questions') q = q.neq('tier', 'stretch');
       if (!settings.allowUnreviewed) q = q.eq('content_status', 'verified');
       const { data } = await q;
       for (const r of (data ?? []) as any[]) rows.push({ ...r, _table: table });

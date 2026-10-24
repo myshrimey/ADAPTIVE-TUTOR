@@ -4,6 +4,7 @@ import { loadSubjectCatalogue } from '../subjects/subject.service';
 import { categoryForTag } from './categories';
 import { featureOn, type EngagementSettings } from './config';
 import { composeMission, itemProgress, type MissionEvidence, type MissionPlan } from './missions';
+import { stretchMetricsFor } from '../stretch/store';
 import { evaluateAchievements, bestImprovement, mockImproved, EMPTY_METRICS, type AchievementDef, type AchievementMetrics } from './achievements';
 import { awardXp, dayBounds, getEngagementRow, logEngagementEvent, activeDays, type SkillInfo } from './store';
 import { recordMistake, mistakeCounts } from './mistakes';
@@ -116,6 +117,7 @@ export async function achievementMetrics(service: SupabaseClient, studentId: str
   m.revision_rounds = rev.count ?? 0;
   const ev = (corrected.data ?? []) as any[]; m.mistakes_corrected = ev.length; m.repeat_mistakes_corrected = ev.filter((e) => Number(e.payload?.repetitions) >= 2).length;
   m.best_improvement = bestImprovement(series.all); m.mock_improved = mockImproved(series.mocks);
+  try { Object.assign(m, await stretchMetricsFor(service, studentId)); } catch { /* Challenge-zone badges are a bonus; never block the others */ }
   return m;
 }
 
@@ -132,7 +134,7 @@ export async function unlockAchievements(service: SupabaseClient, studentId: str
     const { error } = await service.from('student_achievements').insert({ student_id: studentId, code: f.def.code, evidence: { metric: f.def.metric, value: f.value } });
     if (error) continue;
     out.push(f.def); await logEngagementEvent(service, studentId, 'achievement_unlocked', f.def.code, { value: f.value });
-    if (featureOn(ctx.settings, studentId, 'xp')) await awardXp(service, studentId, { amount: f.def.xp, kind: 'achievement', ref: `ach:${f.def.code}`, note: f.def.title });
+    if (f.def.xp > 0 && featureOn(ctx.settings, studentId, 'xp')) await awardXp(service, studentId, { amount: f.def.xp, kind: 'achievement', ref: `ach:${f.def.code}`, note: f.def.title });
   }
   return { unlocked: out, metrics };
 }

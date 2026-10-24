@@ -425,3 +425,14 @@ One entry per work session. Newest entry on top.
 - Pages: /baseline, /baseline/path, parent|tutor|centre `/student/[id]/baseline`, tutor|centre `/baseline` (group gaps), /admin/diagnostic-engine, /admin/question-register, teacher|tutor|centre `/questions`.
 - Rule: every session owes its subject at least 10 new questions (quiz, mock, baseline starts now trigger growth).
 - Tested: t62 (69: six simulated students A-F, acceptance tests), t62b (31: database layer end to end), t62c (27: provenance); t53, t56-t61 pass; migration twice on Postgres; tsc and full build pass. NOT tested: live Supabase, browser/phone, real students.
+
+## v63 - Challenge zone (olympiad / competitive-exam style questions, badges)
+- Founder request 2026-10-24: strong students should be able to attempt harder, olympiad-level and other competitive-exam-style questions (not Class 11), with a badge mechanism as motivation.
+- Migration 0040: `questions.tier` ('core' default / 'stretch'), `exam_style`, `stretch_level` (1-3); table `stretch_attempts` (one row per student per question, own-read RLS); 9 badges (xp 0).
+- Core `packages/core/stretch/` (levels.ts pure rules, store.ts database): a skill opens when mastery_states.score >= 75 (setting) or a competency is demonstrated with 2+ evidence; level 1-3 rises after 3 correct in a row, falls after 2 wrong; each question counts once; daily limit; answer key stays on the server; writes ONLY stretch_attempts (never mastery, readiness, marks, XP).
+- Stretch questions are hidden from lessons, quizzes and the adaptive check (`neq tier stretch` in selector.ts and baseline/store.ts).
+- Badges: new metrics stretch_correct / best_run / level3 / styles / subjects in the achievement engine; xp 0, so no XP, money or discount.
+- AI writing (`generateStretchQuestions`, admin "Write questions"): original questions in the STYLE of olympiad / NTSE / IOQM / JEE-foundation / NEET-foundation / general; second independent solve; all stay needs_review. Teachers/tutors/centres can upload them (provenance as in v62).
+- Pages: /stretch (student), /admin/challenge-tier, Challenge-zone card on the dashboard, link from the adaptive-check result, counts-only line for linked adults.
+- Tested: t63 (61 checks incl. unlock rules, level rules, no key leak, no mastery write, once-per-question, badges awarded with no XP, uploads); t57-t62c pass; migration 0040 twice on Postgres; tsc and full build pass. NOT tested: live Supabase, real AI output quality, browser/phone. Older t3, t4, t42a are stale (pre-v54/v56 expectations) and were already failing.
+- Not built: Class 11 content, per-exam syllabus maps, timed olympiad mock, tutor/centre assignment of challenge sets, leaderboard for Challenge zone.

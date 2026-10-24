@@ -79,3 +79,6 @@ Master upgrade prompt audited (docs/MASTER_UPGRADE_GAP_REPORT.md): most items al
 
 ## v62 (2026-10-24)
 Adaptive diagnostic and baseline engine (no fixed length; prerequisite graph; per-domain baseline; learning path; reports for student/parent/tutor/centre), question provenance register (who uploaded/reviewed/asked), min 10 new questions owed per session per subject. Maths only has a Class 6-9 foundation graph. Not built: /learn driven by the path, auto re-check, student_misconceptions, other-subject foundation graphs. Apply order ...v60, v61, v62 (migration 0039).
+
+## v63 (2026-10-25)
+Challenge zone: harder olympiad / NTSE / IOQM / JEE-foundation / NEET-foundation-style questions (original, never copies of real papers) for topics the student has mastered (score >= 75 or demonstrated competency), 3 levels, once per question, daily limit, badges with no XP/money. Never writes mastery, readiness or marks. Questions are tier 'stretch' on the questions table and hidden from normal quizzes and the baseline. Admin: /admin/challenge-tier. Apply order ...v62, v63 (migration 0040). Not built: Class 11 content, per-exam syllabus maps, timed olympiad mock.

@@ -2,6 +2,7 @@
 // coaching centre, student, previous paper), WHO uploaded it, WHO reviewed it, and WHICH request (if any) it answers.
 // Server-side only. Uploaded questions always start as "needs_review"; only the founder (admin) makes one "verified".
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { isStretchStyle } from '../stretch/levels';
 
 export const ORIGINS = ['seed_import', 'generated', 'ai_generated', 'code_generated', 'admin_upload', 'teacher_upload', 'tutor_upload', 'centre_upload', 'student_upload', 'previous_paper'] as const;
 export type Origin = (typeof ORIGINS)[number];
@@ -19,6 +20,7 @@ export type QuestionTable = (typeof QUESTION_TABLES)[number];
 export interface Contributor { userId: string | null; role: ContributorRole; orgUserId?: string | null; email?: string }
 export interface QuestionContributionInput {
   skillId: string;
+  tier?: 'stretch'; examStyle?: string; stretchLevel?: number;
   bank: 'practice' | 'diagnostic';
   questionType: 'mcq' | 'numeric' | 'short_answer';
   prompt: string;
@@ -52,7 +54,15 @@ export function cleanContribution(raw: any): { ok: true; value: QuestionContribu
     if (!options!.some((o) => norm(o) === norm(answer))) return { ok: false, error: 'The correct answer must be one of the options.' };
   }
   if (questionType === 'numeric' && !/^[-+]?\d*\.?\d+(\/\d+)?$/.test(answer.replace(/,/g, '').replace('−', '-'))) return { ok: false, error: 'A number question needs a number as the answer.' };
-  return { ok: true, value: { skillId: raw.skillId, bank: raw?.bank === 'diagnostic' ? 'diagnostic' : 'practice', questionType, prompt, options, answer, explanation: clip(raw?.explanation, 800) || undefined, difficulty, requestId: typeof raw?.requestId === 'string' && /^[0-9a-f-]{36}$/i.test(raw.requestId) ? raw.requestId : null, markVerified: raw?.markVerified === true } };
+  // v63: a Challenge-zone (stretch) question needs an exam style and a level 1-3; it always lives in the practice bank.
+  let stretch: { tier?: 'stretch'; examStyle?: string; stretchLevel?: number } = {};
+  if (raw?.tier === 'stretch') {
+    if (!isStretchStyle(raw?.examStyle)) return { ok: false, error: 'Choose the exam style for this Challenge question.' };
+    const lvl = Math.round(Number(raw?.stretchLevel));
+    if (!Number.isFinite(lvl) || lvl < 1 || lvl > 3) return { ok: false, error: 'Challenge level must be 1, 2 or 3.' };
+    stretch = { tier: 'stretch', examStyle: raw.examStyle, stretchLevel: lvl };
+  }
+  return { ok: true, value: { skillId: raw.skillId, bank: raw?.bank === 'diagnostic' && !stretch.tier ? 'diagnostic' : 'practice', questionType, prompt, options, answer, explanation: clip(raw?.explanation, 800) || undefined, difficulty, requestId: typeof raw?.requestId === 'string' && /^[0-9a-f-]{36}$/i.test(raw.requestId) ? raw.requestId : null, markVerified: raw?.markVerified === true, ...stretch } };
 }
 
 export async function contributeQuestion(service: SupabaseClient, who: Contributor, raw: unknown): Promise<{ id: string; table: QuestionTable; status: string }> {
@@ -72,6 +82,7 @@ export async function contributeQuestion(service: SupabaseClient, who: Contribut
     origin: originForRole(who.role), contributed_by: who.userId, contributed_role: who.role, contributor_org: who.orgUserId ?? null, request_id: v.requestId ?? null,
     reviewed_by: verified ? who.email ?? 'admin' : null, reviewed_at: verified ? new Date().toISOString() : null,
   };
+  if (v.tier === 'stretch') { row.tier = 'stretch'; row.exam_style = v.examStyle; row.stretch_level = v.stretchLevel; row.difficulty = 5; }
   if (table === 'diagnostic_questions') {
     const subjectId = (skill as any)?.topics?.chapters?.subject_id;
     const { data: test } = await service.from('diagnostic_tests').select('id').eq('subject_id', subjectId).eq('is_active', true).limit(1).maybeSingle();

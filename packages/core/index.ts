@@ -38,6 +38,7 @@ export * from './answers/input';
 export * from './referral/referral';
 export * from './finance/simulator';
 export * from './baseline';
+export * from './stretch';
 export * from './config-engine/config-engine';
 export * from './question-engine/generators';
 export * from './question-engine/provenance';

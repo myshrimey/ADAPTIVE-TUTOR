@@ -89,6 +89,7 @@ export default function BaselinePage() {
       <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
         <a className="btn btn--accent" href={`/baseline/path?subjectId=${subjectId}`}>Start my learning path</a>
         <button className="btn btn--ghost" disabled={busy} onClick={() => { setResult(null); setSaved(null); start(true); }}>Short re-check</button>
+        <a className="btn btn--ghost" href="/stretch">Try the Challenge zone</a>
       </div>
       {error && <p className="alert">{error}</p>}
     </>);

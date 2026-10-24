@@ -164,6 +164,10 @@ export default async function DashboardOverviewPage() {
             <span className="quick-action-card__title">Find my starting point</span>
             <span className="quick-action-card__body">An adaptive check that finds exactly which skills to build first, and your learning path.</span>
           </a>
+          <a href="/stretch" className="quick-action-card">
+            <span className="quick-action-card__title">Challenge zone</span>
+            <span className="quick-action-card__body">Olympiad and competitive-exam-style questions for topics you have mastered. Earn badges.</span>
+          </a>
           <a href="/progress" className="quick-action-card">
             <span className="quick-action-card__title">View full progress</span>
             <span className="quick-action-card__body">See every chapter and skill, tracked individually.</span>

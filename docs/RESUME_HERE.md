@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v62 (2026-10-24)
+## Latest delivery - v63 (2026-10-25)
+Challenge zone: olympiad / NTSE / foundation-style questions for topics a student has mastered, with badges (migration 0040). Apply after v62: `sahayak-v63-challenge-zone-delta.zip`. Founder to do: run `npm run db:migrate`; open /admin/challenge-tier and press "Write questions" for each subject (they stay needs_review; have a teacher check them); decide whether students may see unchecked Challenge questions. Next candidates: teacher review queue filter by tier, timed olympiad mock, Class 11 bridge.
+
+## Previous delivery - v62 (2026-10-24)
 Adaptive diagnostic and baseline engine + question provenance register (migration 0039). Apply after v61. Next candidates: make /learn read the learning path; automatic mini re-check after N sessions; teacher review of the Class 6-9 foundation graph and items; earlier-class graphs for Science/other subjects; tutor/centre batches.
 
 ## Previous delivery - v61 (2026-10-24)

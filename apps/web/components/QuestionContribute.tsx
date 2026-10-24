@@ -7,7 +7,7 @@ interface SubjectSkills { subjectId: string; subject: string; skills: Array<{ id
 export function QuestionContribute({ endpointUpload = '/api/contribute/question', admin = false }: { endpointUpload?: string; admin?: boolean }) {
   const [data, setData] = useState<SubjectSkills[]>([]);
   const [subjectId, setSubjectId] = useState('');
-  const [f, setF] = useState({ skillId: '', bank: 'practice', questionType: 'mcq', prompt: '', o1: '', o2: '', o3: '', o4: '', answer: '', explanation: '', difficulty: '3', markVerified: false });
+  const [f, setF] = useState({ skillId: '', bank: 'practice', questionType: 'mcq', prompt: '', o1: '', o2: '', o3: '', o4: '', answer: '', explanation: '', difficulty: '3', markVerified: false, tier: 'core', examStyle: 'olympiad', stretchLevel: '2' });
   const [rq, setRq] = useState({ skillId: '', topicText: '', wantedCount: '10', note: '' });
   const [msg, setMsg] = useState<string | null>(null);
   const [rmsg, setRmsg] = useState<string | null>(null);
@@ -19,7 +19,7 @@ export function QuestionContribute({ endpointUpload = '/api/contribute/question'
   async function send(e: React.FormEvent) {
     e.preventDefault(); setBusy(true); setMsg(null);
     const options = f.questionType === 'mcq' ? [f.o1, f.o2, f.o3, f.o4].filter((x) => x.trim()) : undefined;
-    const question = { skillId: f.skillId, bank: f.bank, questionType: f.questionType, prompt: f.prompt, options, answer: f.answer, explanation: f.explanation, difficulty: Number(f.difficulty), markVerified: admin && f.markVerified };
+    const question = { skillId: f.skillId, bank: f.bank, questionType: f.questionType, prompt: f.prompt, options, answer: f.answer, explanation: f.explanation, difficulty: Number(f.difficulty), ...(f.tier === 'stretch' ? { tier: 'stretch', examStyle: f.examStyle, stretchLevel: Number(f.stretchLevel) } : {}), markVerified: admin && f.markVerified };
     const res = await fetch(admin ? '/api/admin/question-register' : endpointUpload, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(admin ? { action: 'upload', question } : question) });
     const j = await res.json();
     setBusy(false);
@@ -46,6 +46,11 @@ export function QuestionContribute({ endpointUpload = '/api/contribute/question'
           <label>Difficulty (1 easy – 5 hard) <select style={box} value={f.difficulty} onChange={(e) => set('difficulty', e.target.value)}>{[1, 2, 3, 4, 5].map((n) => <option key={n}>{n}</option>)}</select></label>
           <label>Use in <select style={box} value={f.bank} onChange={(e) => set('bank', e.target.value)}><option value="practice">Practice, quiz, mock</option><option value="diagnostic">Diagnostic</option></select></label>
         </div>
+        <label style={{ display: 'block', marginBottom: '0.5rem' }}><input type="checkbox" checked={f.tier === 'stretch'} onChange={(e) => set('tier', e.target.checked ? 'stretch' : 'core')} /> This is a Challenge-zone question (olympiad / competitive-exam style, for strong students; it will not appear in ordinary quizzes). It must be your own original question, not copied from a real paper.</label>
+        {f.tier === 'stretch' && <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+          <label>Exam style <select style={box} value={f.examStyle} onChange={(e) => set('examStyle', e.target.value)}><option value="olympiad">Olympiad</option><option value="ntse">NTSE</option><option value="ioqm">Maths Olympiad (IOQM)</option><option value="jee_foundation">JEE foundation</option><option value="neet_foundation">NEET foundation</option><option value="general_challenge">General challenge</option></select></label>
+          <label>Level <select style={box} value={f.stretchLevel} onChange={(e) => set('stretchLevel', e.target.value)}><option value="1">1 Bridge</option><option value="2">2 Challenge</option><option value="3">3 Summit</option></select></label>
+        </div>}
         <label>Question <textarea style={box} required rows={3} value={f.prompt} onChange={(e) => set('prompt', e.target.value)} /></label>
         {f.questionType === 'mcq' && <>{(['o1', 'o2', 'o3', 'o4'] as const).map((k, i) => <input key={k} style={box} placeholder={`Option ${i + 1}${i < 3 ? '' : ' (optional)'}`} value={(f as any)[k]} onChange={(e) => set(k, e.target.value)} />)}</>}
         <label>Correct answer {f.questionType === 'mcq' && '(write it exactly like one option)'} <input style={box} required value={f.answer} onChange={(e) => set('answer', e.target.value)} /></label>

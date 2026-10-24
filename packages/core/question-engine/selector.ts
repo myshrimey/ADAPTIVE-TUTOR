@@ -91,6 +91,7 @@ async function pickFromBank(supabase: SupabaseClient, params: QuestionSelectionP
     .from('questions')
     .select('id, prompt, question_type, options, expected_answer, difficulty, figure_url, figure_caption')
     .eq('skill_id', params.skillId)
+    .neq('tier', 'stretch') // v63: Challenge-zone (stretch) questions never appear in ordinary lessons or quizzes
     .eq('validated', true)
     .neq('content_status', 'rejected')
     .gte('difficulty', Math.max(1, params.difficulty - 1))

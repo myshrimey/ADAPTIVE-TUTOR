@@ -1,39 +1,37 @@
-SAHAYAK - v62 UPDATE
-Apply v61 (and everything before it) first.
+SAHAYAK - v63 UPDATE  (Challenge zone)
+Apply v62 (and everything before it) first.
 
 WHAT THIS UPDATE DOES
-1. ADAPTIVE CHECK (new page: /baseline, button "Find my starting point" on the student dashboard).
-   - It does NOT have a fixed number of questions. It asks while it still needs evidence and stops when enough topics are settled (limits you can change: Admin > Adaptive diagnostic engine; defaults 15 minimum, about 20-30 usual, 50 maximum).
-   - It starts at Class 10. A wrong answer is not a verdict: it first looks at why (a slip in working is re-checked with different numbers), then checks the prerequisite skills below it, class by class, only as far as needed.
-   - Result: a skill picture by area (not one class label), the gaps and how serious they are, and a personal learning path that repairs only the missing prerequisites, then returns to Class 10. Every step says "why you are learning this".
-   - Progress is saved after every answer; the student can stop and continue later.
-   - Later quizzes add evidence to the same picture. A short re-check button re-tests only repaired and uncertain skills.
-2. REPORTS: parent, tutor and centre pages show the starting point, gaps and path in careful wording (no "weak", no "Class 7 student"). Tutors and centres also get "common prerequisite gaps across your students" (shown only for 3 or more students, no names).
-3. QUESTION REGISTER (Admin > Question register): every question with where it came from, who uploaded it, who reviewed it, teacher feedback, and which request it answers. You can approve or reject, upload a question yourself, and handle requests.
-4. TEACHERS, TUTORS, CENTRES can add questions and ask for questions (link "Add questions or ask for questions" on their pages). Their questions always wait for your review; nobody except you can mark a question verified.
-5. YOUR NEW RULE: every session in every subject (diagnostic, quiz, mock, learning session, adaptive check) now owes that subject at least 10 new questions, written in the background and kept as "needs review" with the source recorded. (I read your sentence this way. If you meant something else, tell me.)
+1. CHALLENGE ZONE for strong students (new page: /stretch, card "Challenge zone" on the student dashboard, and a button on the adaptive-check result).
+   - Harder questions written in the STYLE of olympiad, NTSE, Maths Olympiad (IOQM), JEE-foundation, NEET-foundation exams, and a general "challenge" style. They stay within Class 10 ideas; they are hard because of the thinking needed, not because they go into Class 11.
+   - A topic opens only when the student has shown strong command of it (mastery score 75 or more in lessons/quizzes, or a demonstrated skill in the adaptive check). A student with nothing open sees a friendly "locked for now" message.
+   - Three levels: Bridge, Challenge, Summit. A student moves up after 3 correct in a row and steps back after 2 wrong in a row. Each question is asked once per student. There is a daily limit (default 30).
+   - A wrong answer is shown as normal ("these are meant to be very hard"). The right answer and solution appear only AFTER answering.
+   - Answers here never change marks, mastery, readiness or the learning path.
+2. BADGES: 9 badges (first solved, 10 solved, 50 solved, 3 in a row, 5 in a row, first top-level, 5 top-level, two exam styles, two subjects). They give NO points, money or discounts, as you ruled for referrals and rewards.
+3. ADMIN > CHALLENGE ZONE: switch on/off; the mastery score needed to open a topic; how many correct/wrong move the level; the daily limit; whether students may see questions a teacher has not yet checked (they are told when a question is unchecked). A "Write questions" button asks the free AI to write Challenge questions for a subject (with the second independent check). They all stay "needs review".
+4. TEACHERS, TUTORS, CENTRES can upload Challenge questions in the same upload form (tick the Challenge box, choose exam style and level). They wait for your review at Admin > Question register, with who uploaded and who reviewed, as before.
+5. PARENTS, TUTORS, CENTRES see only counts (tried, solved, badges) on the baseline page - nothing about right/wrong per question.
+6. Challenge questions are kept OUT of normal lessons, quizzes, mocks and the adaptive check.
 
 STEPS
 1. Unzip over your project folder (replace files).
 2. npm install
-3. npm run db:migrate   (adds migration 0039; safe to run twice)
+3. npm run db:migrate   (adds migration 0040; safe to run twice)
 4. Deploy as usual.
-5. Open Admin > Adaptive diagnostic engine and check the limits. Leave "allow questions not yet reviewed" ON for now, otherwise almost no question qualifies.
-6. Try it yourself at /baseline on a test student account. The first time you open it, it builds the skill map for Maths in the database (a few seconds).
+5. Open Admin > Challenge zone. Choose each subject and press "Write questions" (try 5 first). Then open Admin > Question register and approve or reject the new Challenge questions, or ask a teacher to.
+6. Try /stretch with a student account that has a topic at 75%+ mastery.
 
 WHAT WAS TESTED (test setup, not your live site)
-- Six simulated students (strong Class 10; mixed Class 9/10; strong basics but weak application; Class 8 prerequisite gaps; language difficulty; high marks but inconsistent reasoning): they got clearly different results. The strong one finished in 15 questions with no repeat of lower classes; the Class 8 one was routed to earlier-class prerequisites; a slip did not push anyone down a class; language difficulty created no serious gap; the check went past 20 when needed and stopped early when sure; every question choice has a stored reason.
-- The database layer end to end (127 checks in total with provenance): resume, no answer key reaches the browser, no repeated question, saved baseline versions, learning path, practice, quiz evidence, short re-check.
-- Provenance: uploads tagged by role, duplicates refused, a teacher cannot self-verify, reviews recorded, requests tracked, minimum 10 per session.
-- Earlier suites still pass. Migration 0039 ran twice on a real Postgres. Type check and full build pass.
+- 61 new checks: a topic opens only at the threshold; the answer key and solution never reach the student view; rejected, ordinary and locked-topic questions are never served; a question cannot be answered twice; a wrong answer format asks again without counting; levels go up and down by the rules; the daily limit and the on/off switch work; mastery and competency records are untouched; badges are awarded once and no points are given; teacher uploads are tagged, attributed and unreviewed; malformed AI output saves nothing.
+- Earlier suites (t57-t62c) still pass. Migration 0040 ran twice on a real Postgres. Type check and full build pass.
 
 NOT TESTED
-- Your live Supabase, how pages look in a browser or phone, real students, real question quality. The thresholds are sensible defaults, not statistically validated. The readiness wording is "Sahayak readiness indicator", never a prediction of marks.
+- Your live Supabase; how it looks on a phone; the QUALITY of real AI-written Challenge questions (I could only test with a stand-in AI; a teacher must check every question before you rely on it); real students.
 
 NOT BUILT / HONEST LIMITS
-- Only MATHS has an earlier-class (Class 6-9) skill map and code-written practice for it. I drafted those 38 skills and their links myself: a Maths teacher must check them. Other subjects get the check at Class 10 level only (it cannot look below Class 10 yet).
-- The main lesson page (/learn) still picks its own next skill; it does not yet follow the learning path. The path page opens lessons for Class 10 steps and has its own practice for earlier-class steps.
-- The short re-check is a button; it does not start by itself after a set time.
-- No separate misconception table, no AI in the engine (no open-ended answer marking), no partial-credit question type yet, no separate "student learning graph" screen.
-- The old fixed 20-question diagnostic is still there at /diagnostic. Your new prompt says no fixed 20; I kept it so nothing breaks. Tell me when to retire it.
+- No Class 11 content, no exam-by-exam syllabus maps, no timed olympiad mock, no Challenge leaderboard, no tutor/centre assignment of Challenge sets.
+- The questions are in the "style of" the exams. They are not copies of real papers and they are not official preparation for any exam; the student page says so. Nothing predicts exam success.
+- Hindi wording for the Challenge page is not done yet (English only).
+- Some very old test scripts (t3, t4, t42a) were already out of date from earlier price/date changes and still fail; that is unrelated to this update.
 - Not deployed by me.

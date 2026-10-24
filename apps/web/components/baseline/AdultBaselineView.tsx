@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { createServiceClient } from '@/lib/supabase-server';
-import { loadStoredBaseline, asBaseline, parentReport, tutorReport, PARENT_EXPLANATION } from '@adaptive-tutor/core';
+import { loadStoredBaseline, asBaseline, parentReport, tutorReport, PARENT_EXPLANATION, stretchSummary } from '@adaptive-tutor/core';
 import { type PortalUser, isLinked } from '@/lib/portal';
 
 const STAGE: Record<string, string> = { prerequisite_repair: 'Prerequisite repair', foundation: 'Foundation', core: 'Core', application: 'Application', reasoning: 'Reasoning' };
@@ -21,6 +21,7 @@ export async function AdultBaselineView({ me, studentId }: { me: PortalUser; stu
     const b = asBaseline(sb);
     cards.push({ name, lines: me.role === 'parent' ? parentReport(b, name) : tutorReport(b, name), path: sb.path, gaps: sb.gaps, version: sb.version, at: sb.createdAt, changes: sb.changes });
   }
+  const ch = await stretchSummary(service, studentId).catch(() => null);
   const home = `/${me.role}`;
   return (
     <main className="page"><div className="shell">
@@ -31,6 +32,12 @@ export async function AdultBaselineView({ me, studentId }: { me: PortalUser; stu
         <p style={{ color: 'var(--slate)', fontSize: '0.85rem' }}>Read-only. Based on the questions answered in the adaptive check; it describes demonstrated skills, not the child, and is never a prediction of marks.</p>
       </div>
       {cards.length === 0 && <p>No adaptive check has been finished yet.</p>}
+      {ch && ch.attempted > 0 && (
+        <section className="tip-card" style={{ marginTop: 'var(--space-3)' }}>
+          <h2 style={{ fontSize: 'var(--step-1)', marginTop: 0 }}>Challenge zone (optional extra)</h2>
+          <p style={{ margin: '0.25rem 0' }}>{st.display_name} has tried {ch.attempted} olympiad / competitive-exam-style question{ch.attempted === 1 ? '' : 's'} and solved {ch.metrics.stretch_correct}. Badges earned: {ch.badges.filter((b) => b.unlocked).length}.</p>
+          <p style={{ color: 'var(--slate)', fontSize: '0.85rem' }}>These are very hard practice questions for extra stretch. They do not affect marks or progress, and missing them is normal.</p>
+        </section>)}
       {cards.map((c) => (
         <section key={c.name} className="tip-card" style={{ marginTop: 'var(--space-3)' }}>
           <h2 style={{ fontSize: 'var(--step-1)', marginTop: 0 }}>{c.name} <span style={{ color: 'var(--slate)', fontSize: '0.85rem' }}>(version {c.version}, {new Date(c.at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Asia/Kolkata' })})</span></h2>
