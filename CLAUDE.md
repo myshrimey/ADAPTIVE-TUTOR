@@ -138,3 +138,6 @@ Read `docs/RESUME_HERE.md` — it always holds the exact next three tasks, curre
 ## Traffic analytics, plans menu, logo (v64)
 - v64 (migration `0041`, `packages/core/analytics/*`, `/api/track`, `/admin/traffic`). Traffic is first-party and privacy-first: never add cookies, never store an IP address, user-agent string, name or query string in `page_views`; the visitor is a daily hash (`apps/web/lib/analytics.ts`). "Visitors" are unique per day, summed over a range: never present them as unique people. Rates show "Insufficient data" under 5 sessions; sign-ups/diagnostics are plain database counts, never a conversion rate. Bots, admin/api paths and Do Not Track are not counted. Admin only.
 - The header's "Plans & Pricing" dropdown shows for every visitor and role; it links to `/plans#...` anchors and never contains a typed price (prices come from the database). The free plan is ONE subject per account (server rule `assertSubjectAllowed`); the subject picker shows this in bold. Logo files: `apps/web/public/logo.png` (full, with the tagline "Measure Your Growth, Master Your Subjects."), `logo-mark.png`, icons. Migrations now go through `0041`.
+
+## Social links (v65)
+- `apps/web/lib/social.ts` is the only place for social page addresses; an empty `url` hides that link everywhere. Never invent an address: the founder supplies each one.

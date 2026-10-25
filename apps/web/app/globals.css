@@ -1762,3 +1762,9 @@ button.nav-cta--button { border: 0; cursor: pointer; font-family: inherit; displ
 .brand-logo--full { width: 200px; height: auto; background: #fff; padding: 10px 12px; border-radius: 14px; }
 .free-plan-banner { border: 2px solid var(--marigold); background: #fff8e1; border-radius: 12px; padding: 0.8rem 1rem; margin: 0.8rem 0; }
 .free-plan-banner strong { font-size: 1.1rem; }
+
+/* v65: social links (hidden until a page address is added in lib/social.ts) */
+.social-links { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin: 0.6rem 0; }
+.social-links__label { font-size: 0.8rem; opacity: 0.85; margin-right: 0.2rem; }
+.social-links__pill { display: inline-block; padding: 0.3rem 0.8rem; border: 1px solid currentColor; border-radius: 999px; font-size: 0.82rem; text-decoration: none; }
+.social-links__pill:hover, .social-links__pill:focus-visible { background: rgba(255,255,255,0.14); }

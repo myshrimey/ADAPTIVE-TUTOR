@@ -1,5 +1,6 @@
 import { FOUNDER, t } from '@adaptive-tutor/core';
 import { getServerLang } from '@/lib/language';
+import { SocialLinks } from '@/components/SocialLinks';
 
 export default async function ContactPage() {
   const lang = await getServerLang();
@@ -17,6 +18,7 @@ export default async function ContactPage() {
             <h2 style={{ fontSize: 'var(--step-1)' }}>{t('help.reachUs', lang)}</h2>
             <p>{FOUNDER.name}</p>
             <p>{t('pilot.contactPhone', lang, { phone: FOUNDER.contactPhone })}</p>
+            <SocialLinks />
           </section>
         </div>
       </div>

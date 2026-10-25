@@ -447,3 +447,7 @@ One entry per work session. Newest entry on top.
 - Logo: new artwork cut out onto a transparent background (`logo.png` full with tagline, `logo-mark.png` artwork only, all icons rebuilt); header mark 40px; home page uses the full logo. Privacy policy has a new line about visit counts (Hindi is a draft).
 - Tested: t64 (40 checks); t53-t63 pass; migration 0041 twice on Postgres; tsc and full build pass. NOT tested: live Supabase, real traffic, how the header and logo look in a browser/phone, the cookie/Vercel country header.
 - Not built: unique-people counts across days (by design), funnels per page, goals/events, Search Console data, CSV export, scheduled purge (a function exists, nothing calls it yet), traffic for Hindi pages split.
+
+## v65 - Social links (Facebook live; Instagram, LinkedIn, YouTube hidden placeholders)
+- `apps/web/lib/social.ts` is the single list. A link with an empty address is not shown anywhere. Facebook is on (address supplied by the founder 2026-10-25). `SocialLinks` shows them in the footer on every page and on the Contact page. No migration.
+- Tested: t65 (3 checks); tsc and full build pass. NOT tested: how it looks in a browser; that the Facebook share address opens the right page.

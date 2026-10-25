@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v64 (2026-10-25)
+## Latest delivery - v65 (2026-10-25)
+Social links: Facebook shown in the footer and Contact page; Instagram, LinkedIn, YouTube hidden until their addresses are pasted into apps/web/lib/social.ts. No migration. Apply after v64: `sahayak-v65-social-links-delta.zip`.
+
+## Previous delivery - v64 (2026-10-25)
 Website traffic analytics (/admin/traffic, migration 0041), Plans & Pricing dropdown on every page, new logo, bold free-plan notice on the subject picker. Apply after v63: `sahayak-v64-traffic-plans-logo-delta.zip` (this zip includes app/layout.tsx; v63 did not). Founder to do: run `npm run db:migrate`; optionally set ANALYTICS_SALT on Vercel; ask a Hindi teacher to read the new privacy line.
 
 ## Previous delivery - v63 (2026-10-25)

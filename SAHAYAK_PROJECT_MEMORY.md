@@ -85,3 +85,6 @@ Challenge zone: harder olympiad / NTSE / IOQM / JEE-foundation / NEET-foundation
 
 ## v64 (2026-10-25)
 Website traffic analytics at /admin/traffic (first-party, no cookies, no IP stored, bots/DNT/admin pages excluded; visitors are unique per day and summed). Plans & Pricing dropdown in the header for everyone. New logo and tagline "Measure Your Growth, Master Your Subjects." Diagnostic subject picker shows "Free plan: 1 subject per account" in bold. Apply order ...v63, v64 (migration 0041).
+
+## v65 (2026-10-25)
+Social links list in apps/web/lib/social.ts (Facebook on; Instagram, LinkedIn, YouTube hidden until the founder shares the addresses). Shown in the footer on every page and on /contact.

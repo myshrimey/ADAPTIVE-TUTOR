@@ -1,33 +1,18 @@
-SAHAYAK - v64 UPDATE
-Apply v63 (and everything before it) first.
+SAHAYAK - v65 UPDATE  (social links)
+Apply v64 (and everything before it) first. No database change.
 
 WHAT THIS UPDATE DOES
-1. WEBSITE TRAFFIC (Admin > Website traffic, /admin/traffic). Like a simple Google Analytics: visitors, sessions, page views, pages per session, bounce rate, average session length, a daily chart, top pages, landing pages, how people arrive (direct, search, social, WhatsApp/Telegram, other websites, campaigns), devices, browsers, countries, signed-in or not, and "people on the site right now" (last 5 minutes). Choose Today / 7 / 30 / 90 days; each figure shows the change against the period before when there is enough data. It also shows how many accounts were created and how many diagnostics were finished in the same period.
-   - Privacy: it uses NO cookies and stores NO IP address, name or browser string. A visitor is an anonymous code that changes every day. Visits from bots, from browsers that send "Do Not Track", and your admin pages are not counted. The privacy policy has a new line about this (the Hindi sentence is a draft for a Hindi teacher to read).
-   - Because the code changes daily, "Visitors" means different browsers per day, added up. Someone who returns tomorrow counts again. The page says this. It cannot tell you how many different PEOPLE visited.
-   - To see where your shared links work, add ?utm_source=whatsapp (or any name) to the link, e.g. https://yoursite/?utm_source=school-group.
-   - Counting starts the day you deploy. Nothing earlier is available.
-2. PLANS & PRICING MENU. A yellow "Plans & Pricing" button is in the top menu on every page for everyone (signed in or not, students, parents, teachers, admin). It opens a dropdown: Free plan (1 subject), Founding Family, Subject plans, Handwritten mock, Tutors & centres, Compare features. Each goes to the right part of the Plans page. On a phone the same list is in the menu. No price is typed in the menu; prices still come from Admin > Pricing.
-3. FREE PLAN = 1 SUBJECT, in bold on the diagnostic subject picker: "Free plan: 1 subject per account." It says that the subject started first becomes the free subject, and once one is chosen it names it and greys out the other subjects with "Paid plan" and a link to the plans. (The real limit was already enforced by the server; this only explains it.)
-4. NEW LOGO AND TAGLINE. Your artwork was cut out onto a transparent background and is used in the header (artwork only), on the home page (full logo with the tagline "Measure Your Growth, Master Your Subjects."), in the browser tab icon, phone icon and when the site is shared.
+1. Your Facebook page link now appears as a "Facebook" button under "Follow Sahayak" in the footer on every page, and on the Contact page.
+2. Instagram, LinkedIn and YouTube are ready but HIDDEN. Nothing shows for them until you give me the address (or paste it yourself).
+
+TO TURN ON ANOTHER SOCIAL PAGE LATER
+- Send me its full address (it must start with https://) and I will add it; or open the file apps/web/lib/social.ts, paste the address between the empty quotes on that page's line, save, and deploy. It then appears automatically in the footer and on the Contact page.
 
 STEPS
-1. Unzip over your project folder (replace files). This zip includes apps/web/app/layout.tsx (it now loads the traffic counter).
-2. npm install
-3. npm run db:migrate   (adds migration 0041; safe to run twice)
-4. OPTIONAL: on Vercel add an environment variable ANALYTICS_SALT with any long random text, then redeploy. Without it a safe default is used.
-5. Deploy as usual. Visit your site a few times, then open Admin > Website traffic.
+1. Unzip over your project folder (replace files).
+2. npm install   (nothing new, but safe)
+3. Deploy as usual.
 
-WHAT WAS TESTED (test setup, not your live site)
-- 40 checks on the traffic maths: browser/phone/tablet/bot recognition, channel rules, sessions split after 30 minutes, bounce rate, "Insufficient data" under 5 sessions, Indian day boundary, previous-period change, realtime window, date ranges, that query strings, admin pages and record ids are never stored, and the database layer (counts of accounts and diagnostics come from the database, not estimates).
-- Earlier suites (t53-t63) still pass. Migration 0041 ran twice on a real Postgres. Type check and full build pass.
-
-NOT TESTED
-- Your live Supabase and real visitors; whether Vercel supplies the country (it normally does; if not, countries show "Unknown"); how the header, dropdown and new logo LOOK in a browser or on a phone (I could not open a browser on your site). Please check the header on a phone and on a computer and tell me if anything is cramped.
-
-NOT BUILT / HONEST LIMITS
-- No count of different people across days, no goals or events, no page-by-page funnels, no Google Search Console keywords, no CSV download of traffic.
-- Old traffic data is not deleted automatically yet (the function exists; nothing runs it). At small scale this does not matter.
-- The traffic page reads up to 200,000 page views per range; beyond that it says so.
-- The logo was cut out automatically: a faint beige glow behind the lightbulb and a soft shadow under the books remain. If the edges look rough on a coloured background, send me the original logo file with a transparent background.
-- Not deployed by me.
+TESTED: the list shows only Facebook now; Instagram, LinkedIn, YouTube exist and are empty; type check and full build pass.
+NOT TESTED: how the button looks in a browser or on a phone; I could not open your Facebook link to check that it goes to the right page - please click it once after deploying.
+NOT BUILT: social sharing buttons for students, a Facebook login, a follower count. Not deployed by me.

@@ -1,4 +1,5 @@
 import { FOUNDER, t } from '@adaptive-tutor/core';
+import { SocialLinks } from '@/components/SocialLinks';
 import { getServerLang } from '@/lib/language';
 import { LanguageToggle } from './LanguageToggle';
 
@@ -92,6 +93,7 @@ export async function Footer() {
       </div>
 
       <div className="shell">
+        <SocialLinks />
         <p className="site-footer__fine-print">
           Sahayak is an independent learning tool and isn't affiliated with or endorsed by CBSE.
         </p>
