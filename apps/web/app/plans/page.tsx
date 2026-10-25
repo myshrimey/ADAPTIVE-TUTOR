@@ -66,30 +66,31 @@ export default async function PlansPage() {
 
         <PlanStatus />
 
-        <section style={{ marginTop: 'var(--space-3)' }}>
+        <section id="free" style={{ marginTop: 'var(--space-3)', scrollMarginTop: 90 }}>
           <h2 style={{ fontSize: 'var(--step-1)' }}>Start free</h2>
+          <p style={{ fontWeight: 700, fontSize: '1.05rem' }}>Free plan: 1 subject per account.</p>
           <p>The free founding access lets you try the diagnostic, personalised practice, chapter quizzes, a limited AI tutor and a basic parent report, with daily limits. Then add what you need.</p>
           <p style={{ fontSize: '0.86rem', color: 'var(--slate)' }}>{FREE_CORE_NOTICE.line} {FREE_CORE_NOTICE.terms}</p>
           <p><a className="btn btn--ghost" href="/">Create a free account</a></p>
         </section>
 
-        {family.length > 0 && <section style={{ marginTop: 'var(--space-3)' }}><div className="plan-grid">{family.map((p) => <Card key={p.code} p={p} q={q(p)} cta="Apply for Founding Access" href={`/plans/buy/${p.code}`} evt="plan_selected" />)}</div>
+        {family.length > 0 && <section id="family" style={{ marginTop: 'var(--space-3)', scrollMarginTop: 90 }}><div className="plan-grid">{family.map((p) => <Card key={p.code} p={p} q={q(p)} cta="Apply for Founding Access" href={`/plans/buy/${p.code}`} evt="plan_selected" />)}</div>
           <p style={{ fontSize: '0.88rem', color: 'var(--slate)' }}>Class XI Transition Benefit: founding families receive a transition assessment, a readiness review, priority access to future Sahayak programmes and preferential pricing for them. It is not unlimited Class XI or XII access.</p></section>}
 
-        {(subjects.length > 0 || individual.length > 0) && <section style={{ marginTop: 'var(--space-4)' }}>
+        {(subjects.length > 0 || individual.length > 0) && <section id="subject-plans" style={{ marginTop: 'var(--space-4)', scrollMarginTop: 90 }}>
           <h2 style={{ fontSize: 'var(--step-1)' }}>Subject plans{cheapest !== null ? ` — from ${inr(cheapest)}` : ''}</h2>
           <p>Choose 1 to 5 subjects. Select the subjects your child is registered for.</p>
           <div className="plan-grid">{[...individual, ...subjects].map((p) => <Card key={p.code} p={p} q={q(p)} cta="Choose Subjects" href={`/plans/buy/${p.code}`} evt="plan_selected" />)}</div>
         </section>}
 
-        {mock.length > 0 && <section style={{ marginTop: 'var(--space-4)' }}>
+        {mock.length > 0 && <section id="mock" style={{ marginTop: 'var(--space-4)', scrollMarginTop: 90 }}>
           <h2 style={{ fontSize: 'var(--step-1)' }}>Handwritten mock evaluation</h2>
           <TrackView event="mock_offer_viewed" source="plans" />
           <div className="plan-grid">{mock.map((p) => <Card key={p.code} p={p} q={q(p)} cta="Buy Mock Evaluation" href={`/plans/buy/${p.code}`} evt="plan_selected" />)}</div>
           <p style={{ fontSize: '0.88rem' }}>Write on paper. Upload your answers. Understand where marks were lost. The number of answer-sheet images allowed depends on the examination you choose. AI marking is a suggestion; uncertain answers are checked by a teacher.</p>
         </section>}
 
-        {(tutor.length > 0 || centre.length > 0) && <section style={{ marginTop: 'var(--space-4)' }}>
+        {(tutor.length > 0 || centre.length > 0) && <section id="partners" style={{ marginTop: 'var(--space-4)', scrollMarginTop: 90 }}>
           <h2 style={{ fontSize: 'var(--step-1)' }}>For tutors and coaching centres</h2>
           <div className="plan-grid">
             {tutor.map((p) => <Card key={p.code} p={p} q={q(p)} cta="Apply as Founding Tutor" href="/plans/apply/tutor" evt="upgrade_clicked" />)}
@@ -98,7 +99,7 @@ export default async function PlansPage() {
           <p style={{ fontSize: '0.88rem', color: 'var(--slate)' }}>Tutor and centre plans start after a short conversation with the Sahayak team; applying does not charge anything.</p>
         </section>}
 
-        <section style={{ marginTop: 'var(--space-4)' }}>
+        <section id="compare" style={{ marginTop: 'var(--space-4)', scrollMarginTop: 90 }}>
           <h2 style={{ fontSize: 'var(--step-1)' }}>Compare plans</h2>
           <p style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>Scroll sideways on a phone.</p>
           <div style={{ overflowX: 'auto' }}>

@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v63 (2026-10-25)
+## Latest delivery - v64 (2026-10-25)
+Website traffic analytics (/admin/traffic, migration 0041), Plans & Pricing dropdown on every page, new logo, bold free-plan notice on the subject picker. Apply after v63: `sahayak-v64-traffic-plans-logo-delta.zip` (this zip includes app/layout.tsx; v63 did not). Founder to do: run `npm run db:migrate`; optionally set ANALYTICS_SALT on Vercel; ask a Hindi teacher to read the new privacy line.
+
+## Previous delivery - v63 (2026-10-25)
 Challenge zone: olympiad / NTSE / foundation-style questions for topics a student has mastered, with badges (migration 0040). Apply after v62: `sahayak-v63-challenge-zone-delta.zip`. Founder to do: run `npm run db:migrate`; open /admin/challenge-tier and press "Write questions" for each subject (they stay needs_review; have a teacher check them); decide whether students may see unchecked Challenge questions. Next candidates: teacher review queue filter by tier, timed olympiad mock, Class 11 bridge.
 
 ## Previous delivery - v62 (2026-10-24)

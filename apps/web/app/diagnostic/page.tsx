@@ -73,6 +73,11 @@ export default function DiagnosticPage() {
   const [total, setTotal] = useState(20);
   const [problem, setProblem] = useState<string | null>(null);
   const [resumedNotice, setResumedNotice] = useState(false);
+  // Plan facts for the picker: the free plan includes ONE subject per account, shown boldly before the student chooses.
+  const [plan, setPlan] = useState<{ isFree: boolean; subjectLimit: number; chosen: { id: string; name: string; family: string }[]; families: string[] } | null>(null);
+  useEffect(() => { fetch('/api/student/subject-access').then((r) => r.json()).then((j) => { if (j.data) setPlan(j.data); }).catch(() => {}); }, []);
+  const famOf = (slug: string) => (slug === 'hindi-b' ? 'hindi' : slug.replace(/-basic$/, ''));
+  const lockedOnFree = (slug: string) => !!plan && plan.isFree && plan.families.length >= plan.subjectLimit && !plan.families.includes(famOf(slug));
 
   // Load the subject picker first, instead of starting a diagnostic
   // immediately — a student (or parent) landing here from the "Take a
@@ -183,6 +188,17 @@ export default function DiagnosticPage() {
           <p className="hero__eyebrow">Quick diagnostic</p>
           <h1 style={{ fontSize: 'var(--step-2)' }}>Which subject?</h1>
           <p style={{ color: 'var(--slate)' }}>20 questions that adapt as you answer — about 15 minutes.</p>
+          {plan?.isFree && (
+            <div className="free-plan-banner" role="note">
+              <strong>Free plan: 1 subject per account.</strong>
+              <div style={{ fontSize: '0.92rem' }}>
+                {plan.chosen.length === 0
+                  ? 'The subject you start first becomes your free subject. Choose the one you need most.'
+                  : <>Your free subject: <strong>{plan.chosen.map((c) => c.name).join(', ')}</strong>. Other subjects need a paid plan.</>}
+                {' '}<a href="/plans#free">See plans</a>
+              </div>
+            </div>)}
+          {plan && !plan.isFree && <p style={{ fontSize: '0.9rem' }}><strong>Your plan includes up to {plan.subjectLimit} subject{plan.subjectLimit === 1 ? '' : 's'}.</strong></p>}
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.7rem', marginTop: 'var(--space-2)' }}>
             {(subjects ?? []).map((s) => (
@@ -190,10 +206,10 @@ export default function DiagnosticPage() {
                 key={s.id}
                 type="button"
                 onClick={() => startDiagnostic(s.id)}
-                disabled={starting}
+                disabled={starting || lockedOnFree(s.slug)}
                 className="subject-card fade-slide-in"
                 data-subject={s.slug}
-                style={{ width: '100%', textAlign: 'left', cursor: starting ? 'wait' : 'pointer', background: 'white', font: 'inherit', color: 'inherit' }}
+                style={{ width: '100%', textAlign: 'left', cursor: starting ? 'wait' : lockedOnFree(s.slug) ? 'not-allowed' : 'pointer', opacity: lockedOnFree(s.slug) ? 0.55 : 1, background: 'white', font: 'inherit', color: 'inherit' }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
                   <SubjectIcon slug={s.slug} size={36} />
@@ -209,7 +225,7 @@ export default function DiagnosticPage() {
                     </div>
                   </div>
                 </div>
-                <span style={{ color: 'var(--marigold-deep)', fontWeight: 500 }}>{starting && subjectId === s.id ? 'Starting…' : '→'}</span>
+                <span style={{ color: 'var(--marigold-deep)', fontWeight: 500 }}>{lockedOnFree(s.slug) ? 'Paid plan' : starting && subjectId === s.id ? 'Starting…' : '→'}</span>
               </button>
             ))}
             {subjects && subjects.length === 0 && <p style={{ color: 'var(--slate)' }}>No subjects available right now.</p>}

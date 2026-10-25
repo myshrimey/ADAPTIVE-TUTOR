@@ -54,6 +54,8 @@ export * from './orchestrator/session-summary.service';
 export * from './prompts/tutor.prompt';
 export * from './prompts/evaluation.prompt';
 export * from './analytics/events';
+export * from './analytics/traffic';
+export * from './analytics/store';
 export * from './learning-diagrams/mapping';
 export * from './quiz/skill-quiz.engine';
 export * from './explanations/ensure-explanation';

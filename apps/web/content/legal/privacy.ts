@@ -8,6 +8,7 @@ export const PRIVACY_EN: LegalContent = {
     {
       heading: '1. What we collect',
       body: [
+        'Website visit counts: Sahayak counts page visits itself, without cookies. We do not store your IP address, name or browser string; a one-day anonymous code, the page visited, the website you came from, device type, browser, and approximate country are kept so the founder can see how many people use the site. Visits from bots, and from browsers that send Do Not Track, are not counted.',
         'Account details: a username, a securely hashed password (via Supabase Authentication — we never see or store your plain password), and an email address only if you choose to give one. At sign-up we also record that a parent or guardian agreed, and when. To limit abuse we keep a one-way scrambled form of the internet address used to sign up for up to 2 days, and for each login we keep the browser description, internet address and dates of the (at most 2) devices used.',
         'Learning data: diagnostic answers, learning-session activity, quiz results, and the resulting mastery scores per skill — this is what lets Sahayak adapt to a student.',
         'Optional profile details: school, family/contact information, and academic history for classes 6–9, provided voluntarily on the Profile page. This is used only to help us understand our users and to improve and describe the product — it is never used to decide what a student is taught.',
@@ -52,6 +53,7 @@ export const PRIVACY_HI: LegalContent = {
     {
       heading: '1. हम क्या एकत्र करते हैं',
       body: [
+        'वेबसाइट विज़िट गिनती: सहायक पेज विज़िट की गिनती स्वयं करता है, बिना कुकी के। हम आपका IP पता, नाम या ब्राउज़र विवरण सुरक्षित नहीं रखते; केवल एक दिन का अनाम कोड, देखा गया पेज, आप किस वेबसाइट से आए, डिवाइस का प्रकार, ब्राउज़र और अनुमानित देश रखे जाते हैं, ताकि संस्थापक देख सकें कि कितने लोग साइट का उपयोग करते हैं। बॉट और "Do Not Track" भेजने वाले ब्राउज़र की विज़िट नहीं गिनी जातीं। (मसौदा — हिंदी शिक्षक की समीक्षा लंबित।)',
         'खाता विवरण: ईमेल पता और सुरक्षित रूप से हैश किया गया पासवर्ड (Supabase Authentication के माध्यम से — हम कभी भी आपका सादा पासवर्ड नहीं देखते या संग्रहीत नहीं करते)।',
         'अध्ययन डेटा: डायग्नोस्टिक उत्तर, लर्निंग-सत्र गतिविधि, क्विज़ परिणाम, और प्रत्येक कौशल के लिए परिणामी दक्षता स्कोर — यही सहायक को छात्र के अनुसार अनुकूलित करने देता है।',
         'वैकल्पिक प्रोफ़ाइल विवरण: स्कूल, परिवार/संपर्क जानकारी, और कक्षा 6-9 की शैक्षणिक जानकारी, जो प्रोफ़ाइल पृष्ठ पर स्वेच्छा से दी जाती है। इसका उपयोग केवल हमारे उपयोगकर्ताओं को समझने और उत्पाद सुधारने के लिए होता है — यह कभी भी यह तय करने के लिए उपयोग नहीं किया जाता कि छात्र को क्या सिखाया जाए।',

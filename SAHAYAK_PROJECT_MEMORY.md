@@ -82,3 +82,6 @@ Adaptive diagnostic and baseline engine (no fixed length; prerequisite graph; pe
 
 ## v63 (2026-10-25)
 Challenge zone: harder olympiad / NTSE / IOQM / JEE-foundation / NEET-foundation-style questions (original, never copies of real papers) for topics the student has mastered (score >= 75 or demonstrated competency), 3 levels, once per question, daily limit, badges with no XP/money. Never writes mastery, readiness or marks. Questions are tier 'stretch' on the questions table and hidden from normal quizzes and the baseline. Admin: /admin/challenge-tier. Apply order ...v62, v63 (migration 0040). Not built: Class 11 content, per-exam syllabus maps, timed olympiad mock.
+
+## v64 (2026-10-25)
+Website traffic analytics at /admin/traffic (first-party, no cookies, no IP stored, bots/DNT/admin pages excluded; visitors are unique per day and summed). Plans & Pricing dropdown in the header for everyone. New logo and tagline "Measure Your Growth, Master Your Subjects." Diagnostic subject picker shows "Free plan: 1 subject per account" in bold. Apply order ...v63, v64 (migration 0041).

@@ -231,7 +231,7 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
       <div className="shell">
         {!hideMarketing && (
         <section className="hero hero-banner">
-          <img src="/logo.png" alt="Sahayak — Measure Your Growth, Master Your Subjects" className="brand-logo" width={120} height={151} />
+          <img src="/logo.png" alt="Sahayak — Measure Your Growth, Master Your Subjects" className="brand-logo brand-logo--full" width={200} height={237} />
           <p className="hero__eyebrow">CBSE Class 10 · Board Preparation 2027</p>
           <h1>How ready is your child for CBSE Class X 2027?</h1>
           <p className="hero__lede">

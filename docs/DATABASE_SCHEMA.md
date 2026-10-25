@@ -655,3 +655,6 @@ competencies (code unique, class_level, domain, importance, skill_id), competenc
 questions: + tier ('core' default | 'stretch'), exam_style (olympiad|ntse|ioqm|jee_foundation|neet_foundation|general_challenge, nullable), stretch_level (1-3, nullable). Partial index idx_questions_tier on stretch rows.
 stretch_attempts: id, student_id, question_id, skill_id, subject_id, exam_style, stretch_level, correct, seconds, answered_at. Unique (student_id, question_id). RLS on; student own-read policy; writes server only.
 achievements: 9 new rows (codes stretch_*; xp 0). commerce_settings key `stretch` (enabled, allowUnreviewed, unlockScore, levelUpAfter, levelDownAfter, dailyLimit).
+
+## v64 (migration 0041)
+page_views: id, at, visitor (daily-rotating hash), path, channel, source, campaign, device, browser, os, country, region, signed_in. RLS on, no policies (server only). No IP, cookie or name.

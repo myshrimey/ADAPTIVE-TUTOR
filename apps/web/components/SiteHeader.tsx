@@ -19,7 +19,7 @@ export function SiteHeader() {
   const isPortal = role === 'parent' || role === 'tutor' || role === 'centre';
   const staff = role === 'admin' || role === 'teacher' || isPortal;
   const portalLabel = role === 'parent' ? 'Parent area' : role === 'tutor' ? 'Tutor area' : role === 'centre' ? 'Centre area' : '';
-  const [open, setOpen] = useState<null | 'practice' | 'account' | 'mobile'>(null);
+  const [open, setOpen] = useState<null | 'practice' | 'plans' | 'account' | 'mobile'>(null);
   const rowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -92,6 +92,15 @@ export function SiteHeader() {
     ...(signedIn ? [{ href: '/challenge', label: t('nav.challenges'), desc: t('nav.descChallenges'), icon: '⚔' }, { href: '/mistakes', label: t('nav.mistakeBook'), desc: t('nav.descMistakeBook'), icon: '✓' }, { href: '/achievements', label: t('nav.achievements'), desc: t('nav.descAchievements'), icon: '🏅' }, { href: '/journey', label: t('nav.journey'), desc: t('nav.descJourney'), icon: '➤' }] : []),
   ];
 
+  // Plans & Pricing: visible to everyone, on every page, signed in or not. Prices are never typed here: /plans reads them from the database.
+  const plansMenu: Item[] = [
+    { href: '/plans#free', label: t('nav.plansFree'), desc: t('nav.descPlansFree'), icon: '★' },
+    { href: '/plans#family', label: t('nav.plansFamily'), desc: t('nav.descPlansFamily'), icon: '⌂' },
+    { href: '/plans#subject-plans', label: t('nav.plansSubjects'), desc: t('nav.descPlansSubjects'), icon: '❖' },
+    { href: '/plans#mock', label: t('nav.plansMock'), desc: t('nav.descPlansMock'), icon: '✎' },
+    { href: '/plans#partners', label: t('nav.plansPartners'), desc: t('nav.descPlansPartners'), icon: '☷' },
+    { href: '/plans#compare', label: t('nav.plansCompare'), desc: t('nav.descPlansCompare'), icon: '≡' },
+  ];
   const active = (href: string) => pathname === href || pathname.startsWith(href + '/');
   const practiceActive = practice.some((i) => active(i.href));
   const initial = (displayName || '?').trim().charAt(0).toUpperCase();
@@ -108,7 +117,7 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="shell site-header__row" ref={rowRef}>
         <a href="/" className="wordmark">
-          <img src="/logo-mark.png" alt="" className="wordmark__img" width={34} height={34} />Sahayak
+          <img src="/logo-mark.png" alt="" className="wordmark__img" width={40} height={40} />Sahayak
         </a>
 
         <nav className="site-header__nav" aria-label="Main">
@@ -156,7 +165,22 @@ export function SiteHeader() {
         <div className="site-header__right">
           {role === 'admin' && <a href="/admin" className="nav-cta">Admin</a>}
           {!signedIn && <a href="/portals" className="nav-link">Parents &amp; partners</a>}
-          {!staff && <a href="/plans" className="nav-cta">{t('nav.pilotOffer')}</a>}
+          <div className="nav-menu">
+            <button type="button" className="nav-cta nav-cta--button" aria-expanded={open === 'plans'} aria-haspopup="true" onClick={() => setOpen(open === 'plans' ? null : 'plans')}>
+              {t('nav.plans')}<span className="nav-caret" aria-hidden="true" />
+            </button>
+            {open === 'plans' && (
+              <div className="nav-panel nav-panel--right" role="menu">
+                <a href="/plans" className="nav-panel__item" role="menuitem"><span className="nav-panel__icon" aria-hidden="true">₹</span><span><strong>{t('nav.plans')}</strong><small>{t('nav.descPlansCompare')}</small></span></a>
+                {plansMenu.map((i) => (
+                  <a key={i.href} href={i.href} className="nav-panel__item" role="menuitem">
+                    <span className="nav-panel__icon" aria-hidden="true">{i.icon}</span>
+                    <span><strong>{i.label}</strong><small>{i.desc}</small></span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
           <LanguageToggle />
           {signedIn && (
             <div className="nav-menu">
@@ -228,8 +252,12 @@ export function SiteHeader() {
             {signedIn && <a href="/reports" className="nav-drawer__link">My test reports</a>}
             {signedIn && <a href="/sharing" className="nav-drawer__link">Sharing</a>}
             {signedIn && <a href="/my-data" className="nav-drawer__link">My data</a>}
-            <a href="/plans" className="nav-cta nav-cta--block">{t('nav.pilotOffer')}</a>
             </>}
+            <p className="nav-panel__hello">{t('nav.plans')}</p>
+            <a href="/plans" className="nav-cta nav-cta--block">{t('nav.plans')}</a>
+            {plansMenu.map((i) => (
+              <a key={i.href} href={i.href} className="nav-drawer__link"><span aria-hidden="true">{i.icon}</span><span>{i.label}<small>{i.desc}</small></span></a>
+            ))}
             {signedIn && (
               <button type="button" className="nav-drawer__link nav-drawer__link--quiet" onClick={handleSignOut}>
                 {t('nav.signOut')}

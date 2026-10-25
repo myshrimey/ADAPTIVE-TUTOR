@@ -1,6 +1,7 @@
 import { Fraunces, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import { SiteHeader } from '@/components/SiteHeader';
 import { Footer } from '@/components/Footer';
+import { TrackPageView } from '@/components/TrackPageView';
 import { FeedbackWidget } from '@/components/FeedbackWidget';
 import { LanguageProvider } from '@/components/LanguageProvider';
 import { getServerLang } from '@/lib/language';
@@ -43,6 +44,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body>
         <LanguageProvider initialLang={initialLang}>
           <SiteHeader />
+          <TrackPageView />
           {children}
           <Footer />
           <FeedbackWidget />
