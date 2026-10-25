@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v65 (2026-10-25)
+## Latest delivery - v66 (2026-10-25)
+Hotfix: traffic page showed 0. Added the "Check the counter" button + migration 0042. Apply after v65: `sahayak-v66-traffic-check-delta.zip`. Founder: run `npm run db:migrate`, deploy, open /admin/traffic, press "Check the counter", send me the result lines. Cause not yet confirmed.
+
+## Previous delivery - v65 (2026-10-25)
 Social links: Facebook shown in the footer and Contact page; Instagram, LinkedIn, YouTube hidden until their addresses are pasted into apps/web/lib/social.ts. No migration. Apply after v64: `sahayak-v65-social-links-delta.zip`.
 
 ## Previous delivery - v64 (2026-10-25)

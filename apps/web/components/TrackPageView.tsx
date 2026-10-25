@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 export function TrackPageView() {
   const pathname = usePathname();
   const last = useRef<string | null>(null);
+  useEffect(() => { try { document.documentElement.setAttribute('data-sahayak-counter', 'on'); } catch { /* ignore */ } }, []);
   useEffect(() => {
     if (!pathname || last.current === pathname) return;
     last.current = pathname;

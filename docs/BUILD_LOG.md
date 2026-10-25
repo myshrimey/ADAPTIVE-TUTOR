@@ -451,3 +451,9 @@ One entry per work session. Newest entry on top.
 ## v65 - Social links (Facebook live; Instagram, LinkedIn, YouTube hidden placeholders)
 - `apps/web/lib/social.ts` is the single list. A link with an empty address is not shown anywhere. Facebook is on (address supplied by the founder 2026-10-25). `SocialLinks` shows them in the footer on every page and on the Contact page. No migration.
 - Tested: t65 (3 checks); tsc and full build pass. NOT tested: how it looks in a browser; that the Facebook share address opens the right page.
+
+## v66 - Traffic counter diagnosis (hotfix to v64)
+- Founder report 2026-10-25: /admin/traffic showed 0 page views although migration 0041 had been applied and v64 was deployed.
+- I could not find the cause by reading code (checked: table columns match the insert, bot/DNT rules pass for normal browsers, no earlier table named page_views). Likely candidates: (1) apps/web/app/layout.tsx from v64 was not replaced, so the counter never loads; (2) the Supabase API layer had not reloaded its table list; (3) a visitor-side block. The old code swallowed every error, so nothing could be seen.
+- Added: "Check the counter" button on /admin/traffic (`/api/admin/traffic-check`): checks the counter is installed in this page, Do Not Track, server key, table readable, can write (saves and removes a test row), and sends a test visit from this browser that answers with the exact reason if it is not counted (header x-track-debug, admin only). Read errors now show on the page; save errors are written to the server log (`[track]`). Migration 0042 `notify pgrst, 'reload schema'` (re-runnable, changes no data).
+- Tested: t64 now 42 checks (error text is returned, self-check writes/reads/cleans up); tsc and full build pass; 0042 twice on Postgres. NOT tested: live site. The cause is NOT yet confirmed: it depends on what the check reports.

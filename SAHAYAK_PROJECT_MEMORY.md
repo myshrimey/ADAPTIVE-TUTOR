@@ -88,3 +88,6 @@ Website traffic analytics at /admin/traffic (first-party, no cookies, no IP stor
 
 ## v65 (2026-10-25)
 Social links list in apps/web/lib/social.ts (Facebook on; Instagram, LinkedIn, YouTube hidden until the founder shares the addresses). Shown in the footer on every page and on /contact.
+
+## v66 (2026-10-25)
+Traffic page showed 0 after v64; added a Check-the-counter diagnostic and migration 0042 (schema cache reload). Cause unconfirmed until the founder reports the check result.

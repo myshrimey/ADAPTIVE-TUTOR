@@ -1,18 +1,26 @@
-SAHAYAK - v65 UPDATE  (social links)
-Apply v64 (and everything before it) first. No database change.
+SAHAYAK - v66 UPDATE  (traffic counter check)
+Apply v65 (and everything before it) first.
+
+WHAT HAPPENED
+Your Website traffic page shows 0 although migration 0041 ran. So the table exists; something else stops visits being saved. The old code hid every error, so I could not see why from here. This update does not guess: it adds a button that tells you.
 
 WHAT THIS UPDATE DOES
-1. Your Facebook page link now appears as a "Facebook" button under "Follow Sahayak" in the footer on every page, and on the Contact page.
-2. Instagram, LinkedIn and YouTube are ready but HIDDEN. Nothing shows for them until you give me the address (or paste it yourself).
-
-TO TURN ON ANOTHER SOCIAL PAGE LATER
-- Send me its full address (it must start with https://) and I will add it; or open the file apps/web/lib/social.ts, paste the address between the empty quotes on that page's line, save, and deploy. It then appears automatically in the footer and on the Contact page.
+1. On Admin > Website traffic, at the bottom, there is a new "Check the counter" button. It reports in plain words:
+   - whether the page counter is installed on the page (if NOT: the file apps/web/app/layout.tsx from the v64 zip was probably not copied - copy it again, it is the most likely cause);
+   - whether your browser sends "Do Not Track" (then your own visits are not counted, by design);
+   - whether the server has its database key, can read the traffic table, and can save a visit (it saves and removes one test row, and shows the database's own error message if it fails);
+   - and it sends a test visit from your browser and says whether it was counted, or the exact reason it was not.
+2. If the traffic table cannot be read, the page now shows the database's message at the top instead of just zeros.
+3. A small safety migration 0042 that tells Supabase to refresh its list of tables (a table created by a migration is sometimes not visible to the website until this happens). It changes no data.
 
 STEPS
-1. Unzip over your project folder (replace files).
-2. npm install   (nothing new, but safe)
-3. Deploy as usual.
+1. Unzip over your project folder (replace files).   IMPORTANT: also check that apps/web/app/layout.tsx was replaced (open it: it should contain the word TrackPageView).
+2. npm install
+3. npm run db:migrate   (adds 0042; safe to run twice)
+4. Deploy as usual.
+5. Browse your own website's home page and a plans page in another tab for a minute, then open Admin > Website traffic and press "Check the counter".
+6. Send me the lines it shows (a screenshot is fine). If it reports everything fine, press the date buttons again: visits should appear.
 
-TESTED: the list shows only Facebook now; Instagram, LinkedIn, YouTube exist and are empty; type check and full build pass.
-NOT TESTED: how the button looks in a browser or on a phone; I could not open your Facebook link to check that it goes to the right page - please click it once after deploying.
-NOT BUILT: social sharing buttons for students, a Facebook login, a follower count. Not deployed by me.
+TESTED: 42 checks on the counting maths and the new check (it returns the database's real error text; the self-check writes, reads and cleans up); type check and full build pass; migration 0042 ran twice.
+NOT TESTED: your live site. I do not yet know the cause - the check result will tell us.
+NOT BUILT: nothing else changed. Not deployed by me.

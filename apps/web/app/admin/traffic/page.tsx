@@ -2,6 +2,7 @@ import { createServiceClient } from '@/lib/supabase-server';
 import { adminPageGate, AdminNav } from '@/lib/admin-page';
 import { trafficReport, changePct, type Count } from '@adaptive-tutor/core';
 import { TrafficChart } from '@/components/TrafficChart';
+import { TrafficCheck } from '@/components/TrafficCheck';
 
 export const dynamic = 'force-dynamic';
 const RANGES: Array<[string, string]> = [['today', 'Today'], ['7d', 'Last 7 days'], ['30d', 'Last 30 days'], ['90d', 'Last 90 days']];
@@ -45,7 +46,8 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ r
           <span style={{ marginLeft: 'auto' }} role="status">● <strong>{rep.realtime}</strong> on the site in the last 5 minutes</span>
         </p>
       </div>
-      {!s.enough && <p className="alert">Not much traffic recorded yet ({t.pageviews} page views). Figures fill in as people visit. If this stays at zero after visitors have been on the site, check that migration 0041 was applied.</p>}
+      {rep.loadError && <p className="alert"><strong>The traffic table could not be read:</strong> {rep.loadError}. Press &quot;Check the counter&quot; below.</p>}
+      {!s.enough && <p className="alert">Not much traffic recorded yet ({t.pageviews} page views). Figures fill in as people visit. If this stays at zero after visitors have been on the site, press &quot;Check the counter&quot; at the bottom of this page: it says exactly what is stopping visits from being saved.</p>}
       {rep.truncated && <p className="alert">This range has more than 200,000 page views; only the first 200,000 are shown.</p>}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '0.7rem' }}>
         <Tile label="Visitors" value={String(t.visitors)} now={t.visitors} before={p?.visitors ?? null} note="unique per day, added up" />
@@ -85,6 +87,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ r
           <p style={{ fontSize: '0.78rem', color: 'var(--slate)', marginBottom: 0 }}>Counts the database holds. Visitors and accounts are not matched person by person, so no &quot;conversion rate&quot; is shown.</p>
         </section>
       </div>
+      <TrafficCheck />
       <p style={{ fontSize: '0.8rem', color: 'var(--slate)', marginTop: 'var(--space-3)' }}>Countries come from the hosting network and are approximate. Page views before this feature was switched on are not available. Add <code>?utm_source=whatsapp</code> (or any name) to a link you share to see it as a source here.</p>
     </div></main>
   );
