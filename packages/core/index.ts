@@ -133,3 +133,6 @@ export * from './engagement/friend-link';
 export * from './engagement/referral';
 export * from './engagement/ab';
 export * from './feedback-intel';
+
+// v68: Social Media Growth Engine
+export * from './social-growth';
