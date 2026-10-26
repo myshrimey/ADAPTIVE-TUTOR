@@ -70,6 +70,7 @@ export const ADMIN_MENU: AdminGroup[] = [
       { href: '/admin/partners', label: 'Parents, tutors, centres', note: 'Partner accounts' },
       { href: '/admin/interest', label: 'Applications and requests', note: 'People who asked to join' },
       { href: '/admin/referral-rewards', label: 'Referral links and rewards', note: 'Bonus days for referrals' },
+      { href: '/admin/social-growth', label: 'Social Media Growth Engine', note: 'Content calendar, review and publishing record', keywords: 'facebook instagram linkedin marketing content social media' },
       { href: '/admin/engagement/referrals', label: 'Referrals (old)', note: 'Earlier referral list' },
     ],
   },
