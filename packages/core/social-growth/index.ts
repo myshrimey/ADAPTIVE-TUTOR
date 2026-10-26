@@ -67,17 +67,17 @@ export function makeSocialPost(input: {
 
 function platformBody(platform: SocialPlatform, topic: string, audienceLine: string, cta: string) {
   if (platform === 'linkedin') {
-    return \`\${HOOKS.linkedin}\n\n\${audienceLine}\n\nSahayak is being built around a practical principle: understand the learner’s starting point, then decide what to practise next.\n\nToday’s focus: \${topic}.\n\nWe are validating the product with real learners and families. The aim is useful learning evidence—not promises of guaranteed marks.\n\n\${cta}\`;
+    return `${HOOKS.linkedin}\n\n${audienceLine}\n\nSahayak is being built around a practical principle: understand the learner’s starting point, then decide what to practise next.\n\nToday’s focus: ${topic}.\n\nWe are validating the product with real learners and families. The aim is useful learning evidence—not promises of guaranteed marks.\n\n${cta}`;
   }
   if (platform === 'instagram') {
-    return \`\${HOOKS.instagram}\n\n\${topic}\n\nSmall steps. Clearer gaps. A learning path that responds to the learner.\n\n\${cta}\`;
+    return `${HOOKS.instagram}\n\n${topic}\n\nSmall steps. Clearer gaps. A learning path that responds to the learner.\n\n${cta}`;
   }
-  return \`\${HOOKS.facebook}\n\n\${audienceLine}\n\n\${topic}\n\nSahayak aims to help families understand a learner’s starting point and what to work on next. Every student is different; progress takes practice and support.\n\n\${cta}\`;
+  return `${HOOKS.facebook}\n\n${audienceLine}\n\n${topic}\n\nSahayak aims to help families understand a learner’s starting point and what to work on next. Every student is different; progress takes practice and support.\n\n${cta}`;
 }
 
 function makeImagePrompt(platform: SocialPlatform, topic: string) {
   const format = platform === 'instagram' ? '4:5 portrait social post' : '1:1 square social post';
-  return \`Create a \${format} for Sahayak, an Indian CBSE learning-support product. Topic: \${topic}. Show an authentic Indian parent and school-age learner studying together in a calm, encouraging home environment. Clean modern educational design, accessible contrast, space for a short headline, no fake marks or guaranteed-result claims, no logos other than a simple Sahayak wordmark, no tiny text.\`;
+  return `Create a ${format} for Sahayak, an Indian CBSE learning-support product. Topic: ${topic}. Show an authentic Indian parent and school-age learner studying together in a calm, encouraging home environment. Clean modern educational design, accessible contrast, space for a short headline, no fake marks or guaranteed-result claims, no logos other than a simple Sahayak wordmark, no tiny text.`;
 }
 
 export function makeMonthTopics() {
