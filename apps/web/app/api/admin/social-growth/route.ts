@@ -83,6 +83,7 @@ export async function POST(req: Request) {
       const allowed = ['draft','review','approved','scheduled','published','rejected'];
       const status = typeof body.status === 'string' ? body.status : '';
       if (!/^[0-9a-f-]{36}$/i.test(id) || !allowed.includes(status)) return NextResponse.json({ error: 'Invalid item or status.' }, { status: 400 });
+      if (status === 'published' && body.confirmPublished !== true) return NextResponse.json({ error: 'Confirm that you have actually posted this item before marking it published.' }, { status: 400 });
       const patch: Record<string, unknown> = { status, updated_at: new Date().toISOString() };
       if (status === 'published') patch.published_at = new Date().toISOString();
       if (status !== 'published') patch.published_at = null;
