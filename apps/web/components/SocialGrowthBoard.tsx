@@ -105,7 +105,7 @@ export function SocialGrowthBoard() {
               {['draft','review','approved'].includes(item.status) && <button className="btn btn--small btn--ghost" disabled={busy} onClick={() => void act({ action: 'status', id: item.id, status: 'rejected' })}>Reject</button>}
               {item.status === 'approved' && <button className="btn btn--small btn--ghost" disabled={busy} onClick={() => void act({ action: 'status', id: item.id, status: 'scheduled' })}>Add to planned schedule</button>}
               {['approved','scheduled'].includes(item.status) && <button className="btn btn--small btn--ghost" disabled={busy} onClick={() => {
-                if (window.confirm('Only confirm this after you have actually posted it on the social platform.')) void act({ action: 'status', id: item.id, status: 'published' });
+                if (window.confirm('Only confirm this after you have actually posted it on the social platform.')) void act({ action: 'status', id: item.id, status: 'published', confirmPublished: true });
               }}>Mark published after posting</button>}
               {item.status === 'rejected' && <button className="btn btn--small btn--ghost" disabled={busy} onClick={() => void act({ action: 'status', id: item.id, status: 'draft' })}>Restore to draft</button>}
             </div>
