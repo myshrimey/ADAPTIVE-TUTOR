@@ -1,26 +1,23 @@
-SAHAYAK - v66 UPDATE  (traffic counter check)
-Apply v65 (and everything before it) first.
-
-WHAT HAPPENED
-Your Website traffic page shows 0 although migration 0041 ran. So the table exists; something else stops visits being saved. The old code hid every error, so I could not see why from here. This update does not guess: it adds a button that tells you.
+SAHAYAK - v67 UPDATE  (tidy admin menu + Feedback Intelligence + status page)
+Apply v66 (and everything before it) first.
 
 WHAT THIS UPDATE DOES
-1. On Admin > Website traffic, at the bottom, there is a new "Check the counter" button. It reports in plain words:
-   - whether the page counter is installed on the page (if NOT: the file apps/web/app/layout.tsx from the v64 zip was probably not copied - copy it again, it is the most likely cause);
-   - whether your browser sends "Do Not Track" (then your own visits are not counted, by design);
-   - whether the server has its database key, can read the traffic table, and can save a visit (it saves and removes one test row, and shows the database's own error message if it fails);
-   - and it sends a test visit from your browser and says whether it was counted, or the exact reason it was not.
-2. If the traffic table cannot be read, the page now shows the database's message at the top instead of just zeros.
-3. A small safety migration 0042 that tells Supabase to refresh its list of tables (a table created by a migration is sometimes not visible to the website until this happens). It changes no data.
+1. A NEW ADMIN MENU. At the top of every admin page there is now one bar with 8 headings: Overview, Students & Learning, Content & Questions, AI, Money, Customers & Growth, Feedback, Settings & Safety. Click a heading to see its pages with a short line about each. A "Find a page" box finds any page by name (for example type "traffic" or "olympiad"). The page you are on is highlighted and shown as "Heading > Page". On a phone it folds into a "Menu" button. The Command Centre also has "Everything in one place", a fold-out list of all pages by heading.
+2. FEEDBACK INTELLIGENCE (Admin > Feedback > Feedback Intelligence). Messages from students and parents are sorted by fixed rules into groups (for example "Translation problem - quiz"), with how many people reported it, how serious it looks, how much care a fix needs, a likely cause and a suggested action. These are GUESSES from the words people wrote and are labelled so. No AI is used, so it costs nothing.
+   You decide with five buttons: Approve, Reject, Modify, Investigate, Defer. Later you can mark a group Implemented, Verified or Rolled back. For high-risk groups (scores, answers, plans, prices) Approve needs a written note and a tick "I have tested this". Pressing a button only records YOUR decision and keeps a history; it never changes a question, score, price or lesson.
+   Admin > Feedback > All feedback messages is the plain list, now with the menu.
+3. "WHAT IS BUILT / NOT BUILT" (Admin > Settings & Safety). A plain table of every part of your big "Learning Intelligence Platform" prompt marked BUILT, PARTIAL, NOT IMPLEMENTED or REQUIRES PROVIDER.
+4. Migration 0043 (new feedback columns and two server-only tables). Safe to run twice.
 
 STEPS
-1. Unzip over your project folder (replace files).   IMPORTANT: also check that apps/web/app/layout.tsx was replaced (open it: it should contain the word TrackPageView).
+1. Unzip over your project folder (replace files).
 2. npm install
-3. npm run db:migrate   (adds 0042; safe to run twice)
+3. npm run db:migrate   (adds 0043)
 4. Deploy as usual.
-5. Browse your own website's home page and a plans page in another tab for a minute, then open Admin > Website traffic and press "Check the counter".
-6. Send me the lines it shows (a screenshot is fine). If it reports everything fine, press the date buttons again: visits should appear.
+5. Open /admin and look at the new menu. Open Feedback > Feedback Intelligence (it sorts any existing feedback the first time you open it).
+6. STILL WAITING FROM v66: on Admin > Website traffic press "Check the counter" and send me the lines it shows.
 
-TESTED: 42 checks on the counting maths and the new check (it returns the database's real error text; the self-check writes, reads and cleans up); type check and full build pass; migration 0042 ran twice.
-NOT TESTED: your live site. I do not yet know the cause - the check result will tell us.
-NOT BUILT: nothing else changed. Not deployed by me.
+TESTED: about 60 checks on the menu (every admin page is in it once, no dead links), the sorting rules, the review rules and the decision history (including your example: 37 Hindi reports become one kind of group); old checks for v63-v65 still pass; type check and full build pass; migration 0043 ran twice on a test database.
+NOT TESTED: on your live site with real feedback, or on a phone screen. The sorting rules were written by me and have never seen real messages: expect some wrong groups at first; tell me examples and I will adjust.
+NOT BUILT (the big prompt asks for these; I did not fake them): a revision scheduler (daily/weekly review), mixing topics (interleaving), step-by-step worked examples, "Teach Sahayak", voice listening (needs a speech provider and a cost decision), tutor/centre batches, a School Admin role, linking feedback to the exact question reported, AI-written fix proposals. See the status page for the full list and a suggested order.
+NOT DEPLOYED by me.

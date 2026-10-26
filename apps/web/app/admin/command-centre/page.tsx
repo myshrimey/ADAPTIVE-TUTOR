@@ -1,5 +1,5 @@
 import { createServiceClient } from '@/lib/supabase-server';
-import { adminPageGate, AdminNav } from '@/lib/admin-page';
+import { adminPageGate, AdminNav, AdminMap } from '@/lib/admin-page';
 import { loadCommandCentreAi, loadCommandCentre, rangeBounds, RANGES, CRM_STAGES, FUNDING_STAGES, FUNDING_KINDS, EXPENSE_CATEGORIES, CRM_KINDS } from '@adaptive-tutor/core';
 import { Stat, Section, Grid, Tag, Dot, inr } from '@/components/founder/Cards';
 
@@ -30,6 +30,11 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ r
         </form>
         <p style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>Showing: <strong>{d.range.label}</strong> (for the sections below the &ldquo;Today&rdquo; block). <Tag label="ACTUAL" /> counted <Tag label="ESTIMATED" /> from partial data <Tag label="ASSUMED" /> uses your assumption. &ldquo;Insufficient data&rdquo; means it cannot be worked out yet, so nothing is guessed.</p>
       </div>
+
+      <details style={{ margin: '0.6rem 0' }}>
+        <summary style={{ cursor: 'pointer', fontWeight: 600 }}>Everything in one place (all admin pages by category)</summary>
+        <div style={{ marginTop: '0.6rem' }}><AdminMap /></div>
+      </details>
 
       <Section title="Business health">
         <p style={{ fontSize: '1.05rem' }}><Dot rag={d.health} /> <strong>{healthText}</strong></p>

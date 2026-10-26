@@ -1,6 +1,8 @@
 import { createServerClient } from '@/lib/supabase-server';
 import { AdminSignIn } from '@/components/AdminSignIn';
 import { SignOutButton } from '@/components/SignOutButton';
+import { AdminMenu } from '@/components/AdminMenu';
+import { ADMIN_MENU } from '@/lib/admin-menu';
 
 // Shared gate for server-rendered admin pages: returns the admin's email, or the sign-in UI to render.
 export async function adminPageGate(): Promise<{ email: string } | { gate: React.ReactNode }> {
@@ -29,10 +31,22 @@ export async function adminPageGate(): Promise<{ email: string } | { gate: React
   };
 }
 
+// The admin menu: grouped by category (see apps/web/lib/admin-menu.ts). Every admin page already renders <AdminNav />, so this one change reorganises all of them.
 export function AdminNav() {
+  return <AdminMenu />;
+}
+
+// "Everything in one place": the same list as cards, for the Command Centre home.
+export function AdminMap() {
   return (
-    <p style={{ color: 'var(--slate)' }}>
-      <a href="/admin/command-centre"><strong>Founder Command Centre</strong></a> · <a href="/admin/crm">Customers &amp; leads</a> · <a href="/admin/crm?group=institutions">Schools</a> · <a href="/admin/funding">Funding &amp; investors</a> · <a href="/admin/expenses">Money in / out</a> · <a href="/admin/tasks">Founder tasks</a> · <a href="/admin/changelog">Change log</a> · <a href="/admin/memory">Project memory</a> · <a href="/admin/overview">Product dashboard</a> · <a href="/admin/students">Students and plans</a> · <a href="/admin/pricing">Pricing and offers</a> · <a href="/admin/commercial">Commercial dashboard</a> · <a href="/admin/configuration"><strong>Boards, exams, country prices</strong></a> · <a href="/admin/audit-log">Audit log</a> · <a href="/admin/question-register"><strong>Question register</strong></a> · <a href="/admin/traffic"><strong>Website traffic</strong></a> · <a href="/admin/diagnostic-engine"><strong>Adaptive diagnostic engine</strong></a> · <a href="/admin/challenge-tier"><strong>Challenge zone</strong></a> · <a href="/admin/financial-simulator"><strong>Financial simulator</strong></a> · <a href="/admin/interest">Applications and requests</a> · <a href="/admin/engagement">Student engagement</a> · <a href="/admin/engagement-settings">Engagement settings</a> · <a href="/admin/engagement/ab">Engagement experiments</a> · <a href="/admin/engagement/referrals">Referrals (old)</a> · <a href="/admin/referral-rewards"><strong>Referral links and rewards</strong></a> · <a href="/admin/payments">Payments</a> · <a href="/admin/teachers">Teachers</a> · <a href="/admin/partners">Parents, tutors, centres</a> · <a href="/admin/translations">Hindi questions</a> · <a href="/admin/translations/review">Check Hindi translations</a> · <a href="/admin/subject-requests">Subject requests</a> · <a href="/admin/question-bank">Question bank growth</a> · <a href="/admin/reviews">Question reviews</a> · <a href="/admin/quality">Quality gates</a> · <a href="/admin/metrics">Metrics</a> · <a href="/admin/funnel">Funnel</a> · <a href="/admin/devices">Devices</a> · <a href="/admin/data-requests">Data requests</a> · <a href="/admin/handwriting">Handwriting marking</a> · <a href="/admin/questions">Question statistics</a> · <a href="/admin/ai-infrastructure"><strong>AI Infrastructure</strong></a> · <a href="/admin/ai-economics"><strong>AI Economics</strong></a> · <a href="/admin/ai-requests">AI requests</a> · <a href="/admin/ai-costs">AI cost</a> · <a href="/admin/feedback">Feedback</a>
-    </p>
+    <div className="admin-map">
+      {ADMIN_MENU.map((g) => (
+        <div key={g.id} className="admin-map__card">
+          <h3>{g.label}</h3>
+          <p>{g.blurb}</p>
+          {g.items.map((it) => <a key={it.href} href={it.href}>{it.label}</a>)}
+        </div>
+      ))}
+    </div>
   );
 }

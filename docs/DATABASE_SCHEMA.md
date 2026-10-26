@@ -658,3 +658,9 @@ achievements: 9 new rows (codes stretch_*; xp 0). commerce_settings key `stretch
 
 ## v64 (migration 0041)
 page_views: id, at, visitor (daily-rotating hash), path, channel, source, campaign, device, browser, os, country, region, signed_in. RLS on, no policies (server only). No IP, cookie or name.
+
+## v67 (migration 0043)
+feedback: + category, feature_area, severity (low|medium|high), cluster_id, duplicate_of, analysed_at.
+feedback_clusters: id, title, category, feature_area, keywords[], severity, risk, status (new|analysed|proposed|under_review|approved|rejected|modified|deferred|implemented|verified|rolled_back), report_count, duplicate_count, affected_pages[], likely_cause, proposed_action, reviewer_note, decided_by, decided_at, tested, created_at, updated_at. RLS on, no policies (server only).
+feedback_cluster_events: id, cluster_id -> feedback_clusters (cascade), at, actor, from_status, to_status, note. RLS on, no policies.
+

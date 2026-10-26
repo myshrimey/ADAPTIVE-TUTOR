@@ -91,3 +91,7 @@ Social links list in apps/web/lib/social.ts (Facebook on; Instagram, LinkedIn, Y
 
 ## v66 (2026-10-25)
 Traffic page showed 0 after v64; added a Check-the-counter diagnostic and migration 0042 (schema cache reload). Cause unconfirmed until the founder reports the check result.
+
+## v67 (2026-10-26)
+Admin menu grouped into 8 categories (apps/web/lib/admin-menu.ts is the single list: add a page there). Feedback Intelligence at /admin/feedback-intelligence (rules, no AI; human decides; high-risk needs note + tested tick; migration 0043). /admin/roadmap lists what the big prompt asks that is built / partial / not built.
+

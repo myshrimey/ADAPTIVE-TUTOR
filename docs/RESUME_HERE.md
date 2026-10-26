@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v66 (2026-10-25)
+## Latest delivery - v67 (2026-10-26)
+Grouped admin menu (8 categories + search), Feedback Intelligence (/admin/feedback-intelligence, migration 0043), and /admin/roadmap (honest status of the master prompt). Apply after v66: `sahayak-v67-admin-menu-feedback-delta.zip`. Founder: run `npm run db:migrate`, deploy. STILL OPEN from v66: the traffic page showing 0 - run "Check the counter" and send the lines. Next candidates from /admin/roadmap: spaced revision scheduler, tutor/centre batches, worked-example fading + interleaving; Teach Sahayak and Voice need an AI cost decision first.
+
+## Previous delivery - v66 (2026-10-25)
 Hotfix: traffic page showed 0. Added the "Check the counter" button + migration 0042. Apply after v65: `sahayak-v66-traffic-check-delta.zip`. Founder: run `npm run db:migrate`, deploy, open /admin/traffic, press "Check the counter", send me the result lines. Cause not yet confirmed.
 
 ## Previous delivery - v65 (2026-10-25)

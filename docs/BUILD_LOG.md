@@ -4,6 +4,16 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v67 - Grouped admin menu, Feedback Intelligence, status page (2026-10-26)
+Founder asked for a tidy admin menu with categories, and to execute the "Learning Intelligence Platform" master prompt.
+- Admin menu: one list (`apps/web/lib/admin-menu.ts`) of 8 groups (Overview, Students & Learning, Content & Questions, AI, Money, Customers & Growth, Feedback, Settings & Safety). `AdminNav` now renders `components/AdminMenu.tsx` (dropdowns, search box, current page highlighted, phone-friendly). All ~45 admin pages pick it up with no edits. Command Centre has an "Everything in one place" map (`AdminMap`). Test t67 checks every admin page is in the menu exactly once and every link has a page.
+- Feedback Intelligence (prompt sections 26-30): migration 0043 (feedback + category, feature_area, severity, cluster_id, duplicate_of, analysed_at; `feedback_clusters`; `feedback_cluster_events`; server-only). `packages/core/feedback-intel/` (rules.ts pure, store.ts). Rule-based sorting into 11 kinds, severity, risk (low/medium/high per section 28), likely cause, proposed action; grouping by same kind + same area + shared words; repeat detection. Page `/admin/feedback-intelligence`; five buttons (Approve, Reject, Modify, Investigate, Defer) plus follow-up (Implemented, Verified, Rolled back). Server enforces allowed moves; high-risk groups need a note and an "I have tested this" tick. Nothing is deployed or changed by a button. No AI is used (no cost). `/admin/feedback` now has the menu and category.
+- `/admin/roadmap`: honest status of every prompt section (BUILT / PARTIAL / NOT IMPLEMENTED / REQUIRES PROVIDER).
+- NOT built from the prompt (stated, not faked): spaced revision scheduler, interleaving, worked-example fading, Teach Sahayak, voice listening, tutor/centre batches, School Admin role, question-level feedback link, AI-written fix proposals.
+- Tests: t67 (menu + rules, ~60 checks), t67b (store on a fake DB: 37 Hindi reports become translation groups, high-risk gate, history), t63/t64/t65 still pass, tsc clean, full build clean (font stub), 0043 ran twice on Postgres 16.
+
+---
+
 ## 2026-10-16 — v37: AI usage/cost log, new prices (₹1000/subject), free plan, pricing on the home page, signed-in redirect, readable name
 
 **Task (founder):** build the AI usage/cost logging first; once a student is signed in the sign-up page must never show; the user name must be bright/readable; add a free tier (free-tier AI only); show pricing with features under each plan on the home page; raise the per-subject price from ₹300 to ₹1000 and recalculate the others.
