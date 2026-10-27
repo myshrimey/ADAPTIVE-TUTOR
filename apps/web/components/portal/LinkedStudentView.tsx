@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { createServiceClient } from '@/lib/supabase-server';
-import { buildParentReport, weeklySummary } from '@adaptive-tutor/core';
+import { buildParentReport, weeklySummary, errorPatternFor, planText } from '@adaptive-tutor/core';
 import { engineCtx } from '@/lib/engagement';
 import { ReportExtras } from '@/components/ReportExtras';
 import { type PortalUser, isLinked } from '@/lib/portal';
@@ -19,6 +19,8 @@ export async function LinkedStudentView({ me, studentId }: { me: PortalUser; stu
   const { data: reports } = await service.from('test_reports').select('id, title, kind, taken_at, score, total, in_marks').eq('student_id', studentId).eq('audience', 'adult').order('taken_at', { ascending: false }).limit(100);
   let weekly: { sentence: string; facts: string[] } | null = null;
   try { const ctx = await engineCtx(service); weekly = await weeklySummary(service, studentId, st.display_name, ctx.idx); } catch { weekly = null; }
+  let pattern: Awaited<ReturnType<typeof errorPatternFor>> = null;
+  try { pattern = await errorPatternFor(service, studentId); } catch { pattern = null; }
   const home = `/${me.role}`;
   return (
     <main className="page">
@@ -29,6 +31,13 @@ export async function LinkedStudentView({ me, studentId }: { me: PortalUser; stu
           <p style={{ color: 'var(--slate)' }}>Read-only view. Only counts and dates from the student&apos;s own practice. Never a prediction of marks or rank.</p>
         </div>
         {weekly && <section className="tip-card" style={{ marginTop: 'var(--space-3)' }}><span className="tip-card__eyebrow">This week</span><p className="tip-card__body">{weekly.sentence}</p>{weekly.facts.length > 0 && <ul style={{ margin: 0 }}>{weekly.facts.map((f) => <li key={f}>{f}</li>)}</ul>}<p style={{ color: 'var(--slate)', fontSize: '0.8rem', margin: '0.4rem 0 0' }}>A weekly summary of counts, not every action. It is never a prediction of marks.</p></section>}
+        {pattern && (
+          <section className="tip-card" style={{ marginTop: 'var(--space-3)' }}>
+            <span className="tip-card__eyebrow">What may help</span>
+            <p className="tip-card__body"><strong>{pattern.recipe.title}.</strong> {pattern.recipe.likelyCause} This is a pattern seen in recent mistakes ({pattern.count} times), not a judgement of {st.display_name}.</p>
+            <p className="tip-card__body">{me.role === 'parent' ? <><strong>At home:</strong> {pattern.recipe.parentTip}</> : <><strong>Suggested plan:</strong> {planText(pattern.recipe)} <em>{pattern.recipe.tutorTip}</em></>}</p>
+          </section>
+        )}
         <p style={{ marginTop: 'var(--space-3)' }}><a className="btn btn--ghost" href={`${home}/student/${studentId}/baseline`}>Starting point, gaps and learning path</a></p>
         <h2 style={{ fontSize: 'var(--step-1)', marginTop: 'var(--space-3)' }}>Saved test reports</h2>
         <ReportList rows={(reports ?? []) as ReportRow[]} hrefBase={`${home}/student/${studentId}/report`} empty="No tests finished yet. Each diagnostic, quiz and mock the student finishes will be saved here with its date and time." />

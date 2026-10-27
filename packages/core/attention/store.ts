@@ -1,4 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { errorCountsFor } from '../error-intel/store';
 import { attentionFor, rankAttention, summariseBatch, interventionResult, type StudentSignals, type Attention, type BatchSummary } from './rules';
 
 const UUID = /^[0-9a-f-]{36}$/i;
@@ -14,6 +15,7 @@ export async function loadSignals(service: SupabaseClient, ids: string[], now = 
   if (!ids.length) return [];
   const since = new Date(now - 14 * 86400000).toISOString();
   const today = new Date(now + 5.5 * 3600000).toISOString().slice(0, 10);
+  const errs = await errorCountsFor(service, ids, now).catch(() => new Map());
   const [st, ms, ss, rv] = await Promise.all([
     service.from('students').select('id, display_name').in('id', ids),
     service.from('mastery_states').select('student_id, skill_id, score, skills(name)').in('student_id', ids).limit(20000),
@@ -32,7 +34,7 @@ export async function loadSignals(service: SupabaseClient, ids: string[], now = 
       sessions14d: sess.filter((r) => r.started_at >= since).length,
       weakSkills: m.filter((r) => Number(r.score) < 40).map((r) => ({ skillId: r.skill_id, name: r.skills?.name ?? 'a skill', score: Math.round(Number(r.score)) })),
       strongSkills: m.filter((r) => Number(r.score) >= 75).length,
-      overdueReviews: rev.filter((r) => r.due_on < today).length, lapses: rev.reduce((a, r) => a + (r.lapses ?? 0), 0),
+      overdueReviews: rev.filter((r) => r.due_on < today).length, lapses: rev.reduce((a, r) => a + (r.lapses ?? 0), 0), errors: errs.get(s.id),
     };
   });
 }

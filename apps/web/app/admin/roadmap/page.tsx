@@ -10,7 +10,7 @@ const ROWS: [string, string, S, string][] = [
   ['4-5', 'Adaptive diagnostic and baseline (goes down to earlier classes)', 'BUILT', 'v62: Class 6-9 foundation graph for Maths; other subjects still need their earlier-class graphs; teacher review of the graph pending.'],
   ['6', 'Learning strategy orchestrator', 'PARTIAL', 'A rule-based engine picks among 11 teaching moves (explain, example, guided practice, Socratic, hint, simplify, prerequisite repair, review, challenge, test…). The prompt lists 25 methods; the rest (for example interleaving, self-explanation, project learning) are not selected by any rule.'],
   ['7', 'Full learning loop', 'PARTIAL', 'Diagnose, explain, practise, quiz, mock, report, spaced review (v68), staged support (v70) and mixed practice (v70) exist. Teach Sahayak, voice and per-error intervention recipes do not.'],
-  ['8', 'Error intelligence', 'PARTIAL', 'Error types are tagged (Maths, Science, Language sets). A matching intervention recipe for each error ("2 worked examples + 3 guided problems…") is not built.'],
+  ['8', 'Error intelligence', 'PARTIAL', 'NEW in v71: recent mistakes (tutor-session tags + adaptive-check error types) are grouped into 11 kinds (procedural, calculation, careless, conceptual, prerequisite, interpretation, question misread, reasoning, factual, language, incomplete); a pattern needs 3+ mistakes and 40%+ share; each kind has a ready plan (for example procedural = 2 worked examples + 3 guided problems + 2 retrieval questions + spaced review), shown to tutors, centres and parents, never as a label to the child. Not built: "unsupported reasoning" detection, per-question error tagging for written answers.'],
   ['9', 'Mastery states', 'PARTIAL', 'Mastery score with evidence labels and readiness bands. The six named states (Not yet demonstrated … Mastered) are not a configurable setting.'],
   ['10', 'Spaced revision scheduler', 'BUILT', 'NEW in v68: each skill comes back after 1, 3, 7, 14, 30, 60 days (sooner after a miss; never after the exam date); daily, weekly, long-gap and pre-exam (last 21 days) views; /review page; questions not seen before come first and skills are mixed across chapters. Rules only, no AI. Not yet tried with real students.'],
   ['11', 'Interleaving engine', 'PARTIAL', 'NEW in v70: an optional "mixed practice" block on Revise today mixes skills the student already handles (mastery 60+, not due, not recently forgotten) across different chapters. Interleaving inside the AI tutor chat and within a new topic is not built (the prompt says focus first).'],
@@ -60,7 +60,6 @@ export default async function Page() {
       </Section>
       <Section title="Suggested order for the missing parts">
         <ol style={{ paddingLeft: '1.2rem' }}>
-          <li>Per-error intervention recipes (each error type gets a ready plan: examples, guided problems, later review) - rules only.</li>
           <li>Giving work to a whole batch; a tutor working under a centre; centre heat-map; parent report generator.</li>
           <li>Teach Sahayak and Voice: decide the AI cost budget first; both need a provider.</li>
         </ol>

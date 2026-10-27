@@ -1,22 +1,20 @@
-SAHAYAK - v70 UPDATE  (step-by-step help that fades + mixed practice)
-Apply v69 (and everything before it) first. NO database change this time.
+SAHAYAK - v71 UPDATE  (what kind of mistakes, and a ready plan for each)
+Apply v70 (and everything before it) first. NO database change.
 
 WHAT THIS UPDATE DOES
-1. HELP THAT FADES AWAY. In the tutor chat, how much help Sahayak gives is now decided by fixed rules, in five steps:
-   1 a full worked example, every step explained  ->  2 a worked example with a step or two left blank  ->  3 the student does the steps with a small guiding question  ->  4 the student tries alone, a hint only if asked or after a mistake  ->  5 no help unless asked.
-   A new skill starts at step 1. The step comes from how well the student already knows that skill. Two clean answers in a row (right, no hints) remove one step of help. A wrong answer, or a right one that needed a hint, puts one step back. Two wrong in a row goes back to a worked example. A "test myself" session is step 5.
-   The rule is passed to the tutor as one extra instruction line ("Support: ..."). It does not change marks, mastery, difficulty or which questions are asked.
-2. OPTIONAL MIXED PRACTICE on the "Revise today" page. After the daily review, a student with at least three secure skills sees "Optional: mixed practice": up to 6 questions on skills they already handle well, mixed from different chapters (switching topics is harder, and that builds stronger memory). Skills still being learned or recently forgotten are left out. It does not move review dates unless the student misses a question.
-3. The Admin "What is built / not built" page is updated.
-No AI is used by the new rules, so no new AI cost.
+A mistake is more than "wrong": the KIND of mistake decides what helps. Sahayak now looks at a student's recent mistakes (last 90 days) and, when at least 3 are of one kind and they are at least 40% of the mistakes, names the pattern in plain words and gives a ready plan. Examples of kinds: steps done out of order; slips in arithmetic; careless slips; two ideas mixed up; an earlier skill missing; question misread; knows the idea but struggles to apply it; fact or term not firm; language of the question; answer stops short.
+Example plan (steps done out of order): 2 worked examples, then 3 problems done together, then 2 on their own, then a quick check after 2 days and again after 7 days.
+WHERE IT SHOWS
+1. Tutor / coaching-centre page "Who needs attention": the suggestion names the pattern and adds the plan and a tip. It is also copied into the "Plan an intervention" form.
+2. When a parent, tutor or centre opens a linked student: a card "What may help". Parents get a simple at-home tip; tutors and centres get the full plan.
+It is never shown to the child as a label, and one or two slips never count as a pattern. It uses fixed rules, so no AI cost.
 
 STEPS
 1. Unzip over your project folder (replace files).
 2. npm install
-3. Deploy as usual. (No npm run db:migrate needed.)
-4. Try: start a learning session on a new skill: the first tutor message should show a full worked example. Then answer a few questions correctly with no hints; the tutor should give less help.
+3. Deploy as usual. (No npm run db:migrate.)
 
-TESTED: about 20 checks on the support rules (levels, fading, stepping back, repair and test sessions, never below step 1 or above step 5, more clean answers never add help) and on the mixed-practice list; older checks for v63-v69 still pass; type check and full build pass.
-NOT TESTED: how well the AI actually follows the support instruction in real conversations (it depends on the model; please try it and tell me what you see), live site, phone.
-NOT BUILT: mixing topics inside the tutor chat, a ready plan for each type of error, notifications.
+TESTED: about 60 checks (every kind of mistake the app records is mapped, plans are complete and supportive, thresholds, and counting only the right student and the last 90 days); older checks v63-v70 pass; type check and full build pass.
+NOT TESTED: with real students' mistakes on your live site. The 3-mistake and 40% thresholds are my starting values.
+NOT BUILT: spotting "answer given without reasons", tagging mistakes inside written answers.
 NOT DEPLOYED by me.

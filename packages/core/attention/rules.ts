@@ -1,3 +1,5 @@
+import { dominantPattern, planText, type ErrorFamily } from '../error-intel/recipes';
+
 // Tutor / centre intelligence, pure rules (no database, no AI). Answers "which student needs my attention, why, and what could I do?".
 // It reports what was practised and when. It never predicts marks, ranks children or gives anyone a label; a "watch" is a prompt for a human conversation.
 
@@ -8,10 +10,11 @@ export interface StudentSignals {
   weakSkills: { skillId: string; name: string; score: number }[]; // practised skills under 40
   strongSkills: number; // skills at 75 or more
   overdueReviews: number; lapses: number;
+  errors?: Partial<Record<ErrorFamily, number>>; // recent mistakes by kind (v71)
 }
 export type AttentionKind = 'intervene' | 'watch' | 'on_track' | 'ready_for_advanced' | 'no_data';
 export const ATTENTION_LABEL: Record<AttentionKind, string> = { intervene: 'Needs a conversation', watch: 'Keep an eye', on_track: 'Going well', ready_for_advanced: 'Ready for harder work', no_data: 'Not enough information yet' };
-export interface Attention { studentId: string; name: string; kind: AttentionKind; priority: number; reasons: string[]; evidence: string; suggestion: string; focusSkill?: { skillId: string; name: string; score: number } }
+export interface Attention { studentId: string; name: string; kind: AttentionKind; priority: number; reasons: string[]; evidence: string; suggestion: string; pattern?: { title: string; count: number; tutorTip: string }; focusSkill?: { skillId: string; name: string; score: number } }
 
 export function attentionFor(s: StudentSignals): Attention {
   const reasons: string[] = []; let p = 0;
@@ -41,7 +44,10 @@ export function attentionFor(s: StudentSignals): Attention {
   else if (s.daysSinceActive !== null && s.daysSinceActive >= 7 && !focus) suggestion = 'Check in kindly: ask what is getting in the way, and agree on one short 15-minute session this week.';
   else if (focus) suggestion = `A 20-minute guided session on "${focus.name}", then 3 short questions a few days later (the Revise today page will bring it back by itself).`;
   else suggestion = 'Look at the report together and pick one skill to practise this week.';
-  return { ...base, kind, priority: p, reasons, evidence, suggestion, focusSkill: focus };
+  // v71: when recent mistakes are mostly of one kind, name the pattern and add the matching ready plan.
+  const pat = kind === 'on_track' ? null : dominantPattern(s.errors ?? {});
+  if (pat) suggestion += ` Pattern in recent mistakes: ${pat.recipe.title.toLowerCase()} (${pat.count} times). Suggested plan: ${planText(pat.recipe)}`;
+  return { ...base, kind, priority: p, reasons, evidence, suggestion, focusSkill: focus, pattern: pat ? { title: pat.recipe.title, count: pat.count, tutorTip: pat.recipe.tutorTip } : undefined };
 }
 
 export function rankAttention(list: Attention[]): Attention[] {

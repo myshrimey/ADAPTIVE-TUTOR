@@ -136,3 +136,4 @@ export * from './feedback-intel';
 export * from './revision';
 export * from './attention';
 export * from './pedagogy/scaffold';
+export * from './error-intel';

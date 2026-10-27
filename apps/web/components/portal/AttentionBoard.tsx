@@ -45,6 +45,7 @@ export function AttentionBoard({ attention, summary, batches, interventions, stu
           <div style={{ fontSize: '0.9rem' }}>{a.reasons.join(' · ')}</div>
           <div style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>{a.evidence}</div>
           <div style={{ fontSize: '0.9rem', marginTop: '0.2rem' }}><strong>Suggestion:</strong> {a.suggestion}</div>
+          {a.pattern && <div style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>Tip: {a.pattern.tutorTip}</div>}
           {(a.kind === 'intervene' || a.kind === 'watch') && open !== a.studentId && <button className="btn btn--ghost btn--small" style={{ marginTop: '0.4rem' }} onClick={() => begin(a)}>Plan an intervention</button>}
           {open === a.studentId && (
             <div style={{ marginTop: '0.5rem' }}>

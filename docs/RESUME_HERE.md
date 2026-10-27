@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v70 (2026-10-27)
+## Latest delivery - v71 (2026-10-27)
+Error patterns and ready plans (tutor/centre board, parent/tutor student view). No migration. Apply after v70: `sahayak-v71-error-plans-delta.zip`.
+
+## Previous delivery - v70 (2026-10-27)
 Fading support (worked-example stages) in the tutor chat + optional mixed practice on /review. NO migration. Apply after v69: `sahayak-v70-fading-support-mixed-practice-delta.zip`; deploy. Next candidates: per-error intervention recipes; batch assignments; tutor-under-centre; Teach Sahayak / Voice need an AI cost decision.
 
 ## Previous delivery - v69 (2026-10-27)
