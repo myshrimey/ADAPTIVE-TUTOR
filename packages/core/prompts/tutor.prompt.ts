@@ -47,6 +47,7 @@ export interface TutorTurnContext {
   evaluationFeedback?: string; // deterministic/LLM grading result to weave into the response, for answer turns
   diagramCaption?: string; // set when a learning diagram (packages/core/learning-diagrams/mapping.ts) is being shown to the student this turn
   lastMessages: Array<{ role: 'tutor' | 'student'; content: string }>; // last 2-3 only
+  scaffoldNote?: string; // how much support to give (worked example -> hints -> none), decided by app rules (pedagogy/scaffold.ts)
   sessionNote?: string; // short session-level instruction (gentler pace, final question, wrap-up) decided by the app, not by the model
   studentMessage: string;
 }
@@ -72,6 +73,7 @@ export function buildTutorPrompt(context: TutorTurnContext): { system: string; u
         }`
       : null,
     context.evaluationFeedback ? `Grading result for the student's last answer: ${context.evaluationFeedback}` : null,
+    context.scaffoldNote ? `Support: ${context.scaffoldNote}` : null,
     context.sessionNote ? `Session note: ${context.sessionNote}` : null,
     context.diagramCaption ? `Diagram shown to student this turn: ${context.diagramCaption}` : null,
     history ? `\nRecent conversation:\n${history}` : null,

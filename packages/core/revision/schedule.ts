@@ -70,6 +70,7 @@ export interface ReviewPlan {
   daily: RevisionItem[]; // due now, most useful first, mixed across chapters
   dueTotal: number; overdueTotal: number;
   weekly: { count: number; byDay: Record<string, number> }; // due in the next 7 days (not today)
+  extra: RevisionItem[]; // optional mixed practice: secure skills that are not due yet, from different chapters
   cumulative: number; // skills on the 14-day step or longer that are due: a "mixed" look back
   minutes: number;
   note: string;
@@ -107,9 +108,12 @@ export function buildReviewPlan(inp: ReviewPlanInput): ReviewPlan {
   const daily = mixOrder(due).slice(0, cap);
   const byDay: Record<string, number> = {}; let weekly = 0;
   for (const i of items) if (i.dueOn > inp.today && daysBetween(inp.today, i.dueOn) <= 7) { weekly++; byDay[i.dueOn] = (byDay[i.dueOn] ?? 0) + 1; }
+  // Optional mixed practice (interleaving): only skills the student already handles on their own (mastery 60+), never ones that are due or being relearned,
+  // taken from as many different chapters as possible, least recently seen first.
+  const extra = mixOrder(items.filter((i) => i.dueOn > inp.today && i.lapses === 0 && (i.mastery ?? 0) >= 0.6).sort((a, b) => a.dueOn.localeCompare(b.dueOn)).map((i) => ({ ...i, priority: 1000 - daysBetween(inp.today, i.dueOn) }))).slice(0, 6);
   const cumulative = due.filter((i) => i.rung >= 3).length;
   const note = daily.length === 0
     ? (items.length === 0 ? 'Nothing to revise yet. Revision starts after you have practised a skill.' : 'Nothing is due today. Well done; the next review is already planned.')
     : mode === 'pre_exam' ? `The exam is ${daysToExam} days away: short reviews of the skills that need it most.` : 'A short mixed review: one question for each skill that is due.';
-  return { mode, today: inp.today, daysToExam, daily, dueTotal: due.length, overdueTotal: due.filter((i) => i.overdueDays > 0).length, weekly: { count: weekly, byDay }, cumulative, minutes: Math.max(0, daily.length * 2), note };
+  return { mode, today: inp.today, daysToExam, daily, dueTotal: due.length, overdueTotal: due.filter((i) => i.overdueDays > 0).length, weekly: { count: weekly, byDay }, cumulative, minutes: Math.max(0, daily.length * 2), extra, note };
 }

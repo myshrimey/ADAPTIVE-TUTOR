@@ -9,12 +9,12 @@ const ROWS: [string, string, S, string][] = [
   ['3, 38, 39', 'One student model; evidence from every source', 'PARTIAL', 'Mastery, confidence, misconceptions, diagnostics, quizzes, mocks and handwriting all write to the same student records. There is no single "evidence fusion" layer that weighs voice, typed and handwritten evidence together.'],
   ['4-5', 'Adaptive diagnostic and baseline (goes down to earlier classes)', 'BUILT', 'v62: Class 6-9 foundation graph for Maths; other subjects still need their earlier-class graphs; teacher review of the graph pending.'],
   ['6', 'Learning strategy orchestrator', 'PARTIAL', 'A rule-based engine picks among 11 teaching moves (explain, example, guided practice, Socratic, hint, simplify, prerequisite repair, review, challenge, test…). The prompt lists 25 methods; the rest (for example interleaving, self-explanation, project learning) are not selected by any rule.'],
-  ['7', 'Full learning loop', 'PARTIAL', 'Diagnose, explain, practise, quiz, mock, report and (v68) spaced review exist. Interleaving inside practice and the staged worked-example sequence do not.'],
+  ['7', 'Full learning loop', 'PARTIAL', 'Diagnose, explain, practise, quiz, mock, report, spaced review (v68), staged support (v70) and mixed practice (v70) exist. Teach Sahayak, voice and per-error intervention recipes do not.'],
   ['8', 'Error intelligence', 'PARTIAL', 'Error types are tagged (Maths, Science, Language sets). A matching intervention recipe for each error ("2 worked examples + 3 guided problems…") is not built.'],
   ['9', 'Mastery states', 'PARTIAL', 'Mastery score with evidence labels and readiness bands. The six named states (Not yet demonstrated … Mastered) are not a configurable setting.'],
   ['10', 'Spaced revision scheduler', 'BUILT', 'NEW in v68: each skill comes back after 1, 3, 7, 14, 30, 60 days (sooner after a miss; never after the exam date); daily, weekly, long-gap and pre-exam (last 21 days) views; /review page; questions not seen before come first and skills are mixed across chapters. Rules only, no AI. Not yet tried with real students.'],
-  ['11', 'Interleaving engine', 'NOT IMPLEMENTED', ''],
-  ['12', 'Worked example and fading-support engine', 'NOT IMPLEMENTED', 'The tutor can give examples and hints, but there is no staged full → partial → independent sequence.'],
+  ['11', 'Interleaving engine', 'PARTIAL', 'NEW in v70: an optional "mixed practice" block on Revise today mixes skills the student already handles (mastery 60+, not due, not recently forgotten) across different chapters. Interleaving inside the AI tutor chat and within a new topic is not built (the prompt says focus first).'],
+  ['12', 'Worked example and fading-support engine', 'BUILT', 'NEW in v70: five support levels (full worked example, partly blank example, guided, hint only, independent) chosen by rules from mastery and this session\'s answers; support fades after two clean answers and returns after a miss. The rule is sent to the tutor as an instruction; how well the AI follows it depends on the model and has not been checked with real students.'],
   ['13', 'Metacognition prompts and calibration', 'PARTIAL', 'Pre-session confidence check-in, confidence trend and a gentle confidence-vs-result note. Per-question "how confident are you?" is not built.'],
   ['14', 'Teach Sahayak mode', 'NOT IMPLEMENTED', 'Needs an AI call per explanation; decide the cost first.'],
   ['15-16', 'Voice Sahayak (speaking and listening)', 'REQUIRES PROVIDER', 'Only "read aloud" using the browser exists. Listening to a student needs a speech-to-text choice and a cost budget; none is set up or tracked.'],
@@ -60,7 +60,8 @@ export default async function Page() {
       </Section>
       <Section title="Suggested order for the missing parts">
         <ol style={{ paddingLeft: '1.2rem' }}>
-          <li>Worked-example fading and interleaving inside practice sessions (rules only).</li>
+          <li>Per-error intervention recipes (each error type gets a ready plan: examples, guided problems, later review) - rules only.</li>
+          <li>Giving work to a whole batch; a tutor working under a centre; centre heat-map; parent report generator.</li>
           <li>Teach Sahayak and Voice: decide the AI cost budget first; both need a provider.</li>
         </ol>
       </Section>

@@ -27,6 +27,13 @@ export default async function ReviewPage() {
         <div className="stat-tile"><span className="stat-tile__value">{plan.cumulative}</span><span className="stat-tile__label">{T('long-gap skills (14+ days)', 'लंबे अंतराल वाले (14+ दिन)')}</span></div>
       </div>
       <div style={{ marginTop: 'var(--space-3)' }}><ReviewSession plan={plan} hi={hi} /></div>
+      {plan.extra.length >= 3 && (
+        <section style={{ marginTop: 'var(--space-4)' }}>
+          <h2 style={{ fontSize: 'var(--step-1)' }}>{T('Optional: mixed practice', 'वैकल्पिक: मिली-जुली प्रैक्टिस')}</h2>
+          <p style={{ color: 'var(--slate)', fontSize: '0.9rem' }}>{T('Skills you already handle well, mixed from different topics. Switching between topics is harder, and that is what makes memory stronger. It does not change your review dates unless you miss a question.', 'जो कौशल आप अच्छी तरह कर लेते हैं, अलग-अलग विषयों से मिलाकर। विषय बदलना कठिन है और इसी से याद पक्की होती है। कोई प्रश्न छूटे तो ही आपकी पुनरावृत्ति की तिथियाँ बदलेंगी।')}</p>
+          <ReviewSession plan={plan} hi={hi} mixed />
+        </section>
+      )}
       {plan.dueTotal > plan.daily.length && <p style={{ color: 'var(--slate)', fontSize: '0.9rem' }}>{T(`${plan.dueTotal - plan.daily.length} more are waiting; they are not lost. Come back tomorrow or revise again.`, `${plan.dueTotal - plan.daily.length} और प्रतीक्षा में हैं; वे खोए नहीं हैं।`)}</p>}
     </div></main>
   );

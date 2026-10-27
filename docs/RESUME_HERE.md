@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v69 (2026-10-27)
+## Latest delivery - v70 (2026-10-27)
+Fading support (worked-example stages) in the tutor chat + optional mixed practice on /review. NO migration. Apply after v69: `sahayak-v70-fading-support-mixed-practice-delta.zip`; deploy. Next candidates: per-error intervention recipes; batch assignments; tutor-under-centre; Teach Sahayak / Voice need an AI cost decision.
+
+## Previous delivery - v69 (2026-10-27)
 Tutor/centre "Who needs my attention", batches, intervention tracking (/tutor/attention, /centre/attention, migration 0045). Apply after v68: `sahayak-v69-tutor-centre-attention-delta.zip`. Founder: `npm run db:migrate`, deploy; try it with a tutor test account linked to a test student. Next candidates: worked-example fading + interleaving; assigning work to a batch; tutor-under-centre; Teach Sahayak / Voice need an AI cost decision.
 
 ## Previous delivery - v68 (2026-10-26)

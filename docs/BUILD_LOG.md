@@ -4,6 +4,16 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v70 - Fading support (worked examples) and mixed practice (2026-10-27)
+Founder: "continue". Master prompt sections 11-12; no migration.
+- `packages/core/pedagogy/scaffold.ts` (pure): five support levels (full worked example, partly blank example, guided, hint only, independent). Start level from the skill's mastery (<30, <50, <70, <85, 85+); first exposure = full example; two clean answers in a row take a step away; a wrong answer or a right one that needed hints puts a step back; two wrong in a row -> worked example; repair strategies stay between partly-blank and guided; INDEPENDENT_TEST = independent; CHALLENGE at least hint-only.
+- Wired into the tutor chat: `TutorTurnContext.scaffoldNote` renders as "Support: ..." in the prompt (both message and answer turns). It only instructs the AI how much help to give; mastery, difficulty and questions are untouched. How well the AI follows it is not checked.
+- Mixed practice (interleaving, light): `ReviewPlan.extra` = up to 6 skills with mastery 60+, not due, never lapsed, from different chapters, least recently seen first; optional block on /review. A miss still counts as forgetting; a pass is an "early" pass and changes no dates.
+- Tests: t70 (about 20 checks), t63-t69 pass; tsc and full build clean.
+- Not done: interleaving inside the tutor chat, per-error intervention recipes, checking the AI's compliance with support levels on real sessions.
+
+---
+
 ## v69 - Tutor and centre: who needs attention, batches, interventions (2026-10-27)
 Founder: "continue". Master prompt sections 21-24 (Tutor / Coaching Centre intelligence), the next gap on /admin/roadmap.
 - Migration 0045: `batches`, `batch_students`, `interventions` (server-only, RLS on, no policies).

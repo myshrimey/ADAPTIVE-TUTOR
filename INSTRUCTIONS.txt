@@ -1,23 +1,22 @@
-SAHAYAK - v69 UPDATE  (tutors and coaching centres: who needs attention)
-Apply v68 (and everything before it) first.
+SAHAYAK - v70 UPDATE  (step-by-step help that fades + mixed practice)
+Apply v69 (and everything before it) first. NO database change this time.
 
 WHAT THIS UPDATE DOES
-Tutors and coaching centres get a new page, "Who needs attention, batches and interventions" (a button on their dashboard; the page is /tutor/attention or /centre/attention).
-1. WHO NEEDS MY ATTENTION. Every linked student is placed in one of: Needs a conversation, Keep an eye, Going well, Ready for harder work, or Not enough information yet. Each shows the reasons (for example "has not practised for 16 days", "average mastery 35/100"), the facts behind it, and a suggested action (for example "a 20-minute guided session on Quadratics, then 3 short questions a few days later"). The order is: most in need first. These words are supportive on purpose. No marks are predicted and nobody is ranked against others. It is advice; the tutor decides.
-2. BATCHES. Create a batch (for example "Class 10 evening"), tick which students belong to it. Each batch shows how many are active, the average, how many need a conversation, and gaps shared by two or more students (so a short group session can help).
-3. INTERVENTIONS. For a student who needs attention, press "Plan an intervention": it fills in the problem, evidence and action for you to edit. When the tutor marks it done, then 5 or more days later the page compares the skill's score before and after and says: improved / not moved much / lower / too early to say. It shows what happened; it cannot prove the session was the cause, and it says so.
-4. PRIVACY. A tutor or centre sees only students who gave THEIR one-time code. If a family cancels the link, the student disappears from boards and batches immediately. One tutor can never see or change another tutor's batches or plans (tested).
-5. Migration 0045 (three new server-only tables). Safe to run twice. No AI, so no AI cost.
-6. The "What is built / not built" page in Admin is updated.
+1. HELP THAT FADES AWAY. In the tutor chat, how much help Sahayak gives is now decided by fixed rules, in five steps:
+   1 a full worked example, every step explained  ->  2 a worked example with a step or two left blank  ->  3 the student does the steps with a small guiding question  ->  4 the student tries alone, a hint only if asked or after a mistake  ->  5 no help unless asked.
+   A new skill starts at step 1. The step comes from how well the student already knows that skill. Two clean answers in a row (right, no hints) remove one step of help. A wrong answer, or a right one that needed a hint, puts one step back. Two wrong in a row goes back to a worked example. A "test myself" session is step 5.
+   The rule is passed to the tutor as one extra instruction line ("Support: ..."). It does not change marks, mastery, difficulty or which questions are asked.
+2. OPTIONAL MIXED PRACTICE on the "Revise today" page. After the daily review, a student with at least three secure skills sees "Optional: mixed practice": up to 6 questions on skills they already handle well, mixed from different chapters (switching topics is harder, and that builds stronger memory). Skills still being learned or recently forgotten are left out. It does not move review dates unless the student misses a question.
+3. The Admin "What is built / not built" page is updated.
+No AI is used by the new rules, so no new AI cost.
 
 STEPS
 1. Unzip over your project folder (replace files).
 2. npm install
-3. npm run db:migrate   (adds 0045)
-4. Deploy as usual.
-5. Try it: sign in as a tutor (or centre) test account, link a test student with a code, open "Who needs attention, batches and interventions".
+3. Deploy as usual. (No npm run db:migrate needed.)
+4. Try: start a learning session on a new skill: the first tutor message should show a full worked example. Then answer a few questions correctly with no hints; the tutor should give less help.
 
-TESTED: about 40 checks on the attention rules, wording, batches, interventions and the privacy boundary (another tutor, a cancelled link, a bad id); older checks for v63-v68 still pass; type check and full build pass; migration 0045 ran twice on a test database.
-NOT TESTED: on your live site, with real tutors, or on a phone. The cut-offs (for example 7 and 14 days without practice, mastery under 40 or 55) are my starting values; tell me if they flag too many or too few students.
-NOT BUILT: giving work to a whole batch, a tutor working under a centre, a centre-wide heat-map, a parent-report generator, letting parents see what the tutor planned, notifications.
+TESTED: about 20 checks on the support rules (levels, fading, stepping back, repair and test sessions, never below step 1 or above step 5, more clean answers never add help) and on the mixed-practice list; older checks for v63-v69 still pass; type check and full build pass.
+NOT TESTED: how well the AI actually follows the support instruction in real conversations (it depends on the model; please try it and tell me what you see), live site, phone.
+NOT BUILT: mixing topics inside the tutor chat, a ready plan for each type of error, notifications.
 NOT DEPLOYED by me.

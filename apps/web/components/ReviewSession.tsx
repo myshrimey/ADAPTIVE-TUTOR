@@ -2,8 +2,8 @@
 import { useEffect, useState } from 'react';
 
 type Item = { itemTable: string; itemId: string; prompt: string; questionType: string; options: string[] | null; figureUrl?: string | null };
-export function ReviewSession({ plan, hi }: { plan: any; hi: boolean }) {
-  const queue: { competencyId: string; name: string }[] = plan.daily;
+export function ReviewSession({ plan, hi, mixed = false }: { plan: any; hi: boolean; mixed?: boolean }) {
+  const queue: { competencyId: string; name: string }[] = mixed ? plan.extra : plan.daily;
   const [i, setI] = useState(0);
   const [item, setItem] = useState<Item | null>(null);
   const [val, setVal] = useState('');
@@ -32,7 +32,7 @@ export function ReviewSession({ plan, hi }: { plan: any; hi: boolean }) {
     setMsg(null); setFb(j.data.feedback); if (j.data.feedback?.correct) setRight((r) => r + 1);
   }
   if (queue.length === 0) return null;
-  if (!started) return <button className="btn btn--accent" onClick={() => setStarted(true)}>{T(`Start (${queue.length} short questions, about ${plan.minutes} minutes)`, `शुरू करें (${queue.length} छोटे प्रश्न, लगभग ${plan.minutes} मिनट)`)}</button>;
+  if (!started) return <button className="btn btn--accent" onClick={() => setStarted(true)}>{mixed ? T(`Start mixed practice (${queue.length} questions from different topics)`, `मिली-जुली प्रैक्टिस शुरू करें (अलग-अलग विषयों के ${queue.length} प्रश्न)`) : T(`Start (${queue.length} short questions, about ${plan.minutes} minutes)`, `शुरू करें (${queue.length} छोटे प्रश्न, लगभग ${plan.minutes} मिनट)`)}</button>;
   if (i >= queue.length) return <div className="tip-card"><p className="tip-card__body"><strong>{T('Review done.', 'पुनरावृत्ति पूरी।')}</strong> {T(`${right} of ${queue.length} right. Skills you missed will come back sooner; the others will wait longer.`, `${queue.length} में से ${right} सही। जो छूटे वे जल्दी लौटेंगे; बाकी बाद में।`)}</p></div>;
   return (
     <div className="tip-card">

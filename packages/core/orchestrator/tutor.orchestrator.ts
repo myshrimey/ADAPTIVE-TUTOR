@@ -5,6 +5,7 @@ import type { AIProvider } from '../ai-provider/ai-provider.interface';
 import { createDefaultAIProvider } from '../ai-provider/factory';
 import { loadLearnerState } from '../learner-model/learner-state.service';
 import type { LearnerState } from '../learner-model/types';
+import { scaffoldNote } from '../pedagogy/scaffold';
 import { selectStrategy, selectDifficulty, nextDifficulty, parseStudentCommand } from '../pedagogy/pedagogy.engine';
 import type { PedagogyStrategy, PedagogySignal } from '../pedagogy/strategies';
 import { buildTutorPrompt, type TutorTurnContext } from '../prompts/tutor.prompt';
@@ -283,6 +284,7 @@ async function handleMessageTurn(
     activeMisconception: ctx.activeMisconceptionText,
     questionToPose,
     diagramCaption: diagram?.caption,
+    scaffoldNote: scaffoldNote({ masteryScore: ctx.masteryScore, history: ctx.sessionPlan.history, strategy: ctx.strategy, firstExposure: ctx.masteryScore === 0 && ctx.sessionPlan.history.length === 0 }),
     sessionNote: ctx.sessionPlan.gentler ? 'Keep this turn calm and encouraging; take smaller steps.' : undefined,
     lastMessages: ctx.lastMessages,
     studentMessage: input.studentMessage ?? '(session just started)',
@@ -488,6 +490,7 @@ async function handleAnswerTurn(
     evaluationFeedback: `${isCorrect ? 'Correct' : 'Incorrect'}. ${feedbackText}`,
     questionToPose,
     diagramCaption: diagram?.caption,
+    scaffoldNote: finished ? undefined : scaffoldNote({ masteryScore: updatedMastery.score, history: historyNow, strategy: nextAction }),
     sessionNote: finished
       ? "That was the student's last planned question. Wrap up in 2-3 short sentences: one thing they did well, one thing to practise next. Do NOT ask a new question."
       : finalQuestion

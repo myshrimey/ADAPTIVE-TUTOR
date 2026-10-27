@@ -101,3 +101,6 @@ Spaced revision: /review (Revise today), rules in packages/core/revision, table 
 ## v69 (2026-10-27)
 Tutor/centre: /tutor/attention and /centre/attention (who needs attention, batches, interventions), rules in packages/core/attention, migration 0045. Advisory; only students linked by their own code; no AI.
 
+## v70 (2026-10-27)
+Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and tells the tutor (prompt line "Support:"). Optional mixed practice on /review. No migration, no new AI call.
+
