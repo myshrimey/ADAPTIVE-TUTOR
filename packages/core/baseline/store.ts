@@ -488,3 +488,29 @@ export async function practiceStep(service: SupabaseClient, studentId: string, n
 }
 async function shapeItem(i: PickedItem) { return { itemTable: i.table, itemId: i.id, prompt: i.prompt, questionType: i.questionType, options: i.options, inputKind: inputKindOf(i.questionType, i.expected), difficulty: i.difficulty, figureUrl: i.figureUrl, figureCaption: i.figureCaption }; }
 
+
+/** v68: one review question for a skill that is due (and the marking of the previous one). Unseen questions come first; the answer key never leaves the server. */
+export async function reviewStep(service: SupabaseClient, studentId: string, competencyId: string, answer?: { itemTable: string; itemId: string; answer: unknown }): Promise<{ feedback?: AnswerFeedback; item: Awaited<ReturnType<typeof shapeItem>> | null; name: string }> {
+  const { data: own } = await service.from('review_schedule').select('id').eq('student_id', studentId).eq('competency_id', competencyId).maybeSingle();
+  if (!own) throw new Error('This skill is not on your revision list.');
+  const { data: comp } = await service.from('competencies').select('id, code, name, class_level, skill_id, chapter, topic, domain, cognitive_level, importance').eq('id', competencyId).single();
+  const c: any = comp;
+  let feedback: AnswerFeedback | undefined;
+  if (answer) {
+    const item = await loadItem(service, answer.itemTable, answer.itemId);
+    if (!item) throw new Error('The question could not be loaded.');
+    const given = extractString(answer.answer);
+    const problem = validateAnswer(inputKindOf(item.questionType, item.expected), given);
+    if (problem) return { feedback: { correct: false, correctAnswer: '', explanation: null, formatProblem: problem }, item: await shapeItem(item), name: c.name };
+    const ok = gradeAnswer(item.expected, answer.answer);
+    feedback = { correct: ok, correctAnswer: extractString(item.expected), explanation: item.explanation };
+    await recordCompetencyEvidence(service, studentId, { competencyId, correct: ok, difficulty: item.difficulty, source: 'review', itemTable: item.table, itemId: item.id });
+    return { feedback, item: null, name: c.name };
+  }
+  const { data: m } = await service.from('student_competency_mastery').select('mastery, evidence_count').eq('student_id', studentId).eq('competency_id', competencyId).maybeSingle();
+  const mm: any = m;
+  const settings = await loadEngineSettings(service);
+  const seen = await seenFor(service, studentId, {});
+  const item = await pickItem(service, { id: c.id, code: c.code, classLevel: c.class_level, name: c.name, domain: c.domain, importance: c.importance, skillId: c.skill_id, cognitiveLevel: c.cognitive_level } as Competency, mm && mm.mastery >= 0.6 ? 3 : 2, seen, settings, (mm?.evidence_count ?? 0) + 7);
+  return { item: item ? await shapeItem(item) : null, name: c.name };
+}

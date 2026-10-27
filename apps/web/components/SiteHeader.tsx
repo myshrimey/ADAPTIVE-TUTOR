@@ -89,7 +89,7 @@ export function SiteHeader() {
     ...(signedIn ? [{ href: '/mock', label: t('nav.mock'), desc: t('nav.descMock'), icon: '⏱' }] : []),
     ...(signedIn ? [{ href: '/written', label: t('nav.written'), desc: t('nav.descWritten'), icon: '✎' }] : []),
     { href: '/papers', label: t('nav.pastPapers'), desc: t('nav.descPapers'), icon: '❏' },
-    ...(signedIn ? [{ href: '/challenge', label: t('nav.challenges'), desc: t('nav.descChallenges'), icon: '⚔' }, { href: '/mistakes', label: t('nav.mistakeBook'), desc: t('nav.descMistakeBook'), icon: '✓' }, { href: '/achievements', label: t('nav.achievements'), desc: t('nav.descAchievements'), icon: '🏅' }, { href: '/journey', label: t('nav.journey'), desc: t('nav.descJourney'), icon: '➤' }] : []),
+    ...(signedIn ? [{ href: '/challenge', label: t('nav.challenges'), desc: t('nav.descChallenges'), icon: '⚔' }, { href: '/review', label: t('nav.revise'), desc: t('nav.descRevise'), icon: '↻' }, { href: '/mistakes', label: t('nav.mistakeBook'), desc: t('nav.descMistakeBook'), icon: '✓' }, { href: '/achievements', label: t('nav.achievements'), desc: t('nav.descAchievements'), icon: '🏅' }, { href: '/journey', label: t('nav.journey'), desc: t('nav.descJourney'), icon: '➤' }] : []),
   ];
 
   // Plans & Pricing: visible to everyone, on every page, signed in or not. Prices are never typed here: /plans reads them from the database.

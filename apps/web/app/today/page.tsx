@@ -25,6 +25,7 @@ export default async function TodayPage() {
       {h.achievements.newlyUnlocked.length > 0 && <p className="alert" style={{ borderLeftColor: 'var(--mastered)', background: 'var(--mastered-bg)', color: 'var(--mastered)' }}>{L('today.newAch')}: {h.achievements.newlyUnlocked.map((x) => trE(x, lang)).join(', ')}</p>}
       {h.notices.length > 0 && <div style={{ marginTop: 'var(--space-2)' }}>{h.notices.map((n) => <p key={n} className="tip-card__body" style={{ margin: '0.2rem 0' }}>• {trE(n, lang)}</p>)}</div>}
 
+      <p style={{ margin: '0.6rem 0' }}><a className="btn btn--ghost btn--small" href="/review">{lang === 'hi' ? '↻ आज की पुनरावृत्ति' : '↻ Revise today'}</a></p>
       <div className="stat-tile-row">
         {h.on.xp && <div className="stat-tile stat-tile--gradient"><span className="stat-tile__value">{h.xpTotal}</span><span className="stat-tile__label">{L('today.xp', { n: h.xpToday })}</span></div>}
         {h.on.streaks && <div className="stat-tile"><span className="stat-tile__value">{h.streak.current}</span><span className="stat-tile__label">{L('today.streak', { n: h.streak.longest })}</span></div>}

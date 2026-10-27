@@ -9,10 +9,10 @@ const ROWS: [string, string, S, string][] = [
   ['3, 38, 39', 'One student model; evidence from every source', 'PARTIAL', 'Mastery, confidence, misconceptions, diagnostics, quizzes, mocks and handwriting all write to the same student records. There is no single "evidence fusion" layer that weighs voice, typed and handwritten evidence together.'],
   ['4-5', 'Adaptive diagnostic and baseline (goes down to earlier classes)', 'BUILT', 'v62: Class 6-9 foundation graph for Maths; other subjects still need their earlier-class graphs; teacher review of the graph pending.'],
   ['6', 'Learning strategy orchestrator', 'PARTIAL', 'A rule-based engine picks among 11 teaching moves (explain, example, guided practice, Socratic, hint, simplify, prerequisite repair, review, challenge, test…). The prompt lists 25 methods; the rest (for example interleaving, self-explanation, project learning) are not selected by any rule.'],
-  ['7', 'Full learning loop', 'PARTIAL', 'Diagnose, explain, practise, quiz, mock and report exist. Scheduled spaced review and interleaving, which close the loop, do not.'],
+  ['7', 'Full learning loop', 'PARTIAL', 'Diagnose, explain, practise, quiz, mock, report and (v68) spaced review exist. Interleaving inside practice and the staged worked-example sequence do not.'],
   ['8', 'Error intelligence', 'PARTIAL', 'Error types are tagged (Maths, Science, Language sets). A matching intervention recipe for each error ("2 worked examples + 3 guided problems…") is not built.'],
   ['9', 'Mastery states', 'PARTIAL', 'Mastery score with evidence labels and readiness bands. The six named states (Not yet demonstrated … Mastered) are not a configurable setting.'],
-  ['10', 'Spaced revision scheduler', 'NOT IMPLEMENTED', 'Retention is measured from later attempts; there is no daily / weekly / pre-exam review scheduler yet.'],
+  ['10', 'Spaced revision scheduler', 'BUILT', 'NEW in v68: each skill comes back after 1, 3, 7, 14, 30, 60 days (sooner after a miss; never after the exam date); daily, weekly, long-gap and pre-exam (last 21 days) views; /review page; questions not seen before come first and skills are mixed across chapters. Rules only, no AI. Not yet tried with real students.'],
   ['11', 'Interleaving engine', 'NOT IMPLEMENTED', ''],
   ['12', 'Worked example and fading-support engine', 'NOT IMPLEMENTED', 'The tutor can give examples and hints, but there is no staged full → partial → independent sequence.'],
   ['13', 'Metacognition prompts and calibration', 'PARTIAL', 'Pre-session confidence check-in, confidence trend and a gentle confidence-vs-result note. Per-question "how confident are you?" is not built.'],
@@ -60,7 +60,6 @@ export default async function Page() {
       </Section>
       <Section title="Suggested order for the missing parts">
         <ol style={{ paddingLeft: '1.2rem' }}>
-          <li>Spaced revision scheduler (rules only, no AI cost): it closes the learning loop and helps retention most.</li>
           <li>Tutor and centre batches, assignments and intervention tracking (what tutors and centres pay for).</li>
           <li>Worked-example fading and interleaving inside practice sessions (rules only).</li>
           <li>Teach Sahayak and Voice: decide the AI cost budget first; both need a provider.</li>

@@ -1,23 +1,25 @@
-SAHAYAK - v67 UPDATE  (tidy admin menu + Feedback Intelligence + status page)
-Apply v66 (and everything before it) first.
+SAHAYAK - v68 UPDATE  (spaced revision: "Revise today")
+Apply v67 (and everything before it) first.
+
+GOOD NEWS FIRST: your screenshot shows the Website traffic page now counting visits (6 visitors, 7 sessions). So the counter works.
 
 WHAT THIS UPDATE DOES
-1. A NEW ADMIN MENU. At the top of every admin page there is now one bar with 8 headings: Overview, Students & Learning, Content & Questions, AI, Money, Customers & Growth, Feedback, Settings & Safety. Click a heading to see its pages with a short line about each. A "Find a page" box finds any page by name (for example type "traffic" or "olympiad"). The page you are on is highlighted and shown as "Heading > Page". On a phone it folds into a "Menu" button. The Command Centre also has "Everything in one place", a fold-out list of all pages by heading.
-2. FEEDBACK INTELLIGENCE (Admin > Feedback > Feedback Intelligence). Messages from students and parents are sorted by fixed rules into groups (for example "Translation problem - quiz"), with how many people reported it, how serious it looks, how much care a fix needs, a likely cause and a suggested action. These are GUESSES from the words people wrote and are labelled so. No AI is used, so it costs nothing.
-   You decide with five buttons: Approve, Reject, Modify, Investigate, Defer. Later you can mark a group Implemented, Verified or Rolled back. For high-risk groups (scores, answers, plans, prices) Approve needs a written note and a tick "I have tested this". Pressing a button only records YOUR decision and keeps a history; it never changes a question, score, price or lesson.
-   Admin > Feedback > All feedback messages is the plain list, now with the menu.
-3. "WHAT IS BUILT / NOT BUILT" (Admin > Settings & Safety). A plain table of every part of your big "Learning Intelligence Platform" prompt marked BUILT, PARTIAL, NOT IMPLEMENTED or REQUIRES PROVIDER.
-4. Migration 0043 (new feedback columns and two server-only tables). Safe to run twice.
+Students now get a short, mixed review of skills that are DUE, planned from the answers they already gave. This helps them remember, not just learn once.
+1. A skill is shown again after 1, 3, 7, 14, 30 and 60 days. If the student gets it right when it is due, it waits longer. If they miss it, it comes back sooner.
+2. Ten questions in one evening count as ONE day, so cramming does not push the next review far away.
+3. From 21 days before the Board exam date (the date you entered under Boards, exams, country prices) the page switches to "Exam revision". No review is ever planned after the exam starts. If you have not entered the date, this simply does not apply.
+4. The "Revise today" page (menu: Learn > Revise today, and a button on Today) shows: skills due today, due in the next 7 days, and long-gap skills. It starts a short session of up to 6 questions (10 near the exam), one per skill, mixed across chapters. Questions the student has not seen come first. Answers are checked on the server; the answer key is never sent to the browser.
+5. No marks, ranks or labels are shown. English and Hindi.
+6. Migration 0044 (one new table). Safe to run twice. No AI is used, so no AI cost.
 
 STEPS
 1. Unzip over your project folder (replace files).
 2. npm install
-3. npm run db:migrate   (adds 0043)
+3. npm run db:migrate   (adds 0044)
 4. Deploy as usual.
-5. Open /admin and look at the new menu. Open Feedback > Feedback Intelligence (it sorts any existing feedback the first time you open it).
-6. STILL WAITING FROM v66: on Admin > Website traffic press "Check the counter" and send me the lines it shows.
+5. Sign in as a student who has done some practice or quiz; open Revise today. A brand-new student will see "Nothing to revise yet" - that is correct.
 
-TESTED: about 60 checks on the menu (every admin page is in it once, no dead links), the sorting rules, the review rules and the decision history (including your example: 37 Hindi reports become one kind of group); old checks for v63-v65 still pass; type check and full build pass; migration 0043 ran twice on a test database.
-NOT TESTED: on your live site with real feedback, or on a phone screen. The sorting rules were written by me and have never seen real messages: expect some wrong groups at first; tell me examples and I will adjust.
-NOT BUILT (the big prompt asks for these; I did not fake them): a revision scheduler (daily/weekly review), mixing topics (interleaving), step-by-step worked examples, "Teach Sahayak", voice listening (needs a speech provider and a cost decision), tutor/centre batches, a School Admin role, linking feedback to the exact question reported, AI-written fix proposals. See the status page for the full list and a suggested order.
+TESTED: 30 checks on the review rules (steps, one-day-counts-once, early pass/miss, exam cap, pre-exam mode, mixing, ordering) and on the schedule update using a test database stand-in; old checks for v63-v67 still pass; type check and full build pass; migration 0044 ran twice on a test database.
+NOT TESTED: on your live site, with real students, or on a phone. The step lengths (1, 3, 7, 14, 30, 60) are a standard starting point, not tuned to your students.
+NOT BUILT: reminders or notifications, a parent/tutor view of what is due, tuning from real data.
 NOT DEPLOYED by me.

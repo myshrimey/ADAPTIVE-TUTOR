@@ -664,3 +664,5 @@ feedback: + category, feature_area, severity (low|medium|high), cluster_id, dupl
 feedback_clusters: id, title, category, feature_area, keywords[], severity, risk, status (new|analysed|proposed|under_review|approved|rejected|modified|deferred|implemented|verified|rolled_back), report_count, duplicate_count, affected_pages[], likely_cause, proposed_action, reviewer_note, decided_by, decided_at, tested, created_at, updated_at. RLS on, no policies (server only).
 feedback_cluster_events: id, cluster_id -> feedback_clusters (cascade), at, actor, from_status, to_status, note. RLS on, no policies.
 
+## v68 (migration 0044)
+review_schedule: id, student_id, competency_id (unique together), rung, interval_days, reps, lapses, due_on, last_day, last_result (first|pass|fail|early), last_evidence_at, updated_at. RLS on; student own-read policy; writes server only.

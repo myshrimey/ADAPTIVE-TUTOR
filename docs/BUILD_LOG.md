@@ -4,6 +4,17 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v68 - Spaced revision scheduler (2026-10-26)
+Founder: "continue building". Master prompt section 10 (the biggest gap on /admin/roadmap).
+- Migration 0044 `review_schedule` (per student per competency: step, interval, reps, lapses, due date; own-read RLS, server writes).
+- `packages/core/revision/` (schedule.ts pure rules, store.ts): worked out from `student_competency_evidence` (quizzes, path practice, diagnostics, reviews), so no change to existing answer paths. Steps 1/3/7/14/30/60 days; each IST day counts once; a pass on/after the due day moves up, a miss (even early) goes back to step 1 and counts a lapse (2+ lapses = 30% shorter intervals); early passes change nothing; due date never later than the day before the exam (setting `boards` board1_date; ignored if blank or past); pre-exam mode in the last 21 days. Plan = daily (cap 6, 10 pre-exam), weekly count, long-gap count; priority = overdue x lapses x importance x weakness; neighbours mixed across chapters.
+- `reviewStep` in baseline/store.ts: one unseen-first question per due skill, marked on the server, answer key never sent; evidence recorded with source 'review', which feeds the schedule and the mastery estimate.
+- `/review` page + `/api/review`, "Revise today" in the header menu and a button on /today. English and Hindi.
+- Tests: t68 (30 checks on the rules + store on a fake DB), t67/t67b/t63/t64/t65 still pass; tsc clean; full build clean; 0044 twice on Postgres 16.
+- Not done: reminders/notifications, parent/tutor view of due reviews, tuning of the steps with real data.
+
+---
+
 ## v67 - Grouped admin menu, Feedback Intelligence, status page (2026-10-26)
 Founder asked for a tidy admin menu with categories, and to execute the "Learning Intelligence Platform" master prompt.
 - Admin menu: one list (`apps/web/lib/admin-menu.ts`) of 8 groups (Overview, Students & Learning, Content & Questions, AI, Money, Customers & Growth, Feedback, Settings & Safety). `AdminNav` now renders `components/AdminMenu.tsx` (dropdowns, search box, current page highlighted, phone-friendly). All ~45 admin pages pick it up with no edits. Command Centre has an "Everything in one place" map (`AdminMap`). Test t67 checks every admin page is in the menu exactly once and every link has a page.
