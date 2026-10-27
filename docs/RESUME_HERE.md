@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v68 (2026-10-26)
+## Latest delivery - v69 (2026-10-27)
+Tutor/centre "Who needs my attention", batches, intervention tracking (/tutor/attention, /centre/attention, migration 0045). Apply after v68: `sahayak-v69-tutor-centre-attention-delta.zip`. Founder: `npm run db:migrate`, deploy; try it with a tutor test account linked to a test student. Next candidates: worked-example fading + interleaving; assigning work to a batch; tutor-under-centre; Teach Sahayak / Voice need an AI cost decision.
+
+## Previous delivery - v68 (2026-10-26)
 Spaced revision scheduler: /review "Revise today", migration 0044. Apply after v67: `sahayak-v68-spaced-revision-delta.zip`. Founder: `npm run db:migrate`, deploy. Traffic counter now works (founder's screenshot showed visits). Next candidates from /admin/roadmap: tutor/centre batches + intervention tracking; worked-example fading + interleaving; Teach Sahayak / Voice need an AI cost decision first.
 
 ## Previous delivery - v67 (2026-10-26)

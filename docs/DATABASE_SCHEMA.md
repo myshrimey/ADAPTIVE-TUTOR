@@ -666,3 +666,10 @@ feedback_cluster_events: id, cluster_id -> feedback_clusters (cascade), at, acto
 
 ## v68 (migration 0044)
 review_schedule: id, student_id, competency_id (unique together), rung, interval_days, reps, lapses, due_on, last_day, last_result (first|pass|fail|early), last_evidence_at, updated_at. RLS on; student own-read policy; writes server only.
+
+## v69 (migration 0045)
+batches: id, owner_user_id -> users, name, subject_id (nullable), archived, created_at.
+batch_students: (batch_id, student_id) primary key, added_at.
+interventions: id, owner_user_id, student_id, skill_id (nullable), problem, evidence, action, status (planned|done|dropped), baseline_score, followup_score, result (improved|no_change|lower|not_enough_data), created_at, done_at, measured_at.
+All three: RLS on, no policies (server only; access is checked against active student_links).
+

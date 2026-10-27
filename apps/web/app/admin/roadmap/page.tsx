@@ -21,7 +21,7 @@ const ROWS: [string, string, S, string][] = [
   ['17', 'Visual learning', 'PARTIAL', 'Diagrams and level-adaptive animations exist; maps, graphs and charts per subject are not built.'],
   ['18', 'Handwritten mock evaluation', 'BUILT', 'Rs 499 unit, per-evaluation cost and margin check. Photo question/answer bank stays OFF until your lawyer approves the wording.'],
   ['19-20', 'Parent intelligence and next-best action', 'BUILT', 'Parent view, 30-day change report, confidence trend, readiness band, next step.'],
-  ['21-24', 'Tutor and coaching-centre intelligence', 'PARTIAL', 'Linked-student reports exist. Batches, assignments, intervention tracking and the centre heat-map are not built.'],
+  ['21-24', 'Tutor and coaching-centre intelligence', 'PARTIAL', 'NEW in v69: "Who needs my attention" (ranked, with evidence and a suggested action), batches with common gaps, and intervention tracking (problem, evidence, action, result after 5+ days) for tutors and centres, limited to students who linked with their own code. Rules only, advisory. Not built: assigning work to a batch, tutor-under-centre hierarchy, centre heat-map, parent-report generator, parent view of what the tutor planned.'],
   ['25, 44', 'Roles, privacy, audit', 'PARTIAL', 'Student, parent, tutor, teacher, centre and admin roles with row-level security; AI keys server-side; export/delete. No School Admin role. Audit log covers newer admin actions only.'],
   ['26-30', 'Feedback intelligence and human review gate', 'PARTIAL', 'NEW in v67: messages are sorted by rules into groups with severity and risk; five review buttons; approve needs a note and a "tested" tick for high-risk groups. Not built: AI-written fix proposals, link to the exact question reported, automatic deployment (deliberately none).'],
   ['31-35', 'AI router, fallback, ledger, economics', 'BUILT', 'Providers and prices are settings. Nothing about any provider\'s free tier or price is verified: check each one yourself.'],
@@ -60,7 +60,6 @@ export default async function Page() {
       </Section>
       <Section title="Suggested order for the missing parts">
         <ol style={{ paddingLeft: '1.2rem' }}>
-          <li>Tutor and centre batches, assignments and intervention tracking (what tutors and centres pay for).</li>
           <li>Worked-example fading and interleaving inside practice sessions (rules only).</li>
           <li>Teach Sahayak and Voice: decide the AI cost budget first; both need a provider.</li>
         </ol>

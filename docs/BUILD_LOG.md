@@ -4,6 +4,19 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v69 - Tutor and centre: who needs attention, batches, interventions (2026-10-27)
+Founder: "continue". Master prompt sections 21-24 (Tutor / Coaching Centre intelligence), the next gap on /admin/roadmap.
+- Migration 0045: `batches`, `batch_students`, `interventions` (server-only, RLS on, no policies).
+- `packages/core/attention/` (rules.ts pure; store.ts): per linked student, rules turn recorded practice (average mastery, days since last session, sessions in 14 days, low skills, overdue reviews, lapses) into one of: Needs a conversation / Keep an eye / Going well / Ready for harder work / Not enough information yet, with reasons, evidence and a suggested action. Supportive labels only; no marks prediction, no rank.
+- Batches: tutor/centre creates batches and ticks students in; batch summary shows active students, average, how many need a conversation, and gaps shared by 2+ students.
+- Interventions: problem -> evidence -> action -> result. Baseline = skill score when saved; when marked done and 5+ days later the score is compared (improved / no change / lower / not enough data, threshold 8 points). Wording says it shows what happened, not what caused it.
+- Privacy: every function starts from the caller's ACTIVE `student_links` rows; ids are re-checked on the server; a revoked link removes the student from boards and batches at once; one adult cannot read or change another's batches or interventions (tested).
+- Pages `/tutor/attention`, `/centre/attention`, API `/api/portal/org` (active tutor/centre only), button on the tutor/centre dashboard.
+- Tests: t69 (about 40 checks incl. the privacy boundary), t63-t68 pass, tsc clean, full build clean, 0045 twice on Postgres 16.
+- Not done: assigning work to a batch, a tutor-under-centre hierarchy, centre heat-map, parent-report generator, parent view of tutor plans, notifications.
+
+---
+
 ## v68 - Spaced revision scheduler (2026-10-26)
 Founder: "continue building". Master prompt section 10 (the biggest gap on /admin/roadmap).
 - Migration 0044 `review_schedule` (per student per competency: step, interval, reps, lapses, due date; own-read RLS, server writes).

@@ -145,3 +145,5 @@ Read `docs/RESUME_HERE.md` — it always holds the exact next three tasks, curre
 - v66: the analytics counter must never fail silently where an admin can look: `/admin/traffic` has "Check the counter"; `/api/track` logs `[track]` errors server-side. Migrations now go through `0042` (0042 only reloads the API schema cache).
 - v67: every admin page must be listed in `apps/web/lib/admin-menu.ts` (test t67 fails otherwise); the menu is rendered by `AdminNav`, so do not hand-write link lists in pages. Feedback groups are made by fixed rules, labelled ESTIMATED; a person's decision never changes the product by itself. Migrations now go through `0043`.
 - v68: revision due dates are derived from `student_competency_evidence` (never from a separate answer path); keep `foldEvidence` idempotent. Migrations now go through `0044`.
+- v69: tutor/centre data access always starts from `linkedStudents()` (ACTIVE student_links); never query a student by an id the browser sent without checking it there. Attention labels stay supportive (see ATTENTION_LABEL, tested). Migrations now go through `0045`.
+

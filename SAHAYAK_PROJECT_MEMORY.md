@@ -97,3 +97,7 @@ Admin menu grouped into 8 categories (apps/web/lib/admin-menu.ts is the single l
 
 ## v68 (2026-10-26)
 Spaced revision: /review (Revise today), rules in packages/core/revision, table review_schedule (0044), built from student_competency_evidence. No AI.
+
+## v69 (2026-10-27)
+Tutor/centre: /tutor/attention and /centre/attention (who needs attention, batches, interventions), rules in packages/core/attention, migration 0045. Advisory; only students linked by their own code; no AI.
+

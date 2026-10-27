@@ -81,6 +81,7 @@ export async function PortalDashboard({ me }: { me: PortalUser }) {
         )}
 
         <div style={{ marginTop: 'var(--space-3)' }}><LinkStudentForm disabled={me.status !== 'active'} /></div>
+        {me.role !== 'parent' && <p style={{ marginTop: 'var(--space-2)' }}><a className="btn btn--accent btn--small" href={`/${me.role}/attention`}>Who needs attention, batches and interventions</a></p>}
         {me.role !== 'parent' && <p style={{ marginTop: 'var(--space-2)' }}><a className="btn btn--ghost btn--small" href={`/${me.role}/challenges`}>Set a challenge for your students</a></p>}
         {me.role !== 'parent' && <p style={{ marginTop: 'var(--space-2)' }}><a className="btn btn--ghost btn--small" href={`/${me.role}/baseline`}>Common prerequisite gaps across your students</a></p>}
         {me.role !== 'parent' && <p style={{ marginTop: 'var(--space-2)' }}><a className="btn btn--ghost btn--small" href={`/${me.role}/questions`}>Add questions or ask for questions</a></p>}
