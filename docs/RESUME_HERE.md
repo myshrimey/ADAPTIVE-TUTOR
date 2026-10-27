@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v71 (2026-10-27)
+## Latest delivery - v72 (2026-10-27)
+Social Media Growth Engine at /admin/social-growth (migration 0046). Apply after v71: `sahayak-v72-social-growth-delta.zip`; `npm run db:migrate`; deploy. Founder next: enter website address in its Settings tab; try Generate Today's Content.
+
+## Previous delivery - v71 (2026-10-27)
 Error patterns and ready plans (tutor/centre board, parent/tutor student view). No migration. Apply after v70: `sahayak-v71-error-plans-delta.zip`.
 
 ## Previous delivery - v70 (2026-10-27)

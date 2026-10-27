@@ -1,20 +1,31 @@
-SAHAYAK - v71 UPDATE  (what kind of mistakes, and a ready plan for each)
-Apply v70 (and everything before it) first. NO database change.
+SAHAYAK - v72 UPDATE  (Social Media Growth Engine)
+Apply v71 (and everything before it) first. THIS UPDATE HAS ONE DATABASE CHANGE (0046).
 
-WHAT THIS UPDATE DOES
-A mistake is more than "wrong": the KIND of mistake decides what helps. Sahayak now looks at a student's recent mistakes (last 90 days) and, when at least 3 are of one kind and they are at least 40% of the mistakes, names the pattern in plain words and gives a ready plan. Examples of kinds: steps done out of order; slips in arithmetic; careless slips; two ideas mixed up; an earlier skill missing; question misread; knows the idea but struggles to apply it; fact or term not firm; language of the question; answer stops short.
-Example plan (steps done out of order): 2 worked examples, then 3 problems done together, then 2 on their own, then a quick check after 2 days and again after 7 days.
-WHERE IT SHOWS
-1. Tutor / coaching-centre page "Who needs attention": the suggestion names the pattern and adds the plan and a tip. It is also copied into the "Plan an intervention" form.
-2. When a parent, tutor or centre opens a linked student: a card "What may help". Parents get a simple at-home tip; tutors and centres get the full plan.
-It is never shown to the child as a label, and one or two slips never count as a pattern. It uses fixed rules, so no AI cost.
+WHAT IT IS
+A new admin page, /admin/social-growth (menu: "Customers & Growth" > "Social Media Growth Engine"; also a summary card at the top of the Founder Command Centre). It helps you make, review, approve and track Facebook, Instagram and LinkedIn posts, and learn which ones bring families to Sahayak.
+
+IMPORTANT - WHAT IT DOES NOT DO
+No Facebook, Instagram or LinkedIn account is connected. So it NEVER posts for you and NEVER fetches your results. You copy the text, post it yourself, then press "Mark as published" and paste the post address. Later you type the numbers (likes, clicks, leads...) in. Anything you did not type shows "Not available", never 0.
 
 STEPS
 1. Unzip over your project folder (replace files).
 2. npm install
-3. Deploy as usual. (No npm run db:migrate.)
+3. npm run db:migrate   (creates the Social Growth tables; safe to run twice)
+4. Deploy as usual.
+5. Open /admin/social-growth > Settings tab > type your website address (https://...) so tracked links can be made. Press Save.
+6. Today tab > "Generate Today's Content". Open each post, read the warnings, edit, "Send for approval", "Approve", post it yourself, "Mark as published".
 
-TESTED: about 60 checks (every kind of mistake the app records is mapped, plans are complete and supportive, thresholds, and counting only the right student and the last 90 days); older checks v63-v70 pass; type check and full build pass.
-NOT TESTED: with real students' mistakes on your live site. The 3-mistake and 40% thresholds are my starting values.
-NOT BUILT: spotting "answer given without reasons", tagging mistakes inside written answers.
+IF YOU SEE "this account isn't in ADMIN_EMAILS"
+The sign-in page now tells you: Admin email, whether ADMIN_EMAILS is configured (Yes/No) and Email authorized (No). It never shows the setting itself. If "configured" is No, add ADMIN_EMAILS in Vercel > Settings > Environment Variables (your email, several separated by commas) and redeploy. Capital letters and spaces do not matter.
+
+WHAT YOU CAN DO
+- Generate today's 3 posts, or 7/14/30-day calendars (free templates), or one post with your own choices, or one idea turned into 8 formats (Facebook, Instagram caption/carousel/Reel, LinkedIn, WhatsApp, email, blog outline).
+- "Let AI write it" is optional and goes through the same AI system as the rest of the app (cost appears in the AI usage pages as feature social_content). Limits per day/month/spend are in Settings.
+- Change a post: shorten, expand, simplify, more professional/emotional/educational/conversational, translate to Hindi/English, new hashtags/hook/call to action, change audience or platform.
+- Review checks (safety, brand, unsupported claims, platform, grammar, call to action, hashtags). They WARN; they never rewrite your words. A serious warning needs a written reason to approve.
+- Campaigns, tracked links (utm), A/B tests with a winner, library with search and filters, competitor notes (typed by you), insights, CSV downloads, 20 editable content pillars.
+
+TESTED: about 60 automatic checks (several repeated across roughly 1,000 generated drafts) (every template across all platforms and types is free of promises/fake numbers; rules; status workflow and history; approval reverts when words change; results; Not-available rules; limits; cost reading; attribution; settings; AI reply parsing with a stand-in AI), older checks v63-v71 pass, type check, full production build, database update run twice with no errors and no duplicate rows, and every new page/API refuses a signed-out visitor (403).
+NOT TESTED: signing in as a non-admin and as you on the live site (the admin rule is the same existing one, not new code); a real AI write with your configured providers; your real Supabase after the update. Please try after deploying.
+NOT BUILT: posting to platforms, reading results from platforms, scheduling (so no "Scheduled" status), image generation (you get a detailed image brief and prompt instead), drag-and-drop calendar (arrows move a post by a day), automatic daily generation, linking payments to a specific post (revenue and customers are numbers you enter), an automatic Hindi template (Hindi needs the AI "Translate" button), lint (no lint is set up in this project), a git branch (no git here).
 NOT DEPLOYED by me.

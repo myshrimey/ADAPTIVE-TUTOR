@@ -673,3 +673,5 @@ batch_students: (batch_id, student_id) primary key, added_at.
 interventions: id, owner_user_id, student_id, skill_id (nullable), problem, evidence, action, status (planned|done|dropped), baseline_score, followup_score, result (improved|no_change|lower|not_enough_data), created_at, done_at, measured_at.
 All three: RLS on, no policies (server only; access is checked against active student_links).
 
+## 0046 Social Media Growth Engine (v72)
+All server-only (RLS on, no policies): social_campaigns, social_experiments, social_content, social_publications, social_metrics (unique content_id+metric_date), social_audit_log, social_pillars (20 defaults), social_hashtags (defaults), social_observations. Settings: commerce_settings key `social_growth`.

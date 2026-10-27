@@ -20,7 +20,7 @@ export interface AIImage {
   base64: string;
 }
 
-export type AIFeature = 'tutor' | 'evaluation' | 'summary' | 'explanation' | 'question_generation' | 'misconception' | 'handwriting' | 'translation' | 'benchmark' | 'provider_test' | 'other';
+export type AIFeature = 'tutor' | 'evaluation' | 'summary' | 'explanation' | 'question_generation' | 'misconception' | 'handwriting' | 'translation' | 'benchmark' | 'provider_test' | 'social_content' | 'other';
 
 export interface AICompletionResult {
   text: string;

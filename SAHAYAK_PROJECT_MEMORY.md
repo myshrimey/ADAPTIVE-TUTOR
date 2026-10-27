@@ -104,3 +104,4 @@ Tutor/centre: /tutor/attention and /centre/attention (who needs attention, batch
 ## v70 (2026-10-27)
 Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and tells the tutor (prompt line "Support:"). Optional mixed practice on /review. No migration, no new AI call.
 
+- v72 (2026-10-27): Social Media Growth Engine at /admin/social-growth, migration 0046, manual publishing only (no platform connected), AI via gateway feature social_content.

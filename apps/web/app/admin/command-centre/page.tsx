@@ -1,3 +1,4 @@
+import { SocialGrowthCard } from '@/components/SocialGrowthCard';
 import { createServiceClient } from '@/lib/supabase-server';
 import { adminPageGate, AdminNav, AdminMap } from '@/lib/admin-page';
 import { loadCommandCentreAi, loadCommandCentre, rangeBounds, RANGES, CRM_STAGES, FUNDING_STAGES, FUNDING_KINDS, EXPENSE_CATEGORIES, CRM_KINDS } from '@adaptive-tutor/core';
@@ -35,6 +36,8 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ r
         <summary style={{ cursor: 'pointer', fontWeight: 600 }}>Everything in one place (all admin pages by category)</summary>
         <div style={{ marginTop: '0.6rem' }}><AdminMap /></div>
       </details>
+
+      <SocialGrowthCard />
 
       <Section title="Business health">
         <p style={{ fontSize: '1.05rem' }}><Dot rag={d.health} /> <strong>{healthText}</strong></p>

@@ -137,3 +137,4 @@ export * from './revision';
 export * from './attention';
 export * from './pedagogy/scaffold';
 export * from './error-intel';
+export * from './social-growth';

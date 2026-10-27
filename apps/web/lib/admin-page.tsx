@@ -20,6 +20,13 @@ export async function adminPageGate(): Promise<{ email: string } | { gate: React
           {user ? (
             <>
               <p className="alert">Signed in as {user.email}, but this account isn&apos;t in ADMIN_EMAILS.</p>
+              {/* Safe diagnosis: says whether the setting exists and whether this email matches, never what the setting contains. */}
+              <ul style={{ fontSize: '0.9rem', lineHeight: 1.6 }}>
+                <li>Admin email: {user.email}</li>
+                <li>ADMIN_EMAILS configured: {allowed.length > 0 ? 'Yes' : 'No'}</li>
+                <li>Email authorized: No</li>
+              </ul>
+              <p style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>{allowed.length === 0 ? 'The ADMIN_EMAILS setting is empty or missing on the server. Add it in your hosting settings (Vercel > Settings > Environment Variables) and redeploy.' : 'The setting exists but this email is not in it. Check spelling (capital letters do not matter), separate several emails with commas, and redeploy after any change.'}</p>
               <SignOutButton label="Sign out" />
             </>
           ) : (

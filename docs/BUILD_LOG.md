@@ -4,6 +4,17 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v72 - Social Media Growth Engine (2026-10-27)
+Founder request: the 60-section Social Media Growth Engine prompt. Migration 0046. Additive; no existing file replaced.
+- Core `packages/core/social-growth/` (constants, status machine, checks + quality guide, templates, hashtags, calendar/daily/repurpose plans, publisher + image abstractions (no adapter connected), insights, settings, AI helper, store).
+- Statuses IDEA > DRAFT > REVIEW > APPROVED > PUBLISHED (+ REJECTED, ARCHIVED). SCHEDULED deliberately absent (no scheduler). PUBLISHED only by the founder pressing "Mark as published". Every change is written to `social_audit_log` (who, previous, new, reason). Editing approved words sends the post back to DRAFT.
+- AI only through the existing gateway (`feature: social_content`, `ref` = post id), so cost lands in `ai_usage`; daily/monthly/spend limits read that ledger. Prompt version `social-v1` stored with provider/model/request id.
+- Attribution: tracked links use utm_source/medium/campaign/content (existing traffic + signup capture understand them). Visits and sign-ups are counted from `page_views` / `users.utm`; leads, customers and revenue are entered by hand. Unrecorded = "Not available", never 0.
+- Admin: `/admin/social-growth` (menu: Customers & Growth), API `/api/admin/social-growth/[section]` + `/export`, Command Centre card, admin sign-in page now shows email / ADMIN_EMAILS configured Yes-No / authorized No (never the value).
+- Tests: t72 (about 60 checks, several of them repeated across roughly 1,000 generated drafts) + t63-t71 pass; tsc clean; production build clean; migration run twice; all new routes return 403 when signed out.
+
+---
+
 ## v71 - Error patterns and ready plans (2026-10-27)
 Master prompt sections 8-9; no migration.
 - `packages/core/error-intel/` (recipes.ts pure, store.ts): maps the 18 tutor misconception tags and 11 adaptive-check error types onto 11 families; `dominantPattern` needs 3+ mistakes and a 40%+ share (one or two slips are never a pattern); each family has a recipe (likely cause, steps with counts, spaced review, tutor tip, parent tip). GUESSING/UNKNOWN are ignored. Last 90 days.

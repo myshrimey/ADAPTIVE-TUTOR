@@ -1800,3 +1800,28 @@ button.nav-cta--button { border: 0; cursor: pointer; font-family: inherit; displ
 .admin-map__card h3 { margin: 0 0 0.1rem; font-size: 1.05rem; }
 .admin-map__card p { margin: 0 0 0.4rem; font-size: 0.8rem; color: var(--slate); }
 .admin-map__card a { display: block; padding: 0.15rem 0; color: var(--ink); }
+
+/* v72 Social Media Growth Engine */
+.sg { display: block; }
+.sg-tabs { display: flex; gap: 0.4rem; overflow-x: auto; padding-bottom: 0.3rem; margin: 0.5rem 0; }
+.sg-tabs .btn { white-space: nowrap; flex: 0 0 auto; }
+.sg-ok { background: #e8f4ee; border: 1px solid #b9dcc8; color: #1f4d36; border-radius: 8px; padding: 0.5rem 0.8rem; margin: 0.5rem 0; }
+.sg-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.5rem; margin: 0.6rem 0; }
+.sg-tile { border: 1px solid var(--line, #ddd); border-radius: 10px; padding: 0.5rem 0.7rem; display: flex; flex-direction: column; background: var(--paper, #fff); }
+.sg-tile span { font-size: 0.75rem; color: var(--slate); }
+.sg-tile strong { font-size: 1.1rem; overflow-wrap: anywhere; }
+.sg-box { border: 1px solid var(--line, #ddd); border-radius: 12px; padding: 0.8rem 1rem; margin: 0.8rem 0; background: var(--paper, #fff); }
+.sg-box h3 { margin-top: 0; }
+.sg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0.5rem; margin: 0.5rem 0; align-items: end; }
+.sg-m { display: flex; flex-direction: column; font-size: 0.8rem; gap: 0.15rem; }
+.sg-card { border: 1px solid var(--line, #ddd); border-radius: 10px; padding: 0.7rem 0.9rem; margin: 0.6rem 0; background: var(--paper, #fff); }
+.sg-card .field, .sg-box .field { width: 100%; margin: 0.25rem 0; box-sizing: border-box; }
+.sg-head { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: baseline; cursor: pointer; }
+.sg-pill { color: #fff; font-size: 0.72rem; padding: 0.1rem 0.5rem; border-radius: 999px; }
+.sg-peek { margin: 0.3rem 0 0; font-size: 0.9rem; color: var(--slate); overflow-wrap: anywhere; }
+.sg-checks details { margin: 0.2rem 0; }
+.sg-dot { display: inline-block; width: 10px; height: 10px; border-radius: 5px; margin-right: 4px; }
+.sg-note { font-size: 0.82rem; margin: 0.15rem 0 0.15rem 1rem; color: var(--slate); }
+.sg-sub { font-size: 0.88rem; }
+.sg-shift { display: flex; gap: 0.3rem; margin-top: 0.4rem; }
+@media (max-width: 640px) { .sg-grid { grid-template-columns: 1fr; } .sg-tiles { grid-template-columns: repeat(2, 1fr); } }
