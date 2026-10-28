@@ -1,16 +1,6 @@
-SAHAYAK v76 - Acquisition & Referral Intelligence Engine
-
-1. Unzip over your project (same folders), commit, let Vercel deploy.
-2. Run the database update:  npm run db:migrate   (adds migration 0048; safe to run again).
-3. Open /admin/acquisition (also in the menu under Customers & Growth, and as a card on the Command Centre).
-4. Social Media Growth Engine > Settings: make sure the website address is entered. Until then no post has a tracked link.
-5. Try it: open your site with ?utm_source=facebook&utm_campaign=test&utm_content=my-post at the end of the address in a private window, sign up a test family, then look at /admin/acquisition. The test account should appear under Facebook, campaign test.
-6. Partners: "Add or change records" > Add a partner. Share the link ending ?p=TUTOR-NAME-001. Rewards/commission stay your own decision.
-7. Offline sales: record them with "Record an offline sale". It does NOT switch on access; do that at /admin/payments as before.
-8. For cost per customer: record marketing spend and tag it to a source or campaign. Without that, it shows "Not available" (your own time is never counted as money).
-
-TESTED: type check clean; full production build clean; 62 automatic checks (t76) including the whole journey Facebook post -> sign-up -> diagnostic -> baseline -> payment -> referral -> referred student diagnostic and payment, plus tutor, coaching centre and school chains, privacy, empty database, minimum-sample rules; earlier tests t63-t74 still pass; migration 0048 run twice on a scratch database without errors (and duplicate arrivals are blocked by the database); new pages/routes refuse signed-out visitors (403); link cookies checked on a running server (first touch kept, last touch replaced).
-NOT TESTED: the screens signed in as admin on the live site; a real sign-up on the live site; real traffic; phone layout; lint (none is set up).
-NOT BUILT: matching ordinary website visitors (no tracked link) to accounts - the app says "not directly matched"; counting how often an invite link was shared; social platform connections; automatic rewards or commission; predicted lifetime value.
+SAHAYAK v77 - Invite links count as tracked arrivals. No database change.
+1. Unzip over your project, commit, let Vercel deploy.
+2. Test: open one of your invite links (/r/CODE) in a private window, sign up a test family, then open /admin/acquisition. The new account should show under Referral.
+TESTED: type check clean; full production build clean; on a running server a fresh visit sets the invite and referral cookies, a visit that already has a first touch keeps it, a bad code sets nothing.
+NOT TESTED: a real sign-up through an invite link on the live site.
 NOT DEPLOYED: nothing is deployed from here.
-NOTE: accounts made before today have no stored touch; their source comes from the older sign-up record (or "Unknown"). Cohort and return numbers show "x of y" only for people old enough to measure.

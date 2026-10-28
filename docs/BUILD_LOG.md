@@ -4,6 +4,12 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v77 - Invite links count as tracked arrivals (2026-10-28)
+No migration. Opening `/r/CODE` now sets the same first-touch (only if none yet) and last-touch cookies as any tracked link, with source "referral", so a person who joins through an invite is attributed to "referral" even when their browser had no earlier link, and (when the browser already has its device cookie) the arrival is stored in `acquisition_touches` so invite-link visits are matched to sign-ups. The invite code is not stored in the touch. Bad codes set nothing. Checked on a running server: fresh visit, visit with existing first touch (kept), bad code. Not tested with a real sign-up.
+
+---
+
+
 ## v76 - Acquisition & Referral Intelligence Engine (2026-10-28)
 Founder request: the "Acquisition, Attribution, Referral & Growth Intelligence" prompt. Built ON the existing systems (traffic counter, both referral lists, pilot_payments, revenue_entries, student_access, social_campaigns/content/metrics, crm_records, expenses, student_links, AI usage ledger). Migration 0048 (additive).
 - Capture: middleware keeps first touch (set once) and last touch (replaced) cookies with source, medium, campaign, post (utm_content), term, landing, partner code, time (old 3-key cookie still read). `/api/track` stores each tracked-link arrival in `acquisition_touches` (salted hash of the device cookie; no IP/user agent/name). At every sign-up route (student, family child + parent, portal, teacher) `captureSignupAttribution` saves first touch, last touch, referral, partner, post and campaign ids to `acquisition_attribution` and links the earlier arrivals of that browser to the account (the only place a visit is directly matched to a sign-up; ordinary visitors stay "not directly matched"). A failure never stops a sign-up.
