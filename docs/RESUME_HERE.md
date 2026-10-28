@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v73 (2026-10-28)
+## Latest delivery - v74 (2026-10-28)
+Question report links on Baseline/Challenge/Stretch/Review. No migration. Apply after v73: `sahayak-v74-report-question-delta.zip`.
+
+## Previous delivery - v73 (2026-10-28)
 Feedback Intelligence extras (migration 0047). Apply after v72: `sahayak-v73-feedback-extras-delta.zip`; `npm run db:migrate`; deploy.
 
 ## Previous delivery - v72 (2026-10-27)

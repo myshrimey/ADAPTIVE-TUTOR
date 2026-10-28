@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { ReportQuestion } from '@/components/ReportQuestion';
 
 type Item = { itemTable: string; itemId: string; prompt: string; questionType: string; options: string[] | null; figureUrl?: string | null };
 export function ReviewSession({ plan, hi, mixed = false }: { plan: any; hi: boolean; mixed?: boolean }) {
@@ -41,6 +42,7 @@ export function ReviewSession({ plan, hi, mixed = false }: { plan: any; hi: bool
       {item && (
         <>
           <p className="tip-card__body">{item.prompt}</p>
+          <ReportQuestion id={item.itemId} hi={hi} />
           {item.figureUrl && <img src={item.figureUrl} alt="" style={{ maxWidth: '100%' }} />}
           {!fb && (item.options ? item.options.map((o) => <label key={o} style={{ display: 'block', margin: '0.3rem 0' }}><input type="radio" name="o" checked={val === o} onChange={() => setVal(o)} /> {o}</label>) : <input value={val} onChange={(e) => setVal(e.target.value)} style={{ padding: '0.5rem', width: '100%', maxWidth: 360 }} aria-label={T('Your answer', 'आपका उत्तर')} />)}
           {!fb && <p><button className="btn btn--accent" disabled={!val.trim()} onClick={submit}>{T('Check', 'जाँचें')}</button></p>}

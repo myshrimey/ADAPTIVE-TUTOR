@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { MathText } from '@/components/MathText';
 import { QuestionFigure } from '@/components/QuestionFigure';
 import { E, trE, type ELang } from '@adaptive-tutor/core';
+import { ReportQuestion } from '@/components/ReportQuestion';
 
 type Q = { attemptId: string; index: number; total: number; mode: string; id: string; prompt: string; questionType: string; options: string[] | null; figureUrl: string | null; figureCaption: string | null; inputKind?: 'number' | 'text' | 'expression' | 'choice'; role: string };
 type Summary = { mode: string; attempted: number; correct: number; accuracy: number | null; xp: { amount: number; breakdown: { label: string; xp: number }[]; capped: boolean }; best: { kind: string; message: string } | null; mistakesCorrected: number; conceptNote: string | null; nextAction: { text: string; href: string }; comeback: { original: { correct: number; total: number; percent: number }; now: { correct: number; total: number; percent: number }; corrected: number } | null; masteryNote: string };
@@ -56,6 +57,7 @@ export function ChallengeRunner({ start, lang = 'en' }: { start: Record<string, 
         <div className="question-card fade-slide-in">
           <QuestionFigure url={q.figureUrl} caption={q.figureCaption} />
           <p className="question-card__prompt"><MathText text={q.prompt} /></p>
+          <ReportQuestion id={q.id} />
           {q.questionType === 'mcq' && q.options ? (
             <div className="mcq-options">{q.options.map((o) => (<label key={o} className="mcq-option"><input type="radio" name="a" value={o} checked={input === o} disabled={phase === 'feedback'} onChange={() => setInput(o)} /><MathText text={o} /></label>))}</div>
           ) : (<AnswerInput value={input} disabled={phase === 'feedback'} onChange={setInput} placeholder={L('run.answer')} questionType={q.questionType} inputKind={q.inputKind} lang={lang} autoFocus />)}

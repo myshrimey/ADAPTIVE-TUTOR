@@ -7,6 +7,7 @@ import { AnswerInput, answerProblem } from '@/components/AnswerInput';
 import { QuestionFigure } from '@/components/QuestionFigure';
 import { SubjectIcon } from '@/components/SubjectIcon';
 import { accessErrorMessage } from '@/lib/access-errors';
+import { ReportQuestion } from '@/components/ReportQuestion';
 
 interface Subject { id: string; slug: string; name: string }
 interface Q { sessionId: string; step: number; itemId: string; prompt: string; questionType: string; options: string[] | null; inputKind: any; figureUrl: string | null; figureCaption: string | null; why: string; skillName: string; classLevel: number; progress: { answered: number; recommendedMin: number; recommendedMax: number } }
@@ -128,6 +129,7 @@ export default function BaselinePage() {
       <div className="question-card">
         <QuestionFigure url={q.figureUrl} caption={q.figureCaption} />
         <p className="question-card__prompt"><MathText text={q.prompt} /></p>
+        <ReportQuestion id={q.itemId} />
         {q.questionType === 'mcq' && q.options ? (
           <div className="mcq-options">{q.options.map((opt) => (<label key={opt} className="mcq-option"><input type="radio" name="answer" value={opt} checked={answer === opt} onChange={() => setAnswer(opt)} /><MathText text={opt} /></label>))}</div>
         ) : (<AnswerInput value={answer} onChange={(v) => { setAnswer(v); setProblem(null); }} questionType={q.questionType} inputKind={q.inputKind} autoFocus />)}

@@ -4,6 +4,11 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v74 - "Report a problem with this question" links (2026-10-28)
+No migration. `components/ReportQuestion.tsx` (a small link; opens the existing feedback form with kind "question" and the question id) added under the question on Baseline, Challenge, Stretch and Review (Review shows Hindi text when the student uses Hindi). Not on Learn, Diagnostic or Mock yet. Test: type check and full production build clean; not tried on a live phone.
+
+---
+
 ## v73 - Feedback Intelligence extras (2026-10-28)
 Founder request: the "Feedback Intelligence & Human Review Engine" prompt. The v67 system already covered much of it, so this EXTENDS it (migration 0047, additive columns only).
 - Submission: widget adds "what is it about" and "how did it affect you"; `/api/feedback` stores kind, impact, role (inferred from page + student lookup, never from the browser), source, device/browser/OS, locale, app version, plan, and short sanitised ids (question/session/mock/report...). If the new columns are not installed yet, the message is saved the old way: feedback is never lost.

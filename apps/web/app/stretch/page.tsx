@@ -6,6 +6,7 @@ import { MathText } from '@/components/MathText';
 import { AnswerInput, answerProblem } from '@/components/AnswerInput';
 import { QuestionFigure } from '@/components/QuestionFigure';
 import { accessErrorMessage } from '@/lib/access-errors';
+import { ReportQuestion } from '@/components/ReportQuestion';
 
 interface Skill { skillId: string; skillName: string; subjectId: string; subjectName: string; level: number; solved: number; attempted: number }
 interface Badge { code: string; title: string; description: string; unlocked: boolean }
@@ -84,6 +85,7 @@ export default function StretchPage() {
           {!q.checkedByTeacher && <p style={{ fontSize: '0.8rem', color: 'var(--slate)' }}>This question is still waiting for a teacher to check it. If something looks wrong, skip it.</p>}
           <QuestionFigure url={q.figureUrl} caption={q.figureCaption} />
           <p className="question-card__prompt"><MathText text={q.prompt} /></p>
+          <ReportQuestion id={q.id} />
           {!fb && (q.questionType === 'mcq' && q.options
             ? <div className="mcq-options">{q.options.map((o) => <label key={o} className="mcq-option"><input type="radio" name="st" checked={answer === o} onChange={() => setAnswer(o)} /><MathText text={o} /></label>)}</div>
             : <AnswerInput value={answer} onChange={setAnswer} questionType={q.questionType} inputKind={q.inputKind} autoFocus />)}
