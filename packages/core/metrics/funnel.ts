@@ -176,14 +176,23 @@ export async function loadSheetData(service: SupabaseClient, opts: { month: stri
   const active = new Set<string>();
   for (const [id, rows] of sessBy) if (rows.filter((r: any) => new Date(r.started_at).getTime() >= t14).length >= ACTIVE_SESSIONS_14D) active.add(id);
 
+  // v76: the older "not tracked" lines now read the real tables (traffic counter, results typed into the Social Growth Engine, both referral lists).
+  const safeCount = async (f: () => PromiseLike<{ count: number | null; error?: any }>): Promise<number | null> => { try { const r = await f(); return r.error ? null : r.count ?? null; } catch { return null; } };
+  const [visitRows, impressions, refA, refB] = await Promise.all([
+    safeCount(() => service.from('page_views').select('id', { count: 'exact', head: true }).eq('path', '/')),
+    (async () => { try { const r = await pageAll((a, b) => service.from('social_metrics').select('impressions').range(a, b), 20000); const v = (r as any[]).filter((x) => x.impressions != null); return v.length ? v.reduce((t, x) => t + (Number(x.impressions) || 0), 0) : null; } catch { return null; } })(),
+    safeCount(() => service.from('referral_events').select('id', { count: 'exact', head: true })),
+    safeCount(() => service.from('referrals').select('id', { count: 'exact', head: true })),
+  ]);
+  const referralCount = refA === null && refB === null ? null : (refA ?? 0) + (refB ?? 0);
   const started = new Set(attempts.map((a: any) => a.student_id));
   const completed = new Set(attempts.filter((a: any) => a.status === 'completed').map((a: any) => a.student_id));
   const learned = new Set(sessions.map((s: any) => s.student_id));
   const retained = [...confirmedPaid].filter((id) => active.has(id)).length;
 
   const funnel: FunnelStage[] = [
-    { key: 'content', label: 'Content reached', count: null, note: 'Not tracked in Sahayak. Record views, saves and DMs in your Google Sheet.' },
-    { key: 'visit', label: 'Website visits', count: null, note: 'Not tracked in Sahayak. Use the Vercel Analytics page if you want visit counts.' },
+    { key: 'content', label: 'Content reached', count: impressions, note: impressions === null ? 'Not available: type post impressions into the Social Media Growth Engine.' : 'Typed in by you (MANUAL), all time.' },
+    { key: 'visit', label: 'Website visits', count: visitRows, note: visitRows === null ? 'Not available: the traffic counter is not installed (0041).' : 'Home-page views counted by the first-party counter, all time. Visitors and registrations are not directly matched; see /admin/acquisition.' },
     { key: 'signup', label: 'Students created', count: studentRows.length },
     { key: 'diag_start', label: 'Assessment started', count: started.size },
     { key: 'diag_done', label: 'Assessment completed', count: completed.size },
@@ -192,7 +201,7 @@ export async function loadSheetData(service: SupabaseClient, opts: { month: stri
     { key: 'active', label: `Active (${ACTIVE_SESSIONS_14D}+ sessions in 14 days)`, count: active.size },
     { key: 'paid', label: 'Paid (confirmed payment or paid plan)', count: confirmedPaid.size },
     { key: 'retained', label: 'Paid and still active', count: retained },
-    { key: 'referral', label: 'Referrals', count: null, note: 'Not tracked yet. Ask each family how they heard of Sahayak and note it in your sheet.' },
+    { key: 'referral', label: 'Referrals', count: referralCount, note: referralCount === null ? 'Not available: referral tables not installed.' : 'People who joined through an invite (both invite systems). Source, quality and revenue: /admin/acquisition.' },
   ];
 
   const students: StudentSheetRow[] = studentRows.map((s: any) => {

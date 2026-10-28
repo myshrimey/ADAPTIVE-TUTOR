@@ -69,6 +69,7 @@ export const ADMIN_MENU: AdminGroup[] = [
       { href: '/admin/crm?group=institutions', label: 'Schools', note: 'Schools and institutions' },
       { href: '/admin/partners', label: 'Parents, tutors, centres', note: 'Partner accounts' },
       { href: '/admin/interest', label: 'Applications and requests', note: 'People who asked to join' },
+      { href: '/admin/acquisition', label: 'Acquisition & Referral Intelligence', note: 'Source to payment to referral, by channel, post, partner', keywords: 'acquisition attribution funnel utm source cac referral partner tutor centre school cohort channel growth' },
       { href: '/admin/social-growth', label: 'Social Media Growth Engine', note: 'Daily posts, calendar, campaigns, results', keywords: 'social facebook instagram linkedin content marketing posts hashtags campaign utm' },
       { href: '/admin/referral-rewards', label: 'Referral links and rewards', note: 'Bonus days for referrals' },
       { href: '/admin/engagement/referrals', label: 'Referrals (old)', note: 'Earlier referral list' },

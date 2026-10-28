@@ -15,7 +15,7 @@ export function TrackPageView() {
       const q = new URLSearchParams(window.location.search);
       let referrerHost = '';
       try { if (document.referrer) referrerHost = new URL(document.referrer).hostname; } catch { /* ignore */ }
-      const body = JSON.stringify({ path: pathname, referrerHost, utmSource: q.get('utm_source') || q.get('src') || q.get('ref') || '', utmMedium: q.get('utm_medium') || '', utmCampaign: q.get('utm_campaign') || '' });
+      const body = JSON.stringify({ path: pathname, referrerHost, utmSource: q.get('utm_source') || q.get('src') || q.get('ref') || '', utmMedium: q.get('utm_medium') || '', utmCampaign: q.get('utm_campaign') || '', utmContent: q.get('utm_content') || '', utmTerm: q.get('utm_term') || '', partner: q.get('p') || q.get('partner') || '' });
       fetch('/api/track', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body, keepalive: true }).catch(() => {});
     } catch { /* never block the page */ }
   }, [pathname]);

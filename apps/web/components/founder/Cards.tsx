@@ -1,7 +1,7 @@
 import type { Metric } from '@adaptive-tutor/core';
 
 export const inr = (n: number) => `₹${Math.round(n).toLocaleString('en-IN')}`;
-const LABEL_COLOR: Record<string, string> = { ACTUAL: '#1b6b3a', ESTIMATED: '#8a5a00', ASSUMED: '#6b3fa0', INSUFFICIENT: '#666' };
+const LABEL_COLOR: Record<string, string> = { ACTUAL: '#1b6b3a', ESTIMATED: '#8a5a00', ASSUMED: '#6b3fa0', INSUFFICIENT: '#666', CALCULATED: '#0b5c8a', MANUAL: '#a0522d', 'INSUFFICIENT DATA': '#666' };
 const RAG_COLOR: Record<string, string> = { green: '#1f9d55', amber: '#e0a100', red: '#d03a2f', grey: '#aaa' };
 
 export function Tag({ label }: { label: string }) {

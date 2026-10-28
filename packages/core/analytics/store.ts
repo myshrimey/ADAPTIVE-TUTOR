@@ -3,11 +3,13 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import { rangeDays, istDayOf, summariseTraffic, realtimeVisitors, type ViewRow, type TrafficSummary } from './traffic';
 
 export const RETENTION_DAYS = 400;
-export type ViewInput = { visitor: string; path: string; channel: string; source: string | null; campaign: string | null; device: string; browser: string; os: string; country: string | null; region: string | null; signed_in: boolean };
+export type ViewInput = { visitor: string; path: string; channel: string; source: string | null; campaign: string | null; device: string; browser: string; os: string; country: string | null; region: string | null; signed_in: boolean; content?: string | null };
 /** Never throws. On failure returns the database's own message so the admin check page (and the server log) can show the real cause. */
 export async function recordView(service: SupabaseClient, row: ViewInput): Promise<{ ok: boolean; error?: string }> {
   try {
-    const { error } = await service.from('page_views').insert(row);
+    const { content, ...rest } = row; // `content` exists only after migration 0048: never let a missing column stop the counter
+    let { error } = await service.from('page_views').insert((content ? { ...rest, content } : rest) as any);
+    if (error && content && /content/i.test(String(error.message ?? ''))) ({ error } = await service.from('page_views').insert(rest));
     return error ? { ok: false, error: String(error.message ?? error) } : { ok: true };
   } catch (e: any) { return { ok: false, error: String(e?.message ?? e) }; }
 }

@@ -1,4 +1,5 @@
 import { SocialGrowthCard } from '@/components/SocialGrowthCard';
+import { AcquisitionCard } from '@/components/AcquisitionCard';
 import { createServiceClient } from '@/lib/supabase-server';
 import { adminPageGate, AdminNav, AdminMap } from '@/lib/admin-page';
 import { loadCommandCentreAi, loadCommandCentre, rangeBounds, RANGES, CRM_STAGES, FUNDING_STAGES, FUNDING_KINDS, EXPENSE_CATEGORIES, CRM_KINDS } from '@adaptive-tutor/core';
@@ -37,6 +38,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ r
         <div style={{ marginTop: '0.6rem' }}><AdminMap /></div>
       </details>
 
+      <AcquisitionCard rangeKey={d.range.key} from={sp.from} to={sp.to} />
       <SocialGrowthCard />
 
       <Section title="Business health">

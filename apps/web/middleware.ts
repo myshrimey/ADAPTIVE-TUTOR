@@ -1,5 +1,6 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
+import { touchFromQuery, encodeTouch } from '@adaptive-tutor/core/acquisition/touch';
 
 // Refreshes the Supabase auth session on every request so server components
 // and route handlers see a valid session. Add route protection here once
@@ -32,14 +33,14 @@ export async function middleware(request: NextRequest) {
     request.cookies.set('sahayak_did', id);
     response.cookies.set('sahayak_did', id, { httpOnly: true, sameSite: 'lax', secure: process.env.NODE_ENV === 'production', maxAge: 60 * 60 * 24 * 730, path: '/' });
   }
-  // First-touch acquisition source (?src=, ?utm_source=, ?ref=). Set once; a later link never overwrites it.
-  if (!request.cookies.get('sahayak_src')) {
-    const q = request.nextUrl.searchParams;
-    const src = q.get('src') || q.get('utm_source') || q.get('ref');
-    if (src) {
-      const v = encodeURIComponent(JSON.stringify({ s: src.slice(0, 40), m: (q.get('utm_medium') ?? '').slice(0, 40), c: (q.get('utm_campaign') ?? '').slice(0, 60) }));
-      response.cookies.set('sahayak_src', v, { httpOnly: true, sameSite: 'lax', secure: process.env.NODE_ENV === 'production', maxAge: 60 * 60 * 24 * 90, path: '/' });
-    }
+  // Acquisition (v76). First touch is set once and never overwritten; last touch is replaced by any newer tracked link.
+  // Both carry source, medium, campaign, content (post), term, landing page, partner code and time. Pure parsing lives in packages/core/acquisition/touch.ts.
+  const arrival = touchFromQuery(request.nextUrl.searchParams, request.nextUrl.pathname);
+  if (arrival) {
+    const opts = { httpOnly: true, sameSite: 'lax' as const, secure: process.env.NODE_ENV === 'production', maxAge: 60 * 60 * 24 * 90, path: '/' };
+    const v = encodeTouch(arrival);
+    if (!request.cookies.get('sahayak_src')) response.cookies.set('sahayak_src', v, opts);
+    response.cookies.set('sahayak_lt', v, opts);
   }
   return response;
 }

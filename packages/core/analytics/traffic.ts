@@ -38,7 +38,7 @@ export function classifyChannel(o: { referrerHost?: string | null; utmSource?: s
 }
 
 const SKIP_PREFIX = ['/api', '/admin', '/_next', '/auth'];
-export interface TrackInput { path: string; referrerHost: string | null; utmSource: string | null; utmMedium: string | null; utmCampaign: string | null }
+export interface TrackInput { path: string; referrerHost: string | null; utmSource: string | null; utmMedium: string | null; utmCampaign: string | null; utmContent?: string | null; utmTerm?: string | null; partner?: string | null }
 /** Validates what the browser sends. Returns null for anything that should not be counted. Query strings and hashes are dropped, so no token or name can slip in. */
 export function cleanTrackEvent(raw: any): TrackInput | null {
   let path = String(raw?.path ?? '').split('#')[0].split('?')[0].trim();
@@ -48,7 +48,7 @@ export function cleanTrackEvent(raw: any): TrackInput | null {
   path = path.replace(/\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi, '/:id'); // never store a record id
   const host = (v: unknown) => { const s = String(v ?? '').trim().toLowerCase().replace(/^www\./, ''); return /^[a-z0-9.-]{1,100}$/.test(s) ? s : null; };
   const t = (v: unknown, n: number) => { const s = String(v ?? '').trim().slice(0, n); return s && /^[\w .:+-]+$/.test(s) ? s : null; };
-  return { path, referrerHost: host(raw?.referrerHost), utmSource: t(raw?.utmSource, 40), utmMedium: t(raw?.utmMedium, 40), utmCampaign: t(raw?.utmCampaign, 60) };
+  return { path, referrerHost: host(raw?.referrerHost), utmSource: t(raw?.utmSource, 40), utmMedium: t(raw?.utmMedium, 40), utmCampaign: t(raw?.utmCampaign, 60), utmContent: t(raw?.utmContent, 60), utmTerm: t(raw?.utmTerm, 60), partner: t(raw?.partner, 40) };
 }
 
 export interface ViewRow { at: string; visitor: string; path: string; channel: string; source: string | null; device: string; browser: string; os: string; country: string | null; signed_in: boolean }

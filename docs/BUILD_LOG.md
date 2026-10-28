@@ -4,6 +4,18 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v76 - Acquisition & Referral Intelligence Engine (2026-10-28)
+Founder request: the "Acquisition, Attribution, Referral & Growth Intelligence" prompt. Built ON the existing systems (traffic counter, both referral lists, pilot_payments, revenue_entries, student_access, social_campaigns/content/metrics, crm_records, expenses, student_links, AI usage ledger). Migration 0048 (additive).
+- Capture: middleware keeps first touch (set once) and last touch (replaced) cookies with source, medium, campaign, post (utm_content), term, landing, partner code, time (old 3-key cookie still read). `/api/track` stores each tracked-link arrival in `acquisition_touches` (salted hash of the device cookie; no IP/user agent/name). At every sign-up route (student, family child + parent, portal, teacher) `captureSignupAttribution` saves first touch, last touch, referral, partner, post and campaign ids to `acquisition_attribution` and links the earlier arrivals of that browser to the account (the only place a visit is directly matched to a sign-up; ordinary visitors stay "not directly matched"). A failure never stops a sign-up.
+- Dashboard `/admin/acquisition`: decision panel (max 5, needs minimum sample), periods today/7/30/90/custom, funnel stages, by source (with cash spend, cost per customer, organic vs cash labelling), channel comparison, campaigns, posts (ranked by revenue, not likes), referral funnel + quality score (weights editable) + reward liability in days (money: Not available), partners (TUTOR-ARUN-001 style codes, reward status manual), customer-type economics, cohorts (D1/D7/D30 only for people old enough), organisation/offline sales, business metrics, pseudonymous journeys, experiments, data quality (14 checks), segments (board, class, subject, state, country; unknown kept), reporting model (first/last/referral/all touches), 9 CSV exports.
+- Offline sales: one form writes to `pilot_payments` (students) or `revenue_entries` (others) plus `acq_sale_links`; it does not grant access (still /admin/payments).
+- Old funnel: "Website visits", "Content reached" and "Referrals" now show real numbers; Command Centre has a "How are we growing?" card.
+- Safety: `page_views.content` is only written when present and retried without it if the column is missing, so the counter cannot break before the migration is run.
+- Tests: t76 (62 checks incl. the full Facebook post -> signup -> diagnostic -> baseline -> payment -> referral -> referred payment journey, tutor, centre, school, privacy, empty database, minimum sample) + t63-t74 pass; tsc clean; production build clean; migration 0048 run twice on a scratch database; new routes return 403 signed out; cookie behaviour checked on a running server. Not tested: signed-in admin screens, a real sign-up on the live site, real traffic.
+
+---
+
+
 ## v75 - Report links on Learn + Diagnostic, and "Questions people reported" list (2026-10-28)
 No migration. The "Something wrong with this question?" link (v74) now also appears under the question on Learn and Diagnostic. Mock paper is a printable paper, so it has no link. `/admin/feedback-intelligence` has a new folded list "Questions people reported": question id, number of reports, last date, a sample message. Counts only; it changes nothing and decides nothing. Test: t74 (2 checks) + t73 pass; type check and full production build clean; not tried on a live phone.
 
