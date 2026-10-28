@@ -4,6 +4,17 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v73 - Feedback Intelligence extras (2026-10-28)
+Founder request: the "Feedback Intelligence & Human Review Engine" prompt. The v67 system already covered much of it, so this EXTENDS it (migration 0047, additive columns only).
+- Submission: widget adds "what is it about" and "how did it affect you"; `/api/feedback` stores kind, impact, role (inferred from page + student lookup, never from the browser), source, device/browser/OS, locale, app version, plan, and short sanitised ids (question/session/mock/report...). If the new columns are not installed yet, the message is saved the old way: feedback is never lost.
+- Outside-app entry (call, meeting, WhatsApp, email...) goes through the same sorting and grouping.
+- Priority = visible sum of 7 explained parts (severity, people affected, last-7-day frequency, learning effect, money/trust, reporters' own impact answers, moat value); P0 60+, P1 40+, P2 20+. Wrong answers, privacy words, diagnostic and payment clusters are lifted automatically with the reason shown. Hand override needs a reason and is written to the history.
+- Optional AI analysis per group (gateway feature `feedback_analysis`, 30 a day, personal details removed, labelled "AI recommendation (not a decision)", stores provider/model/prompt version/request id). It never changes status.
+- Task record (approved groups only), defer-until date, post-fix validation (needs deployed version; regression/not fixed reopens), analytics tiles, Top loved features, search + filters + sort.
+- Tests: t73 (about 55 checks) + t63-t72 pass; tsc clean; production build clean; migration 0047 run twice with no errors.
+
+---
+
 ## v72 - Social Media Growth Engine (2026-10-27)
 Founder request: the 60-section Social Media Growth Engine prompt. Migration 0046. Additive; no existing file replaced.
 - Core `packages/core/social-growth/` (constants, status machine, checks + quality guide, templates, hashtags, calendar/daily/repurpose plans, publisher + image abstractions (no adapter connected), insights, settings, AI helper, store).

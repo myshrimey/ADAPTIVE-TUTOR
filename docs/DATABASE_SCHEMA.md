@@ -675,3 +675,6 @@ All three: RLS on, no policies (server only; access is checked against active st
 
 ## 0046 Social Media Growth Engine (v72)
 All server-only (RLS on, no policies): social_campaigns, social_experiments, social_content, social_publications, social_metrics (unique content_id+metric_date), social_audit_log, social_pillars (20 defaults), social_hashtags (defaults), social_observations. Settings: commerce_settings key `social_growth`.
+
+## 0047 Feedback extras (v73)
+feedback: kind, impact, role, source (default in_app), person, received_on, context jsonb, positive. feedback_clusters: moat, priority_override, priority_reason, ai_analysis jsonb, task jsonb, deployment_version, validation_status, validation_note, validated_by, validated_at, defer_until.

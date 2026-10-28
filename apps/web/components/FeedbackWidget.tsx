@@ -14,6 +14,9 @@ export function FeedbackWidget() {
   const [signedIn, setSignedIn] = useState(false);
 
   const [rating, setRating] = useState<number | null>(null);
+  const [kind, setKind] = useState('');
+  const [impact, setImpact] = useState('');
+  const [ctx, setCtx] = useState<Record<string, string>>({});
   const [message, setMessage] = useState('');
   const [contactEmail, setContactEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -25,8 +28,18 @@ export function FeedbackWidget() {
     supabase.auth.getSession().then(({ data: { session } }) => setSignedIn(!!session));
   }, []);
 
+  // v73: any screen can open the form with a preset, e.g. window.dispatchEvent(new CustomEvent('sahayak:feedback', { detail: { kind: 'question', context: { questionId: '...' } } })).
+  useEffect(() => {
+    const h = (e: Event) => { const d = (e as CustomEvent).detail ?? {}; if (typeof d.kind === 'string') setKind(d.kind); if (d.context && typeof d.context === 'object') setCtx(d.context); setOpen(true); };
+    window.addEventListener('sahayak:feedback', h);
+    return () => window.removeEventListener('sahayak:feedback', h);
+  }, []);
+
   function reset() {
     setRating(null);
+    setKind('');
+    setImpact('');
+    setCtx({});
     setMessage('');
     setContactEmail('');
     setError(null);
@@ -56,6 +69,9 @@ export function FeedbackWidget() {
           message: message.trim(),
           rating,
           page: pathname,
+          kind: kind || undefined,
+          impact: impact || undefined,
+          context: ctx,
           contactEmail: contactEmail.trim() || undefined,
         }),
       });
@@ -110,6 +126,10 @@ export function FeedbackWidget() {
                 ))}
               </div>
 
+              <select className="field__input" style={{ width: '100%', marginBottom: '0.5rem' }} aria-label="What is it about?" value={kind} onChange={(e) => setKind(e.target.value)}>
+                <option value="">What is it about? (optional)</option>
+                <option value="bug">Something is broken</option><option value="wrong_answer">A wrong answer or marking</option><option value="question">A problem with a question</option><option value="explanation">A confusing explanation</option><option value="language">Language or translation</option><option value="idea">An idea or request</option><option value="price">Price or payment</option><option value="praise">Something I like</option><option value="other">Something else</option>
+              </select>
               <textarea
                 className="field__input"
                 style={{ width: '100%', minHeight: '90px', resize: 'vertical', fontFamily: 'inherit' }}
@@ -118,6 +138,11 @@ export function FeedbackWidget() {
                 onChange={(e) => setMessage(e.target.value)}
                 autoFocus
               />
+
+              <select className="field__input" style={{ width: '100%', marginTop: '0.6rem' }} aria-label="How did it affect you?" value={impact} onChange={(e) => setImpact(e.target.value)}>
+                <option value="">How did it affect you? (optional)</option>
+                <option value="minor">Minor inconvenience</option><option value="harder">Made the task harder</option><option value="blocked">Could not complete the task</option><option value="incorrect">Gave me incorrect information</option><option value="prep">Could affect my preparation</option><option value="serious">Serious problem</option>
+              </select>
 
               {!signedIn && (
                 <input

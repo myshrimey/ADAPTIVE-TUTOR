@@ -1,4 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { isPositive } from './extras';
 import { analyse, pickCluster, clusterTitle, clusterSeverity, maxLevel, riskOf, causeAndAction, canMove, approvalProblem, FB_DECISIONS, type FbCategory, type FbDecision, type FbStatus, type Level, type OpenCluster } from './rules';
 
 export interface ClusterRow {
@@ -9,7 +10,7 @@ export interface ClusterRow {
 
 // Reads every message not yet sorted, groups it, and refreshes the group numbers. Safe to run again at any time.
 export async function analyseNewFeedback(service: SupabaseClient, limit = 500): Promise<{ analysed: number; clustersTouched: number; error?: string }> {
-  const { data: rows, error } = await service.from('feedback').select('id, message, page, rating, created_at').is('analysed_at', null).order('created_at', { ascending: true }).limit(limit);
+  const { data: rows, error } = await service.from('feedback').select('id, message, page, rating, created_at, kind').is('analysed_at', null).order('created_at', { ascending: true }).limit(limit);
   if (error) return { analysed: 0, clustersTouched: 0, error: error.message };
   if (!rows?.length) return { analysed: 0, clustersTouched: 0 };
 
@@ -34,7 +35,7 @@ export async function analyseNewFeedback(service: SupabaseClient, limit = 500): 
     }
     const dupOf = a.norm.length > 8 ? seenNorm.get(a.norm) ?? null : null;
     if (a.norm.length > 8 && !dupOf) seenNorm.set(a.norm, r.id);
-    await service.from('feedback').update({ category: a.category, feature_area: a.area, severity: a.severity, cluster_id: cid, duplicate_of: dupOf, analysed_at: new Date().toISOString() }).eq('id', r.id);
+    await service.from('feedback').update({ category: a.category, feature_area: a.area, severity: a.severity, cluster_id: cid, duplicate_of: dupOf, positive: isPositive(r.message, r.rating, r.kind), analysed_at: new Date().toISOString() }).eq('id', r.id);
     touched.add(cid);
   }
   for (const cid of touched) await refreshCluster(service, cid);

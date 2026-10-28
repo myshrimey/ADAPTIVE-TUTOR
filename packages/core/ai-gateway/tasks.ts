@@ -14,6 +14,7 @@ export const TASKS: Record<string, TaskDef> = {
   benchmark: { tier: 1, label: 'Benchmark run (admin)', essential: false },
   provider_test: { tier: 1, label: 'Provider test (admin)', essential: false },
   social_content: { tier: 1, label: 'Social media content (admin)', essential: false },
+  feedback_analysis: { tier: 1, label: 'Feedback group analysis (admin)', essential: false },
   other: { tier: 1, label: 'Other', essential: false },
 };
 

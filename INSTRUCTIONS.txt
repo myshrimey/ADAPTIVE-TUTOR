@@ -1,31 +1,27 @@
-SAHAYAK - v72 UPDATE  (Social Media Growth Engine)
-Apply v71 (and everything before it) first. THIS UPDATE HAS ONE DATABASE CHANGE (0046).
+SAHAYAK - v73 UPDATE  (Feedback Intelligence: the rest of your prompt)
+Apply v72 (and everything before it) first. ONE database change (0047).
 
-WHAT IT IS
-A new admin page, /admin/social-growth (menu: "Customers & Growth" > "Social Media Growth Engine"; also a summary card at the top of the Founder Command Centre). It helps you make, review, approve and track Facebook, Instagram and LinkedIn posts, and learn which ones bring families to Sahayak.
+WHAT ALREADY EXISTED (v67) AND IS KEPT: the Feedback button, sorting of messages into groups by plain rules, the review page, Approve/Reject/Modify/Investigate/Defer with history, and the extra care for risky areas. Nothing was replaced.
 
-IMPORTANT - WHAT IT DOES NOT DO
-No Facebook, Instagram or LinkedIn account is connected. So it NEVER posts for you and NEVER fetches your results. You copy the text, post it yourself, then press "Mark as published" and paste the post address. Later you type the numbers (likes, clicks, leads...) in. Anything you did not type shows "Not available", never 0.
+WHAT IS NEW
+1. The Feedback button now also asks (both optional): what it is about, and how it affected you (minor inconvenience ... serious problem). Behind the scenes it records the page, who it is (student / parent / tutor / centre / visitor, worked out from the page and the student sign-in, never trusted from the browser), device, browser, language, app version and plan. If the database update has not been run yet, the message is still saved the old way: feedback is never lost.
+2. Page /admin/feedback-intelligence:
+   - Tiles: total, open groups, critical (P0), high (P1), new this week, repeats, approved, implemented, awaiting validation, reopened. A "Top problems / quick wins / strategic / learning-critical / money-critical / top loved features / numbers" section.
+   - "Add feedback you received outside the app": calls, meetings, WhatsApp, email, social, school or centre talks. It is sorted and grouped like any other feedback.
+   - Search (also inside the messages), filters (kind, feature, who, source, priority, moat value) and sorting.
+   - Every group shows a priority P0-P3 with "Why?": a plain sum of 7 lines (severity, people affected, last-7-day reports, effect on learning, money/trust, what reporters said about the effect, moat value). Possible wrong answers or marking, privacy words, diagnostic problems and payment trouble are lifted automatically and the reason is written. You can change the priority by hand; a reason is required and it is recorded.
+   - Moat value tag (none ... core).
+   - "Ask AI to analyse (optional)": a labelled RECOMMENDATION (summary, suspected cause, suggested solution, confidence, reasoning). It never approves, rejects or changes anything. It uses the same AI system as the rest of the app (cost appears under feature "feedback_analysis"), personal details are removed first, and it is limited to 30 a day. If the AI fails, nothing is lost.
+   - For approved groups: write a product task (problem, expected result, how we will know it is fixed, who, target release). For implemented groups: record whether the fix worked (fixed and validated needs the version or date it went live; not fixed / regression reopens the group).
+   - Defer now accepts a "review again on" date.
 
 STEPS
 1. Unzip over your project folder (replace files).
 2. npm install
-3. npm run db:migrate   (creates the Social Growth tables; safe to run twice)
+3. npm run db:migrate   (safe to run twice)
 4. Deploy as usual.
-5. Open /admin/social-growth > Settings tab > type your website address (https://...) so tracked links can be made. Press Save.
-6. Today tab > "Generate Today's Content". Open each post, read the warnings, edit, "Send for approval", "Approve", post it yourself, "Mark as published".
 
-IF YOU SEE "this account isn't in ADMIN_EMAILS"
-The sign-in page now tells you: Admin email, whether ADMIN_EMAILS is configured (Yes/No) and Email authorized (No). It never shows the setting itself. If "configured" is No, add ADMIN_EMAILS in Vercel > Settings > Environment Variables (your email, several separated by commas) and redeploy. Capital letters and spaces do not matter.
-
-WHAT YOU CAN DO
-- Generate today's 3 posts, or 7/14/30-day calendars (free templates), or one post with your own choices, or one idea turned into 8 formats (Facebook, Instagram caption/carousel/Reel, LinkedIn, WhatsApp, email, blog outline).
-- "Let AI write it" is optional and goes through the same AI system as the rest of the app (cost appears in the AI usage pages as feature social_content). Limits per day/month/spend are in Settings.
-- Change a post: shorten, expand, simplify, more professional/emotional/educational/conversational, translate to Hindi/English, new hashtags/hook/call to action, change audience or platform.
-- Review checks (safety, brand, unsupported claims, platform, grammar, call to action, hashtags). They WARN; they never rewrite your words. A serious warning needs a written reason to approve.
-- Campaigns, tracked links (utm), A/B tests with a winner, library with search and filters, competitor notes (typed by you), insights, CSV downloads, 20 editable content pillars.
-
-TESTED: about 60 automatic checks (several repeated across roughly 1,000 generated drafts) (every template across all platforms and types is free of promises/fake numbers; rules; status workflow and history; approval reverts when words change; results; Not-available rules; limits; cost reading; attribution; settings; AI reply parsing with a stand-in AI), older checks v63-v71 pass, type check, full production build, database update run twice with no errors and no duplicate rows, and every new page/API refuses a signed-out visitor (403).
-NOT TESTED: signing in as a non-admin and as you on the live site (the admin rule is the same existing one, not new code); a real AI write with your configured providers; your real Supabase after the update. Please try after deploying.
-NOT BUILT: posting to platforms, reading results from platforms, scheduling (so no "Scheduled" status), image generation (you get a detailed image brief and prompt instead), drag-and-drop calendar (arrows move a post by a day), automatic daily generation, linking payments to a specific post (revenue and customers are numbers you enter), an automatic Hindi template (Hindi needs the AI "Translate" button), lint (no lint is set up in this project), a git branch (no git here).
+TESTED: about 55 automatic checks (priority arithmetic and escalation, praise and role detection, safe ids, outside-app entry, search/filters/sorting, moat and override with history, task rules, validation and reopening, AI recommendation labelled and never changing status, AI failure and bad reply, daily AI limit); older checks v63-v72 pass; type check; full production build; database update run twice with no errors.
+NOT TESTED: the feedback button and screens on your live site and phone; a real AI analysis with your providers; the fallback save path on your real database.
+NOT BUILT: people seeing the status of their own feedback; e-mail/WhatsApp notifications; linking groups to roadmap items or A/B tests; a feedback button inside every individual question or AI reply (the form already accepts a question id and a "kind"; each screen must send it, e.g. window.dispatchEvent(new CustomEvent('sahayak:feedback', ...))); screenshot upload; editable thresholds, severity definitions and retention rules (they are fixed in code and shown on screen); marketing insights beyond "Top loved features"; no demo data was added (the page shows only real feedback).
 NOT DEPLOYED by me.
