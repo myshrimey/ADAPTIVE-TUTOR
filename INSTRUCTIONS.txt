@@ -1,14 +1,12 @@
-SAHAYAK - v74 UPDATE  (report a problem with a question)
-Apply v73 first. NO database change.
+SAHAYAK v75 - Report link on Learn + Diagnostic, "Questions people reported" list
+No database change. Nothing to run in Supabase.
 
-WHAT IT DOES
-Under the question on the Baseline, Challenge, Stretch and Review screens there is now a small grey link: "Something wrong with this question? Tell us" (Hindi on Review for Hindi students). It opens the normal Feedback form with "A problem with a question" already chosen and the question's id attached. In /admin/feedback-intelligence the report is grouped as usual and the question id is kept with it (a wrong-answer report is lifted for review by the v73 rules).
-It sends nothing by itself; the student still writes a sentence and presses Send.
+1. Unzip over your project (same folders), commit, let Vercel deploy.
+2. On a student phone: open Learn and a quiz question. Under the question you should see "Something wrong with this question?". Tap it, send a test message.
+3. Same on the Diagnostic screen.
+4. Open /admin/feedback-intelligence. Open the folded line "Questions people reported". Your test question id should be there with 1 report.
 
-STEPS
-1. Unzip over your project folder.  2. npm install  3. Deploy. (No db:migrate.)
-
-TESTED: type check and full production build.
-NOT TESTED: on your live site or a phone.
-NOT BUILT: the same link on the Learn, Diagnostic and Mock screens, and a list in the admin page of "reports per question" (the id is stored; a per-question view is not built).
-NOT DEPLOYED by me.
+TESTED: type check clean; full production build clean; automatic tests for the report list (t74) and feedback (t73) pass.
+NOT TESTED: on the live site or a real phone; with real student reports.
+NOT BUILT: link on the printable Mock paper (it is paper); a button that opens the reported question directly from the list (you get the id and a sample message).
+NOT DEPLOYED: nothing is deployed from here.

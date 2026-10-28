@@ -107,3 +107,5 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v72 (2026-10-27): Social Media Growth Engine at /admin/social-growth, migration 0046, manual publishing only (no platform connected), AI via gateway feature social_content.
 
 - v73 (2026-10-28): Feedback Intelligence extras, migration 0047; priority formula visible; AI analysis optional, recommendation only.
+
+- v75 (2026-10-28): report-question link also on Learn and Diagnostic; admin Feedback Intelligence shows 'Questions people reported' (counts per question id). No migration.

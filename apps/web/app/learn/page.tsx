@@ -12,6 +12,7 @@ import { AnswerFeedback } from '@/components/AnswerFeedback';
 import { SessionProgressReveal, type SessionProgress } from '@/components/SessionProgressReveal';
 import { animationLevelForScore } from '@adaptive-tutor/core';
 import { AnswerInput, answerProblem } from '@/components/AnswerInput';
+import { ReportQuestion } from '@/components/ReportQuestion';
 
 interface ChatMessage {
   role: 'tutor' | 'student';
@@ -369,6 +370,7 @@ export default function LearnPage() {
                 <p className="question-card__prompt">
                   <MathText text={q.prompt} />
                 </p>
+                <ReportQuestion id={q.id} />
                 {q.questionType === 'mcq' && q.options ? (
                   <div className="mcq-options">
                     {q.options.map((opt) => (

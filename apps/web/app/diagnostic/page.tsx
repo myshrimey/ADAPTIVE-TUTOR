@@ -9,6 +9,7 @@ import { QuestionFigure } from '@/components/QuestionFigure';
 import { MasteryArc } from '@/components/MasteryArc';
 import { accessErrorMessage } from '@/lib/access-errors';
 import { useLanguage } from '@/components/LanguageProvider';
+import { ReportQuestion } from '@/components/ReportQuestion';
 
 // Which subjects can be tested comes from each subject's readiness status in
 // the database (migration 0013): 'ready' and 'pilot' can be tested; 'coming
@@ -342,6 +343,7 @@ export default function DiagnosticPage() {
               <p className="question-card__prompt">
                 <MathText text={question.prompt} />
               </p>
+              <ReportQuestion id={question.id} />
 
               {question.questionType === 'mcq' && question.options ? (
                 <div className="mcq-options">

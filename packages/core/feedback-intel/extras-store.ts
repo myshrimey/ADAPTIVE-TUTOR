@@ -115,3 +115,16 @@ export async function aiAnalyseCluster(service: SupabaseClient, ai: AIProvider, 
   return ai_analysis;
 }
 export { suggestMoat };
+
+export interface ReportedQuestion { questionId: string; reports: number; kinds: string[]; latest: string; sample: string }
+/** Which questions people reported most. Reads the question id the "Something wrong with this question?" link attaches. Counts only; it decides nothing. */
+export async function reportedQuestions(service: SupabaseClient, limit = 15): Promise<ReportedQuestion[]> {
+  const { data } = await service.from('feedback').select('context, kind, message, created_at').not('context', 'is', null).order('created_at', { ascending: false }).limit(5000);
+  const m = new Map<string, ReportedQuestion & { k: Set<string> }>();
+  for (const r of (data ?? []) as any[]) {
+    const id = r.context?.questionId; if (typeof id !== 'string' || !id) continue;
+    const e = m.get(id) ?? { questionId: id, reports: 0, kinds: [], latest: r.created_at, sample: String(r.message ?? '').slice(0, 140), k: new Set<string>() };
+    e.reports++; if (r.kind) e.k.add(String(r.kind)); if (r.created_at > e.latest) e.latest = r.created_at; m.set(id, e);
+  }
+  return [...m.values()].map(({ k, ...x }) => ({ ...x, kinds: [...k] })).sort((a, b) => b.reports - a.reports || b.latest.localeCompare(a.latest)).slice(0, limit);
+}

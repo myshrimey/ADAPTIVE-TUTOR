@@ -1,6 +1,6 @@
 import { createServiceClient } from '@/lib/supabase-server';
 import { adminPageGate, AdminNav } from '@/lib/admin-page';
-import { analyseNewFeedback, loadQueue, FB_CATEGORY_LABEL, FB_CATEGORIES, FB_STATUS_LABEL, FB_SOURCES, FB_ROLES, FB_IMPACTS, VALIDATION, type FbCategory, type FbStatus, type Priority } from '@adaptive-tutor/core';
+import { analyseNewFeedback, loadQueue, reportedQuestions, FB_CATEGORY_LABEL, FB_CATEGORIES, FB_STATUS_LABEL, FB_SOURCES, FB_ROLES, FB_IMPACTS, VALIDATION, type FbCategory, type FbStatus, type Priority } from '@adaptive-tutor/core';
 import { FeedbackReview } from '@/components/FeedbackReview';
 import { FeedbackExtras, ManualFeedbackForm } from '@/components/FeedbackExtras';
 import { Section, Tag } from '@/components/founder/Cards';
@@ -23,6 +23,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
   const ran = await analyseNewFeedback(service);
   const qd = await loadQueue(service, { q: sp.q, cat: sp.cat, area: sp.area, src: sp.src, role: sp.role, prio: sp.prio, moat: sp.moat, sort: sp.sort, done: f === 'done', all: f === 'all' });
   const a = qd.analytics;
+  const rq = await reportedQuestions(service).catch(() => []);
   const tiles: [string, string | number][] = [['Total feedback', a.total], ['Open groups', a.open], ['Critical (P0)', a.critical], ['High (P1)', a.highPriority], ['New this week', a.newThisWeek], ['Repeats of same words', a.duplicates], ['Approved', a.approved], ['Implemented', a.implemented], ['Awaiting validation', a.awaitingValidation], ['Reopened', a.reopened]];
   const list = (title: string, rows: { c: any; p: Priority }[], none: string) => (
     <div className="chapter-row" style={{ display: 'block', marginBottom: '0.6rem' }}><strong>{title}</strong>
@@ -59,6 +60,13 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
             <p style={{ margin: '0.2rem 0', color: 'var(--slate)' }}>&ldquo;Not enough data&rdquo; means nothing has been decided yet, so no figure is made up.</p></div>
         </details>
       </Section>
+
+      {rq.length > 0 && (
+        <details style={{ margin: '0.6rem 0' }}><summary style={{ cursor: 'pointer', fontWeight: 600 }}>Questions people reported ({rq.length})</summary>
+          <p style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>From the &ldquo;Something wrong with this question?&rdquo; link. Open the question in the question bank or register with the id. Counts only; check the question yourself or with a teacher before changing anything.</p>
+          <ol style={{ fontSize: '0.88rem', paddingLeft: '1.2rem' }}>{rq.map((x) => <li key={x.questionId}><code>{x.questionId}</code> &middot; {x.reports} report{x.reports === 1 ? '' : 's'} &middot; last {new Date(x.latest).toLocaleDateString('en-IN')} &middot; &ldquo;{x.sample}&rdquo;</li>)}</ol>
+        </details>
+      )}
 
       <ManualFeedbackForm sources={FB_SOURCES} roles={FB_ROLES} impacts={FB_IMPACTS} />
 

@@ -150,3 +150,5 @@ Read `docs/RESUME_HERE.md` — it always holds the exact next three tasks, curre
 - v71: error patterns come only from `dominantPattern` (3+ mistakes, 40%+ share); never show a family name to a child; recipe wording must stay supportive (t71 checks).
 - v72: Social Growth is manual-publish only. Never add a fake adapter, fake metric or SCHEDULED status without a real integration. AI writing goes only through the gateway with `feature: 'social_content'`. Unrecorded numbers are null and shown as "Not available". Migrations now go through `0046`.
 - v73: feedback priority is the visible sum in `feedbackPriority` (never hide a part); AI analysis of feedback is a labelled recommendation and must never change a status; `/api/feedback` must keep its old-insert fallback so feedback is never lost. Migrations now go through `0047`.
+
+- v75 (2026-10-28): report-question link also on Learn and Diagnostic; admin Feedback Intelligence shows 'Questions people reported' (counts per question id). No migration.

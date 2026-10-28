@@ -4,8 +4,14 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v75 - Report links on Learn + Diagnostic, and "Questions people reported" list (2026-10-28)
+No migration. The "Something wrong with this question?" link (v74) now also appears under the question on Learn and Diagnostic. Mock paper is a printable paper, so it has no link. `/admin/feedback-intelligence` has a new folded list "Questions people reported": question id, number of reports, last date, a sample message. Counts only; it changes nothing and decides nothing. Test: t74 (2 checks) + t73 pass; type check and full production build clean; not tried on a live phone.
+
+---
+
+
 ## v74 - "Report a problem with this question" links (2026-10-28)
-No migration. `components/ReportQuestion.tsx` (a small link; opens the existing feedback form with kind "question" and the question id) added under the question on Baseline, Challenge, Stretch and Review (Review shows Hindi text when the student uses Hindi). Not on Learn, Diagnostic or Mock yet. Test: type check and full production build clean; not tried on a live phone.
+No migration. `components/ReportQuestion.tsx` (a small link; opens the existing feedback form with kind "question" and the question id) added under the question on Baseline, Challenge, Stretch and Review (Review shows Hindi text when the student uses Hindi). Test: type check and full production build clean; not tried on a live phone.
 
 ---
 
