@@ -22,6 +22,7 @@ export default function MyDataPage() {
     <main className="page">
       <div className="shell" style={{ maxWidth: 640, paddingTop: 'var(--space-4)' }}>
         <h1 style={{ fontSize: 'var(--step-3)' }}>My data</h1>
+        <p><a href="/my-feedback">See what happened to the reports I sent</a></p>
         <h2 style={{ fontSize: 'var(--step-1)' }}>Download a copy</h2>
         <p style={{ color: 'var(--slate)' }}>A file with the learning data Sahayak holds for this student: profile, sessions, answers, mock exams, written answers and plan details.</p>
         <p><a className="btn btn--accent" href="/api/student/export">Download my data</a></p>

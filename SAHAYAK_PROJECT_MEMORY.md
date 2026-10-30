@@ -112,3 +112,4 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 
 - v76 (2026-10-28): Acquisition & Referral Intelligence at /admin/acquisition (migration 0048). Founder to do: run `npm run db:migrate`; enter website address in Social Growth settings; share tracked links; create partner codes; tag older payments with a source; tag marketing spend to a source/campaign for cost per customer; try a real sign-up through a tracked link and check it appears.
 - v77 (2026-10-28): /r/CODE invite links also count as tracked 'referral' arrivals (cookies + acquisition_touches). No migration.
+- v78 (2026-10-28): /my-feedback shows a student their own reports with a plain status (friendlyFeedbackStatus; never priority/notes). No migration.

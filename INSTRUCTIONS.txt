@@ -1,6 +1,7 @@
-SAHAYAK v77 - Invite links count as tracked arrivals. No database change.
+SAHAYAK v78 - "What happened to my report?" No database change.
 1. Unzip over your project, commit, let Vercel deploy.
-2. Test: open one of your invite links (/r/CODE) in a private window, sign up a test family, then open /admin/acquisition. The new account should show under Referral.
-TESTED: type check clean; full production build clean; on a running server a fresh visit sets the invite and referral cookies, a visit that already has a first touch keeps it, a bad code sets nothing.
-NOT TESTED: a real sign-up through an invite link on the live site.
+2. Signed in as a student: send a report with the Feedback button, then open /my-feedback (also linked at the top of My data). It shows "Received". When you approve/implement the group in /admin/feedback-intelligence the wording changes.
+TESTED: type check clean; full production build clean; wording test t78; signed-out request to /api/feedback/mine gives 401.
+NOT TESTED: signed in on the live site.
+NOT BUILT: a list for parents/tutors/centres (their reports are not tied to an account).
 NOT DEPLOYED: nothing is deployed from here.

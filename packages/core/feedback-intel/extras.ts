@@ -135,3 +135,15 @@ export function filterClusters<T extends { c: ClusterLite; p: Priority }>(rows: 
   };
   r = [...r].sort(key[f.sort ?? 'priority'] ?? key.priority); return r;
 }
+
+/** v78: what a person is told about THEIR OWN report. Plain, kind words; never internal notes, priority, reviewer or other people's reports. */
+export function friendlyFeedbackStatus(clusterStatus: string | null | undefined): { key: string; label: string; note: string } {
+  switch (clusterStatus) {
+    case 'approved': case 'modified': return { key: 'planned', label: 'Planned', note: 'We have decided to work on this.' };
+    case 'implemented': case 'verified': return { key: 'fixed', label: 'Done', note: 'We made a change because of reports like yours. Thank you.' };
+    case 'rejected': return { key: 'declined', label: 'Looked at', note: 'We looked at this and are not changing it right now.' };
+    case 'deferred': return { key: 'later', label: 'Kept for later', note: 'We are keeping this for a later update.' };
+    case 'rolled_back': return { key: 'again', label: 'Being looked at again', note: 'A change did not work out, so we are looking at it again.' };
+    default: return { key: 'received', label: 'Received', note: 'We have your message and will look at it.' };
+  }
+}

@@ -4,6 +4,12 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v78 - "What happened to my report?" (2026-10-28)
+No migration. `/my-feedback` (linked from My data) lists a signed-in student's OWN reports with a plain status (Received / Planned / Done / Looked at / Kept for later / Being looked at again) read from the group the report belongs to. `/api/feedback/mine` takes the student from the session only and never returns priority, internal notes, reviewer or anyone else's reports. Wording is `friendlyFeedbackStatus` (tested, t78). Signed out: 401. Not tested signed in on the live site. Parents/tutors who are not students do not have a list yet (their reports carry no account id).
+
+---
+
+
 ## v77 - Invite links count as tracked arrivals (2026-10-28)
 No migration. Opening `/r/CODE` now sets the same first-touch (only if none yet) and last-touch cookies as any tracked link, with source "referral", so a person who joins through an invite is attributed to "referral" even when their browser had no earlier link, and (when the browser already has its device cookie) the arrival is stored in `acquisition_touches` so invite-link visits are matched to sign-ups. The invite code is not stored in the touch. Bad codes set nothing. Checked on a running server: fresh visit, visit with existing first touch (kept), bad code. Not tested with a real sign-up.
 
