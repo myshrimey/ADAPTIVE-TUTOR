@@ -115,3 +115,4 @@ Apply v59 after v58 (migration 0036). Then: (1) at /admin/ai-infrastructure open
 - v77 (2026-10-28): /r/CODE invite links also count as tracked 'referral' arrivals (cookies + acquisition_touches). No migration.
 - v78 (2026-10-28): /my-feedback shows a student their own reports with a plain status (friendlyFeedbackStatus; never priority/notes). No migration.
 - v79 (2026-10-28): invitations + admin team + Help (migration 0049). Founder to do: run `npm run db:migrate`; set `NEXT_PUBLIC_SITE_URL` (your website address) and optionally `INVITE_SECRET` (a long random text) on Vercel and redeploy; create a test tutor invitation at /admin/users/create, open it in a private window, register, then check /admin/invitations; add team members at /admin/team; read /help.
+- v80 (2026-10-29): teacher-student assignment records at /admin/assignments (migration 0050). Founder to do: `npm run db:migrate`, then assign one approved teacher to one student and end it.

@@ -4,6 +4,12 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v80 - Teacher-student assignment records (2026-10-29)
+Migration 0050 `teacher_assignments`. `/admin/assignments` (academic permission) records which approved teacher teaches which student, with end/reassign and audit. It grants NO access to the student's data. Tests: t80 11/11, t79 still 88/88, tsc clean, production build clean, migration run twice, signed-out API 403. Not tested with a live database.
+
+---
+
+
 ## v79 - Role-based accounts, admin team, shareable invitations, Help (2026-10-28)
 Migration 0049 (invitations, invitation_events, admin_team, org_members, role_changes; trigger `guard_user_role`). New: `/admin/users` (+ Add Student/Parent/Teacher/Tutor/Coaching Centre), `/admin/users/create` (role-specific fields, success screen with Copy link / WhatsApp / Share / Telegram / Email / Copy message / View / Create another), `/admin/invitations` (+ detail with link, history, revoke, extend, new link, role-change approval), `/admin/team` (templates + permissions, Super Admin only), public `/invite/<token>` (role locked, exact expired/revoked wording, existing-account handling), `/centre/invitations` (a centre invites its own people), `/help`. Existing admin routes opened to team permissions: teachers (academic), partners (users), acquisition + social growth (marketing), feedback (support); everything else stays Super Admin only. Closed a gap: a signed-in user could edit their own `users.role` under the old row policy; the trigger now refuses it. Invitation source/campaign/referral are stored server-side and written into `acquisition_attribution` as first touch (source e.g. whatsapp or invitation). Tests: t79 (88) and t79b (26) pass; tsc clean; production build clean; migration run twice; trigger tested in a scratch database; signed-out access to every new admin/centre API returns 403. Not tested: a real sign-up with a live database, signed-in team members on the live site. Older t3/t4 (legacy plans) fail as before and are unrelated.
 

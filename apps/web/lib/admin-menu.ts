@@ -38,6 +38,7 @@ export const ADMIN_MENU: AdminGroup[] = [
       { href: '/admin/translations/review', label: 'Check Hindi translations', note: 'Review queue' },
       { href: '/admin/subject-requests', label: 'Subject requests', note: 'What families are asking for' },
       { href: '/admin/teachers', label: 'Teachers', note: 'Approve and see teacher work' },
+      { href: '/admin/assignments', label: 'Teacher-student assignments', note: 'Record who teaches whom (no data access)', keywords: 'assign teacher student class' },
     ],
   },
   {
