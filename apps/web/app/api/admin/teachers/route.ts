@@ -6,7 +6,7 @@ import { requireAdmin, generatePassword } from '@/lib/admin';
 // founder passes on. Shown once, never stored.
 export async function POST(request: Request) {
   try {
-    await requireAdmin();
+    await requireAdmin('academic');
     const body = await request.json().catch(() => ({}));
     const email = String(body.email ?? '').trim().toLowerCase();
     const displayName = String(body.displayName ?? '').trim().slice(0, 120);

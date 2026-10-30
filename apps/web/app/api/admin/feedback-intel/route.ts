@@ -7,7 +7,7 @@ const UUID = /^[0-9a-f-]{36}$/i;
 
 export async function POST(request: Request) {
   try {
-    const admin = await requireAdmin();
+    const admin = await requireAdmin('support');
     const b = await request.json().catch(() => ({}));
     const service = createServiceClient();
     if (b.action === 'analyse') return NextResponse.json({ data: await analyseNewFeedback(service), error: null });

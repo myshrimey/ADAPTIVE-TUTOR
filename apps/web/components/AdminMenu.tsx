@@ -2,18 +2,19 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { ADMIN_MENU, locate, searchMenu } from '@/lib/admin-menu';
+import { ADMIN_MENU, locate, searchMenu, type AdminGroup } from '@/lib/admin-menu';
 
 // The admin top bar: one button per category, each opening a short list. A search box finds any page by name.
 // Works with the keyboard (Esc closes), and folds into a simple accordion on a phone.
-export function AdminMenu() {
+export function AdminMenu({ groups }: { groups?: AdminGroup[] }) {
+  const MENU = groups ?? ADMIN_MENU;
   const pathname = usePathname() ?? '';
   const here = locate(pathname);
   const [open, setOpen] = useState<string | null>(null);
   const [q, setQ] = useState('');
   const [mobile, setMobile] = useState(false);
   const box = useRef<HTMLDivElement>(null);
-  const hits = searchMenu(q);
+  const hits = searchMenu(q).filter((h) => MENU.some((g) => g.id === h.group.id && g.items.some((i) => i.href === h.item.href)));
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') { setOpen(null); setQ(''); } };
@@ -30,7 +31,7 @@ export function AdminMenu() {
         <a href="/admin/command-centre" className="admin-menu__home">Command Centre</a>
         <button type="button" className="admin-menu__burger" aria-expanded={mobile} onClick={() => setMobile((v) => !v)}>Menu ▾</button>
         <div className={`admin-menu__groups${mobile ? ' is-open' : ''}`}>
-          {ADMIN_MENU.map((g) => (
+          {MENU.map((g) => (
             <div key={g.id} className="admin-menu__group">
               <button
                 type="button"

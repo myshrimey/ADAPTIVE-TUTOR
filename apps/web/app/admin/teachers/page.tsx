@@ -3,7 +3,7 @@ import { adminPageGate, AdminNav } from '@/lib/admin-page';
 import { AdminTeachers, type AdminTeacherRow } from '@/components/AdminTeachers';
 
 export default async function AdminTeachersPage() {
-  const g = await adminPageGate();
+  const g = await adminPageGate('academic');
   if ('gate' in g) return g.gate;
 
   const service = createServiceClient();

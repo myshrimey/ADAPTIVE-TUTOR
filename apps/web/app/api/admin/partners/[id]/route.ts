@@ -6,7 +6,7 @@ import { requireAdmin } from '@/lib/admin';
 // (linkedStudentIds returns nothing unless the profile is active).
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    await requireAdmin();
+    await requireAdmin('users');
     const { id } = await params;
     const body = await request.json().catch(() => ({}));
     const status = body.action === 'approve' ? 'active' : body.action === 'suspend' ? 'suspended' : null;

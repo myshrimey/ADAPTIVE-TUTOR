@@ -22,7 +22,7 @@ const ROWHEAD = ['', 'Sign-ups', 'Students', 'Visits', 'Tracked arrivals', 'Diag
 const Dl = ({ href, kind, q }: { href?: string; kind: string; q: string }) => <a className="btn btn--ghost btn--small" href={`/api/admin/acquisition/export?kind=${kind}&${q}`}>Download CSV</a>;
 
 export default async function Page({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
-  const g = await adminPageGate(); if ('gate' in g) return g.gate;
+  const g = await adminPageGate('marketing'); if ('gate' in g) return g.gate;
   const sp = await searchParams; const service = createServiceClient();
   const rb = rangeBounds(sp.r ?? '30', { from: sp.from, to: sp.to });
   const { raw, missing } = await loadRaw(service);

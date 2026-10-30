@@ -84,6 +84,7 @@ export async function Footer() {
           <a href="/legal/payment-policy">{t('legal.paymentPolicy', lang)}</a>
           <a href="/legal/refund">Refund policy</a>
           <a href="/contact">{t('legal.contact', lang)}</a>
+          <a href="/help">Help</a>
           <a href="/about">About</a>
           <a href="/trust">Trust</a>
           <a href="/sample-report">Sample report</a>

@@ -3,11 +3,11 @@ import { requireAdmin } from '@/lib/admin';
 import { createServiceClient } from '@/lib/supabase-server';
 import { createPartner, updatePartner, recordOfflineSale, tagSale, saveCampaignWithExtras, tagExpense, saveExperiment, saveAcqSettings, backfillAttribution } from '@adaptive-tutor/core';
 
-// ADMIN ONLY. Every action starts with requireAdmin(); a signed-out or ordinary user gets 403 and nothing is read or written.
+// ADMIN ONLY. Every action starts with requireAdmin('marketing'); a signed-out or ordinary user gets 403 and nothing is read or written.
 // Input is validated inside the core functions. Errors are friendly sentences, never database text.
 export async function POST(request: Request) {
   try {
-    const admin = await requireAdmin(); const actor = (admin as any)?.email ?? 'admin';
+    const admin = await requireAdmin('marketing'); const actor = (admin as any)?.email ?? 'admin';
     const b = await request.json().catch(() => ({})); const service = createServiceClient();
     switch (b.action) {
       case 'partner_create': return ok({ code: await createPartner(service, { kind: b.kind, name: b.name, notes: b.notes, status: b.status }) });

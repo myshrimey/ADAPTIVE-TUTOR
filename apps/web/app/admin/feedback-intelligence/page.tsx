@@ -15,7 +15,7 @@ const dd = (v: number | null) => (v === null ? 'Not enough data' : `${v} days`);
 // ADMIN ONLY. Messages from students, parents, tutors and others, sorted into groups by plain rules (no AI cost). Optional AI analysis is a recommendation only.
 // Sahayak proposes; a person decides; nothing is changed or deployed by pressing a button here.
 export default async function Page({ searchParams }: { searchParams: Promise<Record<string, string | undefined>> }) {
-  const g = await adminPageGate();
+  const g = await adminPageGate('support');
   if ('gate' in g) return g.gate;
   const sp = await searchParams;
   const f = sp.f === 'all' || sp.f === 'done' ? sp.f : 'waiting';

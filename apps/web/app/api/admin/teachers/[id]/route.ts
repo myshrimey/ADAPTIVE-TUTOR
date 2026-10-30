@@ -5,7 +5,7 @@ import { requireAdmin, generatePassword } from '@/lib/admin';
 // Admin-only: approve / suspend a teacher, or set a new password. [id] is users.id.
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    await requireAdmin();
+    await requireAdmin('academic');
     const { id } = await params;
     const body = await request.json().catch(() => ({}));
     const service = createServiceClient();

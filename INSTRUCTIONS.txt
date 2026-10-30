@@ -1,7 +1,12 @@
-SAHAYAK v78 - "What happened to my report?" No database change.
+SAHAYAK v79 - Create accounts by invitation, admin team, Help. ONE database change (0049).
 1. Unzip over your project, commit, let Vercel deploy.
-2. Signed in as a student: send a report with the Feedback button, then open /my-feedback (also linked at the top of My data). It shows "Received". When you approve/implement the group in /admin/feedback-intelligence the wording changes.
-TESTED: type check clean; full production build clean; wording test t78; signed-out request to /api/feedback/mine gives 401.
-NOT TESTED: signed in on the live site.
-NOT BUILT: a list for parents/tutors/centres (their reports are not tied to an account).
+2. Run: npm run db:migrate (adds 0049; safe to run again).
+3. In Vercel > Settings > Environment Variables add NEXT_PUBLIC_SITE_URL = your website address (for example https://yourname.com, no slash at the end) so shared links point to the real site. Optionally add INVITE_SECRET = a long random text (without it the app uses your existing server key). Redeploy.
+4. Admin > Customers & Growth > Users and accounts > "+ Add Tutor" (or Student, Parent, Teacher, Coaching Centre). Fill the details, press Create + share invitation. Copy the link or press Share on WhatsApp. The link is also always in Admin > Invitations.
+5. Open the link in a private window to register as that person (role is fixed). Then look at Admin > Invitations for the status.
+6. Admin > Admin team (you only): add a colleague by their sign-in email, pick Operations/Academic/Content/Marketing/Finance/Support/Technology or tick permissions.
+7. Help is at /help (also in the footer and the account menu).
+TESTED: wording and rules tests t79 (88) and t79b (26); type check clean; full production build clean; migration run twice on a scratch database; the new guard that stops a signed-in user changing their own role (tested in a scratch database); signed-out requests to every new admin/centre API return 403; invitation pages show the fixed 'not valid' message for bad links.
+NOT TESTED: a real registration through a live database; signed-in team members; WhatsApp opening on a phone.
+NOT BUILT: assigning a teacher to a student (the current system has no such link); converting a student account into another kind; team permissions on every older admin page (only teachers, partners, acquisition, social growth, feedback were opened; the rest stay founder-only).
 NOT DEPLOYED: nothing is deployed from here.

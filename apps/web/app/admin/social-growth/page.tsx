@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 
 // ADMIN ONLY (same ADMIN_EMAILS rule as every admin page). Manual publishing workflow: no social platform is connected.
 export default async function Page() {
-  const g = await adminPageGate();
+  const g = await adminPageGate('marketing');
   if ('gate' in g) return g.gate;
   const service = createServiceClient();
   let installed = true;

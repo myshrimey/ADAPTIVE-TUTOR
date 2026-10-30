@@ -67,6 +67,10 @@ export const ADMIN_MENU: AdminGroup[] = [
     items: [
       { href: '/admin/crm', label: 'Customers & leads', note: 'Conversations and follow-ups', keywords: 'crm' },
       { href: '/admin/crm?group=institutions', label: 'Schools', note: 'Schools and institutions' },
+      { href: '/admin/users', label: 'Users and accounts', note: '+ Add student, parent, teacher, tutor, centre', keywords: 'create account add user invite onboarding' },
+      { href: '/admin/users/create', label: 'Create account + share invitation', note: 'Student, parent, teacher, tutor, centre', keywords: 'add new tutor student link whatsapp' },
+      { href: '/admin/invitations', label: 'Invitations', note: 'Shareable links, status and progress', keywords: 'invite link whatsapp share onboarding tutor expired revoked' },
+      { href: '/admin/team', label: 'Admin team', note: 'Colleagues and what they may open', keywords: 'staff permissions roles operations finance support' },
       { href: '/admin/partners', label: 'Parents, tutors, centres', note: 'Partner accounts' },
       { href: '/admin/interest', label: 'Applications and requests', note: 'People who asked to join' },
       { href: '/admin/acquisition', label: 'Acquisition & Referral Intelligence', note: 'Source to payment to referral, by channel, post, partner', keywords: 'acquisition attribution funnel utm source cac referral partner tutor centre school cohort channel growth' },

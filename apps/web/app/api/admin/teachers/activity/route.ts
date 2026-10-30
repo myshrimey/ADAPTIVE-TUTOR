@@ -8,7 +8,7 @@ const csvCell = (v: string | number) => `"${String(v).replace(/"/g, '""')}"`;
 // review) adds an amount column. Teacher pay is the founder's decision; this only counts the work.
 export async function GET(request: Request) {
   try {
-    await requireAdmin();
+    await requireAdmin('academic');
     const url = new URL(request.url);
     const month = url.searchParams.get('month') || new Date(Date.now() + 5.5 * 3600000).toISOString().slice(0, 7);
     const range = monthRangeIst(month);

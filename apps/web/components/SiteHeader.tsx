@@ -206,6 +206,7 @@ export function SiteHeader() {
                   <a href="/sharing" className="nav-panel__row" role="menuitem">Sharing</a>
                   <a href="/profile" className="nav-panel__row" role="menuitem">{t('nav.profile')}</a>
                   <a href="/my-data" className="nav-panel__row" role="menuitem">My data</a>
+                  <a href="/help" className="nav-panel__row" role="menuitem">Help</a>
                   <a href="/dashboard" className="nav-panel__row" role="menuitem">{t('nav.dashboard')}</a>
                   </>}
                   <button type="button" className="nav-panel__row nav-panel__row--quiet" role="menuitem" onClick={handleSignOut}>
@@ -252,6 +253,7 @@ export function SiteHeader() {
             {signedIn && <a href="/reports" className="nav-drawer__link">My test reports</a>}
             {signedIn && <a href="/sharing" className="nav-drawer__link">Sharing</a>}
             {signedIn && <a href="/my-data" className="nav-drawer__link">My data</a>}
+            <a href="/help" className="nav-drawer__link">Help</a>
             </>}
             <p className="nav-panel__hello">{t('nav.plans')}</p>
             <a href="/plans" className="nav-cta nav-cta--block">{t('nav.plans')}</a>

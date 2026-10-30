@@ -5,7 +5,7 @@ import { toCsv, listContent, listCampaigns, listMetrics, attribution, loadSocial
 // Founder-only CSV downloads: ?kind=calendar | library | campaigns | metrics | leads. Empty cells mean "not recorded" (never 0).
 export async function GET(request: Request) {
   try {
-    await requireAdmin();
+    await requireAdmin('marketing');
     const kind = new URL(request.url).searchParams.get('kind') ?? 'library'; const service = createServiceClient();
     const settings = await loadSocialSettings(service); const base = siteBase(settings);
     const campaigns = await listCampaigns(service); const cname = new Map(campaigns.map((c) => [c.id, c])); const day = new Date().toISOString().slice(0, 10);

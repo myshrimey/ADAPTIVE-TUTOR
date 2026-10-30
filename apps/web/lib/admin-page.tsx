@@ -1,17 +1,21 @@
-import { createServerClient } from '@/lib/supabase-server';
+import { createServerClient, createServiceClient } from '@/lib/supabase-server';
+import { can, teamMemberByEmail, visiblePath, type Permission } from '@adaptive-tutor/core';
 import { AdminSignIn } from '@/components/AdminSignIn';
 import { SignOutButton } from '@/components/SignOutButton';
 import { AdminMenu } from '@/components/AdminMenu';
 import { ADMIN_MENU } from '@/lib/admin-menu';
 
 // Shared gate for server-rendered admin pages: returns the admin's email, or the sign-in UI to render.
-export async function adminPageGate(): Promise<{ email: string } | { gate: React.ReactNode }> {
+export async function adminPageGate(perm?: Permission): Promise<{ email: string; superAdmin?: boolean } | { gate: React.ReactNode }> {
   const supabase = await createServerClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
   const allowed = (process.env.ADMIN_EMAILS ?? '').split(',').map((e) => e.trim().toLowerCase()).filter(Boolean);
-  if (user?.email && allowed.includes(user.email.toLowerCase())) return { email: user.email };
+  if (user?.email && allowed.includes(user.email.toLowerCase())) return { email: user.email, superAdmin: true };
+  if (user?.email && perm) { // v79: an active team member holding this permission
+    try { const m = await teamMemberByEmail(createServiceClient(), user.email); if (can({ superAdmin: false, member: m }, perm)) return { email: user.email, superAdmin: false }; } catch { /* no access */ }
+  }
   return {
     gate: (
       <main className="page">
@@ -39,8 +43,19 @@ export async function adminPageGate(): Promise<{ email: string } | { gate: React
 }
 
 // The admin menu: grouped by category (see apps/web/lib/admin-menu.ts). Every admin page already renders <AdminNav />, so this one change reorganises all of them.
-export function AdminNav() {
-  return <AdminMenu />;
+export async function AdminNav() {
+  // v79: Super Admin sees every page; a team member sees only the pages their permissions open (the server still re-checks each page and action).
+  let groups: typeof ADMIN_MENU | undefined;
+  try {
+    const supabase = await createServerClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    const allowed = (process.env.ADMIN_EMAILS ?? '').split(',').map((e) => e.trim().toLowerCase()).filter(Boolean);
+    if (user?.email && !allowed.includes(user.email.toLowerCase())) {
+      const member = await teamMemberByEmail(createServiceClient(), user.email);
+      groups = ADMIN_MENU.map((g) => ({ ...g, items: g.items.filter((i) => visiblePath(i.href, { superAdmin: false, member })) })).filter((g) => g.items.length > 0);
+    }
+  } catch { /* show the full menu: pages still enforce access */ }
+  return <AdminMenu groups={groups} />;
 }
 
 // "Everything in one place": the same list as cards, for the Command Centre home.

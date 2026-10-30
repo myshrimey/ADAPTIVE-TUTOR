@@ -4,7 +4,7 @@ import { AdminPartners, type PartnerRow } from '@/components/AdminPartners';
 
 export const dynamic = 'force-dynamic';
 export default async function AdminPartnersPage() {
-  const g = await adminPageGate();
+  const g = await adminPageGate('users');
   if ('gate' in g) return g.gate;
   const service = createServiceClient();
   const [{ data: profiles }, { data: links }, { data: plans }] = await Promise.all([

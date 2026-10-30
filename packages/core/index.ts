@@ -139,3 +139,5 @@ export * from './pedagogy/scaffold';
 export * from './error-intel';
 export * from './social-growth';
 export * from './acquisition';
+export * from './invitations';
+export * from './admin-team';

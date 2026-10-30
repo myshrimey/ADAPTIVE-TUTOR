@@ -12,8 +12,8 @@ import {
 export const maxDuration = 60;
 const FRIENDLY_BAD = 'Something went wrong. Nothing was lost; please try again.';
 
-// Every action below runs requireAdmin() first (server-side, the same ADMIN_EMAILS rule as every other admin API). The browser's claims are never trusted.
-async function guard() { return requireAdmin(); }
+// Every action below runs requireAdmin('marketing') first (server-side, the same ADMIN_EMAILS rule as every other admin API). The browser's claims are never trusted.
+async function guard() { return requireAdmin('marketing'); }
 const fail = (err: any, where: string) => {
   const m = String(err?.message ?? '');
   if (m === 'not_authorized') return NextResponse.json({ data: null, error: 'You are not signed in as an authorised admin. Open /admin/social-growth to see why.' }, { status: 403 });

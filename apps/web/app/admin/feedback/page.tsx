@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 // Raw list of messages, newest first. The grouped view is at /admin/feedback-intelligence.
 // Reads through the service client because the `feedback` table has no select policy for anon/authenticated (migration 0003).
 export default async function AdminFeedbackPage() {
-  const g = await adminPageGate();
+  const g = await adminPageGate('support');
   if ('gate' in g) return g.gate;
   const { data: rows, error } = await createServiceClient()
     .from('feedback')

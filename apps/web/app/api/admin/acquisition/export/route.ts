@@ -6,7 +6,7 @@ import { toCsv, loadRaw, buildReport, buildPeople, rangeBounds, sourceLabel, REP
 // Spreadsheet-safe (toCsv defuses formulas). Empty cell = not recorded. No names, contact details, answers or notes; accounts are shown by a short id only.
 export async function GET(request: Request) {
   try {
-    await requireAdmin();
+    await requireAdmin('marketing');
     const u = new URL(request.url); const kind = u.searchParams.get('kind') ?? 'sources';
     const rb = rangeBounds(u.searchParams.get('r') ?? '30', { from: u.searchParams.get('from') ?? undefined, to: u.searchParams.get('to') ?? undefined });
     const { raw } = await loadRaw(createServiceClient());
