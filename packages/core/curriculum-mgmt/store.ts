@@ -191,3 +191,15 @@ export async function publishedVersionForSubject(service: SupabaseClient, subjec
     const r = (data ?? [])[0] as any; return r ? { id: r.id, label: `${r.board} ${r.academic_year} Class ${String(r.class_level).replace(/^class\s*/i, '')} ${r.subject_label ?? ''} v${r.version}`.replace(/\s+/g, ' ').trim() } : null;
   } catch { return null; }
 }
+
+/** v82: best-effort stamp of the published curriculum version on a result row. Never throws; works only after migration 0052.
+ *  Returns the version id used (or null). Pass useVersionId to reuse the version the check started with. */
+export async function stampCurriculumVersion(service: SupabaseClient, table: 'baseline_sessions' | 'student_baselines', rowId: string | null | undefined, subjectId: string | null | undefined, useVersionId?: string | null): Promise<string | null> {
+  try {
+    if (!rowId) return null;
+    const id = useVersionId || (await publishedVersionForSubject(service, subjectId))?.id || null;
+    if (!id) return null;
+    const { error } = await service.from(table).update({ curriculum_version_id: id }).eq('id', rowId);
+    return error ? null : id;
+  } catch { return null; }
+}

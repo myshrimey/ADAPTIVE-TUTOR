@@ -8,6 +8,7 @@ import { classifyError, estimateFrom, evidenceStrength, type EvidenceItem } from
 import { buildBaseline, compareEstimates, studentReport, type Baseline } from './baseline';
 import { foundationCodes, generateFoundationItem, seededRng } from './foundation-items';
 import { gradeAnswer, extractString } from '../question-engine/grading';
+import { stampCurriculumVersion } from '../curriculum-mgmt/store';
 import { inputKindOf, validateAnswer, type InputKind } from '../answers/input';
 
 export const BASELINE_SETTING_KEY = 'baseline_engine';
@@ -265,6 +266,7 @@ export async function startBaseline(service: SupabaseClient, studentId: string, 
   const { data: row, error } = await service.from('baseline_sessions').insert({ student_id: studentId, subject_id: subjectId, kind: opts.mini ? 'mini' : 'full', status: 'in_progress', state: wrap, seen_items: [] }).select('id').single();
   if (error || !row) throw new Error('Could not start the check.');
   const sessionId = (row as any).id as string;
+  await stampCurriculumVersion(service, 'baseline_sessions', sessionId, subjectId);
   const nxt = await advance(service, sessionId);
   return { sessionId, question: nxt.question, finished: nxt.finished };
 }
@@ -391,6 +393,7 @@ async function finishSession(service: SupabaseClient, sessionId: string): Promis
     overall: baseline.overall, gaps: baseline.gaps, starting_point: baseline.startingPoint, confidence: baseline.confidence, changes,
   }).select('id').single();
   const baselineId = (row as any)?.id ?? null;
+  await stampCurriculumVersion(service, 'student_baselines', baselineId, s.subject_id, s.curriculum_version_id ?? null);
   // mastery rows for every competency with evidence
   const now = new Date().toISOString();
   const upserts = [...est.values()].map((e) => ({ student_id: s.student_id, competency_id: e.competencyId, alpha: e.alpha, beta: e.beta, mastery: e.mastery, confidence: e.confidence, evidence_count: e.evidenceCount, status: e.status, last_evaluated: now, updated_at: now }));

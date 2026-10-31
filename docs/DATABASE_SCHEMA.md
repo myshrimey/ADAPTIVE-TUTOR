@@ -690,3 +690,6 @@ Server-only (RLS on, no policies). teacher_assignments: teacher_user, student_id
 
 ## 0051 Curriculum management (v81)
 All server-only (RLS on, no policies). curriculum_versions (older v61 table): status widened to draft/uploaded/processing/needs_review/approved/published/superseded/failed/retired; new published_at, published_by, status_note. curriculum_documents: version_id, file_name, mime, size_bytes, sha256, storage_path, doc_type, source_url/note/date, uploaded_by/at, process_method/note, error. curriculum_nodes: version_id, parent_id, kind (board/year/class/subject/unit/chapter/topic/outcome/objective), name, sequence, source_page, confidence, flagged, flag_note, stable_key (unique per version), linked_table/linked_id. curriculum_events: version_id, at, event, actor, detail. Private storage bucket `curriculum-docs`. Reports carry `data.curriculum` {id,label} (no column needed).
+
+## 0052 Curriculum stamps (v82)
+baseline_sessions.curriculum_version_id and student_baselines.curriculum_version_id: nullable uuid to curriculum_versions (on delete set null), indexed where not null.

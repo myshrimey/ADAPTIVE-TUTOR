@@ -1,10 +1,9 @@
-SAHAYAK v81 - Curriculum management and branded downloads. ONE database change (0051).
-1. Unzip over your project, commit, let Vercel deploy.
-2. Run: npm run db:migrate (safe to run again; also runs 0049 and 0050 if you have not).
-3. Admin > Curriculum and syllabus: download the CSV template, fill a few rows, upload it, review, then Approve and Publish (only you, the Super Admin, can do these two).
-4. Download any PDF or CSV and check the Sahayak header/footer (PDF) or file (CSV).
-NOTE: PDFs you upload are stored safely but NOT read automatically. Use the CSV template, a DOCX/XLSX, or paste the outline text. Uploads are limited to 4 MB.
-TESTED: tests t81 (76) and t81b (28), earlier tests t79/t79b/t80 pass; type check clean; full production build clean; migration run twice on a scratch database; signed-out requests to every new API return 403; a real PDF download was opened in a headless browser and shows logo, name, tagline, website, export ID, page numbers and privacy label.
-NOT TESTED: with your live database; signed-in admin actions; phone browsers.
-NOT BUILT: reading PDFs, re-checking question banks against learning outcomes, DOCX/XLSX exports (the app has none), plan limits on exports.
+SAHAYAK v82 - Adaptive checks remember the curriculum version. ONE small database change (0052).
+1. Unzip over your project, commit, let Vercel deploy. (Apply after v81.)
+2. Run: npm run db:migrate (safe to run again).
+3. Publish a curriculum for a subject, then take one adaptive check as a student. It should work exactly as before.
+TESTED: new test t82 (8) and all earlier tests pass; type check clean; migration run twice on a scratch database.
+NOT TESTED: with your live database.
+ALSO CHECKED: full production build is clean; the pages and APIs answer correctly when signed out.
+NOT BUILT: stamping the old /diagnostic, stamping individual questions, re-checking question banks against learning outcomes.
 NOT DEPLOYED: nothing is deployed from here.

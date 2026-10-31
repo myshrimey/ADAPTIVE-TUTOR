@@ -4,6 +4,11 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v82 - Curriculum version on adaptive checks and baselines (2026-10-30)
+Migration 0052: nullable `curriculum_version_id` on `baseline_sessions` and `student_baselines`. A check records the published version when it STARTS and the baseline keeps that same version even if a newer one is published during the check. Best-effort and never blocks a student (works without the migration). Old rows stay empty. Tests: t82 8/8; t79-t81b, t62-t62c, t67, t76, t78 still pass; tsc clean; migration run twice on a scratch database. Full production build not re-run (core-only change). Not done: old /diagnostic attempts, question-level stamps, re-mapping question banks to learning outcomes.
+
+---
+
 ## v81 - Curriculum management and branded exports (2026-10-30)
 Migration 0051: `curriculum_versions` extended (statuses draft/uploaded/processing/needs_review/approved/published/superseded/failed/retired, published_at/by), new `curriculum_documents`, `curriculum_nodes` (Board-Year-Class-Subject-Unit-Chapter-Topic-Learning Outcome-Assessment Objective, source page, flag, stable key), `curriculum_events`, private bucket `curriculum-docs`. Core `packages/core/curriculum-mgmt/`. `/admin/curriculum` (+ `[id]` review): upload (PDF/DOCX/XLSX/CSV, 4 MB), CSV/DOCX/XLSX/outline-text read in code, PDFs stored but NOT read, checks, edit/flag, approve/unapprove/publish/rollback (Super Admin only), history, optional link of an item to an existing chapter/topic. New reports are stamped with the curriculum version. One export service `packages/core/branding` + `apps/web/lib/export.ts`: all CSV/JSON/markdown downloads carry brand and privacy headers (body untouched), client PDF and print get header/footer (logo, name, tagline, website, export ID, date, page n of N, privacy label). Tests: t81 76, t81b 28, t79/t79b/t80 pass, tsc clean, build clean, migration twice, signed-out 403s, real PDF download checked in headless Chromium. Not tested: live database, signed-in flows.
 
