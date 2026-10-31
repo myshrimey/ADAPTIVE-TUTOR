@@ -120,3 +120,4 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v83 (2026-10-30): curriculum PDFs are read automatically (text PDFs only, labelled lines only, human review required). New dependency unpdf 1.9.1; no migration.
 - v85 (2026-10-30): /review asks "How sure are you?" (optional) and shows a calibration card; migration 0053. Migrations now go through `0053`.
 - v86 (2026-10-30): tutor chat occasionally asks the student to explain why in their own words (rule-based, no migration, switch-off constant ENRICHMENT_ENABLED).
+- v88 (2026-10-31): free AI capacity. Fixed a paid-provider leak in the backup chain; /admin/ai-infrastructure has a Free capacity panel; migration 0054 notes on candidate providers (Cloudflare, OpenRouter, Mistral, Cerebras) all UNVERIFIED. Migrations now go through `0054`.

@@ -1,9 +1,15 @@
-SAHAYAK v87 - The team menu now shows only pages a team member can really open. NO database change.
-1. Unzip over your project, commit, let Vercel deploy. (Apply after v86.)
-2. Admin > Team: next to Finance, Technology and Content you will see "(does not open any admin page yet: those pages are still for you only)".
-WHY: before, a team member with Finance, Technology or Content permission saw 12 menu items (pricing, payments, expenses, AI economics, question bank, reviews and more) that the server then refused. Nothing was opened to anyone; the menu was corrected.
-PAGES A TEAM MEMBER CAN OPEN TODAY: users, invitations, teachers, teacher-student assignments, curriculum, partners, acquisition, social growth, feedback.
-YOUR DECISION: if you want a Finance or Technology person to use some of the money or AI pages, tell me which pages and whether read-only or with changes.
-TESTED: new test t87 (17) compares every admin page's real gate with the menu; earlier tests pass; type check and full production build clean.
-NOT TESTED: signed-in team members on the live site.
+SAHAYAK v88 - More free AI capacity, without more cost. ONE small database change (0054, notes only).
+1. Unzip over your project, commit, let Vercel deploy. (Apply after v87.)
+2. Run: npm run db:migrate (safe to run again).
+3. Open Admin > AI infrastructure. The new "Free capacity" panel at the top shows which free routes are live, the daily limits YOU entered, what is used and left today, and for every other provider exactly what is still missing before it can be used.
+IMPORTANT FIX: if the AI settings could not be read (for example a database hiccup), the old backup path could have used PAID providers (OpenAI, Claude) for students on a paid plan, ignoring "free only". That is closed: the backup path now uses free providers only. A test proves it.
+HOW TO ADD A FREE PROVIDER (nothing is switched on for you): 1) create the account on its FREE plan; 2) add its key on Vercel under the key name shown in the panel; 3) read its CURRENT official terms (free limits, commercial use, what it does with student text); 4) in the provider list enter the limits, tick the 9 checks, set class A/B/C and free tier = yes; 5) set status active. Until all of that, it is never used and cannot cost money.
+WHAT I READ ON THE PROVIDERS' OWN PAGES (2026-10-31, NOT verified by you yet; also saved as notes on each provider):
+- Cloudflare Workers AI: 10,000 Neurons per day free. On the FREE Workers plan going over is not billed: calls just fail until midnight UTC. On the PAID plan it is billed. So use a Free-plan account. You must type your own account endpoint.
+- OpenRouter: free models about 20 requests a minute and 50 a day without buying credit. Small; each free model has its own terms. Do not top up (that is paid use).
+- Mistral: a free API tier exists with "restrictive" limits; the numbers are in your own Mistral console; its commercial-use and data terms were not on the page.
+- Cerebras: shows a one-time $5 promotional credit (needs a payment method, expires in 30 days) for development use. That is a short trial, not free capacity. Do not rely on it.
+HONEST NOTE: the free tiers above are small. The biggest free capacity you have is still Gemini and Groq. More providers add a safety net and some headroom, not unlimited AI. Do not create extra accounts or projects just to multiply a provider's free quota: that usually breaks its terms.
+TESTED: new test t88 (17), which FAILS on the old code and passes now; AI gateway tests t55, t55b, t55c, t59 and all earlier tests pass; type check and full production build clean; migration run twice on a scratch database and it never overwrites text you typed; the admin page shows sign-in when signed out.
+NOT TESTED: a real call to any new provider; real quota behaviour; your live database.
 NOT DEPLOYED: nothing is deployed from here.

@@ -1,6 +1,6 @@
 import { createServiceClient } from '@/lib/supabase-server';
 import { adminPageGate, AdminNav } from '@/lib/admin-page';
-import { loadAiInfrastructure, activationBlocker, CLASSIFICATIONS, TASKS, FREE_CORE_NOTICE, type ProviderRow } from '@adaptive-tutor/core';
+import { loadAiInfrastructure, activationBlocker, freeCapacity, CLASSIFICATIONS, TASKS, FREE_CORE_NOTICE, type ProviderRow } from '@adaptive-tutor/core';
 import { GatewayControls, ProviderEditor, AddProvider, BenchmarkPanel } from '@/components/ai/AiControls';
 
 export const dynamic = 'force-dynamic';
@@ -56,6 +56,23 @@ export default async function Page() {
           Cost per handwritten evaluation (this month, {d.cost.handwritten.evaluations} evaluations with a recorded id): billed <strong>{m(d.cost.handwritten.billedAvg)}</strong> · at list price <strong>{m(d.cost.handwritten.listAvg)}</strong></p>
         <Tbl head={['Feature', 'Tier', 'Calls', 'Failed', 'Billed', 'List price']} rows={d.cost.features.map((f) => [f.label, f.tier, f.calls, f.failures, inr(f.billedInr), inr(f.listInr)])} />
         <p style={{ fontSize: '0.82rem', color: 'var(--slate)' }}>Tier 0 work (marks, percentages, XP, streaks, leaderboards, badges, attendance, progress, counts, rankings) never calls an AI model; the gateway refuses it.</p>
+
+        <H>Free capacity (what students on the free plan can use today)</H>
+        {(() => {
+          const keyOf: Record<string, boolean> = Object.fromEntries(d.lines.map((l) => [l.id, l.keySet]));
+          const used: Record<string, number> = Object.fromEntries(d.lines.map((l) => [l.id, l.requestsToday]));
+          const fc = freeCapacity(d.providers as ProviderRow[], used, (p) => !!keyOf[p.id]);
+          return (
+            <div style={{ fontSize: '0.9rem' }}>
+              <p style={{ margin: '0.2rem 0' }}><strong>{fc.routes.length}</strong> free route(s) are live. {fc.knownDailyRequests !== null ? <>Daily requests you entered across them: <strong>{fc.knownDailyRequests.toLocaleString('en-IN')}</strong>{fc.routesWithoutLimit > 0 ? ` (${fc.routesWithoutLimit} route(s) have no daily limit entered, so they are not counted)` : ''}.</> : 'No daily limit has been entered for any live free route, so total capacity is not known.'} Free routes are used before any other; nothing becomes paid unless you set an explicit budget rule.</p>
+              <Tbl head={['Live free route', 'Model', 'Daily limit', 'Used today', 'Left today']} rows={fc.routes.map((r) => [<strong key="n">{r.name}</strong>, r.model ?? '—', r.dailyRequests === null ? 'not entered' : r.dailyRequests, r.usedToday, r.remaining === null ? '—' : r.remaining])} />
+              {fc.candidates.length > 0 && (<>
+                <p style={{ margin: '0.6rem 0 0.2rem' }}><strong>To add more free capacity</strong>: each provider below is NOT live yet. Nothing here costs money until it is live, and it only goes live after you verify its current official terms.</p>
+                <Tbl head={['Provider', 'What is still needed']} rows={fc.candidates.map((c) => [<strong key="n">{c.name}</strong>, c.needs])} />
+              </>)}
+            </div>
+          );
+        })()}
 
         <H>Provider health and routing</H>
         <Tbl head={['Provider', 'Status', 'Health (last hour)', 'Failed %', '429 / rate limits', 'Calls today', 'Class', 'Key on server', 'Data policy']}

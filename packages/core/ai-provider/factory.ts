@@ -28,7 +28,8 @@ export interface CreateAIProviderOptions {
 
 export function createAIProvider(options: CreateAIProviderOptions = {}): AIProvider {
   if (options.service) {
-    const legacyOpts = { tier: options.tier, onAttempt: options.onAttempt };
+    // v88: if the registry/usage cannot be read, the old key-by-key chain is only a safety net, and it must NEVER spend money: free providers only, whatever the student's plan.
+    const legacyOpts = { tier: 'free' as const, onAttempt: options.onAttempt };
     return new GatewayAIProvider({ deps: supabaseGatewayDeps(options.service), studentId: options.studentId ?? null, tier: options.tier === 'free' ? 'free' : 'paid', onAttempt: options.onAttempt, legacy: () => createLegacyChain(legacyOpts) });
   }
   return createLegacyChain(options);

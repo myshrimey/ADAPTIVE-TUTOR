@@ -696,3 +696,6 @@ baseline_sessions.curriculum_version_id and student_baselines.curriculum_version
 
 ## 0053 Calibration events (v85)
 Server-only (RLS on, no policies). calibration_events: student_id, source (review/mixed/baseline/quiz), confidence 1-3, correct, competency_id, item_table, item_id, created_at. Index (student_id, created_at desc). Never feeds mastery or revision.
+
+## 0054 Free provider notes (v88)
+Data only: fills blank notes/free_quota_note/source_url (and the OpenRouter endpoint) on the candidate rows openrouter, cloudflare, mistral, cerebras. No schema change.

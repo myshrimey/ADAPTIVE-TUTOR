@@ -144,3 +144,4 @@ export * from './admin-team';
 export * from './curriculum-mgmt';
 export * from './branding';
 export * from './calibration';
+export * from './ai-gateway/free-capacity';
