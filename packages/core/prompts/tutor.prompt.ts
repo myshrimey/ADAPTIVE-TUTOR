@@ -1,4 +1,5 @@
 import { languageInstruction } from '../boards/languages';
+import { STRATEGY_INSTRUCTION } from '../pedagogy/strategies';
 // Fixed system prompt + a small injected turn context. See docs/architecture.md §11
 // for the rationale (concise, no full history, no emotional/personal-relationship
 // language, no psychological speculation).
@@ -64,6 +65,7 @@ export function buildTutorPrompt(context: TutorTurnContext): { system: string; u
     `Skill: ${context.skillName}`,
     `Learning objective: ${context.learningObjective}`,
     `Strategy for this turn: ${context.strategy}`,
+    (STRATEGY_INSTRUCTION as Record<string, string | undefined>)[context.strategy] ? `Strategy instruction: ${(STRATEGY_INSTRUCTION as Record<string, string>)[context.strategy]}` : null,
     `Difficulty: ${context.difficulty}/5`,
     `Student's mastery on this skill: ${context.masteryBand} (${Math.round(context.masteryScore)}/100)`,
     context.activeMisconception ? `Watch for: ${context.activeMisconception}` : null,

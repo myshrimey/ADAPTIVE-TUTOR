@@ -1,0 +1,2 @@
+# v86 build summary
+New rule-chosen strategy SELF_EXPLANATION in the tutor chat (answer turn only): after two clean right answers, on the 2nd/6th/10th answer, the tutor asks the student to explain why in their own words. Never replaces repair/remediation/review/test/challenge/commands, never at session end or in recovery, not graded, no mastery change. No migration. t86 30/30, tsc and build clean. Not tested: real AI behaviour, real students, frequency. Not built: find-the-mistake (unverified AI content), interleaving in chat.

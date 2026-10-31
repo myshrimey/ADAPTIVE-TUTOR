@@ -1,9 +1,9 @@
-SAHAYAK v85 - "How sure are you?" on the revision page (metacognition). ONE database change (0053).
-1. Unzip over your project, commit, let Vercel deploy. (Apply after v84.)
-2. Run: npm run db:migrate (safe to run again).
-3. As a student open Revise today (/review). Before pressing Check you may tap: Just guessing / I think so / I am sure. After about 8 answers the card at the bottom shows how well your sureness matches your answers.
-RULES KEPT: it is optional and never blocks an answer; it never changes marks, mastery or revision dates; no score, rank or label; wording is supportive (English and Hindi).
-TESTED: new test t85 (23); all earlier tests pass; type check clean; full production build clean; migration run twice on a scratch database; signed-out access is refused.
-NOT TESTED: with your live database; a real student on a phone; whether the starting limits are right (a "sure" answer is called over-confident if right less than 70% of the time; "guessing" is called under-confident if right more than 60%). Tell me if you want them changed.
-NOT BUILT: the same question in the adaptive check, quizzes and mocks; a view for parents or tutors; per-topic calibration.
+SAHAYAK v86 - The tutor sometimes asks the student to explain WHY in their own words. NO database change.
+1. Unzip over your project, commit, let Vercel deploy. (Apply after v85.)
+2. Open a learning session (/learn) on one skill and answer questions correctly without hints. After your 2nd correct answer in a row, and again after the 6th, 10th and so on, the tutor says the answer was right and asks you to explain why in your own words, instead of giving the next question. Type your explanation: it is not marked, changes no score, and the tutor then carries on.
+WHEN IT DOES NOT APPEAR: after a wrong answer or a hint, on the last question of a session, on a "gentler" turn, when you chose "test myself", when the student asked for a hint/example/easier/challenge, or for skills below 40 or at 90+ mastery.
+SWITCH OFF: tell me, or set ENRICHMENT_ENABLED to false in packages/core/pedagogy/pedagogy.engine.ts.
+TESTED: new test t86 (30); earlier tests pass (four old tests t3, t4, t42a, t42c were already out of date and are unrelated); type check clean; full production build clean.
+NOT TESTED: how the real AI follows the instruction; a real student; whether "every 4th answer" is the right amount.
+NOT BUILT: "find the mistake" exercises (they need AI-written wrong solutions that nobody has checked); interleaving inside the chat.
 NOT DEPLOYED: nothing is deployed from here.

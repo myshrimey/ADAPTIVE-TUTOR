@@ -6,7 +6,7 @@ import { createDefaultAIProvider } from '../ai-provider/factory';
 import { loadLearnerState } from '../learner-model/learner-state.service';
 import type { LearnerState } from '../learner-model/types';
 import { scaffoldNote } from '../pedagogy/scaffold';
-import { selectStrategy, selectDifficulty, nextDifficulty, parseStudentCommand } from '../pedagogy/pedagogy.engine';
+import { selectStrategy, selectDifficulty, nextDifficulty, parseStudentCommand, selectEnrichment } from '../pedagogy/pedagogy.engine';
 import type { PedagogyStrategy, PedagogySignal } from '../pedagogy/strategies';
 import { buildTutorPrompt, type TutorTurnContext } from '../prompts/tutor.prompt';
 import { buildEvaluationPrompt, type EvaluationResult } from '../prompts/evaluation.prompt';
@@ -37,7 +37,7 @@ export interface OrchestratorTurnResult {
   diagram?: LearningDiagram; // present when this turn's skill has a teaching diagram (learning-diagrams/mapping.ts) — distinct from a question's own image_url
 }
 
-interface SessionPlanInfo { done: number; target: number | null; gentler: boolean; perfRecoveryLogged: boolean; history: { correct: boolean; hints: number }[] }
+interface SessionPlanInfo { done: number; target: number | null; gentler: boolean; perfRecoveryLogged: boolean; goal?: string | null; history: { correct: boolean; hints: number }[] }
 
 const QUESTION_STRATEGIES: PedagogyStrategy[] = ['GUIDED_PRACTICE', 'INDEPENDENT_TEST', 'CHALLENGE', 'REVIEW'];
 const RECENT_MESSAGE_WINDOW = 3;
@@ -155,7 +155,7 @@ export async function runOrchestratorTurn(
   let strategyOverride: PedagogyStrategy | null = null;
   if (checkin?.sessionGoal === 'test_myself' && strategy === 'GUIDED_PRACTICE' && masteryScore >= 40) strategyOverride = 'INDEPENDENT_TEST';
   if (strategyOverride) strategy = strategyOverride;
-  const sessionPlan = { done: attemptsDone, target: plan.targetQuestions, gentler, perfRecoveryLogged: !!perfEvent, history };
+  const sessionPlan = { done: attemptsDone, target: plan.targetQuestions, gentler, perfRecoveryLogged: !!perfEvent, goal: checkin?.sessionGoal ?? null, history };
   // Maths (Basic): same syllabus, easier questions — never above difficulty 3.
   if (/\(Basic\)/i.test(subjectName)) difficulty = Math.min(3, difficulty);
 
@@ -434,6 +434,9 @@ async function handleAnswerTurn(
   }
   const gentlerNext = ctx.sessionPlan.gentler || triggeredNow;
   if (finished) nextAction = 'REVIEW';
+  // v86: now and then ask "why does it work?" instead of the next question (rule-based, see selectEnrichment).
+  const enrich = selectEnrichment({ base: nextAction, masteryScore: updatedMastery.score, history: historyNow, finished, finalQuestion, gentler: gentlerNext, goal: ctx.sessionPlan.goal ?? null });
+  if (enrich) nextAction = enrich;
 
   // If the next strategy calls for a question, pose it in this same turn
   // rather than waiting for a separate free-text round trip — this is what

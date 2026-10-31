@@ -1,5 +1,9 @@
 import type { PedagogySignal, PedagogyStrategy } from './strategies';
 
+/** v86: how often the tutor stops to ask "why does it work?" (every Nth answer, counting from the 2nd). Set ENRICHMENT_ENABLED to false to switch it off. */
+export const ENRICHMENT_ENABLED = true;
+export const SELF_EXPLANATION_EVERY = 4;
+
 /**
  * First matching rule wins. Order matters — see docs/architecture.md §10 for
  * the rationale behind each row (e.g. a prerequisite gap always overrides an
@@ -80,4 +84,22 @@ export function parseStudentCommand(message: string): PedagogySignal['studentCom
   if (/easier|simpler|too hard/.test(m)) return 'easier';
   if (/challenge me|harder|more difficult/.test(m)) return 'challenge';
   return null;
+}
+
+/**
+ * v86: SELF_EXPLANATION. After a clean run (the last two answers right, no hints) on a skill the student is practising, the tutor
+ * sometimes asks them to explain WHY in their own words, instead of posing the next question straight away. Pure and deterministic:
+ * it replaces only the two ordinary practice strategies, never repair, remediation, review, a test, a challenge, a student command,
+ * the last question of a session, or a gentler (recovery) turn; and only on every Nth answer, so it cannot repeat on every turn.
+ * The student's typed explanation is a normal message turn: it is not graded and changes no mastery.
+ */
+export function selectEnrichment(i: { base: PedagogyStrategy; masteryScore: number; history: { correct: boolean; hints: number }[]; finished: boolean; finalQuestion: boolean; gentler: boolean; goal?: string | null }): PedagogyStrategy | null {
+  if (!ENRICHMENT_ENABLED || i.finished || i.finalQuestion || i.gentler) return null;
+  if (i.goal === 'test_myself') return null;
+  if (i.base !== 'GUIDED_PRACTICE' && i.base !== 'SOCRATIC') return null;
+  if (i.masteryScore < 40 || i.masteryScore >= 90) return null;
+  const n = i.history.length;
+  if (n < 2 || n % SELF_EXPLANATION_EVERY !== 2) return null;
+  const last2 = i.history.slice(-2);
+  return last2.every((h) => h.correct && h.hints === 0) ? 'SELF_EXPLANATION' : null;
 }
