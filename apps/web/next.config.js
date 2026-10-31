@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ['@adaptive-tutor/core'],
+  // v83: the PDF reader (unpdf) is loaded from node_modules at run time, not bundled (bundling gives an import.meta warning).
+  serverExternalPackages: ['unpdf'],
 
   // CORS for /api/* — only relevant if a separately-hosted frontend (e.g. a
   // standalone Bolt app) calls this API directly rather than the pages in

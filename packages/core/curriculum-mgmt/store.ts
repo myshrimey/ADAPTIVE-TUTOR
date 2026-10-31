@@ -2,7 +2,8 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import { createHash } from 'crypto';
 import { createCurriculumVersion, supersedeSiblings, writeAudit } from '../config-engine/config-engine';
 import { validateUploadMeta, validateFile, EDITABLE_STATUSES, NODE_KINDS, PARENT_KIND, slug, type NodeKind } from './constants';
-import { extractFromFile, parseOutlineText, parseCsv, rowsToNodes, type DraftNode, type Extraction } from './parse';
+import { extractFromFileAsync } from './pdf';
+import { parseOutlineText, parseCsv, rowsToNodes, type DraftNode, type Extraction } from './parse';
 import { checkOutline } from './validate';
 
 const BUCKET = 'curriculum-docs';
@@ -43,7 +44,7 @@ export async function registerUpload(service: SupabaseClient, actor: string, met
   await addCurriculumEvent(service, versionId, 'uploaded', actor, { file: file.name.slice(0, 80), bytes: file.buffer.length, stored: !storageError });
   await writeAudit(service, { actorEmail: actor, action: 'curriculum.upload', entity: 'curriculum_version', entityId: versionId, detail: { board: m.value.board, year: m.value.academic_year, class: m.value.class_level, subject: m.value.subject } });
   await setStatus(service, versionId, 'processing');
-  const ex = extractFromFile(f.ext, file.buffer); let count = 0;
+  const ex = await extractFromFileAsync(f.ext, file.buffer); let count = 0;
   try { count = await writeNodes(service, versionId, ex, true); }
   catch (e: any) { await service.from('curriculum_documents').update({ process_method: ex.method, error: String(e?.message ?? 'failed').slice(0, 200) }).eq('id', (doc as any).id); await setStatus(service, versionId, 'failed', 'Processing failed.'); await addCurriculumEvent(service, versionId, 'failed', null, {}); return { ok: false, error: 'Processing failed. The file was kept; you can paste the outline instead.' }; }
   const note = ex.note + (storageError ? ` The original file could not be stored (${storageError}).` : '');

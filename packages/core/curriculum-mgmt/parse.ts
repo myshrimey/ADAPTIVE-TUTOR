@@ -116,13 +116,13 @@ export function xlsxToRows(buf: Buffer): string[][] | null {
   }
   return rows;
 }
-/** One entry point for every supported file. A PDF is stored but NOT read here (no PDF reader is installed): the reviewer pastes the outline or uses the CSV template. */
+/** One entry point for every supported file. A PDF is read by extractFromFileAsync in ./pdf (the sync function here only stores it). */
 export function extractFromFile(ext: string, buf: Buffer): Extraction {
   try {
     if (ext === 'csv') return rowsToNodes(parseCsv(buf.toString('utf8')));
     if (ext === 'xlsx') { const r = xlsxToRows(buf); return r ? rowsToNodes(r) : { nodes: [], method: 'xlsx', note: 'Could not read this spreadsheet. Save it as CSV and upload again.', unrecognised: 0 }; }
     if (ext === 'docx') { const t = docxToText(buf); return t ? parseOutlineText(t) : { nodes: [], method: 'docx', note: 'Could not read this document.', unrecognised: 0 }; }
-    if (ext === 'pdf') return { nodes: [], method: 'pdf (stored only)', note: 'The PDF is saved privately as the source. Sahayak cannot read PDFs automatically yet: paste the outline text, or fill the CSV template, using the PDF page numbers.', unrecognised: 0 };
+    if (ext === 'pdf') return { nodes: [], method: 'pdf (stored only)', note: 'PDF files are read by the upload step (extractFromFileAsync).', unrecognised: 0 };
   } catch (e: any) { return { nodes: [], method: ext, note: 'Reading this file failed: ' + String(e?.message ?? 'unknown').slice(0, 120), unrecognised: 0 }; }
   return { nodes: [], method: ext, note: 'Unsupported file.', unrecognised: 0 };
 }

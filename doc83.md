@@ -1,0 +1,2 @@
+# v83 build summary
+Curriculum PDFs are read automatically (text only, via unpdf 1.9.1; labelled Unit/Chapter/Topic/LO/AO lines with PDF page numbers; confidence 0.7; scanned/corrupt PDFs stored with a plain note). No migration. t83 15/15, earlier tests pass, tsc and build clean, built server verified. Not tested: real CBSE syllabus PDFs, Vercel runtime, signed-in upload. Not built: OCR, PDF tables.

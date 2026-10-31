@@ -4,6 +4,11 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v83 - Automatic PDF reading for curriculum uploads (2026-10-30)
+No migration. New dependency `unpdf` 1.9.1 (declared in apps/web, pure JavaScript, Node 22+; `serverExternalPackages: ['unpdf']` in next.config.js). `packages/core/curriculum-mgmt/pdf.ts`: reads the TEXT of a PDF (no OCR), up to 150 pages, 25 s limit; only lines starting Unit/Section/Chapter/Topic/Learning outcome/Assessment objective become items, each with its PDF page (an explicit [p.N] wins); every PDF item has confidence 0.7 so the review screen asks for a check; scanned or corrupt PDFs are stored and the reviewer is told plainly, nothing invented. Upload route sets nodejs runtime and maxDuration 60. Tests: t83 15/15 (real PDFs made with reportlab incl. a picture-only PDF), t81 76/76 (one old expectation updated), all earlier tests pass, tsc clean, production build clean, and the built server read the test PDFs correctly (9 items; scanned = 0 items with a clear note). Not tested: real CBSE syllabus PDFs (their layout may differ and many are tables), the live Vercel Node version and function limits, signed-in upload.
+
+---
+
 ## v82 - Curriculum version on adaptive checks and baselines (2026-10-30)
 Migration 0052: nullable `curriculum_version_id` on `baseline_sessions` and `student_baselines`. A check records the published version when it STARTS and the baseline keeps that same version even if a newer one is published during the check. Best-effort and never blocks a student (works without the migration). Old rows stay empty. Tests: t82 8/8; t79-t81b, t62-t62c, t67, t76, t78 still pass; tsc clean; migration run twice on a scratch database. Full production build not re-run (core-only change). Not done: old /diagnostic attempts, question-level stamps, re-mapping question banks to learning outcomes.
 

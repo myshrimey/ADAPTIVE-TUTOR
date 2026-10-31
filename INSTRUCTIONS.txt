@@ -1,9 +1,8 @@
-SAHAYAK v82 - Adaptive checks remember the curriculum version. ONE small database change (0052).
-1. Unzip over your project, commit, let Vercel deploy. (Apply after v81.)
-2. Run: npm run db:migrate (safe to run again).
-3. Publish a curriculum for a subject, then take one adaptive check as a student. It should work exactly as before.
-TESTED: new test t82 (8) and all earlier tests pass; type check clean; migration run twice on a scratch database.
-NOT TESTED: with your live database.
-ALSO CHECKED: full production build is clean; the pages and APIs answer correctly when signed out.
-NOT BUILT: stamping the old /diagnostic, stamping individual questions, re-checking question banks against learning outcomes.
+SAHAYAK v83 - Syllabus PDFs are now read automatically. NO database change. ONE new software package (unpdf).
+1. Unzip over your project (it includes package.json and package-lock.json), commit, let Vercel deploy. Vercel installs the package by itself.
+2. Admin > Curriculum and syllabus > upload a syllabus PDF. Open the new draft: the items read from the PDF are listed with their PDF page numbers. CHECK THEM against the PDF, fix or flag, then approve and publish as before.
+HOW IT READS: only lines that start with Unit, Section, Chapter, Topic, Learning outcome or Assessment objective (for example "Chapter 2: Polynomials") become items. Everything else is left out, never guessed. A PDF made of pictures (scanned) has no text: you are told, the file is still saved, and you paste the outline or use the CSV template.
+TESTED: new test t83 (15) using real PDFs including a picture-only one and a broken one; all earlier tests pass; type check clean; full production build clean; the built server read the test PDFs correctly.
+NOT TESTED: with your real CBSE syllabus PDF (tables and unusual layouts may give fewer items); on Vercel itself; signed-in upload.
+NOT BUILT: reading scanned PDFs (OCR); reading tables inside PDFs.
 NOT DEPLOYED: nothing is deployed from here.

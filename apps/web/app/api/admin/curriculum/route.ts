@@ -3,6 +3,10 @@ import { createServiceClient } from '@/lib/supabase-server';
 import { requireAdmin } from '@/lib/admin';
 import { registerUpload, replaceOutline, editNode, addNode, deleteNode, approveVersion, unapproveVersion, publishVersion, rollbackVersion, linkNode, versionDetail, diffVersions, suggestLinks } from '@adaptive-tutor/core';
 
+// v83: reading a PDF can take a few seconds; node runtime is needed for the PDF reader.
+export const runtime = 'nodejs';
+export const maxDuration = 60;
+
 // Upload, edit and read: academic team or Super Admin. APPROVE, PUBLISH and ROLLBACK: Super Admin only (no permission passed).
 const fail = (e: any) => NextResponse.json({ data: null, error: e?.message === 'not_authorized' ? 'not_authorized' : 'failed' }, { status: e?.message === 'not_authorized' ? 403 : 400 });
 const out = (r: any, extra: any = {}) => NextResponse.json({ data: r.ok ? { ok: true, ...extra } : null, error: r.ok ? null : r.error ?? 'failed' }, { status: r.ok ? 200 : 400 });
