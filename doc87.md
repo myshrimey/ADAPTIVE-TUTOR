@@ -1,0 +1,2 @@
+# v87 build summary
+Team menu fixed to match real server gates: 12 pages removed from PAGE_PERMISSION (money, AI, question bank, reviews, referral rewards stay Super Admin only), team screen notes permissions that open no page, new test t87 compares every admin page gate with the menu. No migration. t79 88/88, t87 17/17, tsc/build clean. Founder decision pending on opening any of those pages to a permission.

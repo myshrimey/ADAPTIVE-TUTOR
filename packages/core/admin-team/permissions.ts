@@ -33,12 +33,14 @@ export function can(opts: { superAdmin: boolean; member?: TeamMemberLite | null 
 export const PAGE_PERMISSION: { prefix: string; perm: Permission }[] = [
   { prefix: '/admin/users', perm: 'users' }, { prefix: '/admin/invitations', perm: 'invitations' },
   { prefix: '/admin/teachers', perm: 'academic' }, { prefix: '/admin/assignments', perm: 'academic' }, { prefix: '/admin/curriculum', perm: 'academic' }, { prefix: '/admin/partners', perm: 'users' },
-  { prefix: '/admin/question', perm: 'content' }, { prefix: '/admin/reviews', perm: 'content' },
-  { prefix: '/admin/acquisition', perm: 'marketing' }, { prefix: '/admin/social-growth', perm: 'marketing' }, { prefix: '/admin/referral-rewards', perm: 'marketing' },
-  { prefix: '/admin/payments', perm: 'finance' }, { prefix: '/admin/pricing', perm: 'finance' }, { prefix: '/admin/expenses', perm: 'finance' },
+  { prefix: '/admin/acquisition', perm: 'marketing' }, { prefix: '/admin/social-growth', perm: 'marketing' },
   { prefix: '/admin/feedback', perm: 'support' },
-  { prefix: '/admin/ai-', perm: 'technology' },
 ];
+// v87: ONLY pages whose server gate really accepts the permission are listed above (a test checks this against the page files).
+// Money, pricing, AI settings, the question bank, reviews and referral rewards are still Super Admin only, so they are NOT listed:
+// a team member must never be shown a menu item the server then refuses. Opening them to a permission is a founder decision.
+/** How many admin pages a permission opens today (the team screen says so, so nobody assumes a permission does more than it does). */
+export const pagesOpenedBy = (perm: Permission): number => PAGE_PERMISSION.filter((p) => p.perm === perm).length;
 export function permissionForPath(path: string): Permission | undefined {
   let best: { prefix: string; perm: Permission } | undefined;
   for (const p of PAGE_PERMISSION) if (path.startsWith(p.prefix) && (!best || p.prefix.length > best.prefix.length)) best = p;

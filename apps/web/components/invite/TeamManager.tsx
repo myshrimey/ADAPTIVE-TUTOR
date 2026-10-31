@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { PERMISSIONS, PERMISSION_LABEL, TEAM_PRESETS, type Permission } from '@adaptive-tutor/core/admin-team/permissions';
+import { PERMISSIONS, PERMISSION_LABEL, TEAM_PRESETS, pagesOpenedBy, type Permission } from '@adaptive-tutor/core/admin-team/permissions';
 
 interface M { id: string; email: string; name: string; title: string | null; department: string | null; responsibilities: string | null; custom_responsibilities: string | null; permissions: Permission[]; status: string; notes: string | null }
 export function TeamManager({ team }: { team: M[] }) {
@@ -25,7 +25,7 @@ export function TeamManager({ team }: { team: M[] }) {
         <div className="field"><label className="field__label" htmlFor="tm-pre">Start from a template</label><select id="tm-pre" className="field__input" defaultValue="" onChange={(e) => preset(e.target.value)}><option value="">Choose…</option>{TEAM_PRESETS.map((p) => <option key={p.id} value={p.id}>{p.label}: {p.note}</option>)}</select></div>
         <div className="field"><label className="field__label" htmlFor="tm-dep">Department</label><input id="tm-dep" className="field__input" value={f.department} onChange={(e) => setF({ ...f, department: e.target.value })} /></div>
         <fieldset style={{ border: 0, padding: 0 }}><legend className="field__label">Permissions (the server checks these on every page and action)</legend>
-          {PERMISSIONS.map((p) => <label key={p} style={{ display: 'block' }}><input type="checkbox" checked={f.permissions.includes(p)} onChange={() => toggle(p)} /> {PERMISSION_LABEL[p]}</label>)}</fieldset>
+          {PERMISSIONS.map((p) => <label key={p} style={{ display: 'block' }}><input type="checkbox" checked={f.permissions.includes(p)} onChange={() => toggle(p)} /> {PERMISSION_LABEL[p]}{pagesOpenedBy(p) === 0 && <span style={{ color: 'var(--slate)', fontSize: '0.85rem' }}> (does not open any admin page yet: those pages are still for you only)</span>}</label>)}</fieldset>
         <div className="field"><label className="field__label" htmlFor="tm-resp">Responsibilities</label><textarea id="tm-resp" className="field__input" rows={2} value={f.responsibilities} onChange={(e) => setF({ ...f, responsibilities: e.target.value })} /></div>
         <div className="field"><label className="field__label" htmlFor="tm-cust">Custom responsibilities</label><textarea id="tm-cust" className="field__input" rows={2} value={f.custom_responsibilities} onChange={(e) => setF({ ...f, custom_responsibilities: e.target.value })} /></div>
         <div className="field"><label className="field__label" htmlFor="tm-notes">Notes</label><textarea id="tm-notes" className="field__input" rows={2} value={f.notes} onChange={(e) => setF({ ...f, notes: e.target.value })} /></div>
