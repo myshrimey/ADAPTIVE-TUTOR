@@ -1,3 +1,4 @@
+import { csvResponse, fileResponse } from '@/lib/export';
 import { requireAdmin } from '@/lib/admin';
 import { createServiceClient } from '@/lib/supabase-server';
 import { toCsv, listContent, listCampaigns, listMetrics, attribution, loadSocialSettings, siteBase, buildUtm } from '@adaptive-tutor/core';
@@ -22,6 +23,6 @@ export async function GET(request: Request) {
       const m = await listMetrics(service);
       csv = toCsv(['content_id', 'platform', 'date', 'impressions', 'reach', 'likes', 'comments', 'shares', 'saves', 'clicks', 'profile_visits', 'followers_gained', 'leads', 'registrations', 'conversions', 'revenue_inr'], m.map((r: any) => [r.content_id, r.platform, r.metric_date, r.impressions, r.reach, r.likes, r.comments, r.shares, r.saves, r.clicks, r.profile_visits, r.followers_gained, r.leads, r.registrations, r.conversions, r.revenue_inr]));
     } else return new Response('Unknown export', { status: 400 });
-    return new Response(csv, { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="sahayak-social-${kind}-${day}.csv"` } });
+    return csvResponse(csv, { kind: `social-${kind}`, title: `Social growth export: ${kind}`, classification: 'internal', filename: `sahayak-social-${kind}-${day}.csv` });
   } catch (err: any) { return new Response(err?.message === 'not_authorized' ? 'Not authorized' : 'Could not make the file. Please try again.', { status: err?.message === 'not_authorized' ? 403 : 500 }); }
 }

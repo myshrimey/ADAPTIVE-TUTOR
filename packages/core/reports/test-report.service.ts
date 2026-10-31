@@ -1,4 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { publishedVersionForSubject } from '../curriculum-mgmt/store';
 
 // Saved test reports (v49). Each finished diagnostic, quick quiz and mock/paper is saved twice:
 //  - a STUDENT report (full question review) the student can reopen any time, and
@@ -41,6 +42,7 @@ export interface StudentReportData {
   timeUsedSeconds?: number;
   autoSubmitted?: boolean;
   pendingWritten: number;
+  curriculum?: { id: string; label: string } | null;
 }
 
 export interface AdultReportData {
@@ -50,6 +52,7 @@ export interface AdultReportData {
   inMarks: boolean;
   byGroup: { group: string; correct: number; total: number }[];
   practiseAgain: string[];
+  curriculum?: { id: string; label: string } | null;
   wentWell: string[];
   unanswered: number;
   timeUsedSeconds?: number;
@@ -118,9 +121,11 @@ export async function saveTestReports(
   try {
     const takenAt = p.takenAt ?? new Date().toISOString();
     const base = { student_id: p.studentId, kind: p.input.kind, source_id: p.sourceId, subject_id: p.subjectId, title: p.input.title, taken_at: takenAt, score: p.input.score, total: p.input.total, in_marks: p.input.inMarks };
+    // v81: remember which published curriculum version was in force when this report was made (null when none is published). Stored inside the report so it works before any migration and old reports stay as they were.
+    const cv = await publishedVersionForSubject(service, p.subjectId);
     const rows = [
-      { ...base, audience: 'student', data: buildStudentReport(p.input) },
-      { ...base, audience: 'adult', data: buildAdultReport(p.input) },
+      { ...base, audience: 'student', data: { ...buildStudentReport(p.input), curriculum: cv } },
+      { ...base, audience: 'adult', data: { ...buildAdultReport(p.input), curriculum: cv } },
     ];
     const { error } = await service.from('test_reports').upsert(rows, { onConflict: 'student_id,kind,source_id,audience' });
     if (error) throw error;

@@ -4,6 +4,11 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v81 - Curriculum management and branded exports (2026-10-30)
+Migration 0051: `curriculum_versions` extended (statuses draft/uploaded/processing/needs_review/approved/published/superseded/failed/retired, published_at/by), new `curriculum_documents`, `curriculum_nodes` (Board-Year-Class-Subject-Unit-Chapter-Topic-Learning Outcome-Assessment Objective, source page, flag, stable key), `curriculum_events`, private bucket `curriculum-docs`. Core `packages/core/curriculum-mgmt/`. `/admin/curriculum` (+ `[id]` review): upload (PDF/DOCX/XLSX/CSV, 4 MB), CSV/DOCX/XLSX/outline-text read in code, PDFs stored but NOT read, checks, edit/flag, approve/unapprove/publish/rollback (Super Admin only), history, optional link of an item to an existing chapter/topic. New reports are stamped with the curriculum version. One export service `packages/core/branding` + `apps/web/lib/export.ts`: all CSV/JSON/markdown downloads carry brand and privacy headers (body untouched), client PDF and print get header/footer (logo, name, tagline, website, export ID, date, page n of N, privacy label). Tests: t81 76, t81b 28, t79/t79b/t80 pass, tsc clean, build clean, migration twice, signed-out 403s, real PDF download checked in headless Chromium. Not tested: live database, signed-in flows.
+
+---
+
 ## v80 - Teacher-student assignment records (2026-10-29)
 Migration 0050 `teacher_assignments`. `/admin/assignments` (academic permission) records which approved teacher teaches which student, with end/reassign and audit. It grants NO access to the student's data. Tests: t80 11/11, t79 still 88/88, tsc clean, production build clean, migration run twice, signed-out API 403. Not tested with a live database.
 

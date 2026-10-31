@@ -1,3 +1,4 @@
+import { csvResponse, fileResponse } from '@/lib/export';
 import { requireAdmin } from '@/lib/admin';
 import { createServiceClient } from '@/lib/supabase-server';
 import { monthRangeIst } from '@adaptive-tutor/core';
@@ -31,7 +32,7 @@ export async function GET(request: Request) {
     const lines = [...per.entries()].sort((a, b) => b[1].total - a[1].total).map(([id, p]) =>
       [csvCell(name.get(id) ?? 'Teacher'), p.total, p.approve, p.needs_fix, p.reject, ...(rate ? [Math.round(p.total * rate)] : [])].join(',')
     );
-    return new Response([head, ...lines].join('\n') + '\n', { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="teacher-reviews-${month}.csv"` } });
+    return csvResponse([head, ...lines].join('\n') + '\n', { kind: 'teacher-reviews', title: `Teacher review activity ${month}`, classification: 'confidential', filename: `teacher-reviews-${month}.csv` });
   } catch (err: any) {
     return new Response(err.message ?? 'error', { status: err.message === 'not_authorized' ? 403 : 400 });
   }

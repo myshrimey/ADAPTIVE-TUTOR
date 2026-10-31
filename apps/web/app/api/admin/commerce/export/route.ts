@@ -1,3 +1,4 @@
+import { csvResponse, fileResponse } from '@/lib/export';
 import { requireAdmin } from '@/lib/admin';
 import { createServiceClient } from '@/lib/supabase-server';
 
@@ -19,5 +20,5 @@ export async function GET(request: Request) {
   if (error) return new Response('Export failed', { status: 500 });
   const cols = t.cols.split(',');
   const csv = [cols.join(','), ...(data ?? []).map((r: any) => cols.map((c) => esc(r[c])).join(','))].join('\n');
-  return new Response(csv, { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="sahayak-${t.table}.csv"` } });
+  return csvResponse(csv, { kind: String(t.table), title: `Commerce export: ${t.table}`, classification: 'confidential', filename: `sahayak-${t.table}.csv` });
 }

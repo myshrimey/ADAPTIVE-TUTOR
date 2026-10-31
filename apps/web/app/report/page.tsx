@@ -33,7 +33,7 @@ export default async function ReportPage() {
       <div className="shell">
         <div style={{ paddingTop: 'var(--space-4)' }}>
           <h1 style={{ fontSize: 'var(--step-3)' }}>{t('report.title', lang)}</h1>
-          <PrintButton fileName="sahayak-progress-report" />
+          <PrintButton fileName="sahayak-progress-report" title="Progress report" kind="progress-report" />
           <p style={{ color: 'var(--slate)' }}>{t('report.noGuarantee', lang)}</p>
         </div>
 

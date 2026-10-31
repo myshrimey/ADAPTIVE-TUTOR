@@ -1,3 +1,4 @@
+import { csvResponse, fileResponse } from '@/lib/export';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { requireAdmin } from '@/lib/admin';
@@ -22,6 +23,6 @@ export async function GET(request: Request) {
     if (!def) return NextResponse.json({ error: 'unknown_table' }, { status: 400 });
     const { data } = await createServiceClient().from(def.table).select(def.cols.join(',')).order(def.order ?? 'created_at').limit(50000);
     const csv = toCsv(def.cols, ((data ?? []) as any[]).map((r) => def.cols.map((c) => r[c] ?? '')));
-    return new NextResponse('﻿' + csv, { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="sahayak-${name}.csv"` } });
+    return csvResponse(csv, { kind: String(name), title: `Founder export: ${name}`, classification: 'confidential', filename: `sahayak-${name}.csv`, bom: true });
   } catch { return NextResponse.json({ error: 'not_authorized' }, { status: 403 }); }
 }

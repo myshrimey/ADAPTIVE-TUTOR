@@ -16,7 +16,7 @@ export default function SampleReportPage() {
           <strong>Sample only.</strong> The student, the subjects and every number on this page are made up to show you the layout. This is not a real child&apos;s report.
         </p>
         <h1 style={{ fontSize: 'var(--step-3)' }}>Progress report for “Sample Student”</h1>
-        <PrintButton fileName="sahayak-sample-report" />
+        <PrintButton fileName="sahayak-sample-report" title="Sample report" kind="sample-report" classification="general" />
         <p style={{ color: 'var(--slate)' }}>Built from what the student actually did. It does not predict board marks and does not guarantee results.</p>
 
         <section className="chapter-row" style={{ display: 'block', marginTop: 'var(--space-3)' }}>

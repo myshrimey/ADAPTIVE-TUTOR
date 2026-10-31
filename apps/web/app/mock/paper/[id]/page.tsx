@@ -130,7 +130,7 @@ export default function PaperPage({ params }: { params: Promise<{ id: string }> 
         </ol>
         {!paper.complete && paper.issues.length > 0 && <p style={{ color: 'var(--slate)', fontSize: '0.9rem' }}>Note: {paper.issues.join(' ')}</p>}
         <p style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>{paper.basis}</p>
-        <p><PrintButton fileName="sahayak-mock-paper" /> <a className="btn btn--ghost" href="/mock">Back</a></p>
+        <p><PrintButton fileName="sahayak-mock-paper" title="Mock paper" kind="mock-paper" classification="general" /> <a className="btn btn--ghost" href="/mock">Back</a></p>
       </div>
 
       <article className="paper-sheet" aria-label="Question paper">

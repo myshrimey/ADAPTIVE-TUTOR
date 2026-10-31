@@ -1,3 +1,4 @@
+import { csvResponse, fileResponse } from '@/lib/export';
 import { requireAdmin } from '@/lib/admin';
 import { createServiceClient } from '@/lib/supabase-server';
 import { loadSheetData, toCsv } from '@adaptive-tutor/core';
@@ -48,7 +49,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ sheet: s
       default:
         return new Response('unknown sheet', { status: 404 });
     }
-    return new Response(csv, { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="sahayak-${sheet}-${d.generatedAt.slice(0, 10)}.csv"` } });
+    return csvResponse(csv, { kind: String(sheet), title: `Sahayak data export: ${sheet}`, classification: 'confidential', filename: `sahayak-${sheet}-${d.generatedAt.slice(0, 10)}.csv` });
   } catch (err: any) {
     return new Response(err.message ?? 'error', { status: err.message === 'not_authorized' ? 403 : 400 });
   }

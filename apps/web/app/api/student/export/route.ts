@@ -1,3 +1,4 @@
+import { fileResponse } from '@/lib/export';
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
 
@@ -32,9 +33,7 @@ export async function GET() {
       out.diagnostic_answers = data;
     }
     if (unreadable.length) out.not_included = unreadable;
-    return new NextResponse(JSON.stringify(out, null, 2), {
-      headers: { 'Content-Type': 'application/json; charset=utf-8', 'Content-Disposition': 'attachment; filename="sahayak-my-data.json"', 'Cache-Control': 'no-store' },
-    });
+    return fileResponse(JSON.stringify(out, null, 2), { kind: 'my-data', ext: 'json', contentType: 'application/json; charset=utf-8', title: 'My Sahayak data', classification: 'confidential', filename: 'sahayak-my-data.json' });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'error' }, { status: 400 });
   }

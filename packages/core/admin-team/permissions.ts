@@ -32,7 +32,7 @@ export function can(opts: { superAdmin: boolean; member?: TeamMemberLite | null 
 /** Which admin page needs which permission (everything not listed is Super Admin only). Used to filter the menu and to guard pages/routes. */
 export const PAGE_PERMISSION: { prefix: string; perm: Permission }[] = [
   { prefix: '/admin/users', perm: 'users' }, { prefix: '/admin/invitations', perm: 'invitations' },
-  { prefix: '/admin/teachers', perm: 'academic' }, { prefix: '/admin/assignments', perm: 'academic' }, { prefix: '/admin/partners', perm: 'users' },
+  { prefix: '/admin/teachers', perm: 'academic' }, { prefix: '/admin/assignments', perm: 'academic' }, { prefix: '/admin/curriculum', perm: 'academic' }, { prefix: '/admin/partners', perm: 'users' },
   { prefix: '/admin/question', perm: 'content' }, { prefix: '/admin/reviews', perm: 'content' },
   { prefix: '/admin/acquisition', perm: 'marketing' }, { prefix: '/admin/social-growth', perm: 'marketing' }, { prefix: '/admin/referral-rewards', perm: 'marketing' },
   { prefix: '/admin/payments', perm: 'finance' }, { prefix: '/admin/pricing', perm: 'finance' }, { prefix: '/admin/expenses', perm: 'finance' },

@@ -1,3 +1,4 @@
+import { csvResponse, fileResponse } from '@/lib/export';
 import { requireAdmin } from '@/lib/admin';
 import { createServiceClient } from '@/lib/supabase-server';
 import { toCsv, loadRaw, buildReport, buildPeople, rangeBounds, sourceLabel, REPORTING_MODELS, type ReportingModel } from '@adaptive-tutor/core';
@@ -27,6 +28,6 @@ export async function GET(request: Request) {
       csv = toCsv(['account', 'type', 'signup_month', 'first_source', 'first_campaign', 'first_post', 'last_source', 'last_campaign', 'referred', 'partner', 'tracked_visit_matched', 'diagnostic', 'baseline', 'sessions', 'paid', 'revenue_inr', 'payment_source'],
         people.filter((p) => !only || p.paid).map((p) => [p.userId.replace(/-/g, '').slice(0, 8), p.type, p.month, sourceLabel(p.first.source), p.first.campaign, p.first.content, sourceLabel(p.last.source), p.last.campaign, p.referrerUser ? 'yes' : 'no', p.partner, p.matchedTouch ? 'yes' : 'not linked', p.diagDone ? 'completed' : p.diagStarted ? 'started' : '', p.baseline ? 'yes' : '', p.sessions, p.paid ? 'yes' : 'no', p.revenue, p.paymentSource ? sourceLabel(p.paymentSource) : null]));
     } else return new Response('Unknown export', { status: 400 });
-    return new Response(csv, { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="sahayak-acquisition-${kind}-${new Date().toISOString().slice(0, 10)}.csv"` } });
+    return csvResponse(csv, { kind: `acquisition-${kind}`, title: `Acquisition export: ${kind}`, classification: 'internal', filename: `sahayak-acquisition-${kind}-${new Date().toISOString().slice(0, 10)}.csv` });
   } catch (err: any) { return new Response(err?.message === 'not_authorized' ? 'Not authorized' : 'Could not make the file. Please try again.', { status: err?.message === 'not_authorized' ? 403 : 500 }); }
 }

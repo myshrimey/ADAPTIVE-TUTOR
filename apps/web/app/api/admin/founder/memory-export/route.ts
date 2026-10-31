@@ -1,3 +1,4 @@
+import { csvResponse, fileResponse } from '@/lib/export';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { requireAdmin } from '@/lib/admin';
@@ -19,6 +20,6 @@ export async function GET() {
     md.push('', '## Live switches and limits', '```json', JSON.stringify({ founding_access: settings.founding_access, free_limits: settings.free_limits, handwritten: settings.handwritten, entitlements: settings.entitlements, seats: settings.seats, boards: settings.boards, feature_flags: settings.feature_flags }, null, 1), '```', '');
     md.push('## Open founder tasks'); for (const t of tasks ?? []) md.push(`- [${t.priority}] ${t.title}${t.due ? ` (due ${t.due})` : ''}`);
     md.push('', '## Recent change log'); for (const l of log ?? []) md.push(`- ${l.changed_on} ${l.version ?? ''}: ${l.change}${l.reason ? ` (why: ${l.reason})` : ''}`);
-    return new NextResponse(md.join('\n'), { headers: { 'Content-Type': 'text/markdown; charset=utf-8', 'Content-Disposition': 'attachment; filename="sahayak-project-memory.md"' } });
+    return fileResponse(md.join('\n'), { kind: 'project-memory', ext: 'md', contentType: 'text/markdown; charset=utf-8', title: 'Sahayak project memory', classification: 'internal', filename: 'sahayak-project-memory.md' });
   } catch { return NextResponse.json({ error: 'not_authorized' }, { status: 403 }); }
 }

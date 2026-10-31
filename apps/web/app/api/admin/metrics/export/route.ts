@@ -1,3 +1,4 @@
+import { csvResponse, fileResponse } from '@/lib/export';
 import { requireAdmin } from '@/lib/admin';
 import { createServiceClient } from '@/lib/supabase-server';
 import { loadFounderMetrics } from '@adaptive-tutor/core';
@@ -27,7 +28,7 @@ export async function GET() {
       ['teacher_reviews_30_days', m.teachers.reviewsLast30],
     ];
     const csv = 'metric,value\n' + rows.map(([k, v]) => `${k},${v ?? ''}`).join('\n') + '\n';
-    return new Response(csv, { headers: { 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="sahayak-metrics-${m.generatedAt.slice(0, 10)}.csv"` } });
+    return csvResponse(csv, { kind: 'metrics', title: 'Metrics export', classification: 'internal', filename: `sahayak-metrics-${m.generatedAt.slice(0, 10)}.csv` });
   } catch (err: any) {
     return new Response(err.message ?? 'error', { status: err.message === 'not_authorized' ? 403 : 400 });
   }

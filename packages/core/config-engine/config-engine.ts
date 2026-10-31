@@ -46,9 +46,9 @@ export async function deleteExamSession(service: SupabaseClient, id: string): Pr
 export async function listExamSessions(service: SupabaseClient) { const { data } = await service.from('exam_sessions').select('*').order('academic_year', { ascending: false }).order('start_date', { ascending: true }).limit(500); return (data ?? []) as any[]; }
 
 // ---- curriculum versions ---------------------------------------------------------------------------------------------
-export const CURRICULUM_STATUSES = ['draft', 'needs_review', 'approved', 'published', 'retired'] as const;
+export const CURRICULUM_STATUSES = ['draft', 'uploaded', 'processing', 'needs_review', 'approved', 'published', 'superseded', 'failed', 'retired'] as const;
 /** A version can only move forward one step at a time (or be retired); nothing becomes published without being approved first. */
-export const CURRICULUM_NEXT: Record<string, string[]> = { draft: ['needs_review', 'retired'], needs_review: ['approved', 'draft', 'retired'], approved: ['published', 'needs_review', 'retired'], published: ['retired'], retired: ['draft'] };
+export const CURRICULUM_NEXT: Record<string, string[]> = { draft: ['needs_review', 'retired'], uploaded: ['processing', 'needs_review', 'failed', 'retired'], processing: ['needs_review', 'failed'], failed: ['uploaded', 'needs_review', 'retired'], needs_review: ['approved', 'draft', 'retired'], approved: ['published', 'needs_review', 'retired'], published: ['superseded', 'retired'], superseded: ['published', 'retired'], retired: ['draft'] };
 export function canMoveCurriculum(from: string, to: string): boolean { return (CURRICULUM_NEXT[from] ?? []).includes(to); }
 export interface CurriculumVersionInput { board?: string; academic_year: string; class_level: string; subject_id?: string | null; subject_label?: string; language?: string; source_reference?: string; notes?: string }
 export async function createCurriculumVersion(service: SupabaseClient, raw: CurriculumVersionInput): Promise<string> {
@@ -70,7 +70,18 @@ export async function moveCurriculumVersion(service: SupabaseClient, id: string,
   if (to === 'approved' && !cur.source_reference) throw err('Enter the source (the official syllabus reference) before approving.');
   const patch: Record<string, unknown> = { status: to, updated_at: new Date().toISOString() };
   if (to === 'approved') { patch.approved_by = adminEmail; patch.approved_at = new Date().toISOString(); }
+  if (to === 'published') { patch.published_at = new Date().toISOString(); patch.published_by = adminEmail; await supersedeSiblings(service, id); }
   const { error } = await service.from('curriculum_versions').update(patch).eq('id', id); if (error) throw err('Could not save.');
+}
+/** v81: publishing a version retires the one it replaces (status "superseded", kept for rollback); nothing is deleted or overwritten. Returns the ids superseded. */
+export async function supersedeSiblings(service: SupabaseClient, id: string): Promise<string[]> {
+  const { data: v } = await service.from('curriculum_versions').select('board, academic_year, class_level, subject_id, subject_label, language').eq('id', id).maybeSingle();
+  if (!v) return [];
+  let q = service.from('curriculum_versions').select('id').eq('board', (v as any).board).eq('academic_year', (v as any).academic_year).eq('class_level', (v as any).class_level).eq('language', (v as any).language).eq('status', 'published').neq('id', id);
+  q = (v as any).subject_id ? q.eq('subject_id', (v as any).subject_id) : q.eq('subject_label', (v as any).subject_label);
+  const { data } = await q; const ids = ((data ?? []) as any[]).map((r) => r.id as string);
+  if (ids.length) await service.from('curriculum_versions').update({ status: 'superseded', updated_at: new Date().toISOString() }).in('id', ids);
+  return ids;
 }
 export async function listCurriculumVersions(service: SupabaseClient) { const { data } = await service.from('curriculum_versions').select('*').order('academic_year', { ascending: false }).order('created_at', { ascending: false }).limit(500); return (data ?? []) as any[]; }
 

@@ -15,9 +15,10 @@ export function StudentReportView({ title, takenAt, score, total, inMarks, data,
           <p className="no-print"><a href={back}>← All my test reports</a></p>
           <h1 style={{ fontSize: 'var(--step-2)' }}>{title}</h1>
           <p style={{ color: 'var(--slate)' }}>Taken on {fmtDateTime(takenAt)} · Score {fmtScore(score, total, inMarks)}{dur ? ` · Time used ${dur}` : ''}</p>
+          {data.curriculum && <p style={{ color: 'var(--slate)', fontSize: '0.85rem' }}>Curriculum used: {data.curriculum.label}</p>}
           {data.autoSubmitted && <p style={{ color: 'var(--slate)' }}>The timer ended and the test was submitted automatically.</p>}
           {data.pendingWritten > 0 && <p style={{ color: 'var(--slate)' }}>{data.pendingWritten} written answer(s) are waiting for handwritten marking and are not in the score yet.</p>}
-          <PrintButton fileName={`sahayak-${title}-${takenAt.slice(0, 10)}`} />
+          <PrintButton fileName={`sahayak-${title}-${takenAt.slice(0, 10)}`} title={title} kind="student-report" curriculum={data.curriculum?.label} />
         </div>
 
         {data.byGroup.length > 0 && (

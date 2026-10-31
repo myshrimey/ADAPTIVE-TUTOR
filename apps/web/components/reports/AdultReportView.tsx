@@ -12,7 +12,7 @@ export function AdultReportView({ studentName, title, takenAt, score, total, inM
           <p className="no-print"><a href={back}>← Back to {studentName}</a></p>
           <h1 style={{ fontSize: 'var(--step-2)' }}>{title}</h1>
           <p style={{ color: 'var(--slate)' }}>{studentName} · taken on {fmtDateTime(takenAt)} · Score {fmtScore(score, total, inMarks)}{dur ? ` · Time used ${dur}` : ''}</p>
-          <PrintButton fileName={`sahayak-${title}-${takenAt.slice(0, 10)}`} />
+          <PrintButton fileName={`sahayak-${title}-${takenAt.slice(0, 10)}`} title={title} kind="adult-report" curriculum={data.curriculum?.label} />
         </div>
         <section className="chapter-row" style={{ display: 'block', marginTop: 'var(--space-3)' }}>
           <div className="chapter-row__title">By topic</div>
@@ -21,6 +21,7 @@ export function AdultReportView({ studentName, title, takenAt, score, total, inM
           {data.unanswered > 0 && <div style={{ marginTop: '0.4rem', fontSize: '0.92rem' }}>Questions left unanswered: {data.unanswered}</div>}
         </section>
         {data.wentWell.length > 0 && <p><strong>Went well:</strong> {data.wentWell.join(', ')}</p>}
+        {data.curriculum && <p style={{ color: 'var(--slate)', fontSize: '0.85rem' }}>Curriculum used: {data.curriculum.label}</p>}
         {data.practiseAgain.length > 0 && <p><strong>Worth practising again:</strong> {data.practiseAgain.join(', ')}</p>}
         <ul style={{ color: 'var(--slate)', fontSize: '0.9rem' }}>{data.notes.map((n, i) => <li key={i}>{n}</li>)}</ul>
       </div>

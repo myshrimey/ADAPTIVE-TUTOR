@@ -1825,3 +1825,7 @@ button.nav-cta--button { border: 0; cursor: pointer; font-family: inherit; displ
 .sg-sub { font-size: 0.88rem; }
 .sg-shift { display: flex; gap: 0.3rem; margin-top: 0.4rem; }
 @media (max-width: 640px) { .sg-grid { grid-template-columns: 1fr; } .sg-tiles { grid-template-columns: repeat(2, 1fr); } }
+
+/* v81: Sahayak header shown only on printed pages (added by PrintButton just before printing) */
+.print-brand { display: none; }
+@media print { .print-brand { display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #c8cdd7; padding-bottom: 6px; margin-bottom: 10px; } .print-brand img { height: 32px; width: auto; } }

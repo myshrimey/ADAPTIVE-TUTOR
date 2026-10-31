@@ -36,6 +36,7 @@ export const ADMIN_MENU: AdminGroup[] = [
       { href: '/admin/quality', label: 'Quality gates', note: 'Sign-offs before a subject goes live' },
       { href: '/admin/translations', label: 'Hindi questions', note: 'Translations in progress' },
       { href: '/admin/translations/review', label: 'Check Hindi translations', note: 'Review queue' },
+      { href: '/admin/curriculum', label: 'Curriculum and syllabus', note: 'Upload, review, approve, publish syllabus versions', keywords: 'syllabus upload curriculum version publish rollback outline learning outcome cbse' },
       { href: '/admin/subject-requests', label: 'Subject requests', note: 'What families are asking for' },
       { href: '/admin/teachers', label: 'Teachers', note: 'Approve and see teacher work' },
       { href: '/admin/assignments', label: 'Teacher-student assignments', note: 'Record who teaches whom (no data access)', keywords: 'assign teacher student class' },
