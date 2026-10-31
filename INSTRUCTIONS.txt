@@ -1,8 +1,7 @@
-SAHAYAK v83 - Syllabus PDFs are now read automatically. NO database change. ONE new software package (unpdf).
-1. Unzip over your project (it includes package.json and package-lock.json), commit, let Vercel deploy. Vercel installs the package by itself.
-2. Admin > Curriculum and syllabus > upload a syllabus PDF. Open the new draft: the items read from the PDF are listed with their PDF page numbers. CHECK THEM against the PDF, fix or flag, then approve and publish as before.
-HOW IT READS: only lines that start with Unit, Section, Chapter, Topic, Learning outcome or Assessment objective (for example "Chapter 2: Polynomials") become items. Everything else is left out, never guessed. A PDF made of pictures (scanned) has no text: you are told, the file is still saved, and you paste the outline or use the CSV template.
-TESTED: new test t83 (15) using real PDFs including a picture-only one and a broken one; all earlier tests pass; type check clean; full production build clean; the built server read the test PDFs correctly.
-NOT TESTED: with your real CBSE syllabus PDF (tables and unusual layouts may give fewer items); on Vercel itself; signed-in upload.
-NOT BUILT: reading scanned PDFs (OCR); reading tables inside PDFs.
+SAHAYAK v84 - The syllabus reader also understands headings written without a colon (for example "Chapter 2 Polynomials" or "UNIT II ALGEBRA"). NO database change, no new package.
+1. Unzip over your project, commit, let Vercel deploy. (Apply after v83.)
+2. Upload a syllabus PDF, Word file or pasted text as before and check the items read.
+HOW: a heading must start with Unit, Section, Chapter or Topic followed by a number (1, 2 or I, II), then a name that starts with a capital letter, up to 10 words, not ending like a sentence. Sentences are never turned into headings. These items are marked less certain than colon headings, so check them.
+TESTED: new test t84 (7) and all earlier tests pass; type check clean.
+NOT TESTED: with your real syllabus PDF; a full production build was not re-run (only the reading rules changed).
 NOT DEPLOYED: nothing is deployed from here.

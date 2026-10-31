@@ -7,7 +7,7 @@ import { parseOutlineText, type Extraction } from './parse';
 export const PDF_MAX_PAGES = 150;
 export const PDF_MAX_CHARS = 1_500_000;
 export const PDF_TIME_LIMIT_MS = 25_000;
-const HEADING = /^(?:unit|section|chapter|topic|learning outcome|lo|outcome|assessment objective|ao)\s*[\w.\-]*\s*[:.\-–—)]\s*\S/i;
+const HEADING = /^(?:(?:unit|section|chapter|topic|learning outcome|lo|outcome|assessment objective|ao)\s*[\w.\-]*\s*[:.\-–—)]\s*\S|(?:unit|section|chapter|topic)\s+(?:\d{1,3}|[ivxlc]{1,6})\s+[A-Z\u0900-\u097F][^.]{2,})/i;
 const HAS_PAGE = /[\[(](?:p\.?|pg\.?|page)\s*\d{1,4}[\])]\s*$/i;
 
 /** Pure: turn page texts into outline text, adding [p.N] to each heading line that has no page mark of its own. */

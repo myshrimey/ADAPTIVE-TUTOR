@@ -4,6 +4,11 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v84 - Colon-less headings in syllabus text and PDFs (2026-10-30)
+No migration, no new package. `parseOutlineText` (and so PDF, DOCX and pasted text) also reads "Chapter 2 Polynomials" / "UNIT II ALGEBRA" / "Topic 3 Name": a number or roman numeral, then a name that starts with a capital, is at most 10 words and does not end like a sentence. Such items have confidence 0.7 (colon lines stay 0.9). Prose like "Chapter 3 covers many things..." is not read. Tests: t84 7/7; all earlier tests pass; tsc clean. Production build not re-run (pure parser change).
+
+---
+
 ## v83 - Automatic PDF reading for curriculum uploads (2026-10-30)
 No migration. New dependency `unpdf` 1.9.1 (declared in apps/web, pure JavaScript, Node 22+; `serverExternalPackages: ['unpdf']` in next.config.js). `packages/core/curriculum-mgmt/pdf.ts`: reads the TEXT of a PDF (no OCR), up to 150 pages, 25 s limit; only lines starting Unit/Section/Chapter/Topic/Learning outcome/Assessment objective become items, each with its PDF page (an explicit [p.N] wins); every PDF item has confidence 0.7 so the review screen asks for a check; scanned or corrupt PDFs are stored and the reviewer is told plainly, nothing invented. Upload route sets nodejs runtime and maxDuration 60. Tests: t83 15/15 (real PDFs made with reportlab incl. a picture-only PDF), t81 76/76 (one old expectation updated), all earlier tests pass, tsc clean, production build clean, and the built server read the test PDFs correctly (9 items; scanned = 0 items with a clear note). Not tested: real CBSE syllabus PDFs (their layout may differ and many are tables), the live Vercel Node version and function limits, signed-in upload.
 

@@ -57,6 +57,9 @@ const LABELS: [RegExp, NodeKind][] = [
   [/^(?:unit|section)\s*[\w.\-]*\s*[:.\-–—)]\s*(.+)$/i, 'unit'], [/^chapter\s*[\w.\-]*\s*[:.\-–—)]\s*(.+)$/i, 'chapter'], [/^topic\s*[\w.\-]*\s*[:.\-–—)]\s*(.+)$/i, 'topic'],
   [/^(?:learning outcome|lo|outcome)\s*[\w.\-]*\s*[:.\-–—)]\s*(.+)$/i, 'learning_outcome'], [/^(?:assessment objective|ao)\s*[\w.\-]*\s*[:.\-–—)]\s*(.+)$/i, 'assessment_objective'],
 ];
+// the name must start with a capital (or Devanagari), be at most 10 words and not end like a sentence, so prose is not mistaken for a heading
+const LOOSE = /^(unit|section|chapter|topic)\s+(?:\d{1,3}|[ivxlc]{1,6})\s+([A-Z\u0900-\u097F][^.]{2,}(?<![.!?]))$/i;
+const looseOk = (name: string) => /^[A-Z\u0900-\u097F0-9]/.test(name) && name.split(/\s+/).length <= 10;
 /** Lines that start with Unit / Chapter / Topic / LO / AO become the outline; anything else is counted and left out (never guessed). A page can be written as [p.12] or (page 12). */
 export function parseOutlineText(text: string): Extraction {
   const b = new Builder(); let unit: string | null = null, chapter: string | null = null, topic: string | null = null; let skipped = 0;
@@ -64,7 +67,15 @@ export function parseOutlineText(text: string): Extraction {
     let line = raw.replace(/\s+/g, ' ').trim(); if (!line) continue;
     let page: number | null = null; const pm = line.match(/\s*[\[(](?:p\.?|pg\.?|page)\s*(\d{1,4})[\])]\s*$/i); if (pm) { page = Number(pm[1]); line = line.slice(0, pm.index).trim(); }
     let hit = false;
-    for (const [re, kind] of LABELS) { const m = line.match(re); if (!m) continue; hit = true; const name = m[1];
+    // v84: "Chapter 1 Real Numbers" / "UNIT II ALGEBRA" (a number or roman numeral, no colon). Less certain than a colon line, so lower confidence.
+    let loose = false; let looseM: RegExpMatchArray | null = null;
+    if (!LABELS.some(([re]) => re.test(line))) { looseM = line.match(LOOSE); if (looseM && !looseOk(looseM[2].trim())) looseM = null; loose = !!looseM; }
+    if (looseM) { const kind = looseM[1].toLowerCase() === 'chapter' ? 'chapter' : looseM[1].toLowerCase() === 'topic' ? 'topic' : 'unit'; const name = looseM[2].trim();
+      if (kind === 'unit') { unit = b.add('unit', name, null, page, 0.7); chapter = null; topic = null; }
+      else if (kind === 'chapter') { chapter = b.add('chapter', name, unit, page, 0.7); topic = null; }
+      else topic = b.add('topic', name, chapter ?? unit, page, 0.7);
+      hit = true; }
+    if (!loose) for (const [re, kind] of LABELS) { const m = line.match(re); if (!m) continue; hit = true; const name = m[1];
       if (kind === 'unit') { unit = b.add('unit', name, null, page, 0.9); chapter = null; topic = null; }
       else if (kind === 'chapter') { chapter = b.add('chapter', name, unit, page, 0.9); topic = null; }
       else if (kind === 'topic') topic = b.add('topic', name, chapter ?? unit, page, 0.9);
