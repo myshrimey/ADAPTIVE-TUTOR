@@ -693,3 +693,6 @@ All server-only (RLS on, no policies). curriculum_versions (older v61 table): st
 
 ## 0052 Curriculum stamps (v82)
 baseline_sessions.curriculum_version_id and student_baselines.curriculum_version_id: nullable uuid to curriculum_versions (on delete set null), indexed where not null.
+
+## 0053 Calibration events (v85)
+Server-only (RLS on, no policies). calibration_events: student_id, source (review/mixed/baseline/quiz), confidence 1-3, correct, competency_id, item_table, item_id, created_at. Index (student_id, created_at desc). Never feeds mastery or revision.

@@ -1,6 +1,6 @@
 import { studentPage } from '@/lib/student-page';
 import { getServerLang } from '@/lib/language';
-import { loadReviewPlan, loadSettings } from '@adaptive-tutor/core';
+import { loadReviewPlan, loadSettings, loadCalibration, calibrationMessage } from '@adaptive-tutor/core';
 import { ReviewSession } from '@/components/ReviewSession';
 
 export const dynamic = 'force-dynamic';
@@ -12,6 +12,7 @@ export default async function ReviewPage() {
   const lang = await getServerLang(); const hi = lang === 'hi';
   const s = await loadSettings(service);
   const plan = await loadReviewPlan(service, studentId, s.boards.board1_date ?? null);
+  const cal = await loadCalibration(service, studentId);
   const T = (en: string, h: string) => (hi ? h : en);
   return (
     <main className="page"><div className="shell shell--narrow">
@@ -34,6 +35,11 @@ export default async function ReviewPage() {
           <ReviewSession plan={plan} hi={hi} mixed />
         </section>
       )}
+      <section className="tip-card" style={{ marginTop: 'var(--space-4)' }}>
+        <span className="tip-card__eyebrow">{T('How well do you know what you know?', 'आप अपनी समझ को कितना पहचानते हैं?')}</span>
+        <p className="tip-card__body">{calibrationMessage(cal, hi)}</p>
+        {cal.enough && <p style={{ fontSize: '0.85rem', color: 'var(--slate)' }}>{cal.levels.filter((l) => l.total > 0).map((l) => `${hi ? ['', 'बस अंदाज़ा', 'लगता है सही है', 'पक्का पता है'][l.level] : ['', 'Just guessing', 'I think so', 'I am sure'][l.level]}: ${l.right}/${l.total}`).join(' · ')}</p>}
+      </section>
       {plan.dueTotal > plan.daily.length && <p style={{ color: 'var(--slate)', fontSize: '0.9rem' }}>{T(`${plan.dueTotal - plan.daily.length} more are waiting; they are not lost. Come back tomorrow or revise again.`, `${plan.dueTotal - plan.daily.length} और प्रतीक्षा में हैं; वे खोए नहीं हैं।`)}</p>}
     </div></main>
   );

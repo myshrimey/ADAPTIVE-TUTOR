@@ -4,6 +4,11 @@ One entry per work session. Newest entry on top.
 
 ---
 
+## v85 - Metacognition: "How sure are you?" and calibration (2026-10-30)
+Migration 0053 `calibration_events` (server-only). Core `packages/core/calibration/` (pure `summariseCalibration`, supportive `calibrationMessage` EN/HI, `immediateNote`; best-effort `recordCalibration`/`loadCalibration`). On /review (daily and mixed practice) the student may tap Just guessing / I think so / I am sure before Check (optional, never blocks). Right after the answer a one-line note appears only for "sure but wrong" and "guess but right". /review shows a card "How well do you know what you know?": says "not enough yet" under 8 answers, makes no claim about a level with fewer than 3 answers, and never gives a mark, rank or label. It never changes mastery, marks or revision dates. Tests: t85 23/23; all earlier tests pass; tsc and production build clean; migration twice on scratch Postgres (value 5 rejected); signed-out /review redirects and /api/review answers unauthenticated. Not tested: a real student session, how it looks on a phone, real-world use of the thresholds (70% sure / 60% guess are my starting values, not research-tuned). Not built: calibration in the adaptive baseline, quizzes and mocks; adult/tutor view; per-topic calibration.
+
+---
+
 ## v84 - Colon-less headings in syllabus text and PDFs (2026-10-30)
 No migration, no new package. `parseOutlineText` (and so PDF, DOCX and pasted text) also reads "Chapter 2 Polynomials" / "UNIT II ALGEBRA" / "Topic 3 Name": a number or roman numeral, then a name that starts with a capital, is at most 10 words and does not end like a sentence. Such items have confidence 0.7 (colon lines stay 0.9). Prose like "Chapter 3 covers many things..." is not read. Tests: t84 7/7; all earlier tests pass; tsc clean. Production build not re-run (pure parser change).
 

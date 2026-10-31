@@ -1,0 +1,2 @@
+# v85 build summary
+Metacognition: optional "How sure are you?" before Check on /review (daily + mixed practice), calibration_events (migration 0053, server-only), supportive calibration card (not enough under 8 answers; no claim under 3 per level; no mark/rank). Never changes marking, mastery or revision. t85 23/23, earlier tests pass, tsc/build clean, migration twice. Not tested: live DB, phone, threshold tuning (70%/60% are starting values). Not built: baseline/quiz/mock, adult view, per-topic.

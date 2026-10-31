@@ -1,7 +1,9 @@
-SAHAYAK v84 - The syllabus reader also understands headings written without a colon (for example "Chapter 2 Polynomials" or "UNIT II ALGEBRA"). NO database change, no new package.
-1. Unzip over your project, commit, let Vercel deploy. (Apply after v83.)
-2. Upload a syllabus PDF, Word file or pasted text as before and check the items read.
-HOW: a heading must start with Unit, Section, Chapter or Topic followed by a number (1, 2 or I, II), then a name that starts with a capital letter, up to 10 words, not ending like a sentence. Sentences are never turned into headings. These items are marked less certain than colon headings, so check them.
-TESTED: new test t84 (7) and all earlier tests pass; type check clean.
-NOT TESTED: with your real syllabus PDF; a full production build was not re-run (only the reading rules changed).
+SAHAYAK v85 - "How sure are you?" on the revision page (metacognition). ONE database change (0053).
+1. Unzip over your project, commit, let Vercel deploy. (Apply after v84.)
+2. Run: npm run db:migrate (safe to run again).
+3. As a student open Revise today (/review). Before pressing Check you may tap: Just guessing / I think so / I am sure. After about 8 answers the card at the bottom shows how well your sureness matches your answers.
+RULES KEPT: it is optional and never blocks an answer; it never changes marks, mastery or revision dates; no score, rank or label; wording is supportive (English and Hindi).
+TESTED: new test t85 (23); all earlier tests pass; type check clean; full production build clean; migration run twice on a scratch database; signed-out access is refused.
+NOT TESTED: with your live database; a real student on a phone; whether the starting limits are right (a "sure" answer is called over-confident if right less than 70% of the time; "guessing" is called under-confident if right more than 60%). Tell me if you want them changed.
+NOT BUILT: the same question in the adaptive check, quizzes and mocks; a view for parents or tutors; per-topic calibration.
 NOT DEPLOYED: nothing is deployed from here.
