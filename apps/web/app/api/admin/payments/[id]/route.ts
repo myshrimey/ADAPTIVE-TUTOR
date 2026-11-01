@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient } from '@/lib/supabase-server';
-import { confirmPayment, rejectPayment, refundPayment, verifyAndActivate, revokeActivation } from '@adaptive-tutor/core';
+import { confirmPayment, rejectPayment, refundPayment, verifyAndActivate, revokeActivation, writeAudit } from '@adaptive-tutor/core';
 
 // Admin-only: confirm or reject a pilot payment claim. Gated on ADMIN_EMAILS,
 // checked against the caller's own authenticated session — never trusts a
@@ -24,11 +24,15 @@ async function assertAdmin(): Promise<string> {
 }
 
 export async function POST(request: Request, { params }: { params: Promise<{ id: string }> }) {
+  let who = '', payId = '', what = '';
   try {
     const adminEmail = await assertAdmin();
+    who = adminEmail;
     const { id } = await params;
+    payId = id;
     const body = await request.json().catch(() => ({}));
     const action = body.action as 'confirm' | 'reject' | 'refund' | 'activate';
+    what = String(action ?? '');
     const service = createServiceClient();
 
     if (action === 'activate') {
@@ -43,8 +47,10 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
     } else {
       return NextResponse.json({ data: null, error: 'invalid_action' }, { status: 400 });
     }
+    await writeAudit(service, { actorEmail: adminEmail, actorRole: 'super_admin', action: `payment.${action}`, entity: 'pilot_payment', entityId: id, reason: body.adminNotes ? String(body.adminNotes) : null, outcome: 'success' });
     return NextResponse.json({ data: { ok: true }, error: null });
   } catch (err: any) {
+    if (who && payId && what) await writeAudit(createServiceClient(), { actorEmail: who, actorRole: 'super_admin', action: `payment.${what}`, entity: 'pilot_payment', entityId: payId, outcome: 'failed', detail: { error: String(err?.message ?? 'error') } });
     const status = err.message === 'not_authorized' ? 403 : 400;
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status });
   }

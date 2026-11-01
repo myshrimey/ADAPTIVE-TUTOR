@@ -1,6 +1,7 @@
 import { csvResponse, fileResponse } from '@/lib/export';
 import { requireAdmin } from '@/lib/admin';
 import { createServiceClient } from '@/lib/supabase-server';
+import { writeAudit } from '@adaptive-tutor/core';
 
 // Admin-only CSV download of commercial tables.
 const TABLES: Record<string, { table: string; cols: string }> = {
@@ -13,11 +14,13 @@ const TABLES: Record<string, { table: string; cols: string }> = {
 const esc = (v: unknown) => { const s = v === null || v === undefined ? '' : String(v); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : /^[=+@-]/.test(s) ? `'${s}` : s; };
 
 export async function GET(request: Request) {
-  try { await requireAdmin(); } catch { return new Response('Not allowed', { status: 403 }); }
+  let admin: { email: string };
+  try { admin = await requireAdmin(); } catch { return new Response('Not allowed', { status: 403 }); }
   const t = TABLES[new URL(request.url).searchParams.get('table') ?? ''];
   if (!t) return new Response('Unknown table', { status: 400 });
   const { data, error } = await createServiceClient().from(t.table).select(t.cols).order('created_at', { ascending: false }).limit(20000);
   if (error) return new Response('Export failed', { status: 500 });
+  await writeAudit(createServiceClient(), { actorEmail: admin.email, actorRole: 'super_admin', action: 'export.download', entity: t.table, outcome: 'success', detail: { rows: (data ?? []).length } });
   const cols = t.cols.split(',');
   const csv = [cols.join(','), ...(data ?? []).map((r: any) => cols.map((c) => esc(r[c])).join(','))].join('\n');
   return csvResponse(csv, { kind: String(t.table), title: `Commerce export: ${t.table}`, classification: 'confidential', filename: `sahayak-${t.table}.csv` });

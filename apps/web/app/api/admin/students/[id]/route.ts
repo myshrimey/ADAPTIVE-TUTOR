@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { requireAdmin, generatePassword } from '@/lib/admin';
-import { ACCESS_PLAN_CODES, validateAccessUntil, type AccessPlanCode } from '@adaptive-tutor/core';
+import { ACCESS_PLAN_CODES, validateAccessUntil, writeAudit, type AccessPlanCode } from '@adaptive-tutor/core';
 
 // Admin-only: change a student's plan / subject limit / end date, or set a new password.
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    await requireAdmin();
+    const admin = await requireAdmin();
     const { id } = await params;
     const body = await request.json().catch(() => ({}));
     const service = createServiceClient();
@@ -19,6 +19,8 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
       if (!authId) return NextResponse.json({ data: null, error: 'student_not_found' }, { status: 404 });
       const { error } = await service.auth.admin.updateUserById(authId, { password: newPassword });
       if (error) throw error;
+      // The new password is never written to the audit trail: only the fact that it was reset.
+      await writeAudit(service, { actorEmail: admin.email, actorRole: 'super_admin', action: 'student.password_reset', entity: 'student', entityId: id, targetAccount: id, outcome: 'success' });
       return NextResponse.json({ data: { password: newPassword }, error: null });
     }
 
@@ -37,6 +39,7 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
       { onConflict: 'student_id' }
     );
     if (error) throw error;
+    await writeAudit(service, { actorEmail: admin.email, actorRole: 'super_admin', action: 'student.plan_change', entity: 'student_access', entityId: id, targetAccount: id, outcome: 'success', detail: { plan: planCode, subjectLimit, accessUntil } });
     return NextResponse.json({ data: { ok: true }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: err.message === 'not_authorized' ? 403 : 400 });

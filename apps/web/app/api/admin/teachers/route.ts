@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { requireAdmin, generatePassword } from '@/lib/admin';
+import { writeAudit } from '@adaptive-tutor/core';
 
 // Admin-only: create an (already approved) teacher account with an email + password the
 // founder passes on. Shown once, never stored.
 export async function POST(request: Request) {
   try {
-    await requireAdmin('academic');
+    const admin = await requireAdmin('academic');
     const body = await request.json().catch(() => ({}));
     const email = String(body.email ?? '').trim().toLowerCase();
     const displayName = String(body.displayName ?? '').trim().slice(0, 120);
@@ -30,6 +31,7 @@ export async function POST(request: Request) {
       await service.auth.admin.deleteUser(created.user.id);
       throw inner;
     }
+    await writeAudit(service, { actorEmail: admin.email, actorRole: admin.superAdmin ? 'super_admin' : 'team_member', action: 'teacher.create', entity: 'teacher', entityId: created.user.id, targetAccount: created.user.id, outcome: 'success' });
     return NextResponse.json({ data: { email, password }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: err.message === 'not_authorized' ? 403 : 400 });

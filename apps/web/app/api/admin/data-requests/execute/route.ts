@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
 import { requireAdmin } from '@/lib/admin';
 import { createServiceClient } from '@/lib/supabase-server';
-import { retainAnswerBank, removeAllSheets } from '@adaptive-tutor/core';
+import { retainAnswerBank, removeAllSheets, writeAudit } from '@adaptive-tutor/core';
 
 // Founder-only. Permanently deletes one student's learning data and sign-in account for a request a family made.
 // action 'cancel' just closes the request. Teachers and admins are never deleted by this route.
 export async function POST(req: Request) {
   try {
-    await requireAdmin();
+    const admin = await requireAdmin();
     const { requestId, action } = await req.json();
     if (typeof requestId !== 'string') return NextResponse.json({ data: null, error: 'missing_request' }, { status: 400 });
     const service = createServiceClient();
@@ -15,6 +15,7 @@ export async function POST(req: Request) {
     if (!reqRow || reqRow.status !== 'requested') return NextResponse.json({ data: null, error: 'request_not_open' }, { status: 404 });
     if (action === 'cancel') {
       await service.from('data_requests').update({ status: 'cancelled', completed_at: new Date().toISOString(), student_id: null, student_label: null }).eq('id', requestId);
+      await writeAudit(service, { actorEmail: admin.email, actorRole: 'super_admin', action: 'data_request.cancel', entity: 'data_request', entityId: requestId, outcome: 'success' });
       return NextResponse.json({ data: { ok: true }, error: null });
     }
     const { data: user } = await service.from('users').select('id, role, email').eq('auth_user_id', reqRow.auth_user_id).maybeSingle();
@@ -41,6 +42,8 @@ export async function POST(req: Request) {
     const { error: authErr } = await service.auth.admin.deleteUser(reqRow.auth_user_id);
     if (authErr && !/not found/i.test(authErr.message)) throw authErr;
     await service.from('data_requests').update({ status: 'completed', completed_at: new Date().toISOString(), student_id: null, student_label: null }).eq('id', requestId);
+    // Deleted accounts are recorded by request id only: no name, email or student id.
+    await writeAudit(service, { actorEmail: admin.email, actorRole: 'super_admin', action: 'data_request.delete_account', entity: 'data_request', entityId: requestId, outcome: 'success' });
     return NextResponse.json({ data: { ok: true }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'error' }, { status: err.message === 'not_authorized' ? 403 : 400 });

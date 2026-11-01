@@ -121,3 +121,10 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v85 (2026-10-30): /review asks "How sure are you?" (optional) and shows a calibration card; migration 0053. Migrations now go through `0053`.
 - v86 (2026-10-30): tutor chat occasionally asks the student to explain why in their own words (rule-based, no migration, switch-off constant ENRICHMENT_ENABLED).
 - v88 (2026-10-31): free AI capacity. Fixed a paid-provider leak in the backup chain; /admin/ai-infrastructure has a Free capacity panel; migration 0054 notes on candidate providers (Cloudflare, OpenRouter, Mistral, Cerebras) all UNVERIFIED. Migrations now go through `0054`.
+- v89 (2026-10-31): control-centre documents and Phase 0 audit (docs/sahayak-control-centre/). Documents only; no migration. Founder to choose the next phase.
+- v90 (2026-10-31): Development Control Centre screens and tables (migration 0056), role-guard search-path fix (0055), all tests now in the repository (`npm test`). Migrations now go through `0056`.
+- v91 (2026-10-31): tamper-resistant audit trail (migration 0057), 14 more admin actions audited, access-control scan test t91. Migrations now go through `0057`.
+- v92 (2026-10-31): read-only masked account directory and snapshot at /admin/accounts (no migration), every open audited. Migrations still go through `0057`.
+- v93 (2026-11-01): Control Centre screens 2 (current execution, dependencies, testing & QA, history, resume download). No migration. t54b now uses a fixed clock.
+- v94 (2026-11-01): founder had me decide D1, D2, D3 (interim), D5, D6; D7 = professional legal review is still his. Retention dry run at /admin/retention; View As design only. No migration.
+- v95 (2026-11-01): deployment pre-flight: whole migration chain (schema + 57 migrations) applied twice on scratch Postgres without error; `/admin/deploy-check`. No migration. Founder deploys v90-v95 together.

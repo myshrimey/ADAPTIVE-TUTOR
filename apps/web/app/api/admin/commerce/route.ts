@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { requireAdmin } from '@/lib/admin';
-import { DEFAULT_SETTINGS, activateOrgPlan } from '@adaptive-tutor/core';
+import { DEFAULT_SETTINGS, activateOrgPlan, writeAudit } from '@adaptive-tutor/core';
 
 // Admin-only editing of prices, offers and settings (no code needed). Every change is checked here, never trusted from the browser.
 const int = (v: unknown, min = 0, max = 10_000_000) => { const n = Math.floor(Number(v)); if (!Number.isFinite(n) || n < min || n > max) throw new Error('bad_number'); return n; };
@@ -12,7 +12,10 @@ export async function POST(request: Request) {
     const admin = await requireAdmin();
     const b = await request.json().catch(() => ({}));
     const s = createServiceClient();
-    const log = async (what: string, detail: unknown) => { try { await s.from('commerce_events').insert({ event: 'admin_change', meta: { by: admin.email, what, detail } }); } catch { /* ignore */ } };
+    const log = async (what: string, detail: unknown) => {
+      try { await s.from('commerce_events').insert({ event: 'admin_change', meta: { by: admin.email, what, detail } }); } catch { /* ignore */ }
+      await writeAudit(s, { actorEmail: admin.email, actorRole: 'super_admin', action: `commerce.${what}`, entity: 'commerce', entityId: String((detail as any)?.code ?? (detail as any)?.key ?? (detail as any)?.userId ?? '') || null, targetAccount: what === 'org_activate' ? String((detail as any)?.userId ?? '') || null : null, outcome: 'success', detail: what === 'setting_set' || what === 'org_activate' || what === 'offer_toggle' ? (detail as any) : { code: (detail as any)?.code } });
+    };
 
     if (b.action === 'product_update') {
       const code = String(b.code ?? '');

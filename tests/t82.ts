@@ -1,0 +1,22 @@
+import { readFileSync } from 'fs';
+import { fakeDb } from './fakedb2';
+import { stampCurriculumVersion } from '../packages/core';
+let n = 0, f = 0; const ok = (c: any, m: string) => { n++; if (!c) { f++; console.log('FAIL', m); } };
+const R = (p: string) => readFileSync('' + p, 'utf8');
+const mig = R('packages/db/migrations/0052_curriculum_stamps.sql');
+ok(/add column if not exists curriculum_version_id/.test(mig) && !/drop |delete from|truncate/i.test(mig.replace(/drop trigger/gi, '')), 'additive migration');
+ok(/on delete set null/.test(mig), 'deleting a version never deletes a result');
+const st = R('packages/core/baseline/store.ts');
+ok(/stampCurriculumVersion\(service, 'baseline_sessions'/.test(st) && /stampCurriculumVersion\(service, 'student_baselines'/.test(st), 'start and finish both stamp');
+(async () => {
+  const cv = { id: 'v1', board: 'CBSE', academic_year: '2026-27', class_level: '10', version: 2, subject_id: 's1', subject_label: 'Maths', status: 'published', published_at: '2026-10-01' };
+  const db: any = fakeDb({ baseline_sessions: [{ id: 'a' }], student_baselines: [{ id: 'b' }], curriculum_versions: [cv] });
+  ok((await stampCurriculumVersion(db, 'baseline_sessions', 'a', 's1')) === 'v1' && db._tables.baseline_sessions[0].curriculum_version_id === 'v1', 'session stamped with published version');
+  ok((await stampCurriculumVersion(db, 'student_baselines', 'b', 's1', 'v0')) === 'v0' && db._tables.student_baselines[0].curriculum_version_id === 'v0', 'baseline keeps the version the check STARTED with, even if a newer one was published since');
+  const none: any = fakeDb({ baseline_sessions: [{ id: 'a' }], curriculum_versions: [] });
+  ok((await stampCurriculumVersion(none, 'baseline_sessions', 'a', 's1')) === null && none._tables.baseline_sessions[0].curriculum_version_id === undefined, 'no published version: nothing invented');
+  const bad: any = { from: () => { throw new Error('column missing'); } };
+  ok((await stampCurriculumVersion(bad, 'baseline_sessions', 'a', 's1')) === null, 'never throws (e.g. migration not run)');
+  ok((await stampCurriculumVersion(db, 'baseline_sessions', null, 's1')) === null, 'no row id: no-op');
+  console.log(`t82: ${n - f}/${n} passed`); process.exit(f ? 1 : 0);
+})();

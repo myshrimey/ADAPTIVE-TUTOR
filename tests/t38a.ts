@@ -1,0 +1,18 @@
+import { planSession, shouldTriggerRecovery, currentStreak, median, istDay, causeFamily, candidateTagsForSubject } from '../packages/core';
+const eq=(a:any,b:any,m:string)=>{ if(JSON.stringify(a)!==JSON.stringify(b)){console.log('FAIL',m,a,b);process.exitCode=1}else console.log('ok',m)};
+eq(planSession({availableMinutes:null,goal:null,recoveryMode:false}).targetQuestions,null,'no time');
+eq(planSession({availableMinutes:30,goal:'practise',recoveryMode:false}).targetQuestions,10,'30min practise');
+eq(planSession({availableMinutes:30,goal:'practise',recoveryMode:true}).targetQuestions,7,'recovery shorter (30 min x 0.8 / 2.5 x 0.75 = 7.2 -> 7; the old expectation of 8 was wrong)');
+eq(planSession({availableMinutes:5,goal:'learn',recoveryMode:false}).targetQuestions,3,'min 3');
+eq(planSession({availableMinutes:240,goal:'test_myself',recoveryMode:false}).targetQuestions,15,'max 15');
+eq(shouldTriggerRecovery([{correct:false,hints:0},{correct:true,hints:0},{correct:false,hints:0},{correct:false,hints:0}]),true,'3 of 4');
+eq(shouldTriggerRecovery([{correct:true,hints:0},{correct:false,hints:0}]),false,'one miss');
+eq(shouldTriggerRecovery([{correct:false,hints:2},{correct:false,hints:3}]),true,'2 hinted misses');
+eq(shouldTriggerRecovery([{correct:false,hints:0},{correct:false,hints:0}]),false,'2 plain misses');
+const now=new Date('2026-10-16T10:00:00Z');
+eq(currentStreak(new Set(['2026-10-16','2026-10-15','2026-10-14','2026-10-12']),now),3,'streak 3');
+eq(currentStreak(new Set(['2026-10-15','2026-10-14']),now),2,'streak holds if today empty');
+eq(currentStreak(new Set(['2026-10-10']),now),0,'streak broken');
+eq(median([5,1,3]),3,'median odd'); eq(median([1,2,3,4]),3,'median even'); eq(median([]),null,'median empty');
+eq(istDay('2026-10-16T19:00:00Z'),'2026-10-17','IST day rollover');
+eq(causeFamily('Science'),'science','sci'); eq(causeFamily('Social Science'),'other','sst'); eq(causeFamily('Hindi Course A'),'language','hindi'); eq(candidateTagsForSubject('Mathematics').length,0,'maths none');

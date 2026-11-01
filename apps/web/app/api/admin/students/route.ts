@@ -1,14 +1,14 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { requireAdmin, generatePassword } from '@/lib/admin';
-import { ACCESS_PLAN_CODES, validateAccessUntil, type AccessPlanCode } from '@adaptive-tutor/core';
+import { ACCESS_PLAN_CODES, validateAccessUntil, writeAudit, type AccessPlanCode } from '@adaptive-tutor/core';
 
 // Admin-only: create a student account (email + password), give it a plan, and mark it so
 // the student completes their profile on first sign-in. The password is returned ONCE in
 // this response so the founder can pass it on; it is never stored or logged by Sahayak.
 export async function POST(request: Request) {
   try {
-    await requireAdmin();
+    const admin = await requireAdmin();
     const body = await request.json().catch(() => ({}));
     const email = String(body.email ?? '').trim().toLowerCase();
     const displayName = String(body.displayName ?? '').trim();
@@ -44,6 +44,7 @@ export async function POST(request: Request) {
       if (sErr || !st) throw sErr ?? new Error('student_row_failed');
       const { error: aErr } = await service.from('student_access').insert({ student_id: st.id, plan_code: planCode, subject_limit: subjectLimit, access_until: accessUntil, notes: body.notes ? String(body.notes).slice(0, 500) : null });
       if (aErr) throw aErr;
+      await writeAudit(service, { actorEmail: admin.email, actorRole: 'super_admin', action: 'student.create', entity: 'student', entityId: st.id, targetAccount: st.id, outcome: 'success', detail: { plan: planCode, subjectLimit, accessUntil } });
       return NextResponse.json({ data: { studentId: st.id, email, password }, error: null });
     } catch (inner: any) {
       // Roll back the half-created login so the founder can simply try again.

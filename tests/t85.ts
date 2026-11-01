@@ -1,0 +1,34 @@
+import { readFileSync } from 'fs';
+import { fakeDb } from './fakedb2';
+import { summariseCalibration, calibrationMessage, immediateNote, recordCalibration, loadCalibration, MIN_CALIBRATION_EVENTS } from '../packages/core';
+let n = 0, f = 0; const ok = (c: any, m: string) => { n++; if (!c) { f++; console.log('FAIL', m); } };
+const R = (p: string) => readFileSync('' + p, 'utf8');
+const ev = (c: number, r: number, w: number) => [...Array(r).fill({ confidence: c, correct: true }), ...Array(w).fill({ confidence: c, correct: false })];
+ok(summariseCalibration([]).pattern === 'not_enough' && summariseCalibration(ev(3, 3, 2)).pattern === 'not_enough', 'under 8 answers: not enough yet');
+ok(/8 answers/.test(calibrationMessage(summariseCalibration([]))) && /8 उत्तरों/.test(calibrationMessage(summariseCalibration([]), true)), 'not-enough message, English and Hindi');
+const well = summariseCalibration([...ev(3, 5, 0), ...ev(1, 1, 3), ...ev(2, 2, 1)]); ok(well.pattern === 'well_calibrated', 'well calibrated: ' + well.pattern);
+const over = summariseCalibration([...ev(3, 2, 4), ...ev(2, 2, 0)]); ok(over.pattern === 'overconfident' && over.sureButWrong === 4 && /2 of 6/.test(calibrationMessage(over)), 'overconfident, counts shown honestly');
+const under = summariseCalibration([...ev(1, 4, 1), ...ev(3, 3, 0)]); ok(under.pattern === 'underconfident' && under.guessButRight === 4, 'underconfident');
+const mixed = summariseCalibration([...ev(3, 1, 3), ...ev(1, 3, 1)]); ok(mixed.pattern === 'mixed', 'mixed');
+ok(summariseCalibration([...ev(3, 0, 2), ...ev(2, 6, 0)]).pattern === 'well_calibrated', 'fewer than 3 "sure" answers: no claim about sureness');
+ok(summariseCalibration([{ confidence: 9 as any, correct: true }, { confidence: 2, correct: 'x' as any }]).total === 0, 'invalid records ignored');
+for (const s of [well, over, under, mixed]) { const m = calibrationMessage(s) + calibrationMessage(s, true); ok(!/stupid|bad|lazy|weak|fail|rank|score/i.test(m), 'supportive wording, no blame/score'); }
+ok(immediateNote(3, false) !== null && immediateNote(1, true) !== null && immediateNote(2, true) === null && immediateNote(3, true) === null && immediateNote(null, false) === null, 'note only for the two surprising cases');
+(async () => {
+  const db: any = fakeDb({ calibration_events: [] });
+  ok(await recordCalibration(db, 's1', { source: 'review', confidence: 3, correct: false, competencyId: 'c1', itemTable: 'questions', itemId: 'i1' }) === true && db._tables.calibration_events.length === 1, 'saved');
+  ok(await recordCalibration(db, 's1', { source: 'review', confidence: undefined, correct: true }) === false && await recordCalibration(db, 's1', { source: 'review', confidence: 7, correct: true }) === false && db._tables.calibration_events.length === 1, 'no/invalid confidence saves nothing');
+  const bad: any = { from: () => { throw new Error('table missing'); } };
+  ok(await recordCalibration(bad, 's1', { source: 'review', confidence: 2, correct: true }) === false, 'never throws if migration not run');
+  ok((await loadCalibration(bad, 's1')).pattern === 'not_enough', 'load never throws');
+  const route = R('apps/web/app/api/review/route.ts');
+  ok(/const r = await reviewStep\(service[\s\S]*await recordCalibration/.test(route), 'marking happens first, calibration saved after');
+  ok(/formatProblem/.test(route.split('recordCalibration(service')[0].split('if (a && r.feedback')[1] ?? ''), 'format-problem answers are not recorded');
+  const ui = R('apps/web/components/ReviewSession.tsx');
+  ok(/How sure are you\? \(optional\)/.test(ui) && /आप कितने आश्वस्त हैं/.test(ui) && /aria-pressed/.test(ui), 'optional, accessible, bilingual');
+  ok(!/disabled=\{!val\.trim\(\) \|\| conf/.test(ui), 'confidence never blocks Check');
+  const mig = R('packages/db/migrations/0053_calibration.sql');
+  ok(/enable row level security/.test(mig) && !/create policy/.test(mig) && !/drop table|truncate|delete from/i.test(mig), 'server-only table, additive');
+  ok(!/mastery|revision|schedule/i.test(R('packages/core/calibration/store.ts') + R('packages/core/calibration/calibration.ts').replace(/never changes mastery or revision dates/, '')), 'calibration code never touches mastery or revision');
+  console.log(`t85: ${n - f}/${n} passed`); process.exit(f ? 1 : 0);
+})();

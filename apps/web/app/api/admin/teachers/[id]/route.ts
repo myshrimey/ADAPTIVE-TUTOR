@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { requireAdmin, generatePassword } from '@/lib/admin';
+import { writeAudit } from '@adaptive-tutor/core';
 
 // Admin-only: approve / suspend a teacher, or set a new password. [id] is users.id.
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    await requireAdmin('academic');
+    const admin = await requireAdmin('academic');
     const { id } = await params;
     const body = await request.json().catch(() => ({}));
     const service = createServiceClient();
@@ -16,6 +17,7 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
       const status = body.action === 'approve' ? 'approved' : 'suspended';
       const { error } = await service.from('teacher_profiles').update({ status, approved_at: status === 'approved' ? new Date().toISOString() : null }).eq('user_id', id);
       if (error) throw error;
+      await writeAudit(service, { actorEmail: admin.email, actorRole: admin.superAdmin ? 'super_admin' : 'team_member', action: `teacher.${body.action}`, entity: 'teacher', entityId: id, targetAccount: id, outcome: 'success' });
       return NextResponse.json({ data: { status }, error: null });
     }
     if (body.action === 'reset_password') {
@@ -23,6 +25,7 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
       if (pw.length < 8) return NextResponse.json({ data: null, error: 'password_too_short' }, { status: 400 });
       const { error } = await service.auth.admin.updateUserById(userRow.auth_user_id, { password: pw });
       if (error) throw error;
+      await writeAudit(service, { actorEmail: admin.email, actorRole: admin.superAdmin ? 'super_admin' : 'team_member', action: 'teacher.password_reset', entity: 'teacher', entityId: id, targetAccount: id, outcome: 'success' });
       return NextResponse.json({ data: { password: pw }, error: null });
     }
     return NextResponse.json({ data: null, error: 'invalid_action' }, { status: 400 });

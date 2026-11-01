@@ -699,3 +699,13 @@ Server-only (RLS on, no policies). calibration_events: student_id, source (revie
 
 ## 0054 Free provider notes (v88)
 Data only: fills blank notes/free_quota_note/source_url (and the OpenRouter endpoint) on the candidate rows openrouter, cloudflare, mistral, cerebras. No schema change.
+
+## 0055 Role-guard search path (v90)
+No new table. `alter function public.guard_user_role() set search_path = public, pg_temp` (closes the Supabase advisor warning "function_search_path_mutable"). Behaviour unchanged: a signed-in person still cannot change their own role.
+
+## 0056 Development control centre (v90)
+Server-only (RLS on, no policies). control_prompts (id text, title, received_on, original_kept, original_text, objective, status, category, related_to, requirement_level, note, founder_priority now/next/later/hold); control_objectives (prompt_id, code, title); control_requirements (prompt_id, objective_code, code, text, status, note, founder_acceptance pending/accepted/rejected); control_tasks (prompt_id, phase, title, objective_code, requirements, depends_on, size, status, verification, note, founder_next, founder_rank; a partial unique index allows only ONE founder_next); control_decisions (kind made/waiting, decided_on, decision, source, affects, status, recommendation); control_executions (executed_on, prompt_id, summary, files, db_changes, tests, open_problems). Status is one of 13 words (check constraint). Founder columns (founder_priority, founder_acceptance, founder_next, founder_rank) are never written by the importer.
+
+
+## 0057 audit_trail (v91)
+`audit_logs` (id, at, actor_email, action, entity, entity_id, detail) gains: target_account text (a student or adult user id, never a name), reason text, outcome text (success / failed / denied), request_id text, actor_role text. Indexes: (target_account, at desc) where target_account is not null; (action, at desc). Triggers `trg_audit_logs_no_update_delete` (row) and `trg_audit_logs_no_truncate` (statement) raise an error for UPDATE, DELETE and TRUNCATE unless `sahayak.audit_purge` is `on` in the same session (database owner only). Functions `audit_logs_guard`, `audit_logs_guard_truncate` have a fixed search path. Re-runnable.

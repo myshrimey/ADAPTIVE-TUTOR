@@ -2,7 +2,31 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v74 (2026-10-28)
+## Latest delivery - v95 (2026-11-01)
+Deployment pre-flight: whole migration chain tested twice on scratch Postgres, `/admin/deploy-check`. No migration. The founder deploys v90-v95 together: use the combined zip `sahayak-v90-to-v95-combined.zip` (or the six delta zips in order); `npm run db:migrate` (0055, 0056, 0057); deploy; open /admin/deploy-check, then /admin/control and press "Load from documents".
+
+## Previous delivery - v94 (2026-11-01)
+All open decisions D1-D6 recorded (FD-11 to FD-15); D7 (professional legal review) is the only one waiting. View As design study, retention dry-run page + owner-run purge script. No migration. Apply after v93: `sahayak-v94-decisions-retention-delta.zip`; deploy.
+
+## Previous delivery - v93 (2026-11-01)
+Control Centre screens 2 (current execution + resume download, dependencies, testing & QA checklists, history). No migration. Apply after v92: `sahayak-v93-control-screens-delta.zip`; deploy.
+
+## Previous delivery - v92 (2026-10-31)
+Read-only account directory `/admin/accounts` and masked snapshot (no migration). Apply after v91: `sahayak-v92-account-directory-delta.zip`; deploy. Opens are audited (needs v91's migration 0057 for the new audit columns; works without).
+
+## Previous delivery - v91 (2026-10-31)
+Tamper-resistant audit trail (migration 0057) + 14 more admin actions recorded + access-control scan test. Apply after v90: `sahayak-v91-audit-trail-delta.zip`; `npm run db:migrate`; deploy. The founder is applying several versions together (v90 onward, in order).
+
+## Previous delivery - v90 (2026-10-31)
+Control Centre screens + tables, security fix, tests in the repository. Apply after v88 and v89: `sahayak-v90-control-centre-delta.zip`; `npm run db:migrate` (0055, 0056); deploy; open /admin/control and press "Load from documents". `npm test` now runs all tests. Founder next: apply it, look at the new pages, switch on leaked-password protection in Supabase Auth, push v82-v90 to GitHub, approve the Vercel link. Claude's recommended next builds: TASK-021/020/022/023, then TASK-032 and 030/031 (see docs/sahayak-control-centre/TASK_BACKLOG.md).
+
+## Previous delivery - v89 (2026-10-31)
+Documents only: `docs/sahayak-control-centre/` (start at SESSION_RESUME.md). Phase 0 audit of SAH-PROMPT-0009 done; nothing else started. Waiting for the founder to choose the next phase (recommended: registry tables and screens, tests into the repository, two security warnings). Apply after v88: `sahayak-v89-control-centre-docs-delta.zip` (no migration, no deploy needed).
+Also open: push v82-v88 to GitHub (it has v81); approve the Vercel link to check the live site.
+
+## Earlier delivery - v88 (see docs/BUILD_LOG.md)
+
+## Delivery - v74 (2026-10-28)
 Question report links on Baseline/Challenge/Stretch/Review. No migration. Apply after v73: `sahayak-v74-report-question-delta.zip`.
 
 ## Previous delivery - v73 (2026-10-28)

@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { requireAdmin } from '@/lib/admin';
+import { writeAudit } from '@adaptive-tutor/core';
 
 // Admin-only: approve or suspend a tutor / coaching centre / parent account. A suspended account sees nothing
 // (linkedStudentIds returns nothing unless the profile is active).
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    await requireAdmin('users');
+    const admin = await requireAdmin('users');
     const { id } = await params;
     const body = await request.json().catch(() => ({}));
     const status = body.action === 'approve' ? 'active' : body.action === 'suspend' ? 'suspended' : null;
@@ -14,6 +15,7 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
     const service = createServiceClient();
     const { error } = await service.from('adult_profiles').update({ status, approved_at: status === 'active' ? new Date().toISOString() : null }).eq('user_id', id);
     if (error) throw error;
+    await writeAudit(service, { actorEmail: admin.email, actorRole: admin.superAdmin ? 'super_admin' : 'team_member', action: `partner.${body.action}`, entity: 'adult_profile', entityId: id, targetAccount: id, outcome: 'success' });
     return NextResponse.json({ data: { status }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: err.message === 'not_authorized' ? 403 : 400 });

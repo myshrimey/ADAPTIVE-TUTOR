@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
-import { requireAdmin } from '@/lib/admin';
-import { loadGatewayConfig, validateGatewayConfig, loadProviders, activationBlocker, buildAdapter, runBenchmark, qualityScore, validateEconomics, loadEconomics, MANUAL_DIMENSIONS, VERIFY_CHECKS, ADAPTERS, KEY_ENV_RE, computeCost, type ProviderRow } from '@adaptive-tutor/core';
+import { requireAdmin, getAdminUser } from '@/lib/admin';
+import { writeAudit, loadGatewayConfig, validateGatewayConfig, loadProviders, activationBlocker, buildAdapter, runBenchmark, qualityScore, validateEconomics, loadEconomics, MANUAL_DIMENSIONS, VERIFY_CHECKS, ADAPTERS, KEY_ENV_RE, computeCost, type ProviderRow } from '@adaptive-tutor/core';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
@@ -52,7 +52,7 @@ function cleanProvider(v: Record<string, any>, partial: boolean): Record<string,
   return o;
 }
 
-export async function POST(req: Request) {
+async function handlePost(req: Request) {
   try {
     const admin = await requireAdmin();
     const b = await req.json();
@@ -169,4 +169,20 @@ export async function POST(req: Request) {
     if (m === 'not_authorized') return NextResponse.json({ data: null, error: 'not_authorized' }, { status: 403 });
     return NextResponse.json({ data: null, error: err instanceof Bad || /^(Switch|This provider|No benchmark|Provider|Could not)/.test(m) ? m : 'failed' }, { status: 400 });
   }
+}
+
+// v91: every AI-infrastructure CHANGE is recorded in the audit trail after it succeeds (never the key names' values, never prompts).
+// Read-only actions (tests, benchmark runs) are not changes. The inner handler is unchanged.
+const AUDITED = new Set(['config_set', 'provider_save', 'provider_status', 'case_save', 'economics_set', 'reconcile_save', 'benchmark_scores']);
+export async function POST(req: Request) {
+  let action = '', target = '';
+  try { const j = await req.clone().json(); action = String(j?.action ?? ''); target = String(j?.id ?? j?.providerId ?? j?.provider_id ?? ''); } catch { /* the handler reports bad input */ }
+  const res = await handlePost(req);
+  if (AUDITED.has(action)) {
+    try {
+      const admin = await getAdminUser();
+      await writeAudit(createServiceClient(), { actorEmail: admin?.email ?? null, actorRole: 'super_admin', action: `ai.${action}`, entity: 'ai_infrastructure', entityId: target || null, outcome: res.ok ? 'success' : 'failed' });
+    } catch { /* an audit problem never stops the action */ }
+  }
+  return res;
 }

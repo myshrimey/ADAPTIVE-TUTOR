@@ -1,0 +1,47 @@
+# Task Backlog
+Updated 2026-10-31. 38 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
+
+Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 15.
+
+Changing a priority here does NOT start work. Work starts only when the founder says so in the chat.
+
+| Task | Phase | Task description | Objective | Requirements | Depends on | Size | Status | Verification |
+|---|---|---|---|---|---|---|---|---|
+| TASK-001 | P0 | Audit repository: architecture, admin pages, roles, auth, analytics, tests | O8 | R41, R50 | - | M | COMPLETED | document checked against repo |
+| TASK-002 | P0 | Check live database structure and security advisor (read only, Supabase connector) | O8 | R41, R43 | - | S | COMPLETED | document checked against repo |
+| TASK-003 | P0 | Write gap report against the prompt and proposed architecture | O8 | R50 | TASK-001,TASK-002 | M | COMPLETED | document checked against repo |
+| TASK-004 | P0 | Create markdown control-centre documents and register all known prompts | O8 | R01, R02, R03, R51 | TASK-003 | M | COMPLETED | document checked against repo |
+| TASK-005 | P0 | Present findings and proposed Phase 1 to the founder | O8 | R52 | TASK-004 | S | COMPLETED | document checked against repo |
+| TASK-010 | P1 | Design and add database tables for prompts, objectives, requirements, tasks, decisions, execution (server-only, migration 0055 or later) | O1 | R01, R02, R10, R42 | - | M | READY FOR TESTING | none yet |
+| TASK-011 | P1 | Importer that loads these markdown trackers into the tables (safe to re-run, never overwrites founder choices) | O1 | R01, R10 | TASK-010 | M | READY FOR TESTING | none yet |
+| TASK-012 | P1 | Admin pages: Dashboard, Master Prompt Registry, Objective Tracker (read only), using existing admin layout | O2 | R12, R13, R14, R21 | TASK-011 | M | READY FOR TESTING | none yet |
+| TASK-013 | P1 | Task Backlog page with filter/sort and "mark as next task" (writes the choice only; never runs anything) | O2 | R15, R06 | TASK-012 | M | READY FOR TESTING | none yet |
+| TASK-014 | P1 | Decision Register page with conflict flag | O2 | R19 | TASK-011 | S | PARTIALLY COMPLETED | none yet |
+| TASK-015 | P1 | Move the numbered test scripts (t1 to t88) from the working area into the repository with one command to run them | O7 | R44, R48 | - | M | COMPLETED | document checked against repo |
+| TASK-016 | P1 | Fix the two security warnings: guard_user_role search path (migration) and leaked-password protection (Supabase setting, founder) | O5 | R37, R38 | - | S | PARTIALLY COMPLETED | none yet |
+| TASK-020 | P2 | Current Execution page and exportable SESSION_RESUME text | O2 | R16, R07, R09 | TASK-013 | M | READY FOR TESTING | none yet |
+| TASK-021 | P2 | Resume report generator (counts from the tables) | O1 | R09, R10 | TASK-011 | S | READY FOR TESTING | none yet |
+| TASK-022 | P2 | Dependency Register and Testing & QA pages | O2 | R17, R18 | TASK-012 | M | READY FOR TESTING | none yet |
+| TASK-023 | P2 | Execution History: every delivery adds a row | O2 | R20, R08 | TASK-011 | S | READY FOR TESTING | none yet |
+| TASK-030 | P3 | Account directory (read only, masked) at /admin/accounts | O3 | R22, R23 | - | L | READY FOR TESTING | none yet |
+| TASK-031 | P3 | Account detail snapshot: plan, access, links, subjects, last activity | O3 | R22, R39 | TASK-030 | M | READY FOR TESTING | none yet |
+| TASK-032 | P3 | Upgrade audit_logs: target account, reason, outcome, request ID; block edit and delete | O4 | R34, R35 | - | M | READY FOR TESTING | none yet |
+| TASK-033 | P3 | Log every account the admin opens (audit event) | O4 | R34 | TASK-032,TASK-031 | S | READY FOR TESTING | none yet |
+| TASK-034 | P3 | Design study and threat model for View Account As Admin; choose approach | O3 | R24, R27 | - | M | READY FOR TESTING | none yet |
+| TASK-035 | P3 | Build View Account As Admin, read only, for the chosen pages (banner, exit, expiry) | O3 | R24, R25, R29 | TASK-034,TASK-032 | XL | NOT STARTED | none yet |
+| TASK-036 | P3 | Read-only enforcement for all write APIs while inspecting | O3 | R25, R39 | TASK-035 | L | NOT STARTED | none yet |
+| TASK-037 | P3 | Test mode with recorded reason, and dedicated test accounts | O3 | R26 | TASK-036 | L | NOT STARTED | none yet |
+| TASK-038 | P3 | Test checklists for each account type, from features that really exist | O3 | R28 | TASK-030 | M | PARTIALLY COMPLETED | none yet |
+| TASK-039 | P3 | Retention dry-run report and owner-only purge script (interim periods) | O4 | R35 | TASK-032 | S | READY FOR TESTING | none yet |
+| TASK-040 | P4 | Legal and privacy review of activity tracking for minors (founder with a professional) | O5 | R36, R40 | - | M | BLOCKED | none yet |
+| TASK-041 | P4 | Add central activity_events table with indexes, server-only access and retention | O4 | R30, R35 | TASK-040 | M | NOT STARTED | none yet |
+| TASK-042 | P4 | recordActivity helper (never breaks the product) and link existing event writers | O4 | R30, R31 | TASK-041 | M | NOT STARTED | none yet |
+| TASK-043 | P4 | Record missing events: login/logout, profile, plan, payment steps, report generated/viewed, permission denied, upload and AI failures | O4 | R31, R36 | TASK-042 | L | NOT STARTED | none yet |
+| TASK-044 | P4 | Account timeline page with filters | O4 | R32 | TASK-041 | M | NOT STARTED | none yet |
+| TASK-050 | P5 | Metrics from existing tables: active users, registrations, completions, with "unavailable" labels | O4 | R33 | TASK-041 | M | NOT STARTED | none yet |
+| TASK-051 | P5 | Funnel, retention and feature adoption views | O4 | R33 | TASK-050 | M | NOT STARTED | none yet |
+| TASK-052 | P5 | Error-rate and AI failure panels | O4 | R33, R31 | TASK-043 | M | NOT STARTED | none yet |
+| TASK-060 | P6 | Direct-API tests: no login, wrong role, expired session, another account | O7 | R46, R48 | TASK-015 | L | PARTIALLY COMPLETED | none yet |
+| TASK-061 | P6 | Audit protection and retention tests | O7 | R47, R35 | TASK-032,TASK-041 | M | PARTIALLY COMPLETED | none yet |
+| TASK-062 | P6 | End-to-end workflow checks for each account type | O7 | R45, R46, R47 | TASK-038,TASK-035 | L | NOT STARTED | none yet |
+| TASK-063 | P6 | Deployment pre-flight: whole migration chain test and a Deployment check page | O7 | R10, R44, R48 | TASK-015 | S | READY FOR TESTING | none yet |

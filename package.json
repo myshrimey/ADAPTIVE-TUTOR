@@ -11,7 +11,8 @@
     "db:migrate": "node packages/db/migrate.js",
     "db:seed": "node packages/db/seed.js",
     "db:seed:diagnostic": "node packages/db/seed-diagnostic.js",
-    "eval": "tsx eval/run-eval.ts"
+    "eval": "tsx eval/run-eval.ts",
+    "test": "tsx tests/run-all.ts"
   },
   "devDependencies": {
     "typescript": "^5.5.0",

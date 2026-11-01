@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { requireAdmin } from '@/lib/admin';
-import { QUALITY_GATES, loadGateReports } from '@adaptive-tutor/core';
+import { QUALITY_GATES, loadGateReports, writeAudit } from '@adaptive-tutor/core';
 
 // Founder-only. action 'signoff' records one gate as passed / not passed (with a note);
 // 'promote' sets a subject to Ready ONLY if all ten gates are signed off right now;
@@ -26,6 +26,7 @@ export async function POST(request: Request) {
         { onConflict: 'subject_id,gate' }
       );
       if (error) throw error;
+      await writeAudit(service, { actorEmail: admin.email, actorRole: 'super_admin', action: 'quality.signoff', entity: 'subject', entityId: subjectId, outcome: 'success', detail: { gate, passed: !!body.passed } });
       return NextResponse.json({ data: { saved: true }, error: null });
     }
 
@@ -35,12 +36,14 @@ export async function POST(request: Request) {
       if (!r || !r.allPassed) return NextResponse.json({ data: null, error: 'all_ten_gates_required' }, { status: 400 });
       const { error } = await service.from('subjects').update({ status: 'ready' }).eq('id', subjectId);
       if (error) throw error;
+      await writeAudit(service, { actorEmail: admin.email, actorRole: 'super_admin', action: 'quality.promote', entity: 'subject', entityId: subjectId, outcome: 'success' });
       return NextResponse.json({ data: { status: 'ready' }, error: null });
     }
 
     if (action === 'demote') {
       const { error } = await service.from('subjects').update({ status: 'pilot' }).eq('id', subjectId);
       if (error) throw error;
+      await writeAudit(service, { actorEmail: admin.email, actorRole: 'super_admin', action: 'quality.demote', entity: 'subject', entityId: subjectId, outcome: 'success' });
       return NextResponse.json({ data: { status: 'pilot' }, error: null });
     }
     return NextResponse.json({ data: null, error: 'invalid_action' }, { status: 400 });

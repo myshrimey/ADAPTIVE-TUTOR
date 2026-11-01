@@ -1,15 +1,36 @@
-SAHAYAK v88 - More free AI capacity, without more cost. ONE small database change (0054, notes only).
-1. Unzip over your project, commit, let Vercel deploy. (Apply after v87.)
-2. Run: npm run db:migrate (safe to run again).
-3. Open Admin > AI infrastructure. The new "Free capacity" panel at the top shows which free routes are live, the daily limits YOU entered, what is used and left today, and for every other provider exactly what is still missing before it can be used.
-IMPORTANT FIX: if the AI settings could not be read (for example a database hiccup), the old backup path could have used PAID providers (OpenAI, Claude) for students on a paid plan, ignoring "free only". That is closed: the backup path now uses free providers only. A test proves it.
-HOW TO ADD A FREE PROVIDER (nothing is switched on for you): 1) create the account on its FREE plan; 2) add its key on Vercel under the key name shown in the panel; 3) read its CURRENT official terms (free limits, commercial use, what it does with student text); 4) in the provider list enter the limits, tick the 9 checks, set class A/B/C and free tier = yes; 5) set status active. Until all of that, it is never used and cannot cost money.
-WHAT I READ ON THE PROVIDERS' OWN PAGES (2026-10-31, NOT verified by you yet; also saved as notes on each provider):
-- Cloudflare Workers AI: 10,000 Neurons per day free. On the FREE Workers plan going over is not billed: calls just fail until midnight UTC. On the PAID plan it is billed. So use a Free-plan account. You must type your own account endpoint.
-- OpenRouter: free models about 20 requests a minute and 50 a day without buying credit. Small; each free model has its own terms. Do not top up (that is paid use).
-- Mistral: a free API tier exists with "restrictive" limits; the numbers are in your own Mistral console; its commercial-use and data terms were not on the page.
-- Cerebras: shows a one-time $5 promotional credit (needs a payment method, expires in 30 days) for development use. That is a short trial, not free capacity. Do not rely on it.
-HONEST NOTE: the free tiers above are small. The biggest free capacity you have is still Gemini and Groq. More providers add a safety net and some headroom, not unlimited AI. Do not create extra accounts or projects just to multiply a provider's free quota: that usually breaks its terms.
-TESTED: new test t88 (17), which FAILS on the old code and passes now; AI gateway tests t55, t55b, t55c, t59 and all earlier tests pass; type check and full production build clean; migration run twice on a scratch database and it never overwrites text you typed; the admin page shows sign-in when signed out.
-NOT TESTED: a real call to any new provider; real quota behaviour; your live database.
-NOT DEPLOYED: nothing is deployed from here.
+SAHAYAK v90 to v95 - ONE deployment for six versions. THREE database changes (0055, 0056, 0057). Nothing is deployed from here.
+
+HOW TO APPLY (pick ONE way)
+ A. Easiest: unzip sahayak-v90-to-v95-combined.zip over your project (it already contains everything from v90, v91, v92, v93, v94 and v95; your v88/v89 files stay as they are).
+ B. Or unzip the six small zips in order: v90, v91, v92, v93, v94, v95.
+ Then: 1) commit, 2) run:  npm run db:migrate   (safe to run again; it adds the control tables, fixes one function setting, and makes the audit log write-only)
+       3) let Vercel deploy.
+ Back-up first: Supabase > Database > Backups (a backup is also what makes the audit-log change reversible).
+
+AFTER DEPLOYING (10 minutes)
+ 1. Open Admin > Settings & Safety > "Deployment check" (/admin/deploy-check). It should say: running v95, "Every change this page can see is applied", and your server settings present. If anything says NOT applied, run npm run db:migrate again. Paste the three read-only SQL lines it shows into the Supabase SQL editor and compare with "Expected".
+ 2. Open /admin/control and press "Load from documents" once. Then look at: Current execution, Dependencies, Testing & QA, History, Decision register.
+ 3. Open Admin > Account directory (masked, read only) and Admin > Audit log (every page you open is recorded; filters by action, person, account).
+ 4. Open Admin > Data retention (dry run). It only counts old technical logs. Nothing is deleted.
+ 5. In Supabase > Authentication > Sign In / Providers > Password, switch ON "leaked password protection" (may need a paid plan; tell me if it is not offered).
+ 6. Try the checklists on Testing & QA with TEST accounts (not real families).
+
+WHAT YOU GET (plain words)
+ v90 Control Centre: your prompts, requirements, tasks and decisions on screens; tests now stored in the project (npm test).
+ v91 Audit trail: the audit log can no longer be edited or deleted by the app; 14 more admin actions are recorded (never passwords).
+ v92 Account directory: masked, read-only list and snapshot of every account; every open is recorded. No "login as" anywhere.
+ v93 More control screens: current execution with a downloadable session resume, dependency register, testing checklists for six account types, history.
+ v94 Decisions: D1, D2, D3 (interim), D5, D6 recorded as decided on your instruction; View As design study; retention dry-run page and an owner-run purge script (never run automatically).
+ v95 Deployment check page, and the whole database chain tested.
+
+DECISIONS: I decided D1, D2, D3 (interim), D5 and D6 using my written recommendations (FD-11 to FD-15). You can overrule any: just tell me. D7 is YOURS and open: a lawyer who knows India's Digital Personal Data Protection Act 2023 should review (a) tracking children's activity, (b) the retention periods, (c) whether families must be told staff can view an account. I do not claim Sahayak is legally compliant. Until D7 is done I will not build activity tracking of children or "view as".
+
+TESTED
+ - Whole database chain (schema + all 57 migrations) applied from empty on a scratch database, TWICE, no error: 149 tables, all with row-level security on; the audit log refuses edit/delete/truncate; the role-guard function has its fixed setting. (A scratch copy, NOT your live database.)
+ - npm test: 73 files: 69 pass, 4 known-stale (listed, not hidden), 0 fail. New tests t90 to t95 add about 900 checks, and for the key ones I broke the code on purpose to prove the tests notice.
+ - Type check and a full production build pass; signed out, every new admin page shows only the sign-in screen and the downloads answer "not allowed"; no secret value appears in any page.
+ - Found and fixed on the way: an old test that failed on 1 November because it used today's date; the retention page crashing if the database failed at once.
+KNOWN FLAKY TEST: t57b can fail by chance about 1 run in 25 (random question choice). Run npm test again.
+NOT TESTED: your live website and live database (Vercel link not used; migrations not applied there); the pages with your real login; the purge script on real data (deliberately never run).
+NOT BUILT: "view as this account"; login and activity log (blocked by D7); recording checklist results; tests that call the live site; tutor/centre/teacher test accounts.
+NOT DEPLOYED: nothing is deployed from here. GitHub still needs v82 onward pushed, and the file "ERROR_MISTAKE 16 OCOBER 2026.docx" should be removed from the public repository (it holds five email addresses).

@@ -6,19 +6,42 @@ const err = (m: string) => new Error(m);
 
 // ---- audit log ----------------------------------------------------------------------------------------------------
 /** Records an admin action. Never throws and never stores secrets: only short, named fields are kept. */
-export async function writeAudit(service: SupabaseClient, p: { actorEmail?: string | null; action: string; entity: string; entityId?: string | null; detail?: Record<string, unknown> }): Promise<void> {
+export interface AuditInput { actorEmail?: string | null; action: string; entity: string; entityId?: string | null; detail?: Record<string, unknown>; targetAccount?: string | null; reason?: string | null; outcome?: 'success' | 'denied' | 'failed' | string | null; requestId?: string | null; actorRole?: string | null }
+export async function writeAudit(service: SupabaseClient, p: AuditInput): Promise<void> {
   try {
     const detail: Record<string, unknown> = {};
     for (const [k, v] of Object.entries(p.detail ?? {})) {
       if (/pass|secret|token|key|answer|prompt/i.test(k)) continue; // never keep these
       detail[k] = typeof v === 'string' ? v.slice(0, 200) : v;
     }
-    await service.from('audit_logs').insert({ actor_email: p.actorEmail ?? null, action: s(p.action, 80), entity: s(p.entity, 80), entity_id: p.entityId ? s(p.entityId, 80) : null, detail });
+    const base = { actor_email: p.actorEmail ?? null, action: s(p.action, 80), entity: s(p.entity, 80), entity_id: p.entityId ? s(p.entityId, 80) : null, detail };
+    const extra: Record<string, unknown> = {};
+    if (p.targetAccount) extra.target_account = s(p.targetAccount, 80);
+    if (p.reason) extra.reason = s(p.reason, 300);
+    if (p.outcome) extra.outcome = s(p.outcome, 20);
+    if (p.requestId) extra.request_id = s(p.requestId, 80);
+    if (p.actorRole) extra.actor_role = s(p.actorRole, 40);
+    const r: any = await service.from('audit_logs').insert({ ...base, ...extra });
+    // Before migration 0057 the new columns do not exist: keep the record without them (the facts go into detail) rather than lose it.
+    if (r?.error && Object.keys(extra).length) await service.from('audit_logs').insert({ ...base, detail: { ...detail, ...extra } });
   } catch { /* an audit problem never stops the action itself */ }
 }
-export async function listAudit(service: SupabaseClient, limit = 200) {
-  const { data } = await service.from('audit_logs').select('id, at, actor_email, action, entity, entity_id, detail').order('at', { ascending: false }).limit(limit);
-  return (data ?? []) as { id: string; at: string; actor_email: string | null; action: string; entity: string; entity_id: string | null; detail: any }[];
+export interface AuditRow { id: string; at: string; actor_email: string | null; action: string; entity: string; entity_id: string | null; detail: any; target_account?: string | null; reason?: string | null; outcome?: string | null; request_id?: string | null; actor_role?: string | null }
+export async function listAudit(service: SupabaseClient, limit = 200, filter: { action?: string; target?: string; actor?: string; outcome?: string } = {}): Promise<AuditRow[]> {
+  const cols = 'id, at, actor_email, action, entity, entity_id, detail, target_account, reason, outcome, request_id, actor_role';
+  const run = async (c: string, withFilters: boolean) => {
+    let q: any = service.from('audit_logs').select(c).order('at', { ascending: false }).limit(limit);
+    if (withFilters) {
+      if (filter.action) q = q.ilike('action', `%${filter.action.replace(/[%_,]/g, '')}%`);
+      if (filter.target) q = q.eq('target_account', filter.target);
+      if (filter.actor) q = q.ilike('actor_email', `%${filter.actor.replace(/[%_,]/g, '')}%`);
+      if (filter.outcome) q = q.eq('outcome', filter.outcome);
+    }
+    return q;
+  };
+  let r: any = await run(cols, true);
+  if (r?.error) r = await run('id, at, actor_email, action, entity, entity_id, detail', false); // before 0057
+  return (r?.data ?? []) as AuditRow[];
 }
 
 // ---- exam sessions --------------------------------------------------------------------------------------------------

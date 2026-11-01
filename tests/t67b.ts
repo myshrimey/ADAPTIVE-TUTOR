@@ -1,0 +1,45 @@
+import { fakeDb } from './fakedb2';
+import { analyseNewFeedback, listClusters, decideCluster, clusterMessages } from '../packages/core/feedback-intel/store';
+let f = 0; const ok = (c: boolean, m: string) => { if (!c) { f++; console.log('FAIL', m); } };
+(async () => {
+  const t: Record<string, any[]> = { feedback: [], feedback_clusters: [], feedback_cluster_events: [] };
+  const db: any = fakeDb(t);
+  const pages = ['/quiz/1', '/baseline', '/quiz/2'];
+  for (let i = 0; i < 37; i++) t.feedback.push({ id: 'f' + i, message: i % 2 ? "Hindi questions sometimes don't make sense" : 'The Hindi question did not make sense to me', page: pages[i % 3], rating: 2, created_at: new Date(2026, 9, 1, 0, i).toISOString(), analysed_at: null });
+  t.feedback.push({ id: 'p1', message: 'Too expensive, any discount?', page: '/plans', rating: 3, created_at: new Date().toISOString(), analysed_at: null });
+  t.feedback.push({ id: 'p2', message: 'Too expensive, any discount?', page: '/plans', rating: 3, created_at: new Date().toISOString(), analysed_at: null });
+  const r = await analyseNewFeedback(db);
+  ok(!r.error && r.analysed === 39, 'analysed 39: ' + JSON.stringify(r));
+  const again = await analyseNewFeedback(db);
+  ok(again.analysed === 0, 'second run does nothing');
+  const l = await listClusters(db, 'waiting');
+  const tr = l.clusters.find((c) => c.category === 'translation');
+  ok(!!tr && tr.report_count >= 17, 'translation group has many reports ' + JSON.stringify(l.clusters.map((c) => [c.category, c.feature_area, c.report_count])));
+  const pr = l.clusters.find((c) => c.category === 'pricing');
+  ok(!!pr && pr.report_count === 2 && pr.duplicate_count === 1 && pr.risk === 'high', 'pricing group: 2 reports, 1 repeat, high risk');
+  ok(l.clusters.reduce((a, c) => a + c.report_count, 0) === 39, 'every message is in exactly one group');
+  // human gate
+  const bad = await decideCluster(db, { clusterId: pr!.id, decision: 'approve', actor: 'a@x' });
+  ok(!bad.ok, 'high-risk approve without note refused');
+  const bad2 = await decideCluster(db, { clusterId: pr!.id, decision: 'approve', note: 'checked', tested: false, actor: 'a@x' });
+  ok(!bad2.ok, 'high-risk approve without tested refused');
+  const jump = await decideCluster(db, { clusterId: pr!.id, moveTo: 'verified', actor: 'a@x' });
+  ok(!jump.ok, 'cannot jump to verified');
+  const good = await decideCluster(db, { clusterId: pr!.id, decision: 'approve', note: 'read and replied', tested: true, actor: 'a@x' });
+  ok(good.ok && good.status === 'approved', 'approve works with note+tested');
+  const st = t.feedback_clusters.find((c) => c.id === pr!.id);
+  ok(st.status === 'approved' && st.decided_by === 'a@x' && st.tested === true, 'decision recorded');
+  ok(t.feedback_cluster_events.length === 1 && t.feedback_cluster_events[0].to_status === 'approved', 'history line written');
+  ok((await decideCluster(db, { clusterId: pr!.id, moveTo: 'implemented', note: 'done', tested: true, actor: 'a@x' })).ok, 'approved → implemented');
+  ok((await decideCluster(db, { clusterId: pr!.id, moveTo: 'verified', actor: 'a@x' })).ok, 'implemented → verified');
+  const df = await decideCluster(db, { clusterId: tr!.id, decision: 'defer', actor: 'a@x' });
+  ok(df.ok && df.status === 'deferred', 'defer ok');
+  // new feedback after a decision joins a still-open group, not a closed (verified) one
+  t.feedback.push({ id: 'n1', message: 'Too expensive for us', page: '/plans', rating: 3, created_at: new Date().toISOString(), analysed_at: null });
+  await analyseNewFeedback(db);
+  const pricing = t.feedback_clusters.filter((c) => c.category === 'pricing');
+  ok(pricing.length === 2, 'new pricing message starts a new group because the old one is verified');
+  const m = await clusterMessages(db, tr!.id);
+  ok(m.messages.length > 0 && m.events.length === 1, 'messages and history readable');
+  console.log('t67b', f ? 'FAILED ' + f : 'ok');
+})();
