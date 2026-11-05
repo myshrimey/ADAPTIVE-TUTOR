@@ -1,3 +1,4 @@
+import { publicError } from '@adaptive-tutor/core';
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 
@@ -19,7 +20,7 @@ export async function POST(req: Request) {
     if (error) throw error;
     return NextResponse.json({ data: { requested: true }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err, 'error') }, { status: 400 });
   }
 }
 
@@ -30,6 +31,6 @@ export async function GET() {
     const { data } = await supabase.from('data_requests').select('status, requested_at').order('requested_at', { ascending: false }).limit(1);
     return NextResponse.json({ data: data?.[0] ?? null, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err, 'error') }, { status: 400 });
   }
 }

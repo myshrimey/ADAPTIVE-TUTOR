@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
-import { gradeAnswer, spreadAcrossChapters } from '@adaptive-tutor/core';
+import { gradeAnswer, spreadAcrossChapters, publicError } from '@adaptive-tutor/core';
 
 // Public free readiness check: no account, nothing saved. A handful of multiple-choice questions
 // from a READY subject; the answer key is never sent to the browser, and after submitting only
@@ -31,7 +31,7 @@ export async function GET(request: Request) {
     const picked = spreadAcrossChapters(items, COUNT).filter((q) => Array.isArray(q.options));
     return NextResponse.json({ data: { subject: subject.name, questions: picked.map((q) => ({ id: q.id, prompt: q.prompt, options: q.options })) }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }
 
@@ -65,6 +65,6 @@ export async function POST(request: Request) {
       error: null,
     });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

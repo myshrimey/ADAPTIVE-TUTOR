@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { startBaseline, assertAccess, assertSubjectAllowed, registerSubject, languagesForStudent } from '@adaptive-tutor/core';
+import { startBaseline, assertAccess, assertSubjectAllowed, registerSubject, languagesForStudent, publicError } from '@adaptive-tutor/core';
 import { kickBankGrowth } from '@/lib/bank-growth';
 
 export const maxDuration = 60;
@@ -23,6 +23,6 @@ export async function POST(request: Request) {
     kickBankGrowth(subjectId); // every session owes its subject new questions (at least 10)
     return NextResponse.json({ data: r, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

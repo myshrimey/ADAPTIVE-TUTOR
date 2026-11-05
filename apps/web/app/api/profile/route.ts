@@ -4,8 +4,7 @@ import {
   getStudentProfileDetails,
   upsertStudentProfileDetails,
   listAcademicHistory,
-  upsertAcademicHistory,
-} from '@adaptive-tutor/core';
+  upsertAcademicHistory, publicError } from '@adaptive-tutor/core';
 
 // A student can only ever read/write their own profile — getCurrentStudentId()
 // resolves the row from the signed-in session, and RLS (migration
@@ -31,7 +30,7 @@ export async function GET() {
       error: null,
     });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }
 
@@ -53,6 +52,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ data: { details: savedDetails, academicHistory: savedHistory }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

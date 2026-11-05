@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { answerBaseline, qualifyReferralsForStudent } from '@adaptive-tutor/core';
+import { answerBaseline, qualifyReferralsForStudent, publicError } from '@adaptive-tutor/core';
 
 export const maxDuration = 60;
 
@@ -14,6 +14,6 @@ export async function POST(request: Request) {
     if (r.finished) { try { await qualifyReferralsForStudent(service, studentId, r.finished.baseline.questionsAsked); } catch { /* referral never blocks a result */ } }
     return NextResponse.json({ data: r, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

@@ -17,7 +17,7 @@ const all = R('packages/db/schema.sql') + '\n' + sql.map((s) => s.text).join('\n
     else ok(new RegExp(`create table( if not exists)? (public\\.)?${p.table}\\b`, 'i').test(file!.text), `${p.migration}: ${p.table} is created by exactly that migration`);
   }
   ok(new Set(DEPLOY_PROBES.map((p) => p.migration)).size === DEPLOY_PROBES.length, 'one probe per migration');
-  ok(DEPLOY_PROBES.some((p) => p.migration === '0056') && DEPLOY_PROBES.some((p) => p.migration === '0057'), 'the two newest database changes are probed');
+  ok(DEPLOY_PROBES.some((p) => p.migration === '0056') && DEPLOY_PROBES.some((p) => p.migration === '0057'), 'the newest database changes are probed');
 
   // ---- version constants agree with the repository
   const dbVersions = [...all.matchAll(/'(v\d+)',\s*'/g)].map((m) => parseInt(m[1].slice(1))).filter((x) => x >= 60);

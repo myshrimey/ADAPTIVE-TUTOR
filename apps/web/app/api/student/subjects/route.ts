@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { loadSubjectCatalogue, registerSubject, assertAccess, assertSubjectAllowed } from '@adaptive-tutor/core';
+import { loadSubjectCatalogue, registerSubject, assertAccess, assertSubjectAllowed, publicError } from '@adaptive-tutor/core';
 
 // GET  -> the subject catalogue with readiness status + which ones this student registered.
 // POST -> { subjectId, action: 'register' | 'activate' }. The student id is always
@@ -12,7 +12,7 @@ export async function GET() {
     const subjects = await loadSubjectCatalogue(supabase, studentId);
     return NextResponse.json({ data: { subjects }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }
 
@@ -30,6 +30,6 @@ export async function POST(request: Request) {
     const subjects = await loadSubjectCatalogue(supabase, studentId);
     return NextResponse.json({ data: { subjects }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

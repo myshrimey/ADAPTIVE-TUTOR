@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getContributor } from '@/lib/contributor';
-import { createQuestionRequest } from '@adaptive-tutor/core';
+import { createQuestionRequest, publicError } from '@adaptive-tutor/core';
 
 export async function POST(request: Request) {
   try {
@@ -11,6 +11,6 @@ export async function POST(request: Request) {
     const r = await createQuestionRequest(createServiceClient(), who as any, body);
     return NextResponse.json({ data: r, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

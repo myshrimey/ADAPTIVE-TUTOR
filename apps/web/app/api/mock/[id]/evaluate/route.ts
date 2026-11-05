@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { aiForStudent } from '@/lib/ai';
 import { getServerLang } from '@/lib/language';
-import { languagesForStudent, evaluateHandwrittenPaper, getHandwritingConsent, assertAccess, planAllows, checkHandwritten, chargeHandwritten, loadSettings, recordCommerceEvent, recordEvalStage, recordEvaluationEconomics } from '@adaptive-tutor/core';
+import { languagesForStudent, evaluateHandwrittenPaper, getHandwritingConsent, assertAccess, planAllows, checkHandwritten, chargeHandwritten, loadSettings, recordCommerceEvent, recordEvalStage, recordEvaluationEconomics, publicError } from '@adaptive-tutor/core';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
@@ -49,6 +49,6 @@ export async function POST(_req: Request, ctx: { params: Promise<{ id: string }>
     await recordCommerceEvent(service, 'mock_completed', { studentId, meta: { examId: id, marked: out.marked, needsTeacher: out.needsTeacher, unreadable: out.unreadable } });
     return NextResponse.json({ data: out, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err, 'error') }, { status: 400 });
   }
 }

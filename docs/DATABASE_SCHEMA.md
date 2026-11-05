@@ -709,3 +709,9 @@ Server-only (RLS on, no policies). control_prompts (id text, title, received_on,
 
 ## 0057 audit_trail (v91)
 `audit_logs` (id, at, actor_email, action, entity, entity_id, detail) gains: target_account text (a student or adult user id, never a name), reason text, outcome text (success / failed / denied), request_id text, actor_role text. Indexes: (target_account, at desc) where target_account is not null; (action, at desc). Triggers `trg_audit_logs_no_update_delete` (row) and `trg_audit_logs_no_truncate` (statement) raise an error for UPDATE, DELETE and TRUNCATE unless `sahayak.audit_purge` is `on` in the same session (database owner only). Functions `audit_logs_guard`, `audit_logs_guard_truncate` have a fixed search path. Re-runnable.
+
+## 0058 login_throttle (v96)
+`login_attempts` (id uuid, key_hash text, ip_hash text, created_at timestamptz). Server-only: RLS on, deliberately no policy. Holds ONLY failed sign-in attempts as one-way SHA-256 hashes (account name/email and internet address, each with its own salt); no name, email, address or password. Counted over 15 minutes by `apps/web/lib/login-throttle.ts`; rows older than 24 hours are removed by the app; a correct sign-in deletes that account's rows. Two indexes: (key_hash, created_at), (ip_hash, created_at). Re-runnable. Adds a v96 line to system_changelog.
+
+## 0059 qa_results (v100)
+`qa_results` (id uuid, item_id text, result text check in pass/fail/blocked, note text, app_version text, tested_by text, tested_at timestamptz). Server-only: RLS on, no policy. Insert-only history; the newest row per item_id is the result. Holds no student data; the note is refused if it contains an email or phone number. Index (item_id, tested_at desc). Re-runnable. Adds a v100 line to system_changelog.

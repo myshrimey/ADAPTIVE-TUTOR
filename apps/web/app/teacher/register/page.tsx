@@ -17,6 +17,10 @@ export default function TeacherRegisterPage() {
     missing_name: 'Please enter your name.',
     password_too_short: 'Password must be at least 8 characters.',
     registration_failed: 'Could not register right now. Please try again later.',
+    password_weak: 'That password is too easy to guess. Please choose a different one.',
+    signups_closed: 'Sign-up is closed right now.',
+    too_many_attempts: 'Too many sign-ups from this network just now. Please try again in an hour.',
+    daily_cap_reached: 'Sign-ups are full for today. Please try again tomorrow.',
   };
 
   async function submit(e: React.FormEvent) {
@@ -26,7 +30,7 @@ export default function TeacherRegisterPage() {
     const res = await fetch('/api/teacher/register', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) });
     const json = await res.json();
     setBusy(false);
-    if (json.error) return setError(messages[json.error] ?? json.error);
+    if (json.error) return setError(messages[json.error] ?? 'Could not register right now. Please try again later.');
     setDone(true);
   }
 

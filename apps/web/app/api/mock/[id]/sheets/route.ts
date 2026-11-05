@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { createHash } from 'crypto';
-import { decideImageQuality, getHandwritingConsent, listSheets, loadPaperExam, saveSheet, deleteSheet, loadSettings, pagesAllowedForExam } from '@adaptive-tutor/core';
+import { decideImageQuality, getHandwritingConsent, listSheets, loadPaperExam, saveSheet, deleteSheet, loadSettings, pagesAllowedForExam, publicError } from '@adaptive-tutor/core';
 import { measureImage, sniffImageType } from '@/lib/image-quality';
 
 export const runtime = 'nodejs';
@@ -16,7 +16,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ id: string }> 
     const settings = await loadSettings(service);
     return NextResponse.json({ data: { pages: await listSheets(service, studentId, id), maxPages: pagesAllowedForExam(exam, settings), maxUploadMb: settings.handwritten.max_upload_mb }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err, 'error') }, { status: 400 });
   }
 }
 
@@ -51,7 +51,7 @@ export async function POST(request: Request, ctx: { params: Promise<{ id: string
     await saveSheet(service, studentId, id, pageNo, jpeg, { ...metrics, accepted: true, hash }, jpeg.length, maxPages);
     return NextResponse.json({ data: { accepted: true, message: decision.message, pageNo }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err, 'error') }, { status: 400 });
   }
 }
 
@@ -65,6 +65,6 @@ export async function DELETE(request: Request, ctx: { params: Promise<{ id: stri
     await deleteSheet(service, studentId, id, page);
     return NextResponse.json({ data: { ok: true }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err, 'error') }, { status: 400 });
   }
 }

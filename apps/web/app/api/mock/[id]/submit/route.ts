@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { submitMockExam } from '@adaptive-tutor/core';
+import { submitMockExam, publicError } from '@adaptive-tutor/core';
 import { saveMockReport } from '@/lib/reports';
 
 export async function POST(request: Request, ctx: { params: Promise<{ id: string }> }) {
@@ -12,6 +12,6 @@ export async function POST(request: Request, ctx: { params: Promise<{ id: string
     await saveMockReport(studentId, id, result); // saved with date and time for the student and (separately) for linked adults
     return NextResponse.json({ data: result, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

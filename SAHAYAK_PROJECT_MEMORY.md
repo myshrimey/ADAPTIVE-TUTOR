@@ -128,3 +128,9 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v93 (2026-11-01): Control Centre screens 2 (current execution, dependencies, testing & QA, history, resume download). No migration. t54b now uses a fixed clock.
 - v94 (2026-11-01): founder had me decide D1, D2, D3 (interim), D5, D6; D7 = professional legal review is still his. Retention dry run at /admin/retention; View As design only. No migration.
 - v95 (2026-11-01): deployment pre-flight: whole migration chain (schema + 57 migrations) applied twice on scratch Postgres without error; `/admin/deploy-check`. No migration. Founder deploys v90-v95 together.
+- v96 (2026-11-01): sign-in brute-force protection: 8 wrong tries per account / 40 per address in 15 minutes -> wait (migration 0058, hashes of failed tries only). Admin sign-in form now uses the server route. Not deployed.
+- v97 (2026-11-01): public-route gate scan (t97) + teacher sign-up limits. No migration.
+- v98 (2026-11-01): raw server error text hidden from visitors (publicError, t98). No migration.
+- v99 (2026-11-02): Next.js 15.5.28 security patch + dependency review (docs/DEPENDENCY_SECURITY.md, t99). Run npm install after unzipping.
+- v100 (2026-11-02): founder can record manual test results at /admin/control/testing (migration 0059 qa_results).
+- v101 (2026-11-02): rollback notes for 0055-0059 (docs/ROLLBACK_NOTES.md), round-trip tested on a scratch copy.

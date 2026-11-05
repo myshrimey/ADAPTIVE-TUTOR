@@ -663,3 +663,43 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - New `/admin/deploy-check` (Super Admin, read only, audited): running version; which of 10 recent migrations are applied (zero-row probes; "could not check" is never shown as applied); server settings present or missing (never values); 3 read-only SQL checks to paste for what the website cannot see (function search path, audit triggers, tables without RLS). Version constants `APP_VERSION` and `DB_VERSION_EXPECTED` are checked against the repository by t95.
 - Tests: t95 (58, mutation-checked), t95b (10 page renders). No migration.
 - Tested: `npm test`, tsc, production build, signed-out visit. NOT tested: live site and live database.
+
+
+## v96 (2026-11-01) - sign-in brute-force protection
+- Problem: nothing limited wrong passwords at `/api/auth/login`, and the admin sign-in form talked to Supabase directly from the browser.
+- Added migration 0058 `login_attempts` (hashes of FAILED attempts only; server-only, RLS on, no policy). Rules in `packages/core/auth/throttle.ts`: 8 wrong tries per account or 40 per internet address in 15 minutes, then HTTP 429 `too_many_attempts` with Retry-After. A correct sign-in clears that account's failures; rows older than 24 hours are removed by the app. A database problem never locks anyone out (fails open).
+- Admin sign-in form now uses the server route so the limit covers admin accounts. All sign-in forms show one neutral wait message.
+- Not deployed. Limit: someone could deliberately type wrong passwords to make a real account wait 15 minutes; this is the usual trade-off and it clears itself. Supabase's own limits are a second layer, not verified live.
+
+
+## v97 (2026-11-01) - public-route gate scan and teacher sign-up limits
+- Checked every non-admin API route: 12 have no caller check on purpose. One of them, `teacher/register`, had NO sign-up limit, ignored the sign-up on/off switch, accepted any 8-character password and returned raw error text. Fixed: same switch, per-address and daily limits, weak-password refusal and a neutral error as the other sign-up routes (the reason goes to the server log).
+- New test t97 scans every non-admin route: it must name its caller or be on a written public list (kind: sign-up / token / read-only / own-session). A new open route fails the test. A "ratchet" counts routes still echoing raw error text (65 now; may only go down).
+- No migration. Not deployed.
+
+
+## v98 (2026-11-01) - visitors never see raw server error text
+- 64 non-admin API routes answered a failure with the raw technical message (database constraint names, table and column names, library text). New `publicError()` (packages/core/safety/public-error.ts): our own short codes (like `subject_not_allowed`) pass through so screens still show friendly text; anything else becomes `unknown_error` (or the route's fallback) and is logged on the server only.
+- t97's ratchet is now zero for non-admin routes; new t98 (179 checks) tests the helper and scans every non-admin route. 27 admin routes still echo the message on purpose (trusted, helps debugging); not changed.
+- No migration. Not deployed.
+
+
+## v99 (2026-11-02) - Next.js security patch and dependency review
+- Founder's `npm install` reported 4 vulnerabilities (2 high, 2 critical). Reviewed them (docs/DEPENDENCY_SECURITY.md).
+- Upgraded Next.js 15.5.27 -> 15.5.28 (official fix of 14 Oct 2026 for the SVG image-optimiser remote-code flaw, the Server Actions denial of service and the use-cache flaw), pinned exactly. package.json and package-lock.json changed.
+- The app does not use Server Actions, use cache, next/image or jsPDF .html(), so it was probably not exposed; remaining npm audit warnings (postcss inside Next, jspdf -> dompurify) are not reachable and need a Next 16 / jsPDF 4 move later. Do NOT run `npm audit fix --force`.
+- New t99 (10 checks) keeps those facts true. No migration. Not deployed.
+
+
+## v100 (2026-11-02) - the founder can record his test results
+- /admin/control/testing now has three buttons on every checklist item (Worked / Did not work / Could not try) and a short note. The newest answer is shown with its date and app version; older answers stay as history; each checklist shows a count.
+- Migration 0059 `qa_results` (server-only; item id, three allowed results, note, app version, who). The note is refused if it holds an email address or phone number. API `POST /api/admin/control/qa` is Super Admin only and audited (`qa.record`; the note is not copied into the audit line).
+- A recorded result changes NO requirement status and accepts nothing; only the founder accepts, on the prompt page. A page that cannot read results never shows a pass.
+- Not deployed; migration 0059 not applied live.
+
+
+## v101 (2026-11-02) - rollback notes for the changes about to be deployed
+- New docs/ROLLBACK_NOTES.md: undo SQL, what each undo loses and "backup first" for migrations 0055 to 0059 (newest first).
+- Tested as a round trip on a scratch copy of the database with a real audit row: undo -> tables, triggers and functions gone, audit row and its extra facts kept, audit editable again; apply 0055-0059 again (twice) -> everything back and audit protection back on (delete and update refused).
+- t101 (31 checks) keeps the notes honest: every table a migration creates is dropped and nothing else, no row deletes, no cascade, no protected table dropped.
+- No migration. Not run on the live database.

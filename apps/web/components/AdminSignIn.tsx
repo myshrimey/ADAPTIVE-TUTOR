@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { createClient } from '@/lib/supabase-client';
+import { LOGIN_BLOCKED_TEXT } from '@adaptive-tutor/core';
 
 // A small sign-in form embedded directly on /admin/feedback, rather than
 // sending the admin back to the main "/" page — "/" signs them in but then
@@ -20,13 +20,15 @@ export function AdminSignIn() {
     e.preventDefault();
     setSubmitting(true);
     setError(null);
-    const supabase = createClient();
-    const { error: signInError } = await supabase.auth.signInWithPassword({ email, password });
+    // v96: goes through the server sign-in route so the wrong-password limit applies to admin accounts too.
+    let res: Response | null = null;
+    try {
+      res = await fetch('/api/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ identifier: email.trim(), password }) });
+    } catch { /* network */ }
     setSubmitting(false);
-    if (signInError) {
-      setError(signInError.message);
-      return;
-    }
+    if (!res) { setError('Could not reach the server. Check your internet and try again.'); return; }
+    if (res.status === 429) { setError(LOGIN_BLOCKED_TEXT); return; }
+    if (!res.ok) { setError('Email or password is not right. Please check and try again.'); return; }
     // Re-run the server component now that a session cookie exists, instead
     // of a client-side route change — this page's admin check happens on
     // the server.

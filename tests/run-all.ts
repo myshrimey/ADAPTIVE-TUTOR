@@ -8,7 +8,7 @@ const KNOWN_STALE: Record<string, string> = {
   t3: 'old expectation (pre-existing)', t4: 'old expectation (pre-existing)', t42a: 'old expectation (pre-existing)', t42c: 'old expectation (pre-existing)',
 };
 // Tests that render page code need the web app's path settings.
-const EXTRA_ARGS: Record<string, string[]> = { t90b: ['--tsconfig', 'apps/web/tsconfig.json'], t92b: ['--tsconfig', 'apps/web/tsconfig.json'], t93b: ['--tsconfig', 'apps/web/tsconfig.json'], t94b: ['--tsconfig', 'apps/web/tsconfig.json'], t95b: ['--tsconfig', 'apps/web/tsconfig.json'] };
+const EXTRA_ARGS: Record<string, string[]> = { t90b: ['--tsconfig', 'apps/web/tsconfig.json'], t92b: ['--tsconfig', 'apps/web/tsconfig.json'], t93b: ['--tsconfig', 'apps/web/tsconfig.json'], t94b: ['--tsconfig', 'apps/web/tsconfig.json'], t95b: ['--tsconfig', 'apps/web/tsconfig.json'], t100b: ['--tsconfig', 'apps/web/tsconfig.json'] };
 const only = process.argv.slice(2);
 const files = readdirSync('tests').filter((f) => /^t[0-9a-z]+\.ts$/.test(f)).map((f) => f.replace(/\.ts$/, '')).filter((n) => !only.length || only.includes(n))
   .sort((a, b) => (parseInt(a.slice(1)) - parseInt(b.slice(1))) || a.localeCompare(b));

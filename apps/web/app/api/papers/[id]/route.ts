@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { deletePreviousPaper } from '@adaptive-tutor/core';
+import { deletePreviousPaper, publicError } from '@adaptive-tutor/core';
 
 // RLS (migrations/0006_previous_papers.sql) already restricts the delete to
 // whoever uploaded that specific row — getCurrentStudentId() here is just
@@ -15,6 +15,6 @@ export async function DELETE(request: Request, { params }: { params: Promise<{ i
     await deletePreviousPaper(supabase, id);
     return NextResponse.json({ data: { deleted: true }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

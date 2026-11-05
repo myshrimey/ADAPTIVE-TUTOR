@@ -1,3 +1,4 @@
+import { publicError } from '@adaptive-tutor/core';
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
 
@@ -29,6 +30,6 @@ export async function GET() {
       error: null,
     });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

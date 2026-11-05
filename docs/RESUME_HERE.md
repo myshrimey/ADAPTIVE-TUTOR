@@ -2,7 +2,22 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v95 (2026-11-01)
+## Latest delivery - v101 (2026-11-02)
+Rollback notes for 0055-0059 (docs/ROLLBACK_NOTES.md, t101), round-trip tested on a scratch copy. No migration. Apply after v100: `sahayak-v101-rollback-notes-delta.zip`.
+
+## Previous delivery - v100 (2026-11-02)
+Record test results on /admin/control/testing (migration 0059). Apply after v99: `sahayak-v100-test-results-delta.zip`, then `npm run db:migrate`.
+
+## Previous delivery - v99 (2026-11-02)
+Next.js 15.5.28 security patch + dependency review (docs/DEPENDENCY_SECURITY.md, t99). After unzipping run `npm install` once. No migration. Apply after v98: `sahayak-v99-next-patch-delta.zip`.
+
+## Previous delivery - v98 (2026-11-01)
+Raw server error text no longer reaches visitors (`publicError`, t98). No migration. Apply after v97: `sahayak-v98-hidden-errors-delta.zip`.
+
+## Previous delivery - v97 (2026-11-01)
+Public-route gate scan (t97) and teacher sign-up limits. No migration. Apply after v96: `sahayak-v97-public-routes-delta.zip`.
+
+## Previous delivery - v96 (2026-11-01)
 Deployment pre-flight: whole migration chain tested twice on scratch Postgres, `/admin/deploy-check`. No migration. The founder deploys v90-v95 together: use the combined zip `sahayak-v90-to-v95-combined.zip` (or the six delta zips in order); `npm run db:migrate` (0055, 0056, 0057); deploy; open /admin/deploy-check, then /admin/control and press "Load from documents".
 
 ## Previous delivery - v94 (2026-11-01)

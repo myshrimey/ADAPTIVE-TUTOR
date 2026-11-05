@@ -1,3 +1,4 @@
+import { publicError } from '@adaptive-tutor/core';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { requireApprovedTeacher } from '@/lib/teacher';
@@ -73,6 +74,6 @@ export async function GET(request: Request) {
     return NextResponse.json({ data: { items, nextOffset: offset + SCAN, exhausted: (rows ?? []).length < SCAN }, error: null });
   } catch (err: any) {
     const forbidden = ['not_a_teacher', 'teacher_not_approved', 'unauthenticated'].includes(err.message);
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: forbidden ? 403 : 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: forbidden ? 403 : 400 });
   }
 }

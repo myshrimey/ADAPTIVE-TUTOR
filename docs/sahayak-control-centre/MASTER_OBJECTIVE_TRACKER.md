@@ -1,7 +1,7 @@
 # Master Objective Tracker
 Updated 2026-10-31. Only SAH-PROMPT-0009 is tracked at requirement level. Status words are the 14 allowed ones. "Founder acceptance" is separate from technical status and is empty for everything (the founder has not accepted anything under this system yet).
 
-Counts for SAH-PROMPT-0009: 52 requirements. COMPLETED: 4, NOT STARTED: 16, PARTIALLY COMPLETED: 25, READY FOR TESTING: 7.
+Counts for SAH-PROMPT-0009: 52 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 26, READY FOR TESTING: 7.
 
 ## SAH-PROMPT-0009 / O1: Persistent registry and execution control (Parts 1-3, 11, 12)
 Requirements 11; PARTIALLY COMPLETED 11
@@ -74,12 +74,12 @@ Requirements 4; NOT STARTED 2, PARTIALLY COMPLETED 2
 | R40 | Flag Indian privacy / legal questions for professional review instead of claiming compliance | PARTIALLY COMPLETED | pending | Flagged in PHASE0_AUDIT.md section 10; review itself not done. |
 
 ## SAH-PROMPT-0009 / O6: Database and architecture rules (Part 8)
-Requirements 3; COMPLETED 2, NOT STARTED 1
+Requirements 3; COMPLETED 2, PARTIALLY COMPLETED 1
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
 | R41 | Inspect schema, auth, admin, analytics, accounts and tests first; no duplicate tables | COMPLETED | pending | Done for this prompt: PHASE0_AUDIT.md. Evidence: repo read + live Supabase queries 2026-10-31. |
-| R42 | Version-controlled migrations with indexes, RLS and rollback notes; never destructive on production without approval | NOT STARTED | pending | Applies to every later migration. |
+| R42 | Version-controlled migrations with indexes, RLS and rollback notes; never destructive on production without approval | PARTIALLY COMPLETED | pending | v101: docs/ROLLBACK_NOTES.md covers 0055 to 0059 (undo SQL, what is lost, backup first), tested as a round trip on a scratch copy. Older migrations (before 0055) have no written undo notes; every migration so far is additive and re-runnable. Applies to every later migration: add its undo block to the notes. |
 | R43 | Do not alter production data or credentials; do not deploy automatically | COMPLETED | pending | Held in this delivery: documents only. Live database was only read. |
 
 ## SAH-PROMPT-0009 / O7: Testing and acceptance (Part 9)

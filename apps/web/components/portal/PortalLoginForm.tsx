@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { PORTAL_ERROR_TEXT, portalHome } from '@adaptive-tutor/core';
+import { PORTAL_ERROR_TEXT, LOGIN_BLOCKED_TEXT, portalHome } from '@adaptive-tutor/core';
 
 const WHERE: Record<string, string> = { student: '/ (the home page)', teacher: '/teacher/login', parent: '/parent/login', tutor: '/tutor/login', centre: '/centre/login' };
 
@@ -21,6 +21,7 @@ export function PortalLoginForm({ portal, label, registerHref }: { portal: 'pare
       const res = await fetch('/api/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ identifier, password, portal }) });
       const json = await res.json();
       if (json.error === 'wrong_portal') setError(`This account is not a ${label.toLowerCase()} account. Use the sign-in page at ${WHERE[json.data?.role] ?? '/'}.`);
+      else if (json.error === 'too_many_attempts') setError(LOGIN_BLOCKED_TEXT);
       else if (json.error) setError(PORTAL_ERROR_TEXT[json.error] ?? 'Could not sign in.');
       else { window.location.href = portalHome(json.data?.role ?? portal); return; }
     } catch {

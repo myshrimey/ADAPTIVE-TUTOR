@@ -1,7 +1,7 @@
 # Task Backlog
-Updated 2026-10-31. 38 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
+Updated 2026-10-31. 44 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
 
-Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 15.
+Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 21.
 
 Changing a priority here does NOT start work. Work starts only when the founder says so in the chat.
 
@@ -45,3 +45,9 @@ Changing a priority here does NOT start work. Work starts only when the founder 
 | TASK-061 | P6 | Audit protection and retention tests | O7 | R47, R35 | TASK-032,TASK-041 | M | PARTIALLY COMPLETED | none yet |
 | TASK-062 | P6 | End-to-end workflow checks for each account type | O7 | R45, R46, R47 | TASK-038,TASK-035 | L | NOT STARTED | none yet |
 | TASK-063 | P6 | Deployment pre-flight: whole migration chain test and a Deployment check page | O7 | R10, R44, R48 | TASK-015 | S | READY FOR TESTING | none yet |
+| TASK-064 | P6 | Sign-in brute-force protection (limit on wrong passwords, admin form included) | O7 | R48 | TASK-015 | S | READY FOR TESTING | none yet |
+| TASK-065 | P6 | Public-route gate scan: every non-admin API route names its caller or is on a written public list; harden teacher sign-up | O7 | R48 | TASK-015 | S | READY FOR TESTING | none yet |
+| TASK-066 | P6 | Stop raw server error text reaching visitors (non-admin routes) | O7 | R48 | TASK-065 | S | READY FOR TESTING | none yet |
+| TASK-067 | P6 | Dependency security review and Next.js security patch (15.5.28) | O7 | R48 | TASK-065 | S | READY FOR TESTING | none yet |
+| TASK-068 | P3 | Record manual test results on the Testing and QA page | O3 | R18, R28, R49 | TASK-038 | S | READY FOR TESTING | none yet |
+| TASK-069 | P6 | Written rollback notes for the database changes about to be deployed (0055 to 0059), tested | O6 | R42 | TASK-015 | S | READY FOR TESTING | none yet |

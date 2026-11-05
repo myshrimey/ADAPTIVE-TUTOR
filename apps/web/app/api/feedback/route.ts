@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase-server';
-import { logEvent, parseUserAgent, roleFromPage, cleanContext, isPositive, FB_IMPACTS, FB_KINDS, getAccess } from '@adaptive-tutor/core';
+import { logEvent, parseUserAgent, roleFromPage, cleanContext, isPositive, FB_IMPACTS, FB_KINDS, getAccess, publicError } from '@adaptive-tutor/core';
 import { createServiceClient } from '@/lib/supabase-server';
 import { headers } from 'next/headers';
 
@@ -66,6 +66,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ data: { ok: true }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

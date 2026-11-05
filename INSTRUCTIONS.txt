@@ -1,36 +1,41 @@
-SAHAYAK v90 to v95 - ONE deployment for six versions. THREE database changes (0055, 0056, 0057). Nothing is deployed from here.
+SAHAYAK v96 TO v101 - ONE COMBINED UPDATE (plain English)
+=========================================================
+Put this on top of v90-v95 (which you already committed). It contains everything from v96, v97, v98, v99, v100 and v101,
+so you do NOT need the six small zips.
 
-HOW TO APPLY (pick ONE way)
- A. Easiest: unzip sahayak-v90-to-v95-combined.zip over your project (it already contains everything from v90, v91, v92, v93, v94 and v95; your v88/v89 files stay as they are).
- B. Or unzip the six small zips in order: v90, v91, v92, v93, v94, v95.
- Then: 1) commit, 2) run:  npm run db:migrate   (safe to run again; it adds the control tables, fixes one function setting, and makes the audit log write-only)
-       3) let Vercel deploy.
- Back-up first: Supabase > Database > Backups (a backup is also what makes the audit-log change reversible).
+WHAT IS IN IT
+v96  Sign-in limit: after 8 wrong passwords for one account (or 40 from one internet address) in 15 minutes, sign-in says
+     "wait 15 minutes". The admin sign-in form now goes through the same safe door. (database: 0058)
+v97  Every public "door" of the app checked and written down; teacher sign-up now has the same limits and switch as other sign-ups.
+v98  Technical error text (table and column names) no longer reaches visitors; screens keep their friendly messages.
+v99  Next.js security patch 15.5.27 -> 15.5.28 and a written review of the "4 vulnerabilities" (docs/DEPENDENCY_SECURITY.md).
+v100 You can record your test results (Worked / Did not work / Could not try) on /admin/control/testing. (database: 0059)
+v101 Written rollback notes for the database changes 0055-0059 (docs/ROLLBACK_NOTES.md).
 
-AFTER DEPLOYING (10 minutes)
- 1. Open Admin > Settings & Safety > "Deployment check" (/admin/deploy-check). It should say: running v95, "Every change this page can see is applied", and your server settings present. If anything says NOT applied, run npm run db:migrate again. Paste the three read-only SQL lines it shows into the Supabase SQL editor and compare with "Expected".
- 2. Open /admin/control and press "Load from documents" once. Then look at: Current execution, Dependencies, Testing & QA, History, Decision register.
- 3. Open Admin > Account directory (masked, read only) and Admin > Audit log (every page you open is recorded; filters by action, person, account).
- 4. Open Admin > Data retention (dry run). It only counts old technical logs. Nothing is deleted.
- 5. In Supabase > Authentication > Sign In / Providers > Password, switch ON "leaked password protection" (may need a paid plan; tell me if it is not offered).
- 6. Try the checklists on Testing & QA with TEST accounts (not real families).
+HOW TO APPLY (in this order)
+1. BACKUP FIRST: Supabase -> Database -> Backups (make sure a recent one exists). Read docs/ROLLBACK_NOTES.md once.
+2. Unzip over your project folder.
+3. In the project folder run:  npm install      (fetches the patched Next.js)
+4. git add .   git commit -m "v96 to v101"   git push      (Vercel rebuilds; check the build is green)
+5. Run once:  npm run db:migrate     (adds 0055, 0056, 0057 if not yet applied, plus 0058 and 0059; safe to run again)
+6. Open /admin/deploy-check: every line should say applied and the versions should match (v101).
+7. Open /admin/control and press "Load from documents" once.
+8. Try the sign-in page with a wrong password a few times on a TEST account to see the wait message (then wait 15 minutes or sign in correctly).
+9. Use /admin/control/testing to record what you try.
 
-WHAT YOU GET (plain words)
- v90 Control Centre: your prompts, requirements, tasks and decisions on screens; tests now stored in the project (npm test).
- v91 Audit trail: the audit log can no longer be edited or deleted by the app; 14 more admin actions are recorded (never passwords).
- v92 Account directory: masked, read-only list and snapshot of every account; every open is recorded. No "login as" anywhere.
- v93 More control screens: current execution with a downloadable session resume, dependency register, testing checklists for six account types, history.
- v94 Decisions: D1, D2, D3 (interim), D5, D6 recorded as decided on your instruction; View As design study; retention dry-run page and an owner-run purge script (never run automatically).
- v95 Deployment check page, and the whole database chain tested.
+SUPABASE SWITCH STILL YOURS: turn on "leaked password protection" (Authentication settings).
 
-DECISIONS: I decided D1, D2, D3 (interim), D5 and D6 using my written recommendations (FD-11 to FD-15). You can overrule any: just tell me. D7 is YOURS and open: a lawyer who knows India's Digital Personal Data Protection Act 2023 should review (a) tracking children's activity, (b) the retention periods, (c) whether families must be told staff can view an account. I do not claim Sahayak is legally compliant. Until D7 is done I will not build activity tracking of children or "view as".
+WHAT WAS TESTED (my test machine, not your live site)
+- Automated tests: 80 files, 76 passed, 4 old known-stale, 0 failed. Type check clean. Production build OK on Next.js 15.5.28.
+- All migrations (0001-0059) applied twice from empty on a scratch database; 0055-0059 also undone and re-applied (round trip).
+- Signed-out local checks: protected pages ask for sign-in; protected doors answer 401/403.
+NOT TESTED
+- Your live site and database; real students using screens; the PDF download and the reset-password email on the new Next.js version.
+- Supabase's own sign-in limits.
 
-TESTED
- - Whole database chain (schema + all 57 migrations) applied from empty on a scratch database, TWICE, no error: 149 tables, all with row-level security on; the audit log refuses edit/delete/truncate; the role-guard function has its fixed setting. (A scratch copy, NOT your live database.)
- - npm test: 73 files: 69 pass, 4 known-stale (listed, not hidden), 0 fail. New tests t90 to t95 add about 900 checks, and for the key ones I broke the code on purpose to prove the tests notice.
- - Type check and a full production build pass; signed out, every new admin page shows only the sign-in screen and the downloads answer "not allowed"; no secret value appears in any page.
- - Found and fixed on the way: an old test that failed on 1 November because it used today's date; the retention page crashing if the database failed at once.
-KNOWN FLAKY TEST: t57b can fail by chance about 1 run in 25 (random question choice). Run npm test again.
-NOT TESTED: your live website and live database (Vercel link not used; migrations not applied there); the pages with your real login; the purge script on real data (deliberately never run).
-NOT BUILT: "view as this account"; login and activity log (blocked by D7); recording checklist results; tests that call the live site; tutor/centre/teacher test accounts.
-NOT DEPLOYED: nothing is deployed from here. GitHub still needs v82 onward pushed, and the file "ERROR_MISTAKE 16 OCOBER 2026.docx" should be removed from the public repository (it holds five email addresses).
+STILL OPEN (honest)
+- Forgot-password still goes from the browser straight to Supabase (needs a live test to move safely).
+- /api/public/check (free readiness check) has no rate limit.
+- D7: the professional legal review for tracking children's activity is yours; View As and activity tracking stay unbuilt until then.
+- GitHub should hold v82 onward after your push; remove the public "ERROR_MISTAKE 16 OCOBER 2026.docx" from the repository.
+NOTHING WAS DEPLOYED OR CHANGED ON YOUR LIVE SITE BY ME.

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient } from '@/lib/supabase-server';
 import { signupsOpen } from '@/lib/signups';
-import { logEvent, registerSubject, assertAccess, assertSubjectAllowed } from '@adaptive-tutor/core';
+import { logEvent, registerSubject, assertAccess, assertSubjectAllowed, publicError } from '@adaptive-tutor/core';
 
 interface OnboardingBody {
   displayName: string;
@@ -129,6 +129,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ data: { studentId, isNewStudent }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

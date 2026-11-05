@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { loadReviewPlan, reviewStep, loadSettings, recordCalibration } from '@adaptive-tutor/core';
+import { loadReviewPlan, reviewStep, loadSettings, recordCalibration, publicError } from '@adaptive-tutor/core';
 
 export const maxDuration = 30;
 const UUID = /^[0-9a-f-]{36}$/i;
@@ -13,7 +13,7 @@ export async function GET() {
     const s = await loadSettings(service);
     const plan = await loadReviewPlan(service, studentId, s.boards.board1_date ?? null);
     return NextResponse.json({ data: plan, error: null });
-  } catch (err: any) { return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 }); }
+  } catch (err: any) { return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 }); }
 }
 export async function POST(request: Request) {
   try {
@@ -26,5 +26,5 @@ export async function POST(request: Request) {
     // v85: optional "how sure are you?" (1-3). Saved best-effort after marking; it never changes the marking, mastery or revision dates.
     if (a && r.feedback && !(r.feedback as any).formatProblem && typeof (r.feedback as any).correct === 'boolean') await recordCalibration(service, studentId, { source: b.mixed === true ? 'mixed' : 'review', confidence: b.confidence, correct: (r.feedback as any).correct, competencyId: b.competencyId, itemTable: a.itemTable, itemId: a.itemId });
     return NextResponse.json({ data: r, error: null });
-  } catch (err: any) { return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 }); }
+  } catch (err: any) { return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 }); }
 }

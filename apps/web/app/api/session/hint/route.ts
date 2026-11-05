@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { runOrchestratorTurn, logEvent } from '@adaptive-tutor/core';
+import { runOrchestratorTurn, logEvent, publicError } from '@adaptive-tutor/core';
 import { aiForStudent } from '@/lib/ai';
 
 export async function POST(request: Request) {
@@ -19,6 +19,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ data: turn, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

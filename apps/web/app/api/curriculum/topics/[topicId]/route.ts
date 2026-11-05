@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase-server';
-import { getPrerequisiteChain } from '@adaptive-tutor/core';
+import { getPrerequisiteChain, publicError } from '@adaptive-tutor/core';
 
 export async function GET(_request: Request, { params }: { params: Promise<{ topicId: string }> }) {
   try {
@@ -30,6 +30,6 @@ export async function GET(_request: Request, { params }: { params: Promise<{ top
 
     return NextResponse.json({ data: { ...topic, skills: skillsWithPrereqs }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

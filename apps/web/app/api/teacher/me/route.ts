@@ -1,3 +1,4 @@
+import { publicError } from '@adaptive-tutor/core';
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient } from '@/lib/supabase-server';
 
@@ -14,6 +15,6 @@ export async function GET() {
     const { data: tp } = await service.from('teacher_profiles').select('display_name, status').eq('user_id', userRow.id).maybeSingle();
     return NextResponse.json({ data: { displayName: tp?.display_name ?? '', status: tp?.status ?? 'pending' }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

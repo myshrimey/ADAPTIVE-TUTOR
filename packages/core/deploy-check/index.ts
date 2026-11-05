@@ -2,9 +2,9 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 
 // v95: "did my deployment take?" Read only. Probes ask the database whether a table or column exists (a SELECT of zero rows).
 // Nothing is changed, no value of any setting is ever read out: environment settings are reported as present / missing only.
-export const APP_VERSION = 'v95';
+export const APP_VERSION = 'v101';
 /** The newest version that changed the database (it writes a system_changelog row). Versions after it need no migration. Test t95 checks this against the migration files. */
-export const DB_VERSION_EXPECTED = 'v91';
+export const DB_VERSION_EXPECTED = 'v100';
 export interface DeployProbe { migration: string; version: string; what: string; table: string; column?: string }
 export const DEPLOY_PROBES: readonly DeployProbe[] = [
   { migration: '0046', version: 'v72', what: 'Social growth tables', table: 'social_campaigns' },
@@ -17,6 +17,8 @@ export const DEPLOY_PROBES: readonly DeployProbe[] = [
   { migration: '0053', version: 'v85', what: 'Confidence calibration', table: 'calibration_events' },
   { migration: '0056', version: 'v90', what: 'Development control centre tables', table: 'control_prompts' },
   { migration: '0057', version: 'v91', what: 'Audit trail: account, reason, outcome columns', table: 'audit_logs', column: 'target_account' },
+  { migration: '0058', version: 'v96', what: 'Sign-in limit: failed-attempt hashes', table: 'login_attempts', column: 'key_hash' },
+  { migration: '0059', version: 'v100', what: 'Recorded test results', table: 'qa_results', column: 'item_id' },
 ];
 /** Things the website cannot see. The founder pastes these READ-ONLY queries into the Supabase SQL editor. */
 export const MANUAL_CHECKS: readonly { migration: string; what: string; sql: string; expect: string }[] = [

@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { attachReferralFromCookie } from '@/lib/referral';
 import { captureSignupFromCookies } from '@/lib/acquisition';
+import { signupsOpen, checkSignupLimits } from '@/lib/signups';
+import { validatePassword } from '@adaptive-tutor/core';
 
 // Public: a teacher registers with their own credentials. The account is created PENDING
 // and gets no review tools until the founder approves it at /admin/teachers. This runs on
@@ -9,6 +11,7 @@ import { captureSignupFromCookies } from '@/lib/acquisition';
 // early access. Basic abuse guard: a hidden honeypot field, field limits, and approval.
 export async function POST(request: Request) {
   try {
+    if (!signupsOpen()) return NextResponse.json({ data: null, error: 'signups_closed' }, { status: 403 }); // v97: same switch as every other sign-up
     const body = await request.json().catch(() => ({}));
     if (body.website) return NextResponse.json({ data: { registered: true }, error: null }); // honeypot: pretend success to bots
     const email = String(body.email ?? '').trim().toLowerCase();
@@ -22,7 +25,12 @@ export async function POST(request: Request) {
     if (!displayName) return NextResponse.json({ data: null, error: 'missing_name' }, { status: 400 });
     if (password.length < 8) return NextResponse.json({ data: null, error: 'password_too_short' }, { status: 400 });
 
+    if (validatePassword(password, email)) return NextResponse.json({ data: null, error: 'password_weak' }, { status: 400 });
+
     const service = createServiceClient();
+    // v97: the same per-address and daily limits as family and portal sign-ups (this route had none).
+    const limited = await checkSignupLimits(service, request);
+    if (limited) return NextResponse.json({ data: null, error: limited }, { status: 429 });
     const { data: created, error: cErr } = await service.auth.admin.createUser({ email, password, email_confirm: true });
     if (cErr || !created?.user) {
       const msg = cErr?.message ?? 'create_failed';
@@ -41,6 +49,7 @@ export async function POST(request: Request) {
     }
     return NextResponse.json({ data: { registered: true }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    console.error('teacher register failed', err?.message); // v97: the reason stays in the server log, never in the answer
+    return NextResponse.json({ data: null, error: 'registration_failed' }, { status: 500 });
   }
 }

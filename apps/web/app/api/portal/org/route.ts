@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getPortalUser } from '@/lib/portal';
-import { createBatch, setBatchMember, archiveBatch, createIntervention, updateIntervention } from '@adaptive-tutor/core';
+import { createBatch, setBatchMember, archiveBatch, createIntervention, updateIntervention, publicError } from '@adaptive-tutor/core';
 
 // Tutors and centres only, and only when the account is active. Every id is checked against the caller's own active student links on the server.
 export async function POST(request: Request) {
@@ -20,5 +20,5 @@ export async function POST(request: Request) {
       default: return NextResponse.json({ data: null, error: 'unknown_action' }, { status: 400 });
     }
     return NextResponse.json({ data: { ok: true }, error: null });
-  } catch (err: any) { return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 }); }
+  } catch (err: any) { return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 }); }
 }

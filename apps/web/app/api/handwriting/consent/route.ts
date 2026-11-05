@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { recordHandwritingConsent, getHandwritingConsent, ANSWER_BANK_ENABLED, HANDWRITING_CONSENT_VERSION } from '@adaptive-tutor/core';
+import { recordHandwritingConsent, getHandwritingConsent, ANSWER_BANK_ENABLED, HANDWRITING_CONSENT_VERSION, publicError } from '@adaptive-tutor/core';
 
 // Parent/guardian consent for photos of handwritten answers. The student id comes from the session.
 export async function GET() {
@@ -9,7 +9,7 @@ export async function GET() {
     const c = await getHandwritingConsent(createServiceClient(), studentId);
     return NextResponse.json({ data: { ...c, bankAvailable: ANSWER_BANK_ENABLED, version: HANDWRITING_CONSENT_VERSION }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err, 'error') }, { status: 400 });
   }
 }
 
@@ -22,6 +22,6 @@ export async function POST(request: Request) {
     await recordHandwritingConsent(createServiceClient(), studentId, ANSWER_BANK_ENABLED && body.keepForBank === true);
     return NextResponse.json({ data: { ok: true }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err, 'error') }, { status: 400 });
   }
 }

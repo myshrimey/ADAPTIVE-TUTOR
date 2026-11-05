@@ -589,8 +589,8 @@ export const REGISTRY = {
    "objective_code": "O6",
    "code": "R42",
    "text": "Version-controlled migrations with indexes, RLS and rollback notes; never destructive on production without approval",
-   "status": "NOT STARTED",
-   "note": "Applies to every later migration.",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v101: docs/ROLLBACK_NOTES.md covers 0055 to 0059 (undo SQL, what is lost, backup first), tested as a round trip on a scratch copy. Older migrations (before 0055) have no written undo notes; every migration so far is additive and re-runnable. Applies to every later migration: add its undo block to the notes.",
    "founder_acceptance": "pending"
   },
   {
@@ -1066,7 +1066,7 @@ export const REGISTRY = {
    "size": "M",
    "status": "PARTIALLY COMPLETED",
    "verification": "not yet",
-   "note": "v93: checklists exist for all six account types, grounded in real pages (t93). Missing: recording results, test accounts for tutor/centre/teacher, and checks for View As (not built).",
+   "note": "v93: checklists exist for all six account types, grounded in real pages (t93). v100: the founder can record Worked / Did not work / Could not try for every item (migration 0059, t100, t100b). Missing: test accounts for tutor/centre/teacher, and checks for View As (not built).",
    "founder_next": false,
    "founder_rank": null
   },
@@ -1262,6 +1262,96 @@ export const REGISTRY = {
    "status": "READY FOR TESTING",
    "verification": "not yet",
    "note": "v95: all 57 migrations plus schema.sql applied twice from empty on scratch Postgres with no error (149 tables, all with row-level security on); /admin/deploy-check shows the running version, which of 10 migrations are applied, which server settings are present (never values) and 3 read-only SQL checks. Tested t95, t95b. NOT tried on the live site.",
+   "founder_next": false,
+   "founder_rank": null
+  },
+  {
+   "id": "TASK-064",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Sign-in brute-force protection (limit on wrong passwords, admin form included)",
+   "objective_code": "O7",
+   "requirements": "R48",
+   "depends_on": "TASK-015",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v96: 8 wrong tries per account or 40 per internet address in 15 minutes gives a wait message (HTTP 429); only hashes of FAILED tries are kept for 24 hours (migration 0058, server-only); the admin sign-in form now uses the server route so it is covered. Tested t96 (33 checks, mutation-checked). NOT tried on the live site; a person could make a real account wait 15 minutes by typing wrong passwords on purpose.",
+   "founder_next": false,
+   "founder_rank": null
+  },
+  {
+   "id": "TASK-065",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Public-route gate scan: every non-admin API route names its caller or is on a written public list; harden teacher sign-up",
+   "objective_code": "O7",
+   "requirements": "R48",
+   "depends_on": "TASK-015",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v97: t97 scans every non-admin route (12 public on purpose, each with a reason and a check by kind); teacher sign-up now has the on/off switch, per-address and daily limits, weak-password refusal and no raw error text; 65 routes still echo raw error text (ratchet, may only go down). Tested t97 (42 checks, mutation-checked). NOT tried on the live site.",
+   "founder_next": false,
+   "founder_rank": null
+  },
+  {
+   "id": "TASK-066",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Stop raw server error text reaching visitors (non-admin routes)",
+   "objective_code": "O7",
+   "requirements": "R48",
+   "depends_on": "TASK-065",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v98: publicError() lets our own short codes through and hides everything else (logged on the server); 64 routes changed; t97 ratchet now zero, t98 (179 checks, mutation-checked). 27 admin routes still show the message on purpose. NOT tried on the live site.",
+   "founder_next": false,
+   "founder_rank": null
+  },
+  {
+   "id": "TASK-067",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Dependency security review and Next.js security patch (15.5.28)",
+   "objective_code": "O7",
+   "requirements": "R48",
+   "depends_on": "TASK-065",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v99: npm audit reviewed; Next.js raised to 15.5.28 (official fix), pinned; remaining warnings (postcss inside Next, jspdf to dompurify) judged not reachable and written down in docs/DEPENDENCY_SECURITY.md; t99 keeps the facts true. Move to Next 16 / jsPDF 4 is a later tested task. NOT tried on the live site.",
+   "founder_next": false,
+   "founder_rank": null
+  },
+  {
+   "id": "TASK-068",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P3",
+   "title": "Record manual test results on the Testing and QA page",
+   "objective_code": "O3",
+   "requirements": "R18,R28,R49",
+   "depends_on": "TASK-038",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v100: three buttons and a note on every checklist item; newest result shown with date and version, history kept; counts per checklist; server-only table (0059); Super Admin only and audited; changes no status and accepts nothing. Tested t100 (30 checks, mutation-checked), t100b (9 page-render checks). NOT tried on the live site; 0059 not applied live.",
+   "founder_next": false,
+   "founder_rank": null
+  },
+  {
+   "id": "TASK-069",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Written rollback notes for the database changes about to be deployed (0055 to 0059), tested",
+   "objective_code": "O6",
+   "requirements": "R42",
+   "depends_on": "TASK-015",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v101: docs/ROLLBACK_NOTES.md; t101 (31 checks: every created table is dropped and nothing else, no row deletes, no cascade, backup rule); round trip on a scratch copy: undo then apply again twice, audit rows kept, audit protection back on. NOT run on the live database.",
    "founder_next": false,
    "founder_rank": null
   }
@@ -1498,6 +1588,66 @@ export const REGISTRY = {
    "db_changes": "none (the chain test ran on a scratch database only)",
    "tests": "t95 (58 checks, mutation-checked), t95b (10 page-render checks), full migration chain twice on scratch Postgres, full npm test, type check, production build",
    "open_problems": "Not tried on the live site; leaked-password protection is still a manual switch; D7 legal review is the founder's"
+  },
+  {
+   "id": "EX-0008",
+   "executed_on": "2026-11-01",
+   "prompt_id": "SAH-PROMPT-0009",
+   "summary": "v96: sign-in brute-force protection (TASK-064): migration 0058, rules, login route, admin form moved to the server route, wait message on every sign-in form.",
+   "files": "packages/core/auth/throttle.ts; packages/core/index.ts; apps/web/lib/login-throttle.ts; apps/web/app/api/auth/login/route.ts; apps/web/components/AdminSignIn.tsx, HomeClient.tsx, portal/PortalLoginForm.tsx; packages/db/migrations/0058_login_throttle.sql; packages/core/deploy-check/index.ts; tests/t96.ts",
+   "db_changes": "0058 login_attempts (hashes of failed tries only; server-only; re-run twice on scratch Postgres)",
+   "tests": "t96 (33 checks, mutation-checked), t95/t95b updated, migration twice on scratch Postgres, type check, full npm test, production build",
+   "open_problems": "Not tried on the live site; migration 0058 not applied live; Supabase's own sign-in limits not verified; D7 legal review is the founder's"
+  },
+  {
+   "id": "EX-0009",
+   "executed_on": "2026-11-01",
+   "prompt_id": "SAH-PROMPT-0009",
+   "summary": "v97: public-route gate scan (TASK-065) and teacher sign-up hardening.",
+   "files": "apps/web/app/api/teacher/register/route.ts; apps/web/app/teacher/register/page.tsx; packages/core/deploy-check/index.ts; tests/t97.ts, t95b.ts; scripts/control-centre/build-docs.py",
+   "db_changes": "none",
+   "tests": "t97 (42 checks, mutation-checked), t95b updated, full npm test, type check, production build",
+   "open_problems": "Not tried on the live site; 65 routes still echo raw error text; D7 legal review is the founder's"
+  },
+  {
+   "id": "EX-0010",
+   "executed_on": "2026-11-01",
+   "prompt_id": "SAH-PROMPT-0009",
+   "summary": "v98: hide raw server error text from visitors (TASK-066).",
+   "files": "packages/core/safety/public-error.ts; packages/core/index.ts; 64 files under apps/web/app/api (non-admin); tests/t97.ts, t98.ts, t95b.ts; packages/core/deploy-check/index.ts",
+   "db_changes": "none",
+   "tests": "t98 (179 checks, mutation-checked), t97 tightened, full npm test, type check, production build",
+   "open_problems": "Not tried on the live site; some screens may now show a generic message where a raw one used to appear; admin routes unchanged; D7 legal review is the founder's"
+  },
+  {
+   "id": "EX-0011",
+   "executed_on": "2026-11-02",
+   "prompt_id": "SAH-PROMPT-0009",
+   "summary": "v99: dependency security review and Next.js 15.5.28 patch (TASK-067).",
+   "files": "apps/web/package.json; package-lock.json; docs/DEPENDENCY_SECURITY.md; tests/t99.ts, t95b.ts; packages/core/deploy-check/index.ts",
+   "db_changes": "none",
+   "tests": "t99 (10 checks, mutation-checked), full npm test, type check, production build with the new version",
+   "open_problems": "Not tried on the live site; npm audit still lists warnings that are not reachable; Next 16 move is later; D7 legal review is the founder's"
+  },
+  {
+   "id": "EX-0012",
+   "executed_on": "2026-11-02",
+   "prompt_id": "SAH-PROMPT-0009",
+   "summary": "v100: record manual test results (TASK-068).",
+   "files": "packages/core/control-centre/qa-results.ts, index.ts; apps/web/app/api/admin/control/qa/route.ts; apps/web/app/admin/control/testing/page.tsx; apps/web/components/ControlActions.tsx; packages/db/migrations/0059_qa_results.sql; packages/core/deploy-check/index.ts; tests/t100.ts, t100b.ts, t95b.ts, run-all.ts",
+   "db_changes": "0059 qa_results (server-only; run twice on scratch Postgres)",
+   "tests": "t100 (30 checks), t100b (9 page renders), mutation checks, migration twice on scratch Postgres, full npm test, type check, production build",
+   "open_problems": "Not tried on the live site; 0059 not applied live; D7 legal review is the founder's"
+  },
+  {
+   "id": "EX-0013",
+   "executed_on": "2026-11-02",
+   "prompt_id": "SAH-PROMPT-0009",
+   "summary": "v101: rollback notes for 0055 to 0059 (TASK-069).",
+   "files": "docs/ROLLBACK_NOTES.md; tests/t101.ts, t95b.ts; packages/core/deploy-check/index.ts; scripts/control-centre/build-docs.py",
+   "db_changes": "none (round trip on a scratch copy only)",
+   "tests": "t101 (31 checks), undo + re-apply round trip on scratch Postgres, full npm test, type check",
+   "open_problems": "Not run on the live database; migrations before 0055 have no written undo notes; D7 legal review is the founder's"
   }
  ]
 } as unknown as ControlRegistry;

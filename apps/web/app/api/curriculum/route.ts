@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient } from '@/lib/supabase-server';
-import { loadCurriculum } from '@adaptive-tutor/core';
+import { loadCurriculum, publicError } from '@adaptive-tutor/core';
 
 export async function GET(request: Request) {
   try {
@@ -13,6 +13,6 @@ export async function GET(request: Request) {
 
     return NextResponse.json({ data: curriculum, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

@@ -91,6 +91,8 @@ export * from './handwriting/quality-rules';
 export * from './handwriting/marking';
 export * from './handwriting/handwriting.service';
 export * from './auth/identity';
+export * from './auth/throttle';
+export * from './safety/public-error';
 export * from './portals/portals';
 export * from './reports/test-report.service';
 export * from './translation/hindi';

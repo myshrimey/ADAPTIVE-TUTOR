@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { engineCtx } from '@/lib/engagement';
-import { answerStretch, afterActivity } from '@adaptive-tutor/core';
+import { answerStretch, afterActivity, publicError } from '@adaptive-tutor/core';
 
 export const maxDuration = 60;
 
@@ -18,6 +18,6 @@ export async function POST(request: Request) {
     });
     return NextResponse.json({ data: r, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

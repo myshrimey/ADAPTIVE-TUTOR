@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { recordConfidenceAfter } from '@adaptive-tutor/core';
+import { recordConfidenceAfter, publicError } from '@adaptive-tutor/core';
 
 // Saves the end-of-session confidence (0-10) on the caller's own check-in row.
 // Session-bound client, so RLS (session_checkins_owner) guarantees a student
@@ -16,6 +16,6 @@ export async function POST(request: Request) {
     await recordConfidenceAfter(supabase, body.sessionId, Number(body.confidenceAfter));
     return NextResponse.json({ data: { ok: true }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

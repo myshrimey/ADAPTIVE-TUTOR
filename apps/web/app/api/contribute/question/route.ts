@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getContributor } from '@/lib/contributor';
-import { contributeQuestion } from '@adaptive-tutor/core';
+import { contributeQuestion, publicError } from '@adaptive-tutor/core';
 
 // An approved teacher, active tutor or centre, or an admin adds a question. It is saved as "needs review" with their name on it.
 export async function POST(request: Request) {
@@ -12,6 +12,6 @@ export async function POST(request: Request) {
     const r = await contributeQuestion(createServiceClient(), who, body);
     return NextResponse.json({ data: r, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

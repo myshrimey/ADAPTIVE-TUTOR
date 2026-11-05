@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { assertAccess, planAllows, markWrittenAnswer } from '@adaptive-tutor/core';
+import { assertAccess, planAllows, markWrittenAnswer, publicError } from '@adaptive-tutor/core';
 import { aiForStudent } from '@/lib/ai';
 
 // Marks one written answer with AI and saves it. Student id comes from the session only.
@@ -15,6 +15,6 @@ export async function POST(request: Request) {
     const result = await markWrittenAnswer(service, await aiForStudent(studentId), studentId, body.questionId, body.answer);
     return NextResponse.json({ data: result, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { listPreviousPapers, addPreviousPaper } from '@adaptive-tutor/core';
+import { listPreviousPapers, addPreviousPaper, publicError } from '@adaptive-tutor/core';
 
 // Listing is public (no auth needed) — the shared paper library is
 // reference material, same spirit as the footer's CBSE info.
@@ -13,7 +13,7 @@ export async function GET(request: Request) {
     const papers = await listPreviousPapers(supabase, subjectId);
     return NextResponse.json({ data: { papers }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }
 
@@ -49,6 +49,6 @@ export async function POST(request: Request) {
     });
     return NextResponse.json({ data: { paper }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

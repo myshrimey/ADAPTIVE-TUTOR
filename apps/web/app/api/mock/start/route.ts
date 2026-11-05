@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { aiForStudent } from '@/lib/ai';
 import { kickBankGrowth } from '@/lib/bank-growth';
-import { startMockExam, startBlueprintPaper, assertAccess, planAllows } from '@adaptive-tutor/core';
+import { startMockExam, startBlueprintPaper, assertAccess, planAllows, publicError } from '@adaptive-tutor/core';
 
 // Hindi medium may need to translate a paper's questions the first time (saved afterwards), so allow the server up to a minute.
 export const maxDuration = 60;
@@ -36,6 +36,6 @@ export async function POST(request: Request) {
     });
     return NextResponse.json({ data: exam, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

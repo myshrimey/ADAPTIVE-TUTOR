@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { assertAccess, loadLearnerState, resolveCurrentObjective, runOrchestratorTurn, logEvent, recordCheckin } from '@adaptive-tutor/core';
+import { assertAccess, loadLearnerState, resolveCurrentObjective, runOrchestratorTurn, logEvent, recordCheckin, publicError } from '@adaptive-tutor/core';
 import { aiForStudent } from '@/lib/ai';
 import { kickBankGrowth } from '@/lib/bank-growth';
 
@@ -90,6 +90,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ data: { sessionId: session.id, skillId: objective.skillId, context, turn, recoveryMode }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { hashLinkCode } from '@/lib/portal';
-import { generateLinkCode, formatLinkCode, isPortalRole, LINK_CODE_TTL_DAYS, MAX_ACTIVE_LINK_CODES } from '@adaptive-tutor/core';
+import { generateLinkCode, formatLinkCode, isPortalRole, LINK_CODE_TTL_DAYS, MAX_ACTIVE_LINK_CODES, publicError } from '@adaptive-tutor/core';
 
 // The student's family decides who may follow this account. The student id always comes from the session.
 export async function GET() {
@@ -23,7 +23,7 @@ export async function GET() {
       error: null,
     });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: err.message === 'unauthenticated' ? 401 : 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: err.message === 'unauthenticated' ? 401 : 400 });
   }
 }
 
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
     }
     throw new Error('code_failed');
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: err.message === 'unauthenticated' ? 401 : 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: err.message === 'unauthenticated' ? 401 : 400 });
   }
 }
 
@@ -62,6 +62,6 @@ export async function DELETE(request: Request) {
     } else return NextResponse.json({ data: null, error: 'bad_request' }, { status: 400 });
     return NextResponse.json({ data: { ok: true }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: err.message === 'unauthenticated' ? 401 : 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: err.message === 'unauthenticated' ? 401 : 400 });
   }
 }

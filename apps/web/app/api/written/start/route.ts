@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { assertAccess, planAllows, pickWrittenQuestions } from '@adaptive-tutor/core';
+import { assertAccess, planAllows, pickWrittenQuestions, publicError } from '@adaptive-tutor/core';
 
 // Picks written-answer questions. The answer key is never returned. Paid plans only (each answer is marked by AI).
 export async function POST(request: Request) {
@@ -14,6 +14,6 @@ export async function POST(request: Request) {
     const questions = await pickWrittenQuestions(service, studentId, body.subjectId);
     return NextResponse.json({ data: { questions }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

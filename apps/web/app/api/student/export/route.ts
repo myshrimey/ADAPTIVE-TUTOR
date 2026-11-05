@@ -1,3 +1,4 @@
+import { publicError } from '@adaptive-tutor/core';
 import { fileResponse } from '@/lib/export';
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
@@ -35,6 +36,6 @@ export async function GET() {
     if (unreadable.length) out.not_included = unreadable;
     return fileResponse(JSON.stringify(out, null, 2), { kind: 'my-data', ext: 'json', contentType: 'application/json; charset=utf-8', title: 'My Sahayak data', classification: 'confidential', filename: 'sahayak-my-data.json' });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err, 'error') }, { status: 400 });
   }
 }

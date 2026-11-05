@@ -30,3 +30,25 @@ export function AcceptSelect({ promptId, code, value }: { promptId: string; code
   const { msg, busy, run } = useAct();
   return (<span><select aria-label={`Your acceptance of ${code}`} disabled={busy} value={value} onChange={(e) => run({ action: 'accept', promptId, code, value: e.target.value })}><option value="pending">not yet</option><option value="accepted">accepted</option><option value="rejected">not accepted</option></select>{msg && <span role="status" style={{ fontSize: '0.78rem', marginLeft: 6 }}>{msg}</span>}</span>);
 }
+
+const QA_ERR: Record<string, string> = { not_authorized: 'Please sign in as the main admin.', tables_missing: 'Run npm run db:migrate first (adds the 0059 table).', note_has_contact_details: 'Please remove the email or phone number from the note.', note_too_long: 'The note is too long (500 letters at most).', unknown_item: 'That checklist item is not known.' };
+/** Record one manual test result for a checklist item. Only records; changes no status. */
+export function QaRecorder({ itemId, appVersion }: { itemId: string; appVersion: string }) {
+  const router = useRouter(); const [note, setNote] = useState(''); const [msg, setMsg] = useState(''); const [busy, setBusy] = useState(false);
+  const send = async (result: 'pass' | 'fail' | 'blocked') => {
+    setBusy(true); setMsg('');
+    const r = await fetch('/api/admin/control/qa', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ itemId, result, note, appVersion }) }).then((x) => x.json()).catch(() => ({ error: 'network' }));
+    setBusy(false);
+    if (r?.error) { setMsg(QA_ERR[r.error] ?? 'Not saved.'); return; }
+    setNote(''); setMsg('Saved.'); router.refresh();
+  };
+  return (
+    <span style={{ display: 'inline-flex', gap: 4, flexWrap: 'wrap', alignItems: 'center' }}>
+      <input aria-label={`Note for ${itemId}`} value={note} maxLength={500} onChange={(e) => setNote(e.target.value)} placeholder="short note (optional, no names or phone numbers)" style={{ width: 210 }} />
+      <button disabled={busy} onClick={() => send('pass')} title="It worked">Worked</button>
+      <button disabled={busy} onClick={() => send('fail')} title="It did not work">Did not work</button>
+      <button disabled={busy} onClick={() => send('blocked')} title="I could not try it (for example no test account)">Could not try</button>
+      {msg ? <span role="status" style={{ fontSize: '0.8rem' }}>{msg}</span> : null}
+    </span>
+  );
+}

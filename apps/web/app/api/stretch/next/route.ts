@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { aiForStudent } from '@/lib/ai';
-import { nextStretchQuestion } from '@adaptive-tutor/core';
+import { nextStretchQuestion, publicError } from '@adaptive-tutor/core';
 
 export const maxDuration = 60;
 
@@ -14,6 +14,6 @@ export async function POST(request: Request) {
     const r = await nextStretchQuestion(createServiceClient(), studentId, { skillId: str(body.skillId), subjectId: str(body.subjectId), style: typeof body.style === 'string' ? body.style : undefined }, ai);
     return NextResponse.json({ data: r, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { buildParentReport } from '@adaptive-tutor/core';
+import { buildParentReport, publicError } from '@adaptive-tutor/core';
 
 export async function GET() {
   try {
@@ -9,6 +9,6 @@ export async function GET() {
     const report = await buildParentReport(supabase, studentId);
     return NextResponse.json({ data: report, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

@@ -7,7 +7,7 @@ import { createClient } from '@/lib/supabase-client';
 import { useLanguage } from '@/components/LanguageProvider';
 import { accessErrorMessage } from '@/lib/access-errors';
 import { FaqSection } from '@/components/FaqSection';
-import { validateUsername, validatePassword, validateOptionalEmail, generateReadablePassword, IDENTITY_ERROR_TEXT } from '@adaptive-tutor/core';
+import { validateUsername, validatePassword, validateOptionalEmail, generateReadablePassword, IDENTITY_ERROR_TEXT, LOGIN_BLOCKED_TEXT } from '@adaptive-tutor/core';
 
 // Shown at sign-up. `status` mirrors subjects.status in the database (the
 // database is the real gate — registerSubject rejects anything not usable);
@@ -176,6 +176,7 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
     setSubmitting(true);
     const res = await fetch('/api/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ identifier: email.trim(), password }) });
     setSubmitting(false);
+    if (res.status === 429) { setError(LOGIN_BLOCKED_TEXT); return; }
     if (!res.ok) { setError('Username, email or password is not right. Please check and try again.'); return; }
     await afterAuthEstablished();
   }

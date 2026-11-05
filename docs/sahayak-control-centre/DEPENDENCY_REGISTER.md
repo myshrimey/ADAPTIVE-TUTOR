@@ -33,6 +33,12 @@ Updated 2026-10-31.
 | TASK-061 | TASK-032,TASK-041 |
 | TASK-062 | TASK-038,TASK-035 |
 | TASK-063 | TASK-015 |
+| TASK-064 | TASK-015 |
+| TASK-065 | TASK-015 |
+| TASK-066 | TASK-065 |
+| TASK-067 | TASK-065 |
+| TASK-068 | TASK-038 |
+| TASK-069 | TASK-015 |
 
 ## Outside dependencies (things only a person can do or decide)
 | Item | Who | Blocks |

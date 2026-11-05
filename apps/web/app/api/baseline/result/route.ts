@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { loadStoredBaseline, asBaseline, studentReport } from '@adaptive-tutor/core';
+import { loadStoredBaseline, asBaseline, studentReport, publicError } from '@adaptive-tutor/core';
 
 // The student's own latest baseline (student wording only; adult reports have their own pages).
 export async function GET(request: Request) {
@@ -15,6 +15,6 @@ export async function GET(request: Request) {
     const b = asBaseline(sb);
     return NextResponse.json({ data: { version: sb.version, createdAt: sb.createdAt, lines: studentReport(b, (subj as any)?.name ?? 'your subject'), overall: sb.overall?.text ?? '', confidence: sb.confidence, profile: b.profile.map((p) => ({ label: p.label, text: p.text, demonstratedLevel: p.demonstratedLevel, developingLevel: p.developingLevel, confidence: p.confidence })), path: sb.path, changes: sb.changes, targetClass: b.targetClass }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

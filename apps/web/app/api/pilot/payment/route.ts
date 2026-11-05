@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { submitPaymentClaim, getMyPaymentClaims } from '@adaptive-tutor/core';
+import { submitPaymentClaim, getMyPaymentClaims, publicError } from '@adaptive-tutor/core';
 
 export async function GET() {
   try {
@@ -9,7 +9,7 @@ export async function GET() {
     const claims = await getMyPaymentClaims(supabase, studentId);
     return NextResponse.json({ data: claims, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }
 
@@ -25,6 +25,6 @@ export async function POST(request: Request) {
     await submitPaymentClaim(supabase, studentId, { amount, paymentDate, transactionReference, planCode });
     return NextResponse.json({ data: { submitted: true }, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }

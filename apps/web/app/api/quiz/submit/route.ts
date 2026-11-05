@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { gradeSkillQuiz, recordQuizRound, recordCompetencyEvidence } from '@adaptive-tutor/core';
+import { gradeSkillQuiz, recordQuizRound, recordCompetencyEvidence, publicError } from '@adaptive-tutor/core';
 import { engineCtx } from '@/lib/engagement';
 import { aiForStudent } from '@/lib/ai';
 import { saveQuizReport } from '@/lib/reports';
@@ -27,6 +27,6 @@ export async function POST(request: Request) {
     } catch { /* engagement must never break a quiz */ }
     return NextResponse.json({ data: result, error: null });
   } catch (err: any) {
-    return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: 400 });
+    return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }
 }
