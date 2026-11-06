@@ -3,6 +3,8 @@ import { createServerClient } from '@/lib/supabase-server';
 import { logEvent, parseUserAgent, roleFromPage, cleanContext, isPositive, FB_IMPACTS, FB_KINDS, getAccess, publicError } from '@adaptive-tutor/core';
 import { createServiceClient } from '@/lib/supabase-server';
 import { headers } from 'next/headers';
+import { randomUUID } from 'crypto';
+import { signAttachToken } from '@/lib/feedback-attachments';
 
 interface FeedbackBody {
   message: string;
@@ -56,7 +58,8 @@ export async function POST(request: Request) {
     let plan: string | null = null;
     if (studentId) { try { const a = await getAccess(createServiceClient(), studentId); plan = a.status === 'active' ? a.planCode : 'free'; } catch { plan = null; } }
     const context = { ...cleanContext(body.context), device: ua.device, browser: ua.browser, os: ua.os, locale: (h.get('accept-language') ?? '').split(',')[0].slice(0, 12) || null, appVersion: (process.env.VERCEL_GIT_COMMIT_SHA ?? '').slice(0, 7) || null, plan };
-    const row = { student_id: studentId, contact_email: body.contactEmail?.trim() || null, page: body.page ?? null, rating: body.rating ?? null, message };
+    const id = randomUUID(); // v106: known in advance so pictures can be attached to this message
+    const row = { id, student_id: studentId, contact_email: body.contactEmail?.trim() || null, page: body.page ?? null, rating: body.rating ?? null, message };
     let { error } = await supabase.from('feedback').insert({ ...row, kind, impact, role, source: 'in_app', context, positive: isPositive(message, body.rating ?? null, kind) });
     // Human-first fallback: if the newer columns are not installed yet (database update 0047 not run), the message is still saved the old way. Feedback is never lost.
     if (error) ({ error } = await supabase.from('feedback').insert(row));
@@ -64,7 +67,8 @@ export async function POST(request: Request) {
 
     await logEvent({ studentId, eventType: 'feedback_submitted', payload: { page: body.page ?? null, rating: body.rating ?? null } });
 
-    return NextResponse.json({ data: { ok: true }, error: null });
+    let attachToken: string | null = null; try { attachToken = signAttachToken(id); } catch { attachToken = null; }
+    return NextResponse.json({ data: { ok: true, id, attachToken }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
   }

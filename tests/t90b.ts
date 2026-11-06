@@ -19,7 +19,7 @@ const render = async (mod: string, props: any) => { const m = require(mod); retu
     source = src;
     const home = await render(dir + '/page', { searchParams: Promise.resolve({}) });
     ok(home.includes('Resume report') && home.includes('SAH-PROMPT-0009') && home.includes('SAH-PROMPT-0001'), `${src}: overview lists prompts and resume report`);
-    ok(home.includes('9</strong> master prompts') && home.includes('52</strong> requirements'), `${src}: resume numbers shown`);
+    ok(home.includes('9</strong> master prompts') && home.includes(`${REGISTRY.requirements.length}</strong> requirements`), `${src}: resume numbers shown`);
     ok((src === 'bundled') === home.includes('read only. The database tables are not set up'), `${src}: source note is right`);
     ok((src === 'database') === home.includes('Priority for SAH-PROMPT-0009'), `${src}: priority control only when the database copy is used`);
     const filtered = await render(dir + '/page', { searchParams: Promise.resolve({ status: 'REGISTERED', q: 'v3' }) });
@@ -27,7 +27,7 @@ const render = async (mod: string, props: any) => { const m = require(mod); retu
     const none = await render(dir + '/page', { searchParams: Promise.resolve({ q: 'qqqqzzzz' }) });
     ok(none.includes('No prompt matches'), `${src}: empty filter message`);
     const detail = await render(dir + '/prompts/[id]/page', { params: Promise.resolve({ id: 'SAH-PROMPT-0009' }) });
-    ok(detail.includes('MASTER PROMPT: SAHAYAK FOUNDER COMMAND') && detail.includes('R41') && detail.includes('52</strong> requirements'), `${src}: prompt page shows original text and requirements`);
+    ok(detail.includes('MASTER PROMPT: SAHAYAK FOUNDER COMMAND') && detail.includes('R41') && detail.includes(`${REGISTRY.requirements.length}</strong> requirements`), `${src}: prompt page shows original text and requirements`);
     ok((src === 'database') === detail.includes('Your acceptance of R41'), `${src}: acceptance control only with the database copy`);
     const old = await render(dir + '/prompts/[id]/page', { params: Promise.resolve({ id: 'SAH-PROMPT-0004' }) });
     ok(old.includes('Tracked by headline only') && old.includes('Not kept'), `${src}: older prompt is honest about missing text`);

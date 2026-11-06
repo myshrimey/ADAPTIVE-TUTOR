@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { MathText } from '@/components/MathText';
+import { PUBLIC_CHECK_BLOCKED_TEXT } from '@adaptive-tutor/core';
 
 interface Q { id: string; prompt: string; options: string[] }
 interface Result { correct: number; total: number; byChapter: { chapter: string; correct: number; total: number }[] }
@@ -24,6 +25,7 @@ export default function CheckPage() {
     setQuestions(null);
     try {
       const res = await fetch(`/api/public/check?subject=${sub}`);
+      if (res.status === 429) { setError(PUBLIC_CHECK_BLOCKED_TEXT); return; }
       const json = await res.json();
       if (json.error) throw new Error(json.error);
       setQuestions(json.data.questions);
@@ -45,6 +47,7 @@ export default function CheckPage() {
     setError(null);
     try {
       const res = await fetch('/api/public/check', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ answers }) });
+      if (res.status === 429) { setError(PUBLIC_CHECK_BLOCKED_TEXT); return; }
       const json = await res.json();
       if (json.error) throw new Error(json.error);
       setResult(json.data);

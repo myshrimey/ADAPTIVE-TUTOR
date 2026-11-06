@@ -10,7 +10,7 @@ const R = (p: string) => readFileSync(p, 'utf8');
   // ---- bundled data is consistent
   const reg = REGISTRY;
   ok(reg.prompts.length === 9, '9 prompts'); ok(new Set(reg.prompts.map((p) => p.id)).size === 9, 'prompt ids unique');
-  ok(reg.requirements.length === 52 && new Set(reg.requirements.map((r) => r.id)).size === 52, '52 unique requirements');
+  ok(reg.requirements.length >= 52 && new Set(reg.requirements.map((r) => r.id)).size === reg.requirements.length, 'requirements are unique (at least the original 52)');
   ok(reg.tasks.length >= 37 && new Set(reg.tasks.map((t) => t.id)).size === reg.tasks.length, 'task ids are unique');
   ok([...reg.prompts, ...reg.requirements, ...reg.tasks].every((x) => isControlStatus(x.status)), 'every status is one of the allowed words');
   ok(CONTROL_STATUSES.length === 13, '13 status words (the prompt lists 13)');
@@ -30,7 +30,7 @@ const R = (p: string) => readFileSync(p, 'utf8');
   ok(reg.decisions.filter((d) => d.kind === 'waiting').length === 1 && reg.decisions.some((d) => d.id === 'FD-10') && reg.decisions.some((d) => d.id === 'FD-15'), 'decisions: only D7 waiting, FD-10 to FD-15 recorded');
   // documents and data agree
   const tracker = R('docs/sahayak-control-centre/MASTER_OBJECTIVE_TRACKER.md');
-  ok(tracker.split('\n').filter((l) => /^\| R\d\d /.test(l)).length === 52, 'tracker document lists 52 requirements');
+  ok(tracker.split('\n').filter((l) => /^\| R\d\d /.test(l)).length === reg.requirements.length, 'tracker document lists every requirement');
   ok(R('docs/sahayak-control-centre/TASK_BACKLOG.md').split('\n').filter((l) => l.startsWith('| TASK-')).length === reg.tasks.length, 'backlog document lists every task');
 
   // ---- pure rules
@@ -39,7 +39,7 @@ const R = (p: string) => readFileSync(p, 'utf8');
   ok(rollup([]).donePct === null, 'empty rollup has no percentage');
   ok(isDone('ACCEPTED BY FOUNDER') && isDone('COMPLETED') && !isDone('READY FOR TESTING') && !isDone('PARTIALLY COMPLETED'), 'what counts as done');
   const rep = resumeReport(reg);
-  ok(rep.prompts === 9 && rep.objectives === 8 && rep.requirements === 52 && rep.decisionsWaiting === reg.decisions.filter((d) => d.kind === 'waiting').length && rep.tasks === reg.tasks.length, 'resume report numbers');
+  ok(rep.prompts === 9 && rep.objectives === 8 && rep.requirements === reg.requirements.length && rep.decisionsWaiting === reg.decisions.filter((d) => d.kind === 'waiting').length && rep.tasks === reg.tasks.length, 'resume report numbers');
   ok(rep.completed === reg.requirements.filter((r) => r.status === 'COMPLETED').length, 'resume completed matches data');
   ok(rep.founderNextTask === null, 'no next task chosen in shipped data');
   ok(rep.nextUnfinishedTask === 'TASK-021' || /^TASK-\d+$/.test(rep.nextUnfinishedTask ?? ''), 'next unfinished task is a real task');
@@ -70,7 +70,7 @@ const R = (p: string) => readFileSync(p, 'utf8');
   // ---- importer and founder-owned columns
   const db: any = fakeDb({ control_prompts: [], control_objectives: [], control_requirements: [], control_tasks: [], control_decisions: [], control_executions: [], audit_logs: [] }, { defaults: { control_requirements: { founder_acceptance: 'pending' }, control_tasks: { founder_next: false }, control_prompts: { founder_priority: null } } });
   const a = await importRegistry(db, reg, 'founder@x.com');
-  ok(a.ok && a.counts!.control_requirements === 52 && a.counts!.control_tasks === reg.tasks.length && a.counts!.control_prompts === 9, 'import loads everything');
+  ok(a.ok && a.counts!.control_requirements === reg.requirements.length && a.counts!.control_tasks === reg.tasks.length && a.counts!.control_prompts === 9, 'import loads everything');
   const dump = () => JSON.stringify({ r: db.__tables?.control_requirements });
   // founder makes choices
   ok((await setNextTask(db, 'TASK-021', 'founder@x.com')).ok, 'mark next works');
@@ -84,7 +84,7 @@ const R = (p: string) => readFileSync(p, 'utf8');
   ok(loaded.prompts.find((x: any) => x.id === 'SAH-PROMPT-0009').founder_priority === 'now', 're-import keeps the founder priority');
   ok(loaded.requirements.find((x: any) => x.code === 'R41').founder_acceptance === 'accepted', 're-import keeps the founder acceptance');
   ok(loaded.requirements.find((x: any) => x.code === 'R42').text === 'changed text' && loaded.tasks.find((x: any) => x.id === 'TASK-021').status === 'IN PROGRESS', 're-import updates the text and status Claude maintains');
-  ok(loaded.requirements.length === 52 && loaded.tasks.length === reg.tasks.length, 're-import does not duplicate rows');
+  ok(loaded.requirements.length === reg.requirements.length && loaded.tasks.length === reg.tasks.length, 're-import does not duplicate rows');
   // acceptance never changes the technical status
   const before = (await loadRegistry(db) as any).requirements.find((x: any) => x.code === 'R10').status;
   await setAcceptance(db, 'SAH-PROMPT-0009', 'R10', 'accepted', 'founder@x.com');

@@ -2,7 +2,25 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v101 (2026-11-02)
+## Latest delivery - v107 (2026-11-05)
+Phone header fix (CSS only): public pages no longer scroll sideways on phones. No migration. Apply after v106: `sahayak-v107-phone-header-delta.zip`.
+
+## Previous delivery - v106 (2026-11-05)
+Pictures and screenshots can be attached to feedback (migration 0061; text feedback keeps working until it is applied). Apply after v105 (or use the combined v102-v106 zip): `npm run db:migrate`. Pictures are private, admin 'support' only; screenshots can show children's details: include in the D7 review (export, retention, any AI reading).
+
+## Previous delivery - v105 (2026-11-04)
+203 new questions for Maths (139) and Science (64, incl. 3 missing chapters), all needs_review; the question loader no longer labels unreviewed questions 'verified'. No migration. Apply after v104: `sahayak-v105-maths-science-delta.zip`, then `node packages/db/seed.js` and `node packages/db/seed-diagnostic.js`.
+
+## Previous delivery - v104 (2026-11-03)
+218 new questions (Computer Applications 75, English 63, Social Science 80), all needs_review; Computer Applications now has the official 2026-27 units. No migration. Apply after v103: `sahayak-v104-questions-delta.zip`, then `node packages/db/seed.js` and `node packages/db/seed-diagnostic.js`.
+
+## Previous delivery - v103 (2026-11-03)
+Request limit on the free readiness check (migration 0060, fails open until applied). Apply after v102: `sahayak-v103-check-limit-delta.zip`, then `npm run db:migrate`.
+
+## Previous delivery - v102 (2026-11-02)
+"Get the app" install button on every page (installable web app). No migration. Apply after v101: `sahayak-v102-install-app-delta.zip`.
+
+## Previous delivery - v101 (2026-11-02)
 Rollback notes for 0055-0059 (docs/ROLLBACK_NOTES.md, t101), round-trip tested on a scratch copy. No migration. Apply after v100: `sahayak-v101-rollback-notes-delta.zip`.
 
 ## Previous delivery - v100 (2026-11-02)

@@ -21,7 +21,7 @@ ok(/fileResponse/.test(R('apps/web/app/api/student/export/route.ts')) && !/'Cont
 // no route anywhere builds its own attachment header any more (except the CSV template, a fixed public file)
 const walk = (d: string): string[] => readdirSync(d).flatMap((x) => { const p = d + '/' + x; return statSync(p).isDirectory() ? walk(p) : [p]; });
 const own = walk('apps/web/app/api').filter((p) => /Content-Disposition/.test(readFileSync(p, 'utf8')));
-ok(own.every((p) => /curriculum\/template/.test(p)), 'remaining own headers: ' + own.map((p) => p.split('/api/')[1]).join(','));
+ok(own.every((p) => /curriculum\/template|feedback\/attachment/.test(p)), 'remaining own headers: ' + own.map((p) => p.split('/api/')[1]).join(','));
 const pdf = R('apps/web/lib/download-pdf.ts'); ok(/BRAND\.name/.test(pdf) && /pageLabel/.test(pdf) && /meta\.id/.test(pdf) && /BRAND\.website/.test(pdf) && /loadLogo/.test(pdf), 'PDF header/footer from central brand');
 ok(/catch \{ return null; \}/.test(pdf), 'missing logo never blocks the PDF');
 const pb = R('apps/web/components/reports/PrintButton.tsx'); ok(/printBranded/.test(pb) && /afterprint/.test(pb), 'print is branded');

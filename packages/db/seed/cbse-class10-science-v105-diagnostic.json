@@ -1,0 +1,1285 @@
+{
+ "subject_slug": "science",
+ "questions": [
+  {
+   "skill_slug": "sci-mendel-ratios",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Mendel carried out his famous experiments on which plant?",
+   "expected_answer": {
+    "value": "Garden pea"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Garden pea",
+    "Mango",
+    "Rose",
+    "Wheat"
+   ],
+   "explanation": "Mendel crossed varieties of the garden pea (Pisum sativum) and counted the traits in each generation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-mendel-ratios",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A pure tall pea plant (TT) is crossed with a pure dwarf plant (tt). What are the F1 plants?",
+   "expected_answer": {
+    "value": "All tall"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "All tall",
+    "All dwarf",
+    "Half tall, half dwarf",
+    "Three tall to one dwarf"
+   ],
+   "explanation": "Every F1 plant is Tt. Tallness is dominant, so all of them look tall.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-mendel-ratios",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "When F1 plants (Tt) are self-pollinated, the ratio of tall to dwarf plants in F2 is:",
+   "expected_answer": {
+    "value": "3 : 1"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "1 : 1",
+    "1 : 3",
+    "3 : 1",
+    "2 : 1"
+   ],
+   "explanation": "Tt x Tt gives TT, Tt, Tt, tt: three tall and one dwarf.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-mendel-ratios",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Out of 400 F2 plants from a Tt x Tt cross, about how many are expected to be dwarf?",
+   "expected_answer": {
+    "value": "100"
+   },
+   "misconception_tags": [
+    "APPLICATION_GAP"
+   ],
+   "options": [
+    "200",
+    "300",
+    "100",
+    "133"
+   ],
+   "explanation": "One quarter (tt) are dwarf: 400 / 4 = 100.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-mendel-ratios",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Round yellow (RRYY) pea plants are crossed with wrinkled green (rryy) plants, and the F1 plants are self-pollinated. The phenotypic ratio in F2 is:",
+   "expected_answer": {
+    "value": "9 : 3 : 3 : 1"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "3 : 1",
+    "1 : 2 : 1",
+    "9 : 3 : 3 : 1",
+    "1 : 1 : 1 : 1"
+   ],
+   "explanation": "A dihybrid cross gives four kinds of offspring in the ratio 9 : 3 : 3 : 1.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dominant-recessive",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A trait that shows up in the F1 generation when the parents have contrasting traits is called:",
+   "expected_answer": {
+    "value": "Dominant"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Recessive",
+    "Acquired",
+    "Dominant",
+    "Mutated"
+   ],
+   "explanation": "The dominant trait is expressed even when only one copy of the gene is present.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dominant-recessive",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The genetic makeup of an organism, such as Tt, is called its:",
+   "expected_answer": {
+    "value": "Genotype"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Genotype",
+    "Phenotype",
+    "Species",
+    "Habitat"
+   ],
+   "explanation": "Genotype is the pair of genes; phenotype is the visible trait.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dominant-recessive",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A plant with genotype Tt looks tall. Its phenotype is:",
+   "expected_answer": {
+    "value": "Tall"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Tt",
+    "Tall",
+    "Dwarf",
+    "Hybrid seed"
+   ],
+   "explanation": "The phenotype is what you can see: tall.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dominant-recessive",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which cross gives tall and dwarf offspring in a 1 : 1 ratio?",
+   "expected_answer": {
+    "value": "Tt x tt"
+   },
+   "misconception_tags": [
+    "APPLICATION_GAP"
+   ],
+   "options": [
+    "TT x tt",
+    "Tt x Tt",
+    "Tt x tt",
+    "TT x Tt"
+   ],
+   "explanation": "Half the offspring get T from the Tt parent (tall Tt), half get t (dwarf tt).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dominant-recessive",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A trait that is acquired during a person's life, such as a cut tail in rats, is:",
+   "expected_answer": {
+    "value": "Not passed on to the next generation"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Always passed on",
+    "Not passed on to the next generation",
+    "Passed on as a dominant trait",
+    "Passed on as a recessive trait"
+   ],
+   "explanation": "Only changes in the DNA of reproductive cells are inherited. Acquired traits are not.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-sex-determination",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "How many pairs of chromosomes does a normal human cell have?",
+   "expected_answer": {
+    "value": "23"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "22",
+    "46 pairs",
+    "23",
+    "12"
+   ],
+   "explanation": "Humans have 23 pairs (46 chromosomes): 22 pairs of autosomes and one pair of sex chromosomes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-sex-determination",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which pair of sex chromosomes does a human female have?",
+   "expected_answer": {
+    "value": "XX"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "XY",
+    "XX",
+    "YY",
+    "XO"
+   ],
+   "explanation": "Females have two X chromosomes, males have one X and one Y.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-sex-determination",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The sex of a human child is decided by the chromosome contributed by:",
+   "expected_answer": {
+    "value": "The father"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The mother",
+    "Both equally",
+    "The doctor",
+    "The father"
+   ],
+   "explanation": "Every egg carries X. A sperm carries either X (girl) or Y (boy).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-sex-determination",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is the chance that a couple's child is a boy?",
+   "expected_answer": {
+    "value": "50 per cent"
+   },
+   "misconception_tags": [
+    "APPLICATION_GAP"
+   ],
+   "options": [
+    "25 per cent",
+    "75 per cent",
+    "50 per cent",
+    "100 per cent"
+   ],
+   "explanation": "Half the sperms carry Y and half carry X, so each child has an equal chance.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-sex-determination",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A sperm carrying a Y chromosome fertilises an egg. The child will be:",
+   "expected_answer": {
+    "value": "A boy"
+   },
+   "misconception_tags": [
+    "APPLICATION_GAP"
+   ],
+   "options": [
+    "A girl",
+    "Sex cannot be known",
+    "Either, decided later",
+    "A boy"
+   ],
+   "explanation": "Egg X + sperm Y gives XY, which is male.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-eye-parts",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which part of the human eye controls the amount of light entering it?",
+   "expected_answer": {
+    "value": "Iris"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Iris",
+    "Retina",
+    "Cornea",
+    "Optic nerve"
+   ],
+   "explanation": "The iris changes the size of the pupil to control the light.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-eye-parts",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Where is the image formed in a normal human eye?",
+   "expected_answer": {
+    "value": "On the retina"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "On the lens",
+    "On the retina",
+    "On the cornea",
+    "On the iris"
+   ],
+   "explanation": "The retina has light-sensitive cells that send signals to the brain along the optic nerve.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-eye-parts",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Most of the bending (refraction) of light entering the eye happens at the:",
+   "expected_answer": {
+    "value": "Outer surface of the cornea"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Retina",
+    "Iris",
+    "Outer surface of the cornea",
+    "Optic nerve"
+   ],
+   "explanation": "The cornea does most of the refraction. The lens adjusts it finely.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-eye-parts",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The ability of the eye lens to change its focal length to see near and far objects is called:",
+   "expected_answer": {
+    "value": "Accommodation"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Dispersion",
+    "Scattering",
+    "Accommodation",
+    "Reflection"
+   ],
+   "explanation": "Ciliary muscles change the curvature of the lens.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-eye-parts",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "When we look at a NEAR object, the ciliary muscles:",
+   "expected_answer": {
+    "value": "Contract, making the lens thicker"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Relax, making the lens thinner",
+    "Stay unchanged",
+    "Move the retina forward",
+    "Contract, making the lens thicker"
+   ],
+   "explanation": "A thicker lens has a shorter focal length, needed to focus nearby objects.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-vision-defects",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A person who can see nearby objects clearly but not distant ones has:",
+   "expected_answer": {
+    "value": "Myopia (near-sightedness)"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Hypermetropia",
+    "Cataract",
+    "Myopia (near-sightedness)",
+    "Colour blindness"
+   ],
+   "explanation": "In myopia the image forms in front of the retina.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-vision-defects",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Myopia is corrected by using a:",
+   "expected_answer": {
+    "value": "Concave lens"
+   },
+   "misconception_tags": [
+    "APPLICATION_GAP"
+   ],
+   "options": [
+    "Convex lens",
+    "Concave lens",
+    "Plane mirror",
+    "Prism"
+   ],
+   "explanation": "A concave (diverging) lens moves the image back onto the retina.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-vision-defects",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Hypermetropia (far-sightedness) is corrected by using a:",
+   "expected_answer": {
+    "value": "Convex lens"
+   },
+   "misconception_tags": [
+    "APPLICATION_GAP"
+   ],
+   "options": [
+    "Convex lens",
+    "Concave lens",
+    "Plane mirror",
+    "Cylindrical prism only"
+   ],
+   "explanation": "A convex (converging) lens brings the image forward onto the retina.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-vision-defects",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The near point of a normal human eye is about:",
+   "expected_answer": {
+    "value": "25 cm"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "2.5 cm",
+    "250 cm",
+    "Infinity",
+    "25 cm"
+   ],
+   "explanation": "The least distance of distinct vision is about 25 cm.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-vision-defects",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cloudiness of the eye lens, common in old age, that can be removed by surgery is called:",
+   "expected_answer": {
+    "value": "Cataract"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Myopia",
+    "Hypermetropia",
+    "Presbyopia",
+    "Cataract"
+   ],
+   "explanation": "Cataract makes vision blurred and is treated by replacing the lens.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dispersion-scattering",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Splitting of white light into its seven colours by a prism is called:",
+   "expected_answer": {
+    "value": "Dispersion"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Reflection",
+    "Scattering",
+    "Dispersion",
+    "Diffraction of sound"
+   ],
+   "explanation": "Different colours bend by different amounts, so they spread out.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dispersion-scattering",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which colour bends the LEAST when white light passes through a glass prism?",
+   "expected_answer": {
+    "value": "Red"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Red",
+    "Violet",
+    "Blue",
+    "Green"
+   ],
+   "explanation": "Red has the longest wavelength and bends least; violet bends most.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dispersion-scattering",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The sky looks blue mainly because:",
+   "expected_answer": {
+    "value": "Air molecules scatter blue light more than red"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The sea reflects its colour",
+    "Air molecules scatter blue light more than red",
+    "Blue light is made by the Sun alone",
+    "Red light is absorbed by clouds"
+   ],
+   "explanation": "Shorter wavelengths (blue) are scattered more strongly by the very small particles in air.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dispersion-scattering",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Sun appears reddish at sunrise and sunset because:",
+   "expected_answer": {
+    "value": "Light travels a longer path and most blue light is scattered away"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Light travels a longer path and most blue light is scattered away",
+    "The Sun cools down",
+    "The Earth tilts",
+    "Red light is made at the horizon"
+   ],
+   "explanation": "Near the horizon sunlight crosses more air, so only the less scattered red part reaches us.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dispersion-scattering",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A rainbow is formed by:",
+   "expected_answer": {
+    "value": "Dispersion, refraction and internal reflection of sunlight in water droplets"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Dispersion, refraction and internal reflection of sunlight in water droplets",
+    "Scattering of sunlight by dust only",
+    "Reflection from clouds",
+    "Diffraction around mountains"
+   ],
+   "explanation": "Droplets act like tiny prisms. You must have the Sun behind you.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-food-chain-energy",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In a food chain, green plants are called:",
+   "expected_answer": {
+    "value": "Producers"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Producers",
+    "Consumers",
+    "Decomposers",
+    "Carnivores"
+   ],
+   "explanation": "Producers make their own food by photosynthesis.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-food-chain-energy",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "According to the 10 per cent law, how much of the energy at one trophic level passes to the next?",
+   "expected_answer": {
+    "value": "About 10 per cent"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "About 90 per cent",
+    "All of it",
+    "About 10 per cent",
+    "About 50 per cent"
+   ],
+   "explanation": "The rest is lost as heat or used in life processes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-food-chain-energy",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In the chain grass -> grasshopper -> frog -> snake -> hawk, the hawk is a:",
+   "expected_answer": {
+    "value": "Top (tertiary) consumer"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Producer",
+    "Primary consumer",
+    "Decomposer",
+    "Top (tertiary) consumer"
+   ],
+   "explanation": "It sits at the highest level of this chain; the grasshopper is the primary consumer.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-food-chain-energy",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "If the grass in a chain holds 10000 J of energy, about how much reaches the third trophic level (grass -> deer -> lion)?",
+   "expected_answer": {
+    "value": "100 J"
+   },
+   "misconception_tags": [
+    "APPLICATION_GAP"
+   ],
+   "options": [
+    "1000 J",
+    "10 J",
+    "5000 J",
+    "100 J"
+   ],
+   "explanation": "10000 -> 1000 J in the deer -> 100 J in the lion.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-food-chain-energy",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why are food chains usually short, with 3 or 4 steps?",
+   "expected_answer": {
+    "value": "Energy is lost at each step, so little is left for higher levels"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Animals do not like to eat each other",
+    "Sunlight is too weak",
+    "Predators die quickly",
+    "Energy is lost at each step, so little is left for higher levels"
+   ],
+   "explanation": "Only about 10 per cent is passed on, so very long chains would run out of energy.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-ozone-waste",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "The ozone layer protects living things from:",
+   "expected_answer": {
+    "value": "Harmful ultraviolet rays of the Sun"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Rain",
+    "Harmful ultraviolet rays of the Sun",
+    "Infrared heat",
+    "Sound waves"
+   ],
+   "explanation": "Ozone absorbs most of the harmful UV radiation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-ozone-waste",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which chemicals used in refrigerators and aerosol sprays damage the ozone layer?",
+   "expected_answer": {
+    "value": "Chlorofluorocarbons (CFCs)"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Carbon dioxide",
+    "Nitrogen",
+    "Methane only",
+    "Chlorofluorocarbons (CFCs)"
+   ],
+   "explanation": "CFCs release chlorine in the upper atmosphere, which breaks down ozone.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-ozone-waste",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is a biodegradable waste?",
+   "expected_answer": {
+    "value": "Vegetable peels"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Plastic bags",
+    "Glass bottles",
+    "Aluminium cans",
+    "Vegetable peels"
+   ],
+   "explanation": "Biodegradable wastes are broken down by bacteria and fungi.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-ozone-waste",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is non-biodegradable?",
+   "expected_answer": {
+    "value": "Polythene"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Cotton cloth",
+    "Paper",
+    "Cow dung",
+    "Polythene"
+   ],
+   "explanation": "Plastics stay in the environment for a very long time.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-ozone-waste",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Harmful chemicals such as pesticides build up to the highest level in the bodies of:",
+   "expected_answer": {
+    "value": "Top carnivores in the food chain"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Top carnivores in the food chain",
+    "Producers",
+    "Herbivores",
+    "Decomposers"
+   ],
+   "explanation": "This is biological magnification: the concentration rises at each higher level.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-respiration-types",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In which part of the cell does aerobic respiration release most of its energy?",
+   "expected_answer": {
+    "value": "Mitochondria"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Nucleus",
+    "Ribosome",
+    "Cell wall",
+    "Mitochondria"
+   ],
+   "explanation": "Mitochondria are called the powerhouses of the cell.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-respiration-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "When muscles work hard and oxygen is short, glucose is broken down to:",
+   "expected_answer": {
+    "value": "Lactic acid"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Ethanol",
+    "Lactic acid",
+    "Carbon dioxide only",
+    "Water only"
+   ],
+   "explanation": "Lactic acid build-up causes cramps.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-respiration-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The first step of breaking down glucose into pyruvate occurs in the:",
+   "expected_answer": {
+    "value": "Cytoplasm"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Mitochondria",
+    "Nucleus",
+    "Cytoplasm",
+    "Chloroplast"
+   ],
+   "explanation": "It happens in the cytoplasm in all organisms. What follows depends on whether oxygen is available.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-respiration-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which statement about aerobic and anaerobic respiration is correct?",
+   "expected_answer": {
+    "value": "Aerobic releases more energy per glucose than anaerobic"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Anaerobic releases more energy",
+    "Aerobic releases more energy per glucose than anaerobic",
+    "They release equal energy",
+    "Anaerobic needs oxygen"
+   ],
+   "explanation": "Complete breakdown with oxygen releases far more energy.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-respiration-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which pair shows the products of anaerobic respiration in yeast?",
+   "expected_answer": {
+    "value": "Ethanol and carbon dioxide"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Lactic acid and water",
+    "Water and carbon dioxide",
+    "Glucose and oxygen",
+    "Ethanol and carbon dioxide"
+   ],
+   "explanation": "Yeast ferments sugar to ethanol and carbon dioxide, which makes dough rise.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-reflex-action-pathway",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "The pathway of a reflex action from receptor to effector is called a:",
+   "expected_answer": {
+    "value": "Reflex arc"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Nerve cell",
+    "Reflex arc",
+    "Brain wave",
+    "Synapse"
+   ],
+   "explanation": "Receptor, sensory neuron, spinal cord, motor neuron, effector.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-reflex-action-pathway",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is the correct order for a reflex arc?",
+   "expected_answer": {
+    "value": "Receptor, sensory neuron, spinal cord, motor neuron, effector"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Effector, motor neuron, spinal cord, receptor",
+    "Receptor, brain, effector",
+    "Spinal cord, receptor, effector",
+    "Receptor, sensory neuron, spinal cord, motor neuron, effector"
+   ],
+   "explanation": "Information goes in through the sensory neuron and out through the motor neuron.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-reflex-action-pathway",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The gap between two neurons where the impulse passes by a chemical is called a:",
+   "expected_answer": {
+    "value": "Synapse"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Axon",
+    "Dendrite",
+    "Myelin",
+    "Synapse"
+   ],
+   "explanation": "Chemicals cross the synapse to start an impulse in the next neuron.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-reflex-action-pathway",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is a reflex action?",
+   "expected_answer": {
+    "value": "Pulling the hand away from a hot object"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Pulling the hand away from a hot object",
+    "Reciting a poem",
+    "Riding a bicycle",
+    "Writing an exam"
+   ],
+   "explanation": "Reflexes are quick, automatic responses.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-reflex-action-pathway",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In many reflexes the response is quick because the signal:",
+   "expected_answer": {
+    "value": "Goes through the spinal cord without waiting for the brain"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Is slowed by the heart",
+    "Goes only through the stomach",
+    "Is chosen by thinking",
+    "Goes through the spinal cord without waiting for the brain"
+   ],
+   "explanation": "Taking the shorter spinal-cord pathway saves time.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-plant-hormone-response",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which plant hormone helps cells grow longer and makes shoots bend towards light?",
+   "expected_answer": {
+    "value": "Auxin"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Abscisic acid",
+    "Auxin",
+    "Cytokinin",
+    "Ethylene"
+   ],
+   "explanation": "Auxin collects on the shaded side, making those cells longer.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-plant-hormone-response",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which plant hormone helps fruits ripen?",
+   "expected_answer": {
+    "value": "Ethylene"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Auxin",
+    "Gibberellin",
+    "Cytokinin",
+    "Ethylene"
+   ],
+   "explanation": "Ethylene is a gaseous hormone that speeds up ripening.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-plant-hormone-response",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which hormone promotes cell division, for example in fruits and seeds?",
+   "expected_answer": {
+    "value": "Cytokinin"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Cytokinin",
+    "Abscisic acid",
+    "Auxin only",
+    "Ethylene"
+   ],
+   "explanation": "Cytokinin is found in areas of rapid division.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-plant-hormone-response",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which hormone inhibits growth and causes wilting of leaves?",
+   "expected_answer": {
+    "value": "Abscisic acid"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Gibberellin",
+    "Auxin",
+    "Cytokinin",
+    "Abscisic acid"
+   ],
+   "explanation": "Abscisic acid slows growth and helps plants deal with stress.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-plant-hormone-response",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which hormone helps the stem to grow longer?",
+   "expected_answer": {
+    "value": "Gibberellin"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Abscisic acid",
+    "Gibberellin",
+    "Ethylene",
+    "Insulin"
+   ],
+   "explanation": "Gibberellins help stem growth and seed germination.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-plant-hormone-response",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The growth of roots downwards towards gravity is called:",
+   "expected_answer": {
+    "value": "Geotropism"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Phototropism",
+    "Hydrotropism",
+    "Chemotropism",
+    "Geotropism"
+   ],
+   "explanation": "Roots show positive geotropism.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-covalent-bonding",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A covalent bond is formed by:",
+   "expected_answer": {
+    "value": "Sharing of electrons"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Transfer of electrons",
+    "Loss of protons",
+    "Sharing of electrons",
+    "Melting of atoms"
+   ],
+   "explanation": "Atoms of non-metals share electrons to complete their outer shells.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-covalent-bonding",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "How many electrons are shared in a double bond?",
+   "expected_answer": {
+    "value": "4 (two pairs)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "2",
+    "4 (two pairs)",
+    "6",
+    "1"
+   ],
+   "explanation": "A double bond has two shared pairs; a triple bond has three.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-covalent-bonding",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which molecule has a triple bond?",
+   "expected_answer": {
+    "value": "Nitrogen (N2)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Hydrogen (H2)",
+    "Oxygen (O2)",
+    "Chlorine (Cl2)",
+    "Nitrogen (N2)"
+   ],
+   "explanation": "Each nitrogen needs three more electrons, so they share three pairs.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-covalent-bonding",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Compared with ionic compounds, covalent compounds usually have:",
+   "expected_answer": {
+    "value": "Lower melting and boiling points"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Higher melting points",
+    "Lower melting and boiling points",
+    "Good electrical conduction",
+    "No bonds"
+   ],
+   "explanation": "The forces between covalent molecules are weak.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-right-hand-thumb-rule",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In the right-hand thumb rule for a straight wire, the thumb shows the direction of:",
+   "expected_answer": {
+    "value": "Current"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Magnetic field",
+    "Force",
+    "Resistance",
+    "Current"
+   ],
+   "explanation": "The curled fingers then show the direction of the magnetic field lines.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-right-hand-thumb-rule",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The magnetic field lines around a straight current-carrying wire are:",
+   "expected_answer": {
+    "value": "Concentric circles around the wire"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Concentric circles around the wire",
+    "Straight lines parallel to the wire",
+    "Straight lines away from the wire",
+    "Absent"
+   ],
+   "explanation": "Their direction follows the right-hand thumb rule.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-right-hand-thumb-rule",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "If the current in a straight wire is reversed, the magnetic field:",
+   "expected_answer": {
+    "value": "Reverses its direction"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Stays the same",
+    "Disappears",
+    "Doubles",
+    "Reverses its direction"
+   ],
+   "explanation": "Direction of the field depends on the direction of the current.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-right-hand-thumb-rule",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "As you move away from a straight current-carrying wire, the magnetic field strength:",
+   "expected_answer": {
+    "value": "Decreases"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Increases",
+    "Decreases",
+    "Stays constant",
+    "Becomes zero at once"
+   ],
+   "explanation": "Field lines get farther apart as the distance from the wire increases.",
+   "content_status": "needs_review"
+  }
+ ]
+}

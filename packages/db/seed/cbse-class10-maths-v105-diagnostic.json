@@ -1,0 +1,2060 @@
+{
+ "subject_slug": "maths",
+ "questions": [
+  {
+   "skill_slug": "euclid-hcf",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Use Euclid's division algorithm to find the HCF of 210 and 192.",
+   "expected_answer": {
+    "value": "6"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "Divide repeatedly until the remainder is 0; the last divisor is the HCF. HCF(210, 192) = 6.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "euclid-hcf",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Use Euclid's division algorithm to find the HCF of 637 and 169.",
+   "expected_answer": {
+    "value": "13"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "Divide repeatedly until the remainder is 0; the last divisor is the HCF. HCF(637, 169) = 13.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "euclid-hcf",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Use Euclid's division algorithm to find the HCF of 164 and 144.",
+   "expected_answer": {
+    "value": "4"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "Divide repeatedly until the remainder is 0; the last divisor is the HCF. HCF(164, 144) = 4.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "euclid-hcf",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Euclid's division lemma says a = bq + r. If a = 34 and b = 3, find r.",
+   "expected_answer": {
+    "value": "1"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "34 = 3 x 11 + 1, so r = 1.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "euclid-hcf",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Euclid's division lemma says a = bq + r. If a = 116 and b = 9, find r.",
+   "expected_answer": {
+    "value": "8"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "116 = 9 x 12 + 8, so r = 8.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "euclid-hcf",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Euclid's division lemma says a = bq + r. If a = 63 and b = 8, find r.",
+   "expected_answer": {
+    "value": "7"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "63 = 8 x 7 + 7, so r = 7.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "prime-factorisation",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "How many DIFFERENT prime numbers divide 140?",
+   "expected_answer": {
+    "value": "3"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "explanation": "140 = 2^2 x 5^1 x 7^1, so 3 distinct primes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "prime-factorisation",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "How many DIFFERENT prime numbers divide 148225?",
+   "expected_answer": {
+    "value": "3"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "explanation": "148225 = 5^2 x 7^2 x 11^2, so 3 distinct primes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "prime-factorisation",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "How many DIFFERENT prime numbers divide 825?",
+   "expected_answer": {
+    "value": "3"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "explanation": "825 = 5^2 x 3^1 x 11^1, so 3 distinct primes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hcf-lcm-prime-factorisation",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "The HCF of two numbers is 9 and their LCM is 198. If one number is 99, find the other.",
+   "expected_answer": {
+    "value": "18"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "HCF x LCM = product of the numbers, so the other = 9 x 198 / 99 = 18.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hcf-lcm-prime-factorisation",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "The HCF of two numbers is 7 and their LCM is 630. If one number is 70, find the other.",
+   "expected_answer": {
+    "value": "63"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "HCF x LCM = product of the numbers, so the other = 7 x 630 / 70 = 63.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hcf-lcm-prime-factorisation",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "The HCF of two numbers is 8 and their LCM is 440. If one number is 40, find the other.",
+   "expected_answer": {
+    "value": "88"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "HCF x LCM = product of the numbers, so the other = 8 x 440 / 40 = 88.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "prove-irrationality",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these numbers is irrational? Options are: √36, √2, 2.5, √49.",
+   "expected_answer": {
+    "value": "√2"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "explanation": "√2 is not the square root of a perfect square, so it is irrational. The others are rational (perfect-square roots or terminating decimals or fractions).",
+   "content_status": "needs_review",
+   "options": [
+    "√36",
+    "√2",
+    "2.5",
+    "√49"
+   ]
+  },
+  {
+   "skill_slug": "prove-irrationality",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which one of the following is NOT a rational number? Options are: √11, 0.25, √4, √49.",
+   "expected_answer": {
+    "value": "√11"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "explanation": "√11 is not the square root of a perfect square, so it is irrational. The others are rational (perfect-square roots or terminating decimals or fractions).",
+   "content_status": "needs_review",
+   "options": [
+    "√11",
+    "0.25",
+    "√4",
+    "√49"
+   ]
+  },
+  {
+   "skill_slug": "prove-irrationality",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Identify the irrational number among the options. Options are: √49, √64, √5, 0.25.",
+   "expected_answer": {
+    "value": "√5"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "explanation": "√5 is not the square root of a perfect square, so it is irrational. The others are rational (perfect-square roots or terminating decimals or fractions).",
+   "content_status": "needs_review",
+   "options": [
+    "√49",
+    "√64",
+    "√5",
+    "0.25"
+   ]
+  },
+  {
+   "skill_slug": "evaluate-polynomial",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "If p(x) = x^2 - 4x - 7, find p(2).",
+   "expected_answer": {
+    "value": "-11"
+   },
+   "misconception_tags": [
+    "SIGN_ERROR",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "Put x = 2: p(2) = -11.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-polynomial",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "If p(x) = 3x^2 + 4x + 4, find p(0).",
+   "expected_answer": {
+    "value": "4"
+   },
+   "misconception_tags": [
+    "SIGN_ERROR",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "Put x = 0: p(0) = 4.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-polynomial",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "If p(x) = 4x^2 - 3x - 4, find p(-2).",
+   "expected_answer": {
+    "value": "18"
+   },
+   "misconception_tags": [
+    "SIGN_ERROR",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "Put x = -2: p(-2) = 18.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-zeroes-quadratic",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "The zeroes of p(x) = x^2 - 2x - 8 are -2 and 4. What is their SUM?",
+   "expected_answer": {
+    "value": "2"
+   },
+   "misconception_tags": [
+    "SIGN_ERROR"
+   ],
+   "explanation": "Sum = -2 + (4) = 2.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-zeroes-quadratic",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "The zeroes of p(x) = x^2 - 13x + 42 are 6 and 7. What is their SUM?",
+   "expected_answer": {
+    "value": "13"
+   },
+   "misconception_tags": [
+    "SIGN_ERROR"
+   ],
+   "explanation": "Sum = 6 + (7) = 13.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-zeroes-quadratic",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "The zeroes of p(x) = x^2 - x - 12 are -3 and 4. What is their SUM?",
+   "expected_answer": {
+    "value": "1"
+   },
+   "misconception_tags": [
+    "SIGN_ERROR"
+   ],
+   "explanation": "Sum = -3 + (4) = 1.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "zeroes-graph-relation",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "If α and β are the zeroes of x^2 + (-1)x + (-6), find α^2 + β^2.",
+   "expected_answer": {
+    "value": "13"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "SIGN_ERROR"
+   ],
+   "explanation": "α + β = 1, αβ = -6. α^2 + β^2 = (1)^2 - 2(-6) = 13.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "zeroes-graph-relation",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "If α and β are the zeroes of x^2 + (4)x + (8), find α^2 + β^2.",
+   "expected_answer": {
+    "value": "0"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "SIGN_ERROR"
+   ],
+   "explanation": "α + β = -4, αβ = 8. α^2 + β^2 = (-4)^2 - 2(8) = 0.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "zeroes-graph-relation",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "If α and β are the zeroes of x^2 + (-6)x + (4), find α^2 + β^2.",
+   "expected_answer": {
+    "value": "28"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "SIGN_ERROR"
+   ],
+   "explanation": "α + β = 6, αβ = 4. α^2 + β^2 = (6)^2 - 2(4) = 28.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "form-quadratic-from-zeroes",
+   "difficulty": 4,
+   "question_type": "short_answer",
+   "prompt": "Write a quadratic polynomial whose zeroes are 5 and -6, with leading coefficient 1.",
+   "expected_answer": {
+    "value": "x^2 + x - 30"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "SIGN_ERROR"
+   ],
+   "explanation": "x^2 - (sum)x + product, with sum = -1 and product = -30.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "form-quadratic-from-zeroes",
+   "difficulty": 4,
+   "question_type": "short_answer",
+   "prompt": "Write a quadratic polynomial whose zeroes are 2 and 3, with leading coefficient 1.",
+   "expected_answer": {
+    "value": "x^2 - 5x + 6"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "SIGN_ERROR"
+   ],
+   "explanation": "x^2 - (sum)x + product, with sum = 5 and product = 6.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "form-quadratic-from-zeroes",
+   "difficulty": 4,
+   "question_type": "short_answer",
+   "prompt": "Write a quadratic polynomial whose zeroes are 1 and 2, with leading coefficient 1.",
+   "expected_answer": {
+    "value": "x^2 - 3x + 2"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "SIGN_ERROR"
+   ],
+   "explanation": "x^2 - (sum)x + product, with sum = 3 and product = 2.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "divide-polynomials",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Find the remainder when x^3 + 5x^2 - 2x - 6 is divided by (x - 3).",
+   "expected_answer": {
+    "value": "60"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "SIGN_ERROR"
+   ],
+   "explanation": "Remainder theorem: remainder = p(3) = 60.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "divide-polynomials",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Find the remainder when x^3 + x^2 + 5x + 5 is divided by (x + 3).",
+   "expected_answer": {
+    "value": "-28"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "SIGN_ERROR"
+   ],
+   "explanation": "Remainder theorem: remainder = p(-3) = -28.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "divide-polynomials",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Find the remainder when x^3 - 3x^2 + 5x - 4 is divided by (x + 3).",
+   "expected_answer": {
+    "value": "-73"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "SIGN_ERROR"
+   ],
+   "explanation": "Remainder theorem: remainder = p(-3) = -73.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-by-elimination",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Solve by elimination: 1x + 4y = 0 and 2x + 1y = 7. Find the value of x + y.",
+   "expected_answer": {
+    "value": "3"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR",
+    "SIGN_ERROR"
+   ],
+   "explanation": "x = 4, y = -1, so x + y = 3.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-by-elimination",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Solve by elimination: 3x + 2y = 1 and 1x + 2y = -1. Find the value of x + y.",
+   "expected_answer": {
+    "value": "0"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR",
+    "SIGN_ERROR"
+   ],
+   "explanation": "x = 1, y = -1, so x + y = 0.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-by-elimination",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Solve by elimination: 1x + 3y = -16 and 5x + 4y = -25. Find the value of x + y.",
+   "expected_answer": {
+    "value": "-6"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR",
+    "SIGN_ERROR"
+   ],
+   "explanation": "x = -1, y = -5, so x + y = -6.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-by-elimination",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "If x + y = 13 and x - y = 3, find x.",
+   "expected_answer": {
+    "value": "8"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "Add the equations: 2x = 16, so x = 8.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-by-elimination",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "If x + y = 11 and x - y = 5, find x.",
+   "expected_answer": {
+    "value": "8"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "Add the equations: 2x = 16, so x = 8.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-by-elimination",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "If x + y = 10 and x - y = -6, find x.",
+   "expected_answer": {
+    "value": "2"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "Add the equations: 2x = 4, so x = 2.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "interpret-line-relationships",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "For what value of k do the lines 5x + 4y = 7 and kx + 8y = 18 have NO solution (are parallel)?",
+   "expected_answer": {
+    "value": "10"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Parallel lines need k/5 = 8/4 and the constants not in the same ratio. So k = 5 x 2 = 10.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "interpret-line-relationships",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "For what value of k do the lines 2x + 2y = 6 and kx + 6y = 21 have NO solution (are parallel)?",
+   "expected_answer": {
+    "value": "6"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Parallel lines need k/2 = 6/2 and the constants not in the same ratio. So k = 2 x 3 = 6.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "interpret-line-relationships",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "For what value of k do the lines 3x + 4y = 10 and kx + 16y = 43 have NO solution (are parallel)?",
+   "expected_answer": {
+    "value": "12"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Parallel lines need k/3 = 16/4 and the constants not in the same ratio. So k = 3 x 4 = 12.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "discriminant-nature-of-roots",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the discriminant of 3x^2 - 3x + 4 = 0.",
+   "expected_answer": {
+    "value": "-39"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "SIGN_ERROR"
+   ],
+   "explanation": "D = b^2 - 4ac = (-3)^2 - 4(3)(4) = -39.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "discriminant-nature-of-roots",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the discriminant of x^2 - 6x - 5 = 0.",
+   "expected_answer": {
+    "value": "56"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "SIGN_ERROR"
+   ],
+   "explanation": "D = b^2 - 4ac = (-6)^2 - 4(1)(-5) = 56.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "discriminant-nature-of-roots",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the discriminant of 2x^2 - x = 0.",
+   "expected_answer": {
+    "value": "1"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "SIGN_ERROR"
+   ],
+   "explanation": "D = b^2 - 4ac = (-1)^2 - 4(2)(0) = 1.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "discriminant-nature-of-roots",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Find the POSITIVE value of k for which x^2 + kx + 1 = 0 has two equal roots.",
+   "expected_answer": {
+    "value": "2"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Equal roots need D = 0: k^2 - 4(1) = 0, so k = 2 (positive).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "discriminant-nature-of-roots",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Find the POSITIVE value of k for which x^2 + kx + 4 = 0 has two equal roots.",
+   "expected_answer": {
+    "value": "4"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Equal roots need D = 0: k^2 - 4(4) = 0, so k = 4 (positive).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "discriminant-nature-of-roots",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Find the POSITIVE value of k for which x^2 + kx + 9 = 0 has two equal roots.",
+   "expected_answer": {
+    "value": "6"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Equal roots need D = 0: k^2 - 4(9) = 0, so k = 6 (positive).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-quadratic-by-factorisation",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Solve x^2 - 6x = 0 and give the LARGER root.",
+   "expected_answer": {
+    "value": "6"
+   },
+   "misconception_tags": [
+    "SIGN_ERROR",
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "Factorise: (x - 0)(x - 6) = 0, so the roots are 0 and 6. The larger is 6.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-quadratic-by-factorisation",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Solve x^2 + 6x + 8 = 0 and give the LARGER root.",
+   "expected_answer": {
+    "value": "-2"
+   },
+   "misconception_tags": [
+    "SIGN_ERROR",
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "Factorise: (x - -4)(x - -2) = 0, so the roots are -4 and -2. The larger is -2.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-quadratic-by-factorisation",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Solve x^2 - x - 42 = 0 and give the LARGER root.",
+   "expected_answer": {
+    "value": "7"
+   },
+   "misconception_tags": [
+    "SIGN_ERROR",
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "Factorise: (x - -6)(x - 7) = 0, so the roots are -6 and 7. The larger is 7.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "formulate-quadratic-word-problem",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "The product of two consecutive positive integers is 110. Find the smaller integer.",
+   "expected_answer": {
+    "value": "10"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "x(x + 1) = 110 gives x^2 + x - 110 = 0, so x = 10 (the positive root).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "formulate-quadratic-word-problem",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "The product of two consecutive positive integers is 272. Find the smaller integer.",
+   "expected_answer": {
+    "value": "16"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "x(x + 1) = 272 gives x^2 + x - 272 = 0, so x = 16 (the positive root).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "formulate-quadratic-word-problem",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "The product of two consecutive positive integers is 380. Find the smaller integer.",
+   "expected_answer": {
+    "value": "19"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "x(x + 1) = 380 gives x^2 + x - 380 = 0, so x = 19 (the positive root).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-nth-term-ap",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the 6th term of the AP 2, 9, 16, ...",
+   "expected_answer": {
+    "value": "37"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "a_n = a + (n - 1)d = 2 + 5 x 7 = 37.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-nth-term-ap",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the 10th term of the AP 4, 11, 18, ...",
+   "expected_answer": {
+    "value": "67"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "a_n = a + (n - 1)d = 4 + 9 x 7 = 67.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-nth-term-ap",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the 8th term of the AP -1, 4, 9, ...",
+   "expected_answer": {
+    "value": "34"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "a_n = a + (n - 1)d = -1 + 7 x 5 = 34.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-nth-term-ap",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Which term of the AP 3, 6, 9, ... is 87?",
+   "expected_answer": {
+    "value": "29"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "87 = 3 + (n - 1) x 3, so n = 29.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-nth-term-ap",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Which term of the AP 4, 10, 16, ... is 112?",
+   "expected_answer": {
+    "value": "19"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "112 = 4 + (n - 1) x 6, so n = 19.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-nth-term-ap",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Which term of the AP 2, 7, 12, ... is 57?",
+   "expected_answer": {
+    "value": "12"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "57 = 2 + (n - 1) x 5, so n = 12.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sum-first-n-terms-ap",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "The 3rd term of an AP is 5 and the 7th term is 9. Find the sum of its first 10 terms.",
+   "expected_answer": {
+    "value": "75"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "a + 2d = 5, a + 6d = 9 give d = 1, a = 3. S_10 = 10/2 [2(3) + 9(1)] = 75.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sum-first-n-terms-ap",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "The 3rd term of an AP is 11 and the 7th term is 23. Find the sum of its first 18 terms.",
+   "expected_answer": {
+    "value": "549"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "a + 2d = 11, a + 6d = 23 give d = 3, a = 5. S_18 = 18/2 [2(5) + 17(3)] = 549.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sum-first-n-terms-ap",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "The 3rd term of an AP is 13 and the 7th term is 29. Find the sum of its first 20 terms.",
+   "expected_answer": {
+    "value": "860"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "a + 2d = 13, a + 6d = 29 give d = 4, a = 5. S_20 = 20/2 [2(5) + 19(4)] = 860.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-pythagoras-theorem",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "The two legs of a right triangle are 6 cm and 8 cm. Find the hypotenuse in cm.",
+   "expected_answer": {
+    "value": "10"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Hypotenuse = sqrt(36 + 64) = 10.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-pythagoras-theorem",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "The two legs of a right triangle are 5 cm and 12 cm. Find the hypotenuse in cm.",
+   "expected_answer": {
+    "value": "13"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Hypotenuse = sqrt(25 + 144) = 13.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-pythagoras-theorem",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "The two legs of a right triangle are 20 cm and 21 cm. Find the hypotenuse in cm.",
+   "expected_answer": {
+    "value": "29"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Hypotenuse = sqrt(400 + 441) = 29.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-pythagoras-theorem",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "A ladder 10 m long reaches a window 8 m above the ground. How far (in m) is the foot of the ladder from the wall?",
+   "expected_answer": {
+    "value": "6"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "Base = sqrt(10^2 - 8^2) = 6 m.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-pythagoras-theorem",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "A ladder 51 m long reaches a window 45 m above the ground. How far (in m) is the foot of the ladder from the wall?",
+   "expected_answer": {
+    "value": "24"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "Base = sqrt(51^2 - 45^2) = 24 m.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-pythagoras-theorem",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "A ladder 25 m long reaches a window 24 m above the ground. How far (in m) is the foot of the ladder from the wall?",
+   "expected_answer": {
+    "value": "7"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "Base = sqrt(25^2 - 24^2) = 7 m.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "determine-triangle-similarity",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Triangles ABC and DEF are similar. Corresponding sides AB : DE = 2 : 3. If the area of triangle DEF is 27 cm^2, find the area of triangle ABC in cm^2.",
+   "expected_answer": {
+    "value": "12"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Areas are in the ratio of the squares of sides: 2^2 : 3^2. Area ABC = 27 x 4/9 = 12.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "determine-triangle-similarity",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Triangles ABC and DEF are similar. Corresponding sides AB : DE = 3 : 5. If the area of triangle DEF is 75 cm^2, find the area of triangle ABC in cm^2.",
+   "expected_answer": {
+    "value": "27"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Areas are in the ratio of the squares of sides: 3^2 : 5^2. Area ABC = 75 x 9/25 = 27.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "determine-triangle-similarity",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Triangles ABC and DEF are similar. Corresponding sides AB : DE = 3 : 4. If the area of triangle DEF is 32 cm^2, find the area of triangle ABC in cm^2.",
+   "expected_answer": {
+    "value": "18"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Areas are in the ratio of the squares of sides: 3^2 : 4^2. Area ABC = 32 x 9/16 = 18.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-distance-two-points",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the distance between (2, -4) and (8, 4).",
+   "expected_answer": {
+    "value": "10"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "sqrt(6^2 + 8^2) = 10.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-distance-two-points",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the distance between (-1, 3) and (2, 7).",
+   "expected_answer": {
+    "value": "5"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "sqrt(3^2 + 4^2) = 5.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-distance-two-points",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the distance between (0, 3) and (5, 15).",
+   "expected_answer": {
+    "value": "13"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "sqrt(5^2 + 12^2) = 13.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-distance-two-points",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "The point (5, y) is 5 units from (2, 0) and lies ABOVE the line y = 0. Find y.",
+   "expected_answer": {
+    "value": "4"
+   },
+   "misconception_tags": [
+    "SIGN_ERROR",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "3^2 + (y - 0)^2 = 5^2, so y - 0 = 4; above means y = 4.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-distance-two-points",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "The point (4, y) is 13 units from (-1, -2) and lies ABOVE the line y = -2. Find y.",
+   "expected_answer": {
+    "value": "10"
+   },
+   "misconception_tags": [
+    "SIGN_ERROR",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "5^2 + (y - -2)^2 = 13^2, so y - -2 = 12; above means y = 10.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-distance-two-points",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "The point (5, y) is 10 units from (-1, 2) and lies ABOVE the line y = 2. Find y.",
+   "expected_answer": {
+    "value": "10"
+   },
+   "misconception_tags": [
+    "SIGN_ERROR",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "6^2 + (y - 2)^2 = 10^2, so y - 2 = 8; above means y = 10.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-section-formula-point",
+   "difficulty": 4,
+   "question_type": "short_answer",
+   "prompt": "In what ratio does the x-axis divide the line segment joining (2, 8) and (-5, -7)? Give the ratio as m:n in lowest terms.",
+   "expected_answer": {
+    "value": "8:7"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "SIGN_ERROR"
+   ],
+   "explanation": "On the x-axis y = 0: (m x (-7) + n x 8)/(m + n) = 0, so m : n = 8 : 7 = 8:7.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-section-formula-point",
+   "difficulty": 4,
+   "question_type": "short_answer",
+   "prompt": "In what ratio does the x-axis divide the line segment joining (-2, 5) and (-5, -4)? Give the ratio as m:n in lowest terms.",
+   "expected_answer": {
+    "value": "5:4"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "SIGN_ERROR"
+   ],
+   "explanation": "On the x-axis y = 0: (m x (-4) + n x 5)/(m + n) = 0, so m : n = 5 : 4 = 5:4.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-section-formula-point",
+   "difficulty": 4,
+   "question_type": "short_answer",
+   "prompt": "In what ratio does the x-axis divide the line segment joining (-5, 1) and (-4, -4)? Give the ratio as m:n in lowest terms.",
+   "expected_answer": {
+    "value": "1:4"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "SIGN_ERROR"
+   ],
+   "explanation": "On the x-axis y = 0: (m x (-4) + n x 1)/(m + n) = 0, so m : n = 1 : 4 = 1:4.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-trig-ratios",
+   "difficulty": 1,
+   "question_type": "short_answer",
+   "prompt": "In a right triangle, sin A = 5/13. Find cos A.",
+   "expected_answer": {
+    "value": "12/13"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "CONCEPT_CONFUSION"
+   ],
+   "explanation": "Other side = sqrt(13^2 - 5^2) = 12, so cos A = 12/13.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-trig-ratios",
+   "difficulty": 1,
+   "question_type": "short_answer",
+   "prompt": "In a right triangle, sin A = 3/5. Find cos A.",
+   "expected_answer": {
+    "value": "4/5"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "CONCEPT_CONFUSION"
+   ],
+   "explanation": "Other side = sqrt(5^2 - 3^2) = 4, so cos A = 4/5.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-trig-ratios",
+   "difficulty": 1,
+   "question_type": "short_answer",
+   "prompt": "In a right triangle, sin A = 7/25. Find cos A.",
+   "expected_answer": {
+    "value": "24/25"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "CONCEPT_CONFUSION"
+   ],
+   "explanation": "Other side = sqrt(25^2 - 7^2) = 24, so cos A = 24/25.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-trig-ratios",
+   "difficulty": 4,
+   "question_type": "short_answer",
+   "prompt": "If tan θ = 5/12 and θ is acute, find sin θ + cos θ.",
+   "expected_answer": {
+    "value": "17/13"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "Hypotenuse = 13, so sin θ = 5/13, cos θ = 12/13; the sum = 17/13 = 17/13.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-trig-ratios",
+   "difficulty": 4,
+   "question_type": "short_answer",
+   "prompt": "If tan θ = 3/4 and θ is acute, find sin θ + cos θ.",
+   "expected_answer": {
+    "value": "7/5"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "Hypotenuse = 5, so sin θ = 3/5, cos θ = 4/5; the sum = 7/5 = 7/5.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-trig-ratios",
+   "difficulty": 4,
+   "question_type": "short_answer",
+   "prompt": "If tan θ = 8/15 and θ is acute, find sin θ + cos θ.",
+   "expected_answer": {
+    "value": "23/17"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "Hypotenuse = 17, so sin θ = 8/17, cos θ = 15/17; the sum = 23/17 = 23/17.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-trig-identity",
+   "difficulty": 1,
+   "question_type": "short_answer",
+   "prompt": "Evaluate: cos 60° + 2 sin 30° - sin 90°.",
+   "expected_answer": {
+    "value": "0.5"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "Use the standard values: the result is 0.5.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-trig-identity",
+   "difficulty": 1,
+   "question_type": "short_answer",
+   "prompt": "Evaluate: cos 90° + 2 tan 45° - sin 30°.",
+   "expected_answer": {
+    "value": "1.5"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "Use the standard values: the result is 1.5.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-trig-identity",
+   "difficulty": 1,
+   "question_type": "short_answer",
+   "prompt": "Evaluate: cos 90° + 2 sin 0° - cos 60°.",
+   "expected_answer": {
+    "value": "-0.5"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "Use the standard values: the result is -0.5.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-trig-identity",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Evaluate (2 sin θ)^2 + (2 cos θ)^2.",
+   "expected_answer": {
+    "value": "4"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "2^2 (sin^2 θ + cos^2 θ) = 2^2 x 1 = 4.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-trig-identity",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Evaluate (5 sin θ)^2 + (5 cos θ)^2.",
+   "expected_answer": {
+    "value": "25"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "5^2 (sin^2 θ + cos^2 θ) = 5^2 x 1 = 25.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-trig-identity",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Evaluate (7 sin θ)^2 + (7 cos θ)^2.",
+   "expected_answer": {
+    "value": "49"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "7^2 (sin^2 θ + cos^2 θ) = 7^2 x 1 = 49.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-height-distance-problem",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "From a point 50 m from the foot of a tower, the angle of elevation of its top is 45°. The observer's eye is 1.5 m above the ground. Find the height of the tower in m.",
+   "expected_answer": {
+    "value": "51.5"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "tan 45 = 1, so height above eye level = 50 m. Add the eye height 1.5 m: 51.5 m.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-height-distance-problem",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "From a point 40 m from the foot of a tower, the angle of elevation of its top is 45°. The observer's eye is 1.2 m above the ground. Find the height of the tower in m.",
+   "expected_answer": {
+    "value": "41.2"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "tan 45 = 1, so height above eye level = 40 m. Add the eye height 1.2 m: 41.2 m.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-height-distance-problem",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "From a point 60 m from the foot of a tower, the angle of elevation of its top is 45°. The observer's eye is 1.6 m above the ground. Find the height of the tower in m.",
+   "expected_answer": {
+    "value": "61.6"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "tan 45 = 1, so height above eye level = 60 m. Add the eye height 1.6 m: 61.6 m.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-height-distance-problem",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "A ladder 20 m long leans on a wall and makes an angle of 60° with the ground. How high (in m) does it reach? (Take √3 = 1.73)",
+   "expected_answer": {
+    "value": "17.3"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Height = 20 sin 60 = 20 x √3/2 = 10 x 1.73 = 17.3.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-height-distance-problem",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "A ladder 30 m long leans on a wall and makes an angle of 60° with the ground. How high (in m) does it reach? (Take √3 = 1.73)",
+   "expected_answer": {
+    "value": "25.95"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Height = 30 sin 60 = 30 x √3/2 = 15 x 1.73 = 25.95.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-height-distance-problem",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "A ladder 10 m long leans on a wall and makes an angle of 60° with the ground. How high (in m) does it reach? (Take √3 = 1.73)",
+   "expected_answer": {
+    "value": "8.65"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Height = 10 sin 60 = 10 x √3/2 = 5 x 1.73 = 8.65.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-tangent-length",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "A point P is 5 cm from the centre of a circle of radius 3 cm. Find the length of the tangent from P to the circle, in cm.",
+   "expected_answer": {
+    "value": "4"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "Tangent^2 = 5^2 - 3^2, so the tangent = 4 cm.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-tangent-length",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "A point P is 10 cm from the centre of a circle of radius 6 cm. Find the length of the tangent from P to the circle, in cm.",
+   "expected_answer": {
+    "value": "8"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "Tangent^2 = 10^2 - 6^2, so the tangent = 8 cm.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-tangent-length",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "A point P is 13 cm from the centre of a circle of radius 5 cm. Find the length of the tangent from P to the circle, in cm.",
+   "expected_answer": {
+    "value": "12"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "Tangent^2 = 13^2 - 5^2, so the tangent = 12 cm.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-tangent-length",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "A point P is 17 cm from the centre of a circle of radius 8 cm. Find the length of the tangent from P to the circle, in cm.",
+   "expected_answer": {
+    "value": "15"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "Tangent^2 = 17^2 - 8^2, so the tangent = 15 cm.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-tangent-length",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Two tangents are drawn to a circle from a point P, 17 cm from the centre. If the radius is 8 cm, find the TOTAL length of the two tangent segments, in cm.",
+   "expected_answer": {
+    "value": "30"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Each tangent = sqrt(17^2 - 8^2) = 15. Two tangents from one point are equal, so the total is 30.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-tangent-length",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Two tangents are drawn to a circle from a point P, 10 cm from the centre. If the radius is 6 cm, find the TOTAL length of the two tangent segments, in cm.",
+   "expected_answer": {
+    "value": "16"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Each tangent = sqrt(10^2 - 6^2) = 8. Two tangents from one point are equal, so the total is 16.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-tangent-length",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Two tangents are drawn to a circle from a point P, 13 cm from the centre. If the radius is 5 cm, find the TOTAL length of the two tangent segments, in cm.",
+   "expected_answer": {
+    "value": "24"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Each tangent = sqrt(13^2 - 5^2) = 12. Two tangents from one point are equal, so the total is 24.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-tangent-perpendicular-property",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Tangents PA and PB are drawn from an external point P to a circle with centre O. If ∠APB = 80°, find ∠AOB in degrees.",
+   "expected_answer": {
+    "value": "100"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "∠OAP = ∠OBP = 90° (tangent is perpendicular to the radius), so ∠AOB = 360 - 90 - 90 - 80 = 100.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-tangent-perpendicular-property",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Tangents PA and PB are drawn from an external point P to a circle with centre O. If ∠APB = 50°, find ∠AOB in degrees.",
+   "expected_answer": {
+    "value": "130"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "∠OAP = ∠OBP = 90° (tangent is perpendicular to the radius), so ∠AOB = 360 - 90 - 90 - 50 = 130.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-tangent-perpendicular-property",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Tangents PA and PB are drawn from an external point P to a circle with centre O. If ∠APB = 110°, find ∠AOB in degrees.",
+   "expected_answer": {
+    "value": "70"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "∠OAP = ∠OBP = 90° (tangent is perpendicular to the radius), so ∠AOB = 360 - 90 - 90 - 110 = 70.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-circle-area-circumference",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the area of a circle of radius 14 cm, in cm^2. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "616"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Area = πr^2 = 22/7 x 14 x 14 = 616.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-circle-area-circumference",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the area of a circle of radius 21 cm, in cm^2. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "1386"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Area = πr^2 = 22/7 x 21 x 21 = 1386.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-circle-area-circumference",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the area of a circle of radius 7 cm, in cm^2. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "154"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Area = πr^2 = 22/7 x 7 x 7 = 154.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-circle-area-circumference",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Two concentric circles have radii 35 cm and 28 cm. Find the area of the ring between them, in cm^2. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "1386"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "Ring = π(35^2 - 28^2) = 1386.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-circle-area-circumference",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Two concentric circles have radii 21 cm and 7 cm. Find the area of the ring between them, in cm^2. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "1232"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "Ring = π(21^2 - 7^2) = 1232.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-circle-area-circumference",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Two concentric circles have radii 35 cm and 21 cm. Find the area of the ring between them, in cm^2. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "2464"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "Ring = π(35^2 - 21^2) = 2464.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-sector-area",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Find the area of a sector of angle 180° in a circle of radius 7 cm, in cm^2. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "77"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Area = (180/360) x πr^2 = 77.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-sector-area",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Find the area of a sector of angle 45° in a circle of radius 7 cm, in cm^2. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "19.25"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Area = (45/360) x πr^2 = 19.25.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-sector-area",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Find the area of a sector of angle 45° in a circle of radius 21 cm, in cm^2. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "173.25"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Area = (45/360) x πr^2 = 173.25.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-sector-area",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the area of a QUADRANT (a quarter circle) of radius 14 cm, in cm^2. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "154"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "CONCEPT_CONFUSION"
+   ],
+   "explanation": "A quadrant is 90/360 of the circle: 1/4 x 22/7 x 14^2 = 154.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-sector-area",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the area of a QUADRANT (a quarter circle) of radius 7 cm, in cm^2. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "38.5"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "CONCEPT_CONFUSION"
+   ],
+   "explanation": "A quadrant is 90/360 of the circle: 1/4 x 22/7 x 7^2 = 38.5.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-sector-area",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the area of a QUADRANT (a quarter circle) of radius 21 cm, in cm^2. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "346.5"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "CONCEPT_CONFUSION"
+   ],
+   "explanation": "A quadrant is 90/360 of the circle: 1/4 x 22/7 x 21^2 = 346.5.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-surface-area-combined-solid",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "A solid is a cylinder of radius 14 cm and height 17 cm with a hemisphere of the same radius fixed on top. Find its TOTAL surface area in cm^2. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "3344"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Curved cylinder 2πrh + bottom base πr^2 + hemisphere 2πr^2 = πr(2h + 3r) = 3344.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-surface-area-combined-solid",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "A solid is a cylinder of radius 7 cm and height 8 cm with a hemisphere of the same radius fixed on top. Find its TOTAL surface area in cm^2. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "814"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Curved cylinder 2πrh + bottom base πr^2 + hemisphere 2πr^2 = πr(2h + 3r) = 814.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-surface-area-combined-solid",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "A solid is a cylinder of radius 7 cm and height 19 cm with a hemisphere of the same radius fixed on top. Find its TOTAL surface area in cm^2. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "1298"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Curved cylinder 2πrh + bottom base πr^2 + hemisphere 2πr^2 = πr(2h + 3r) = 1298.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-volume-combined-solid",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "A toy is a cone of height 24 cm placed on a hemisphere, both of radius 9 cm. Find the volume of the toy in cm^3. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "3564"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Volume = 2/3 πr^3 + 1/3 πr^2 h = 3564.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-volume-combined-solid",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "A toy is a cone of height 15 cm placed on a hemisphere, both of radius 21 cm. Find the volume of the toy in cm^3. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "26334"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Volume = 2/3 πr^3 + 1/3 πr^2 h = 26334.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-volume-combined-solid",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "A toy is a cone of height 9 cm placed on a hemisphere, both of radius 6 cm. Find the volume of the toy in cm^3. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "792"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING",
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "Volume = 2/3 πr^3 + 1/3 πr^2 h = 792.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-volume-combined-solid",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the volume of a cylinder of radius 7 cm and height 12 cm, in cm^3. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "1848"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "V = πr^2 h = 1848.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-volume-combined-solid",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the volume of a cylinder of radius 21 cm and height 5 cm, in cm^3. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "6930"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "V = πr^2 h = 6930.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-volume-combined-solid",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Find the volume of a cylinder of radius 21 cm and height 7 cm, in cm^3. (Use π = 22/7)",
+   "expected_answer": {
+    "value": "9702"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE"
+   ],
+   "explanation": "V = πr^2 h = 9702.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-mean-grouped-data",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Classes 5-15, 15-25, 25-35, 35-45 have frequencies 9, 5, 8, 3. Find the mean using class marks.",
+   "expected_answer": {
+    "value": "22"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "Class marks 10, 20, 30, 40. Mean = Σfx / Σf = 550/25 = 22.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-mean-grouped-data",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Classes 5-15, 15-25, 25-35, 35-45 have frequencies 6, 8, 2, 8. Find the mean using class marks.",
+   "expected_answer": {
+    "value": "25"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "Class marks 10, 20, 30, 40. Mean = Σfx / Σf = 600/24 = 25.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-mean-grouped-data",
+   "difficulty": 1,
+   "question_type": "numeric",
+   "prompt": "Classes 5-15, 15-25, 25-35, 35-45 have frequencies 6, 4, 2, 2. Find the mean using class marks.",
+   "expected_answer": {
+    "value": "20"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR",
+    "ARITHMETIC_ERROR"
+   ],
+   "explanation": "Class marks 10, 20, 30, 40. Mean = Σfx / Σf = 280/14 = 20.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-median-grouped-data",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Frequencies for classes 0-10, 10-20, 20-30, 30-40, 40-50 are 9, 4, 5, 11, 3. Find the median.",
+   "expected_answer": {
+    "value": "26"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "N = 32, N/2 = 16. Median class starts at 20, cf before it = 13, f = 5. Median = 20 + (16 - 13)/5 x 10 = 26.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-median-grouped-data",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Frequencies for classes 0-10, 10-20, 20-30, 30-40, 40-50 are 3, 7, 5, 12, 3. Find the median.",
+   "expected_answer": {
+    "value": "30"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "N = 30, N/2 = 15. Median class starts at 20, cf before it = 10, f = 5. Median = 20 + (15 - 10)/5 x 10 = 30.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-median-grouped-data",
+   "difficulty": 4,
+   "question_type": "numeric",
+   "prompt": "Frequencies for classes 0-10, 10-20, 20-30, 30-40, 40-50 are 10, 7, 5, 11, 5. Find the median.",
+   "expected_answer": {
+    "value": "24"
+   },
+   "misconception_tags": [
+    "FORMULA_MISUSE",
+    "PROCEDURAL_ERROR"
+   ],
+   "explanation": "N = 38, N/2 = 19. Median class starts at 20, cf before it = 17, f = 5. Median = 20 + (19 - 17)/5 x 10 = 24.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-simple-probability",
+   "difficulty": 1,
+   "question_type": "short_answer",
+   "prompt": "A bag has 9 red, 5 blue and 6 green balls. One ball is drawn at random. Find the probability that it is red. Give a fraction in lowest terms.",
+   "expected_answer": {
+    "value": "9/20"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "explanation": "P(red) = 9/20 = 9/20.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-simple-probability",
+   "difficulty": 1,
+   "question_type": "short_answer",
+   "prompt": "A bag has 7 red, 6 blue and 1 green balls. One ball is drawn at random. Find the probability that it is red. Give a fraction in lowest terms.",
+   "expected_answer": {
+    "value": "1/2"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "explanation": "P(red) = 7/14 = 1/2.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-simple-probability",
+   "difficulty": 1,
+   "question_type": "short_answer",
+   "prompt": "A bag has 5 red, 4 blue and 2 green balls. One ball is drawn at random. Find the probability that it is red. Give a fraction in lowest terms.",
+   "expected_answer": {
+    "value": "5/11"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "explanation": "P(red) = 5/11 = 5/11.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-simple-probability",
+   "difficulty": 4,
+   "question_type": "short_answer",
+   "prompt": "A number is chosen at random from 1 to 100. Find the probability that it is a multiple of 3 OR 5. Give a fraction in lowest terms.",
+   "expected_answer": {
+    "value": "47/100"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "Count multiples of 3 or 5 (no number counted twice): 47. P = 47/100 = 47/100.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-simple-probability",
+   "difficulty": 4,
+   "question_type": "short_answer",
+   "prompt": "A number is chosen at random from 1 to 100. Find the probability that it is a multiple of 4 OR 6. Give a fraction in lowest terms.",
+   "expected_answer": {
+    "value": "33/100"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "Count multiples of 4 or 6 (no number counted twice): 33. P = 33/100 = 33/100.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-simple-probability",
+   "difficulty": 4,
+   "question_type": "short_answer",
+   "prompt": "A number is chosen at random from 1 to 60. Find the probability that it is a multiple of 5 OR 6. Give a fraction in lowest terms.",
+   "expected_answer": {
+    "value": "1/3"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "explanation": "Count multiples of 5 or 6 (no number counted twice): 20. P = 20/60 = 1/3.",
+   "content_status": "needs_review"
+  }
+ ]
+}

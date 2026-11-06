@@ -1,0 +1,1202 @@
+{
+ "subject_slug": "english",
+ "questions": [
+  {
+   "skill_slug": "explain-lencho-faith-irony",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In \"A Letter to God\", what destroyed Lencho's ripe crop?",
+   "expected_answer": {
+    "value": "A hailstorm"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "A hailstorm",
+    "A flood",
+    "A fire",
+    "A swarm of locusts"
+   ],
+   "explanation": "After a short shower, hail beat down on the fields and ruined the crop."
+  },
+  {
+   "skill_slug": "explain-lencho-faith-irony",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why did the postmaster decide to reply to Lencho's letter?",
+   "expected_answer": {
+    "value": "He was moved by Lencho's faith and did not want to shake it"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "He wanted to catch Lencho for cheating",
+    "He was moved by Lencho's faith and did not want to shake it",
+    "He was ordered to by the government",
+    "He wanted to become friends with Lencho"
+   ],
+   "explanation": "The postmaster admired Lencho's complete faith in God and tried to help by collecting money."
+  },
+  {
+   "skill_slug": "explain-lencho-faith-irony",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the irony at the end of the story?",
+   "expected_answer": {
+    "value": "The man who trusts God completely accuses the kind postal staff of being thieves"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "God sends the money himself",
+    "The man who trusts God completely accuses the kind postal staff of being thieves",
+    "Lencho becomes rich",
+    "The postmaster refuses to help"
+   ],
+   "explanation": "Lencho's faith is real, but he blames the very people who helped him, so his praise of God and his anger at humans clash."
+  },
+  {
+   "skill_slug": "explain-mandela-courage",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In \"Long Walk to Freedom\", where was Mandela's inauguration held?",
+   "expected_answer": {
+    "value": "At the Union Buildings in Pretoria"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "In Cape Town Castle",
+    "On Robben Island",
+    "At the Union Buildings in Pretoria",
+    "In a stadium in London"
+   ],
+   "explanation": "The ceremony took place in the amphitheatre formed by the Union Buildings in Pretoria."
+  },
+  {
+   "skill_slug": "explain-mandela-courage",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Mandela says a brave man is one who:",
+   "expected_answer": {
+    "value": "Conquers his fear"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Conquers his fear",
+    "Never feels fear",
+    "Fights without thinking",
+    "Avoids danger"
+   ],
+   "explanation": "Mandela says courage is not the absence of fear but the triumph over it."
+  },
+  {
+   "skill_slug": "explain-mandela-courage",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "According to Mandela, why must the oppressor also be freed?",
+   "expected_answer": {
+    "value": "Because a man who takes away another's freedom is himself a prisoner of hatred and narrow-mindedness"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Because oppressors are always weaker",
+    "Because freedom is only for the powerful",
+    "Because a man who takes away another's freedom is himself a prisoner of hatred and narrow-mindedness",
+    "Because laws forbid punishment"
+   ],
+   "explanation": "Mandela says both the oppressed and the oppressor must be liberated."
+  },
+  {
+   "skill_slug": "identify-apartheid-context",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What name is given to the system of racial discrimination that South Africa ended in 1994?",
+   "expected_answer": {
+    "value": "Apartheid"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "Colonialism",
+    "Feudalism",
+    "Apartheid",
+    "Federalism"
+   ],
+   "explanation": "Apartheid was the policy of racial separation and white-minority rule."
+  },
+  {
+   "skill_slug": "identify-apartheid-context",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What did Mandela promise about the new South Africa in his speech?",
+   "expected_answer": {
+    "value": "The land would never again experience the oppression of one by another"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Only one race would hold power",
+    "Foreign countries would rule it",
+    "The land would never again experience the oppression of one by another",
+    "Elections would be stopped"
+   ],
+   "explanation": "He declared that the oppression of one by another must never happen again."
+  },
+  {
+   "skill_slug": "identify-apartheid-context",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why was Mandela's inauguration a historic moment?",
+   "expected_answer": {
+    "value": "He became the first democratically elected, non-racial leader of the country"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "He was crowned a king",
+    "South Africa joined a new empire",
+    "He became the first democratically elected, non-racial leader of the country",
+    "It was the end of all elections"
+   ],
+   "explanation": "The 1994 elections were the first in which all South Africans could vote."
+  },
+  {
+   "skill_slug": "identify-anne-frank-diary-address",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Whom does Anne Frank address in her diary?",
+   "expected_answer": {
+    "value": "Kitty"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Margot",
+    "Peter",
+    "Miep",
+    "Kitty"
+   ],
+   "explanation": "Anne names her diary \"Kitty\" and writes to it as to a friend."
+  },
+  {
+   "skill_slug": "identify-anne-frank-diary-address",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why does Anne say she began keeping a diary?",
+   "expected_answer": {
+    "value": "She felt she had no true friend to confide in"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Her teacher ordered her to",
+    "She felt she had no true friend to confide in",
+    "She wanted to become famous",
+    "She wanted to sell it"
+   ],
+   "explanation": "Anne says she hopes to confide everything to the diary, as she had never been able to confide in anyone."
+  },
+  {
+   "skill_slug": "identify-anne-frank-diary-address",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does Anne mean when she says \"paper has more patience than people\"?",
+   "expected_answer": {
+    "value": "A diary listens without interrupting or judging"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Paper is cheaper than friends",
+    "People write more than paper holds",
+    "Paper never gets old",
+    "A diary listens without interrupting or judging"
+   ],
+   "explanation": "She values the diary because it receives her thoughts without argument."
+  },
+  {
+   "skill_slug": "explain-valli-bus-journey",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does Valli, the girl in \"Madam Rides the Bus\", most want to do?",
+   "expected_answer": {
+    "value": "Ride a bus to the town"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Go to school",
+    "Buy a gift",
+    "Ride a bus to the town",
+    "Meet a film star"
+   ],
+   "explanation": "Her dream of riding the bus is the story's main thread."
+  },
+  {
+   "skill_slug": "explain-valli-bus-journey",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What did Valli see on the road that made her feel sad and think about life?",
+   "expected_answer": {
+    "value": "A dead cow"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "A burning house",
+    "A lost child",
+    "A broken bus",
+    "A dead cow"
+   ],
+   "explanation": "The sight of the dead cow showed her the sadder side of life."
+  },
+  {
+   "skill_slug": "explain-valli-bus-journey",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How is Valli different at the end of the journey compared with the start?",
+   "expected_answer": {
+    "value": "She is more aware of suffering and more thoughtful"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "She is angrier with her family",
+    "She is afraid of travelling",
+    "She is more aware of suffering and more thoughtful",
+    "She wants to stay in the town"
+   ],
+   "explanation": "The trip gives her new experience and a growing understanding of the world."
+  },
+  {
+   "skill_slug": "interpret-dust-of-snow",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In \"Dust of Snow\", which bird shakes snow on the poet?",
+   "expected_answer": {
+    "value": "A crow"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "A sparrow",
+    "An eagle",
+    "A crow",
+    "A parrot"
+   ],
+   "explanation": "A crow shakes down dust of snow from a hemlock tree."
+  },
+  {
+   "skill_slug": "interpret-dust-of-snow",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What change comes over the poet after the snow falls on him?",
+   "expected_answer": {
+    "value": "His sad mood lifts"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "He becomes angry",
+    "He falls asleep",
+    "His sad mood lifts",
+    "He loses his way"
+   ],
+   "explanation": "The small event changes his mood and saves part of a day he had begun to regret."
+  },
+  {
+   "skill_slug": "interpret-dust-of-snow",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tree does the dust of snow fall from?",
+   "expected_answer": {
+    "value": "A hemlock tree"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "A pine tree",
+    "A mango tree",
+    "A hemlock tree",
+    "A palm tree"
+   ],
+   "explanation": "The poem says the crow shook it down from a hemlock tree."
+  },
+  {
+   "skill_slug": "interpret-fire-and-ice",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In \"Fire and Ice\", what does the poet say about how the world will end?",
+   "expected_answer": {
+    "value": "Some people say fire, some say ice"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Everyone agrees it will end in water",
+    "It will end in darkness",
+    "Some people say fire, some say ice",
+    "It will never end"
+   ],
+   "explanation": "The poem opens with these two opinions."
+  },
+  {
+   "skill_slug": "interpret-fire-and-ice",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In the poem, fire stands for:",
+   "expected_answer": {
+    "value": "Desire"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Love of nature",
+    "Anger at winter",
+    "Desire",
+    "Hope"
+   ],
+   "explanation": "Fire symbolises desire; the poet has \"tasted of desire\"."
+  },
+  {
+   "skill_slug": "interpret-fire-and-ice",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In the poem, ice stands for:",
+   "expected_answer": {
+    "value": "Hatred"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Peace",
+    "Patience",
+    "Poverty",
+    "Hatred"
+   ],
+   "explanation": "Ice is a symbol of cold hatred, which the poet says is equally capable of destruction."
+  },
+  {
+   "skill_slug": "identify-poetic-devices",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"The wind whispered through the trees.\" Which device is this?",
+   "expected_answer": {
+    "value": "Personification"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Simile",
+    "Alliteration",
+    "Onomatopoeia",
+    "Personification"
+   ],
+   "explanation": "The wind is given the human action of whispering."
+  },
+  {
+   "skill_slug": "identify-poetic-devices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Her smile was as bright as the sun.\" Which device is this?",
+   "expected_answer": {
+    "value": "Simile"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Simile",
+    "Metaphor",
+    "Personification",
+    "Hyperbole"
+   ],
+   "explanation": "A simile compares two things using \"as\" or \"like\"."
+  },
+  {
+   "skill_slug": "identify-poetic-devices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Silent sailors sailed slowly.\" Which device is shown by the repeated s sound?",
+   "expected_answer": {
+    "value": "Alliteration"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Alliteration",
+    "Metaphor",
+    "Irony",
+    "Simile"
+   ],
+   "explanation": "Alliteration repeats the same starting consonant sound."
+  },
+  {
+   "skill_slug": "explain-tricki-overfeeding",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What kind of dog is Tricki in \"A Triumph of Surgery\"?",
+   "expected_answer": {
+    "value": "A Pekingese"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "An Alsatian",
+    "A bulldog",
+    "A Pekingese",
+    "A poodle"
+   ],
+   "explanation": "Tricki is Mrs Pumphrey's pampered Pekingese."
+  },
+  {
+   "skill_slug": "explain-tricki-overfeeding",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What made Tricki ill?",
+   "expected_answer": {
+    "value": "Too much rich food and too little exercise"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Too much rich food and too little exercise",
+    "A snake bite",
+    "A broken leg",
+    "A cold bath"
+   ],
+   "explanation": "Mrs Pumphrey overfed him with cream and sweets and gave little exercise."
+  },
+  {
+   "skill_slug": "explain-tricki-overfeeding",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How did Herriot cure Tricki?",
+   "expected_answer": {
+    "value": "By keeping him at the surgery and putting him on a strict diet with exercise"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "By a long operation",
+    "By giving strong medicine only",
+    "By keeping him at the surgery and putting him on a strict diet with exercise",
+    "By taking him to a specialist abroad"
+   ],
+   "explanation": "Herriot kept him away from the overfeeding and made him run and play with other dogs."
+  },
+  {
+   "skill_slug": "identify-thief-story-characters",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Who is the thief in \"The Thief's Story\"?",
+   "expected_answer": {
+    "value": "Hari Singh"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Anil",
+    "Ramu",
+    "Hari Singh",
+    "Ustad"
+   ],
+   "explanation": "Hari Singh is the young thief; Anil is the writer he plans to rob."
+  },
+  {
+   "skill_slug": "identify-thief-story-characters",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does Anil offer to teach Hari Singh?",
+   "expected_answer": {
+    "value": "Reading and writing"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Cooking",
+    "Wrestling",
+    "Reading and writing",
+    "Driving"
+   ],
+   "explanation": "Anil agrees to teach him to read and write."
+  },
+  {
+   "skill_slug": "identify-thief-story-characters",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why does Hari Singh stay close to Anil at first?",
+   "expected_answer": {
+    "value": "He plans to rob him once he gains his trust"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "He wants to become a writer",
+    "He plans to rob him once he gains his trust",
+    "He is afraid of the police",
+    "He is Anil's cousin"
+   ],
+   "explanation": "Hari befriends Anil as part of his plan to steal."
+  },
+  {
+   "skill_slug": "identify-midnight-visitor-characters",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Who is Ausable in \"The Midnight Visitor\"?",
+   "expected_answer": {
+    "value": "A secret agent"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "A famous writer",
+    "A hotel owner",
+    "A secret agent",
+    "A policeman"
+   ],
+   "explanation": "Ausable is a secret agent who does not look like one."
+  },
+  {
+   "skill_slug": "identify-midnight-visitor-characters",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who is Fowler in \"The Midnight Visitor\"?",
+   "expected_answer": {
+    "value": "A young man who wants to be a writer of mystery stories"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "A young man who wants to be a writer of mystery stories",
+    "A rival agent",
+    "A hotel clerk",
+    "A taxi driver"
+   ],
+   "explanation": "Fowler hopes to write stories and admires adventurous people."
+  },
+  {
+   "skill_slug": "identify-midnight-visitor-characters",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which quality of Ausable does the story highlight?",
+   "expected_answer": {
+    "value": "Quick thinking and presence of mind"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Laziness",
+    "Quick thinking and presence of mind",
+    "Fear",
+    "Greed"
+   ],
+   "explanation": "He outwits the intruder with a clever trick."
+  },
+  {
+   "skill_slug": "explain-ebright-curiosity",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What hobby did young Richard Ebright start that led him toward science?",
+   "expected_answer": {
+    "value": "Collecting butterflies"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Collecting butterflies",
+    "Collecting stamps",
+    "Playing cricket",
+    "Painting"
+   ],
+   "explanation": "His butterfly collecting began his interest in scientific observation."
+  },
+  {
+   "skill_slug": "explain-ebright-curiosity",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In \"The Making of a Scientist\", what did Ebright's mother do to help his curiosity?",
+   "expected_answer": {
+    "value": "She encouraged him and gave him support and materials"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "She encouraged him and gave him support and materials",
+    "She forbade experiments",
+    "She sent him away to school",
+    "She asked him to stop collecting"
+   ],
+   "explanation": "His parents encouraged his interest and supplied what he needed."
+  },
+  {
+   "skill_slug": "explain-ebright-curiosity",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does the lesson tell us about becoming a scientist?",
+   "expected_answer": {
+    "value": "Curiosity, support and hands-on work matter"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Only expensive labs matter",
+    "Luck matters more than effort",
+    "Curiosity, support and hands-on work matter",
+    "Scientists are born, not made"
+   ],
+   "explanation": "Ebright's path shows how curiosity and encouragement grow into a career."
+  },
+  {
+   "skill_slug": "apply-past-perfect-tense",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Choose the correct sentence: \"By the time we reached the station, the train ___.\"",
+   "expected_answer": {
+    "value": "had left"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "had left",
+    "has left",
+    "leaves",
+    "was leave"
+   ],
+   "explanation": "The earlier of two past actions takes the past perfect (had + past participle)."
+  },
+  {
+   "skill_slug": "apply-past-perfect-tense",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Fill in: \"She ___ finished her homework before her friends arrived.\"",
+   "expected_answer": {
+    "value": "had"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "has",
+    "had",
+    "have",
+    "was"
+   ],
+   "explanation": "\"Had finished\" shows an action completed before another past action."
+  },
+  {
+   "skill_slug": "apply-past-perfect-tense",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which sentence uses the past perfect correctly?",
+   "expected_answer": {
+    "value": "He had never seen snow before he visited Manali."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "He had never seen snow before he visited Manali.",
+    "He has never seen snow before he visited Manali.",
+    "He never had saw snow before.",
+    "He had never see snow before."
+   ],
+   "explanation": "Had + past participle (seen)."
+  },
+  {
+   "skill_slug": "apply-modals-prohibition",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Choose the modal that shows a rule or strong obligation: \"Passengers ___ wear seat belts.\"",
+   "expected_answer": {
+    "value": "must"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "might",
+    "could",
+    "may",
+    "must"
+   ],
+   "explanation": "Must shows obligation."
+  },
+  {
+   "skill_slug": "apply-modals-prohibition",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which sentence shows prohibition?",
+   "expected_answer": {
+    "value": "You must not park here."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "You must not park here.",
+    "You may park here.",
+    "You need not park here.",
+    "You can park here."
+   ],
+   "explanation": "Must not forbids an action; need not only says it is unnecessary."
+  },
+  {
+   "skill_slug": "apply-modals-prohibition",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"You ___ come to school tomorrow; it is a holiday.\" Fill with the modal meaning \"it is not necessary\".",
+   "expected_answer": {
+    "value": "need not"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "need not",
+    "must not",
+    "ought to",
+    "should"
+   ],
+   "explanation": "Need not means it is unnecessary; must not means it is forbidden."
+  },
+  {
+   "skill_slug": "convert-active-passive",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Change to passive: \"The teacher praised the students.\"",
+   "expected_answer": {
+    "value": "The students were praised by the teacher."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "The students were praised by the teacher.",
+    "The students praised the teacher.",
+    "The students are praised by the teacher.",
+    "The teacher was praised by the students."
+   ],
+   "explanation": "The object becomes the subject and the verb takes the form was/were + past participle."
+  },
+  {
+   "skill_slug": "convert-active-passive",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Change to passive: \"They are building a new bridge.\"",
+   "expected_answer": {
+    "value": "A new bridge is being built by them."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "A new bridge was built by them.",
+    "A new bridge is built by them.",
+    "A new bridge has been built.",
+    "A new bridge is being built by them."
+   ],
+   "explanation": "The present continuous becomes is/are being + past participle."
+  },
+  {
+   "skill_slug": "convert-active-passive",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the active form of \"The letter was written by Rohan.\"?",
+   "expected_answer": {
+    "value": "Rohan wrote the letter."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Rohan wrote the letter.",
+    "Rohan writes the letter.",
+    "Rohan has written the letter.",
+    "The letter wrote Rohan."
+   ],
+   "explanation": "The agent becomes the subject; the tense stays the simple past."
+  },
+  {
+   "skill_slug": "convert-direct-reported-speech",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Report: He said, \"I am tired.\"",
+   "expected_answer": {
+    "value": "He said that he was tired."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "He said that I am tired.",
+    "He said that he was tired.",
+    "He said that he is tired.",
+    "He said that I was tired."
+   ],
+   "explanation": "In reported speech the pronoun changes and the present tense moves back to the past."
+  },
+  {
+   "skill_slug": "convert-direct-reported-speech",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Report: She said to me, \"I will help you.\"",
+   "expected_answer": {
+    "value": "She told me that she would help me."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "She told me that I would help her.",
+    "She told me that she would help me.",
+    "She said me that she will help me.",
+    "She told me that she will help you."
+   ],
+   "explanation": "will changes to would and the pronouns change."
+  },
+  {
+   "skill_slug": "convert-direct-reported-speech",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Report: The teacher said, \"Honesty is the best policy.\"",
+   "expected_answer": {
+    "value": "The teacher said that honesty is the best policy."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "The teacher said that honesty was the best policy only.",
+    "The teacher said honesty is a best policy.",
+    "The teacher said that honesty had been the best policy.",
+    "The teacher said that honesty is the best policy."
+   ],
+   "explanation": "A universal truth keeps the present tense in reported speech."
+  },
+  {
+   "skill_slug": "apply-subject-verb-agreement",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Choose the correct sentence.",
+   "expected_answer": {
+    "value": "The list of items is on the table."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "The list of items is on the table.",
+    "The list of items are on the table.",
+    "The list of items were on the table.",
+    "The lists of items is on the table."
+   ],
+   "explanation": "The subject is \"list\" (singular), not \"items\"."
+  },
+  {
+   "skill_slug": "apply-subject-verb-agreement",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Choose the correct verb: \"Neither of the boys ___ present.\"",
+   "expected_answer": {
+    "value": "was"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "were",
+    "are",
+    "have been",
+    "was"
+   ],
+   "explanation": "\"Neither\" takes a singular verb."
+  },
+  {
+   "skill_slug": "apply-subject-verb-agreement",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Choose the correct verb: \"Each of the students ___ a book.\"",
+   "expected_answer": {
+    "value": "has"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "has",
+    "have",
+    "are having",
+    "were"
+   ],
+   "explanation": "\"Each\" is singular, so it takes a singular verb: has."
+  },
+  {
+   "skill_slug": "identify-clause-types",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In \"I know that he is honest\", the clause \"that he is honest\" is a:",
+   "expected_answer": {
+    "value": "Noun clause"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Adjective clause",
+    "Adverb clause",
+    "Main clause",
+    "Noun clause"
+   ],
+   "explanation": "It acts as the object of \"know\", the job of a noun."
+  },
+  {
+   "skill_slug": "identify-clause-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In \"The book that I bought is useful\", \"that I bought\" is a:",
+   "expected_answer": {
+    "value": "Adjective clause"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Noun clause",
+    "Adverb clause",
+    "Phrase",
+    "Adjective clause"
+   ],
+   "explanation": "It describes the noun \"book\"."
+  },
+  {
+   "skill_slug": "identify-clause-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In \"We stayed home because it rained\", \"because it rained\" is an:",
+   "expected_answer": {
+    "value": "Adverb clause"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Noun clause",
+    "Adverb clause",
+    "Adjective clause",
+    "Independent clause"
+   ],
+   "explanation": "It tells why, so it modifies the verb."
+  },
+  {
+   "skill_slug": "compose-formal-letter",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which closing is correct for a formal letter beginning \"Dear Sir\"?",
+   "expected_answer": {
+    "value": "Yours faithfully,"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Your loving friend,",
+    "Bye for now,",
+    "With hugs,",
+    "Yours faithfully,"
+   ],
+   "explanation": "Dear Sir/Madam pairs with Yours faithfully; a named person pairs with Yours sincerely."
+  },
+  {
+   "skill_slug": "compose-formal-letter",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Where does the subject line of a formal letter come?",
+   "expected_answer": {
+    "value": "After the salutation and before the body"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "At the very end",
+    "Before the sender's address",
+    "After the salutation and before the body",
+    "After the signature"
+   ],
+   "explanation": "The subject line follows \"Dear Sir/Madam\" and states the matter briefly."
+  },
+  {
+   "skill_slug": "compose-formal-letter",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the correct opening of the body of a complaint letter?",
+   "expected_answer": {
+    "value": "I am writing to bring to your notice the problem of irregular water supply in our colony."
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "I am writing to bring to your notice the problem of irregular water supply in our colony.",
+    "Hi, hope you are fine lol!",
+    "Listen, you must fix this now.",
+    "Sir, water water water."
+   ],
+   "explanation": "A formal letter states its purpose politely and clearly."
+  },
+  {
+   "skill_slug": "compose-analytical-paragraph",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What is the first thing to do when writing an analytical paragraph on a bar graph?",
+   "expected_answer": {
+    "value": "State what the graph shows and the main trend"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Write your own story",
+    "State what the graph shows and the main trend",
+    "Copy the numbers one by one",
+    "Give your opinion on the government"
+   ],
+   "explanation": "Start with the topic and the overall pattern, then support with data."
+  },
+  {
+   "skill_slug": "compose-analytical-paragraph",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which sentence best compares data?",
+   "expected_answer": {
+    "value": "Sales rose sharply from 20 in 2022 to 60 in 2024."
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Sales are good.",
+    "Sales rose sharply from 20 in 2022 to 60 in 2024.",
+    "I like the colour of the bars.",
+    "The chart is big."
+   ],
+   "explanation": "A good analysis uses specific values and shows change."
+  },
+  {
+   "skill_slug": "compose-analytical-paragraph",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What should the last line of an analytical paragraph do?",
+   "expected_answer": {
+    "value": "Give a brief conclusion based on the data"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Introduce a new unrelated topic",
+    "Give a brief conclusion based on the data",
+    "Ask a question to the examiner",
+    "Repeat the first line word for word"
+   ],
+   "explanation": "End by summing up what the data suggest."
+  },
+  {
+   "skill_slug": "infer-from-passage",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Read: \"Mira packed her umbrella although the sky was clear, because the radio had warned of rain.\" What can you infer?",
+   "expected_answer": {
+    "value": "The weather forecast made her cautious"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "She forgot her umbrella",
+    "She hates rain",
+    "The weather forecast made her cautious",
+    "The radio was broken"
+   ],
+   "explanation": "She acted on the forecast, not the clear sky."
+  },
+  {
+   "skill_slug": "infer-from-passage",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Read: \"Arjun looked at the empty bowl, then at his mother, and quietly began to wash the plates.\" What can you infer about Arjun?",
+   "expected_answer": {
+    "value": "He is helpful and considerate"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "He is helpful and considerate",
+    "He is angry with his mother",
+    "He is sleepy",
+    "He dislikes food"
+   ],
+   "explanation": "His quiet action suggests thoughtfulness."
+  },
+  {
+   "skill_slug": "infer-from-passage",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Read: \"The village well, once full, now showed a cracked bed of mud. The farmers watched the sky each evening.\" What is the most likely situation?",
+   "expected_answer": {
+    "value": "A drought"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "A flood",
+    "A drought",
+    "A festival",
+    "A new school"
+   ],
+   "explanation": "The dry well and the watching of the sky point to lack of rain."
+  }
+ ]
+}

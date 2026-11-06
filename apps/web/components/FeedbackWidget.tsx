@@ -3,6 +3,23 @@
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { createClient } from '@/lib/supabase-client';
+import { FB_ATTACH_MAX_FILES, FB_ATTACH_MAX_BYTES, FB_ATTACH_MAX_EDGE, FB_ATTACH_NOTICE, FB_ATTACH_ERRORS, FB_ATTACH_TYPES, fitWithin } from '@adaptive-tutor/core';
+
+type Pic = { blob: Blob; url: string };
+
+// v106: shrink a picture in the browser (longest side limit, JPEG). Returns null if the file is not a usable picture.
+async function shrinkPicture(file: File): Promise<Blob | null> {
+  try {
+    if (!(FB_ATTACH_TYPES as readonly string[]).includes(file.type)) return null;
+    const bmp = await createImageBitmap(file);
+    const { width, height } = fitWithin(bmp.width, bmp.height, FB_ATTACH_MAX_EDGE);
+    const canvas = document.createElement('canvas'); canvas.width = width; canvas.height = height;
+    const g = canvas.getContext('2d'); if (!g) return null;
+    g.fillStyle = '#fff'; g.fillRect(0, 0, width, height); g.drawImage(bmp, 0, 0, width, height);
+    const blob: Blob | null = await new Promise((r) => canvas.toBlob(r, 'image/jpeg', 0.82));
+    return blob && blob.size <= FB_ATTACH_MAX_BYTES ? blob : null;
+  } catch { return null; }
+}
 
 // A floating feedback entry point present on every page (mounted once in
 // layout.tsx). Works for a signed-in student or a visitor who hasn't signed
@@ -22,6 +39,9 @@ export function FeedbackWidget() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [sent, setSent] = useState(false);
+  const [pics, setPics] = useState<Pic[]>([]);
+  const [picNote, setPicNote] = useState('');
+  const [lostPics, setLostPics] = useState(0);
 
   useEffect(() => {
     const supabase = createClient();
@@ -44,6 +64,26 @@ export function FeedbackWidget() {
     setContactEmail('');
     setError(null);
     setSent(false);
+    pics.forEach((p) => URL.revokeObjectURL(p.url));
+    setPics([]); setPicNote(''); setLostPics(0);
+  }
+
+  async function addFiles(list: FileList | File[] | null) {
+    setPicNote('');
+    const files = Array.from(list ?? []);
+    const room = FB_ATTACH_MAX_FILES - pics.length;
+    if (files.length > room) setPicNote(FB_ATTACH_ERRORS.too_many_pictures);
+    const added: Pic[] = [];
+    for (const f of files.slice(0, Math.max(0, room))) {
+      const blob = await shrinkPicture(f);
+      if (blob) added.push({ blob, url: URL.createObjectURL(blob) }); else setPicNote(FB_ATTACH_ERRORS.not_a_picture);
+    }
+    if (added.length) setPics((p) => [...p, ...added].slice(0, FB_ATTACH_MAX_FILES));
+  }
+  function removePic(i: number) { setPics((p) => { URL.revokeObjectURL(p[i]?.url); return p.filter((_, j) => j !== i); }); }
+  function onPaste(e: React.ClipboardEvent) {
+    const files = Array.from(e.clipboardData?.files ?? []).filter((f) => f.type.startsWith('image/'));
+    if (files.length) { e.preventDefault(); void addFiles(files); }
   }
 
   function close() {
@@ -77,6 +117,18 @@ export function FeedbackWidget() {
       });
       const json = await res.json();
       if (json.error) throw new Error(json.error);
+      // v106: the message is already saved. Now add the pictures, one by one; a failed picture never loses the message.
+      let lost = 0;
+      if (pics.length && json.data?.id && json.data?.attachToken) {
+        for (const p of pics) {
+          try {
+            const fd = new FormData(); fd.append('feedbackId', json.data.id); fd.append('token', json.data.attachToken); fd.append('file', p.blob, 'screenshot.jpg');
+            const r = await fetch('/api/feedback/attachment', { method: 'POST', body: fd }); const j = await r.json();
+            if (j.error) lost++;
+          } catch { lost++; }
+        }
+      } else if (pics.length) lost = pics.length;
+      setLostPics(lost);
       setSent(true);
     } catch {
       setError("Couldn't send that — please try again.");
@@ -93,6 +145,7 @@ export function FeedbackWidget() {
             <div className="feedback-widget__thanks">
               <p style={{ fontWeight: 600, marginBottom: '0.3rem' }}>Thank you!</p>
               <p style={{ color: 'var(--slate)', margin: 0 }}>We read every note — this genuinely helps.</p>
+              {lostPics > 0 && <p className="feedback-widget__picnote">Your message was sent, but {lostPics} picture(s) could not be added. You can send them in a new note.</p>}
               <button type="button" className="btn btn--ghost btn--small" style={{ marginTop: '0.9rem' }} onClick={close}>
                 Close
               </button>
@@ -136,8 +189,29 @@ export function FeedbackWidget() {
                 placeholder="What worked, what didn't, what confused you..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
+                onPaste={onPaste}
                 autoFocus
               />
+
+              <div className="feedback-widget__pics">
+                <label className="btn btn--ghost btn--small feedback-widget__attach" data-disabled={pics.length >= FB_ATTACH_MAX_FILES}>
+                  <input type="file" accept="image/png,image/jpeg,image/webp" multiple className="feedback-widget__file" aria-label="Add a screenshot or picture" onChange={(e) => { void addFiles(e.target.files); e.target.value = ''; }} disabled={pics.length >= FB_ATTACH_MAX_FILES} />
+                  Add a screenshot
+                </label>
+                <span className="feedback-widget__picnote">{pics.length}/{FB_ATTACH_MAX_FILES} · you can also paste one here</span>
+                {pics.length > 0 && (
+                  <ul className="feedback-widget__thumbs">
+                    {pics.map((p, i) => (
+                      <li key={p.url}>
+                        <img src={p.url} alt={`Picture ${i + 1}`} />
+                        <button type="button" className="btn btn--ghost btn--small" onClick={() => removePic(i)} aria-label={`Remove picture ${i + 1}`}>×</button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {picNote && <p className="feedback-widget__picerr" role="alert">{picNote}</p>}
+                <p className="feedback-widget__privacy">{FB_ATTACH_NOTICE}</p>
+              </div>
 
               <select className="field__input" style={{ width: '100%', marginTop: '0.6rem' }} aria-label="How did it affect you?" value={impact} onChange={(e) => setImpact(e.target.value)}>
                 <option value="">How did it affect you? (optional)</option>

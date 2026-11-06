@@ -703,3 +703,49 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Tested as a round trip on a scratch copy of the database with a real audit row: undo -> tables, triggers and functions gone, audit row and its extra facts kept, audit editable again; apply 0055-0059 again (twice) -> everything back and audit protection back on (delete and update refused).
 - t101 (31 checks) keeps the notes honest: every table a migration creates is dropped and nothing else, no row deletes, no cascade, no protected table dropped.
 - No migration. Not run on the live database.
+
+
+## v102 (2026-11-02) - "Get the app" button on every page
+- Founder request: a prominent fixed button for everyone to install the app, shown on every page, by device.
+- Sahayak is now an installable web app (PWA): `app/manifest.ts`, `public/sw.js` (passes requests through, caches NOTHING, so no student data is stored on the device and nothing goes stale), and a floating button (`components/InstallApp.tsx`, rules in `packages/core/install-app`) mounted once in the layout, bottom-left (feedback stays bottom-right).
+- By device: Android and Chrome/Edge computers get the browser's own install prompt; iPhone/iPad get Share -> Add to Home Screen steps; other browsers get honest steps. Hidden when already installed and when printing; small round button on test-taking screens (diagnostic, adaptive check, mock, challenge, review) so a child is not distracted; "Not now" shrinks it for the tab but never removes it.
+- It records nothing (no install or click counts) and stores nothing about the person. Middleware skips the two install files.
+- NOT a Play Store / App Store app (that would need separate developer accounts and a wrapper). Not tried on real devices. No migration. Not deployed.
+
+
+## v103 (2026-11-03) - Request limit on the free readiness check
+- Gap found in review: `/api/public/check` (the free "check" page, no sign-in) had no limit, so one script could copy the question bank or run up database use.
+- Added a limit: 120 requests per internet address per 10 minutes (generous so a school or family sharing one address is fine). Over the limit: HTTP 429 with Retry-After and a friendly message on the page. The limit is checked BEFORE any question-bank read.
+- Migration 0060 `public_check_log` (one-way hash of the address + time only; server-only; rows older than 1 hour removed by the app; blocked calls add no row). Fails open: if the table is missing (0060 not yet applied) nobody is blocked.
+- t103 (26 checks). Rollback block for 0060 added; t101 now covers six migrations. Deploy-check probes 0060.
+- Not tried on the live site; 0060 not applied live. Not deployed.
+
+
+## v104 (2026-11-03) - 218 new questions (Computer Applications, English, Social Science)
+- Founder request (chat): search the web for questions and answers for the app's subjects and/or build more for every subject.
+- Web research was used for the SYLLABUS only (2026-27 unit lists). Questions are original, not copied from any question bank, guide or sample paper (copyright, and quality).
+- Computer Applications: the existing 21 questions do not match the official units (Networking, HTML, Cyber Ethics). Added 3 chapters / 17 skills that do, and 75 questions (HTML weighted most, as it carries 25 of 50 marks). Old off-syllabus chapters left in place; recommended for a teacher to hide or remove.
+- English: 3 new questions for each of the 21 skills (63). Social Science: 2 for each skill on the 2026-27 list (80); 3 skills skipped because the chapters are deleted/project-only.
+- All load as `needs_review` (Pilot subjects). Not teacher-verified. Maths/Science (about 1,000 / 900 already) and Hindi (needs a Hindi teacher) not touched.
+- Files: 3 new `*-v104-diagnostic.json`, curriculum JSON for Computer Applications, generators in `packages/db/seed-generators/`, `docs/CONTENT_V104.md`, `docs/CONTENT_STATUS.md`. t104 (24 checks, mutation-checked). No migration. Founder must run `seed.js` then `seed-diagnostic.js`. Not run on the live database. Not deployed.
+
+
+## v105 (2026-11-04) - 203 new questions for Maths and Science
+- Founder request (chat, repeated with "including maths and science"): more questions and answers for every subject.
+- Maths 139: warm-up (difficulty 1) and harder multi-step (difficulty 4) questions, the two levels the bank lacked (92 and 4 of 1,112). Every answer is computed by code and re-derived a second way (sympy/counting); the test re-computes 40+ again in TypeScript.
+- Science 64: three chapters the app did not have but the 2026-27 syllabus lists (Heredity, The Human Eye and the Colourful World, Our Environment: 8 new skills) plus the thinnest existing skills.
+- SAFETY CHANGE: Maths and Science are `ready`, and the loader gave every new question there the status `verified`. `seed-diagnostic.js` now honours a per-question `content_status`; all v105 questions say `needs_review`. Default for everything else is unchanged.
+- Questions written for Sahayak (not copied). Not teacher-verified. t105 (15 checks, mutation-checked). No migration. Not loaded live. Not deployed.
+
+## v106 (2026-11-05) - screenshots and pictures in feedback
+- Founder request (chat, 4:40 IST): in the feedback, users should be able to share screenshots/images and the app should take them in for evaluation and implementation.
+- Feedback box: "Add a screenshot" (file picker, also works for photos on a phone), paste with Ctrl+V, up to 3 pictures, shrunk in the browser. Sent right after the message, so a failed picture never loses the message.
+- Server: the message returns a short-lived signed permission (15 min, one message only); the picture route checks it, checks the first bytes (PNG/JPEG/WebP only; SVG/HTML/GIF refused), re-encodes as plain JPEG (removes hidden camera/location data), stores it in a PRIVATE bucket, limits per message (3) and per internet address (10/hour).
+- Admin: /admin/feedback shows thumbnails and a "Delete picture" button (support permission, audited). Deleting a family's data also deletes their pictures.
+- Migration 0061 feedback_attachments (additive, server-only). New public route `feedback/attachment` is on the t97 list as kind 'signed'.
+- NOT built: AI reading of screenshots (children's images to a third party need D7 review first); a screen-capture button (use the phone/computer screenshot, then Add); inclusion in the student data export; a retention rule for pictures. t106. Not deployed.
+
+## v107 (2026-11-05) - phone header no longer wider than the screen
+- Found while testing v106: on a 375px phone the home page (and most public pages) scrolled sideways (424px wide). Cause: the "Parents & partners" link in the header stayed visible on phones next to the language buttons and the menu button.
+- Fix (CSS only): hide that header copy at 900px and below (it is still in the phone menu drawer), and tighten the header at 360px and below.
+- Checked in a browser at 320, 360, 375 and 414px on 10 public pages: no sideways scroll. t107 (5 checks). No migration. Not tested on real phones. Not deployed.

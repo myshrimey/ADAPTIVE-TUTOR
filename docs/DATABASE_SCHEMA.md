@@ -715,3 +715,9 @@ Server-only (RLS on, no policies). control_prompts (id text, title, received_on,
 
 ## 0059 qa_results (v100)
 `qa_results` (id uuid, item_id text, result text check in pass/fail/blocked, note text, app_version text, tested_by text, tested_at timestamptz). Server-only: RLS on, no policy. Insert-only history; the newest row per item_id is the result. Holds no student data; the note is refused if it contains an email or phone number. Index (item_id, tested_at desc). Re-runnable. Adds a v100 line to system_changelog.
+
+## 0060 public_check_limit (v103)
+`public_check_log` (id uuid, ip_hash text, created_at timestamptz). Server-only: RLS on, no policy. Holds ONLY a one-way SHA-256 hash of the internet address (own salt) and a time for each request to the free readiness check (/api/public/check). Counted over 10 minutes by `apps/web/lib/public-check-limit.ts`; rows older than 1 hour are removed by the app; blocked requests add no row. Index (ip_hash, created_at). Re-runnable. Adds a v103 line to system_changelog.
+
+## 0061 feedback_attachments (v106)
+`feedback_attachments` (id uuid, feedback_id uuid -> feedback(id) on delete cascade, storage_path text, mime text = image/jpeg, bytes int 1..3000000, ip_hash text, created_at). Server-only: RLS on, no policy. Holds where each picture sent with feedback lives in the PRIVATE storage bucket `feedback-screenshots` (created by the migration where Supabase storage exists, else by the app on first upload), its size, and a one-way hash of the sender's address used for an hourly upload limit. Pictures are re-encoded as plain JPEG on the server (camera/location details removed). Only admins with the 'support' permission can open them, through `/api/admin/feedback/attachment`. Indexes: (feedback_id), (ip_hash, created_at). Re-runnable. Adds a v106 line to system_changelog.

@@ -134,3 +134,9 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v99 (2026-11-02): Next.js 15.5.28 security patch + dependency review (docs/DEPENDENCY_SECURITY.md, t99). Run npm install after unzipping.
 - v100 (2026-11-02): founder can record manual test results at /admin/control/testing (migration 0059 qa_results).
 - v101 (2026-11-02): rollback notes for 0055-0059 (docs/ROLLBACK_NOTES.md), round-trip tested on a scratch copy.
+- v102 (2026-11-02): 'Get the app' install button on every page (installable web app: manifest, no-cache service worker). No migration.
+- v103 (2026-11-03): request limit on the free readiness check (migration 0060 public_check_log).
+- v104 (2026-11-03): 218 new questions (Computer Applications, English, Social Science), needs_review; Computer Applications aligned to the official units. No migration.
+- v105 (2026-11-04): 203 new Maths and Science questions (needs_review); loader keeps unreviewed questions out of 'verified'; Science gets 3 missing chapters. No migration.
+- v106 (2026-11-05): users can attach up to 3 screenshots to feedback (migration 0061, private bucket, admin 'support' view + delete). No AI reading, not in data export, no retention rule yet (D7). Not deployed.
+- v107 (2026-11-05): phone header overflow fixed (CSS only; checked at 320-414px). No migration. Not deployed.

@@ -664,6 +664,56 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R53",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R53",
+   "text": "Founder request 2026-11-02 (chat): a prominent fixed button on every page to install the app on any device",
+   "status": "READY FOR TESTING",
+   "note": "v102: \"Get the app\" button on every page, bottom-left, by device (Android and computer prompt, iPhone steps); small on test-taking screens; hidden when installed and when printing. It is an installable web app (PWA), NOT a Play Store or App Store app. Tested t102, t102b. NOT tried on real phones.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0009/R54",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R54",
+   "text": "Founder request 2026-11-03 (chat): search the web for questions and answers for the app subjects and/or build more questions and answers for every subject",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v104: 218 original questions added for Computer Applications (75, now aligned to the official units), English (63) and Social Science (80), all needs_review; syllabus checked on the web, questions not copied (copyright). Maths and Science already large; Hindi needs a Hindi teacher. Not teacher-verified; not loaded into the live database. t104.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0009/R55",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R55",
+   "text": "Founder request 2026-11-04 (chat): search the web for / build more questions and answers for every subject, including Maths and Science",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v105: 203 original questions added for Maths (139, difficulty 1 and 4, answers computed and cross-checked) and Science (64, incl. Heredity, Human Eye and Our Environment chapters); all needs_review; loader changed so ready subjects never get unreviewed questions labelled verified. Not teacher-verified; not loaded live; Hindi still needs a Hindi teacher. t105.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0009/R56",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R56",
+   "text": "Founder request 2026-11-05 (chat): in the feedback, users/students or anyone should be able to share screenshots/images and the app should take them in for evaluation and implementation",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v106: pictures can be attached to feedback and are seen by support admins for evaluation. NOT built: AI reading of pictures (needs D7 review). Migration 0061; not deployed; untested on real phones/live database. t106.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0009/R57",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R57",
+   "text": "Found during v106 testing (Claude): public pages scroll sideways on a 375px phone",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v107: header no longer wider than the screen (CSS only); checked in a browser at 320/360/375/414px on 10 public pages. Not tested on real phones. t107.",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -1354,6 +1404,96 @@ export const REGISTRY = {
    "note": "v101: docs/ROLLBACK_NOTES.md; t101 (31 checks: every created table is dropped and nothing else, no row deletes, no cascade, backup rule); round trip on a scratch copy: undo then apply again twice, audit rows kept, audit protection back on. NOT run on the live database.",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-070",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Install-the-app button on every page (installable web app: manifest, no-cache service worker, device-aware button)",
+   "objective_code": "O6",
+   "requirements": "R53",
+   "depends_on": "TASK-015",
+   "size": "M",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v102: manifest + service worker that caches nothing + floating button by device; records nothing about people; t102 (46 checks) and t102b (26 behaviour checks, mutation-checked). NOT tried on real phones or computers; not in any app store.",
+   "founder_next": false,
+   "founder_rank": null
+  },
+  {
+   "id": "TASK-071",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Request limit on the free public readiness check (/api/public/check)",
+   "objective_code": "O7",
+   "requirements": "R48",
+   "depends_on": "TASK-065",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v103: 120 requests per address per 10 minutes, HTTP 429 plus Retry-After, checked before any question-bank read; migration 0060 (address hash + time only, server-only, fails open); t103 (26 checks). Not tried on the live site; 0060 not applied live. Other public routes (register, login) already have limits (v96, v97).",
+   "founder_next": false,
+   "founder_rank": null
+  },
+  {
+   "id": "TASK-072",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Grow the question bank for thin subjects (Computer Applications, English, Social Science) from the 2026-27 syllabus",
+   "objective_code": "O6",
+   "requirements": "R54",
+   "depends_on": "TASK-015",
+   "size": "L",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v104: 218 original multiple-choice questions, 17 new Computer Applications skills in 3 official units, t104 (24 checks, mutation-checked). All needs_review; teacher review of every question is still needed; founder must run seed.js and seed-diagnostic.js; not loaded live.",
+   "founder_next": false,
+   "founder_rank": null
+  },
+  {
+   "id": "TASK-073",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Grow the Maths and Science question banks (gap levels and missing 2026-27 Science chapters) without labelling unreviewed questions verified",
+   "objective_code": "O6",
+   "requirements": "R55",
+   "depends_on": "TASK-072",
+   "size": "L",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v105: 139 Maths + 64 Science questions, 8 new Science skills in 3 chapters, loader per-question status, t105 (15 checks, mutation-checked, 40+ answers recomputed in a second language). All needs_review; teacher review still needed; founder must run seed.js and seed-diagnostic.js; not loaded live.",
+   "founder_next": false,
+   "founder_rank": null
+  },
+  {
+   "id": "TASK-074",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Let people attach screenshots/pictures to feedback, stored privately and visible only to support admins",
+   "objective_code": "O6",
+   "requirements": "R56",
+   "depends_on": "TASK-073",
+   "size": "L",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v106: file picker + paste, up to 3 pictures, signed 15-minute permission, byte-check, JPEG re-encode, private bucket, admin thumbnails + delete, removal with a family's data, migration 0061, t106. Not tested on real phones or the live database; no AI reading; not in data export; retention undecided (D7).",
+   "founder_next": false,
+   "founder_rank": null
+  },
+  {
+   "id": "TASK-075",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Fix the phone header that made public pages scroll sideways",
+   "objective_code": "O6",
+   "requirements": "R57",
+   "depends_on": "TASK-074",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v107: CSS only; browser-checked at 4 phone widths on 10 pages; t107 (5 checks). Not tested on real phones.",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -1648,6 +1788,66 @@ export const REGISTRY = {
    "db_changes": "none (round trip on a scratch copy only)",
    "tests": "t101 (31 checks), undo + re-apply round trip on scratch Postgres, full npm test, type check",
    "open_problems": "Not run on the live database; migrations before 0055 have no written undo notes; D7 legal review is the founder's"
+  },
+  {
+   "id": "EX-0014",
+   "executed_on": "2026-11-02",
+   "prompt_id": "founder chat request",
+   "summary": "v102: install-the-app button on every page (TASK-070).",
+   "files": "packages/core/install-app/index.ts, index.ts; apps/web/components/InstallApp.tsx; apps/web/app/manifest.ts; apps/web/public/sw.js; apps/web/app/layout.tsx; apps/web/app/globals.css; apps/web/middleware.ts; tests/t102.ts, t102b.ts, t95b.ts, run-all.ts",
+   "db_changes": "none",
+   "tests": "t102 (46), t102b (26, mutation-checked), full npm test, type check, production build, local manifest and service-worker checks",
+   "open_problems": "Not tried on real devices; no store listing; D7 legal review is the founder's"
+  },
+  {
+   "id": "EX-0015",
+   "executed_on": "2026-11-03",
+   "prompt_id": "SAH-PROMPT-0009",
+   "summary": "v103: request limit on the free readiness check (TASK-071).",
+   "files": "apps/web/app/api/public/check/route.ts; apps/web/app/check/page.tsx; apps/web/lib/public-check-limit.ts; packages/core/safety/rate-limit.ts, index.ts; packages/db/migrations/0060_public_check_limit.sql; packages/core/deploy-check/index.ts; docs/DATABASE_SCHEMA.md, ROLLBACK_NOTES.md; tests/t103.ts, t101.ts, t95b.ts",
+   "db_changes": "0060 public_check_log (server-only)",
+   "tests": "t103 (26), t101 (36), migration twice + undo on scratch Postgres, full npm test, type check, production build",
+   "open_problems": "Not tried on the live site; 0060 not applied live; D7 legal review is the founder's"
+  },
+  {
+   "id": "EX-0016",
+   "executed_on": "2026-11-03",
+   "prompt_id": "founder chat request",
+   "summary": "v104: question bank growth (TASK-072).",
+   "files": "packages/db/seed/cbse-class10-*-v104-diagnostic.json (3); packages/db/seed/cbse-class10-computer-applications.json; packages/db/seed-generators/gen_v104_*.py, v104_lib.py; docs/CONTENT_V104.md, CONTENT_STATUS.md; tests/t104.ts, t95b.ts",
+   "db_changes": "none",
+   "tests": "t104 (24 checks, mutation-checked), full npm test, type check",
+   "open_problems": "Not teacher-verified; not loaded into the live database; Hindi, Maths, Science not grown; off-syllabus Computer Applications chapters left in place; D7 legal review is the founder's"
+  },
+  {
+   "id": "EX-0017",
+   "executed_on": "2026-11-04",
+   "prompt_id": "founder chat request",
+   "summary": "v105: Maths and Science question growth (TASK-073).",
+   "files": "packages/db/seed/cbse-class10-maths-v105-diagnostic.json, cbse-class10-science-v105-diagnostic.json, cbse-class10-science.json; packages/db/seed-diagnostic.js; packages/db/seed-generators/gen_v105_*.py; docs/CONTENT_V105.md, CONTENT_STATUS.md; tests/t105.ts, t95b.ts",
+   "db_changes": "none",
+   "tests": "t105 (15), mutation checks, full npm test, type check",
+   "open_problems": "Not teacher-verified; not loaded into the live database; some Maths topics have no skill yet; Hindi not grown; D7 legal review is the founder's"
+  },
+  {
+   "id": "EX-0018",
+   "executed_on": "2026-11-05",
+   "prompt_id": "founder chat request",
+   "summary": "v106: screenshots in feedback (TASK-074).",
+   "files": "packages/db/migrations/0061_feedback_attachments.sql; packages/core/feedback-attachments; apps/web/lib/feedback-attachments.ts; apps/web/app/api/feedback/attachment; apps/web/app/api/admin/feedback/attachment; apps/web/components/FeedbackWidget.tsx, FeedbackPictureAdmin.tsx; apps/web/app/admin/feedback/page.tsx; tests/t106.ts",
+   "db_changes": "0061",
+   "tests": "t106, scratch Postgres twice + undo, full npm test, type check, build",
+   "open_problems": "Not deployed; not tested on real phones or live storage; no AI reading; not in data export; retention is the founder's / D7"
+  },
+  {
+   "id": "EX-0019",
+   "executed_on": "2026-11-05",
+   "prompt_id": "Claude finding during v106 testing",
+   "summary": "v107: phone header fix (TASK-075).",
+   "files": "apps/web/app/globals.css; tests/t107.ts, t95b.ts",
+   "db_changes": "none",
+   "tests": "t107, browser width scan at 320/360/375/414px, full npm test, type check, build",
+   "open_problems": "Not tested on real phones; only 10 public pages scanned (signed-in pages not scanned); not deployed"
   }
  ]
 } as unknown as ControlRegistry;

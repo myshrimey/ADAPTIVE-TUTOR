@@ -3,6 +3,7 @@ import { SiteHeader } from '@/components/SiteHeader';
 import { Footer } from '@/components/Footer';
 import { TrackPageView } from '@/components/TrackPageView';
 import { FeedbackWidget } from '@/components/FeedbackWidget';
+import { InstallApp } from '@/components/InstallApp';
 import { LanguageProvider } from '@/components/LanguageProvider';
 import { getServerLang } from '@/lib/language';
 import 'katex/dist/katex.min.css';
@@ -30,7 +31,11 @@ const plexMono = IBM_Plex_Mono({
   display: 'swap',
 });
 
+export const viewport = { themeColor: '#1b2a4a' };
+
 export const metadata = {
+  applicationName: 'Sahayak',
+  appleWebApp: { capable: true, title: 'Sahayak', statusBarStyle: 'default' as const },
   title: 'Sahayak — Adaptive CBSE Class 10 Tutor',
   icons: { icon: [{ url: '/icon-32.png', sizes: '32x32' }, { url: '/icon-192.png', sizes: '192x192' }], apple: '/apple-touch-icon.png' },
   openGraph: { title: 'Sahayak — Measure Your Growth, Master Your Subjects', images: [{ url: '/logo.png' }] },
@@ -48,6 +53,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           {children}
           <Footer />
           <FeedbackWidget />
+          <InstallApp />
         </LanguageProvider>
       </body>
     </html>

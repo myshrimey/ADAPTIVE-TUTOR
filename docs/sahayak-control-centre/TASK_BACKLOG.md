@@ -1,7 +1,7 @@
 # Task Backlog
-Updated 2026-10-31. 44 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
+Updated 2026-10-31. 50 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
 
-Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 21.
+Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 27.
 
 Changing a priority here does NOT start work. Work starts only when the founder says so in the chat.
 
@@ -51,3 +51,9 @@ Changing a priority here does NOT start work. Work starts only when the founder 
 | TASK-067 | P6 | Dependency security review and Next.js security patch (15.5.28) | O7 | R48 | TASK-065 | S | READY FOR TESTING | none yet |
 | TASK-068 | P3 | Record manual test results on the Testing and QA page | O3 | R18, R28, R49 | TASK-038 | S | READY FOR TESTING | none yet |
 | TASK-069 | P6 | Written rollback notes for the database changes about to be deployed (0055 to 0059), tested | O6 | R42 | TASK-015 | S | READY FOR TESTING | none yet |
+| TASK-070 | P6 | Install-the-app button on every page (installable web app: manifest, no-cache service worker, device-aware button) | O6 | R53 | TASK-015 | M | READY FOR TESTING | none yet |
+| TASK-071 | P6 | Request limit on the free public readiness check (/api/public/check) | O7 | R48 | TASK-065 | S | READY FOR TESTING | none yet |
+| TASK-072 | P6 | Grow the question bank for thin subjects (Computer Applications, English, Social Science) from the 2026-27 syllabus | O6 | R54 | TASK-015 | L | READY FOR TESTING | none yet |
+| TASK-073 | P6 | Grow the Maths and Science question banks (gap levels and missing 2026-27 Science chapters) without labelling unreviewed questions verified | O6 | R55 | TASK-072 | L | READY FOR TESTING | none yet |
+| TASK-074 | P6 | Let people attach screenshots/pictures to feedback, stored privately and visible only to support admins | O6 | R56 | TASK-073 | L | READY FOR TESTING | none yet |
+| TASK-075 | P6 | Fix the phone header that made public pages scroll sideways | O6 | R57 | TASK-074 | S | READY FOR TESTING | none yet |

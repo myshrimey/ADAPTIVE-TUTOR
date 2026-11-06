@@ -100,7 +100,9 @@ async function seedDiagnosticFile(filePath) {
       // seed content doesn't have one yet; the review screen falls back to
       // just the correct answer in that case (see migrations/0005).
       explanation: q.explanation ?? null,
-      content_status: contentStatus,
+      // v105: a question file may state its own status. Maths and Science are 'ready', which would otherwise load as 'verified',
+      // so v105 files say needs_review on every question: nothing unreviewed is ever labelled verified.
+      content_status: ['verified', 'needs_review', 'rejected'].includes(q.content_status) ? q.content_status : contentStatus,
     });
     if (insertErr) throw insertErr;
     console.log(`  seeded: ${q.skill_slug} (difficulty ${q.difficulty})`);

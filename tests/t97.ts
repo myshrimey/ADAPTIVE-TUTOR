@@ -12,7 +12,7 @@ const rel = (p: string) => p.slice(API.length + 1).replace(/\/route\.ts$/, '');
 const IDENTITY = /getCurrentStudentId|requireAdmin|getAdminUser|requireApprovedTeacher|getPortalUser|getContributor|getMe\b|auth\.getUser\(/;
 // Routes that are public ON PURPOSE. kind: signup (limits + switch), token (needs an unguessable invitation token),
 // read (public read-only, no write), rls (uses the caller's own session client, never the service key).
-const PUBLIC: Record<string, { kind: 'signup' | 'token' | 'read' | 'rls'; why: string }> = {
+const PUBLIC: Record<string, { kind: 'signup' | 'token' | 'signed' | 'read' | 'rls'; why: string }> = {
   'auth/register': { kind: 'signup', why: 'family self sign-up' },
   'auth/register-family': { kind: 'signup', why: 'family + child sign-up' },
   'portal/register': { kind: 'signup', why: 'parent / tutor / centre sign-up' },
@@ -20,6 +20,7 @@ const PUBLIC: Record<string, { kind: 'signup' | 'token' | 'read' | 'rls'; why: s
   'invite/accept': { kind: 'token', why: 'invitation form; role comes from the invitation row' },
   'invite/started': { kind: 'token', why: 'funnel step; reveals nothing' },
   'commerce/quote': { kind: 'read', why: 'price quote computed on the server' },
+  'feedback/attachment': { kind: 'signed', why: 'picture for a message just sent; needs the signed permission from that send' },
   'public/check': { kind: 'read', why: 'free readiness check; answer keys never sent' },
   'public/config': { kind: 'read', why: 'public site settings' },
   'curriculum': { kind: 'rls', why: 'reads through the caller session (RLS)' },
@@ -41,6 +42,7 @@ for (const p of routes) {
     ok(/website/.test(src), `${r}: has the hidden bot field`);
   }
   if (pub.kind === 'token') ok(/lookupToken\(/.test(src), `${r}: checks the invitation token first`);
+  if (pub.kind === 'signed') ok(/verifyAttachToken\(/.test(src), `${r}: checks the signed permission`);
   if (pub.kind === 'read') ok(!WRITES.test(src), `${r}: public but read-only`);
   if (pub.kind === 'rls') ok(/createServerClient/.test(src) && !/createServiceClient\(/.test(src), `${r}: session client only, no service key`);
 }

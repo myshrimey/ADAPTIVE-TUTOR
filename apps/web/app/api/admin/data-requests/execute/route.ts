@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { requireAdmin } from '@/lib/admin';
 import { createServiceClient } from '@/lib/supabase-server';
+import { removePictureFilesForFeedback } from '@/lib/feedback-attachments';
 import { retainAnswerBank, removeAllSheets, writeAudit } from '@adaptive-tutor/core';
 
 // Founder-only. Permanently deletes one student's learning data and sign-in account for a request a family made.
@@ -30,6 +31,9 @@ export async function POST(req: Request) {
         // Handwritten answers: keep a de-identified answer bank ONLY if the founder switched it on and this family consented; then remove every photo.
         await retainAnswerBank(service, st.id);
         await removeAllSheets(service, st.id);
+        // v106: remove picture files first (the rows go with the feedback rows)
+        const { data: fbIds } = await service.from('feedback').select('id').eq('student_id', st.id);
+        await removePictureFilesForFeedback(service, (fbIds ?? []).map((r: any) => r.id));
         await service.from('feedback').delete().eq('student_id', st.id);
         await service.from('learning_events').delete().eq('student_id', st.id);
       }

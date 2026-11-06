@@ -1,6 +1,11 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { gradeAnswer, spreadAcrossChapters, publicError } from '@adaptive-tutor/core';
+import { checkPublicCheckAllowed } from '@/lib/public-check-limit';
+
+function tooMany(retryAfter: number) {
+  return NextResponse.json({ data: null, error: 'too_many_requests' }, { status: 429, headers: { 'Retry-After': String(retryAfter) } });
+}
 
 // Public free readiness check: no account, nothing saved. A handful of multiple-choice questions
 // from a READY subject; the answer key is never sent to the browser, and after submitting only
@@ -13,6 +18,8 @@ export async function GET(request: Request) {
   try {
     const slug = new URL(request.url).searchParams.get('subject') ?? 'maths';
     const service = createServiceClient();
+    const gate = await checkPublicCheckAllowed(service, request);
+    if (!gate.allowed) return tooMany(gate.retryAfterSeconds);
     const { data: subject } = await service.from('subjects').select('id, name, status').eq('slug', slug).maybeSingle();
     if (!subject || subject.status !== 'ready') return NextResponse.json({ data: null, error: 'subject_not_available' }, { status: 400 });
 
@@ -42,6 +49,8 @@ export async function POST(request: Request) {
     const ids = Object.keys(answers).slice(0, MAX_IDS);
     if (ids.length === 0) return NextResponse.json({ data: null, error: 'no_answers' }, { status: 400 });
     const service = createServiceClient();
+    const gate = await checkPublicCheckAllowed(service, request);
+    if (!gate.allowed) return tooMany(gate.retryAfterSeconds);
     const { data: rows, error } = await service
       .from('diagnostic_questions')
       .select('id, expected_answer, skills(topics(chapters(name)))')

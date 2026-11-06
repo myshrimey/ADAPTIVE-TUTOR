@@ -17,9 +17,15 @@ What each subject actually contains, how far it has been checked, and what Sahay
 | Social Science | pilot | 24 chapters (seeded earlier) | thin | needs_review |
 | English Language & Literature | pilot | 8 chapters, 21 skills | 21 (1 per skill) | AI-written; needs_review |
 | Hindi Course A | pilot | 8 chapters, 20 skills | 20 (1 per skill) | AI-written; needs_review. Questions are in Latin script/English only |
-| Computer Applications | pilot | 8 chapters, 21 skills | 21 (1 per skill) | AI-written; chapter list follows a general brief, **not a checked copy of the official CBSE syllabus** |
+| Computer Applications | pilot | 11 chapters, 38 skills (v104 added the 3 official units) | 96 (21 older + 75 v104) | AI-written, needs_review; older chapters (Boolean logic, spreadsheets, algorithms) are not in the 2026-27 syllabus summaries, teacher to decide |
 
 Depth beyond those starter questions comes from the generate-and-persist mechanism (v32/v33): AI-generated questions are saved as `needs_review`.
+
+## Update v104 (2026-11-03)
+218 questions added (Computer Applications 75, English 63, Social Science 80), all `needs_review`, written for Sahayak (not copied). Computer Applications now has the three official 2026-27 units (Networking, HTML, Cyber Ethics); its older chapters (Boolean logic, spreadsheets, algorithms) are not in the 2026-27 syllabus summaries and await a teacher decision. Details: docs/CONTENT_V104.md.
+
+## Update v105 (2026-11-04)
+203 questions added (Maths 139, Science 64), all `needs_review`, written for Sahayak. Science gains the 3 chapters it lacked (Heredity, Human Eye, Our Environment). Maths and Science are `ready`; the loader now keeps these questions out of `verified`. Details: docs/CONTENT_V105.md.
 
 ## Known limitations / things a teacher should look at first
 - Hindi: the "Kanyadaan" poem question tests a general reading rather than a specific fact; Lekhan (formal letter / notice) questions are general rather than tied to a specific marking rule.

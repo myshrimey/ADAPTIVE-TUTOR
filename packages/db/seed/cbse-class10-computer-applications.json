@@ -291,6 +291,175 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Unit 1 Networking: Internet, Protocols and Services (syllabus 2026-27)",
+      "slug": "syl-networking",
+      "sequence": 9,
+      "topics": [
+        {
+          "name": "Internet Basics",
+          "slug": "syl-internet-basics",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Identify web and Internet terms: browser, server, website, uploading, downloading",
+              "slug": "ca-internet-basics",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Internet Protocols",
+          "slug": "syl-internet-protocols",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Match protocols (TCP/IP, SMTP, POP3, HTTP, HTTPS) to their jobs",
+              "slug": "ca-internet-protocols",
+              "requires": []
+            },
+            {
+              "name": "Distinguish remote login and file transfer tools (SSH, TELNET, FTP, SFTP, SCP)",
+              "slug": "ca-remote-file-transfer",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Internet Services and Mobile Technologies",
+          "slug": "syl-internet-services",
+          "sequence": 3,
+          "skills": [
+            {
+              "name": "Identify Internet services: search engines, e-Banking, e-Governance, video conferencing",
+              "slug": "ca-internet-services",
+              "requires": []
+            },
+            {
+              "name": "Explain SMS, MMS and 3G/4G/5G mobile technologies",
+              "slug": "ca-mobile-technologies",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unit 2 HTML: Pages, Lists, Media, Tables, Forms and CSS (syllabus 2026-27)",
+      "slug": "syl-html",
+      "sequence": 10,
+      "topics": [
+        {
+          "name": "Page Structure and Formatting",
+          "slug": "syl-html-structure",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Use the body attributes and title of an HTML page",
+              "slug": "ca-html-body-attributes",
+              "requires": []
+            },
+            {
+              "name": "Apply line break, rule, heading, paragraph and text style tags",
+              "slug": "ca-html-formatting-tags",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Lists",
+          "slug": "syl-html-lists",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Build ordered, unordered and description lists with start and type",
+              "slug": "ca-html-lists",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Images, Audio, Video and Tables",
+          "slug": "syl-html-media-tables",
+          "sequence": 3,
+          "skills": [
+            {
+              "name": "Insert images, audio and video with the right attributes",
+              "slug": "ca-html-images-media",
+              "requires": []
+            },
+            {
+              "name": "Build tables with rows, headers, rowspan and colspan",
+              "slug": "ca-html-tables",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Forms, Links and CSS",
+          "slug": "syl-html-forms-css",
+          "sequence": 4,
+          "skills": [
+            {
+              "name": "Choose the right form control (text, password, radio, checkbox, list)",
+              "slug": "ca-html-forms",
+              "requires": []
+            },
+            {
+              "name": "Write links with href, mailto and target",
+              "slug": "ca-html-links",
+              "requires": []
+            },
+            {
+              "name": "Write basic CSS for colour, background, border, margin and font",
+              "slug": "ca-css-basics",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unit 3 Cyber Ethics (syllabus 2026-27)",
+      "slug": "syl-cyber-ethics",
+      "sequence": 11,
+      "topics": [
+        {
+          "name": "Netiquette and Licensing",
+          "slug": "syl-netiquette-licensing",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Apply netiquette in online communication",
+              "slug": "ca-netiquette",
+              "requires": []
+            },
+            {
+              "name": "Distinguish open-source and proprietary software licences",
+              "slug": "ca-software-licensing",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Intellectual Property and E-commerce Security",
+          "slug": "syl-ipr-security",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain plagiarism and intellectual property rights",
+              "slug": "ca-ipr-plagiarism",
+              "requires": []
+            },
+            {
+              "name": "Apply safe practices for e-commerce, privacy and secure data transmission",
+              "slug": "ca-ecommerce-security",
+              "requires": []
+            }
+          ]
+        }
+      ]
     }
   ]
 }

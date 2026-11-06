@@ -1,6 +1,48 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0019 - 2026-11-05 - Claude finding during v106 testing
+- Summary: v107: phone header fix (TASK-075).
+- Files: apps/web/app/globals.css; tests/t107.ts, t95b.ts
+- Database: none
+- Tests: t107, browser width scan at 320/360/375/414px, full npm test, type check, build
+- Open: Not tested on real phones; only 10 public pages scanned (signed-in pages not scanned); not deployed
+
+## EX-0018 - 2026-11-05 - founder chat request
+- Summary: v106: screenshots in feedback (TASK-074).
+- Files: packages/db/migrations/0061_feedback_attachments.sql; packages/core/feedback-attachments; apps/web/lib/feedback-attachments.ts; apps/web/app/api/feedback/attachment; apps/web/app/api/admin/feedback/attachment; apps/web/components/FeedbackWidget.tsx, FeedbackPictureAdmin.tsx; apps/web/app/admin/feedback/page.tsx; tests/t106.ts
+- Database: 0061
+- Tests: t106, scratch Postgres twice + undo, full npm test, type check, build
+- Open: Not deployed; not tested on real phones or live storage; no AI reading; not in data export; retention is the founder's / D7
+
+## EX-0017 - 2026-11-04 - founder chat request
+- Summary: v105: Maths and Science question growth (TASK-073).
+- Files: packages/db/seed/cbse-class10-maths-v105-diagnostic.json, cbse-class10-science-v105-diagnostic.json, cbse-class10-science.json; packages/db/seed-diagnostic.js; packages/db/seed-generators/gen_v105_*.py; docs/CONTENT_V105.md, CONTENT_STATUS.md; tests/t105.ts, t95b.ts
+- Database: none
+- Tests: t105 (15), mutation checks, full npm test, type check
+- Open: Not teacher-verified; not loaded into the live database; some Maths topics have no skill yet; Hindi not grown; D7 legal review is the founder's
+
+## EX-0016 - 2026-11-03 - founder chat request
+- Summary: v104: question bank growth (TASK-072).
+- Files: packages/db/seed/cbse-class10-*-v104-diagnostic.json (3); packages/db/seed/cbse-class10-computer-applications.json; packages/db/seed-generators/gen_v104_*.py, v104_lib.py; docs/CONTENT_V104.md, CONTENT_STATUS.md; tests/t104.ts, t95b.ts
+- Database: none
+- Tests: t104 (24 checks, mutation-checked), full npm test, type check
+- Open: Not teacher-verified; not loaded into the live database; Hindi, Maths, Science not grown; off-syllabus Computer Applications chapters left in place; D7 legal review is the founder's
+
+## EX-0015 - 2026-11-03 - SAH-PROMPT-0009
+- Summary: v103: request limit on the free readiness check (TASK-071).
+- Files: apps/web/app/api/public/check/route.ts; apps/web/app/check/page.tsx; apps/web/lib/public-check-limit.ts; packages/core/safety/rate-limit.ts, index.ts; packages/db/migrations/0060_public_check_limit.sql; packages/core/deploy-check/index.ts; docs/DATABASE_SCHEMA.md, ROLLBACK_NOTES.md; tests/t103.ts, t101.ts, t95b.ts
+- Database: 0060 public_check_log (server-only)
+- Tests: t103 (26), t101 (36), migration twice + undo on scratch Postgres, full npm test, type check, production build
+- Open: Not tried on the live site; 0060 not applied live; D7 legal review is the founder's
+
+## EX-0014 - 2026-11-02 - founder chat request
+- Summary: v102: install-the-app button on every page (TASK-070).
+- Files: packages/core/install-app/index.ts, index.ts; apps/web/components/InstallApp.tsx; apps/web/app/manifest.ts; apps/web/public/sw.js; apps/web/app/layout.tsx; apps/web/app/globals.css; apps/web/middleware.ts; tests/t102.ts, t102b.ts, t95b.ts, run-all.ts
+- Database: none
+- Tests: t102 (46), t102b (26, mutation-checked), full npm test, type check, production build, local manifest and service-worker checks
+- Open: Not tried on real devices; no store listing; D7 legal review is the founder's
+
 ## EX-0013 - 2026-11-02 - SAH-PROMPT-0009
 - Summary: v101: rollback notes for 0055 to 0059 (TASK-069).
 - Files: docs/ROLLBACK_NOTES.md; tests/t101.ts, t95b.ts; packages/core/deploy-check/index.ts; scripts/control-centre/build-docs.py

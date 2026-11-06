@@ -1,0 +1,1430 @@
+{
+ "subject_slug": "computer-applications",
+ "questions": [
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is a program used on a client computer to view web pages?",
+   "expected_answer": {
+    "value": "A web browser"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A web server",
+    "A search index",
+    "A web browser",
+    "A router"
+   ],
+   "explanation": "A browser (such as Chrome or Firefox) requests pages and shows them. A web server is the computer that stores and sends the pages."
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A collection of related web pages stored under one domain name is called a:",
+   "expected_answer": {
+    "value": "Website"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Web page",
+    "Browser",
+    "Web server",
+    "Website"
+   ],
+   "explanation": "A web page is a single document; a website is a set of linked web pages under one address."
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Sending a file from your computer to a computer on the Internet is called:",
+   "expected_answer": {
+    "value": "Uploading"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Uploading",
+    "Downloading",
+    "Browsing",
+    "Streaming"
+   ],
+   "explanation": "Uploading sends a file to a remote computer; downloading brings a file from a remote computer to yours."
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about the Internet and the World Wide Web is correct?",
+   "expected_answer": {
+    "value": "The Web is a service that runs on the Internet"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The Internet and the Web mean exactly the same thing",
+    "The Web is a service that runs on the Internet",
+    "The Internet runs on top of the Web",
+    "The Web is a type of web browser"
+   ],
+   "explanation": "The Internet is the global network of networks. The World Wide Web is one service (linked pages) that uses it; email is another."
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which protocol is used to send email from a mail client to a mail server?",
+   "expected_answer": {
+    "value": "SMTP"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "POP3",
+    "FTP",
+    "HTTP",
+    "SMTP"
+   ],
+   "explanation": "SMTP (Simple Mail Transfer Protocol) sends outgoing mail. POP3 is used to fetch mail."
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which protocol is used to download your incoming email from a mail server to your device?",
+   "expected_answer": {
+    "value": "POP3"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "SMTP",
+    "HTTPS",
+    "POP3",
+    "SCP"
+   ],
+   "explanation": "POP3 (Post Office Protocol version 3) retrieves mail from the server. SMTP only sends."
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is the main difference between HTTP and HTTPS?",
+   "expected_answer": {
+    "value": "HTTPS encrypts the data sent between browser and server"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "HTTPS is faster because it skips the server",
+    "HTTP is used only for email",
+    "HTTPS encrypts the data sent between browser and server",
+    "HTTPS works only on mobile phones"
+   ],
+   "explanation": "The S in HTTPS stands for Secure: data is encrypted, so others on the network cannot read it easily."
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In the TCP/IP pair of protocols, which job does TCP do?",
+   "expected_answer": {
+    "value": "Breaks data into packets and makes sure they arrive and are put back in order"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Gives every website a colour",
+    "Converts email into video",
+    "Stores web pages permanently",
+    "Breaks data into packets and makes sure they arrive and are put back in order"
+   ],
+   "explanation": "TCP handles reliable delivery of packets; IP handles addressing and routing them."
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tool lets you log in to a remote computer securely, with the session encrypted?",
+   "expected_answer": {
+    "value": "SSH"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "TELNET",
+    "FTP",
+    "SMTP",
+    "SSH"
+   ],
+   "explanation": "SSH encrypts the whole session. TELNET also gives remote login but sends everything, including passwords, as plain text."
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why is TELNET considered unsafe on open networks?",
+   "expected_answer": {
+    "value": "It sends data, including passwords, without encryption"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It can only work offline",
+    "It deletes files after use",
+    "It needs a printer",
+    "It sends data, including passwords, without encryption"
+   ],
+   "explanation": "Anyone watching the network could read what TELNET sends; SSH was designed to fix this."
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The protocol whose job is to move files between computers is:",
+   "expected_answer": {
+    "value": "FTP"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "SMTP",
+    "POP3",
+    "FTP",
+    "HTTP"
+   ],
+   "explanation": "FTP (File Transfer Protocol) uploads and downloads files. SFTP and SCP do the same but securely."
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which pair contains two SECURE ways to transfer files?",
+   "expected_answer": {
+    "value": "SFTP and SCP"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "FTP and TELNET",
+    "SMTP and POP3",
+    "SFTP and SCP",
+    "HTTP and FTP"
+   ],
+   "explanation": "SFTP and SCP both work over SSH, so the data is encrypted. Plain FTP and TELNET are not encrypted."
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A program that helps you find web pages by typing keywords is called a:",
+   "expected_answer": {
+    "value": "Search engine"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Compiler",
+    "Spreadsheet",
+    "Search engine",
+    "Operating system"
+   ],
+   "explanation": "Search engines such as Google or Bing look through an index of web pages and list matches."
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Paying an electricity bill through a mobile banking app is an example of:",
+   "expected_answer": {
+    "value": "e-Banking"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "e-Learning",
+    "e-Banking",
+    "e-Governance",
+    "Video conferencing"
+   ],
+   "explanation": "e-Banking means doing bank work (transfers, bills) over the Internet."
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Applying for a certificate on a government website instead of visiting the office is an example of:",
+   "expected_answer": {
+    "value": "e-Governance"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "e-Shopping",
+    "Chat",
+    "Blogging",
+    "e-Governance"
+   ],
+   "explanation": "e-Governance uses the Internet to deliver government services to citizens."
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Attending a live class with several students at different places on one screen is an example of:",
+   "expected_answer": {
+    "value": "Video conferencing"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "e-Shopping",
+    "Downloading",
+    "A newsgroup",
+    "Video conferencing"
+   ],
+   "explanation": "Video conferencing lets people in different places see and hear each other in real time."
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does SMS stand for?",
+   "expected_answer": {
+    "value": "Short Message Service"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Secure Mail System",
+    "Simple Media Stream",
+    "Short Message Service",
+    "Smart Mobile Signal"
+   ],
+   "explanation": "SMS carries short text messages between mobile phones."
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which service can carry pictures, audio or video in a message, not only text?",
+   "expected_answer": {
+    "value": "MMS"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "MMS",
+    "SMS",
+    "POP3",
+    "SSH"
+   ],
+   "explanation": "MMS (Multimedia Messaging Service) extends SMS to send media files."
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Compared with 4G, 5G mobile networks are designed to give:",
+   "expected_answer": {
+    "value": "Faster speeds and lower delay"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Faster speeds and lower delay",
+    "Slower speeds but longer battery",
+    "Only voice calls",
+    "Text messages only"
+   ],
+   "explanation": "Each generation improved on the last; 5G aims for higher speed and lower latency than 4G."
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which mobile technology first made video calling and mobile Internet practical for many phone users?",
+   "expected_answer": {
+    "value": "3G"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "1G",
+    "2G voice only",
+    "Bluetooth",
+    "3G"
+   ],
+   "explanation": "1G was analogue voice and 2G added digital calls and SMS. 3G brought mobile data fast enough for video calls and browsing."
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag contains the text shown in the browser tab (title bar)?",
+   "expected_answer": {
+    "value": "<title>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<body>",
+    "<title>",
+    "<h1>",
+    "<br>"
+   ],
+   "explanation": "<title> sits inside <head>. Its text appears on the browser tab, not on the page itself."
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which attribute of the <body> tag sets the background colour of the page?",
+   "expected_answer": {
+    "value": "bgcolor"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "text",
+    "link",
+    "bgcolor",
+    "href"
+   ],
+   "explanation": "bgcolor sets the page colour. text sets the colour of normal text and link sets the colour of links."
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does <body text=\"blue\"> do?",
+   "expected_answer": {
+    "value": "Makes the normal text on the page blue"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Makes the normal text on the page blue",
+    "Makes the background blue",
+    "Makes only links blue",
+    "Adds the word blue to the page"
+   ],
+   "explanation": "The text attribute colours ordinary text. It does not change the background."
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the correct basic order of a web page?",
+   "expected_answer": {
+    "value": "<html> contains <head> and then <body>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<html> contains <head> and then <body>",
+    "<body> contains <html> and then <head>",
+    "<head> contains <html> and <body>",
+    "<title> contains <body> and <head>"
+   ],
+   "explanation": "<html> is the outer element; <head> comes first, then <body>."
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In <body background=\"sky.jpg\">, what is sky.jpg used as?",
+   "expected_answer": {
+    "value": "A background picture for the page"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The page title",
+    "A background picture for the page",
+    "The text of a link",
+    "A sound played on loading"
+   ],
+   "explanation": "The background attribute takes the name of an image file to tile behind the page."
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag inserts a line break?",
+   "expected_answer": {
+    "value": "<br>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<hr>",
+    "<p>",
+    "<h1>",
+    "<br>"
+   ],
+   "explanation": "<br> breaks the line without starting a new paragraph. <hr> draws a horizontal line."
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag draws a horizontal line across the page?",
+   "expected_answer": {
+    "value": "<hr>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<br>",
+    "<u>",
+    "<hr>",
+    "<i>"
+   ],
+   "explanation": "hr stands for horizontal rule."
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which heading tag gives the LARGEST heading by default?",
+   "expected_answer": {
+    "value": "<h1>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<h6>",
+    "<h3>",
+    "<h1>",
+    "<p>"
+   ],
+   "explanation": "<h1> is the biggest and <h6> the smallest heading."
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tag makes text italic?",
+   "expected_answer": {
+    "value": "<i>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<b>",
+    "<i>",
+    "<u>",
+    "<hr>"
+   ],
+   "explanation": "<i> italic, <b> bold, <u> underline."
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these tags does NOT need a closing tag?",
+   "expected_answer": {
+    "value": "<br>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<br>",
+    "<p>",
+    "<b>",
+    "<h2>"
+   ],
+   "explanation": "<br> and <hr> are empty tags: they have no content, so there is nothing to close."
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag creates a bulleted (unordered) list?",
+   "expected_answer": {
+    "value": "<ul>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<ol>",
+    "<dl>",
+    "<ul>",
+    "<li>"
+   ],
+   "explanation": "<ul> is unordered (bullets), <ol> is ordered (numbers). <li> is each item inside either list."
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does <ol start=\"5\"> do?",
+   "expected_answer": {
+    "value": "The numbering begins at 5"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The list has only 5 items",
+    "The list is shown 5 times",
+    "The numbering begins at 5",
+    "The list is hidden after item 5"
+   ],
+   "explanation": "start sets the first number of an ordered list."
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which code makes an ordered list with lowercase letters (a, b, c)?",
+   "expected_answer": {
+    "value": "<ol type=\"a\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<ul type=\"a\">",
+    "<ol type=\"a\">",
+    "<ol start=\"a\">",
+    "<dl type=\"a\">"
+   ],
+   "explanation": "type=\"a\" on <ol> gives a, b, c. Use type=\"A\" for capital letters."
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In a description list, which tag holds the TERM being described?",
+   "expected_answer": {
+    "value": "<dt>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<dd>",
+    "<li>",
+    "<dl>",
+    "<dt>"
+   ],
+   "explanation": "<dl> is the list, <dt> the term, <dd> its description."
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute changes the bullet style of an unordered list to squares?",
+   "expected_answer": {
+    "value": "type=\"square\""
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "start=\"square\"",
+    "style=\"ol\"",
+    "bullet=\"2\"",
+    "type=\"square\""
+   ],
+   "explanation": "type on <ul> can be disc, circle or square."
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which attribute of <img> gives the file name or address of the picture?",
+   "expected_answer": {
+    "value": "src"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "alt",
+    "href",
+    "width",
+    "src"
+   ],
+   "explanation": "src (source) says where the image file is."
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is the main purpose of the alt attribute on an image?",
+   "expected_answer": {
+    "value": "Gives replacement text if the image cannot be shown, and helps screen readers"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Sets the image size",
+    "Links the image to another page",
+    "Gives replacement text if the image cannot be shown, and helps screen readers",
+    "Plays a sound"
+   ],
+   "explanation": "alt text is shown when the image fails to load and is read aloud for visually impaired users."
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which pair of attributes sets the size of an image?",
+   "expected_answer": {
+    "value": "width and height"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "src and alt",
+    "width and height",
+    "href and target",
+    "bgcolor and text"
+   ],
+   "explanation": "width and height take values in pixels (or percent)."
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag is used to add a sound file to a page with play controls?",
+   "expected_answer": {
+    "value": "<audio controls>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<audio controls>",
+    "<img controls>",
+    "<sound play>",
+    "<song>"
+   ],
+   "explanation": "<audio> embeds sound; the controls attribute shows play/pause buttons."
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag embeds a video player in a web page?",
+   "expected_answer": {
+    "value": "<video>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<movie>",
+    "<img>",
+    "<clip>",
+    "<video>"
+   ],
+   "explanation": "<video> (often with controls) is the HTML tag for video."
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag defines a table row?",
+   "expected_answer": {
+    "value": "<tr>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<td>",
+    "<tr>",
+    "<th>",
+    "<table>"
+   ],
+   "explanation": "tr = table row, td = data cell, th = header cell."
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tag creates a header cell that is bold and centred by default?",
+   "expected_answer": {
+    "value": "<th>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<td>",
+    "<tr>",
+    "<tb>",
+    "<th>"
+   ],
+   "explanation": "<th> is a table header cell; <td> is an ordinary data cell."
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A cell that must stretch across 3 columns should use:",
+   "expected_answer": {
+    "value": "colspan=\"3\""
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "colspan=\"3\"",
+    "rowspan=\"3\"",
+    "span=\"col3\"",
+    "width=\"3\""
+   ],
+   "explanation": "colspan merges cells across columns; rowspan merges cells down rows."
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A cell that must stretch down 2 rows should use:",
+   "expected_answer": {
+    "value": "rowspan=\"2\""
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "colspan=\"2\"",
+    "rowspan=\"2\"",
+    "cellspan=\"2\"",
+    "height=\"2\""
+   ],
+   "explanation": "rowspan merges cells vertically across rows."
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In a table written with 3 <tr> rows, each having 4 <td> cells and no merging, how many cells does the table show?",
+   "expected_answer": {
+    "value": "12"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "7",
+    "12",
+    "3",
+    "4"
+   ],
+   "explanation": "3 rows x 4 cells = 12 cells."
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which input type hides what the user types, showing dots or stars instead?",
+   "expected_answer": {
+    "value": "password"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "text",
+    "password",
+    "radio",
+    "checkbox"
+   ],
+   "explanation": "type=\"password\" masks the characters."
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which control should be used when the user may pick ONLY ONE option from a group?",
+   "expected_answer": {
+    "value": "Radio button"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Checkbox",
+    "Radio button",
+    "Password box",
+    "Text box"
+   ],
+   "explanation": "Radio buttons with the same name allow just one choice. Checkboxes allow several."
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which control should be used when the user may tick MORE THAN ONE option, such as hobbies?",
+   "expected_answer": {
+    "value": "Checkbox"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Radio button",
+    "Checkbox",
+    "Password box",
+    "Submit button"
+   ],
+   "explanation": "Checkboxes are independent, so several can be ticked."
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "For radio buttons to behave as one group, what must they share?",
+   "expected_answer": {
+    "value": "The same name attribute"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The same value attribute",
+    "The same colour",
+    "The same name attribute",
+    "The same width"
+   ],
+   "explanation": "Radio buttons with the same name belong to one group, so selecting one clears the others."
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag with <option> items makes a drop-down list in a form?",
+   "expected_answer": {
+    "value": "<select>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<input type=\"list\">",
+    "<ul>",
+    "<select>",
+    "<dropdown>"
+   ],
+   "explanation": "<select> holds <option> items and shows them as a drop-down list."
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which attribute of <a> gives the address the link goes to?",
+   "expected_answer": {
+    "value": "href"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "src",
+    "alt",
+    "name",
+    "href"
+   ],
+   "explanation": "href (hypertext reference) holds the target address."
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which link opens the visitor's email program to write to a given address?",
+   "expected_answer": {
+    "value": "<a href=\"mailto:help@example.com\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<a href=\"email:help@example.com\">",
+    "<a mail=\"help@example.com\">",
+    "<a src=\"help@example.com\">",
+    "<a href=\"mailto:help@example.com\">"
+   ],
+   "explanation": "mailto: in the href starts a new email to that address."
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does target=\"_blank\" do on a link?",
+   "expected_answer": {
+    "value": "Opens the page in a new tab or window"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Closes the current page",
+    "Opens the page in a new tab or window",
+    "Makes the link text blank",
+    "Downloads the page"
+   ],
+   "explanation": "_blank loads the destination in a new browsing context."
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In <a href=\"notes.html\">Click here</a>, what does the visitor see on the page?",
+   "expected_answer": {
+    "value": "The words Click here as the link"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The words Click here as the link",
+    "notes.html",
+    "The tag <a>",
+    "Nothing"
+   ],
+   "explanation": "The text between the opening and closing <a> tags is what is shown and clicked."
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does CSS stand for?",
+   "expected_answer": {
+    "value": "Cascading Style Sheets"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Computer Style System",
+    "Colour and Shape Syntax",
+    "Coded Server Script",
+    "Cascading Style Sheets"
+   ],
+   "explanation": "CSS describes how HTML elements look: colour, spacing, fonts and so on."
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which CSS property sets the colour of text?",
+   "expected_answer": {
+    "value": "color"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "background",
+    "margin",
+    "color",
+    "border"
+   ],
+   "explanation": "color sets text colour; background sets the background."
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is a correct CSS rule?",
+   "expected_answer": {
+    "value": "p { color: red; }"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "p ( color = red )",
+    "p { color: red; }",
+    "p { color - red }",
+    "<p color: red>"
+   ],
+   "explanation": "A rule has a selector, then braces, then property: value; pairs."
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which CSS property puts empty space OUTSIDE the border of an element?",
+   "expected_answer": {
+    "value": "margin"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "padding",
+    "color",
+    "font-size",
+    "margin"
+   ],
+   "explanation": "margin is outside the border; padding is inside it."
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute lets you write CSS directly inside one HTML tag?",
+   "expected_answer": {
+    "value": "style"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "class",
+    "src",
+    "href",
+    "style"
+   ],
+   "explanation": "style=\"color:blue;\" applies CSS to just that element (inline style)."
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Writing a whole message in CAPITAL LETTERS online is usually seen as:",
+   "expected_answer": {
+    "value": "Shouting, which is bad netiquette"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Polite and clear",
+    "Required by law",
+    "Shouting, which is bad netiquette",
+    "A way to encrypt the message"
+   ],
+   "explanation": "Netiquette asks us to keep a normal tone; capitals feel like shouting."
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is good netiquette in an online class chat?",
+   "expected_answer": {
+    "value": "Wait for your turn and write respectfully"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Post the same message again and again",
+    "Send jokes about classmates",
+    "Wait for your turn and write respectfully",
+    "Share a classmate's photo without asking"
+   ],
+   "explanation": "Respect, patience and privacy are the heart of netiquette."
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Sending unwanted bulk messages or advertisements to many people is called:",
+   "expected_answer": {
+    "value": "Spamming"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Spamming",
+    "Browsing",
+    "Tagging",
+    "Streaming"
+   ],
+   "explanation": "Spam wastes people's time and can carry scams or malware."
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Before posting a group photo of your friends online, the best netiquette is to:",
+   "expected_answer": {
+    "value": "Ask them for permission first"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Post it, since you took the photo",
+    "Tag everyone so they cannot object",
+    "Delete it only if someone complains in court",
+    "Ask them for permission first"
+   ],
+   "explanation": "Photos show other people, so their consent and privacy matter, even if you hold the copyright."
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Software whose source code is available for anyone to see, change and share (under its licence) is called:",
+   "expected_answer": {
+    "value": "Open-source software"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Proprietary software",
+    "Malware",
+    "Hardware",
+    "Open-source software"
+   ],
+   "explanation": "Examples include Linux, LibreOffice and Mozilla Firefox."
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is usually proprietary software?",
+   "expected_answer": {
+    "value": "Microsoft Windows"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Microsoft Windows",
+    "Linux",
+    "LibreOffice",
+    "Mozilla Firefox"
+   ],
+   "explanation": "Proprietary software is owned by a company which keeps the source code private and controls how it is used."
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What usually happens to proprietary software if you copy and share it with friends without permission?",
+   "expected_answer": {
+    "value": "It breaks the licence and may be illegal"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It breaks the licence and may be illegal",
+    "Nothing, copying is always allowed",
+    "The software improves",
+    "It becomes open source"
+   ],
+   "explanation": "A licence lists what you may do. Unauthorised copying (piracy) breaks it."
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement is correct?",
+   "expected_answer": {
+    "value": "Open source does not always mean free of cost"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Open source software cannot be used by companies",
+    "Open source does not always mean free of cost",
+    "All free software is open source",
+    "Open source means the code is secret"
+   ],
+   "explanation": "Open source is about access to the code and freedom to change it. Some open-source products are sold with support or services."
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Presenting someone else's work as your own without giving credit is called:",
+   "expected_answer": {
+    "value": "Plagiarism"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Plagiarism",
+    "Netiquette",
+    "Encryption",
+    "Downloading"
+   ],
+   "explanation": "Plagiarism is a form of dishonesty and can break copyright law."
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is the honest way to use a paragraph from a website in your project?",
+   "expected_answer": {
+    "value": "Put it in quotation marks and name the source"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Put it in quotation marks and name the source",
+    "Copy it and delete the website name",
+    "Change two words and claim it as yours",
+    "Use it without saying anything"
+   ],
+   "explanation": "Quoting with credit, or paraphrasing with credit, avoids plagiarism."
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is protected by copyright?",
+   "expected_answer": {
+    "value": "A song you can hear online"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The idea of writing a song, with nothing written down",
+    "A fact such as 2 + 2 = 4",
+    "A song you can hear online",
+    "The name of a day, such as Monday"
+   ],
+   "explanation": "Copyright protects the original expression of a work (the song itself), not bare ideas or common facts."
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why are Intellectual Property Rights (IPR) given to creators?",
+   "expected_answer": {
+    "value": "So creators can control and benefit from their original work"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "So that nobody can read the work",
+    "So that the work is always free",
+    "So that only companies can create",
+    "So creators can control and benefit from their original work"
+   ],
+   "explanation": "IPR encourage people to create by giving them legal protection over their work."
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which sign in the browser suggests that a website connection is secure?",
+   "expected_answer": {
+    "value": "A padlock with https in the address"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A padlock with https in the address",
+    "A bright banner",
+    "Many pop-ups",
+    "A free-gift offer"
+   ],
+   "explanation": "HTTPS and the padlock show that the connection is encrypted. It does not prove the shop itself is honest."
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "You get a call asking for the OTP of your card \"to cancel a wrong payment\". What should you do?",
+   "expected_answer": {
+    "value": "Never share it; hang up and contact the bank through its official number"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Share it quickly",
+    "Never share it; hang up and contact the bank through its official number",
+    "Share half of it",
+    "Share it only if the caller sounds polite"
+   ],
+   "explanation": "Banks never ask for OTPs. Sharing it lets a fraudster complete a payment."
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Tricking people into giving passwords or card details through a fake message or website is called:",
+   "expected_answer": {
+    "value": "Phishing"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Streaming",
+    "Compiling",
+    "Zooming",
+    "Phishing"
+   ],
+   "explanation": "Phishing messages look genuine; check the sender and web address before clicking."
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why is data converted into a coded form (encryption) when you pay online?",
+   "expected_answer": {
+    "value": "So that anyone who intercepts it cannot read it"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "So that it uses less electricity",
+    "So that the page loads in colour",
+    "So that anyone who intercepts it cannot read it",
+    "So that the shop can sell it"
+   ],
+   "explanation": "Encryption protects card and personal details while travelling over the network."
+  }
+ ]
+}

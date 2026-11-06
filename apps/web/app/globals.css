@@ -1226,6 +1226,22 @@ a {
   }
 }
 
+/* ---- v106: feedback pictures ---- */
+.feedback-widget__pics { margin-top: var(--space-2); }
+.feedback-widget__attach {
+  display: inline-flex; align-items: center; min-height: 48px; padding: 0 var(--space-2);
+  border: 1px dashed var(--line); border-radius: 8px; cursor: pointer; font-size: 0.9rem;
+}
+.feedback-widget__attach:focus-within { outline: 2px solid var(--marigold-deep, #c77700); outline-offset: 2px; }
+.feedback-widget__file { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+.feedback-widget__thumbs { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 0; padding: 0; list-style: none; }
+.feedback-widget__thumbs li { position: relative; }
+.feedback-widget__thumbs img { width: 64px; height: 64px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); display: block; }
+.feedback-widget__thumbs button { min-width: 48px; min-height: 48px; }
+.feedback-widget__picnote, .feedback-widget__privacy { font-size: 0.8rem; color: var(--slate); margin: 6px 0 0; }
+.feedback-widget__picerr { font-size: 0.85rem; color: #9b2c2c; margin: 6px 0 0; }
+@media print { .feedback-widget { display: none; } }
+
 /* ---- v35: FAQ accordion ---- */
 .faq__item { border-bottom: 1px solid var(--line, rgba(0,0,0,0.12)); padding: 0.2rem 0; }
 .faq__q { cursor: pointer; font-weight: 600; padding: 0.7rem 0; list-style-position: outside; }
@@ -1707,6 +1723,7 @@ a {
 @media (max-width: 900px) {
   .site-header__nav,
   .site-header__right a.nav-cta,
+  .site-header__right a.nav-link, /* v107: also in the drawer; on a phone it pushed the header past the screen edge */
   .site-header__right .nav-menu {
     display: none;
   }
@@ -1716,6 +1733,13 @@ a {
   .site-header__right {
     margin-left: auto;
   }
+}
+
+/* v107: very small phones (320-360px): tighten the header so nothing passes the screen edge */
+@media (max-width: 360px) {
+  .site-header__row { gap: 0.5rem; }
+  .site-header__right { gap: 0.4rem; min-width: 0; }
+  .wordmark { font-size: 1.1rem; min-width: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1829,3 +1853,54 @@ button.nav-cta--button { border: 0; cursor: pointer; font-family: inherit; displ
 /* v81: Sahayak header shown only on printed pages (added by PrintButton just before printing) */
 .print-brand { display: none; }
 @media print { .print-brand { display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #c8cdd7; padding-bottom: 6px; margin-bottom: 10px; } .print-brand img { height: 32px; width: auto; } }
+
+/* ---------- install the app (v102) ---------- */
+.install-app {
+  position: fixed;
+  left: var(--space-3);
+  bottom: calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
+  z-index: 55;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  max-width: calc(100vw - 2 * var(--space-3));
+}
+.install-app__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--marigold);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  min-height: 48px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(27, 42, 74, 0.28);
+  animation: install-pulse 2.8s ease-in-out 1.2s 3;
+}
+.install-app__button:hover { background: var(--marigold-deep); color: var(--paper); }
+.install-app__button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.install-app[data-compact='true'] .install-app__label { display: none; }
+.install-app[data-compact='true'] .install-app__button { padding: 0.7rem; width: 48px; justify-content: center; animation: none; }
+.install-app__panel {
+  background: var(--paper);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  width: min(360px, calc(100vw - 2 * var(--space-3)));
+  box-shadow: 0 10px 28px rgba(27, 42, 74, 0.3);
+}
+.install-app__title { display: block; font-size: 1.05rem; margin-bottom: 0.5rem; }
+.install-app__steps { margin: 0 0 0.6rem 1.1rem; padding: 0; line-height: 1.45; }
+.install-app__note { font-size: 0.82rem; color: var(--slate); margin: 0 0 0.7rem; }
+.install-app__actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+@keyframes install-pulse { 0%, 100% { box-shadow: 0 6px 18px rgba(27, 42, 74, 0.28); } 50% { box-shadow: 0 0 0 10px rgba(232, 163, 61, 0.35); } }
+@media (prefers-reduced-motion: reduce) { .install-app__button { animation: none; } }
+@media (max-width: 520px) { .install-app__button { font-size: 0.95rem; padding: 0.7rem 1.05rem; } }
+@media print { .install-app { display: none !important; } }

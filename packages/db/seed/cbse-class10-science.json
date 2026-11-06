@@ -175,7 +175,7 @@
       ]
     },
     {
-      "name": "Light \u2013 Reflection and Refraction",
+      "name": "Light – Reflection and Refraction",
       "slug": "light-reflection-refraction",
       "sequence": 6,
       "topics": [
@@ -303,6 +303,109 @@
             {
               "name": "Distinguish asexual and sexual modes of reproduction",
               "slug": "distinguish-reproduction-modes",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Heredity",
+      "slug": "heredity",
+      "sequence": 11,
+      "topics": [
+        {
+          "name": "Inheritance of Traits",
+          "slug": "inheritance-of-traits",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Apply Mendel's monohybrid cross and the 3:1 and 1:2:1 ratios",
+              "slug": "sci-mendel-ratios",
+              "requires": []
+            },
+            {
+              "name": "Distinguish dominant and recessive traits, genotype and phenotype",
+              "slug": "sci-dominant-recessive",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Sex Determination",
+          "slug": "sex-determination",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain how the sex of a child is determined in humans",
+              "slug": "sci-sex-determination",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The Human Eye and the Colourful World",
+      "slug": "human-eye-colourful-world",
+      "sequence": 12,
+      "topics": [
+        {
+          "name": "The Human Eye",
+          "slug": "human-eye",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain the functions of the parts of the human eye and accommodation",
+              "slug": "sci-eye-parts",
+              "requires": []
+            },
+            {
+              "name": "Identify common vision defects and how lenses correct them",
+              "slug": "sci-vision-defects",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Light in the Atmosphere",
+          "slug": "light-in-atmosphere",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain dispersion, scattering and atmospheric refraction",
+              "slug": "sci-dispersion-scattering",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Our Environment",
+      "slug": "our-environment",
+      "sequence": 13,
+      "topics": [
+        {
+          "name": "Ecosystem and Energy Flow",
+          "slug": "ecosystem-energy-flow",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain food chains, trophic levels and the 10 per cent energy rule",
+              "slug": "sci-food-chain-energy",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Environmental Problems",
+          "slug": "environmental-problems",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Explain ozone depletion and classify waste as biodegradable or not",
+              "slug": "sci-ozone-waste",
               "requires": []
             }
           ]

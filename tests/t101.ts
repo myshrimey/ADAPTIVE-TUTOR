@@ -1,15 +1,15 @@
-// t101: rollback notes for migrations 0055-0059 are complete, safe, and actually work (v101).
+// t101: rollback notes for migrations 0055-0061 are complete, safe, and actually work (v101).
 import { readFileSync, readdirSync } from 'fs';
 let n = 0, f = 0; const ok = (c: any, m: string) => { n++; if (!c) { f++; console.log('FAIL', m); } };
 const R = (p: string) => readFileSync(p, 'utf8');
 const doc = R('docs/ROLLBACK_NOTES.md');
-const MIGS = ['0055', '0056', '0057', '0058', '0059'];
+const MIGS = ['0055', '0056', '0057', '0058', '0059', '0060', '0061'];
 const section = (m: string) => { const i = doc.indexOf(`## ${m} `); if (i < 0) return ''; const j = doc.indexOf('\n## ', i + 5); return doc.slice(i, j < 0 ? undefined : j); };
 const migFile = (m: string) => readdirSync('packages/db/migrations').find((x) => x.startsWith(m + '_'))!;
 
 ok(/Take a backup first/.test(doc) && /Supabase SQL editor/.test(doc) && /not a promise about your live database/.test(doc), 'backup rule and honest limit are written down');
 ok(!/COMPLIANT|compliance|guarantee/i.test(doc.replace(/not a promise/gi, '')), 'no compliance or guarantee claims');
-const order = MIGS.map((m) => doc.indexOf(`## ${m} `)); ok(order.every((x) => x > 0) && order.every((x, i) => i === 0 || x < order[i - 1]), 'all five migrations covered, newest first');
+const order = MIGS.map((m) => doc.indexOf(`## ${m} `)); ok(order.every((x) => x > 0) && order.every((x, i) => i === 0 || x < order[i - 1]), 'all six migrations covered, newest first');
 let allSql = '';
 for (const m of MIGS) {
   const s = section(m), sql = (s.match(/```sql\n([\s\S]*?)```/) ?? [])[1] ?? '';

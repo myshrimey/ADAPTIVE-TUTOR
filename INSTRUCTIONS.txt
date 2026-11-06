@@ -1,41 +1,40 @@
-SAHAYAK v96 TO v101 - ONE COMBINED UPDATE (plain English)
-=========================================================
-Put this on top of v90-v95 (which you already committed). It contains everything from v96, v97, v98, v99, v100 and v101,
-so you do NOT need the six small zips.
+SAHAYAK v102 TO v107 - COMBINED (plain English)
+===============================================
+Use this ONE zip instead of the six separate ones (v102 to v107). Apply AFTER v101 (you already deployed v96-v101).
 
-WHAT IS IN IT
-v96  Sign-in limit: after 8 wrong passwords for one account (or 40 from one internet address) in 15 minutes, sign-in says
-     "wait 15 minutes". The admin sign-in form now goes through the same safe door. (database: 0058)
-v97  Every public "door" of the app checked and written down; teacher sign-up now has the same limits and switch as other sign-ups.
-v98  Technical error text (table and column names) no longer reaches visitors; screens keep their friendly messages.
-v99  Next.js security patch 15.5.27 -> 15.5.28 and a written review of the "4 vulnerabilities" (docs/DEPENDENCY_SECURITY.md).
-v100 You can record your test results (Worked / Did not work / Could not try) on /admin/control/testing. (database: 0059)
-v101 Written rollback notes for the database changes 0055-0059 (docs/ROLLBACK_NOTES.md).
+WHAT IS INSIDE (newest first)
+- v107: phone header fix (pages no longer scroll sideways on phones; no database change)
+- v106: screenshots and pictures can be attached to feedback (database change 0061)
+- v105: 203 new Maths and Science questions (all "needs review")
+- v104: 218 new Computer Applications, English and Social Science questions (all "needs review")
+- v103: request limit on the free readiness check (database change 0060)
+- v102: "Get the app" install button on every page
 
-HOW TO APPLY (in this order)
-1. BACKUP FIRST: Supabase -> Database -> Backups (make sure a recent one exists). Read docs/ROLLBACK_NOTES.md once.
-2. Unzip over your project folder.
-3. In the project folder run:  npm install      (fetches the patched Next.js)
-4. git add .   git commit -m "v96 to v101"   git push      (Vercel rebuilds; check the build is green)
-5. Run once:  npm run db:migrate     (adds 0055, 0056, 0057 if not yet applied, plus 0058 and 0059; safe to run again)
-6. Open /admin/deploy-check: every line should say applied and the versions should match (v101).
-7. Open /admin/control and press "Load from documents" once.
-8. Try the sign-in page with a wrong password a few times on a TEST account to see the wait message (then wait 15 minutes or sign in correctly).
-9. Use /admin/control/testing to record what you try.
+WHAT TO DO (in this order)
+1. Back up first (Supabase -> Database -> Backups, or download one).
+2. Unpack over your folder.
+3. Run `npm install`.
+4. `git add .`, commit, push. Vercel deploys.
+5. Run `npm run db:migrate`. It applies 0060 and 0061 (and any earlier one you have not applied). Safe to run twice. 0061 also creates the private storage bucket "feedback-screenshots".
+6. Run `node packages/db/seed.js` then `node packages/db/seed-diagnostic.js` to load the new questions (they load as "needs review").
+7. Open /admin/deploy-check: everything should show applied and website v107.
+8. At /admin/control press "Load from documents".
+9. On a phone: open the Feedback box, add a screenshot, send; then see it at /admin/feedback. Also check the "Get the app" button.
 
-SUPABASE SWITCH STILL YOURS: turn on "leaked password protection" (Authentication settings).
+TESTED (my side only, never your live site)
+- Whole suite: 87 files, 83 passed, 4 old known-stale, 0 failed. Type check clean. Production build OK.
+- Migration 0060 and 0061 run twice and undone + re-applied on a scratch copy.
+- Feedback pictures: 59 checks, plus a phone-width browser check with a pretend server.
 
-WHAT WAS TESTED (my test machine, not your live site)
-- Automated tests: 80 files, 76 passed, 4 old known-stale, 0 failed. Type check clean. Production build OK on Next.js 15.5.28.
-- All migrations (0001-0059) applied twice from empty on a scratch database; 0055-0059 also undone and re-applied (round trip).
-- Signed-out local checks: protected pages ask for sign-in; protected doors answer 401/403.
 NOT TESTED
-- Your live site and database; real students using screens; the PDF download and the reset-password email on the new Next.js version.
-- Supabase's own sign-in limits.
+- Your live site and database, real phones, real Supabase storage. Paste (Ctrl+V) of a picture was not tried in a browser.
 
-STILL OPEN (honest)
-- Forgot-password still goes from the browser straight to Supabase (needs a live test to move safely).
-- /api/public/check (free readiness check) has no rate limit.
-- D7: the professional legal review for tracking children's activity is yours; View As and activity tracking stay unbuilt until then.
-- GitHub should hold v82 onward after your push; remove the public "ERROR_MISTAKE 16 OCOBER 2026.docx" from the repository.
-NOTHING WAS DEPLOYED OR CHANGED ON YOUR LIVE SITE BY ME.
+NOT BUILT
+- AI reading of screenshots, a screen-capture button, pictures in the student data export, a retention rule for pictures (all wait for the D7 legal review).
+- Questions are not teacher-verified.
+
+STILL YOURS (not code)
+- Leaked-password protection in Supabase. Remove the public file "ERROR_MISTAKE 16 OCOBER 2026.docx". Arrange the D7 legal review. Consider Vercel Pro and Supabase Pro.
+- Known existing issue: the home page is wider than a 375px phone screen.
+
+NOT DEPLOYED by me.

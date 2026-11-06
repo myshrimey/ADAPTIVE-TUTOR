@@ -1,0 +1,1525 @@
+{
+ "subject_slug": "social-science",
+ "questions": [
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which meeting of 1815 tried to restore the monarchies that Napoleon had removed in Europe?",
+   "expected_answer": {
+    "value": "The Congress of Vienna"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The Treaty of Versailles",
+    "The Berlin Conference",
+    "The Bretton Woods Conference",
+    "The Congress of Vienna"
+   ],
+   "explanation": "European powers met at Vienna in 1815 under Metternich to restore the old order."
+  },
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Giuseppe Mazzini is remembered for founding which secret society?",
+   "expected_answer": {
+    "value": "Young Italy"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Red Shirts",
+    "Zollverein",
+    "The Frankfurt Parliament",
+    "Young Italy"
+   ],
+   "explanation": "Mazzini founded Young Italy in Marseilles, and later Young Europe."
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who was the chief minister of Prussia who led the unification of Germany?",
+   "expected_answer": {
+    "value": "Otto von Bismarck"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Count Cavour",
+    "Otto von Bismarck",
+    "Garibaldi",
+    "Metternich"
+   ],
+   "explanation": "Bismarck used wars with Denmark, Austria and France to unify Germany under Prussia."
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which Italian chief minister led the movement for unification under the king of Sardinia-Piedmont?",
+   "expected_answer": {
+    "value": "Count Cavour"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Bismarck",
+    "Mazzini",
+    "Napoleon",
+    "Count Cavour"
+   ],
+   "explanation": "Cavour, helped by Garibaldi's forces, brought most of Italy together under Victor Emmanuel II."
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which event of 1919, in which a crowd was fired upon in Amritsar, deeply angered Indians?",
+   "expected_answer": {
+    "value": "Jallianwala Bagh massacre"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Dandi March",
+    "Quit India Movement",
+    "Jallianwala Bagh massacre",
+    "Simon Commission"
+   ],
+   "explanation": "General Dyer ordered troops to fire on a peaceful gathering on 13 April 1919."
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why did Gandhi withdraw the Non-Cooperation Movement in 1922?",
+   "expected_answer": {
+    "value": "Violence at Chauri Chaura"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The British agreed to all demands",
+    "Violence at Chauri Chaura",
+    "Congress was banned",
+    "Exams were due"
+   ],
+   "explanation": "After a mob burnt a police station at Chauri Chaura, Gandhi stopped the movement as he believed in non-violence."
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "The Swadeshi movement began in Bengal in protest against which British decision?",
+   "expected_answer": {
+    "value": "The partition of Bengal"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The partition of Bengal",
+    "The Rowlatt Act",
+    "The Salt Tax",
+    "The Simon Commission"
+   ],
+   "explanation": "The 1905 partition of Bengal led people to boycott British goods and use Indian-made ones."
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which artist painted the well-known image of Bharat Mata as a calm, divine woman?",
+   "expected_answer": {
+    "value": "Abanindranath Tagore"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Raja Ravi Varma",
+    "Abanindranath Tagore",
+    "Amrita Sher-Gil",
+    "Nandalal Bose"
+   ],
+   "explanation": "Abanindranath Tagore painted Bharat Mata, shaping the idea of the nation as a mother figure."
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "The ancient trade routes that linked Asia with Europe and North Africa were known as the:",
+   "expected_answer": {
+    "value": "Silk Routes"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Spice Highways",
+    "Cotton Roads",
+    "Gold Lines",
+    "Silk Routes"
+   ],
+   "explanation": "Silk, textiles, spices and ideas travelled along these routes."
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What did the Spanish and Portuguese conquest of America bring that harmed local people the most?",
+   "expected_answer": {
+    "value": "Diseases such as smallpox"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "New crops only",
+    "Diseases such as smallpox",
+    "Railways",
+    "The telegraph"
+   ],
+   "explanation": "Diseases to which the local people had no immunity killed very large numbers."
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In which year did the Great Depression begin with a stock market crash in the USA?",
+   "expected_answer": {
+    "value": "1929"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "1929",
+    "1914",
+    "1945",
+    "1991"
+   ],
+   "explanation": "The Wall Street crash of 1929 started the worldwide slump."
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which was a major effect of the Great Depression on India?",
+   "expected_answer": {
+    "value": "Prices and exports of farm goods fell sharply"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Prices and exports of farm goods fell sharply",
+    "Exports increased",
+    "Peasants became richer",
+    "Foreign loans rose"
+   ],
+   "explanation": "Falling prices hurt peasants who had debts to repay."
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Proto-industrialisation refers to:",
+   "expected_answer": {
+    "value": "Production for an international market before the coming of factories"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Production for an international market before the coming of factories",
+    "Production only inside factories",
+    "Production by machines run on electricity",
+    "Production for home use only"
+   ],
+   "explanation": "Merchants gave raw material to rural families who worked at home."
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In proto-industrial production, who usually supplied the raw material to peasants and artisans?",
+   "expected_answer": {
+    "value": "Merchants"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Factory owners",
+    "The government",
+    "Merchants",
+    "Foreign soldiers"
+   ],
+   "explanation": "Merchants moved work into the countryside where labour was cheaper."
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which British city's machine-made cotton goods competed strongly against Indian handloom cloth?",
+   "expected_answer": {
+    "value": "Manchester"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Delhi",
+    "Lisbon",
+    "Paris",
+    "Manchester"
+   ],
+   "explanation": "Cheap Manchester imports hit Indian weavers in the 19th century."
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who set up the first iron and steel works in India, at Jamshedpur?",
+   "expected_answer": {
+    "value": "J. N. Tata"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "G. D. Birla",
+    "Dwarkanath Tagore",
+    "J. N. Tata",
+    "Cowasjee Davar"
+   ],
+   "explanation": "Jamsetji Tata's plans led to the first steel plant (TISCO) in the early 20th century."
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Who developed the modern printing press with movable metal type in Europe around the 1440s?",
+   "expected_answer": {
+    "value": "Johann Gutenberg"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Johann Gutenberg",
+    "Martin Luther",
+    "Marco Polo",
+    "Voltaire"
+   ],
+   "explanation": "Gutenberg's press at Strasbourg made books cheaper and more widely available."
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What effect did cheaper printed books have on ordinary people?",
+   "expected_answer": {
+    "value": "More people could read and share ideas"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Fewer people learned to read",
+    "More people could read and share ideas",
+    "Only monks could use books",
+    "Ideas spread more slowly"
+   ],
+   "explanation": "Print made reading material available beyond the rich and the church."
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which law of 1878 restricted the Indian-language press in British India?",
+   "expected_answer": {
+    "value": "The Vernacular Press Act"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The Rowlatt Act",
+    "The Vernacular Press Act",
+    "The Indian Councils Act",
+    "The Pitt's India Act"
+   ],
+   "explanation": "It allowed the government to censor reports it found disloyal."
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "How did newspapers help the Indian national movement?",
+   "expected_answer": {
+    "value": "They spread ideas of freedom and criticised colonial rule"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They stopped the movement",
+    "They only printed advertisements",
+    "They were written in English only",
+    "They spread ideas of freedom and criticised colonial rule"
+   ],
+   "explanation": "Newspapers carried news and ideas that built a sense of unity."
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is a renewable resource?",
+   "expected_answer": {
+    "value": "Solar energy"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Coal",
+    "Petroleum",
+    "Solar energy",
+    "Iron ore"
+   ],
+   "explanation": "Renewable resources can be replaced naturally or are not used up."
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Resources classified as biotic come from:",
+   "expected_answer": {
+    "value": "Living things"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Rocks and metals only",
+    "Living things",
+    "The Moon",
+    "Artificial sources"
+   ],
+   "explanation": "Biotic resources include forests, animals and fish; coal is also biotic in origin because it formed from plants."
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which soil is the most widespread in the northern plains of India?",
+   "expected_answer": {
+    "value": "Alluvial soil"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Laterite soil",
+    "Black soil",
+    "Alluvial soil",
+    "Arid soil"
+   ],
+   "explanation": "Rivers have deposited alluvial soil across the Indo-Gangetic plain."
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Black soil is especially suitable for growing:",
+   "expected_answer": {
+    "value": "Cotton"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Tea",
+    "Coconut only",
+    "Cotton",
+    "Apples"
+   ],
+   "explanation": "Black (regur) soil holds moisture and suits cotton."
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In which year was the Wildlife (Protection) Act passed in India?",
+   "expected_answer": {
+    "value": "1972"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "1947",
+    "1972",
+    "1991",
+    "2005"
+   ],
+   "explanation": "The Act protects habitats and bans hunting of listed species."
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Chipko movement was a campaign to:",
+   "expected_answer": {
+    "value": "Save trees from being cut"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Save trees from being cut",
+    "Plant crops in winter",
+    "Build dams",
+    "Open mines"
+   ],
+   "explanation": "Villagers hugged trees to stop felling in the Himalayan region."
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which is a main cause of water scarcity in India?",
+   "expected_answer": {
+    "value": "Growing population and over-use of water"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Growing population and over-use of water",
+    "Too few rivers in the entire world",
+    "Plenty of rain in every area",
+    "Lack of sunlight"
+   ],
+   "explanation": "Rising demand and unequal access reduce water available per person."
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is a traditional method of rainwater harvesting in Rajasthan?",
+   "expected_answer": {
+    "value": "Tankas"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Johads in Kerala only",
+    "Dams on the Narmada",
+    "Tankas",
+    "Bamboo drip irrigation in Meghalaya"
+   ],
+   "explanation": "Tankas are covered underground tanks that store rain from roofs."
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which river is the Bhakra-Nangal project built on?",
+   "expected_answer": {
+    "value": "Sutlej"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Mahanadi",
+    "Sutlej",
+    "Krishna",
+    "Kaveri"
+   ],
+   "explanation": "Bhakra Nangal is on the Sutlej; Hirakud is on the Mahanadi."
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is a common criticism of large multipurpose dams?",
+   "expected_answer": {
+    "value": "They displace people and affect the environment"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They never produce electricity",
+    "They cause droughts everywhere",
+    "They reduce farming",
+    "They displace people and affect the environment"
+   ],
+   "explanation": "Dams provide irrigation and power but flood land and move communities."
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is a Rabi crop?",
+   "expected_answer": {
+    "value": "Wheat"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Rice",
+    "Jute",
+    "Cotton",
+    "Wheat"
+   ],
+   "explanation": "Rabi crops are sown in winter and harvested in spring; wheat is the main one."
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is a Kharif crop?",
+   "expected_answer": {
+    "value": "Rice"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Wheat",
+    "Rice",
+    "Mustard",
+    "Barley"
+   ],
+   "explanation": "Kharif crops are sown with the monsoon in June–July."
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "The White Revolution in India refers to a big increase in:",
+   "expected_answer": {
+    "value": "Milk production"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Cotton production",
+    "Wheat production",
+    "Fish catch",
+    "Milk production"
+   ],
+   "explanation": "Operation Flood grew milk output and dairy cooperatives."
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which was a land reform introduced to help small farmers?",
+   "expected_answer": {
+    "value": "Abolition of zamindari"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Abolition of zamindari",
+    "Closing all banks",
+    "Banning farming",
+    "Importing all grain"
+   ],
+   "explanation": "Removing zamindari gave tenants more rights over land."
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is a non-metallic mineral?",
+   "expected_answer": {
+    "value": "Mica"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Iron ore",
+    "Mica",
+    "Copper",
+    "Bauxite"
+   ],
+   "explanation": "Mica is non-metallic; iron, copper and bauxite are metallic."
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which mineral is the main ore of aluminium?",
+   "expected_answer": {
+    "value": "Bauxite"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Haematite",
+    "Limestone",
+    "Bauxite",
+    "Manganese"
+   ],
+   "explanation": "Bauxite is refined into alumina and then aluminium."
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is a conventional source of energy?",
+   "expected_answer": {
+    "value": "Coal"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Coal",
+    "Solar power",
+    "Wind power",
+    "Tidal power"
+   ],
+   "explanation": "Coal, petroleum, natural gas and hydel power are conventional sources."
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is a non-conventional source of energy?",
+   "expected_answer": {
+    "value": "Wind"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Natural gas",
+    "Wind",
+    "Coal",
+    "Firewood"
+   ],
+   "explanation": "Wind, solar, tidal and geothermal energy are non-conventional."
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Cotton textile and sugar industries are examples of:",
+   "expected_answer": {
+    "value": "Agro-based industries"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Mineral-based industries",
+    "Agro-based industries",
+    "Public sector only",
+    "Cottage industries only"
+   ],
+   "explanation": "They use farm products as raw material."
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Industries that are owned and run by the government are called:",
+   "expected_answer": {
+    "value": "Public sector industries"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Public sector industries",
+    "Private sector industries",
+    "Cooperative industries",
+    "Joint sector only"
+   ],
+   "explanation": "Examples include SAIL and BHEL."
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which pollution results from untreated factory waste being released into rivers?",
+   "expected_answer": {
+    "value": "Water pollution"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Noise pollution",
+    "Light pollution",
+    "Soil sealing",
+    "Water pollution"
+   ],
+   "explanation": "Industrial effluents poison water and harm life in it."
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which step helps control industrial water pollution?",
+   "expected_answer": {
+    "value": "Treating waste water before releasing it"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Releasing hot water directly",
+    "Burning more coal",
+    "Treating waste water before releasing it",
+    "Dumping waste in rivers"
+   ],
+   "explanation": "Treatment removes harmful materials before discharge."
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which mode of transport is the fastest?",
+   "expected_answer": {
+    "value": "Air transport"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Air transport",
+    "Roadways",
+    "Railways",
+    "Waterways"
+   ],
+   "explanation": "Airways reach distant and remote places quickly but cost more."
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which mode is cheapest for carrying heavy, bulky goods over long distances?",
+   "expected_answer": {
+    "value": "Waterways"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Airways",
+    "Roadways",
+    "Pipelines for people",
+    "Waterways"
+   ],
+   "explanation": "Water transport has low cost per tonne."
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "The exchange of goods and services between countries is called:",
+   "expected_answer": {
+    "value": "International trade"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Local trade only",
+    "International trade",
+    "Barter only",
+    "Tourism"
+   ],
+   "explanation": "Exports and imports make up international trade."
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "How does tourism help a region?",
+   "expected_answer": {
+    "value": "It creates jobs and brings income"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It closes local markets",
+    "It stops all travel",
+    "It reduces employment",
+    "It creates jobs and brings income"
+   ],
+   "explanation": "Tourism supports hotels, guides, transport and crafts."
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Sharing of power among the legislature, executive and judiciary is called:",
+   "expected_answer": {
+    "value": "Horizontal power sharing"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Vertical power sharing",
+    "Community government",
+    "Coalition",
+    "Horizontal power sharing"
+   ],
+   "explanation": "These organs are at the same level; each checks the others."
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Sharing of power between the central, state and local governments is called:",
+   "expected_answer": {
+    "value": "Vertical power sharing"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Horizontal power sharing",
+    "Majoritarianism",
+    "Separation of powers",
+    "Vertical power sharing"
+   ],
+   "explanation": "Power is shared among governments at different levels."
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which step did Belgium take to accommodate its different language groups?",
+   "expected_answer": {
+    "value": "Gave a fair share of power to all groups, including community governments"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Gave all power to the Dutch speakers",
+    "Gave a fair share of power to all groups, including community governments",
+    "Banned one language",
+    "Removed regional governments"
+   ],
+   "explanation": "Belgium shared power by equal ministers and community governments."
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What did the 1956 Act in Sri Lanka do?",
+   "expected_answer": {
+    "value": "Made Sinhala the only official language"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Made Tamil official alone",
+    "Created two equal languages",
+    "Made Sinhala the only official language",
+    "Abolished all languages"
+   ],
+   "explanation": "It ignored Tamil and led to alienation of the Tamil community."
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In a federal system, power is divided between:",
+   "expected_answer": {
+    "value": "The central government and state governments"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The people and the army",
+    "Kings and priests",
+    "Courts and newspapers",
+    "The central government and state governments"
+   ],
+   "explanation": "Federalism has two or more levels of government with their own powers."
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In India, which subjects are listed in the Concurrent List?",
+   "expected_answer": {
+    "value": "Subjects on which both the Union and states can make laws"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Subjects on which both the Union and states can make laws",
+    "Subjects only for states",
+    "Subjects only for the Union",
+    "Subjects only for panchayats"
+   ],
+   "explanation": "Education and marriage are examples; the Union law prevails in a conflict."
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which constitutional amendment of 1992 gave constitutional status to local government?",
+   "expected_answer": {
+    "value": "The 73rd and 74th Amendments"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The 42nd Amendment",
+    "The 91st Amendment",
+    "The 1st Amendment",
+    "The 73rd and 74th Amendments"
+   ],
+   "explanation": "They created the panchayati raj and municipal systems with regular elections."
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What fraction of seats in local bodies is reserved for women?",
+   "expected_answer": {
+    "value": "One-third"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "One-tenth",
+    "One-third",
+    "Three-fourths",
+    "One-half only for cities"
+   ],
+   "explanation": "At least one-third of the seats are reserved for women."
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "The unequal division of work between men and women in many homes is called:",
+   "expected_answer": {
+    "value": "Sexual division of labour"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Women's empowerment",
+    "Political equality",
+    "Majoritarianism",
+    "Sexual division of labour"
+   ],
+   "explanation": "Household work is often seen as women's task, even when they also work outside."
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why is women's representation in legislatures important?",
+   "expected_answer": {
+    "value": "It brings women's concerns into law-making"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It makes laws longer",
+    "It removes elections",
+    "It reduces voting",
+    "It brings women's concerns into law-making"
+   ],
+   "explanation": "Without enough women, issues affecting them may be ignored."
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which Article of the Constitution prohibits discrimination on grounds of caste?",
+   "expected_answer": {
+    "value": "Article 15"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Article 1",
+    "Article 370",
+    "Article 356",
+    "Article 15"
+   ],
+   "explanation": "Article 15 prohibits discrimination on grounds including caste, religion and gender."
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Is it correct to say that elections in India are won only on caste lines?",
+   "expected_answer": {
+    "value": "No, voters also consider performance, policies and other factors"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Yes, always",
+    "Yes, in every constituency",
+    "No, voters also consider performance, policies and other factors",
+    "Yes, since parties are banned from other issues"
+   ],
+   "explanation": "Caste matters but no party wins from one community alone."
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which is a main function of a political party?",
+   "expected_answer": {
+    "value": "Contest elections and put forward policies and candidates"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Run schools only",
+    "Contest elections and put forward policies and candidates",
+    "Collect taxes",
+    "Appoint judges"
+   ],
+   "explanation": "Parties contest elections, form governments and act as opposition."
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In a democracy, what role does the party that does not form the government play?",
+   "expected_answer": {
+    "value": "The opposition, criticising the government and voicing alternatives"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It stops all debate",
+    "It rules together with the government",
+    "It becomes the judiciary",
+    "The opposition, criticising the government and voicing alternatives"
+   ],
+   "explanation": "A strong opposition keeps the government accountable."
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In which party system does only one party hold power legally?",
+   "expected_answer": {
+    "value": "One-party system"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Two-party system",
+    "Multi-party system",
+    "Alliance only",
+    "One-party system"
+   ],
+   "explanation": "China is an example of a one-party system."
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which party system does India follow?",
+   "expected_answer": {
+    "value": "Multi-party system"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "One-party system",
+    "Two-party system",
+    "No-party system",
+    "Multi-party system"
+   ],
+   "explanation": "Several parties compete, and coalitions are common."
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which is a reason democracy is considered better than other forms?",
+   "expected_answer": {
+    "value": "It allows mistakes to be corrected and citizens to be heard"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It allows mistakes to be corrected and citizens to be heard",
+    "It guarantees fast growth always",
+    "It removes all problems",
+    "It needs no elections"
+   ],
+   "explanation": "Democracy offers accountability and room for correction."
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does it mean that a democratic government is accountable?",
+   "expected_answer": {
+    "value": "It must answer to the people and follow rules"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "It can act without rules",
+    "It is never criticised",
+    "It is formed by the army",
+    "It must answer to the people and follow rules"
+   ],
+   "explanation": "Accountability means the government can be questioned and removed at elections."
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Per capita income means:",
+   "expected_answer": {
+    "value": "Total income of a country divided by its population"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Income of the richest person",
+    "Total income of a country divided by its population",
+    "Total exports of the country",
+    "Average age of people"
+   ],
+   "explanation": "It is a simple average and hides differences between people."
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Human Development Index (HDI) combines which three areas?",
+   "expected_answer": {
+    "value": "Health, education and income"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Roads, ports and airports",
+    "Health, education and income",
+    "Army, navy and air force",
+    "Crops, minerals and forests"
+   ],
+   "explanation": "The UNDP publishes HDI using life expectancy, schooling and per capita income."
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Development that meets present needs without harming the needs of future generations is called:",
+   "expected_answer": {
+    "value": "Sustainable development"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Rapid growth",
+    "Sustainable development",
+    "Free trade",
+    "Planned recession"
+   ],
+   "explanation": "It takes care of resources like water and soil so they last."
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why is over-use of groundwater a problem for development?",
+   "expected_answer": {
+    "value": "It can run out and hurt future farming"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It improves rainfall",
+    "It makes soil richer",
+    "It can run out and hurt future farming",
+    "It has no effect"
+   ],
+   "explanation": "Falling water tables make wells dry and raise costs."
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Agriculture, fishing and mining belong to which sector?",
+   "expected_answer": {
+    "value": "Primary sector"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Secondary sector",
+    "Tertiary sector",
+    "Public sector",
+    "Primary sector"
+   ],
+   "explanation": "The primary sector uses natural resources directly."
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Banking, teaching and transport are examples of the:",
+   "expected_answer": {
+    "value": "Tertiary sector"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Primary sector",
+    "Secondary sector",
+    "Tertiary sector",
+    "Informal sector only"
+   ],
+   "explanation": "The tertiary or service sector produces services, not goods."
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which feature is typical of the organised sector?",
+   "expected_answer": {
+    "value": "Fixed working hours and job security"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Fixed working hours and job security",
+    "No rules",
+    "No records",
+    "Irregular pay always"
+   ],
+   "explanation": "Organised sector jobs are registered and follow government rules."
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these describes the unorganised sector?",
+   "expected_answer": {
+    "value": "Small scattered units with irregular, low pay and little job security"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Small scattered units with irregular, low pay and little job security",
+    "Large government offices only",
+    "Jobs with pensions for all",
+    "Factories with strong unions only"
+   ],
+   "explanation": "Most Indian workers are in the unorganised sector."
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What is the main problem of the barter system?",
+   "expected_answer": {
+    "value": "Both parties must want exactly what the other has"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Too much money circulates",
+    "Goods cannot be traded",
+    "Both parties must want exactly what the other has",
+    "Banks refuse loans"
+   ],
+   "explanation": "This is called the double coincidence of wants."
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who issues currency notes in India?",
+   "expected_answer": {
+    "value": "The Reserve Bank of India"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The Reserve Bank of India",
+    "State Bank of India",
+    "The Ministry of Education",
+    "Local banks"
+   ],
+   "explanation": "The RBI issues notes, except the one-rupee note issued by the Government of India."
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "An asset that a borrower pledges as security against a loan is called:",
+   "expected_answer": {
+    "value": "Collateral"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Interest",
+    "Deposit",
+    "Collateral",
+    "Receipt"
+   ],
+   "explanation": "If the loan is not repaid, the lender can sell the collateral."
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The extra amount a borrower pays to the lender over the loan is called:",
+   "expected_answer": {
+    "value": "Interest"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Interest",
+    "Collateral",
+    "Principal only",
+    "Dividend"
+   ],
+   "explanation": "Interest is the cost of borrowing."
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A company that owns or controls production in more than one country is called a:",
+   "expected_answer": {
+    "value": "Multinational company (MNC)"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Cooperative society",
+    "Self-help group",
+    "Multinational company (MNC)",
+    "Panchayat"
+   ],
+   "explanation": "MNCs set up offices and factories in different countries."
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which organisation sets rules for international trade and was set up in 1995?",
+   "expected_answer": {
+    "value": "The World Trade Organization (WTO)"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The United Nations Children's Fund",
+    "The Reserve Bank of India",
+    "The World Trade Organization (WTO)",
+    "The Election Commission"
+   ],
+   "explanation": "WTO members agree rules to reduce trade barriers."
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which is a benefit of globalisation for consumers in India?",
+   "expected_answer": {
+    "value": "More choice of goods at better quality and prices"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Fewer products to buy",
+    "Higher taxes on every item",
+    "Fewer jobs everywhere",
+    "More choice of goods at better quality and prices"
+   ],
+   "explanation": "Competition from imports and MNCs widens choice."
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which group may be harmed by globalisation?",
+   "expected_answer": {
+    "value": "Small producers who cannot compete with cheap imports"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "All large companies",
+    "All consumers",
+    "Small producers who cannot compete with cheap imports",
+    "Banks only"
+   ],
+   "explanation": "Small units may close if they cannot match costs and quality."
+  }
+ ]
+}

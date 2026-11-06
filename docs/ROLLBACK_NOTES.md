@@ -1,4 +1,4 @@
-# Rollback notes for the database changes not yet applied live (0055 to 0059)
+# Rollback notes for the database changes not yet applied live (0055 to 0061)
 
 Written in v101 (2 Nov 2026). **How to read this:** every database change in Sahayak only ADDS things and is safe to run again. If you ever need to go back, these are the undo steps, newest first. They were tested on a scratch copy of the database: apply 0055-0059, run every undo block below, check the objects are gone, then apply 0055-0059 again with no error (t101).
 
@@ -9,6 +9,18 @@ Written in v101 (2 Nov 2026). **How to read this:** every database change in Sah
 4. After an undo, the matching version of the website must also be redeployed, otherwise a page may look for a table that is gone. `/admin/deploy-check` shows which side is behind.
 5. These notes undo structure only. They never touch students, answers, payments or accounts.
 6. This is a plan written by Claude and tested on a copy. It is not a promise about your live database. Nothing here has been run on it.
+
+## 0061 feedback_attachments (v106) - pictures attached to feedback
+What you lose: the list saying which picture belongs to which feedback message. Feedback text is untouched and keeps working; the website simply stops showing pictures (the page and upload route fail safe when the table is missing). The picture FILES stay in the private bucket `feedback-screenshots`: delete them from Supabase -> Storage yourself if you want them gone (they may show children's screens, so do not leave them forgotten).
+```sql
+drop table if exists public.feedback_attachments;
+```
+
+## 0060 public_check_limit (v103) - request limit on the free check
+What you lose: only the short-lived list of recent requests to the free readiness check (it forgets itself after an hour anyway). The check keeps working; the limit simply switches itself off (it fails open when the table is missing).
+```sql
+drop table if exists public.public_check_log;
+```
 
 ## 0059 qa_results (v100) - recorded test results
 What you lose: the test results you recorded at /admin/control/testing. The checklists themselves stay.
