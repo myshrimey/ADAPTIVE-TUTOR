@@ -12,7 +12,7 @@ export const REGISTRY = {
    "status": "PARTIALLY COMPLETED",
    "category": "product",
    "related_to": null,
-   "requirement_level": false,
+   "requirement_level": true,
    "note": "Original text not in the repository. Not built: Hindi Course A vs B, animated diagrams, teacher pay, automatic Excel tracker.",
    "founder_priority": null
   },
@@ -25,7 +25,7 @@ export const REGISTRY = {
    "status": "REGISTERED",
    "category": "product",
    "related_to": null,
-   "requirement_level": false,
+   "requirement_level": true,
    "note": "Original text not in the repository. Status not re-evaluated since v42.",
    "founder_priority": null
   },
@@ -38,7 +38,7 @@ export const REGISTRY = {
    "status": "PARTIALLY COMPLETED",
    "category": "learning",
    "related_to": null,
-   "requirement_level": false,
+   "requirement_level": true,
    "note": "Original text not in the repository. Tracked by the 26 numbered roadmap rows (see registry document).",
    "founder_priority": null
   },
@@ -170,6 +170,24 @@ export const REGISTRY = {
    "prompt_id": "SAH-PROMPT-0009",
    "code": "O8",
    "title": "Phase 0 first action: audit, persistent documents, present findings (Part 10, First Action)"
+  },
+  {
+   "id": "SAH-PROMPT-0001/S",
+   "prompt_id": "SAH-PROMPT-0001",
+   "code": "S",
+   "title": "Sections of the original prompt (rebuilt from the evaluation documents; the original text is not kept)"
+  },
+  {
+   "id": "SAH-PROMPT-0002/S",
+   "prompt_id": "SAH-PROMPT-0002",
+   "code": "S",
+   "title": "Sections of the original prompt (rebuilt from the evaluation documents; the original text is not kept)"
+  },
+  {
+   "id": "SAH-PROMPT-0003/S",
+   "prompt_id": "SAH-PROMPT-0003",
+   "code": "S",
+   "title": "Sections of the original prompt (rebuilt from the evaluation documents; the original text is not kept)"
   }
  ],
  "requirements": [
@@ -724,6 +742,16 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R59",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R59",
+   "text": "Founder request 2026-11-08 (chat): complete all the prompts and their tasks by criticality and strategic value",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v109: prompts 0001-0003 now tracked requirement by requirement; ranked remaining-work list written. Most remaining items need the founder, teachers or the legal review (D7); Claude-buildable items are listed first in docs/REMAINING_WORK_RANKED.md.",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -751,6 +779,816 @@ export const REGISTRY = {
    "text": "Present Phase 0 findings and proposed Phase 1 tasks; wait for the founder to choose",
    "status": "COMPLETED",
    "note": "Presented in the chat reply of 2026-10-31. Founder choice pending.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-01",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-01",
+   "text": "Sections 1-2: stack kept; commercial plans (founder plans, free plan)",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-02",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-02",
+   "text": "Sections 4, 27, 45, 46: principles (context shapes the intervention, evidence decides the assessment; no labels, no diagnosing; RLS owner pattern; no secrets in the browser; supportive wording)",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-03",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-03",
+   "text": "Section 5: onboarding (exam year, preferred language, daily study time)",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Limit: board and class fixed to CBSE Class 10; no other boards or classes.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-04",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-04",
+   "text": "Section 6: subject availability (ready / pilot / in development / coming soon) from the database",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-05",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-05",
+   "text": "Section 7: question metadata (marks, expected time, cognitive level, language)",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Limit: marks and cognitive level stay empty until a person sets them (by design).",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-06",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-06",
+   "text": "Section 8: content verification status (verified / needs review / rejected; rejected never served)",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-07",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-07",
+   "text": "Section 9: board-readiness bands with reasons, including \"insufficient evidence\", never a prediction",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-08",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-08",
+   "text": "Section 10: staged assessment (chapter check, subject check, full mock, board-style paper)",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Limit: chapter and subject checks are practice measurements and do not change mastery.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-09",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-09",
+   "text": "Section 9 (written answers): AI-suggested practice marks for written answers",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Built v40. By design not used for mastery or readiness until the founder decides.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-10",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-10",
+   "text": "Section 11: error types by subject",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Limit: Science and Language tag sets only used as low-confidence hints when a question has no tags.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-11",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-11",
+   "text": "Section 12: behaviour signals (answer time, unfinished sessions, study days, streak)",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Limit: no data until real sessions have run.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-12",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-12",
+   "text": "Sections 13-14: pre-session check-in (five questions) stored with a timestamp; confidence after",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-13",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-13",
+   "text": "Sections 15-17: confidence trend (latest, 7-day, 30-day, direction, per subject) and before-vs-after change",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-14",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-14",
+   "text": "Section 16: confidence-versus-performance note in supportive wording",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-15",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-15",
+   "text": "Sections 18-19: session adaptation to available time and goal; recovery mode ending with an easier success question",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Closed in v38.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-16",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-16",
+   "text": "Sections 20-21: parent dashboard (engagement, assessment history, confidence by subject; also on the parent link)",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-17",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-17",
+   "text": "Section 22: \"what changed in 30 days\" report",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Built v39.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-18",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-18",
+   "text": "Section 23: subject matrix with recommended priority",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Limit: columns are coverage, band, last assessed, priority; separate concept/application/independent/timed columns are not shown.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-19",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-19",
+   "text": "Section 24: student dashboard (today's recommended session, streak)",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-20",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-20",
+   "text": "Sections 26 and 47: intervention-to-outcome summary (association only)",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Built v39.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-21",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-21",
+   "text": "Sections 28-29: offline payment flow and offer page (claim, reference, pending/confirmed/rejected/refunded; no automatic access)",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-22",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-22",
+   "text": "Sections 30-33: funnel and landing (/check, /sample-report, /about, /trust, refund page)",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Limit: refund terms are a draft; new text English only; legal wording awaits professional review (D7).",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-23",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-23",
+   "text": "Sections 33-34: terms, privacy, limits, payment/refund policy, contact; English and Hindi interface",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Wording is a draft pending the founder and professional review.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-24",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-24",
+   "text": "Section 35: founder metrics page (activation, sessions per week, paid conversion)",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Built v39.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-25",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-25",
+   "text": "Section 36: ten quality gates with founder sign-off and promote-to-ready",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Limit: no subject has passed any gate yet; that needs people.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-26",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-26",
+   "text": "Section 36: access can be granted and revoked per student",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-27",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-27",
+   "text": "Section 37: diagnostic persistence bug found and fixed",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Fixed v30 (resume instead of orphan).",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-28",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-28",
+   "text": "Section 42: project memory files and schema documents",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-29",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-29",
+   "text": "Hindi Course A versus B as distinct courses",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Built v43 (after the coverage document was written).",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-30",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-30",
+   "text": "True animated diagrams",
+   "status": "NOT STARTED",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Not built. Level-adaptive diagrams exist (v22); animation needs topic choices from the founder.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-31",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-31",
+   "text": "Automatic teacher payment",
+   "status": "BLOCKED",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). Waiting for the founder's payment decision (docs/TEACHER_PAYMENT_PROPOSAL.md).",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0001/MV-32",
+   "prompt_id": "SAH-PROMPT-0001",
+   "objective_code": "S",
+   "code": "MV-32",
+   "text": "Automatic update of the Excel tracker",
+   "status": "NOT STARTED",
+   "note": "Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). CSV exports exist (v40); an automatic update does not.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-01",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-01",
+   "text": "Section 7: Founding Family offer (plan, real place counter, one switch)",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). Price is a test value, not permanent.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-02",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-02",
+   "text": "Section 8: offline payment (claim form, admin payments, student creation)",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-03",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-03",
+   "text": "Sections 9-10: CBSE Class 10, subjects limited by plan, status from the database",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-04",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-04",
+   "text": "Section 11: English and Hindi interface; questions mostly English, stated on the site",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). Not claimed as bilingual; Hindi question text is AI-written until a teacher checks it.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-05",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-05",
+   "text": "Sections 12-14: diagnostic and learning persistence (attempts, answers, skills, hints, time, mastery)",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-06",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-06",
+   "text": "Sections 15-16: check-in and confidence trend",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-07",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-07",
+   "text": "Sections 17 and 29: parent dashboard and report; WhatsApp text; \"insufficient evidence\" as a real answer",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-08",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-08",
+   "text": "Section 18: board readiness bands with reasons and evidence coverage",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-09",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-09",
+   "text": "Section 18: readiness dimensions 6, 8, 9, 10 (retention, question-type coverage, written-answer quality, recurring error patterns) combined",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). Shown separately, not combined; needs written-answer marks checked by teachers first.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-10",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-10",
+   "text": "Sections 19-21: handwritten mock (print paper, photo upload, quality check, AI marking, confidence, teacher queue, AI-vs-teacher agreement)",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). Built v46; NOT proven with real photos. Consent wording is a draft awaiting a lawyer.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-11",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-11",
+   "text": "Sections 22-25: blueprint-driven CBSE mock, printable paper, Challenge Mode",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). Planning blueprints only; papers are partial until the bank has 3/4/5-mark questions; official blueprint needed.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-12",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-12",
+   "text": "Section 22: question metadata (marks, time, cognitive level, language)",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). Empty until people set them.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-13",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-13",
+   "text": "Section 26: empirical question difficulty page (judged only after 20 answers)",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-14",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-14",
+   "text": "Section 28: dynamic study plan",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-15",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-15",
+   "text": "Sections 30-31: landing proposition and hero",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-16",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-16",
+   "text": "Section 31: landing sections (example readiness dashboard, example mock analysis, \"complements school\", founder section)",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). Needs content from the founder.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-17",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-17",
+   "text": "Sections 32-33: trust, founder, legal pages",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). Drafts pending the founder and professional review (D7).",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-18",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-18",
+   "text": "Sections 34-36: marketing scripts and content calendar",
+   "status": "NOT STARTED",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). Not code. Claude can draft on request; the Social Growth module (v72) helps with posts.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-19",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-19",
+   "text": "Sections 37-39: funnel and economics from real data; CSV downloads",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-20",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-20",
+   "text": "Section 40: ten quality gates with founder sign-off",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). No subject has passed any gate yet.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-21",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-21",
+   "text": "Section 41: export and delete a student's data",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). Built v44. The founder must still agree what must be kept (e.g. payment records) with an accountant or lawyer (D7).",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-22",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-22",
+   "text": "Section 44: project memory file",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). ",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0002/V3-23",
+   "prompt_id": "SAH-PROMPT-0002",
+   "objective_code": "S",
+   "code": "V3-23",
+   "text": "Self sign-up (v45) with consent and abuse limits",
+   "status": "READY FOR TESTING",
+   "note": "Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). Added after the prompt. Forgot-password only works for accounts with an email.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-01",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-01",
+   "text": "Sections 3, 38, 39: One student model; evidence from every source",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status PARTIAL. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-02",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-02",
+   "text": "Sections 4-5: Adaptive diagnostic and baseline (goes down to earlier classes)",
+   "status": "READY FOR TESTING",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status BUILT. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-03",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-03",
+   "text": "Sections 6: Learning strategy orchestrator",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status PARTIAL. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-04",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-04",
+   "text": "Sections 7: Full learning loop",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status PARTIAL. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-05",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-05",
+   "text": "Sections 8: Error intelligence",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status PARTIAL. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-06",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-06",
+   "text": "Sections 9: Mastery states",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status PARTIAL. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-07",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-07",
+   "text": "Sections 10: Spaced revision scheduler",
+   "status": "READY FOR TESTING",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status BUILT. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-08",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-08",
+   "text": "Sections 11: Interleaving engine",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status PARTIAL. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-09",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-09",
+   "text": "Sections 12: Worked example and fading-support engine",
+   "status": "READY FOR TESTING",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status BUILT. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-10",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-10",
+   "text": "Sections 13: Metacognition prompts and calibration",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status PARTIAL. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-11",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-11",
+   "text": "Sections 14: Teach Sahayak mode",
+   "status": "NOT STARTED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status NOT IMPLEMENTED. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-12",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-12",
+   "text": "Sections 15-16: Voice Sahayak (speaking and listening)",
+   "status": "BLOCKED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status REQUIRES PROVIDER. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-13",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-13",
+   "text": "Sections 17: Visual learning",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status PARTIAL. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-14",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-14",
+   "text": "Sections 18: Handwritten mock evaluation",
+   "status": "READY FOR TESTING",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status BUILT. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-15",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-15",
+   "text": "Sections 19-20: Parent intelligence and next-best action",
+   "status": "READY FOR TESTING",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status BUILT. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-16",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-16",
+   "text": "Sections 21-24: Tutor and coaching-centre intelligence",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status PARTIAL. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-17",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-17",
+   "text": "Sections 25, 44: Roles, privacy, audit",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status PARTIAL. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-18",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-18",
+   "text": "Sections 26-30: Feedback intelligence and human review gate",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status PARTIAL. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-19",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-19",
+   "text": "Sections 31-35: AI router, fallback, ledger, economics",
+   "status": "READY FOR TESTING",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status BUILT. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-20",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-20",
+   "text": "Sections 36-37: Engagement without addiction",
+   "status": "READY FOR TESTING",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status BUILT. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-21",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-21",
+   "text": "Sections 40: Exam readiness",
+   "status": "READY FOR TESTING",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status BUILT. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-22",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-22",
+   "text": "Sections 41-42: Multi-board and language architecture",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status PARTIAL. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-23",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-23",
+   "text": "Sections 45: Founder Command Centre",
+   "status": "READY FOR TESTING",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status BUILT. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-24",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-24",
+   "text": "Sections 46: Experiments",
+   "status": "PARTIALLY COMPLETED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status PARTIAL. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-25",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-25",
+   "text": "Sections 47: Safety wording",
+   "status": "READY FOR TESTING",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status BUILT. Not re-checked against the code today.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0003/LR-26",
+   "prompt_id": "SAH-PROMPT-0003",
+   "objective_code": "S",
+   "code": "LR-26",
+   "text": "Sections 55-56: Live test of every journey, role-boundary test",
+   "status": "NOT STARTED",
+   "note": "Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status NOT IMPLEMENTED. Not re-checked against the code today.",
    "founder_acceptance": "pending"
   }
  ],
@@ -1519,6 +2357,21 @@ export const REGISTRY = {
    "note": "v108: link in AdminMenu for the main admin only; t108 (5 checks). Not checked on a deployed site.",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-077",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Break prompts 0001-0003 into requirement rows and rank what is left",
+   "objective_code": "O6",
+   "requirements": "R59",
+   "depends_on": "TASK-076",
+   "size": "M",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v109: 81 rows from the evaluation documents (not re-verified against code), docs/REMAINING_WORK_RANKED.md, t90/t90b updated. Not yet seen on a deployed site.",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -1883,6 +2736,16 @@ export const REGISTRY = {
    "db_changes": "none",
    "tests": "t108, full npm test, type check, build",
    "open_problems": "Not checked on a deployed site; not deployed"
+  },
+  {
+   "id": "EX-0021",
+   "executed_on": "2026-11-08",
+   "prompt_id": "founder chat request",
+   "summary": "v109: requirement rows for prompts 0001-0003 and a ranked remaining-work list (TASK-077).",
+   "files": "scripts/control-centre/build-docs.py; packages/core/control-centre/registry-data.ts; docs/REMAINING_WORK_RANKED.md; tests/t90.ts, t90b.ts, t95b.ts",
+   "db_changes": "none (Load from documents copies the rows)",
+   "tests": "t90, t90b, full npm test, type check",
+   "open_problems": "Row statuses come from older evaluation documents, not a fresh check of the code; 0004-0008 still headline-only; not deployed"
   }
  ]
 } as unknown as ControlRegistry;

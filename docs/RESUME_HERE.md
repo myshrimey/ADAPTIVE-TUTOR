@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v108 (2026-11-06)
+## Latest delivery - v109 (2026-11-08)
+Prompts 0001 to 0003 now have requirement rows (so the control centre shows a real done %). New ranked list: docs/REMAINING_WORK_RANKED.md. After deploying, press "Load from documents" again at /admin/control to copy the new rows. No migration. Apply after v108: `sahayak-v109-requirements-delta.zip`.
+
+## Previous delivery - v108 (2026-11-06)
 Admin top bar now has a "Control centre" shortcut (main admin only). The "Load from documents" button is on that page. No migration. Apply after v107: `sahayak-v108-control-link-delta.zip`.
 
 ## Previous delivery - v107 (2026-11-05)

@@ -141,3 +141,4 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v106 (2026-11-05): users can attach up to 3 screenshots to feedback (migration 0061, private bucket, admin 'support' view + delete). No AI reading, not in data export, no retention rule yet (D7). Not deployed.
 - v107 (2026-11-05): phone header overflow fixed (CSS only; checked at 320-414px). No migration. Not deployed.
 - v108 (2026-11-06): 'Control centre' shortcut in the admin top bar (main admin only). No migration. Not deployed.
+- v109 (2026-11-08): prompts 0001-0003 broken into requirement rows; ranked remaining-work list added. No migration. Not deployed.

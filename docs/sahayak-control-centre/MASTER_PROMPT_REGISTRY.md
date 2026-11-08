@@ -5,15 +5,15 @@ IMPORTANT, in plain words: the ORIGINAL TEXT of prompts 0001 to 0008 is not in t
 
 | Prompt ID | Title | Received | Original text kept? | Requirements tracked | Status | Founder priority |
 |---|---|---|---|---|---|---|
-| SAH-PROMPT-0001 | MVP master prompt (54 sections) | before 2026-10-16 (exact date not recorded) | No. Evidence: docs/MASTER_PROMPT_COVERAGE.md | Section level only | PARTIALLY COMPLETED (not built: Hindi Course A vs B, animated diagrams, teacher pay, automatic Excel tracker) | not set |
-| SAH-PROMPT-0002 | Master prompt v3 | about 2026-10-17 (v42) | No. Evidence: docs/V3_REQUIREMENTS_MAP.md | Section level only | Per that document; not re-evaluated | not set |
+| SAH-PROMPT-0001 | MVP master prompt (54 sections) | before 2026-10-16 (exact date not recorded) | No. Evidence: docs/MASTER_PROMPT_COVERAGE.md | 32 section rows (v109) | PARTIALLY COMPLETED (not built: Hindi Course A vs B, animated diagrams, teacher pay, automatic Excel tracker) | not set |
+| SAH-PROMPT-0002 | Master prompt v3 | about 2026-10-17 (v42) | No. Evidence: docs/V3_REQUIREMENTS_MAP.md | 23 section rows (v109) | Per that document; not re-evaluated | not set |
 | SAH-PROMPT-0003 | Adaptive-learning master prompt (numbered sections 3 to 56) | not recorded | No. Evidence: the roadmap page rows | 26 roadmap rows (see below) | PARTIALLY COMPLETED | not set |
 | SAH-PROMPT-0004 | Feedback Intelligence and Human Review Engine | about v67 | No | 1 roadmap row | PARTIALLY COMPLETED | not set |
 | SAH-PROMPT-0005 | Social Media Growth Engine | about v72 | No | 1 roadmap row | PARTIALLY COMPLETED | not set |
 | SAH-PROMPT-0006 | Acquisition and Referral Intelligence | about v76 | No | 1 roadmap row | PARTIALLY COMPLETED | not set |
 | SAH-PROMPT-0007 | Role-based accounts, invitations, team, Help | about v79 | No | 1 roadmap row | PARTIALLY COMPLETED | not set |
 | SAH-PROMPT-0008 | Curriculum management and branded exports | about v81 | No | 1 roadmap row | PARTIALLY COMPLETED | not set |
-| SAH-PROMPT-0009 | Founder Command and Development Control System | 2026-10-31 10:59 IST | Yes: MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md | 58 requirements, 51 tasks | PARTIALLY COMPLETED. Phase 0 done; Phase 1 registry tables and screens built (v90), not yet applied or seen live | Founder handed ordering to Claude by criticality (FD-10) |
+| SAH-PROMPT-0009 | Founder Command and Development Control System | 2026-10-31 10:59 IST | Yes: MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md | 59 requirements, 52 tasks | PARTIALLY COMPLETED. Phase 0 done; Phase 1 registry tables and screens built (v90), not yet applied or seen live | Founder handed ordering to Claude by criticality (FD-10) |
 
 Order of 0004 to 0008 is by the build version that first delivered them, not by a verified date of receipt.
 

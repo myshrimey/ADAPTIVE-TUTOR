@@ -753,3 +753,9 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 ## v108 (2026-11-06) - Control centre shortcut in the admin top bar
 - Founder could not find "Load from documents" and expected a Control dropdown in the admin top bar. The page was already in the menu (Settings & Safety > Development control centre, /admin/control, button near the top), but was hard to spot.
 - Added a "Control centre" link next to "Command Centre" in the admin top bar, shown only to the main admin (team members' menus do not include the page, so they never see it). t108 (5 checks). No migration. Not deployed.
+
+## v109 (2026-11-08) - requirement rows for prompts 0001 to 0003 and a ranked list of what is left
+- Founder asked (chat): complete all the prompts and their tasks by criticality and strategic value. The control centre showed prompts 0001 to 0008 as "headline only", so no real "done %" existed for them.
+- Built: requirement rows for SAH-PROMPT-0001 (32 rows, from docs/MASTER_PROMPT_COVERAGE.md), 0002 (23 rows, from docs/V3_REQUIREMENTS_MAP.md) and 0003 (26 rows, from the roadmap page). Each row cites its source and is never COMPLETED without evidence. The originals are still not in the repository, so 0004 to 0008 stay headline-only (their one row each cannot be split without the original text; paste a prompt to get it archived and split).
+- docs/REMAINING_WORK_RANKED.md: what is left, ranked, split by who can do it (Claude, founder, teachers, legal review).
+- Tests t90 and t90b now count per prompt. No migration (the control centre's Load from documents copies the new rows). Not deployed.

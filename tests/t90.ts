@@ -25,12 +25,15 @@ const R = (p: string) => readFileSync(p, 'utf8');
   const p9 = reg.prompts.find((p) => p.id === 'SAH-PROMPT-0009')!;
   ok(p9.original_kept && (p9.original_text ?? '').length > 20000 && /^MASTER PROMPT: SAHAYAK FOUNDER COMMAND/.test(p9.original_text!), 'original text of 0009 is included whole');
   ok(R('docs/sahayak-control-centre/MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md').includes(p9.original_text!), 'bundled original equals the archive file');
-  ok(reg.prompts.filter((p) => p.id !== 'SAH-PROMPT-0009').every((p) => !p.original_kept && !p.requirement_level), 'older prompts are honestly headline-only');
+  const REBUILT = ['SAH-PROMPT-0001', 'SAH-PROMPT-0002', 'SAH-PROMPT-0003'];
+  ok(reg.prompts.filter((p) => p.id !== 'SAH-PROMPT-0009').every((p) => !p.original_kept), 'older prompts never claim to keep the original text');
+  ok(reg.prompts.filter((p) => p.id !== 'SAH-PROMPT-0009').every((p) => p.requirement_level === REBUILT.includes(p.id)), 'only 0001 to 0003 are tracked requirement by requirement (v109); 0004 to 0008 stay headline-only');
+  ok(REBUILT.every((id) => { const rs = reg.requirements.filter((r) => r.prompt_id === id); return rs.length >= 20 && rs.every((r) => /^Source:/.test(r.note) && r.status !== 'COMPLETED' && r.status !== 'ACCEPTED BY FOUNDER'); }), 'rebuilt requirement rows cite their source document and are never COMPLETED or accepted without evidence');
   ok(!reg.requirements.some((r) => r.status === 'ACCEPTED BY FOUNDER') && !reg.tasks.some((t) => t.status === 'ACCEPTED BY FOUNDER'), 'nothing marked accepted by founder');
   ok(reg.decisions.filter((d) => d.kind === 'waiting').length === 1 && reg.decisions.some((d) => d.id === 'FD-10') && reg.decisions.some((d) => d.id === 'FD-15'), 'decisions: only D7 waiting, FD-10 to FD-15 recorded');
   // documents and data agree
   const tracker = R('docs/sahayak-control-centre/MASTER_OBJECTIVE_TRACKER.md');
-  ok(tracker.split('\n').filter((l) => /^\| R\d\d /.test(l)).length === reg.requirements.length, 'tracker document lists every requirement');
+  ok(tracker.split('\n').filter((l) => /^\| R\d\d /.test(l)).length === reg.requirements.filter((r) => r.prompt_id === 'SAH-PROMPT-0009').length, 'tracker document lists every requirement of prompt 0009');
   ok(R('docs/sahayak-control-centre/TASK_BACKLOG.md').split('\n').filter((l) => l.startsWith('| TASK-')).length === reg.tasks.length, 'backlog document lists every task');
 
   // ---- pure rules
@@ -39,7 +42,7 @@ const R = (p: string) => readFileSync(p, 'utf8');
   ok(rollup([]).donePct === null, 'empty rollup has no percentage');
   ok(isDone('ACCEPTED BY FOUNDER') && isDone('COMPLETED') && !isDone('READY FOR TESTING') && !isDone('PARTIALLY COMPLETED'), 'what counts as done');
   const rep = resumeReport(reg);
-  ok(rep.prompts === 9 && rep.objectives === 8 && rep.requirements === reg.requirements.length && rep.decisionsWaiting === reg.decisions.filter((d) => d.kind === 'waiting').length && rep.tasks === reg.tasks.length, 'resume report numbers');
+  ok(rep.prompts === 9 && rep.objectives === reg.objectives.length && rep.requirements === reg.requirements.length && rep.decisionsWaiting === reg.decisions.filter((d) => d.kind === 'waiting').length && rep.tasks === reg.tasks.length, 'resume report numbers');
   ok(rep.completed === reg.requirements.filter((r) => r.status === 'COMPLETED').length, 'resume completed matches data');
   ok(rep.founderNextTask === null, 'no next task chosen in shipped data');
   ok(rep.nextUnfinishedTask === 'TASK-021' || /^TASK-\d+$/.test(rep.nextUnfinishedTask ?? ''), 'next unfinished task is a real task');
@@ -51,7 +54,7 @@ const R = (p: string) => readFileSync(p, 'utf8');
   ok(filterTasks(t, {}).map((x) => x.id).join() === t.map((x) => x.id).sort().join() || filterTasks(t, {})[0].id === 'TASK-001', 'default sort by id');
   ok(filterPrompts(reg, { status: 'PARTIALLY COMPLETED' }).every(({ p }) => p.status === 'PARTIALLY COMPLETED'), 'prompt filter by status');
   ok(filterPrompts(reg, { priority: 'unset' }).length === 9, 'all prompts have no founder priority yet');
-  ok(filterPrompts(reg, { minPct: 0 }).length === 1, 'percentage filter keeps only prompts that have a percentage');
+  ok(filterPrompts(reg, { minPct: 0 }).length === reg.prompts.filter((p) => p.requirement_level).length, 'percentage filter keeps only prompts that have a percentage');
   ok(filterPrompts(reg, { from: '2026-10-31' }).length === 1, 'date filter');
   ok(filterPrompts(reg, { category: 'growth' }).length === 2, 'category filter');
   ok(depTaskIds('TASK-010, Decision D1').join() === 'TASK-010' && depOutside('TASK-010, Decision D1').join() === 'Decision D1' && depOutside('-').length === 0, 'dependency parsing');

@@ -27,7 +27,7 @@ const render = async (mod: string, props: any) => { const m = require(mod); retu
     const none = await render(dir + '/page', { searchParams: Promise.resolve({ q: 'qqqqzzzz' }) });
     ok(none.includes('No prompt matches'), `${src}: empty filter message`);
     const detail = await render(dir + '/prompts/[id]/page', { params: Promise.resolve({ id: 'SAH-PROMPT-0009' }) });
-    ok(detail.includes('MASTER PROMPT: SAHAYAK FOUNDER COMMAND') && detail.includes('R41') && detail.includes(`${REGISTRY.requirements.length}</strong> requirements`), `${src}: prompt page shows original text and requirements`);
+    ok(detail.includes('MASTER PROMPT: SAHAYAK FOUNDER COMMAND') && detail.includes('R41') && detail.includes(`${REGISTRY.requirements.filter((r) => r.prompt_id === 'SAH-PROMPT-0009').length}</strong> requirements`), `${src}: prompt page shows original text and requirements`);
     ok((src === 'database') === detail.includes('Your acceptance of R41'), `${src}: acceptance control only with the database copy`);
     const old = await render(dir + '/prompts/[id]/page', { params: Promise.resolve({ id: 'SAH-PROMPT-0004' }) });
     ok(old.includes('Tracked by headline only') && old.includes('Not kept'), `${src}: older prompt is honest about missing text`);

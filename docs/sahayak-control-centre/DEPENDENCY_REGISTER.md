@@ -46,6 +46,7 @@ Updated 2026-10-31.
 | TASK-074 | TASK-073 |
 | TASK-075 | TASK-074 |
 | TASK-076 | TASK-075 |
+| TASK-077 | TASK-076 |
 
 ## Outside dependencies (things only a person can do or decide)
 | Item | Who | Blocks |

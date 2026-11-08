@@ -1,14 +1,15 @@
-SAHAYAK v108 - CONTROL CENTRE SHORTCUT (plain English)
-======================================================
-Apply AFTER v107. No database change.
+SAHAYAK v109 - REQUIREMENT ROWS AND RANKED TO-DO (plain English)
+================================================================
+Apply AFTER v108. No database change.
 
 WHAT CHANGED
-The top admin bar now has a "Control centre" button next to "Command Centre". It opens /admin/control, where the "Load from documents" button is (just under the heading and intro text). Only the main admin sees it.
+The control centre (/admin/control) now breaks prompts 0001, 0002 and 0003 into individual requirements (32, 23 and 26 rows), so they show a real "Done %" instead of "headline only". Prompts 0004 to 0008 stay headline-only because their original text is not saved anywhere: if you paste one into the chat, I will archive it and split it.
+Also new: docs/REMAINING_WORK_RANKED.md, a ranked list of what is left, split by who can do it.
 
-TO APPLY: unzip over the project, git add ., commit, push. Open /admin and look for the button.
+TO APPLY: unzip over the project, git add ., commit, push. Then at /admin/control press "Load from documents" once to copy the new rows.
 
-REMINDER: the control pages need migration 0056 (already part of earlier versions) and "Load from documents" pressed once.
+IMPORTANT: the statuses of the new rows come from older evaluation documents (written v37 to v42). They have not been re-checked against the code today, and "ready for testing" never means proven live.
 
-TESTED: 5 new checks (t108); full suite 84 passed, 4 known-old, 0 failed; type check and production build OK.
-NOT TESTED: how the bar looks on your live site.
+TESTED: full suite 84 passed, 4 known-old, 0 failed; type check clean; the control-centre pages render with the new rows (t90, t90b).
+NOT TESTED: the pages on your live site.
 NOT DEPLOYED by me.

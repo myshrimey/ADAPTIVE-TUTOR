@@ -81,6 +81,7 @@ REQ = [
  ('R56','O6','Founder request 2026-11-05 (chat): in the feedback, users/students or anyone should be able to share screenshots/images and the app should take them in for evaluation and implementation',PC,'v106: pictures can be attached to feedback and are seen by support admins for evaluation. NOT built: AI reading of pictures (needs D7 review). Migration 0061; not deployed; untested on real phones/live database. t106.'),
  ('R57','O6','Found during v106 testing (Claude): public pages scroll sideways on a 375px phone',PC,'v107: header no longer wider than the screen (CSS only); checked in a browser at 320/360/375/414px on 10 public pages. Not tested on real phones. t107.'),
  ('R58','O6','Founder report 2026-11-06 (chat): could not find the control centre / "Load from documents"; expected a Control dropdown in admin',PC,'v108: Control centre shortcut in the admin top bar (main admin only); the button was already on /admin/control. Not seen on a deployed site. t108.'),
+ ('R59','O6','Founder request 2026-11-08 (chat): complete all the prompts and their tasks by criticality and strategic value',PC,'v109: prompts 0001-0003 now tracked requirement by requirement; ranked remaining-work list written. Most remaining items need the founder, teachers or the legal review (D7); Claude-buildable items are listed first in docs/REMAINING_WORK_RANKED.md.'),
  ('R50','O8','Phase 0 findings (12 items) produced', CM, 'PHASE0_AUDIT.md. Awaiting founder acceptance.'),
  ('R51','O8','Create the persistent registry and control documents under repository conventions', PC, 'Markdown set created. Database-backed records are Phase 1.'),
  ('R52','O8','Present Phase 0 findings and proposed Phase 1 tasks; wait for the founder to choose', CM, 'Presented in the chat reply of 2026-10-31. Founder choice pending.'),
@@ -138,6 +139,7 @@ TASKS = [
  ('TASK-074','P6','Let people attach screenshots/pictures to feedback, stored privately and visible only to support admins','O6','R56','TASK-073','L',RT,'v106: file picker + paste, up to 3 pictures, signed 15-minute permission, byte-check, JPEG re-encode, private bucket, admin thumbnails + delete, removal with a family\'s data, migration 0061, t106. Not tested on real phones or the live database; no AI reading; not in data export; retention undecided (D7).'),
  ('TASK-075','P6','Fix the phone header that made public pages scroll sideways','O6','R57','TASK-074','S',RT,'v107: CSS only; browser-checked at 4 phone widths on 10 pages; t107 (5 checks). Not tested on real phones.'),
  ('TASK-076','P6','Add a Control centre shortcut to the admin top bar','O6','R58','TASK-075','S',RT,'v108: link in AdminMenu for the main admin only; t108 (5 checks). Not checked on a deployed site.'),
+ ('TASK-077','P6','Break prompts 0001-0003 into requirement rows and rank what is left','O6','R59','TASK-076','M',RT,'v109: 81 rows from the evaluation documents (not re-verified against code), docs/REMAINING_WORK_RANKED.md, t90/t90b updated. Not yet seen on a deployed site.'),
 ]
 
 reqid = {r[0] for r in REQ}
@@ -157,6 +159,73 @@ def w(name, text):
 
 # ---------- MASTER_PROMPT_REGISTRY ----------
 leg = Counter(MAP[r[2]] for r in numbered)
+# ---------- v109: requirement-level rows for the three big older prompts (0001, 0002, 0003) ----------
+# The ORIGINAL TEXT of these prompts is still not in the repository. These rows come from the section-by-section documents written when they were
+# evaluated (docs/MASTER_PROMPT_COVERAGE.md for 0001, docs/V3_REQUIREMENTS_MAP.md for 0002, the roadmap page for 0003). They are NOT re-verified against
+# the code today, and "READY FOR TESTING" never means proven with real families. Statuses: built -> READY FOR TESTING, built with a stated limit -> PARTIALLY COMPLETED.
+SRC1 = 'Source: docs/MASTER_PROMPT_COVERAGE.md (evaluated v37 to v40; not re-checked since). '
+SRC2 = 'Source: docs/V3_REQUIREMENTS_MAP.md (written v42; not re-checked since). '
+LEGREQ = [
+ # (prompt, code, text, status, note)
+ ('SAH-PROMPT-0001','MV-01','Sections 1-2: stack kept; commercial plans (founder plans, free plan)', RT, SRC1),
+ ('SAH-PROMPT-0001','MV-02','Sections 4, 27, 45, 46: principles (context shapes the intervention, evidence decides the assessment; no labels, no diagnosing; RLS owner pattern; no secrets in the browser; supportive wording)', RT, SRC1),
+ ('SAH-PROMPT-0001','MV-03','Section 5: onboarding (exam year, preferred language, daily study time)', PC, SRC1 + 'Limit: board and class fixed to CBSE Class 10; no other boards or classes.'),
+ ('SAH-PROMPT-0001','MV-04','Section 6: subject availability (ready / pilot / in development / coming soon) from the database', RT, SRC1),
+ ('SAH-PROMPT-0001','MV-05','Section 7: question metadata (marks, expected time, cognitive level, language)', PC, SRC1 + 'Limit: marks and cognitive level stay empty until a person sets them (by design).'),
+ ('SAH-PROMPT-0001','MV-06','Section 8: content verification status (verified / needs review / rejected; rejected never served)', RT, SRC1),
+ ('SAH-PROMPT-0001','MV-07','Section 9: board-readiness bands with reasons, including "insufficient evidence", never a prediction', RT, SRC1),
+ ('SAH-PROMPT-0001','MV-08','Section 10: staged assessment (chapter check, subject check, full mock, board-style paper)', PC, SRC1 + 'Limit: chapter and subject checks are practice measurements and do not change mastery.'),
+ ('SAH-PROMPT-0001','MV-09','Section 9 (written answers): AI-suggested practice marks for written answers', RT, SRC1 + 'Built v40. By design not used for mastery or readiness until the founder decides.'),
+ ('SAH-PROMPT-0001','MV-10','Section 11: error types by subject', PC, SRC1 + 'Limit: Science and Language tag sets only used as low-confidence hints when a question has no tags.'),
+ ('SAH-PROMPT-0001','MV-11','Section 12: behaviour signals (answer time, unfinished sessions, study days, streak)', PC, SRC1 + 'Limit: no data until real sessions have run.'),
+ ('SAH-PROMPT-0001','MV-12','Sections 13-14: pre-session check-in (five questions) stored with a timestamp; confidence after', RT, SRC1),
+ ('SAH-PROMPT-0001','MV-13','Sections 15-17: confidence trend (latest, 7-day, 30-day, direction, per subject) and before-vs-after change', RT, SRC1),
+ ('SAH-PROMPT-0001','MV-14','Section 16: confidence-versus-performance note in supportive wording', RT, SRC1),
+ ('SAH-PROMPT-0001','MV-15','Sections 18-19: session adaptation to available time and goal; recovery mode ending with an easier success question', RT, SRC1 + 'Closed in v38.'),
+ ('SAH-PROMPT-0001','MV-16','Sections 20-21: parent dashboard (engagement, assessment history, confidence by subject; also on the parent link)', RT, SRC1),
+ ('SAH-PROMPT-0001','MV-17','Section 22: "what changed in 30 days" report', RT, SRC1 + 'Built v39.'),
+ ('SAH-PROMPT-0001','MV-18','Section 23: subject matrix with recommended priority', PC, SRC1 + 'Limit: columns are coverage, band, last assessed, priority; separate concept/application/independent/timed columns are not shown.'),
+ ('SAH-PROMPT-0001','MV-19','Section 24: student dashboard (today\'s recommended session, streak)', RT, SRC1),
+ ('SAH-PROMPT-0001','MV-20','Sections 26 and 47: intervention-to-outcome summary (association only)', RT, SRC1 + 'Built v39.'),
+ ('SAH-PROMPT-0001','MV-21','Sections 28-29: offline payment flow and offer page (claim, reference, pending/confirmed/rejected/refunded; no automatic access)', RT, SRC1),
+ ('SAH-PROMPT-0001','MV-22','Sections 30-33: funnel and landing (/check, /sample-report, /about, /trust, refund page)', PC, SRC1 + 'Limit: refund terms are a draft; new text English only; legal wording awaits professional review (D7).'),
+ ('SAH-PROMPT-0001','MV-23','Sections 33-34: terms, privacy, limits, payment/refund policy, contact; English and Hindi interface', RT, SRC1 + 'Wording is a draft pending the founder and professional review.'),
+ ('SAH-PROMPT-0001','MV-24','Section 35: founder metrics page (activation, sessions per week, paid conversion)', RT, SRC1 + 'Built v39.'),
+ ('SAH-PROMPT-0001','MV-25','Section 36: ten quality gates with founder sign-off and promote-to-ready', PC, SRC1 + 'Limit: no subject has passed any gate yet; that needs people.'),
+ ('SAH-PROMPT-0001','MV-26','Section 36: access can be granted and revoked per student', RT, SRC1),
+ ('SAH-PROMPT-0001','MV-27','Section 37: diagnostic persistence bug found and fixed', RT, SRC1 + 'Fixed v30 (resume instead of orphan).'),
+ ('SAH-PROMPT-0001','MV-28','Section 42: project memory files and schema documents', RT, SRC1),
+ ('SAH-PROMPT-0001','MV-29','Hindi Course A versus B as distinct courses', RT, SRC1 + 'Built v43 (after the coverage document was written).'),
+ ('SAH-PROMPT-0001','MV-30','True animated diagrams', NS, SRC1 + 'Not built. Level-adaptive diagrams exist (v22); animation needs topic choices from the founder.'),
+ ('SAH-PROMPT-0001','MV-31','Automatic teacher payment', BL, SRC1 + 'Waiting for the founder\'s payment decision (docs/TEACHER_PAYMENT_PROPOSAL.md).'),
+ ('SAH-PROMPT-0001','MV-32','Automatic update of the Excel tracker', NS, SRC1 + 'CSV exports exist (v40); an automatic update does not.'),
+ ('SAH-PROMPT-0002','V3-01','Section 7: Founding Family offer (plan, real place counter, one switch)', RT, SRC2 + 'Price is a test value, not permanent.'),
+ ('SAH-PROMPT-0002','V3-02','Section 8: offline payment (claim form, admin payments, student creation)', RT, SRC2),
+ ('SAH-PROMPT-0002','V3-03','Sections 9-10: CBSE Class 10, subjects limited by plan, status from the database', RT, SRC2),
+ ('SAH-PROMPT-0002','V3-04','Section 11: English and Hindi interface; questions mostly English, stated on the site', PC, SRC2 + 'Not claimed as bilingual; Hindi question text is AI-written until a teacher checks it.'),
+ ('SAH-PROMPT-0002','V3-05','Sections 12-14: diagnostic and learning persistence (attempts, answers, skills, hints, time, mastery)', RT, SRC2),
+ ('SAH-PROMPT-0002','V3-06','Sections 15-16: check-in and confidence trend', RT, SRC2),
+ ('SAH-PROMPT-0002','V3-07','Sections 17 and 29: parent dashboard and report; WhatsApp text; "insufficient evidence" as a real answer', RT, SRC2),
+ ('SAH-PROMPT-0002','V3-08','Section 18: board readiness bands with reasons and evidence coverage', RT, SRC2),
+ ('SAH-PROMPT-0002','V3-09','Section 18: readiness dimensions 6, 8, 9, 10 (retention, question-type coverage, written-answer quality, recurring error patterns) combined', PC, SRC2 + 'Shown separately, not combined; needs written-answer marks checked by teachers first.'),
+ ('SAH-PROMPT-0002','V3-10','Sections 19-21: handwritten mock (print paper, photo upload, quality check, AI marking, confidence, teacher queue, AI-vs-teacher agreement)', PC, SRC2 + 'Built v46; NOT proven with real photos. Consent wording is a draft awaiting a lawyer.'),
+ ('SAH-PROMPT-0002','V3-11','Sections 22-25: blueprint-driven CBSE mock, printable paper, Challenge Mode', PC, SRC2 + 'Planning blueprints only; papers are partial until the bank has 3/4/5-mark questions; official blueprint needed.'),
+ ('SAH-PROMPT-0002','V3-12','Section 22: question metadata (marks, time, cognitive level, language)', PC, SRC2 + 'Empty until people set them.'),
+ ('SAH-PROMPT-0002','V3-13','Section 26: empirical question difficulty page (judged only after 20 answers)', RT, SRC2),
+ ('SAH-PROMPT-0002','V3-14','Section 28: dynamic study plan', RT, SRC2),
+ ('SAH-PROMPT-0002','V3-15','Sections 30-31: landing proposition and hero', RT, SRC2),
+ ('SAH-PROMPT-0002','V3-16','Section 31: landing sections (example readiness dashboard, example mock analysis, "complements school", founder section)', PC, SRC2 + 'Needs content from the founder.'),
+ ('SAH-PROMPT-0002','V3-17','Sections 32-33: trust, founder, legal pages', PC, SRC2 + 'Drafts pending the founder and professional review (D7).'),
+ ('SAH-PROMPT-0002','V3-18','Sections 34-36: marketing scripts and content calendar', NS, SRC2 + 'Not code. Claude can draft on request; the Social Growth module (v72) helps with posts.'),
+ ('SAH-PROMPT-0002','V3-19','Sections 37-39: funnel and economics from real data; CSV downloads', RT, SRC2),
+ ('SAH-PROMPT-0002','V3-20','Section 40: ten quality gates with founder sign-off', PC, SRC2 + 'No subject has passed any gate yet.'),
+ ('SAH-PROMPT-0002','V3-21','Section 41: export and delete a student\'s data', PC, SRC2 + 'Built v44. The founder must still agree what must be kept (e.g. payment records) with an accountant or lawyer (D7).'),
+ ('SAH-PROMPT-0002','V3-22','Section 44: project memory file', RT, SRC2),
+ ('SAH-PROMPT-0002','V3-23','Self sign-up (v45) with consent and abuse limits', RT, SRC2 + 'Added after the prompt. Forgot-password only works for accounts with an email.'),
+]
+for i, r in enumerate(numbered):
+    LEGREQ.append(('SAH-PROMPT-0003', f'LR-{i+1:02d}', f'Sections {r[0]}: {r[1]}', MAP[r[2]], 'Source: the roadmap page row (apps/web/app/admin/roadmap/page.tsx); roadmap status ' + r[2] + '. Not re-checked against the code today.'))
+
 reg = f'''# Master Prompt Registry
 Updated {TODAY}. One row per master prompt. Originals are never overwritten. "Founder priority" is only what the founder said; Claude never fills it in.
 
@@ -164,8 +233,8 @@ IMPORTANT, in plain words: the ORIGINAL TEXT of prompts 0001 to 0008 is not in t
 
 | Prompt ID | Title | Received | Original text kept? | Requirements tracked | Status | Founder priority |
 |---|---|---|---|---|---|---|
-| SAH-PROMPT-0001 | MVP master prompt (54 sections) | before 2026-10-16 (exact date not recorded) | No. Evidence: docs/MASTER_PROMPT_COVERAGE.md | Section level only | PARTIALLY COMPLETED (not built: Hindi Course A vs B, animated diagrams, teacher pay, automatic Excel tracker) | not set |
-| SAH-PROMPT-0002 | Master prompt v3 | about 2026-10-17 (v42) | No. Evidence: docs/V3_REQUIREMENTS_MAP.md | Section level only | Per that document; not re-evaluated | not set |
+| SAH-PROMPT-0001 | MVP master prompt (54 sections) | before 2026-10-16 (exact date not recorded) | No. Evidence: docs/MASTER_PROMPT_COVERAGE.md | {sum(1 for r in LEGREQ if r[0]=='SAH-PROMPT-0001')} section rows (v109) | PARTIALLY COMPLETED (not built: Hindi Course A vs B, animated diagrams, teacher pay, automatic Excel tracker) | not set |
+| SAH-PROMPT-0002 | Master prompt v3 | about 2026-10-17 (v42) | No. Evidence: docs/V3_REQUIREMENTS_MAP.md | {sum(1 for r in LEGREQ if r[0]=='SAH-PROMPT-0002')} section rows (v109) | Per that document; not re-evaluated | not set |
 | SAH-PROMPT-0003 | Adaptive-learning master prompt (numbered sections 3 to 56) | not recorded | No. Evidence: the roadmap page rows | {len(numbered)} roadmap rows (see below) | PARTIALLY COMPLETED | not set |
 | SAH-PROMPT-0004 | Feedback Intelligence and Human Review Engine | about v67 | No | 1 roadmap row | {MAP[named[0][2]]} | not set |
 | SAH-PROMPT-0005 | Social Media Growth Engine | about v72 | No | 1 roadmap row | {MAP[named[4][2]]} | not set |
@@ -295,6 +364,7 @@ EXECUTIONS = [
  ('EX-0018','2026-11-05','founder chat request','v106: screenshots in feedback (TASK-074).','packages/db/migrations/0061_feedback_attachments.sql; packages/core/feedback-attachments; apps/web/lib/feedback-attachments.ts; apps/web/app/api/feedback/attachment; apps/web/app/api/admin/feedback/attachment; apps/web/components/FeedbackWidget.tsx, FeedbackPictureAdmin.tsx; apps/web/app/admin/feedback/page.tsx; tests/t106.ts','0061','t106, scratch Postgres twice + undo, full npm test, type check, build','Not deployed; not tested on real phones or live storage; no AI reading; not in data export; retention is the founder\'s / D7'),
  ('EX-0019','2026-11-05','Claude finding during v106 testing','v107: phone header fix (TASK-075).','apps/web/app/globals.css; tests/t107.ts, t95b.ts','none','t107, browser width scan at 320/360/375/414px, full npm test, type check, build','Not tested on real phones; only 10 public pages scanned (signed-in pages not scanned); not deployed'),
  ('EX-0020','2026-11-06','founder chat report','v108: Control centre shortcut (TASK-076).','apps/web/components/AdminMenu.tsx; apps/web/app/globals.css; tests/t108.ts, t95b.ts','none','t108, full npm test, type check, build','Not checked on a deployed site; not deployed'),
+ ('EX-0021','2026-11-08','founder chat request','v109: requirement rows for prompts 0001-0003 and a ranked remaining-work list (TASK-077).','scripts/control-centre/build-docs.py; packages/core/control-centre/registry-data.ts; docs/REMAINING_WORK_RANKED.md; tests/t90.ts, t90b.ts, t95b.ts','none (Load from documents copies the rows)','t90, t90b, full npm test, type check','Row statuses come from older evaluation documents, not a fresh check of the code; 0004-0008 still headline-only; not deployed'),
 ]
 ALLTEXT = open(OUT + '/MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md').read().split('\n---\n', 1)[1].lstrip('\n')
 LEG = {
@@ -309,11 +379,17 @@ LEG = {
 }
 PROMPTS = [dict(id=k, title=v[0], received_on=v[1], original_kept=False, objective=v[2], status=v[3], category=v[4], related_to=None, requirement_level=False, note=v[5], founder_priority=None) for k, v in LEG.items()]
 PROMPTS.append(dict(id='SAH-PROMPT-0009', title='Founder Command and Development Control System', received_on='2026-10-31', original_kept=True, original_text=ALLTEXT, objective='Never lose a master prompt, requirement, decision or task; admin account observatory; account activity intelligence; founder keeps control', status='PARTIALLY COMPLETED', category='founder-control', related_to=None, requirement_level=True, note='Phase 0 done (v89). Phase 1 registry built in v90. Phases 2 to 6 not started.', founder_priority=None))
+
+LEG_PROMPTS = ['SAH-PROMPT-0001', 'SAH-PROMPT-0002', 'SAH-PROMPT-0003']
+for pr in PROMPTS:
+    if pr['id'] in LEG_PROMPTS:
+        pr['requirement_level'] = True
+
 PID = 'SAH-PROMPT-0009'
 REGISTRY_JSON = dict(
  prompts=PROMPTS,
- objectives=[dict(id=f'{PID}/{o}', prompt_id=PID, code=o, title=x) for o, x in OBJ],
- requirements=[dict(id=f'{PID}/{r[0]}', prompt_id=PID, objective_code=r[1], code=r[0], text=r[2], status=r[3], note=r[4], founder_acceptance='pending') for r in REQ],
+ objectives=[dict(id=f'{PID}/{o}', prompt_id=PID, code=o, title=x) for o, x in OBJ] + [dict(id=f'{lp}/S', prompt_id=lp, code='S', title='Sections of the original prompt (rebuilt from the evaluation documents; the original text is not kept)') for lp in LEG_PROMPTS],
+ requirements=[dict(id=f'{PID}/{r[0]}', prompt_id=PID, objective_code=r[1], code=r[0], text=r[2], status=r[3], note=r[4], founder_acceptance='pending') for r in REQ] + [dict(id=f'{r[0]}/{r[1]}', prompt_id=r[0], objective_code='S', code=r[1], text=r[2], status=r[3], note=r[4], founder_acceptance='pending') for r in LEGREQ],
  tasks=[dict(id=k[0], prompt_id=PID, phase=k[1], title=k[2], objective_code=k[3], requirements=k[4], depends_on=k[5], size=k[6], status=k[7], verification=('checked, see note' if k[7] == CM else 'not yet'), note=k[8], founder_next=False, founder_rank=None) for k in TASKS],
  decisions=[dict(id=d[0], kind='made', decided_on=d[1], decision=d[2], source=d[3], affects=d[4], status=d[5], recommendation=None) for d in DECISIONS_MADE] + [dict(id=d[0], kind='waiting', decided_on=None, decision=d[1], source='SAH-PROMPT-0009 Phase 0', affects=d[3], status='Waiting for founder', recommendation=d[2]) for d in DECISIONS_WAITING],
  executions=[dict(id=e[0], executed_on=e[1], prompt_id=e[2], summary=e[3], files=e[4], db_changes=e[5], tests=e[6], open_problems=e[7]) for e in EXECUTIONS],

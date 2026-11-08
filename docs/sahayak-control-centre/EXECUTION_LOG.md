@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0021 - 2026-11-08 - founder chat request
+- Summary: v109: requirement rows for prompts 0001-0003 and a ranked remaining-work list (TASK-077).
+- Files: scripts/control-centre/build-docs.py; packages/core/control-centre/registry-data.ts; docs/REMAINING_WORK_RANKED.md; tests/t90.ts, t90b.ts, t95b.ts
+- Database: none (Load from documents copies the rows)
+- Tests: t90, t90b, full npm test, type check
+- Open: Row statuses come from older evaluation documents, not a fresh check of the code; 0004-0008 still headline-only; not deployed
+
 ## EX-0020 - 2026-11-06 - founder chat report
 - Summary: v108: Control centre shortcut (TASK-076).
 - Files: apps/web/components/AdminMenu.tsx; apps/web/app/globals.css; tests/t108.ts, t95b.ts
