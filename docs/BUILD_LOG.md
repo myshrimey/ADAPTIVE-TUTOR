@@ -749,3 +749,7 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Found while testing v106: on a 375px phone the home page (and most public pages) scrolled sideways (424px wide). Cause: the "Parents & partners" link in the header stayed visible on phones next to the language buttons and the menu button.
 - Fix (CSS only): hide that header copy at 900px and below (it is still in the phone menu drawer), and tighten the header at 360px and below.
 - Checked in a browser at 320, 360, 375 and 414px on 10 public pages: no sideways scroll. t107 (5 checks). No migration. Not tested on real phones. Not deployed.
+
+## v108 (2026-11-06) - Control centre shortcut in the admin top bar
+- Founder could not find "Load from documents" and expected a Control dropdown in the admin top bar. The page was already in the menu (Settings & Safety > Development control centre, /admin/control, button near the top), but was hard to spot.
+- Added a "Control centre" link next to "Command Centre" in the admin top bar, shown only to the main admin (team members' menus do not include the page, so they never see it). t108 (5 checks). No migration. Not deployed.

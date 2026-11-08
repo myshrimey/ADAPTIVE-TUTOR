@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v107 (2026-11-05)
+## Latest delivery - v108 (2026-11-06)
+Admin top bar now has a "Control centre" shortcut (main admin only). The "Load from documents" button is on that page. No migration. Apply after v107: `sahayak-v108-control-link-delta.zip`.
+
+## Previous delivery - v107 (2026-11-05)
 Phone header fix (CSS only): public pages no longer scroll sideways on phones. No migration. Apply after v106: `sahayak-v107-phone-header-delta.zip`.
 
 ## Previous delivery - v106 (2026-11-05)

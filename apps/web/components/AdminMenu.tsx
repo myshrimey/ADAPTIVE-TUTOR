@@ -29,6 +29,10 @@ export function AdminMenu({ groups }: { groups?: AdminGroup[] }) {
     <nav className="admin-menu" ref={box} aria-label="Admin menu">
       <div className="admin-menu__bar">
         <a href="/admin/command-centre" className="admin-menu__home">Command Centre</a>
+        {/* v108: one-click way to the Development control centre (it lives under Settings & Safety). Shown only when the menu already includes that page, i.e. for the main admin. */}
+        {MENU.some((g) => g.items.some((i) => i.href === '/admin/control')) && (
+          <a href="/admin/control" className="admin-menu__home admin-menu__control" aria-current={pathname.startsWith('/admin/control') ? 'page' : undefined}>Control centre</a>
+        )}
         <button type="button" className="admin-menu__burger" aria-expanded={mobile} onClick={() => setMobile((v) => !v)}>Menu ▾</button>
         <div className={`admin-menu__groups${mobile ? ' is-open' : ''}`}>
           {MENU.map((g) => (

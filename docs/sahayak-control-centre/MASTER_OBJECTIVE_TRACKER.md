@@ -1,7 +1,7 @@
 # Master Objective Tracker
 Updated 2026-10-31. Only SAH-PROMPT-0009 is tracked at requirement level. Status words are the 14 allowed ones. "Founder acceptance" is separate from technical status and is empty for everything (the founder has not accepted anything under this system yet).
 
-Counts for SAH-PROMPT-0009: 57 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 30, READY FOR TESTING: 8.
+Counts for SAH-PROMPT-0009: 58 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 31, READY FOR TESTING: 8.
 
 ## SAH-PROMPT-0009 / O1: Persistent registry and execution control (Parts 1-3, 11, 12)
 Requirements 11; PARTIALLY COMPLETED 11
@@ -74,7 +74,7 @@ Requirements 4; NOT STARTED 2, PARTIALLY COMPLETED 2
 | R40 | Flag Indian privacy / legal questions for professional review instead of claiming compliance | PARTIALLY COMPLETED | pending | Flagged in PHASE0_AUDIT.md section 10; review itself not done. |
 
 ## SAH-PROMPT-0009 / O6: Database and architecture rules (Part 8)
-Requirements 8; COMPLETED 2, PARTIALLY COMPLETED 5, READY FOR TESTING 1
+Requirements 9; COMPLETED 2, PARTIALLY COMPLETED 6, READY FOR TESTING 1
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
@@ -86,6 +86,7 @@ Requirements 8; COMPLETED 2, PARTIALLY COMPLETED 5, READY FOR TESTING 1
 | R55 | Founder request 2026-11-04 (chat): search the web for / build more questions and answers for every subject, including Maths and Science | PARTIALLY COMPLETED | pending | v105: 203 original questions added for Maths (139, difficulty 1 and 4, answers computed and cross-checked) and Science (64, incl. Heredity, Human Eye and Our Environment chapters); all needs_review; loader changed so ready subjects never get unreviewed questions labelled verified. Not teacher-verified; not loaded live; Hindi still needs a Hindi teacher. t105. |
 | R56 | Founder request 2026-11-05 (chat): in the feedback, users/students or anyone should be able to share screenshots/images and the app should take them in for evaluation and implementation | PARTIALLY COMPLETED | pending | v106: pictures can be attached to feedback and are seen by support admins for evaluation. NOT built: AI reading of pictures (needs D7 review). Migration 0061; not deployed; untested on real phones/live database. t106. |
 | R57 | Found during v106 testing (Claude): public pages scroll sideways on a 375px phone | PARTIALLY COMPLETED | pending | v107: header no longer wider than the screen (CSS only); checked in a browser at 320/360/375/414px on 10 public pages. Not tested on real phones. t107. |
+| R58 | Founder report 2026-11-06 (chat): could not find the control centre / "Load from documents"; expected a Control dropdown in admin | PARTIALLY COMPLETED | pending | v108: Control centre shortcut in the admin top bar (main admin only); the button was already on /admin/control. Not seen on a deployed site. t108. |
 
 ## SAH-PROMPT-0009 / O7: Testing and acceptance (Part 9)
 Requirements 6; NOT STARTED 4, PARTIALLY COMPLETED 2

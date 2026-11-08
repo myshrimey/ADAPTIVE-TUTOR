@@ -1,40 +1,14 @@
-SAHAYAK v102 TO v107 - COMBINED (plain English)
-===============================================
-Use this ONE zip instead of the six separate ones (v102 to v107). Apply AFTER v101 (you already deployed v96-v101).
+SAHAYAK v108 - CONTROL CENTRE SHORTCUT (plain English)
+======================================================
+Apply AFTER v107. No database change.
 
-WHAT IS INSIDE (newest first)
-- v107: phone header fix (pages no longer scroll sideways on phones; no database change)
-- v106: screenshots and pictures can be attached to feedback (database change 0061)
-- v105: 203 new Maths and Science questions (all "needs review")
-- v104: 218 new Computer Applications, English and Social Science questions (all "needs review")
-- v103: request limit on the free readiness check (database change 0060)
-- v102: "Get the app" install button on every page
+WHAT CHANGED
+The top admin bar now has a "Control centre" button next to "Command Centre". It opens /admin/control, where the "Load from documents" button is (just under the heading and intro text). Only the main admin sees it.
 
-WHAT TO DO (in this order)
-1. Back up first (Supabase -> Database -> Backups, or download one).
-2. Unpack over your folder.
-3. Run `npm install`.
-4. `git add .`, commit, push. Vercel deploys.
-5. Run `npm run db:migrate`. It applies 0060 and 0061 (and any earlier one you have not applied). Safe to run twice. 0061 also creates the private storage bucket "feedback-screenshots".
-6. Run `node packages/db/seed.js` then `node packages/db/seed-diagnostic.js` to load the new questions (they load as "needs review").
-7. Open /admin/deploy-check: everything should show applied and website v107.
-8. At /admin/control press "Load from documents".
-9. On a phone: open the Feedback box, add a screenshot, send; then see it at /admin/feedback. Also check the "Get the app" button.
+TO APPLY: unzip over the project, git add ., commit, push. Open /admin and look for the button.
 
-TESTED (my side only, never your live site)
-- Whole suite: 87 files, 83 passed, 4 old known-stale, 0 failed. Type check clean. Production build OK.
-- Migration 0060 and 0061 run twice and undone + re-applied on a scratch copy.
-- Feedback pictures: 59 checks, plus a phone-width browser check with a pretend server.
+REMINDER: the control pages need migration 0056 (already part of earlier versions) and "Load from documents" pressed once.
 
-NOT TESTED
-- Your live site and database, real phones, real Supabase storage. Paste (Ctrl+V) of a picture was not tried in a browser.
-
-NOT BUILT
-- AI reading of screenshots, a screen-capture button, pictures in the student data export, a retention rule for pictures (all wait for the D7 legal review).
-- Questions are not teacher-verified.
-
-STILL YOURS (not code)
-- Leaked-password protection in Supabase. Remove the public file "ERROR_MISTAKE 16 OCOBER 2026.docx". Arrange the D7 legal review. Consider Vercel Pro and Supabase Pro.
-- Known existing issue: the home page is wider than a 375px phone screen.
-
+TESTED: 5 new checks (t108); full suite 84 passed, 4 known-old, 0 failed; type check and production build OK.
+NOT TESTED: how the bar looks on your live site.
 NOT DEPLOYED by me.

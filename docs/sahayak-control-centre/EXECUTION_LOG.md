@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0020 - 2026-11-06 - founder chat report
+- Summary: v108: Control centre shortcut (TASK-076).
+- Files: apps/web/components/AdminMenu.tsx; apps/web/app/globals.css; tests/t108.ts, t95b.ts
+- Database: none
+- Tests: t108, full npm test, type check, build
+- Open: Not checked on a deployed site; not deployed
+
 ## EX-0019 - 2026-11-05 - Claude finding during v106 testing
 - Summary: v107: phone header fix (TASK-075).
 - Files: apps/web/app/globals.css; tests/t107.ts, t95b.ts

@@ -1,7 +1,7 @@
 # Task Backlog
-Updated 2026-10-31. 50 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
+Updated 2026-10-31. 51 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
 
-Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 27.
+Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 28.
 
 Changing a priority here does NOT start work. Work starts only when the founder says so in the chat.
 
@@ -57,3 +57,4 @@ Changing a priority here does NOT start work. Work starts only when the founder 
 | TASK-073 | P6 | Grow the Maths and Science question banks (gap levels and missing 2026-27 Science chapters) without labelling unreviewed questions verified | O6 | R55 | TASK-072 | L | READY FOR TESTING | none yet |
 | TASK-074 | P6 | Let people attach screenshots/pictures to feedback, stored privately and visible only to support admins | O6 | R56 | TASK-073 | L | READY FOR TESTING | none yet |
 | TASK-075 | P6 | Fix the phone header that made public pages scroll sideways | O6 | R57 | TASK-074 | S | READY FOR TESTING | none yet |
+| TASK-076 | P6 | Add a Control centre shortcut to the admin top bar | O6 | R58 | TASK-075 | S | READY FOR TESTING | none yet |

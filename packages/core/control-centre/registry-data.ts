@@ -714,6 +714,16 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R58",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R58",
+   "text": "Founder report 2026-11-06 (chat): could not find the control centre / \"Load from documents\"; expected a Control dropdown in admin",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v108: Control centre shortcut in the admin top bar (main admin only); the button was already on /admin/control. Not seen on a deployed site. t108.",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -1494,6 +1504,21 @@ export const REGISTRY = {
    "note": "v107: CSS only; browser-checked at 4 phone widths on 10 pages; t107 (5 checks). Not tested on real phones.",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-076",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Add a Control centre shortcut to the admin top bar",
+   "objective_code": "O6",
+   "requirements": "R58",
+   "depends_on": "TASK-075",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v108: link in AdminMenu for the main admin only; t108 (5 checks). Not checked on a deployed site.",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -1848,6 +1873,16 @@ export const REGISTRY = {
    "db_changes": "none",
    "tests": "t107, browser width scan at 320/360/375/414px, full npm test, type check, build",
    "open_problems": "Not tested on real phones; only 10 public pages scanned (signed-in pages not scanned); not deployed"
+  },
+  {
+   "id": "EX-0020",
+   "executed_on": "2026-11-06",
+   "prompt_id": "founder chat report",
+   "summary": "v108: Control centre shortcut (TASK-076).",
+   "files": "apps/web/components/AdminMenu.tsx; apps/web/app/globals.css; tests/t108.ts, t95b.ts",
+   "db_changes": "none",
+   "tests": "t108, full npm test, type check, build",
+   "open_problems": "Not checked on a deployed site; not deployed"
   }
  ]
 } as unknown as ControlRegistry;

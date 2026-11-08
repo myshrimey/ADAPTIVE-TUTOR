@@ -1797,6 +1797,7 @@ button.nav-cta--button { border: 0; cursor: pointer; font-family: inherit; displ
 .admin-menu { position: relative; margin: 0.5rem 0 1rem; }
 .admin-menu__bar { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; background: var(--paper-raised); border: 1px solid var(--line); border-radius: 12px; padding: 0.4rem 0.5rem; }
 .admin-menu__home { font-weight: 700; color: var(--ink); text-decoration: none; padding: 0.35rem 0.7rem; border-radius: 8px; background: var(--marigold); }
+.admin-menu__control { background: transparent; border: 1px solid var(--marigold); }
 .admin-menu__groups { display: flex; flex-wrap: wrap; gap: 0.25rem; }
 .admin-menu__group { position: relative; }
 .admin-menu__btn { border: 0; background: transparent; font: inherit; color: var(--ink); padding: 0.4rem 0.7rem; border-radius: 8px; cursor: pointer; }
