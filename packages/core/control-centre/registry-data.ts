@@ -802,6 +802,16 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R65",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R65",
+   "text": "Claude-chosen (rollback rule R42): every database change has a tested undo, including the oldest (0002-0040)",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v115: undo notes for 0002-0040 added; the whole chain 0002-0054 round-trips on a scratch database. Never run on the live database.",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -2497,6 +2507,21 @@ export const REGISTRY = {
    "note": "v114: pedagogy/interleave.ts (pure, switch off), docs/INTERLEAVING_DESIGN.md, t114 (33 checks, mutation-checked). Wiring into the orchestrator not done: needs supervised trial.",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-083",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Undo notes for migrations 0002-0040",
+   "objective_code": "O6",
+   "requirements": "R65",
+   "depends_on": "TASK-082",
+   "size": "M",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v115: 39 more sections, core tables protected, t101 now 306 checks over 60 migrations, round trip 0002-0054 mutation-checked.",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -2921,6 +2946,16 @@ export const REGISTRY = {
    "db_changes": "none",
    "tests": "t114, type check, full npm test",
    "open_problems": "Not wired into the tutor; never tried with a real student; not deployed"
+  },
+  {
+   "id": "EX-0027",
+   "executed_on": "2026-11-08",
+   "prompt_id": "founder chat request (continue building)",
+   "summary": "v115: undo notes for database changes 0002-0040 (TASK-083).",
+   "files": "docs/ROLLBACK_NOTES.md; scripts/db-test/*; tests/t101.ts, t95b.ts",
+   "db_changes": "none (documentation and test scripts only)",
+   "tests": "t101 (306 checks), undo round trip 0002-0054 on scratch Postgres, mutation check, type check, full npm test",
+   "open_problems": "Stand-in Supabase pieces; never run on the live database; not deployed"
   }
  ]
 } as unknown as ControlRegistry;

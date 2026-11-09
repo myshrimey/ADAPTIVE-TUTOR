@@ -147,3 +147,4 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v112 (2026-11-08): safety headers on every page (no CSP/HSTS yet), read-only smoke test (scripts/smoke/smoke-test.mjs) and docs/LIVE_JOURNEY_CHECKLIST.md. No migration. Never run on the live site. Not deployed.
 - v113 (2026-11-08): undo notes cover 0041-0061 (tested on scratch Postgres: scripts/db-test). 0002-0040 not covered. No code change.
 - v114 (2026-11-08): interleaving rules (pedagogy/interleave.ts) and design written, NOT connected, switch off. Students see no change.
+- v115 (2026-11-08): undo notes now cover every change 0002-0061 (scratch-tested: scripts/db-test). Core tables never dropped; rules on existing tables never removed. Never run on the live database.

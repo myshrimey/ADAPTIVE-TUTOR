@@ -1,7 +1,7 @@
 # Task Backlog
-Updated 2026-10-31. 57 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
+Updated 2026-10-31. 58 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
 
-Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 34.
+Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 35.
 
 Changing a priority here does NOT start work. Work starts only when the founder says so in the chat.
 
@@ -64,3 +64,4 @@ Changing a priority here does NOT start work. Work starts only when the founder 
 | TASK-080 | P6 | Smoke test, live journey checklist and safety headers | O6 | R62 | TASK-079 | S | READY FOR TESTING | none yet |
 | TASK-081 | P6 | Undo notes for migrations 0041-0054 | O6 | R63 | TASK-080 | M | READY FOR TESTING | none yet |
 | TASK-082 | P6 | Interleaving rules and wiring design (not connected) | O6 | R64 | TASK-081 | M | READY FOR TESTING | none yet |
+| TASK-083 | P6 | Undo notes for migrations 0002-0040 | O6 | R65 | TASK-082 | M | READY FOR TESTING | none yet |

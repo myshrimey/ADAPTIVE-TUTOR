@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0027 - 2026-11-08 - founder chat request (continue building)
+- Summary: v115: undo notes for database changes 0002-0040 (TASK-083).
+- Files: docs/ROLLBACK_NOTES.md; scripts/db-test/*; tests/t101.ts, t95b.ts
+- Database: none (documentation and test scripts only)
+- Tests: t101 (306 checks), undo round trip 0002-0054 on scratch Postgres, mutation check, type check, full npm test
+- Open: Stand-in Supabase pieces; never run on the live database; not deployed
+
 ## EX-0026 - 2026-11-08 - founder chat request (continue building)
 - Summary: v114: interleaving rules and design, not connected (TASK-082).
 - Files: packages/core/pedagogy/interleave.ts; packages/core/index.ts; docs/INTERLEAVING_DESIGN.md; tests/t114.ts, t95b.ts

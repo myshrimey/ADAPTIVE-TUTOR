@@ -1,7 +1,7 @@
 # Master Objective Tracker
 Updated 2026-10-31. Only SAH-PROMPT-0009 is tracked at requirement level. Status words are the 14 allowed ones. "Founder acceptance" is separate from technical status and is empty for everything (the founder has not accepted anything under this system yet).
 
-Counts for SAH-PROMPT-0009: 64 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 37, READY FOR TESTING: 8.
+Counts for SAH-PROMPT-0009: 65 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 38, READY FOR TESTING: 8.
 
 ## SAH-PROMPT-0009 / O1: Persistent registry and execution control (Parts 1-3, 11, 12)
 Requirements 11; PARTIALLY COMPLETED 11
@@ -74,7 +74,7 @@ Requirements 4; NOT STARTED 2, PARTIALLY COMPLETED 2
 | R40 | Flag Indian privacy / legal questions for professional review instead of claiming compliance | PARTIALLY COMPLETED | pending | Flagged in PHASE0_AUDIT.md section 10; review itself not done. |
 
 ## SAH-PROMPT-0009 / O6: Database and architecture rules (Part 8)
-Requirements 15; COMPLETED 2, PARTIALLY COMPLETED 12, READY FOR TESTING 1
+Requirements 16; COMPLETED 2, PARTIALLY COMPLETED 13, READY FOR TESTING 1
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
@@ -93,6 +93,7 @@ Requirements 15; COMPLETED 2, PARTIALLY COMPLETED 12, READY FOR TESTING 1
 | R62 | Claude-chosen (ranked item A5): nothing deployed has been checked live; give the founder a way to check | PARTIALLY COMPLETED | pending | v112: read-only smoke test script, a by-hand journey checklist, and safe browser headers (found missing by the smoke test). Not run against the live site. |
 | R63 | Claude-chosen (ranked item A3, rollback rule R42): every database change should have a tested undo | PARTIALLY COMPLETED | pending | v113: undo notes for 0041-0054 added (0055-0061 existed); tested on a scratch database. 0002-0040 still have none. |
 | R64 | Prompt 0003 section 11 (interleaving engine, LR-08): mix earlier skills into practice | PARTIALLY COMPLETED | pending | v114: tested rules and a wiring design only; not connected to the tutor, so students see no change. |
+| R65 | Claude-chosen (rollback rule R42): every database change has a tested undo, including the oldest (0002-0040) | PARTIALLY COMPLETED | pending | v115: undo notes for 0002-0040 added; the whole chain 0002-0054 round-trips on a scratch database. Never run on the live database. |
 
 ## SAH-PROMPT-0009 / O7: Testing and acceptance (Part 9)
 Requirements 6; NOT STARTED 4, PARTIALLY COMPLETED 2

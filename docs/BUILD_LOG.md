@@ -786,3 +786,10 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - `docs/INTERLEAVING_DESIGN.md`: exact wiring places and the main risk (the turn after an interleaved answer must return to the current skill; an interleaved miss must not trigger recovery or end the session).
 - Why not wired: the answer loop cannot be tested here without the live AI and database, and a mistake would change what every student sees.
 - t114: 33 checks; two deliberate breaks of the rules were caught.
+
+## v115 (2026-11-08) - undo notes for database changes 0002 to 0040
+- Same method as v113 (before/after comparison on a scratch database), now from the bare schema: all 0002 to 0054 in one round trip. The two files that share number 0023 are treated as one change.
+- Rules the generator follows: never drop users, students, student_access, audit_logs or system_changelog (0016 and 0038 create some of them: they stay); never remove rules (policies) from tables that already existed (a table with row security on and no rule locks every family out); storage buckets stay (they may hold files); functions are dropped with their argument types, after the tables.
+- Round trip: undo returns the database to its starting state apart from those kept items; re-apply gives the same result; breaking one undo block makes it fail (False). t101: 306 checks over 60 migrations.
+- Caution added to the notes: undoing the oldest changes deletes columns that sign-in and parent links use (usernames, parent link code).
+- Also fixed: rule 5 in the notes said undo never touches accounts; it now says exactly what is and is not touched.

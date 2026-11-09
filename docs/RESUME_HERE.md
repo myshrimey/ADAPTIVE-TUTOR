@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v114 (2026-11-08)
+## Latest delivery - v115 (2026-11-08)
+Undo notes (docs/ROLLBACK_NOTES.md) now cover every database change, 0002 to 0061. Worked out and tested on a scratch database: applying 0002-0054 then undoing newest-first returns it to its starting state, and re-applying gives the same result. Four core tables are never dropped and rules on existing tables are never removed. Oldest changes carry a special-care warning (usernames, parent links). Documents and test scripts only: no website change, no migration. Apply after v114: `sahayak-v115-undo-notes-complete-delta.zip`.
+
+## Previous delivery - v114 (2026-11-08)
 Interleaving (mixing one question from an earlier skill into practice): the rules are written and tested (`packages/core/pedagogy/interleave.ts`, 33 checks) and the wiring design is in `docs/INTERLEAVING_DESIGN.md`. It is NOT connected to the tutor and the switch is off: students see no change. Connecting it changes the answer loop and needs a supervised trial first. No migration. Apply after v113: `sahayak-v114-interleaving-rules-delta.zip`.
 
 ## Previous delivery - v113 (2026-11-08)

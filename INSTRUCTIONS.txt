@@ -1,18 +1,24 @@
-SAHAYAK v114 - interleaving rules and design (NOT connected)
-Apply after v113: unzip over the project, then deploy as usual. NO migration. Students see NO change.
+SAHAYAK v115 - undo notes for every database change (0002 to 0061)
+Apply after v114: unzip over the project. NO migration, NO website change (documents, tests and test scripts only). Redeploying is optional.
 
 WHAT CHANGES
-- New file packages/core/pedagogy/interleave.ts: the rules for mixing one question from an earlier skill into practice. Its switch is OFF and the tutor does not use it.
-- New document docs/INTERLEAVING_DESIGN.md: where it would be connected, the main risk, and a trial plan.
+- docs/ROLLBACK_NOTES.md now has undo steps for every database change 0002 to 0061 (v113 covered 0041-0061). Newest first, each says what you would lose.
+- scripts/db-test: updated scripts that worked the steps out and tested them.
 
 TESTED
-- New test t114 (33 checks; two deliberate breaks of the rules were caught, and a check proves the tutor does not use the file yet). Type check. Full suite: 92 files, 88 passed, 4 known-old, 0 failed.
+- On a throw-away local Postgres (stand-ins for Supabase's sign-in and storage): applying 0002-0054, running the undo steps newest first, returned the database to its starting state (apart from items kept on purpose); applying again gave the same result; breaking one undo step made the check fail. t101 checks 60 changes (306 checks). Type check. Full suite: 92 files, 88 passed, 4 known-old, 0 failed on the final run. One earlier full run showed t53 failing once; t53 passed 12 of 12 when run alone, so it looks like a one-off, but I did not find its cause.
 
-NOT TESTED / NOT BUILT
-- Connecting it to the tutor (changes the answer loop; needs a trial with real sessions first). It has never been tried with a student.
+KEPT ON PURPOSE (never removed by an undo)
+- The tables users, students, student_access, audit_logs, system_changelog.
+- Rules (policies) on tables that already existed: removing them would lock every family out.
+- Storage buckets (they may hold files): remove by hand in Supabase -> Storage.
 
-DECISION FOR YOU (later)
-- Whether the rhythm (every 5th answer) is right and whether free-plan students get it.
+IMPORTANT WHEN USING UNDO
+- Take a backup first. Undo deletes what was saved in the new tables and columns.
+- The oldest changes added columns that sign-in and parent links use (usernames, parent link code). Only undo the newest changes, one at a time.
+
+NOT TESTED
+- Your live database (nothing was ever run on it). Real Supabase (stand-ins used).
 
 NOT DEPLOYED
 - Nothing is deployed by Claude.

@@ -87,6 +87,7 @@ REQ = [
  ('R62','O6','Claude-chosen (ranked item A5): nothing deployed has been checked live; give the founder a way to check',PC,'v112: read-only smoke test script, a by-hand journey checklist, and safe browser headers (found missing by the smoke test). Not run against the live site.'),
  ('R63','O6','Claude-chosen (ranked item A3, rollback rule R42): every database change should have a tested undo',PC,'v113: undo notes for 0041-0054 added (0055-0061 existed); tested on a scratch database. 0002-0040 still have none.'),
  ('R64','O6','Prompt 0003 section 11 (interleaving engine, LR-08): mix earlier skills into practice',PC,'v114: tested rules and a wiring design only; not connected to the tutor, so students see no change.'),
+ ('R65','O6','Claude-chosen (rollback rule R42): every database change has a tested undo, including the oldest (0002-0040)',PC,'v115: undo notes for 0002-0040 added; the whole chain 0002-0054 round-trips on a scratch database. Never run on the live database.'),
  ('R50','O8','Phase 0 findings (12 items) produced', CM, 'PHASE0_AUDIT.md. Awaiting founder acceptance.'),
  ('R51','O8','Create the persistent registry and control documents under repository conventions', PC, 'Markdown set created. Database-backed records are Phase 1.'),
  ('R52','O8','Present Phase 0 findings and proposed Phase 1 tasks; wait for the founder to choose', CM, 'Presented in the chat reply of 2026-10-31. Founder choice pending.'),
@@ -150,6 +151,7 @@ TASKS = [
  ('TASK-080','P6','Smoke test, live journey checklist and safety headers','O6','R62','TASK-079','S',RT,'v112: scripts/smoke/smoke-test.mjs (28 checks, passes on a local build, fails on a dead server), docs/LIVE_JOURNEY_CHECKLIST.md, next.config.js headers, t112 (12 checks). Founder must run it on the live site.'),
  ('TASK-081','P6','Undo notes for migrations 0041-0054','O6','R63','TASK-080','M',RT,'v113: 14 sections from a before/after comparison, t101 extended to 21 migrations (111 checks), scripts/db-test round-trip (undo restores, re-apply equal, mutation-checked). Not run on the live database.'),
  ('TASK-082','P6','Interleaving rules and wiring design (not connected)','O6','R64','TASK-081','M',RT,'v114: pedagogy/interleave.ts (pure, switch off), docs/INTERLEAVING_DESIGN.md, t114 (33 checks, mutation-checked). Wiring into the orchestrator not done: needs supervised trial.'),
+ ('TASK-083','P6','Undo notes for migrations 0002-0040','O6','R65','TASK-082','M',RT,'v115: 39 more sections, core tables protected, t101 now 306 checks over 60 migrations, round trip 0002-0054 mutation-checked.'),
 ]
 
 reqid = {r[0] for r in REQ}
@@ -380,6 +382,7 @@ EXECUTIONS = [
  ('EX-0024','2026-11-08','founder chat request (continue building)','v112: smoke test, live journey checklist, browser safety headers (TASK-080).','scripts/smoke/smoke-test.mjs; docs/LIVE_JOURNEY_CHECKLIST.md; apps/web/next.config.js; tests/t112.ts, t95b.ts','none','t112, smoke test against a local production build with a stand-in database, negative run against a dead server, type check, full npm test','Never run against the live site; CSP and HSTS deliberately not added; not deployed'),
  ('EX-0025','2026-11-08','founder chat request (continue building)','v113: undo notes for database changes 0041-0054 (TASK-081).','docs/ROLLBACK_NOTES.md; scripts/db-test/*; tests/t101.ts, t95b.ts','none (documentation and test scripts only)','t101 (111 checks), undo round-trip on scratch Postgres, mutation check, type check, full npm test','Stand-in Supabase pieces; never run on the live database; 0002-0040 not covered; not deployed'),
  ('EX-0026','2026-11-08','founder chat request (continue building)','v114: interleaving rules and design, not connected (TASK-082).','packages/core/pedagogy/interleave.ts; packages/core/index.ts; docs/INTERLEAVING_DESIGN.md; tests/t114.ts, t95b.ts','none','t114, type check, full npm test','Not wired into the tutor; never tried with a real student; not deployed'),
+ ('EX-0027','2026-11-08','founder chat request (continue building)','v115: undo notes for database changes 0002-0040 (TASK-083).','docs/ROLLBACK_NOTES.md; scripts/db-test/*; tests/t101.ts, t95b.ts','none (documentation and test scripts only)','t101 (306 checks), undo round trip 0002-0054 on scratch Postgres, mutation check, type check, full npm test','Stand-in Supabase pieces; never run on the live database; not deployed'),
 ]
 ALLTEXT = open(OUT + '/MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md').read().split('\n---\n', 1)[1].lstrip('\n')
 LEG = {
