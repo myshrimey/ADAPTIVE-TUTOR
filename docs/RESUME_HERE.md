@@ -2,7 +2,13 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v112 (2026-11-08)
+## Latest delivery - v114 (2026-11-08)
+Interleaving (mixing one question from an earlier skill into practice): the rules are written and tested (`packages/core/pedagogy/interleave.ts`, 33 checks) and the wiring design is in `docs/INTERLEAVING_DESIGN.md`. It is NOT connected to the tutor and the switch is off: students see no change. Connecting it changes the answer loop and needs a supervised trial first. No migration. Apply after v113: `sahayak-v114-interleaving-rules-delta.zip`.
+
+## Previous delivery - v113 (2026-11-08)
+Undo notes (docs/ROLLBACK_NOTES.md) now cover database changes 0041 to 0061 (v101 covered 0055-0061). Worked out and tested on a scratch database: undo returns it to its earlier state, and re-applying gives the same result. Undo loses data in the new tables, so take a backup first; the storage bucket `curriculum-docs` and the role guard (0049) have written warnings. No code change, no migration. Apply after v112: `sahayak-v113-undo-notes-delta.zip`.
+
+## Previous delivery - v112 (2026-11-08)
 Three things: (1) browser safety headers on every page (nosniff, frame, referrer, permissions; no CSP/HSTS on purpose); (2) `scripts/smoke/smoke-test.mjs`, a read-only check you run against your live site (`node scripts/smoke/smoke-test.mjs https://YOUR-SITE`); (3) `docs/LIVE_JOURNEY_CHECKLIST.md`, the by-hand walk-through (sign-up, forgot password, student session, admin). Nothing here was ever run against your live site. No migration. Apply after v111: `sahayak-v112-live-check-delta.zip`.
 
 ## Previous delivery - v111 (2026-11-08)

@@ -189,3 +189,5 @@ Read `docs/RESUME_HERE.md` — it always holds the exact next three tasks, curre
 - v110 (2026-11-08): forgot-password goes through `/api/auth/forgot-password` (limits per address and per email, hashes only in `public_check_log`, one neutral answer whether or not the account exists). Never call `resetPasswordForEmail` from a page or component (t110 checks).
 - v111 (2026-11-08): every table on a public or signed-in screen must scroll inside its own box (wrap in overflowX auto or use class data-table; t111 scans). Admin-only tables are on a listed exception in t111.
 - v112 (2026-11-08): next.config.js sends safety headers on every page (t112). Do not add a Content-Security-Policy without a trial on the live site; never make the smoke test write, sign up or send email.
+- v113 (2026-11-08): when adding a migration, generate its undo block with scripts/db-test (before/after comparison) and run undo-roundtrip.py; t101 must list it.
+- v114 (2026-11-08): pedagogy/interleave.ts is rules only; do not import it from the orchestrator until docs/INTERLEAVING_DESIGN.md's trial plan has been done and the founder agrees (t114 enforces).

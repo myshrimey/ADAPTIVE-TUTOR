@@ -1,20 +1,18 @@
-SAHAYAK v112 - live check tools and browser safety headers
-Apply after v111: unzip over the project, then deploy as usual. NO migration.
+SAHAYAK v114 - interleaving rules and design (NOT connected)
+Apply after v113: unzip over the project, then deploy as usual. NO migration. Students see NO change.
 
 WHAT CHANGES
-1. Every page now sends browser safety headers (no sniffing, no framing by other sites, referrer limit, permissions).
-2. New read-only smoke test. After deploying, on any computer with Node: node scripts/smoke/smoke-test.mjs https://YOUR-SITE   (expect "0 failed")
-3. New docs/LIVE_JOURNEY_CHECKLIST.md: the by-hand walk-through (sign-up, forgot password, student session, admin).
+- New file packages/core/pedagogy/interleave.ts: the rules for mixing one question from an earlier skill into practice. Its switch is OFF and the tutor does not use it.
+- New document docs/INTERLEAVING_DESIGN.md: where it would be connected, the main risk, and a trial plan.
 
 TESTED
-- New test t112 (12 checks). Smoke test: 28 of 28 pass against a local production build with a stand-in database; 0 of 28 pass against a dead server (so it can fail). Type check. Full suite: 91 files, 87 passed, 4 known-old, 0 failed. Production build compiled.
+- New test t114 (33 checks; two deliberate breaks of the rules were caught, and a check proves the tutor does not use the file yet). Type check. Full suite: 92 files, 88 passed, 4 known-old, 0 failed.
 
-NOT TESTED
-- Anything on your live site. The smoke test has never been run there. Real phone.
-- A Content-Security-Policy and HSTS were deliberately NOT added (a CSP needs a trial on the live site; the host already sends HSTS).
+NOT TESTED / NOT BUILT
+- Connecting it to the tutor (changes the answer loop; needs a trial with real sessions first). It has never been tried with a student.
 
-NOT BUILT
-- Signed-in checks (the smoke test cannot sign in; use the checklist).
+DECISION FOR YOU (later)
+- Whether the rhythm (every 5th answer) is right and whether free-plan students get it.
 
 NOT DEPLOYED
 - Nothing is deployed by Claude.

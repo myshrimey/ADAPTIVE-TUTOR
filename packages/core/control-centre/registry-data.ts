@@ -782,6 +782,26 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R63",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R63",
+   "text": "Claude-chosen (ranked item A3, rollback rule R42): every database change should have a tested undo",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v113: undo notes for 0041-0054 added (0055-0061 existed); tested on a scratch database. 0002-0040 still have none.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0009/R64",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R64",
+   "text": "Prompt 0003 section 11 (interleaving engine, LR-08): mix earlier skills into practice",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v114: tested rules and a wiring design only; not connected to the tutor, so students see no change.",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -2447,6 +2467,36 @@ export const REGISTRY = {
    "note": "v112: scripts/smoke/smoke-test.mjs (28 checks, passes on a local build, fails on a dead server), docs/LIVE_JOURNEY_CHECKLIST.md, next.config.js headers, t112 (12 checks). Founder must run it on the live site.",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-081",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Undo notes for migrations 0041-0054",
+   "objective_code": "O6",
+   "requirements": "R63",
+   "depends_on": "TASK-080",
+   "size": "M",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v113: 14 sections from a before/after comparison, t101 extended to 21 migrations (111 checks), scripts/db-test round-trip (undo restores, re-apply equal, mutation-checked). Not run on the live database.",
+   "founder_next": false,
+   "founder_rank": null
+  },
+  {
+   "id": "TASK-082",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Interleaving rules and wiring design (not connected)",
+   "objective_code": "O6",
+   "requirements": "R64",
+   "depends_on": "TASK-081",
+   "size": "M",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v114: pedagogy/interleave.ts (pure, switch off), docs/INTERLEAVING_DESIGN.md, t114 (33 checks, mutation-checked). Wiring into the orchestrator not done: needs supervised trial.",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -2851,6 +2901,26 @@ export const REGISTRY = {
    "db_changes": "none",
    "tests": "t112, smoke test against a local production build with a stand-in database, negative run against a dead server, type check, full npm test",
    "open_problems": "Never run against the live site; CSP and HSTS deliberately not added; not deployed"
+  },
+  {
+   "id": "EX-0025",
+   "executed_on": "2026-11-08",
+   "prompt_id": "founder chat request (continue building)",
+   "summary": "v113: undo notes for database changes 0041-0054 (TASK-081).",
+   "files": "docs/ROLLBACK_NOTES.md; scripts/db-test/*; tests/t101.ts, t95b.ts",
+   "db_changes": "none (documentation and test scripts only)",
+   "tests": "t101 (111 checks), undo round-trip on scratch Postgres, mutation check, type check, full npm test",
+   "open_problems": "Stand-in Supabase pieces; never run on the live database; 0002-0040 not covered; not deployed"
+  },
+  {
+   "id": "EX-0026",
+   "executed_on": "2026-11-08",
+   "prompt_id": "founder chat request (continue building)",
+   "summary": "v114: interleaving rules and design, not connected (TASK-082).",
+   "files": "packages/core/pedagogy/interleave.ts; packages/core/index.ts; docs/INTERLEAVING_DESIGN.md; tests/t114.ts, t95b.ts",
+   "db_changes": "none",
+   "tests": "t114, type check, full npm test",
+   "open_problems": "Not wired into the tutor; never tried with a real student; not deployed"
   }
  ]
 } as unknown as ControlRegistry;

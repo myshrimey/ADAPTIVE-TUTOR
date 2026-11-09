@@ -50,6 +50,8 @@ Updated 2026-10-31.
 | TASK-078 | TASK-077 |
 | TASK-079 | TASK-078 |
 | TASK-080 | TASK-079 |
+| TASK-081 | TASK-080 |
+| TASK-082 | TASK-081 |
 
 ## Outside dependencies (things only a person can do or decide)
 | Item | Who | Blocks |

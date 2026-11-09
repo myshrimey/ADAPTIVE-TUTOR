@@ -5,8 +5,8 @@ Built from the registry rows (prompts 0001 to 0003 now have requirement rows) an
 ## A. Claude can build now (no one else needed). In this order
 1. DONE in v110: forgot-password through a limited server route (reset email delivery still to be tested by you).
 2. PARTLY DONE in v111: a code scan of every table on public and signed-in screens (3 had no scrolling box; fixed). Still not done: opening every signed-in page on a phone-sized screen, which needs a real test account on the live site.
-3. Undo notes for the migrations before 0055 (rollback rule R42; today 0055 onward are covered).
-4. Interleaving engine, visual learning, error intelligence, learning orchestrator, one student model (rows LR-01, 03, 04, 05, 08, 13). Learning value, but each needs a small design written first so it does not break existing rules.
+3. PARTLY DONE in v113: undo notes now cover 0041 to 0061 (tested on a scratch database). Migrations 0002 to 0040 still have none.
+4. (Interleaving: rules and design written in v114, NOT connected; wiring needs a supervised trial.) Interleaving engine, visual learning, error intelligence, learning orchestrator, one student model (rows LR-01, 03, 04, 05, 08, 13). Learning value, but each needs a small design written first so it does not break existing rules.
 5. DONE in v112 (script and checklist written; you still have to run them on the live site): scripts/smoke/smoke-test.mjs and docs/LIVE_JOURNEY_CHECKLIST.md.
 
 ## B. Needs you (the founder)

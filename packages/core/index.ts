@@ -8,6 +8,7 @@ export * from './mastery/mastery.service';
 export * from './misconceptions/taxonomy';
 export * from './pedagogy/strategies';
 export * from './pedagogy/pedagogy.engine';
+export * from './pedagogy/interleave';
 export * from './ai-provider/ai-provider.interface';
 export * from './ai-provider/gemini.provider';
 export * from './ai-provider/groq.provider';

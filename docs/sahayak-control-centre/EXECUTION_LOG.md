@@ -1,6 +1,20 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0026 - 2026-11-08 - founder chat request (continue building)
+- Summary: v114: interleaving rules and design, not connected (TASK-082).
+- Files: packages/core/pedagogy/interleave.ts; packages/core/index.ts; docs/INTERLEAVING_DESIGN.md; tests/t114.ts, t95b.ts
+- Database: none
+- Tests: t114, type check, full npm test
+- Open: Not wired into the tutor; never tried with a real student; not deployed
+
+## EX-0025 - 2026-11-08 - founder chat request (continue building)
+- Summary: v113: undo notes for database changes 0041-0054 (TASK-081).
+- Files: docs/ROLLBACK_NOTES.md; scripts/db-test/*; tests/t101.ts, t95b.ts
+- Database: none (documentation and test scripts only)
+- Tests: t101 (111 checks), undo round-trip on scratch Postgres, mutation check, type check, full npm test
+- Open: Stand-in Supabase pieces; never run on the live database; 0002-0040 not covered; not deployed
+
 ## EX-0024 - 2026-11-08 - founder chat request (continue building)
 - Summary: v112: smoke test, live journey checklist, browser safety headers (TASK-080).
 - Files: scripts/smoke/smoke-test.mjs; docs/LIVE_JOURNEY_CHECKLIST.md; apps/web/next.config.js; tests/t112.ts, t95b.ts

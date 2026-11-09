@@ -774,3 +774,15 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - The smoke test found that no browser safety headers were sent. `next.config.js` now sends nosniff, Referrer-Policy, X-Frame-Options SAMEORIGIN and Permissions-Policy on every page (camera/microphone stay allowed for our own pages). No CSP or HSTS: a CSP needs a trial on the live site, HSTS is sent by the host.
 - `scripts/smoke/smoke-test.mjs`: read-only, 28 checks. Passed on a local production build with a stand-in database; all 28 failed against a dead server (so it can fail). Never run on the live site.
 - `docs/LIVE_JOURNEY_CHECKLIST.md`: the by-hand walk-through. Observation: `/api/student/export` answers 400 (not 401) when signed out; it gives nothing away, left as is.
+
+## v113 (2026-11-08) - undo notes for database changes 0041 to 0054
+- For each change the scratch database was compared before and after it was applied; the undo SQL is written from that difference (new tables child-first, columns/indexes/constraints added to existing tables, 0049's role guard). No `cascade`, no row deletes, all "if exists".
+- Round trip on scratch Postgres: applying 0041-0054, running the undo blocks newest first, returns the database to its state before 0041 (apart from the storage bucket `curriculum-docs`, left on purpose and documented); re-applying gives the same result; rows already in system_changelog are untouched. Breaking one undo block makes the check fail.
+- t101 now covers 21 migrations (0041-0061). Its "never drops accounts/students/..." pattern was too loose (it matched `batch_students`); it now matches exact table names.
+- Not covered: 0002-0040; the live database; real Supabase (stand-ins used).
+
+## v114 (2026-11-08) - interleaving rules and design (not connected)
+- `packages/core/pedagogy/interleave.ts`: pure rules (when to mix in a question, which earlier skill). `INTERLEAVE_ENABLED = false`; the orchestrator does not import it (t114 checks).
+- `docs/INTERLEAVING_DESIGN.md`: exact wiring places and the main risk (the turn after an interleaved answer must return to the current skill; an interleaved miss must not trigger recovery or end the session).
+- Why not wired: the answer loop cannot be tested here without the live AI and database, and a mistake would change what every student sees.
+- t114: 33 checks; two deliberate breaks of the rules were caught.
