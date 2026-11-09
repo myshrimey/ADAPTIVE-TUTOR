@@ -143,3 +143,4 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v108 (2026-11-06): 'Control centre' shortcut in the admin top bar (main admin only). No migration. Not deployed.
 - v109 (2026-11-08): prompts 0001-0003 broken into requirement rows; ranked remaining-work list added. No migration. Not deployed.
 - v110 (2026-11-08): forgot-password goes through a limited server route (5 per address, 3 per email per hour; same answer for any email). No migration. Reset email delivery not tested. Not deployed.
+- v111 (2026-11-08): tables (class data-table) scroll inside their own box on phones; t111 scans every public/signed-in table. CSS only. Not deployed.

@@ -1,17 +1,18 @@
-SAHAYAK v110 - forgot-password through a limited server route
-Apply after v109: unzip over the project, then deploy as usual. NO migration.
+SAHAYAK v111 - tables no longer widen phone pages
+Apply after v110: unzip over the project, then deploy as usual. NO migration. CSS and tests only.
 
 WHAT CHANGES
-- "Forgot password" on the sign-in page now goes through the website's own server. It allows 5 requests per internet address and 3 per email per hour, and always gives the same answer whether or not the email has an account. Raw error text is no longer shown.
+- Tables on the centre invitations, team and teacher-assignment screens now scroll sideways inside their own box instead of making the whole page wider than a phone.
 
 TESTED
-- New test t110 (22 checks), t97 updated, full test suite (89 files: 85 passed, 4 known-old, 0 failed), type check, production build, and a live local call (bad email -> 400, valid email -> neutral 200).
+- New test t111 (3 checks; it fails if a table without scrolling is added). A test page at 320, 375 and 414 pixels wide (page stays screen width, table scrolls inside). Type check. Full suite: 90 files, 86 passed, 4 known-old, 0 failed.
 
 NOT TESTED
-- A real reset email arriving and the link working (cannot be sent from here). After deploying, request a reset for your own email and open the link.
+- Real signed-in pages on a real phone. The production build was not re-run (only a stylesheet changed).
+- Admin-only tables (used on a computer) are not covered.
 
 NOT BUILT
-- Accounts without an email still contact you (unchanged).
+- A full walk through every signed-in page on a phone (needs a live test account).
 
 NOT DEPLOYED
 - Nothing is deployed by Claude.

@@ -3,8 +3,8 @@
 Built from the registry rows (prompts 0001 to 0003 now have requirement rows) and the task backlog. "Ready for testing" is NOT counted as finished: nothing here is proven on the live site or with real families. Rank = how much it protects the product or children's data first, then how much it moves learning and revenue.
 
 ## A. Claude can build now (no one else needed). In this order
-1. Forgot-password through a server route with the same limits as sign-in (today the browser talks to Supabase directly, which skips our limits). Security.
-2. Scan the signed-in pages for sideways scrolling on phones (v107 only checked public pages). Quality.
+1. DONE in v110: forgot-password through a limited server route (reset email delivery still to be tested by you).
+2. PARTLY DONE in v111: a code scan of every table on public and signed-in screens (3 had no scrolling box; fixed). Still not done: opening every signed-in page on a phone-sized screen, which needs a real test account on the live site.
 3. Undo notes for the migrations before 0055 (rollback rule R42; today 0055 onward are covered).
 4. Interleaving engine, visual learning, error intelligence, learning orchestrator, one student model (rows LR-01, 03, 04, 05, 08, 13). Learning value, but each needs a small design written first so it does not break existing rules.
 5. A real-journey test script that the founder can run on the live site (LR-31 asks for a live test of every journey; Claude can write the script and checklist, only you can run it against the live site).

@@ -764,3 +764,8 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Before: the sign-in page asked Supabase for the reset email directly from the browser (no limit) and showed the raw error text.
 - Now: `/api/auth/forgot-password` limits to 5 per internet address and 3 per email per hour (hashes only, stored in `public_check_log`, fails open), checks the limit BEFORE asking for the email, and always answers with the same neutral sentence. Errors stay in the server log. No migration.
 - Tests: t110 (22 checks), t97 (new `reset` kind), tsc. Not tested: the real email being delivered, the live site.
+
+## v111 (2026-11-08) - tables no longer widen phone pages
+- Scan: every `<table>` on public and signed-in screens (admin-only components listed separately in t111). Three tables used a class `data-table` that had no CSS at all (centre invitations, team, teacher assignments); they could widen the page.
+- Fix: `.data-table` scrolls inside its own box. CSS only. No migration.
+- Checked: t111 (3 checks; breaking one table makes it fail), a test page at 320/375/414px (page width stays equal to the screen, table scrolls inside). NOT checked: real signed-in pages (need a live test account).

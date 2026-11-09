@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v110 (2026-11-08)
+## Latest delivery - v111 (2026-11-08)
+Tables on the centre and team screens no longer widen a phone page: they scroll inside their own box (CSS only, class `data-table` had no style before). Found by a code scan of every table on public and signed-in screens; checked at 320, 375 and 414px in a test page, NOT on real signed-in pages. No migration. Apply after v110: `sahayak-v111-table-scroll-delta.zip`.
+
+## Previous delivery - v110 (2026-11-08)
 Forgot-password now goes through the server (/api/auth/forgot-password): limited to 5 requests per internet address and 3 per email per hour, and it gives the same answer whether or not the account exists. No migration (it reuses the hash-only public_check_log table from 0060). The reset email itself was NOT tested from here. Apply after v109: `sahayak-v110-forgot-password-delta.zip`.
 
 ## Previous delivery - v109 (2026-11-08)

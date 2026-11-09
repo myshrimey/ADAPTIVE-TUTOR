@@ -1905,3 +1905,8 @@ button.nav-cta--button { border: 0; cursor: pointer; font-family: inherit; displ
 @media (prefers-reduced-motion: reduce) { .install-app__button { animation: none; } }
 @media (max-width: 520px) { .install-app__button { font-size: 0.95rem; padding: 0.7rem 1.05rem; } }
 @media print { .install-app { display: none !important; } }
+
+/* v111: tables made with class "data-table" scroll sideways inside their own box instead of widening the page on a phone. */
+.data-table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; font-size: 0.9rem; }
+.data-table th, .data-table td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.data-table th { border-bottom: 2px solid var(--line); }

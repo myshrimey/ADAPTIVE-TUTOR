@@ -83,6 +83,7 @@ REQ = [
  ('R58','O6','Founder report 2026-11-06 (chat): could not find the control centre / "Load from documents"; expected a Control dropdown in admin',PC,'v108: Control centre shortcut in the admin top bar (main admin only); the button was already on /admin/control. Not seen on a deployed site. t108.'),
  ('R59','O6','Founder request 2026-11-08 (chat): complete all the prompts and their tasks by criticality and strategic value',PC,'v109: prompts 0001-0003 now tracked requirement by requirement; ranked remaining-work list written. Most remaining items need the founder, teachers or the legal review (D7); Claude-buildable items are listed first in docs/REMAINING_WORK_RANKED.md.'),
  ('R60','O6','Claude-chosen (security, ranked item A1 in REMAINING_WORK_RANKED): forgot-password had no limit and echoed raw errors',PC,'v110: reset requests go through a server route with per-address and per-email limits and one neutral answer. Reset email not tested from the sandbox.'),
+ ('R61','O6','Claude-chosen (quality, ranked item A2): signed-in screens must not scroll sideways on phones',PC,'v111: code scan of all public/signed-in tables; the unstyled data-table class now scrolls inside its box. Not yet checked on real signed-in pages.'),
  ('R50','O8','Phase 0 findings (12 items) produced', CM, 'PHASE0_AUDIT.md. Awaiting founder acceptance.'),
  ('R51','O8','Create the persistent registry and control documents under repository conventions', PC, 'Markdown set created. Database-backed records are Phase 1.'),
  ('R52','O8','Present Phase 0 findings and proposed Phase 1 tasks; wait for the founder to choose', CM, 'Presented in the chat reply of 2026-10-31. Founder choice pending.'),
@@ -142,6 +143,7 @@ TASKS = [
  ('TASK-076','P6','Add a Control centre shortcut to the admin top bar','O6','R58','TASK-075','S',RT,'v108: link in AdminMenu for the main admin only; t108 (5 checks). Not checked on a deployed site.'),
  ('TASK-077','P6','Break prompts 0001-0003 into requirement rows and rank what is left','O6','R59','TASK-076','M',RT,'v109: 81 rows from the evaluation documents (not re-verified against code), docs/REMAINING_WORK_RANKED.md, t90/t90b updated. Not yet seen on a deployed site.'),
  ('TASK-078','P6','Move forgot-password to a limited server route','O6','R60','TASK-077','S',RT,'v110: /api/auth/forgot-password, rules in core/safety/rate-limit.ts, t110 (22 checks), t97 updated. Not tested against the live email service.'),
+ ('TASK-079','P6','Stop tables widening phone pages','O6','R61','TASK-078','S',RT,'v111: .data-table CSS, t111 (3 checks, mutation-checked), test-page render at 320/375/414. Real signed-in pages not opened.'),
 ]
 
 reqid = {r[0] for r in REQ}
@@ -368,6 +370,7 @@ EXECUTIONS = [
  ('EX-0020','2026-11-06','founder chat report','v108: Control centre shortcut (TASK-076).','apps/web/components/AdminMenu.tsx; apps/web/app/globals.css; tests/t108.ts, t95b.ts','none','t108, full npm test, type check, build','Not checked on a deployed site; not deployed'),
  ('EX-0021','2026-11-08','founder chat request','v109: requirement rows for prompts 0001-0003 and a ranked remaining-work list (TASK-077).','scripts/control-centre/build-docs.py; packages/core/control-centre/registry-data.ts; docs/REMAINING_WORK_RANKED.md; tests/t90.ts, t90b.ts, t95b.ts','none (Load from documents copies the rows)','t90, t90b, full npm test, type check','Row statuses come from older evaluation documents, not a fresh check of the code; 0004-0008 still headline-only; not deployed'),
  ('EX-0022','2026-11-08','founder chat request (continue building)','v110: forgot-password through a limited server route (TASK-078).','apps/web/app/api/auth/forgot-password/route.ts; apps/web/lib/password-reset-limit.ts; packages/core/safety/rate-limit.ts; apps/web/components/HomeClient.tsx; tests/t110.ts, t97.ts, t95b.ts','none (reuses public_check_log)','t110, t97, type check, full npm test','Reset email delivery not tested; not deployed'),
+ ('EX-0023','2026-11-08','founder chat request (continue building)','v111: tables scroll inside their own box on phones (TASK-079).','apps/web/app/globals.css; tests/t111.ts; tests/t95b.ts','none','t111 (mutation-checked), phone-width render of the new style, type check, full npm test','Only a code scan and a test page: real signed-in pages were not opened; not deployed'),
 ]
 ALLTEXT = open(OUT + '/MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md').read().split('\n---\n', 1)[1].lstrip('\n')
 LEG = {

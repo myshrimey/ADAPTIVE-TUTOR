@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0023 - 2026-11-08 - founder chat request (continue building)
+- Summary: v111: tables scroll inside their own box on phones (TASK-079).
+- Files: apps/web/app/globals.css; tests/t111.ts; tests/t95b.ts
+- Database: none
+- Tests: t111 (mutation-checked), phone-width render of the new style, type check, full npm test
+- Open: Only a code scan and a test page: real signed-in pages were not opened; not deployed
+
 ## EX-0022 - 2026-11-08 - founder chat request (continue building)
 - Summary: v110: forgot-password through a limited server route (TASK-078).
 - Files: apps/web/app/api/auth/forgot-password/route.ts; apps/web/lib/password-reset-limit.ts; packages/core/safety/rate-limit.ts; apps/web/components/HomeClient.tsx; tests/t110.ts, t97.ts, t95b.ts

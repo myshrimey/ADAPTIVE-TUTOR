@@ -1,7 +1,7 @@
 # Task Backlog
-Updated 2026-10-31. 53 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
+Updated 2026-10-31. 54 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
 
-Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 30.
+Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 31.
 
 Changing a priority here does NOT start work. Work starts only when the founder says so in the chat.
 
@@ -60,3 +60,4 @@ Changing a priority here does NOT start work. Work starts only when the founder 
 | TASK-076 | P6 | Add a Control centre shortcut to the admin top bar | O6 | R58 | TASK-075 | S | READY FOR TESTING | none yet |
 | TASK-077 | P6 | Break prompts 0001-0003 into requirement rows and rank what is left | O6 | R59 | TASK-076 | M | READY FOR TESTING | none yet |
 | TASK-078 | P6 | Move forgot-password to a limited server route | O6 | R60 | TASK-077 | S | READY FOR TESTING | none yet |
+| TASK-079 | P6 | Stop tables widening phone pages | O6 | R61 | TASK-078 | S | READY FOR TESTING | none yet |

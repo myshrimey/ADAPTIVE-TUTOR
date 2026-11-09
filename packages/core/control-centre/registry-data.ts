@@ -762,6 +762,16 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R61",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R61",
+   "text": "Claude-chosen (quality, ranked item A2): signed-in screens must not scroll sideways on phones",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v111: code scan of all public/signed-in tables; the unstyled data-table class now scrolls inside its box. Not yet checked on real signed-in pages.",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -2397,6 +2407,21 @@ export const REGISTRY = {
    "note": "v110: /api/auth/forgot-password, rules in core/safety/rate-limit.ts, t110 (22 checks), t97 updated. Not tested against the live email service.",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-079",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Stop tables widening phone pages",
+   "objective_code": "O6",
+   "requirements": "R61",
+   "depends_on": "TASK-078",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v111: .data-table CSS, t111 (3 checks, mutation-checked), test-page render at 320/375/414. Real signed-in pages not opened.",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -2781,6 +2806,16 @@ export const REGISTRY = {
    "db_changes": "none (reuses public_check_log)",
    "tests": "t110, t97, type check, full npm test",
    "open_problems": "Reset email delivery not tested; not deployed"
+  },
+  {
+   "id": "EX-0023",
+   "executed_on": "2026-11-08",
+   "prompt_id": "founder chat request (continue building)",
+   "summary": "v111: tables scroll inside their own box on phones (TASK-079).",
+   "files": "apps/web/app/globals.css; tests/t111.ts; tests/t95b.ts",
+   "db_changes": "none",
+   "tests": "t111 (mutation-checked), phone-width render of the new style, type check, full npm test",
+   "open_problems": "Only a code scan and a test page: real signed-in pages were not opened; not deployed"
   }
  ]
 } as unknown as ControlRegistry;
