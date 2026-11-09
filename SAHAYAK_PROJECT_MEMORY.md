@@ -148,3 +148,4 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v113 (2026-11-08): undo notes cover 0041-0061 (tested on scratch Postgres: scripts/db-test). 0002-0040 not covered. No code change.
 - v114 (2026-11-08): interleaving rules (pedagogy/interleave.ts) and design written, NOT connected, switch off. Students see no change.
 - v115 (2026-11-08): undo notes now cover every change 0002-0061 (scratch-tested: scripts/db-test). Core tables never dropped; rules on existing tables never removed. Never run on the live database.
+- v116 (2026-11-09): paper library (public bucket) limited to PDF, 10 MB (page, /api/papers, bucket via migration 0062). Papers still appear without review (founder decision D8). Migrations now go through 0062.

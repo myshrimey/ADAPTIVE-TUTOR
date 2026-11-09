@@ -721,3 +721,6 @@ Server-only (RLS on, no policies). control_prompts (id text, title, received_on,
 
 ## 0061 feedback_attachments (v106)
 `feedback_attachments` (id uuid, feedback_id uuid -> feedback(id) on delete cascade, storage_path text, mime text = image/jpeg, bytes int 1..3000000, ip_hash text, created_at). Server-only: RLS on, no policy. Holds where each picture sent with feedback lives in the PRIVATE storage bucket `feedback-screenshots` (created by the migration where Supabase storage exists, else by the app on first upload), its size, and a one-way hash of the sender's address used for an hourly upload limit. Pictures are re-encoded as plain JPEG on the server (camera/location details removed). Only admins with the 'support' permission can open them, through `/api/admin/feedback/attachment`. Indexes: (feedback_id), (ip_hash, created_at). Re-runnable. Adds a v106 line to system_changelog.
+
+## 0062 papers_bucket_limits (v116)
+No table changes. Sets two settings on the storage bucket `papers` (the public shared paper library): `file_size_limit` = 10485760 bytes (10 MB) and `allowed_mime_types` = {application/pdf}. Existing files are untouched. The 0006 policies (public read, signed-in insert, owner delete) are unchanged. Writes one `system_changelog` row (v116).

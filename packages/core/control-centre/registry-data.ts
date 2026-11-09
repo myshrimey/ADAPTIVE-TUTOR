@@ -812,6 +812,16 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R66",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R66",
+   "text": "Claude-chosen (security): the public paper library must not accept arbitrary files from any signed-in account",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v116: PDF only, 10 MB, checked on the page, the save route and the bucket (migration 0062). Review-before-publish is NOT built (founder decision D8).",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -2522,6 +2532,21 @@ export const REGISTRY = {
    "note": "v115: 39 more sections, core tables protected, t101 now 306 checks over 60 migrations, round trip 0002-0054 mutation-checked.",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-084",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Limit uploads to the public paper library",
+   "objective_code": "O6",
+   "requirements": "R66",
+   "depends_on": "TASK-083",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v116: core/papers/upload-rules.ts, /api/papers check, page check, migration 0062 (tested twice on scratch Postgres), t116 (46 checks). Review-before-publish not built.",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -2956,6 +2981,16 @@ export const REGISTRY = {
    "db_changes": "none (documentation and test scripts only)",
    "tests": "t101 (306 checks), undo round trip 0002-0054 on scratch Postgres, mutation check, type check, full npm test",
    "open_problems": "Stand-in Supabase pieces; never run on the live database; not deployed"
+  },
+  {
+   "id": "EX-0028",
+   "executed_on": "2026-11-09",
+   "prompt_id": "founder chat request (continue building)",
+   "summary": "v116: paper library limited to PDF, 10 MB (TASK-084).",
+   "files": "packages/core/papers/upload-rules.ts; apps/web/app/api/papers/route.ts; apps/web/app/papers/page.tsx; packages/db/migrations/0062_papers_bucket_limits.sql; docs; tests/t116.ts, t95.ts, t95b.ts, t101.ts",
+   "db_changes": "0062 (bucket settings only)",
+   "tests": "t116, scratch Postgres twice, type check, full npm test, production build",
+   "open_problems": "Real upload to the live bucket not tried; review-before-publish not built; not deployed"
   }
  ]
 } as unknown as ControlRegistry;

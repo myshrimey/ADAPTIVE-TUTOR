@@ -61,6 +61,7 @@ export * from './learning-diagrams/mapping';
 export * from './quiz/skill-quiz.engine';
 export * from './explanations/ensure-explanation';
 export * from './papers/previous-papers.service';
+export * from './papers/upload-rules';
 export * from './profile/student-profile.service';
 export * from './i18n/dictionary';
 export * from './branding/founder';

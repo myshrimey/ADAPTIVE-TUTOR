@@ -191,3 +191,4 @@ Read `docs/RESUME_HERE.md` — it always holds the exact next three tasks, curre
 - v112 (2026-11-08): next.config.js sends safety headers on every page (t112). Do not add a Content-Security-Policy without a trial on the live site; never make the smoke test write, sign up or send email.
 - v113 (2026-11-08): when adding a migration, generate its undo block with scripts/db-test (before/after comparison) and run undo-roundtrip.py; t101 must list it.
 - v114 (2026-11-08): pedagogy/interleave.ts is rules only; do not import it from the orchestrator until docs/INTERLEAVING_DESIGN.md's trial plan has been done and the founder agrees (t114 enforces).
+- v116 (2026-11-09): the public 'papers' bucket accepts only PDFs up to 10 MB (migration 0062; rules in core/papers/upload-rules.ts, t116). Never widen the types or size, never let /api/papers save a path that fails checkPaperMeta, and never make another public upload bucket. Migrations now go through 0062.

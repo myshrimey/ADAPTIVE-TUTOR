@@ -793,3 +793,9 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Round trip: undo returns the database to its starting state apart from those kept items; re-apply gives the same result; breaking one undo block makes it fail (False). t101: 306 checks over 60 migrations.
 - Caution added to the notes: undoing the oldest changes deletes columns that sign-in and parent links use (usernames, parent link code).
 - Also fixed: rule 5 in the notes said undo never touches accounts; it now says exactly what is and is not touched.
+
+## v116 (2026-11-09) - paper library accepts only PDFs up to 10 MB
+- Found by scanning every place the browser talks to Supabase directly: `/papers` uploads straight into the PUBLIC bucket `papers`. Any signed-in account (self sign-up is open) could upload any file type and size, and the library lists it to everyone at once. Nothing limited type, size, title length or the file path saved with it.
+- Fix: `core/papers/upload-rules.ts` (PDF only, 10 MB; title 150, notes 500, year 1990-2100, path must look like `<subject>/<timestamp>-[solutions-]<name>.pdf`); checked on the page, on `/api/papers` (the real check) and by the bucket (migration 0062, re-runnable, run twice on scratch Postgres: one changelog row, limits set). Policies from 0006 unchanged.
+- Not done: review before a paper appears (decision D8), a virus scan, removing files already uploaded. Existing files are untouched.
+- Tests: t116 (46 checks; a deliberate loosening of the path rule was caught), t101 (311, now includes 0062), t95 (manual checks now 4).

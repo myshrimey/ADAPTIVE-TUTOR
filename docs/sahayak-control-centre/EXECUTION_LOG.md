@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0028 - 2026-11-09 - founder chat request (continue building)
+- Summary: v116: paper library limited to PDF, 10 MB (TASK-084).
+- Files: packages/core/papers/upload-rules.ts; apps/web/app/api/papers/route.ts; apps/web/app/papers/page.tsx; packages/db/migrations/0062_papers_bucket_limits.sql; docs; tests/t116.ts, t95.ts, t95b.ts, t101.ts
+- Database: 0062 (bucket settings only)
+- Tests: t116, scratch Postgres twice, type check, full npm test, production build
+- Open: Real upload to the live bucket not tried; review-before-publish not built; not deployed
+
 ## EX-0027 - 2026-11-08 - founder chat request (continue building)
 - Summary: v115: undo notes for database changes 0002-0040 (TASK-083).
 - Files: docs/ROLLBACK_NOTES.md; scripts/db-test/*; tests/t101.ts, t95b.ts

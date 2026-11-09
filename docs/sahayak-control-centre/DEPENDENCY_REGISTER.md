@@ -53,6 +53,7 @@ Updated 2026-10-31.
 | TASK-081 | TASK-080 |
 | TASK-082 | TASK-081 |
 | TASK-083 | TASK-082 |
+| TASK-084 | TASK-083 |
 
 ## Outside dependencies (things only a person can do or decide)
 | Item | Who | Blocks |

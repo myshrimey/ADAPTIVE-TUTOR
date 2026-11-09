@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { listPreviousPapers, addPreviousPaper, publicError } from '@adaptive-tutor/core';
+import { listPreviousPapers, addPreviousPaper, checkPaperMeta, publicError } from '@adaptive-tutor/core';
 
 // Listing is public (no auth needed) — the shared paper library is
 // reference material, same spirit as the footer's CBSE info.
@@ -36,6 +36,9 @@ export async function POST(request: Request) {
     if (!subjectId || !title || !filePath) {
       return NextResponse.json({ data: null, error: 'missing_required_fields' }, { status: 400 });
     }
+    // v116: the library is public, so only rows that point at a file the page could have made, with sane text lengths.
+    const meta = checkPaperMeta({ title, year, filePath, solutionFilePath, notes });
+    if (!meta.ok) return NextResponse.json({ data: null, error: meta.code }, { status: 400 });
 
     const supabase = await createServerClient();
     const paper = await addPreviousPaper(supabase, {

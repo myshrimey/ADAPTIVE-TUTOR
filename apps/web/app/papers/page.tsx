@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase-client';
+import { checkPaperFile, PAPER_FILE_MESSAGE } from '@adaptive-tutor/core';
 import { SubjectIcon } from '@/components/SubjectIcon';
 
 const PICKABLE_SUBJECT_SLUGS = ['maths', 'science'];
-const MAX_FILE_BYTES = 20 * 1024 * 1024; // 20MB — plenty for a scanned paper, small enough not to stall on a slow connection
 
 interface SubjectOption {
   id: string;
@@ -90,9 +90,10 @@ export default function PreviousPapersPage() {
       setUploadError('Choose the question paper file first.');
       return;
     }
-    if (paperFile.size > MAX_FILE_BYTES || (solutionFile && solutionFile.size > MAX_FILE_BYTES)) {
-      setUploadError('Each file needs to be under 20MB.');
-      return;
+    for (const f of [paperFile, solutionFile]) {
+      if (!f) continue;
+      const c = checkPaperFile(f);
+      if (!c.ok) { setUploadError(PAPER_FILE_MESSAGE[c.code]); return; }
     }
     const subject = subjects.find((s) => s.id === uploadSubjectId);
     if (!subject) {

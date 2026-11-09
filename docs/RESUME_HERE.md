@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v115 (2026-11-08)
+## Latest delivery - v116 (2026-11-09)
+Security fix for the shared paper library (/papers). Found while scanning what the browser does directly: the library is a PUBLIC storage bucket and any signed-in account (free self-sign-up included) could upload any file of any size, and the list shows it to everyone straight away. Now: only PDFs up to 10 MB (checked on the page, on the save route, and by the bucket itself via migration 0062). Papers still appear without review: that is a decision for you (D8 in the founder decision list below). Migration 0062 sets two bucket settings only. After applying, run the 0062 line in /admin/deploy-check "checks you paste by hand". Apply after v115: `sahayak-v116-paper-library-delta.zip`.
+
+## Previous delivery - v115 (2026-11-08)
 Undo notes (docs/ROLLBACK_NOTES.md) now cover every database change, 0002 to 0061. Worked out and tested on a scratch database: applying 0002-0054 then undoing newest-first returns it to its starting state, and re-applying gives the same result. Four core tables are never dropped and rules on existing tables are never removed. Oldest changes carry a special-care warning (usernames, parent links). Documents and test scripts only: no website change, no migration. Apply after v114: `sahayak-v115-undo-notes-complete-delta.zip`.
 
 ## Previous delivery - v114 (2026-11-08)
