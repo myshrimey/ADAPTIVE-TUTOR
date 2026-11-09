@@ -752,6 +752,16 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R60",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R60",
+   "text": "Claude-chosen (security, ranked item A1 in REMAINING_WORK_RANKED): forgot-password had no limit and echoed raw errors",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v110: reset requests go through a server route with per-address and per-email limits and one neutral answer. Reset email not tested from the sandbox.",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -2372,6 +2382,21 @@ export const REGISTRY = {
    "note": "v109: 81 rows from the evaluation documents (not re-verified against code), docs/REMAINING_WORK_RANKED.md, t90/t90b updated. Not yet seen on a deployed site.",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-078",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Move forgot-password to a limited server route",
+   "objective_code": "O6",
+   "requirements": "R60",
+   "depends_on": "TASK-077",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v110: /api/auth/forgot-password, rules in core/safety/rate-limit.ts, t110 (22 checks), t97 updated. Not tested against the live email service.",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -2746,6 +2771,16 @@ export const REGISTRY = {
    "db_changes": "none (Load from documents copies the rows)",
    "tests": "t90, t90b, full npm test, type check",
    "open_problems": "Row statuses come from older evaluation documents, not a fresh check of the code; 0004-0008 still headline-only; not deployed"
+  },
+  {
+   "id": "EX-0022",
+   "executed_on": "2026-11-08",
+   "prompt_id": "founder chat request (continue building)",
+   "summary": "v110: forgot-password through a limited server route (TASK-078).",
+   "files": "apps/web/app/api/auth/forgot-password/route.ts; apps/web/lib/password-reset-limit.ts; packages/core/safety/rate-limit.ts; apps/web/components/HomeClient.tsx; tests/t110.ts, t97.ts, t95b.ts",
+   "db_changes": "none (reuses public_check_log)",
+   "tests": "t110, t97, type check, full npm test",
+   "open_problems": "Reset email delivery not tested; not deployed"
   }
  ]
 } as unknown as ControlRegistry;

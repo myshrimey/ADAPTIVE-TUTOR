@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0022 - 2026-11-08 - founder chat request (continue building)
+- Summary: v110: forgot-password through a limited server route (TASK-078).
+- Files: apps/web/app/api/auth/forgot-password/route.ts; apps/web/lib/password-reset-limit.ts; packages/core/safety/rate-limit.ts; apps/web/components/HomeClient.tsx; tests/t110.ts, t97.ts, t95b.ts
+- Database: none (reuses public_check_log)
+- Tests: t110, t97, type check, full npm test
+- Open: Reset email delivery not tested; not deployed
+
 ## EX-0021 - 2026-11-08 - founder chat request
 - Summary: v109: requirement rows for prompts 0001-0003 and a ranked remaining-work list (TASK-077).
 - Files: scripts/control-centre/build-docs.py; packages/core/control-centre/registry-data.ts; docs/REMAINING_WORK_RANKED.md; tests/t90.ts, t90b.ts, t95b.ts

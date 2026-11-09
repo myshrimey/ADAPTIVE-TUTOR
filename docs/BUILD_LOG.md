@@ -759,3 +759,8 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Built: requirement rows for SAH-PROMPT-0001 (32 rows, from docs/MASTER_PROMPT_COVERAGE.md), 0002 (23 rows, from docs/V3_REQUIREMENTS_MAP.md) and 0003 (26 rows, from the roadmap page). Each row cites its source and is never COMPLETED without evidence. The originals are still not in the repository, so 0004 to 0008 stay headline-only (their one row each cannot be split without the original text; paste a prompt to get it archived and split).
 - docs/REMAINING_WORK_RANKED.md: what is left, ranked, split by who can do it (Claude, founder, teachers, legal review).
 - Tests t90 and t90b now count per prompt. No migration (the control centre's Load from documents copies the new rows). Not deployed.
+
+## v110 (2026-11-08) - forgot-password through a limited server route
+- Before: the sign-in page asked Supabase for the reset email directly from the browser (no limit) and showed the raw error text.
+- Now: `/api/auth/forgot-password` limits to 5 per internet address and 3 per email per hour (hashes only, stored in `public_check_log`, fails open), checks the limit BEFORE asking for the email, and always answers with the same neutral sentence. Errors stay in the server log. No migration.
+- Tests: t110 (22 checks), t97 (new `reset` kind), tsc. Not tested: the real email being delivered, the live site.

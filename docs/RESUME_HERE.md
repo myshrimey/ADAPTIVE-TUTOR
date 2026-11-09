@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v109 (2026-11-08)
+## Latest delivery - v110 (2026-11-08)
+Forgot-password now goes through the server (/api/auth/forgot-password): limited to 5 requests per internet address and 3 per email per hour, and it gives the same answer whether or not the account exists. No migration (it reuses the hash-only public_check_log table from 0060). The reset email itself was NOT tested from here. Apply after v109: `sahayak-v110-forgot-password-delta.zip`.
+
+## Previous delivery - v109 (2026-11-08)
 Prompts 0001 to 0003 now have requirement rows (so the control centre shows a real done %). New ranked list: docs/REMAINING_WORK_RANKED.md. After deploying, press "Load from documents" again at /admin/control to copy the new rows. No migration. Apply after v108: `sahayak-v109-requirements-delta.zip`.
 
 ## Previous delivery - v108 (2026-11-06)

@@ -189,16 +189,13 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
       return;
     }
     setSubmitting(true);
-    const supabase = createClient();
-    const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/reset-password`,
-    });
+    let res: Response | null = null;
+    try {
+      res = await fetch('/api/auth/forgot-password', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) });
+    } catch { res = null; }
     setSubmitting(false);
-
-    if (resetError) {
-      setError(resetError.message);
-      return;
-    }
+    if (res && res.status === 429) { setError('Too many reset requests just now. Please wait about an hour and try again.'); return; }
+    if (!res || !res.ok) { setError('We could not send the reset link just now. Please try again in a little while.'); return; }
     setNotice(t('auth.checkEmailReset'));
   }
 

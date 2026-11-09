@@ -12,9 +12,10 @@ const rel = (p: string) => p.slice(API.length + 1).replace(/\/route\.ts$/, '');
 const IDENTITY = /getCurrentStudentId|requireAdmin|getAdminUser|requireApprovedTeacher|getPortalUser|getContributor|getMe\b|auth\.getUser\(/;
 // Routes that are public ON PURPOSE. kind: signup (limits + switch), token (needs an unguessable invitation token),
 // read (public read-only, no write), rls (uses the caller's own session client, never the service key).
-const PUBLIC: Record<string, { kind: 'signup' | 'token' | 'signed' | 'read' | 'rls'; why: string }> = {
+const PUBLIC: Record<string, { kind: 'signup' | 'reset' | 'token' | 'signed' | 'read' | 'rls'; why: string }> = {
   'auth/register': { kind: 'signup', why: 'family self sign-up' },
   'auth/register-family': { kind: 'signup', why: 'family + child sign-up' },
+  'auth/forgot-password': { kind: 'reset', why: 'password reset link by email; limited, same answer for every email' },
   'portal/register': { kind: 'signup', why: 'parent / tutor / centre sign-up' },
   'teacher/register': { kind: 'signup', why: 'teacher sign-up (pending until the founder approves)' },
   'invite/accept': { kind: 'token', why: 'invitation form; role comes from the invitation row' },
@@ -40,6 +41,10 @@ for (const p of routes) {
     ok(/signupsOpen\(\)/.test(src), `${r}: honours the sign-up on/off switch`);
     ok(/checkSignupLimits\(|signup_log/.test(src), `${r}: has per-address and daily limits`);
     ok(/website/.test(src), `${r}: has the hidden bot field`);
+  }
+  if (pub.kind === 'reset') {
+    ok(/checkResetAllowed\(/.test(src), `${r}: limited per address and per email`);
+    ok(!/error:\s*(error|err)(\.|\?\.)message/.test(src), `${r}: no raw error returned`);
   }
   if (pub.kind === 'token') ok(/lookupToken\(/.test(src), `${r}: checks the invitation token first`);
   if (pub.kind === 'signed') ok(/verifyAttachToken\(/.test(src), `${r}: checks the signed permission`);

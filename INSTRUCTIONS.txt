@@ -1,15 +1,17 @@
-SAHAYAK v109 - REQUIREMENT ROWS AND RANKED TO-DO (plain English)
-================================================================
-Apply AFTER v108. No database change.
+SAHAYAK v110 - forgot-password through a limited server route
+Apply after v109: unzip over the project, then deploy as usual. NO migration.
 
-WHAT CHANGED
-The control centre (/admin/control) now breaks prompts 0001, 0002 and 0003 into individual requirements (32, 23 and 26 rows), so they show a real "Done %" instead of "headline only". Prompts 0004 to 0008 stay headline-only because their original text is not saved anywhere: if you paste one into the chat, I will archive it and split it.
-Also new: docs/REMAINING_WORK_RANKED.md, a ranked list of what is left, split by who can do it.
+WHAT CHANGES
+- "Forgot password" on the sign-in page now goes through the website's own server. It allows 5 requests per internet address and 3 per email per hour, and always gives the same answer whether or not the email has an account. Raw error text is no longer shown.
 
-TO APPLY: unzip over the project, git add ., commit, push. Then at /admin/control press "Load from documents" once to copy the new rows.
+TESTED
+- New test t110 (22 checks), t97 updated, full test suite (89 files: 85 passed, 4 known-old, 0 failed), type check, production build, and a live local call (bad email -> 400, valid email -> neutral 200).
 
-IMPORTANT: the statuses of the new rows come from older evaluation documents (written v37 to v42). They have not been re-checked against the code today, and "ready for testing" never means proven live.
+NOT TESTED
+- A real reset email arriving and the link working (cannot be sent from here). After deploying, request a reset for your own email and open the link.
 
-TESTED: full suite 84 passed, 4 known-old, 0 failed; type check clean; the control-centre pages render with the new rows (t90, t90b).
-NOT TESTED: the pages on your live site.
-NOT DEPLOYED by me.
+NOT BUILT
+- Accounts without an email still contact you (unchanged).
+
+NOT DEPLOYED
+- Nothing is deployed by Claude.
