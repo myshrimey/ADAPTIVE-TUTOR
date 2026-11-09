@@ -799,3 +799,9 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Fix: `core/papers/upload-rules.ts` (PDF only, 10 MB; title 150, notes 500, year 1990-2100, path must look like `<subject>/<timestamp>-[solutions-]<name>.pdf`); checked on the page, on `/api/papers` (the real check) and by the bucket (migration 0062, re-runnable, run twice on scratch Postgres: one changelog row, limits set). Policies from 0006 unchanged.
 - Not done: review before a paper appears (decision D8), a virus scan, removing files already uploaded. Existing files are untouched.
 - Tests: t116 (46 checks; a deliberate loosening of the path rule was caught), t101 (311, now includes 0062), t95 (manual checks now 4).
+
+## v117 (2026-11-09) - same password rules when changing or resetting a password
+- Found in the same scan as v116: sign-up checks `validatePassword` (8+, not common, not the username) but the profile page only checked length 8 and the reset page checked nothing except "both boxes match"; both showed Supabase's raw error text.
+- Fix: `passwordProblemFor` (core/auth/identity.ts) runs on both pages before the change; raw errors are logged and replaced by a plain sentence. t117: 17 checks.
+- Honest limit: a signed-in person can call Supabase directly with the public key, so this is a courtesy for honest users. The real lock is the Supabase Auth password policy: Step 7 added to the live checklist. A server route could not enforce it either.
+- Not tested: the reset email link end to end; Supabase's own settings.

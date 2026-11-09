@@ -57,6 +57,18 @@ export const IDENTITY_ERROR_TEXT: Record<IdentityError, string> = {
   invalid_email: 'That email does not look right. You can also leave it empty.',
 };
 
+/**
+ * v117: the same password rules when someone CHANGES or RESETS their password (before, only sign-up checked them).
+ * `signedInEmail` is the login address of the person (username accounts have a private placeholder address, so its first part is the username).
+ * Returns a plain-words problem, or null when the password is fine. This is a courtesy for honest users: the real lock is the password
+ * policy in the Supabase Auth settings (see docs/LIVE_JOURNEY_CHECKLIST.md), because a signed-in person can always call Supabase directly.
+ */
+export function passwordProblemFor(password: string, signedInEmail: string | null | undefined): string | null {
+  const loginName = String(signedInEmail ?? '').split('@')[0];
+  const code = validatePassword(password, loginName);
+  return code ? IDENTITY_ERROR_TEXT[code as IdentityError] : null;
+}
+
 /** Max sign-ups from one internet address in an hour, and the default for all families in a day. */
 export const SIGNUPS_PER_IP_PER_HOUR = 5;
 export const DEFAULT_DAILY_SIGNUP_CAP = 100;

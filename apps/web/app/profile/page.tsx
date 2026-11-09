@@ -4,6 +4,7 @@ import { ReferralPanel } from '@/components/ReferralPanel';
 import { RegionPrefs } from '@/components/RegionPrefs';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase-client';
+import { passwordProblemFor } from '@adaptive-tutor/core';
 import { useLanguage } from '@/components/LanguageProvider';
 import { LanguagePrefs } from '@/components/LanguagePrefs';
 
@@ -43,8 +44,12 @@ export default function ProfilePage() {
   async function changePassword() {
     setPwMsg(null);
     if (newPassword.length < 8) return setPwMsg(tt('profile.newPassword'));
-    const { error: pwErr } = await createClient().auth.updateUser({ password: newPassword });
-    if (pwErr) return setPwMsg(pwErr.message);
+    const supabase = createClient();
+    const { data: who } = await supabase.auth.getUser();
+    const problem = passwordProblemFor(newPassword, who.user?.email);
+    if (problem) return setPwMsg(problem);
+    const { error: pwErr } = await supabase.auth.updateUser({ password: newPassword });
+    if (pwErr) { console.error('[change-password]', pwErr.message); return setPwMsg('We could not change the password just now. Please try again in a little while.'); }
     setNewPassword('');
     setPwMsg(tt('profile.passwordChanged'));
   }

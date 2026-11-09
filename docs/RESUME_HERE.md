@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v116 (2026-11-09)
+## Latest delivery - v117 (2026-11-09)
+Changing or resetting a password now follows the same rules as sign-up (8+ characters, not a common password, not the username) and no longer shows Supabase's raw error text. Found by the same scan as v116: only sign-up checked the rules. This is a courtesy for honest users; the real lock is the password policy in your Supabase Auth settings (new Step 7 in docs/LIVE_JOURNEY_CHECKLIST.md: please check it). No migration. The reset-link flow itself was NOT tested end to end. Apply after v116: `sahayak-v117-password-rules-delta.zip`.
+
+## Previous delivery - v116 (2026-11-09)
 Security fix for the shared paper library (/papers). Found while scanning what the browser does directly: the library is a PUBLIC storage bucket and any signed-in account (free self-sign-up included) could upload any file of any size, and the list shows it to everyone straight away. Now: only PDFs up to 10 MB (checked on the page, on the save route, and by the bucket itself via migration 0062). Papers still appear without review: that is a decision for you (D8 in the founder decision list below). Migration 0062 sets two bucket settings only. After applying, run the 0062 line in /admin/deploy-check "checks you paste by hand". Apply after v115: `sahayak-v116-paper-library-delta.zip`.
 
 ## Previous delivery - v115 (2026-11-08)

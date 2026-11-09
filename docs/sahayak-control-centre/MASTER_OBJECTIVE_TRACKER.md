@@ -1,7 +1,7 @@
 # Master Objective Tracker
 Updated 2026-10-31. Only SAH-PROMPT-0009 is tracked at requirement level. Status words are the 14 allowed ones. "Founder acceptance" is separate from technical status and is empty for everything (the founder has not accepted anything under this system yet).
 
-Counts for SAH-PROMPT-0009: 66 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 39, READY FOR TESTING: 8.
+Counts for SAH-PROMPT-0009: 67 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 40, READY FOR TESTING: 8.
 
 ## SAH-PROMPT-0009 / O1: Persistent registry and execution control (Parts 1-3, 11, 12)
 Requirements 11; PARTIALLY COMPLETED 11
@@ -74,7 +74,7 @@ Requirements 4; NOT STARTED 2, PARTIALLY COMPLETED 2
 | R40 | Flag Indian privacy / legal questions for professional review instead of claiming compliance | PARTIALLY COMPLETED | pending | Flagged in PHASE0_AUDIT.md section 10; review itself not done. |
 
 ## SAH-PROMPT-0009 / O6: Database and architecture rules (Part 8)
-Requirements 17; COMPLETED 2, PARTIALLY COMPLETED 14, READY FOR TESTING 1
+Requirements 18; COMPLETED 2, PARTIALLY COMPLETED 15, READY FOR TESTING 1
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
@@ -95,6 +95,7 @@ Requirements 17; COMPLETED 2, PARTIALLY COMPLETED 14, READY FOR TESTING 1
 | R64 | Prompt 0003 section 11 (interleaving engine, LR-08): mix earlier skills into practice | PARTIALLY COMPLETED | pending | v114: tested rules and a wiring design only; not connected to the tutor, so students see no change. |
 | R65 | Claude-chosen (rollback rule R42): every database change has a tested undo, including the oldest (0002-0040) | PARTIALLY COMPLETED | pending | v115: undo notes for 0002-0040 added; the whole chain 0002-0054 round-trips on a scratch database. Never run on the live database. |
 | R66 | Claude-chosen (security): the public paper library must not accept arbitrary files from any signed-in account | PARTIALLY COMPLETED | pending | v116: PDF only, 10 MB, checked on the page, the save route and the bucket (migration 0062). Review-before-publish is NOT built (founder decision D8). |
+| R67 | Claude-chosen (security): password change and reset must follow the sign-up password rules and never show a raw error | PARTIALLY COMPLETED | pending | v117: rules checked on both pages, raw error hidden. The real lock is the Supabase Auth password policy (founder to check). |
 
 ## SAH-PROMPT-0009 / O7: Testing and acceptance (Part 9)
 Requirements 6; NOT STARTED 4, PARTIALLY COMPLETED 2

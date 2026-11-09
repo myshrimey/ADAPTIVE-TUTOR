@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase-client';
+import { passwordProblemFor } from '@adaptive-tutor/core';
 
 export default function ResetPasswordPage() {
   const router = useRouter();
@@ -54,11 +55,19 @@ export default function ResetPasswordPage() {
     }
     setSubmitting(true);
     const supabase = createClient();
+    const { data: who } = await supabase.auth.getUser();
+    const problem = passwordProblemFor(password, who.user?.email);
+    if (problem) {
+      setSubmitting(false);
+      setError(problem);
+      return;
+    }
     const { error: updateError } = await supabase.auth.updateUser({ password });
     setSubmitting(false);
 
     if (updateError) {
-      setError(updateError.message);
+      console.error('[reset-password]', updateError.message);
+      setError('We could not set the new password. The link may have expired: go back to the home page and request a new one.');
       return;
     }
     setDone(true);

@@ -89,6 +89,7 @@ REQ = [
  ('R64','O6','Prompt 0003 section 11 (interleaving engine, LR-08): mix earlier skills into practice',PC,'v114: tested rules and a wiring design only; not connected to the tutor, so students see no change.'),
  ('R65','O6','Claude-chosen (rollback rule R42): every database change has a tested undo, including the oldest (0002-0040)',PC,'v115: undo notes for 0002-0040 added; the whole chain 0002-0054 round-trips on a scratch database. Never run on the live database.'),
  ('R66','O6','Claude-chosen (security): the public paper library must not accept arbitrary files from any signed-in account',PC,'v116: PDF only, 10 MB, checked on the page, the save route and the bucket (migration 0062). Review-before-publish is NOT built (founder decision D8).'),
+ ('R67','O6','Claude-chosen (security): password change and reset must follow the sign-up password rules and never show a raw error',PC,'v117: rules checked on both pages, raw error hidden. The real lock is the Supabase Auth password policy (founder to check).'),
  ('R50','O8','Phase 0 findings (12 items) produced', CM, 'PHASE0_AUDIT.md. Awaiting founder acceptance.'),
  ('R51','O8','Create the persistent registry and control documents under repository conventions', PC, 'Markdown set created. Database-backed records are Phase 1.'),
  ('R52','O8','Present Phase 0 findings and proposed Phase 1 tasks; wait for the founder to choose', CM, 'Presented in the chat reply of 2026-10-31. Founder choice pending.'),
@@ -154,6 +155,7 @@ TASKS = [
  ('TASK-082','P6','Interleaving rules and wiring design (not connected)','O6','R64','TASK-081','M',RT,'v114: pedagogy/interleave.ts (pure, switch off), docs/INTERLEAVING_DESIGN.md, t114 (33 checks, mutation-checked). Wiring into the orchestrator not done: needs supervised trial.'),
  ('TASK-083','P6','Undo notes for migrations 0002-0040','O6','R65','TASK-082','M',RT,'v115: 39 more sections, core tables protected, t101 now 306 checks over 60 migrations, round trip 0002-0054 mutation-checked.'),
  ('TASK-084','P6','Limit uploads to the public paper library','O6','R66','TASK-083','S',RT,'v116: core/papers/upload-rules.ts, /api/papers check, page check, migration 0062 (tested twice on scratch Postgres), t116 (46 checks). Review-before-publish not built.'),
+ ('TASK-085','P6','Same password rules on change and reset','O6','R67','TASK-084','S',RT,'v117: passwordProblemFor in core/auth/identity.ts, profile and reset pages, t117 (17 checks). Reset-link flow not tested end to end.'),
 ]
 
 reqid = {r[0] for r in REQ}
@@ -386,6 +388,7 @@ EXECUTIONS = [
  ('EX-0026','2026-11-08','founder chat request (continue building)','v114: interleaving rules and design, not connected (TASK-082).','packages/core/pedagogy/interleave.ts; packages/core/index.ts; docs/INTERLEAVING_DESIGN.md; tests/t114.ts, t95b.ts','none','t114, type check, full npm test','Not wired into the tutor; never tried with a real student; not deployed'),
  ('EX-0027','2026-11-08','founder chat request (continue building)','v115: undo notes for database changes 0002-0040 (TASK-083).','docs/ROLLBACK_NOTES.md; scripts/db-test/*; tests/t101.ts, t95b.ts','none (documentation and test scripts only)','t101 (306 checks), undo round trip 0002-0054 on scratch Postgres, mutation check, type check, full npm test','Stand-in Supabase pieces; never run on the live database; not deployed'),
  ('EX-0028','2026-11-09','founder chat request (continue building)','v116: paper library limited to PDF, 10 MB (TASK-084).','packages/core/papers/upload-rules.ts; apps/web/app/api/papers/route.ts; apps/web/app/papers/page.tsx; packages/db/migrations/0062_papers_bucket_limits.sql; docs; tests/t116.ts, t95.ts, t95b.ts, t101.ts','0062 (bucket settings only)','t116, scratch Postgres twice, type check, full npm test, production build','Real upload to the live bucket not tried; review-before-publish not built; not deployed'),
+ ('EX-0029','2026-11-09','founder chat request (continue building)','v117: password change and reset follow sign-up rules (TASK-085).','packages/core/auth/identity.ts; apps/web/app/profile/page.tsx; apps/web/app/reset-password/page.tsx; docs/LIVE_JOURNEY_CHECKLIST.md; tests/t117.ts, t95b.ts','none','t117, type check, full npm test, production build','Reset-link email flow not tested; Supabase password policy not checked by Claude; not deployed'),
 ]
 ALLTEXT = open(OUT + '/MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md').read().split('\n---\n', 1)[1].lstrip('\n')
 LEG = {

@@ -1,22 +1,21 @@
-SAHAYAK v116 - paper library accepts only PDFs up to 10 MB   (SECURITY FIX)
-Apply after v115: unzip over the project, run the database change below, then deploy as usual.
+SAHAYAK v117 - same password rules when changing or resetting a password
+Apply after v116: unzip over the project, then deploy as usual. NO migration.
 
 WHY
-- The shared paper library (/papers) is a PUBLIC storage area. Any signed-in account (free self-sign-up included) could upload any file of any type and size, and it was listed to everyone at once. Nothing checked the file path saved with it either.
+- Only sign-up checked the password rules. Changing a password on the profile page only checked "8 characters", and the reset page checked nothing except that the two boxes match. Both also showed Supabase's raw error text.
 
 WHAT CHANGES
-1. Only PDF files up to 10 MB: checked on the page (friendly message), on the save route (the real check), and by the storage area itself.
-2. DATABASE: run packages/db/migrations/0062_papers_bucket_limits.sql (npm run db:migrate runs it). It only sets two settings on the "papers" storage area; no table changes; safe to run twice.
-3. After deploying, open /admin/deploy-check and run the new 0062 line under "checks you paste by hand". Expect one row: papers, 10485760, {application/pdf}.
+- Both pages now apply the sign-up rules (8+ characters, not a common password, not the username) before changing the password, in plain words. Raw errors are no longer shown (the reason is kept in the browser console for you).
+- docs/LIVE_JOURNEY_CHECKLIST.md has a new Step 7: Supabase settings only you can change.
+
+IMPORTANT - PLEASE DO (Step 7)
+- A signed-in person can always talk to Supabase directly, so the website's rules only help honest users. The real lock is Supabase -> Authentication password settings: minimum length 8, and (if your plan offers it) refuse passwords found in known leaks. Also confirm "Allow new users to sign up" is OFF.
 
 TESTED
-- New test t116 (46 checks; a deliberate loosening of the path rule was caught). Migration 0062 run twice on a throw-away Postgres: limits set, one history row. t101 (undo notes, now 311 checks), t95 (4 hand checks). Type check. Full suite: 93 files, 89 passed, 4 known-old, 0 failed. Production build compiled; the save route answers "unauthenticated" for a signed-out caller.
+- New test t117 (17 checks). Type check. Full suite: 94 files, 90 passed, 4 known-old, 0 failed (the old flaky test t57b failed in an earlier run and in 3 of 10 solo runs; it is unrelated and was already listed as flaky). Production build compiled.
 
 NOT TESTED
-- A real upload to your live storage area (stand-in database only). Whether the storage area in your Supabase accepts the setting exactly as on the throw-away copy: use the hand check in step 3.
-
-NOT BUILT / FOR YOUR DECISION (D8)
-- Review before a paper appears: today a PDF is listed to everyone as soon as it is saved. Options: (a) leave as is, (b) papers wait until you approve them at an admin page, (c) only teachers and admins can upload. No virus scan. Files already uploaded are untouched: look at the library once and remove anything odd.
+- The reset email link end to end (cannot send email from here). Your Supabase settings.
 
 NOT DEPLOYED
 - Nothing is deployed by Claude.

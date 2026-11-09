@@ -822,6 +822,16 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R67",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R67",
+   "text": "Claude-chosen (security): password change and reset must follow the sign-up password rules and never show a raw error",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v117: rules checked on both pages, raw error hidden. The real lock is the Supabase Auth password policy (founder to check).",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -2547,6 +2557,21 @@ export const REGISTRY = {
    "note": "v116: core/papers/upload-rules.ts, /api/papers check, page check, migration 0062 (tested twice on scratch Postgres), t116 (46 checks). Review-before-publish not built.",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-085",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Same password rules on change and reset",
+   "objective_code": "O6",
+   "requirements": "R67",
+   "depends_on": "TASK-084",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v117: passwordProblemFor in core/auth/identity.ts, profile and reset pages, t117 (17 checks). Reset-link flow not tested end to end.",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -2991,6 +3016,16 @@ export const REGISTRY = {
    "db_changes": "0062 (bucket settings only)",
    "tests": "t116, scratch Postgres twice, type check, full npm test, production build",
    "open_problems": "Real upload to the live bucket not tried; review-before-publish not built; not deployed"
+  },
+  {
+   "id": "EX-0029",
+   "executed_on": "2026-11-09",
+   "prompt_id": "founder chat request (continue building)",
+   "summary": "v117: password change and reset follow sign-up rules (TASK-085).",
+   "files": "packages/core/auth/identity.ts; apps/web/app/profile/page.tsx; apps/web/app/reset-password/page.tsx; docs/LIVE_JOURNEY_CHECKLIST.md; tests/t117.ts, t95b.ts",
+   "db_changes": "none",
+   "tests": "t117, type check, full npm test, production build",
+   "open_problems": "Reset-link email flow not tested; Supabase password policy not checked by Claude; not deployed"
   }
  ]
 } as unknown as ControlRegistry;

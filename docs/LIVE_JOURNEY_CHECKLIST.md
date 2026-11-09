@@ -36,3 +36,9 @@ It opens the public pages, checks that admin pages and private APIs refuse a sig
 - The page wider than the screen on any page (note the page name if it is).
 
 Anything that does not match: note the page, what you pressed and what you saw. Claude fixes from that.
+
+## Step 7 - Supabase settings only you can change (v117)
+A signed-in person can always call Supabase directly, so the website's password rules are a courtesy; the lock is in Supabase.
+1. Supabase dashboard -> Authentication -> sign-in / password settings: set the minimum password length to 8 (the website asks for 8) and, if your plan offers it, turn on the option that refuses passwords found in known leaks. Wording of the menu may differ; tell Claude what you see.
+2. Same area: "Allow new users to sign up" must stay OFF (accounts are made only by the website's own routes).
+3. Storage -> papers: file size limit 10 MB and PDF only (migration 0062 sets this).

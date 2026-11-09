@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0029 - 2026-11-09 - founder chat request (continue building)
+- Summary: v117: password change and reset follow sign-up rules (TASK-085).
+- Files: packages/core/auth/identity.ts; apps/web/app/profile/page.tsx; apps/web/app/reset-password/page.tsx; docs/LIVE_JOURNEY_CHECKLIST.md; tests/t117.ts, t95b.ts
+- Database: none
+- Tests: t117, type check, full npm test, production build
+- Open: Reset-link email flow not tested; Supabase password policy not checked by Claude; not deployed
+
 ## EX-0028 - 2026-11-09 - founder chat request (continue building)
 - Summary: v116: paper library limited to PDF, 10 MB (TASK-084).
 - Files: packages/core/papers/upload-rules.ts; apps/web/app/api/papers/route.ts; apps/web/app/papers/page.tsx; packages/db/migrations/0062_papers_bucket_limits.sql; docs; tests/t116.ts, t95.ts, t95b.ts, t101.ts
