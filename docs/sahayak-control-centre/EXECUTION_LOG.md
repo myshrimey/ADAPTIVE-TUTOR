@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0024 - 2026-11-08 - founder chat request (continue building)
+- Summary: v112: smoke test, live journey checklist, browser safety headers (TASK-080).
+- Files: scripts/smoke/smoke-test.mjs; docs/LIVE_JOURNEY_CHECKLIST.md; apps/web/next.config.js; tests/t112.ts, t95b.ts
+- Database: none
+- Tests: t112, smoke test against a local production build with a stand-in database, negative run against a dead server, type check, full npm test
+- Open: Never run against the live site; CSP and HSTS deliberately not added; not deployed
+
 ## EX-0023 - 2026-11-08 - founder chat request (continue building)
 - Summary: v111: tables scroll inside their own box on phones (TASK-079).
 - Files: apps/web/app/globals.css; tests/t111.ts; tests/t95b.ts

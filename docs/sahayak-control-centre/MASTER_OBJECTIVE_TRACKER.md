@@ -1,7 +1,7 @@
 # Master Objective Tracker
 Updated 2026-10-31. Only SAH-PROMPT-0009 is tracked at requirement level. Status words are the 14 allowed ones. "Founder acceptance" is separate from technical status and is empty for everything (the founder has not accepted anything under this system yet).
 
-Counts for SAH-PROMPT-0009: 61 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 34, READY FOR TESTING: 8.
+Counts for SAH-PROMPT-0009: 62 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 35, READY FOR TESTING: 8.
 
 ## SAH-PROMPT-0009 / O1: Persistent registry and execution control (Parts 1-3, 11, 12)
 Requirements 11; PARTIALLY COMPLETED 11
@@ -74,7 +74,7 @@ Requirements 4; NOT STARTED 2, PARTIALLY COMPLETED 2
 | R40 | Flag Indian privacy / legal questions for professional review instead of claiming compliance | PARTIALLY COMPLETED | pending | Flagged in PHASE0_AUDIT.md section 10; review itself not done. |
 
 ## SAH-PROMPT-0009 / O6: Database and architecture rules (Part 8)
-Requirements 12; COMPLETED 2, PARTIALLY COMPLETED 9, READY FOR TESTING 1
+Requirements 13; COMPLETED 2, PARTIALLY COMPLETED 10, READY FOR TESTING 1
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
@@ -90,6 +90,7 @@ Requirements 12; COMPLETED 2, PARTIALLY COMPLETED 9, READY FOR TESTING 1
 | R59 | Founder request 2026-11-08 (chat): complete all the prompts and their tasks by criticality and strategic value | PARTIALLY COMPLETED | pending | v109: prompts 0001-0003 now tracked requirement by requirement; ranked remaining-work list written. Most remaining items need the founder, teachers or the legal review (D7); Claude-buildable items are listed first in docs/REMAINING_WORK_RANKED.md. |
 | R60 | Claude-chosen (security, ranked item A1 in REMAINING_WORK_RANKED): forgot-password had no limit and echoed raw errors | PARTIALLY COMPLETED | pending | v110: reset requests go through a server route with per-address and per-email limits and one neutral answer. Reset email not tested from the sandbox. |
 | R61 | Claude-chosen (quality, ranked item A2): signed-in screens must not scroll sideways on phones | PARTIALLY COMPLETED | pending | v111: code scan of all public/signed-in tables; the unstyled data-table class now scrolls inside its box. Not yet checked on real signed-in pages. |
+| R62 | Claude-chosen (ranked item A5): nothing deployed has been checked live; give the founder a way to check | PARTIALLY COMPLETED | pending | v112: read-only smoke test script, a by-hand journey checklist, and safe browser headers (found missing by the smoke test). Not run against the live site. |
 
 ## SAH-PROMPT-0009 / O7: Testing and acceptance (Part 9)
 Requirements 6; NOT STARTED 4, PARTIALLY COMPLETED 2

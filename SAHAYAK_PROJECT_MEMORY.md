@@ -144,3 +144,4 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v109 (2026-11-08): prompts 0001-0003 broken into requirement rows; ranked remaining-work list added. No migration. Not deployed.
 - v110 (2026-11-08): forgot-password goes through a limited server route (5 per address, 3 per email per hour; same answer for any email). No migration. Reset email delivery not tested. Not deployed.
 - v111 (2026-11-08): tables (class data-table) scroll inside their own box on phones; t111 scans every public/signed-in table. CSS only. Not deployed.
+- v112 (2026-11-08): safety headers on every page (no CSP/HSTS yet), read-only smoke test (scripts/smoke/smoke-test.mjs) and docs/LIVE_JOURNEY_CHECKLIST.md. No migration. Never run on the live site. Not deployed.

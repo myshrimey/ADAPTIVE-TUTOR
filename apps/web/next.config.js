@@ -12,8 +12,20 @@ const nextConfig = {
   // opt-in, not a wildcard-open API.
   async headers() {
     const origin = process.env.BOLT_FRONTEND_ORIGIN;
-    if (!origin) return [];
+    // v112: safe browser protections on every page. Deliberately NOT included: a Content-Security-Policy (needs a careful trial on
+    // the live site first, or it can break pages) and HSTS (the host already sends it).
+    const safety = {
+      source: '/:path*',
+      headers: [
+        { key: 'X-Content-Type-Options', value: 'nosniff' },
+        { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+        { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+        { key: 'Permissions-Policy', value: 'camera=(self), microphone=(self), geolocation=()' },
+      ],
+    };
+    if (!origin) return [safety];
     return [
+      safety,
       {
         source: '/api/:path*',
         headers: [

@@ -769,3 +769,8 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Scan: every `<table>` on public and signed-in screens (admin-only components listed separately in t111). Three tables used a class `data-table` that had no CSS at all (centre invitations, team, teacher assignments); they could widen the page.
 - Fix: `.data-table` scrolls inside its own box. CSS only. No migration.
 - Checked: t111 (3 checks; breaking one table makes it fail), a test page at 320/375/414px (page width stays equal to the screen, table scrolls inside). NOT checked: real signed-in pages (need a live test account).
+
+## v112 (2026-11-08) - smoke test, live journey checklist, safety headers
+- The smoke test found that no browser safety headers were sent. `next.config.js` now sends nosniff, Referrer-Policy, X-Frame-Options SAMEORIGIN and Permissions-Policy on every page (camera/microphone stay allowed for our own pages). No CSP or HSTS: a CSP needs a trial on the live site, HSTS is sent by the host.
+- `scripts/smoke/smoke-test.mjs`: read-only, 28 checks. Passed on a local production build with a stand-in database; all 28 failed against a dead server (so it can fail). Never run on the live site.
+- `docs/LIVE_JOURNEY_CHECKLIST.md`: the by-hand walk-through. Observation: `/api/student/export` answers 400 (not 401) when signed out; it gives nothing away, left as is.

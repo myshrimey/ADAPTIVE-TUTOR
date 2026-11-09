@@ -772,6 +772,16 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R62",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R62",
+   "text": "Claude-chosen (ranked item A5): nothing deployed has been checked live; give the founder a way to check",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v112: read-only smoke test script, a by-hand journey checklist, and safe browser headers (found missing by the smoke test). Not run against the live site.",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -2422,6 +2432,21 @@ export const REGISTRY = {
    "note": "v111: .data-table CSS, t111 (3 checks, mutation-checked), test-page render at 320/375/414. Real signed-in pages not opened.",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-080",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Smoke test, live journey checklist and safety headers",
+   "objective_code": "O6",
+   "requirements": "R62",
+   "depends_on": "TASK-079",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v112: scripts/smoke/smoke-test.mjs (28 checks, passes on a local build, fails on a dead server), docs/LIVE_JOURNEY_CHECKLIST.md, next.config.js headers, t112 (12 checks). Founder must run it on the live site.",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -2816,6 +2841,16 @@ export const REGISTRY = {
    "db_changes": "none",
    "tests": "t111 (mutation-checked), phone-width render of the new style, type check, full npm test",
    "open_problems": "Only a code scan and a test page: real signed-in pages were not opened; not deployed"
+  },
+  {
+   "id": "EX-0024",
+   "executed_on": "2026-11-08",
+   "prompt_id": "founder chat request (continue building)",
+   "summary": "v112: smoke test, live journey checklist, browser safety headers (TASK-080).",
+   "files": "scripts/smoke/smoke-test.mjs; docs/LIVE_JOURNEY_CHECKLIST.md; apps/web/next.config.js; tests/t112.ts, t95b.ts",
+   "db_changes": "none",
+   "tests": "t112, smoke test against a local production build with a stand-in database, negative run against a dead server, type check, full npm test",
+   "open_problems": "Never run against the live site; CSP and HSTS deliberately not added; not deployed"
   }
  ]
 } as unknown as ControlRegistry;

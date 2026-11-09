@@ -7,7 +7,7 @@ Built from the registry rows (prompts 0001 to 0003 now have requirement rows) an
 2. PARTLY DONE in v111: a code scan of every table on public and signed-in screens (3 had no scrolling box; fixed). Still not done: opening every signed-in page on a phone-sized screen, which needs a real test account on the live site.
 3. Undo notes for the migrations before 0055 (rollback rule R42; today 0055 onward are covered).
 4. Interleaving engine, visual learning, error intelligence, learning orchestrator, one student model (rows LR-01, 03, 04, 05, 08, 13). Learning value, but each needs a small design written first so it does not break existing rules.
-5. A real-journey test script that the founder can run on the live site (LR-31 asks for a live test of every journey; Claude can write the script and checklist, only you can run it against the live site).
+5. DONE in v112 (script and checklist written; you still have to run them on the live site): scripts/smoke/smoke-test.mjs and docs/LIVE_JOURNEY_CHECKLIST.md.
 
 ## B. Needs you (the founder)
 1. Deploy v102 to v109 together after a backup, then run the checks. Nothing built since v95 has been seen live.

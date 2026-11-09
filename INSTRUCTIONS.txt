@@ -1,18 +1,20 @@
-SAHAYAK v111 - tables no longer widen phone pages
-Apply after v110: unzip over the project, then deploy as usual. NO migration. CSS and tests only.
+SAHAYAK v112 - live check tools and browser safety headers
+Apply after v111: unzip over the project, then deploy as usual. NO migration.
 
 WHAT CHANGES
-- Tables on the centre invitations, team and teacher-assignment screens now scroll sideways inside their own box instead of making the whole page wider than a phone.
+1. Every page now sends browser safety headers (no sniffing, no framing by other sites, referrer limit, permissions).
+2. New read-only smoke test. After deploying, on any computer with Node: node scripts/smoke/smoke-test.mjs https://YOUR-SITE   (expect "0 failed")
+3. New docs/LIVE_JOURNEY_CHECKLIST.md: the by-hand walk-through (sign-up, forgot password, student session, admin).
 
 TESTED
-- New test t111 (3 checks; it fails if a table without scrolling is added). A test page at 320, 375 and 414 pixels wide (page stays screen width, table scrolls inside). Type check. Full suite: 90 files, 86 passed, 4 known-old, 0 failed.
+- New test t112 (12 checks). Smoke test: 28 of 28 pass against a local production build with a stand-in database; 0 of 28 pass against a dead server (so it can fail). Type check. Full suite: 91 files, 87 passed, 4 known-old, 0 failed. Production build compiled.
 
 NOT TESTED
-- Real signed-in pages on a real phone. The production build was not re-run (only a stylesheet changed).
-- Admin-only tables (used on a computer) are not covered.
+- Anything on your live site. The smoke test has never been run there. Real phone.
+- A Content-Security-Policy and HSTS were deliberately NOT added (a CSP needs a trial on the live site; the host already sends HSTS).
 
 NOT BUILT
-- A full walk through every signed-in page on a phone (needs a live test account).
+- Signed-in checks (the smoke test cannot sign in; use the checklist).
 
 NOT DEPLOYED
 - Nothing is deployed by Claude.

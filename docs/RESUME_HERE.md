@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v111 (2026-11-08)
+## Latest delivery - v112 (2026-11-08)
+Three things: (1) browser safety headers on every page (nosniff, frame, referrer, permissions; no CSP/HSTS on purpose); (2) `scripts/smoke/smoke-test.mjs`, a read-only check you run against your live site (`node scripts/smoke/smoke-test.mjs https://YOUR-SITE`); (3) `docs/LIVE_JOURNEY_CHECKLIST.md`, the by-hand walk-through (sign-up, forgot password, student session, admin). Nothing here was ever run against your live site. No migration. Apply after v111: `sahayak-v112-live-check-delta.zip`.
+
+## Previous delivery - v111 (2026-11-08)
 Tables on the centre and team screens no longer widen a phone page: they scroll inside their own box (CSS only, class `data-table` had no style before). Found by a code scan of every table on public and signed-in screens; checked at 320, 375 and 414px in a test page, NOT on real signed-in pages. No migration. Apply after v110: `sahayak-v111-table-scroll-delta.zip`.
 
 ## Previous delivery - v110 (2026-11-08)
