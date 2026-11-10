@@ -810,3 +810,8 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - t57b failed about 3 runs in 10. Cause: `weakness mistakes recorded` counted every challenge mistake in the book, including rows from earlier battles in the same test; the weakness battle picks questions at random, so a wrong answer on a question already in the book updates that row (repeat count) instead of adding one. Product code behaves as designed.
 - Fix: count rows whose last reference is this battle (`ch:<attempt id>`). 40 of 40 runs pass; making the product skip recording the mistake still fails the test.
 - Noted, not changed: the question pick uses `sort(... || Math.random() - 0.5)`, an inconsistent comparator. Harmless here (ties only) but a cleaner shuffle would be better; left alone because it changes live behaviour.
+
+## v119 (2026-11-09) - profile save input is checked on the server
+- Gap found by scanning routes: `/api/profile` POST passed the request body straight to the database (no length limits, no shape checks on email, phone, siblings, class rows or percentage).
+- New `packages/core/profile/profile-input.ts` (`cleanProfileInput`, `PROFILE_CAPS`, `PROFILE_ERROR_TEXT`): trims, strips control characters, cuts text to caps, drops non-text values, validates email/phone/siblings (0-20)/class rows (max 4, classes 6-9, unique)/percentage (0-100). The route calls it before saving and returns 400 with a code; the Profile page maps codes to plain sentences.
+- Test t119 (32 checks). No migration.

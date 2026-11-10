@@ -2,7 +2,7 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 
 // v95: "did my deployment take?" Read only. Probes ask the database whether a table or column exists (a SELECT of zero rows).
 // Nothing is changed, no value of any setting is ever read out: environment settings are reported as present / missing only.
-export const APP_VERSION = 'v118';
+export const APP_VERSION = 'v119';
 /** The newest version that changed the database (it writes a system_changelog row). Versions after it need no migration. Test t95 checks this against the migration files. */
 export const DB_VERSION_EXPECTED = 'v116';
 export interface DeployProbe { migration: string; version: string; what: string; table: string; column?: string }

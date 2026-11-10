@@ -17,8 +17,8 @@ Module._load = function (req: string, ...rest: any[]) {
 const render = async () => renderToStaticMarkup(await require('../apps/web/app/admin/deploy-check/page').default());
 (async () => {
   const a = await render();
-  ok(a.includes('Deployment check') && a.includes('<strong>v118</strong>') && a.includes('Every change this page can see is applied'), 'healthy database: version and all-applied shown');
-  ok(!a.includes('behind this website') && !a.includes('NOT applied'), 'no false alarm when the database is at v116 and the website at v118');
+  ok(a.includes('Deployment check') && a.includes('<strong>v119</strong>') && a.includes('Every change this page can see is applied'), 'healthy database: version and all-applied shown');
+  ok(!a.includes('behind this website') && !a.includes('NOT applied'), 'no false alarm when the database is at v116 and the website at v119');
   ok(a.includes('<code>SUPABASE_SERVICE_ROLE_KEY</code>') && a.includes('present') && a.includes('MISSING') && a.includes('not set (optional)'), 'settings shown as present, missing or optional');
   ok(!a.includes(SECRET) && !a.includes('founder@x.in'), 'no secret value or admin email appears in the page');
   ok(a.includes('guard_user_role') && a.includes('trg_audit_logs') && a.includes('tables_without_rls'), 'the three read-only SQL checks are shown');

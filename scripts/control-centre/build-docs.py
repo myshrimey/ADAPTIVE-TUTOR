@@ -91,6 +91,7 @@ REQ = [
  ('R66','O6','Claude-chosen (security): the public paper library must not accept arbitrary files from any signed-in account',PC,'v116: PDF only, 10 MB, checked on the page, the save route and the bucket (migration 0062). Review-before-publish is NOT built (founder decision D8).'),
  ('R67','O6','Claude-chosen (security): password change and reset must follow the sign-up password rules and never show a raw error',PC,'v117: rules checked on both pages, raw error hidden. The real lock is the Supabase Auth password policy (founder to check).'),
  ('R68','O6','Claude-chosen (quality): the test suite must not fail at random',PC,'v118: flaky test t57b fixed (40 of 40 runs pass); cause was in the test, not the product.'),
+('R69','O6','Claude-chosen (security): the profile save must check what it is given',PC,'v119: profile save input is cleaned and validated on the server; plain-words messages on the page. Not seen live.'),
  ('R50','O8','Phase 0 findings (12 items) produced', CM, 'PHASE0_AUDIT.md. Awaiting founder acceptance.'),
  ('R51','O8','Create the persistent registry and control documents under repository conventions', PC, 'Markdown set created. Database-backed records are Phase 1.'),
  ('R52','O8','Present Phase 0 findings and proposed Phase 1 tasks; wait for the founder to choose', CM, 'Presented in the chat reply of 2026-10-31. Founder choice pending.'),
@@ -158,6 +159,7 @@ TASKS = [
  ('TASK-084','P6','Limit uploads to the public paper library','O6','R66','TASK-083','S',RT,'v116: core/papers/upload-rules.ts, /api/papers check, page check, migration 0062 (tested twice on scratch Postgres), t116 (46 checks). Review-before-publish not built.'),
  ('TASK-085','P6','Same password rules on change and reset','O6','R67','TASK-084','S',RT,'v117: passwordProblemFor in core/auth/identity.ts, profile and reset pages, t117 (17 checks). Reset-link flow not tested end to end.'),
  ('TASK-086','P6','Fix the flaky test t57b','O6','R68','TASK-085','S',RT,'v118: the test now counts only its own battle mistakes; deliberate break still caught; 40/40 passes.'),
+('TASK-087','P6','Validate and cap profile save input on the server','O6','R69','TASK-086','S',RT,'v119: cleanProfileInput before save; 32 checks in t119; mutation check; no migration.'),
 ]
 
 reqid = {r[0] for r in REQ}
@@ -392,6 +394,7 @@ EXECUTIONS = [
  ('EX-0028','2026-11-09','founder chat request (continue building)','v116: paper library limited to PDF, 10 MB (TASK-084).','packages/core/papers/upload-rules.ts; apps/web/app/api/papers/route.ts; apps/web/app/papers/page.tsx; packages/db/migrations/0062_papers_bucket_limits.sql; docs; tests/t116.ts, t95.ts, t95b.ts, t101.ts','0062 (bucket settings only)','t116, scratch Postgres twice, type check, full npm test, production build','Real upload to the live bucket not tried; review-before-publish not built; not deployed'),
  ('EX-0029','2026-11-09','founder chat request (continue building)','v117: password change and reset follow sign-up rules (TASK-085).','packages/core/auth/identity.ts; apps/web/app/profile/page.tsx; apps/web/app/reset-password/page.tsx; docs/LIVE_JOURNEY_CHECKLIST.md; tests/t117.ts, t95b.ts','none','t117, type check, full npm test, production build','Reset-link email flow not tested; Supabase password policy not checked by Claude; not deployed'),
  ('EX-0030','2026-11-09','founder chat request (continue building)','v118: flaky test t57b fixed (TASK-086).','tests/t57b.ts; tests/t95b.ts; CLAUDE.md','none','t57b x40 runs, mutation check, type check, full npm test','Test change only; not deployed'),
+('EX-0031','2026-11-09','founder chat request (continue building)','v119: profile save input cleaned and validated (TASK-087).','core/profile/profile-input.ts; api/profile/route.ts; profile/page.tsx; tests/t119.ts','none','t119, type check, full npm test, production build','Not deployed; not seen live'),
 ]
 ALLTEXT = open(OUT + '/MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md').read().split('\n---\n', 1)[1].lstrip('\n')
 LEG = {

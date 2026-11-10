@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0031 - 2026-11-09 - founder chat request (continue building)
+- Summary: v119: profile save input cleaned and validated (TASK-087).
+- Files: core/profile/profile-input.ts; api/profile/route.ts; profile/page.tsx; tests/t119.ts
+- Database: none
+- Tests: t119, type check, full npm test, production build
+- Open: Not deployed; not seen live
+
 ## EX-0030 - 2026-11-09 - founder chat request (continue building)
 - Summary: v118: flaky test t57b fixed (TASK-086).
 - Files: tests/t57b.ts; tests/t95b.ts; CLAUDE.md

@@ -1,14 +1,9 @@
-SAHAYAK v118 - flaky test fixed
-Apply after v117: unzip over the project. NO migration, NO website change (a test, the version number and documents only). Redeploying is optional.
+Sahayak v119 - profile save is checked on the server
+Apply after v118: copy these files over your repo (same paths). No database change.
 
-WHAT CHANGES
-- The old test t57b used to fail about 3 runs in 10 for no real reason. The test counted mistakes from earlier battles too, and the weakness battle picks questions at random. It now counts only its own battle.
+WHAT CHANGED: /api/profile now trims and cuts text to sensible lengths, removes control characters, and checks parent email, phone, siblings (0-20), class rows (max 4, classes 6-9, no repeats) and percentage (0-100) before saving. The Profile page shows plain sentences for refusals.
 
-TESTED
-- t57b: 40 of 40 runs pass (before: about 3 failures in 10). A deliberate break of the product code is still caught by it. Type check. Full suite: 94 files, 90 passed, 4 known-old, 0 failed.
-
-NOT TESTED
-- Production build was not re-run (no website code changed).
-
-NOT DEPLOYED
-- Nothing is deployed by Claude.
+TESTED: new test t119 (32 checks); breaking the route (passing raw values) fails it; type check; full test suite (91 passed, 4 known-old); production build with a stand-in database.
+NOT TESTED: saving a profile on the live website.
+NOT BUILT: nothing else changed.
+NOT DEPLOYED: you deploy.

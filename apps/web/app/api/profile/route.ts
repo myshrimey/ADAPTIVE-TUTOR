@@ -4,7 +4,7 @@ import {
   getStudentProfileDetails,
   upsertStudentProfileDetails,
   listAcademicHistory,
-  upsertAcademicHistory, publicError } from '@adaptive-tutor/core';
+  upsertAcademicHistory, cleanProfileInput, publicError } from '@adaptive-tutor/core';
 
 // A student can only ever read/write their own profile — getCurrentStudentId()
 // resolves the row from the signed-in session, and RLS (migration
@@ -40,10 +40,13 @@ export async function POST(request: Request) {
     const body = await request.json().catch(() => ({}));
     const { details, academicHistory } = body as { details?: Record<string, unknown>; academicHistory?: unknown[] };
 
+    // v119: only cleaned values reach the database (lengths capped, email/phone/percentage/class checked).
+    const clean = cleanProfileInput(details, academicHistory);
+    if (!clean.ok) return NextResponse.json({ data: null, error: clean.code }, { status: 400 });
     const supabase = await createServerClient();
-    const savedDetails = await upsertStudentProfileDetails(supabase, studentId, details ?? {});
+    const savedDetails = await upsertStudentProfileDetails(supabase, studentId, clean.details);
     if (Array.isArray(academicHistory)) {
-      await upsertAcademicHistory(supabase, studentId, academicHistory as any);
+      await upsertAcademicHistory(supabase, studentId, clean.history);
     }
     const savedHistory = await listAcademicHistory(supabase, studentId);
 

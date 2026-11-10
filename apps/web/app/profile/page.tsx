@@ -4,7 +4,7 @@ import { ReferralPanel } from '@/components/ReferralPanel';
 import { RegionPrefs } from '@/components/RegionPrefs';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase-client';
-import { passwordProblemFor } from '@adaptive-tutor/core';
+import { passwordProblemFor, PROFILE_ERROR_TEXT } from '@adaptive-tutor/core';
 import { useLanguage } from '@/components/LanguageProvider';
 import { LanguagePrefs } from '@/components/LanguagePrefs';
 
@@ -162,7 +162,7 @@ export default function ProfilePage() {
       setSaved(true);
       if (welcome) window.location.href = '/'; // on to choosing subjects
     } catch (e: any) {
-      setError(e.message ?? 'Could not save your profile.');
+      setError((PROFILE_ERROR_TEXT as Record<string, string>)[e.message] ?? 'Could not save your profile. Please try again.');
     } finally {
       setSaving(false);
     }

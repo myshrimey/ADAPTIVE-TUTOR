@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v118 (2026-11-09)
+## Latest delivery - v119 (2026-11-09)
+Profile save is now checked on the server: text boxes are cut to sensible lengths, control characters removed, and the parent email, phone, number of siblings, class rows (max 4, classes 6-9, no repeats) and percentage (0-100) are validated before anything is written. Bad input gets a plain-words message on the Profile page. No migration. Apply after v118: `sahayak-v119-profile-input-delta.zip`.
+
+## Previous delivery - v118 (2026-11-09)
 Test reliability only: the old flaky test t57b (it failed about 3 runs in 10) now passes 40 of 40 runs. Cause: the test counted mistake-book rows from earlier battles too, and the weakness battle picks questions at random, so sometimes a wrong answer updated an existing row instead of adding one. The product code was fine. No website change, no migration. Apply after v117: `sahayak-v118-test-fix-delta.zip`.
 
 ## Previous delivery - v117 (2026-11-09)
