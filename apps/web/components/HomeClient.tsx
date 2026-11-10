@@ -20,6 +20,7 @@ const SUBJECTS: { slug: string; name: string; note: string; status: 'ready' | 'p
   { slug: 'english', name: 'English Language & Literature', note: 'First Flight, Footprints Without Feet, grammar and writing', status: 'pilot' },
   { slug: 'hindi', name: 'Hindi Course A', note: 'Kshitij, Kritika, grammar and writing (Devanagari questions, being reviewed by a teacher). Choose Course A or B, not both.', status: 'pilot' },
   { slug: 'hindi-b', name: 'Hindi Course B', note: 'Sparsh, Sanchayan, grammar and writing (Devanagari questions, being reviewed by a teacher). Choose Course A or B, not both.', status: 'pilot' },
+  { slug: 'french', name: 'French', note: 'Entre Jeunes lessons 2-8 and 10, grammar, reading and writing (questions written for Sahayak, being reviewed by a teacher)', status: 'pilot' },
   { slug: 'computer-applications', name: 'Computer Applications', note: 'Networking, HTML, cyber safety, logic and productivity tools', status: 'pilot' },
 ];
 

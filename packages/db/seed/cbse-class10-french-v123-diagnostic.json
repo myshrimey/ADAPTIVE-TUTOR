@@ -1,0 +1,5699 @@
+{
+ "subject_slug": "french",
+ "questions": [
+  {
+   "skill_slug": "present-tense",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « être » au présent : Tu ___ toujours très gentil avec tes camarades.",
+   "expected_answer": {
+    "value": "es"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "auras été",
+    "as été",
+    "sommes",
+    "es"
+   ],
+   "explanation": "Être au présent avec « tu » : tu es.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "present-tense",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « aller » au présent : Les enfants ___ au parc après l'école.",
+   "expected_answer": {
+    "value": "vont"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "vont",
+    "iraient",
+    "iront",
+    "vais"
+   ],
+   "explanation": "Aller au présent avec « ils » : ils vont.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "present-tense",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « prendre » au présent : Vous ___ du thé ou du café ?",
+   "expected_answer": {
+    "value": "prenez"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "prendriez",
+    "avez pris",
+    "prenez",
+    "prennent"
+   ],
+   "explanation": "Prendre au présent avec « vous » : vous prenez.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "present-tense",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « finir » au présent : Je ___ mes devoirs avant le dîner.",
+   "expected_answer": {
+    "value": "finis"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "finirai",
+    "aurai fini",
+    "finissent",
+    "finis"
+   ],
+   "explanation": "Finir au présent avec « je » : je finis.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "present-tense",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « écrire » au présent : Elle ___ une lettre à son ami français.",
+   "expected_answer": {
+    "value": "écrit"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "aura écrit",
+    "écrive",
+    "écris",
+    "écrit"
+   ],
+   "explanation": "Écrire au présent avec « elle » : elle écrit.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "present-tense",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « lire » au présent : Ils ___ le journal tous les matins.",
+   "expected_answer": {
+    "value": "lisent"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "lisent",
+    "avaient lu",
+    "liraient",
+    "lisez"
+   ],
+   "explanation": "Lire au présent avec « ils » : ils lisent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "present-tense",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « dire » au présent : Vous ___ la vérité.",
+   "expected_answer": {
+    "value": "dites"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "disiez",
+    "aurez dit",
+    "dites",
+    "dis"
+   ],
+   "explanation": "Dire au présent avec « vous » : vous dites.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "present-tense",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « recevoir » au présent : Nous ___ beaucoup de lettres cette semaine.",
+   "expected_answer": {
+    "value": "recevons"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "recevions",
+    "recevons",
+    "recevrions",
+    "reçoivent"
+   ],
+   "explanation": "Recevoir au présent avec « nous » : nous recevons.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "present-tense",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « aller » au présent : On ___ à la bibliothèque le samedi.",
+   "expected_answer": {
+    "value": "va"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "ira",
+    "aille",
+    "vais",
+    "va"
+   ],
+   "explanation": "Aller au présent avec « on » : on va.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "present-tense",
+   "difficulty": 3,
+   "question_type": "short_answer",
+   "prompt": "Écrivez la forme correcte du verbe « écouter » au présent : Mes parents ___ de la musique le soir.",
+   "expected_answer": {
+    "value": "écoutent"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "explanation": "Écouter au présent avec « ils » : ils écoutent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronominal-verbs",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « se coucher » au présent : Tu ___ toujours très tard.",
+   "expected_answer": {
+    "value": "te couches"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "te couches",
+    "t'es couché",
+    "te coucheras",
+    "se couche"
+   ],
+   "explanation": "Se coucher au présent avec « tu » : tu te couches.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronominal-verbs",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « se promener » au présent : Nous ___ dans le jardin le dimanche.",
+   "expected_answer": {
+    "value": "nous promenons"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "nous serons promenés",
+    "nous promènerions",
+    "se promène",
+    "nous promenons"
+   ],
+   "explanation": "Se promener au présent avec « nous » : nous nous promenons.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronominal-verbs",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « s'habiller » au présent : Elle ___ avant d'aller à l'école.",
+   "expected_answer": {
+    "value": "s'habille"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "s'était habillée",
+    "s'habille",
+    "se sera habillée",
+    "t'habilles"
+   ],
+   "explanation": "S'habiller au présent avec « elle » : elle s'habille.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronominal-verbs",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « se réveiller » au présent : Vous ___ à quelle heure ?",
+   "expected_answer": {
+    "value": "vous réveillez"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "vous réveilleriez",
+    "vous serez réveillés",
+    "vous réveillez",
+    "se réveille"
+   ],
+   "explanation": "Se réveiller au présent avec « vous » : vous vous réveillez.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronominal-verbs",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Ils se lavent les mains avant le repas."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Ils lavent se les mains avant le repas.",
+    "Ils se lave les mains avant le repas.",
+    "Ils se lavent les mains avant le repas.",
+    "Ils nous lavent les mains avant le repas."
+   ],
+   "explanation": "Le verbe pronominal garde son pronom réfléchi devant le verbe : ils se lavent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronominal-verbs",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quel pronom complète la phrase ? « Nous ___ intéressons à la musique. »",
+   "expected_answer": {
+    "value": "nous"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "se",
+    "nous",
+    "me",
+    "vous"
+   ],
+   "explanation": "Avec « nous », le pronom réfléchi est « nous » : nous nous intéressons.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "imperative",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Mettez à l'impératif : « Vous allez à la poste. »",
+   "expected_answer": {
+    "value": "allez"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "vais",
+    "allez",
+    "va",
+    "vont"
+   ],
+   "explanation": "À l'impératif (vous) : allez.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "imperative",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Mettez à l'impératif : « Nous prenons un taxi. »",
+   "expected_answer": {
+    "value": "prenons"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "prenons",
+    "prends",
+    "prend",
+    "prennent"
+   ],
+   "explanation": "À l'impératif (nous) : prenons.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "imperative",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Mettez à l'impératif : « Tu écoutes la radio. »",
+   "expected_answer": {
+    "value": "écoute"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "écoutent",
+    "écoutons",
+    "écoute",
+    "écoutez"
+   ],
+   "explanation": "À l'impératif (tu) : écoute.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "imperative",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Mettez à l'impératif : « Vous faites attention. »",
+   "expected_answer": {
+    "value": "faites"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "fais",
+    "faites",
+    "fait",
+    "font"
+   ],
+   "explanation": "À l'impératif (vous) : faites.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "imperative",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase donne un ordre poli à un professeur (vous) ?",
+   "expected_answer": {
+    "value": "Ouvrez la fenêtre, s'il vous plaît."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Tu ouvres la fenêtre, s'il vous plaît.",
+    "Ouvrir tu la fenêtre, s'il vous plaît.",
+    "Vous ouvriez la fenêtre, s'il vous plaît.",
+    "Ouvrez la fenêtre, s'il vous plaît."
+   ],
+   "explanation": "L'impératif de « vous » : ouvrez. Pas de pronom sujet.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "imperative",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez à l'impératif négatif : « ___ pas en retard ! » (tu, être)",
+   "expected_answer": {
+    "value": "Ne sois"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Ne es",
+    "Ne sois",
+    "Ne être",
+    "Ne soyez"
+   ],
+   "explanation": "Impératif irrégulier de être : sois, soyons, soyez. Négation : ne sois pas.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "infinitive-use",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Il faut ___ ses devoirs. »",
+   "expected_answer": {
+    "value": "faire"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "faire",
+    "fait",
+    "faites",
+    "faisons"
+   ],
+   "explanation": "Après « il faut », on emploie l'infinitif.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "infinitive-use",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Nous allons ___ le film ce soir. »",
+   "expected_answer": {
+    "value": "voir"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "voir",
+    "vu",
+    "voyons",
+    "vois"
+   ],
+   "explanation": "Le futur proche : aller + infinitif.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "infinitive-use",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Elle veut ___ médecin. »",
+   "expected_answer": {
+    "value": "devenir"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "devient",
+    "devenue",
+    "devenir",
+    "devenons"
+   ],
+   "explanation": "Vouloir + infinitif : elle veut devenir médecin.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "infinitive-use",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Je ne peux pas venir demain."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Je ne peux pas viens demain.",
+    "Je ne peux pas venu demain.",
+    "Je ne pouvons pas venir demain.",
+    "Je ne peux pas venir demain."
+   ],
+   "explanation": "Pouvoir + infinitif : « venir ».",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "passe-compose-auxiliary",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Elle ___ au cinéma samedi. » (aller)",
+   "expected_answer": {
+    "value": "est allée"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "a allé",
+    "est allée",
+    "a allée",
+    "est allé"
+   ],
+   "explanation": "Aller se conjugue avec être : elle est allée.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "passe-compose-auxiliary",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quel auxiliaire convient pour « sortir » (sans complément d'objet) ?",
+   "expected_answer": {
+    "value": "être"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "avoir",
+    "aller",
+    "faire",
+    "être"
+   ],
+   "explanation": "Sortir, partir, arriver, entrer, aller, venir se conjuguent avec être au passé composé.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "passe-compose-auxiliary",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « se coucher » au passé composé : Hier soir, nous ___ très tard.",
+   "expected_answer": {
+    "value": "nous sommes couchés"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "nous serons couchés",
+    "nous coucherons",
+    "nous sommes couchés",
+    "me suis couché"
+   ],
+   "explanation": "Se coucher au passé composé avec « nous » : nous nous sommes couchés.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "passe-compose-auxiliary",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « perdre » au passé composé : Tu ___ tes clés ?",
+   "expected_answer": {
+    "value": "as perdu"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "avais perdu",
+    "perdais",
+    "a perdu",
+    "as perdu"
+   ],
+   "explanation": "Perdre au passé composé avec « tu » : tu as perdu.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "passe-compose-auxiliary",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « arriver » au passé composé : Ils ___ à Paris en 2022.",
+   "expected_answer": {
+    "value": "sont arrivés"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "seront arrivés",
+    "arrivent",
+    "est arrivé",
+    "sont arrivés"
+   ],
+   "explanation": "Arriver au passé composé avec « ils » : ils sont arrivés.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "passe-compose-agreement",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Les garçons sont ___ en retard. » (arriver)",
+   "expected_answer": {
+    "value": "arrivés"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "arrivés",
+    "arrivé",
+    "arrivées",
+    "arrivée"
+   ],
+   "explanation": "Sujet masculin pluriel : arrivés.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "passe-compose-agreement",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Les lettres que j'ai ___ sont longues. » (écrire)",
+   "expected_answer": {
+    "value": "écrites"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "écrit",
+    "écrite",
+    "écrites",
+    "écrits"
+   ],
+   "explanation": "Avec avoir, le participe s'accorde avec le COD placé avant : les lettres → écrites.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "passe-compose-agreement",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Elle a mangé une pomme."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Elle a mangée une pomme.",
+    "Elle est mangé une pomme.",
+    "Elle a mangés une pomme.",
+    "Elle a mangé une pomme."
+   ],
+   "explanation": "Avec avoir, pas d'accord si le COD est placé après le verbe.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "passe-compose-agreement",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Ma sœur et moi, nous sommes ___ au musée. » (aller, deux filles)",
+   "expected_answer": {
+    "value": "allées"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "allé",
+    "allées",
+    "allés",
+    "allée"
+   ],
+   "explanation": "Nous représente deux filles → féminin pluriel : allées.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "imparfait",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « aller » à l'imparfait : Autrefois, il ___ à pied à l'école.",
+   "expected_answer": {
+    "value": "allait"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "allait",
+    "était allé",
+    "ira",
+    "alliez"
+   ],
+   "explanation": "Aller à l'imparfait avec « il » : il allait.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "imparfait",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « se lever » à l'imparfait : Pendant les vacances, vous ___ tôt.",
+   "expected_answer": {
+    "value": "vous leviez"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "vous lèveriez",
+    "vous lèverez",
+    "se levait",
+    "vous leviez"
+   ],
+   "explanation": "Se lever à l'imparfait avec « vous » : vous vous leviez.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "imparfait",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « lire » à l'imparfait : Je ___ souvent des bandes dessinées à dix ans.",
+   "expected_answer": {
+    "value": "lisais"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "lirais",
+    "ai lu",
+    "lisait",
+    "lisais"
+   ],
+   "explanation": "Lire à l'imparfait avec « je » : je lisais.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "imparfait",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « vivre » à l'imparfait : Il y a dix ans, ils ___ à Lyon.",
+   "expected_answer": {
+    "value": "vivaient"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "avaient vécu",
+    "auront vécu",
+    "vivais",
+    "vivaient"
+   ],
+   "explanation": "Vivre à l'imparfait avec « ils » : ils vivaient.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "imparfait",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « être » à l'imparfait : Quand tu ___ petite, tu aimais le chocolat.",
+   "expected_answer": {
+    "value": "étais"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "étais",
+    "serais",
+    "seras",
+    "étaient"
+   ],
+   "explanation": "Être à l'imparfait avec « tu » : tu étais.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "imparfait-vs-passe-compose",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase décrit une habitude passée ?",
+   "expected_answer": {
+    "value": "Chaque été, nous allions à la mer."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Hier, nous sommes allés à la mer.",
+    "Un jour, nous allons à la mer.",
+    "Chaque été, nous allions à la mer.",
+    "Nous irons à la mer demain."
+   ],
+   "explanation": "L'imparfait exprime une habitude dans le passé.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "imparfait-vs-passe-compose",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Pendant que je ___ , le téléphone a sonné. » (lire)",
+   "expected_answer": {
+    "value": "lisais"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "ai lu",
+    "lisais",
+    "lirai",
+    "lis"
+   ],
+   "explanation": "Action en cours (imparfait) interrompue par une autre (passé composé).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "imparfait-vs-passe-compose",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Choisissez la bonne suite : « Il était huit heures quand elle ___ la porte. »",
+   "expected_answer": {
+    "value": "a ouvert"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "ouvrait",
+    "ouvrira",
+    "ouvre",
+    "a ouvert"
+   ],
+   "explanation": "Un événement précis et terminé → passé composé.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "imparfait-vs-passe-compose",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Le ciel ___ bleu et les oiseaux chantaient. » (être)",
+   "expected_answer": {
+    "value": "était"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "a été",
+    "sera",
+    "est",
+    "était"
+   ],
+   "explanation": "On décrit une situation dans le passé → imparfait.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "plus-que-parfait",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « manger » au plus-que-parfait : Nous ___ déjà mangé quand tu as téléphoné.",
+   "expected_answer": {
+    "value": "avions mangé"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "mangerions",
+    "mangerons",
+    "avions mangé",
+    "aviez mangé"
+   ],
+   "explanation": "Manger au plus-que-parfait avec « nous » : nous avions mangé.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "plus-que-parfait",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Mettez au plus-que-parfait (écrivez les deux mots du verbe, auxiliaire + participe) : Elle ___ déjà ___ quand je suis arrivé.",
+   "expected_answer": {
+    "value": "était partie"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "était partie",
+    "part",
+    "est partie",
+    "étaient partis"
+   ],
+   "explanation": "Partir au plus-que-parfait avec « elle » : elle était partie.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "plus-que-parfait",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « voir » au plus-que-parfait : Tu ___ déjà vu ce film ?",
+   "expected_answer": {
+    "value": "avais vu"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "avais vu",
+    "auras vu",
+    "verrais",
+    "avait vu"
+   ],
+   "explanation": "Voir au plus-que-parfait avec « tu » : tu avais vu.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "plus-que-parfait",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « oublier » au plus-que-parfait : Vous ___ oublié vos clés.",
+   "expected_answer": {
+    "value": "aviez oublié"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "aurez oublié",
+    "oublieriez",
+    "aviez oublié",
+    "avait oublié"
+   ],
+   "explanation": "Oublier au plus-que-parfait avec « vous » : vous aviez oublié.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "futur-proche",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Demain, nous ___ visiter le musée. »",
+   "expected_answer": {
+    "value": "allons"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "allions",
+    "allons",
+    "irons",
+    "sommes allés"
+   ],
+   "explanation": "Futur proche : nous allons + infinitif.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "futur-proche",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Ils ___ partir à six heures. »",
+   "expected_answer": {
+    "value": "vont"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "vont",
+    "va",
+    "vais",
+    "allez"
+   ],
+   "explanation": "Aller au présent avec ils : vont.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "futur-proche",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Transformez au futur proche : « Elle téléphone à sa mère. »",
+   "expected_answer": {
+    "value": "Elle va téléphoner à sa mère."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Elle téléphonera sa mère.",
+    "Elle est téléphoné à sa mère.",
+    "Elle allait téléphoné à sa mère.",
+    "Elle va téléphoner à sa mère."
+   ],
+   "explanation": "aller + infinitif : elle va téléphoner.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "futur-proche",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Tu ___ bientôt ___ ton examen. » (passer)",
+   "expected_answer": {
+    "value": "vas / passer"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "as / passé",
+    "vais / passes",
+    "vas / passé",
+    "vas / passer"
+   ],
+   "explanation": "Futur proche : vas + passer.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "futur-simple",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « voyager » au futur simple : L'année prochaine, nous ___ en France.",
+   "expected_answer": {
+    "value": "voyagerons"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "aurons voyagé",
+    "voyagerons",
+    "voyageons",
+    "voyagerai"
+   ],
+   "explanation": "Voyager au futur simple avec « nous » : nous voyagerons.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "futur-simple",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « réussir » au futur simple : Tu ___ ton examen avec succès.",
+   "expected_answer": {
+    "value": "réussiras"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "réussis",
+    "réussiras",
+    "auras réussi",
+    "réussirons"
+   ],
+   "explanation": "Réussir au futur simple avec « tu » : tu réussiras.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "futur-simple",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « être » au futur simple : Elle ___ médecin.",
+   "expected_answer": {
+    "value": "sera"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "sera",
+    "soit",
+    "aura été",
+    "serai"
+   ],
+   "explanation": "Être au futur simple avec « elle » : elle sera.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "futur-simple",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « recevoir » au futur simple : Vous ___ un cadeau demain.",
+   "expected_answer": {
+    "value": "recevrez"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "receviez",
+    "aurez reçu",
+    "recevrez",
+    "recevras"
+   ],
+   "explanation": "Recevoir au futur simple avec « vous » : vous recevrez.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "futur-simple",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « faire » au futur simple : Ils ___ le travail avant le week-end.",
+   "expected_answer": {
+    "value": "feront"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "font",
+    "feront",
+    "feraient",
+    "ferai"
+   ],
+   "explanation": "Faire au futur simple avec « ils » : ils feront.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "futur-anterieur",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « arriver » au futur antérieur : Dès qu'elle ___ , elle appellera.",
+   "expected_answer": {
+    "value": "sera arrivée"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "arrive",
+    "arrivera",
+    "seront arrivés",
+    "sera arrivée"
+   ],
+   "explanation": "Arriver au futur antérieur avec « elle » : elle sera arrivée.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "futur-anterieur",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « lire » au futur antérieur : Nous ___ le livre avant la fin du mois.",
+   "expected_answer": {
+    "value": "aurons lu"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "avions lu",
+    "lisons",
+    "aurons lu",
+    "aurez lu"
+   ],
+   "explanation": "Lire au futur antérieur avec « nous » : nous aurons lu.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "futur-anterieur",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « sortir » au futur antérieur : Quand vous ___ de l'école, vous aurez des amis.",
+   "expected_answer": {
+    "value": "serez sortis"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "êtes sortis",
+    "sortiez",
+    "serez sortis",
+    "sera sortie"
+   ],
+   "explanation": "Sortir au futur antérieur avec « vous » : vous serez sortis.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "futur-anterieur",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quand utilise-t-on le futur antérieur ?",
+   "expected_answer": {
+    "value": "Pour une action terminée avant une autre action future."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Pour une action terminée avant une autre action future.",
+    "Pour une habitude passée.",
+    "Pour un ordre.",
+    "Pour un souhait irréel dans le présent."
+   ],
+   "explanation": "Futur antérieur = action future accomplie avant un autre repère futur.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "conditionnel-present",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « partir » au conditionnel présent : À ta place, je ne ___ pas.",
+   "expected_answer": {
+    "value": "partirais"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "serai parti",
+    "parte",
+    "partirais",
+    "partiriez"
+   ],
+   "explanation": "Partir au conditionnel présent avec « je » : je partirais.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "conditionnel-present",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « vouloir » au conditionnel présent : Ils ___ aller à la mer.",
+   "expected_answer": {
+    "value": "voudraient"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "auront voulu",
+    "veulent",
+    "voudraient",
+    "voudriez"
+   ],
+   "explanation": "Vouloir au conditionnel présent avec « ils » : ils voudraient.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "conditionnel-present",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « pouvoir » au conditionnel présent : Tu ___ me prêter ton stylo ?",
+   "expected_answer": {
+    "value": "pourrais"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "puisses",
+    "avais pu",
+    "pourrais",
+    "pourrions"
+   ],
+   "explanation": "Pouvoir au conditionnel présent avec « tu » : tu pourrais.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "conditionnel-present",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « être » au conditionnel présent : Elle ___ contente de te voir.",
+   "expected_answer": {
+    "value": "serait"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "aura été",
+    "avait été",
+    "serait",
+    "seraient"
+   ],
+   "explanation": "Être au conditionnel présent avec « elle » : elle serait.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "si-clauses",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Si j'avais le temps, je ___ voyager. »",
+   "expected_answer": {
+    "value": "pourrais"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "pourrais",
+    "pourrai",
+    "peux",
+    "pouvais"
+   ],
+   "explanation": "Si + imparfait → conditionnel présent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "si-clauses",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "S'il pleut, nous resterons à la maison."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "S'il pleuvra, nous resterons à la maison.",
+    "S'il pleuvrait, nous resterons à la maison.",
+    "S'il pleut, nous resterions à la maison.",
+    "S'il pleut, nous resterons à la maison."
+   ],
+   "explanation": "Après « si », on n'emploie pas le futur ni le conditionnel.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "si-clauses",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Si nous ___ plus tôt, nous arriverions à l'heure. » (partir)",
+   "expected_answer": {
+    "value": "partions"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "partions",
+    "partirons",
+    "partirions",
+    "partons"
+   ],
+   "explanation": "Si + imparfait → conditionnel présent dans la principale.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "si-clauses",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Je t'aiderais si tu me ___ . » (demander)",
+   "expected_answer": {
+    "value": "demandais"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "demanderais",
+    "demanderas",
+    "demandais",
+    "demandes"
+   ],
+   "explanation": "Après « si » on emploie l'imparfait, pas le conditionnel.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "cod-pronouns",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Remplacez : « Elle écoute la radio. » → « Elle ___ écoute. »",
+   "expected_answer": {
+    "value": "la"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "le",
+    "lui",
+    "la",
+    "l'"
+   ],
+   "explanation": "La radio est un COD féminin singulier → la.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "cod-pronouns",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Remplacez : « Nous achetons les billets. » → « Nous ___ achetons. »",
+   "expected_answer": {
+    "value": "les"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "les",
+    "leur",
+    "lui",
+    "le"
+   ],
+   "explanation": "Les billets : COD pluriel → les.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "cod-pronouns",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Remplacez : « Tu aimes cette chanson ? » → « Tu ___ aimes ? »",
+   "expected_answer": {
+    "value": "l'"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "l'",
+    "lui",
+    "les",
+    "y"
+   ],
+   "explanation": "Devant un verbe qui commence par une voyelle, le/la devient l'.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "cod-pronouns",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Je les ai vus hier."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Je les ai vus hier.",
+    "Je ai les vus hier.",
+    "Je leur ai vus hier.",
+    "Je les ai vu hier."
+   ],
+   "explanation": "Au passé composé, le pronom COD se place devant l'auxiliaire; le participe s'accorde avec « les » : vus.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "coi-pronouns",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Remplacez : « Il téléphone à ses amis. » → « Il ___ téléphone. »",
+   "expected_answer": {
+    "value": "leur"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "lui",
+    "les",
+    "eux",
+    "leur"
+   ],
+   "explanation": "À + personnes (pluriel) → leur.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "coi-pronouns",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Elle ___ donne un livre. » (à moi)",
+   "expected_answer": {
+    "value": "me"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "lui",
+    "me",
+    "leur",
+    "y"
+   ],
+   "explanation": "À moi → me (m' devant voyelle).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "coi-pronouns",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Je leur ai écrit une lettre."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Je les ai écrit une lettre.",
+    "Je ai leur écrit une lettre.",
+    "Je lui ai écrits une lettre.",
+    "Je leur ai écrit une lettre."
+   ],
+   "explanation": "Écrire à quelqu'un : COI pluriel → leur, placé devant l'auxiliaire.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "coi-pronouns",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quel verbe se construit avec « à » + personne ?",
+   "expected_answer": {
+    "value": "téléphoner"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "regarder",
+    "téléphoner",
+    "écouter",
+    "attendre"
+   ],
+   "explanation": "On téléphone à quelqu'un; on regarde, écoute, attend quelqu'un (COD).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "tonic-pronouns",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Tu viens avec ___ ? » (nous)",
+   "expected_answer": {
+    "value": "nous"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "on",
+    "nos",
+    "nous",
+    "leur"
+   ],
+   "explanation": "Après une préposition, on emploie le pronom tonique : avec nous.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "tonic-pronouns",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Ce livre est à ___ . » (elle)",
+   "expected_answer": {
+    "value": "elle"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "elle",
+    "lui",
+    "leur",
+    "la"
+   ],
+   "explanation": "À + pronom tonique : à elle.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "tonic-pronouns",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Eux, ils partent; ___ , elles restent. »",
+   "expected_answer": {
+    "value": "elles"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "eux",
+    "les",
+    "leur",
+    "elles"
+   ],
+   "explanation": "Le pronom tonique féminin pluriel est elles.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "tonic-pronouns",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Pierre ? Je pense souvent à ___ . »",
+   "expected_answer": {
+    "value": "lui"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "le",
+    "lui",
+    "il",
+    "son"
+   ],
+   "explanation": "Penser à + personne → à lui.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronoun-y",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Remplacez : « Il pense à son examen. » → « Il ___ pense. »",
+   "expected_answer": {
+    "value": "y"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "y",
+    "en",
+    "lui",
+    "le"
+   ],
+   "explanation": "Penser à + chose → y.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronoun-y",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Que remplace « y » dans « Nous y allons demain » ?",
+   "expected_answer": {
+    "value": "un lieu"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "une personne",
+    "une quantité",
+    "un adjectif",
+    "un lieu"
+   ],
+   "explanation": "Y remplace un lieu (à la bibliothèque, chez le médecin…).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronoun-y",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Répondez : « Tu vas à la poste ? » (non)",
+   "expected_answer": {
+    "value": "Non, je n'y vais pas."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Non, je n'en vais pas.",
+    "Non, je ne lui vais pas.",
+    "Non, je n'y pas vais.",
+    "Non, je n'y vais pas."
+   ],
+   "explanation": "Négation autour du pronom et du verbe : je n'y vais pas.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronoun-y",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Allons-y !"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Allons-y !",
+    "Allons-en !",
+    "Allons-lui !",
+    "Y allons !"
+   ],
+   "explanation": "À l'impératif, y se place après le verbe avec un trait d'union.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronoun-en",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Remplacez : « Il a deux frères. » → « Il ___ a deux. »",
+   "expected_answer": {
+    "value": "en"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "en",
+    "y",
+    "les",
+    "leur"
+   ],
+   "explanation": "En remplace « frères » avec un nombre.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronoun-en",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Remplacez : « Elle parle de son voyage. » → « Elle ___ parle. »",
+   "expected_answer": {
+    "value": "en"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "y",
+    "lui",
+    "en",
+    "le"
+   ],
+   "explanation": "Parler de + chose → en.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronoun-en",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Répondez : « Tu as des timbres ? » (oui)",
+   "expected_answer": {
+    "value": "Oui, j'en ai."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Oui, j'y ai.",
+    "Oui, je les ai des.",
+    "Oui, j'en ai.",
+    "Oui, j'ai en."
+   ],
+   "explanation": "En se place devant le verbe : j'en ai.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronoun-en",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Il en reste trois."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Il y reste trois.",
+    "Il en reste trois.",
+    "Il reste en trois.",
+    "Il en trois reste."
+   ],
+   "explanation": "Quantité exprimée → en + verbe + nombre.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronoun-placement",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Remplacez les deux compléments : « Je donne la clé à Paul. »",
+   "expected_answer": {
+    "value": "Je la lui donne."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Je lui la donne.",
+    "Je la donne lui.",
+    "Je le lui donne.",
+    "Je la lui donne."
+   ],
+   "explanation": "le/la/les avant lui/leur : je la lui donne.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronoun-placement",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte (impératif affirmatif) ?",
+   "expected_answer": {
+    "value": "Donne-le-moi !"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Moi-le donne !",
+    "Le me donne !",
+    "Donne-moi-le !",
+    "Donne-le-moi !"
+   ],
+   "explanation": "À l'impératif affirmatif : verbe-COD-moi.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronoun-placement",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Où place-t-on le pronom dans « Je veux (le voir / voir le) » ?",
+   "expected_answer": {
+    "value": "Je veux le voir."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Je le veux voir.",
+    "Je veux voir le.",
+    "Je veux le voir lui.",
+    "Je veux le voir."
+   ],
+   "explanation": "Avec un infinitif, le pronom se place devant l'infinitif.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "pronoun-placement",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Mettez en ordre : « Elle ___ ___ envoie. » (leur, les)",
+   "expected_answer": {
+    "value": "les leur"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "leur les",
+    "les y",
+    "les leur",
+    "en leur"
+   ],
+   "explanation": "les avant leur : elle les leur envoie.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "negation-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quelle négation signifie « never » ?",
+   "expected_answer": {
+    "value": "ne … jamais"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "ne … plus",
+    "ne … rien",
+    "ne … jamais",
+    "ne … personne"
+   ],
+   "explanation": "jamais = never.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "negation-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quelle négation signifie « nothing » ?",
+   "expected_answer": {
+    "value": "ne … rien"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "ne … jamais",
+    "ne … plus",
+    "ne … rien",
+    "ne … que"
+   ],
+   "explanation": "rien = nothing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "negation-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Il n'y a ___ dans la boîte. » (nothing)",
+   "expected_answer": {
+    "value": "rien"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "jamais",
+    "rien",
+    "plus",
+    "personne"
+   ],
+   "explanation": "Rien = nothing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "negation-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Je ne connais personne ici."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Je ne connais personne ici.",
+    "Je connais ne personne ici.",
+    "Je ne personne connais ici.",
+    "Je ne connais ici personne pas."
+   ],
+   "explanation": "Ne + verbe + personne.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "negation-tenses",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Mettez à la forme négative : « Il va partir. » (futur proche)",
+   "expected_answer": {
+    "value": "Il ne va pas partir."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Il va ne pas partir.",
+    "Il ne va partir pas.",
+    "Il va partir pas.",
+    "Il ne va pas partir."
+   ],
+   "explanation": "Ne … pas entourent le verbe conjugué.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "negation-tenses",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Négation de l'infinitif : « Je décide de ___ venir. »",
+   "expected_answer": {
+    "value": "ne pas"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "pas ne",
+    "non",
+    "ne",
+    "ne pas"
+   ],
+   "explanation": "À l'infinitif : ne pas + infinitif.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "negation-tenses",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Mettez à la forme négative : « Nous sommes sortis. »",
+   "expected_answer": {
+    "value": "Nous ne sommes pas sortis."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Nous ne sommes sortis pas.",
+    "Nous sommes ne pas sortis.",
+    "Nous ne sommes pas sortis.",
+    "Nous ne pas sommes sortis."
+   ],
+   "explanation": "Ne … pas entourent l'auxiliaire être.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "negation-tenses",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Il n'a vu personne."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Il n'a personne vu.",
+    "Il n'a vu personne.",
+    "Il n'a vu pas personne.",
+    "Il ne a vu personne."
+   ],
+   "explanation": "Au passé composé, personne se place après le participe passé.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "negation-replies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Répondez : « Tu vois quelqu'un ? » (non)",
+   "expected_answer": {
+    "value": "Non, je ne vois personne."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Non, je ne vois rien.",
+    "Non, je vois personne ne.",
+    "Non, je ne vois jamais.",
+    "Non, je ne vois personne."
+   ],
+   "explanation": "quelqu'un → personne.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "negation-replies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Répondez : « Tu veux quelque chose ? » (non)",
+   "expected_answer": {
+    "value": "Non, je ne veux rien."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Non, je ne veux rien.",
+    "Non, je ne veux personne.",
+    "Non, je veux ne rien.",
+    "Non, je ne veux jamais."
+   ],
+   "explanation": "quelque chose → rien.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "negation-replies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Répondez : « Il fume encore ? » (non)",
+   "expected_answer": {
+    "value": "Non, il ne fume plus."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Non, il ne fume jamais.",
+    "Non, il fume ne plus.",
+    "Non, il ne fume plus.",
+    "Non, il ne fume pas plus."
+   ],
+   "explanation": "encore → ne … plus.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "negation-replies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Répondez : « Tu as déjà visité Paris ? » (non)",
+   "expected_answer": {
+    "value": "Non, je n'ai jamais visité Paris."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Non, je n'ai pas jamais visité Paris.",
+    "Non, je n'ai jamais visité Paris.",
+    "Non, je n'ai plus visité Paris.",
+    "Non, je ne jamais ai visité Paris."
+   ],
+   "explanation": "déjà → ne … jamais.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "question-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Transformez en question avec inversion : « Vous parlez français. »",
+   "expected_answer": {
+    "value": "Parlez-vous français ?"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Vous parlez-vous français ?",
+    "Parlez vous français ?",
+    "Français parlez-vous ?",
+    "Parlez-vous français ?"
+   ],
+   "explanation": "Inversion : verbe-sujet avec un trait d'union.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "question-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est une question par l'intonation ?",
+   "expected_answer": {
+    "value": "Tu aimes le cinéma ?"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Aimes-tu le cinéma.",
+    "Tu aimes le cinéma ?",
+    "Est-ce tu aimes le cinéma.",
+    "Le cinéma tu aimes pas."
+   ],
+   "explanation": "On garde l'ordre normal et on monte la voix.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "question-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Inversion avec « il/elle » : « Elle habite à Lyon. » → ___ à Lyon ?",
+   "expected_answer": {
+    "value": "Habite-t-elle"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Habite-t-elle",
+    "Habite-elle",
+    "Elle habite-t-elle",
+    "Habite elle-t"
+   ],
+   "explanation": "On ajoute -t- entre deux voyelles : habite-t-elle.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "question-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Est-ce que vous avez des frères ?"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Est-ce que vous avez-vous des frères ?",
+    "Avez est-ce que vous des frères ?",
+    "Est-ce que vous avez des frères ?",
+    "Est-ce vous avez des frères que ?"
+   ],
+   "explanation": "Est-ce que + sujet + verbe.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "question-words",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "« ___ vas-tu partir ? » — « Demain. »",
+   "expected_answer": {
+    "value": "Quand"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Où",
+    "Quand",
+    "Combien",
+    "Qui"
+   ],
+   "explanation": "Quand = when : il demande le moment.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "question-words",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "« ___ coûte ce livre ? » — « Dix euros. »",
+   "expected_answer": {
+    "value": "Combien"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Comment",
+    "Pourquoi",
+    "Combien",
+    "Quel"
+   ],
+   "explanation": "Combien (de) = how much.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "question-words",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "« ___ est ce monsieur ? » — « C'est mon professeur de français. »",
+   "expected_answer": {
+    "value": "Qui"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Quand",
+    "Qui",
+    "Où",
+    "Combien"
+   ],
+   "explanation": "Qui = who : on demande l'identité d'une personne.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "question-words",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "« ___ ne viens-tu pas ? » — « Parce que je suis malade. »",
+   "expected_answer": {
+    "value": "Pourquoi"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Pourquoi",
+    "Comment",
+    "Quand",
+    "Où"
+   ],
+   "explanation": "Pourquoi → parce que.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-the-question",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Trouvez la question : « Ça coûte cinq euros. »",
+   "expected_answer": {
+    "value": "Combien ça coûte ?"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Quand ça coûte ?",
+    "Qui ça coûte ?",
+    "Où ça coûte ?",
+    "Combien ça coûte ?"
+   ],
+   "explanation": "La réponse donne un prix → combien.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-the-question",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Trouvez la question : « Elle s'appelle Nargis. »",
+   "expected_answer": {
+    "value": "Comment elle s'appelle ?"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Où elle s'appelle ?",
+    "Quand elle s'appelle ?",
+    "Combien elle s'appelle ?",
+    "Comment elle s'appelle ?"
+   ],
+   "explanation": "On demande le nom avec comment.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-the-question",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Trouvez la question : « Nous partons à huit heures. »",
+   "expected_answer": {
+    "value": "À quelle heure partez-vous ?"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Où partez-vous ?",
+    "Pourquoi partez-vous ?",
+    "À quelle heure partez-vous ?",
+    "Qui part à huit heures ?"
+   ],
+   "explanation": "Une heure → à quelle heure.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-the-question",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Trouvez la question : « Parce que j'ai un examen. »",
+   "expected_answer": {
+    "value": "Pourquoi es-tu fatigué ?"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Quand es-tu fatigué ?",
+    "Qui est fatigué ?",
+    "Pourquoi es-tu fatigué ?",
+    "Où es-tu fatigué ?"
+   ],
+   "explanation": "« Parce que » répond à pourquoi.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "indirect-statements",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Mettez au discours indirect : Elle dit : « Nous partons. »",
+   "expected_answer": {
+    "value": "Elle dit qu'elles partent."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Elle dit que nous partons.",
+    "Elle dit qu'elle partons.",
+    "Elle dit qu'elles partent.",
+    "Elle dit que elles partent."
+   ],
+   "explanation": "Nous → elles (ou ils) selon le contexte; verbe à la 3e personne.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "indirect-statements",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Mettez au discours indirect : Marc dit : « Demain, je viendrai. »",
+   "expected_answer": {
+    "value": "Marc dit que le lendemain il viendrait."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Marc dit que demain je viendrai.",
+    "Marc dit que demain il viendra.",
+    "Marc dit que lendemain il viendrait.",
+    "Marc dit que le lendemain il viendrait."
+   ],
+   "explanation": "Après un verbe introducteur au passé, demain → le lendemain.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "indirect-statements",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quel mot introduit le discours indirect d'une affirmation ?",
+   "expected_answer": {
+    "value": "que"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "qui",
+    "dont",
+    "où",
+    "que"
+   ],
+   "explanation": "Dire que + proposition.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "indirect-statements",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Mettez au discours indirect : Pierre a dit : « J'ai faim. »",
+   "expected_answer": {
+    "value": "Pierre a dit qu'il avait faim."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Pierre a dit qu'il a faim.",
+    "Pierre a dit que j'avais faim.",
+    "Pierre a dit qu'il aura faim.",
+    "Pierre a dit qu'il avait faim."
+   ],
+   "explanation": "Après un verbe au passé composé, le présent devient imparfait.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "indirect-commands",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Mettez au discours indirect : Le professeur dit : « Ouvrez vos livres ! »",
+   "expected_answer": {
+    "value": "Le professeur dit d'ouvrir les livres."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Le professeur dit que ouvrez les livres.",
+    "Le professeur dit ouvrir les livres.",
+    "Le professeur dit d'ouvrir les livres.",
+    "Le professeur dit qu'ouvrir les livres."
+   ],
+   "explanation": "L'impératif devient de + infinitif.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "indirect-commands",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Mettez au discours indirect négatif : « Ne parle pas ! » dit-elle à Marc.",
+   "expected_answer": {
+    "value": "Elle dit à Marc de ne pas parler."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Elle dit à Marc ne pas de parler.",
+    "Elle dit à Marc qu'il ne parle pas de.",
+    "Elle dit à Marc de ne pas parler.",
+    "Elle dit à Marc pas parler."
+   ],
+   "explanation": "Ordre négatif → de ne pas + infinitif.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "indirect-commands",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle préposition introduit un ordre au discours indirect ?",
+   "expected_answer": {
+    "value": "de"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "que",
+    "si",
+    "à",
+    "de"
+   ],
+   "explanation": "dire/demander à quelqu'un de + infinitif.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "indirect-commands",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Mettez au discours indirect : Il lui demande : « Aide-moi. »",
+   "expected_answer": {
+    "value": "Il lui demande de l'aider."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Il lui demande de aider moi.",
+    "Il lui demande de l'aider.",
+    "Il lui demande qu'il aide.",
+    "Il lui demande l'aider."
+   ],
+   "explanation": "Aide-moi → de l'aider (moi → l' / me selon le sens).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "indirect-questions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Mettez au discours indirect : Il demande : « Où habites-tu ? »",
+   "expected_answer": {
+    "value": "Il demande où j'habite."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Il demande où habites-tu.",
+    "Il demande que où j'habite.",
+    "Il demande où j'habite.",
+    "Il demande si où j'habite."
+   ],
+   "explanation": "On garde le mot interrogatif; pas d'inversion.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "indirect-questions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Mettez au discours indirect : Elle demande : « Qu'est-ce que tu fais ? »",
+   "expected_answer": {
+    "value": "Elle demande ce que je fais."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Elle demande qu'est-ce que je fais.",
+    "Elle demande que je fais.",
+    "Elle demande ce que je fais.",
+    "Elle demande si je fais."
+   ],
+   "explanation": "Qu'est-ce que → ce que.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "indirect-questions",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Mettez au discours indirect : Il a demandé : « Tu as fini ? »",
+   "expected_answer": {
+    "value": "Il a demandé si j'avais fini."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Il a demandé si j'avais fini.",
+    "Il a demandé que j'avais fini.",
+    "Il a demandé si tu as fini.",
+    "Il a demandé si j'ai fini."
+   ],
+   "explanation": "Après un verbe au passé, passé composé → plus-que-parfait; tu → je.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "indirect-questions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Je me demande pourquoi elle pleure."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Je me demande pourquoi pleure-t-elle.",
+    "Je me demande pourquoi est-ce qu'elle pleure.",
+    "Je me demande pourquoi elle pleure.",
+    "Je demande-me pourquoi elle pleure."
+   ],
+   "explanation": "Dans la question indirecte, l'ordre est normal : sujet + verbe.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "relative-qui-que-ou",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Le livre ___ je lis est passionnant. »",
+   "expected_answer": {
+    "value": "que"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "qui",
+    "où",
+    "que",
+    "dont"
+   ],
+   "explanation": "Que remplace le COD (je lis le livre).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "relative-qui-que-ou",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « La ville ___ j'habite est grande. »",
+   "expected_answer": {
+    "value": "où"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "que",
+    "où",
+    "qui",
+    "dont"
+   ],
+   "explanation": "Où remplace un lieu.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "relative-qui-que-ou",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Le jour ___ nous sommes arrivés, il pleuvait. »",
+   "expected_answer": {
+    "value": "où"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "où",
+    "que",
+    "qui",
+    "dont"
+   ],
+   "explanation": "Où peut aussi remplacer un moment.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "relative-qui-que-ou",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Les amis ___ je vois sont gentils. »",
+   "expected_answer": {
+    "value": "que"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "qui",
+    "où",
+    "que",
+    "dont"
+   ],
+   "explanation": "COD → que (qu' devant voyelle).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "relative-dont",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « La femme ___ le fils est médecin habite ici. »",
+   "expected_answer": {
+    "value": "dont"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "que",
+    "dont",
+    "dont le",
+    "de qui"
+   ],
+   "explanation": "Dont exprime la possession (de qui/de laquelle).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "relative-dont",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « C'est un film ___ j'ai besoin pour mon cours. »",
+   "expected_answer": {
+    "value": "dont"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "que",
+    "qui",
+    "où",
+    "dont"
+   ],
+   "explanation": "Avoir besoin de → dont.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "relative-dont",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « L'acteur ___ tu parles est célèbre. »",
+   "expected_answer": {
+    "value": "dont"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "qui",
+    "que",
+    "dont",
+    "où"
+   ],
+   "explanation": "Parler de quelqu'un → dont.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "relative-dont",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Le stylo dont j'ai besoin est ici."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Le stylo que j'ai besoin est ici.",
+    "Le stylo dont j'ai besoin est ici.",
+    "Le stylo dont je ai besoin est ici.",
+    "Le stylo qui j'ai besoin est ici."
+   ],
+   "explanation": "Avoir besoin de → dont.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "relative-compose",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « La table sur ___ je pose mon sac est grande. »",
+   "expected_answer": {
+    "value": "laquelle"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "laquelle",
+    "lequel",
+    "lesquels",
+    "dont"
+   ],
+   "explanation": "Table (féminin singulier) → laquelle.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "relative-compose",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Les amis auxquels je téléphone habitent loin. » : à + lesquels = ___",
+   "expected_answer": {
+    "value": "auxquels"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "desquels",
+    "lesquels",
+    "auxquels",
+    "duquel"
+   ],
+   "explanation": "à + lesquels = auxquels.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "relative-compose",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez : « La rue au bout ___ il y a une école est courte. »",
+   "expected_answer": {
+    "value": "de laquelle"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "de lequel",
+    "de quelle",
+    "lesquelles",
+    "de laquelle"
+   ],
+   "explanation": "Préposition longue de + laquelle (la rue → féminin).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "relative-compose",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Les raisons pour ___ il part sont claires. »",
+   "expected_answer": {
+    "value": "lesquelles"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "lesquels",
+    "laquelle",
+    "lesquelles",
+    "dont"
+   ],
+   "explanation": "Raisons (féminin pluriel) → lesquelles.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "demonstrative-adjectives",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Complétez : « ___ fille est ma cousine. »",
+   "expected_answer": {
+    "value": "Cette"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Ce",
+    "Cette",
+    "Cet",
+    "Ces"
+   ],
+   "explanation": "Féminin singulier → cette.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "demonstrative-adjectives",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « ___ élève est très sérieux. »",
+   "expected_answer": {
+    "value": "Cet"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Ce",
+    "Cette",
+    "Cet",
+    "Ces"
+   ],
+   "explanation": "Masculin devant voyelle → cet.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "demonstrative-adjectives",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « ___ enfants jouent dehors. »",
+   "expected_answer": {
+    "value": "Ces"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Ces",
+    "Ce",
+    "Cet",
+    "Cette"
+   ],
+   "explanation": "Devant un nom pluriel, on emploie ces.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "demonstrative-adjectives",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Je préfère ___ film-là. »",
+   "expected_answer": {
+    "value": "ce"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "cet",
+    "cette",
+    "ce",
+    "ces"
+   ],
+   "explanation": "Pour distinguer, on ajoute -ci / -là au nom.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "demonstrative-pronouns-simple",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Mon stylo et ___ de Paul sont noirs. »",
+   "expected_answer": {
+    "value": "celui"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "celle",
+    "ceux",
+    "celui",
+    "ce"
+   ],
+   "explanation": "Stylo est masculin singulier → celui.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "demonstrative-pronouns-simple",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Les livres de Marie et ___ de Paul sont neufs. »",
+   "expected_answer": {
+    "value": "ceux"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "celles",
+    "ceux",
+    "celui",
+    "ce"
+   ],
+   "explanation": "Livres : masculin pluriel → ceux.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "demonstrative-pronouns-simple",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Mes robes et ___ de ma sœur sont rouges. »",
+   "expected_answer": {
+    "value": "celles"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "ceux",
+    "celles",
+    "celle",
+    "celui"
+   ],
+   "explanation": "Robes : féminin pluriel → celles.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "demonstrative-pronouns-simple",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez : « ___ qui travaillent réussissent. » (les gens, masculin pluriel)",
+   "expected_answer": {
+    "value": "Ceux"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Celui",
+    "Celles",
+    "Ceux",
+    "Ce"
+   ],
+   "explanation": "Ceux qui = those who.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "demonstrative-pronouns-compound",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Cette robe est jolie, mais ___-ci est plus chère. »",
+   "expected_answer": {
+    "value": "celle"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "celui",
+    "celle",
+    "ceux",
+    "cela"
+   ],
+   "explanation": "Robe → celle-ci.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "demonstrative-pronouns-compound",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Quelle forme signifie « those (m.) over there » ?",
+   "expected_answer": {
+    "value": "ceux-là"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "celui-ci",
+    "celles-ci",
+    "ceux-là",
+    "celle-là"
+   ],
+   "explanation": "ceux-là = masculin pluriel, plus éloigné.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "demonstrative-pronouns-compound",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Ces fleurs sont belles; ___-ci sont rouges. »",
+   "expected_answer": {
+    "value": "celles"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "ceux",
+    "celles",
+    "celle",
+    "celui"
+   ],
+   "explanation": "Fleurs : féminin pluriel → celles-ci.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "demonstrative-pronouns-compound",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "« Celui-ci » désigne …",
+   "expected_answer": {
+    "value": "un objet proche"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "un objet proche",
+    "un objet lointain",
+    "un lieu",
+    "une quantité"
+   ],
+   "explanation": "-ci = près; -là = loin.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "possessive-adjectives",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Voici ___ sœur. » (à toi)",
+   "expected_answer": {
+    "value": "ta"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "ton",
+    "tes",
+    "sa",
+    "ta"
+   ],
+   "explanation": "Sœur est féminin → ta.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "possessive-adjectives",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Paul aime ___ mère. » (la mère de Paul)",
+   "expected_answer": {
+    "value": "sa"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "son",
+    "ses",
+    "leur",
+    "sa"
+   ],
+   "explanation": "Mère est féminin singulier → sa.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "possessive-adjectives",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Nous aimons ___ professeur. » (à nous)",
+   "expected_answer": {
+    "value": "notre"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "notre",
+    "nos",
+    "votre",
+    "leur"
+   ],
+   "explanation": "Notre devant un nom singulier.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "possessive-adjectives",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Elle a perdu ___ amie. » (amie → voyelle)",
+   "expected_answer": {
+    "value": "son"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "sa",
+    "son",
+    "ses",
+    "leur"
+   ],
+   "explanation": "Devant une voyelle, on emploie mon/ton/son même au féminin.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "possessive-pronouns",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Ta maison est grande; ___ (ma maison) est petite. »",
+   "expected_answer": {
+    "value": "la mienne"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "le mien",
+    "les miennes",
+    "la sienne",
+    "la mienne"
+   ],
+   "explanation": "Maison est féminin singulier → la mienne.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "possessive-pronouns",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Mes amis et ___ (tes amis) sont arrivés. »",
+   "expected_answer": {
+    "value": "les tiens"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "le tien",
+    "les tiennes",
+    "les siens",
+    "les tiens"
+   ],
+   "explanation": "Amis : masculin pluriel → les tiens.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "possessive-pronouns",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Voici mon sac; où est le tien ?"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Voici mon sac; où est le tien ?",
+    "Voici mon sac; où est ton ?",
+    "Voici mon sac; où est tien ?",
+    "Voici mon sac; où est la tienne ?"
+   ],
+   "explanation": "Pronom possessif = article + tien/tienne.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "possessive-pronouns",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Leurs enfants et ___ (nos enfants) jouent ensemble. »",
+   "expected_answer": {
+    "value": "les nôtres"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "les nôtres",
+    "le nôtre",
+    "les nôtre",
+    "les vôtres"
+   ],
+   "explanation": "Pluriel → les nôtres (accent circonflexe).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "subjonctif-formation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « partir » au subjonctif présent : Il est nécessaire que tu ___ plus tôt.",
+   "expected_answer": {
+    "value": "partes"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "étais parti",
+    "partiras",
+    "partiez",
+    "partes"
+   ],
+   "explanation": "Partir au subjonctif présent avec « tu » : que tu partes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "subjonctif-formation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « lire » au subjonctif présent : Je veux que vous ___ ce livre.",
+   "expected_answer": {
+    "value": "lisiez"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "liriez",
+    "lirez",
+    "lisions",
+    "lisiez"
+   ],
+   "explanation": "Lire au subjonctif présent avec « vous » : que vous lisiez.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "subjonctif-formation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « arriver » au subjonctif présent : Il faut que nous ___ à l'heure.",
+   "expected_answer": {
+    "value": "arrivions"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "sommes arrivés",
+    "arrivions",
+    "arriverions",
+    "arrives"
+   ],
+   "explanation": "Arriver au subjonctif présent avec « nous » : que nous arrivions.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "subjonctif-formation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « dire » au subjonctif présent : Il faut qu'ils ___ la vérité.",
+   "expected_answer": {
+    "value": "disent"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "disaient",
+    "diront",
+    "dises",
+    "disent"
+   ],
+   "explanation": "Dire au subjonctif présent avec « ils » : qu'ils disent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "subjonctif-irregular",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « être » au subjonctif présent : Je veux que tu ___ gentil.",
+   "expected_answer": {
+    "value": "sois"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "es",
+    "sois",
+    "auras été",
+    "soyons"
+   ],
+   "explanation": "Être au subjonctif présent avec « tu » : que tu sois.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "subjonctif-irregular",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « avoir » au subjonctif présent : Il faut que nous ___ patience.",
+   "expected_answer": {
+    "value": "ayons"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "avons eu",
+    "avions eu",
+    "ayons",
+    "aient"
+   ],
+   "explanation": "Avoir au subjonctif présent avec « nous » : que nous ayons.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "subjonctif-irregular",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « faire » au subjonctif présent : Il faut qu'elle ___ son travail.",
+   "expected_answer": {
+    "value": "fasse"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "ferait",
+    "fait",
+    "fasse",
+    "fasses"
+   ],
+   "explanation": "Faire au subjonctif présent avec « elle » : qu'elle fasse.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "subjonctif-irregular",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « savoir » au subjonctif présent : Il est nécessaire que vous ___ la réponse.",
+   "expected_answer": {
+    "value": "sachiez"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "savez",
+    "sauriez",
+    "sache",
+    "sachiez"
+   ],
+   "explanation": "Savoir au subjonctif présent avec « vous » : que vous sachiez.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "subjonctif-irregular",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complétez avec le verbe « pouvoir » au subjonctif présent : Je souhaite qu'ils ___ venir.",
+   "expected_answer": {
+    "value": "puissent"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "avaient pu",
+    "ont pu",
+    "puissent",
+    "puisse"
+   ],
+   "explanation": "Pouvoir au subjonctif présent avec « ils » : qu'ils puissent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "subjonctif-triggers",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Je souhaite que tu ___ heureux. »",
+   "expected_answer": {
+    "value": "sois"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "es",
+    "sois",
+    "seras",
+    "étais"
+   ],
+   "explanation": "Souhaiter que + subjonctif.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "subjonctif-triggers",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Il faut que je parte."
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Il faut que je pars.",
+    "Il faut que je partirai.",
+    "Il faut que je partais.",
+    "Il faut que je parte."
+   ],
+   "explanation": "Après il faut que → subjonctif.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "subjonctif-triggers",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Je veux que vous ___ ici. »",
+   "expected_answer": {
+    "value": "soyez"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "êtes",
+    "soyez",
+    "serez",
+    "étiez"
+   ],
+   "explanation": "Vouloir que + subjonctif.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "subjonctif-triggers",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Après quelle expression utilise-t-on l'indicatif ?",
+   "expected_answer": {
+    "value": "je sais que"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "il faut que",
+    "il est nécessaire que",
+    "je souhaite que",
+    "je sais que"
+   ],
+   "explanation": "Savoir que + indicatif (certitude).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "education-system-france-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Dans le système français, quel est l'ordre correct des écoles ?",
+   "expected_answer": {
+    "value": "maternelle puis primaire puis collège puis lycée"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "primaire puis maternelle puis lycée puis collège",
+    "collège puis primaire puis maternelle puis lycée",
+    "maternelle puis primaire puis collège puis lycée",
+    "lycée puis collège puis primaire puis maternelle"
+   ],
+   "explanation": "En France : l'école maternelle, l'école primaire, le collège, puis le lycée.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "education-system-france-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "En France, un enfant de quatre ans va normalement à…",
+   "expected_answer": {
+    "value": "l'école maternelle"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "au lycée",
+    "à l'université",
+    "l'école maternelle",
+    "au collège"
+   ],
+   "explanation": "L'école maternelle accueille les petits enfants.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "education-system-france-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Comment dit-on « school » pour les enfants de 6 à 11 ans en France ?",
+   "expected_answer": {
+    "value": "l'école primaire"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "l'école primaire",
+    "le lycée",
+    "la maternelle",
+    "l'université"
+   ],
+   "explanation": "L'école primaire est pour les enfants d'environ 6 à 11 ans.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "education-system-france-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "À quel âge l'école cesse-t-elle d'être obligatoire en France, selon la leçon ?",
+   "expected_answer": {
+    "value": "à 16 ans"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "à 10 ans",
+    "à 16 ans",
+    "à 14 ans",
+    "à 21 ans"
+   ],
+   "explanation": "En France, l'école est obligatoire jusqu'à 16 ans.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "studies-after-the-bac",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "IUT veut dire…",
+   "expected_answer": {
+    "value": "Institut universitaire de technologie"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "Institut unique de travail",
+    "Institution universelle de théâtre",
+    "Institut universitaire de technologie",
+    "Institut urbain de transports"
+   ],
+   "explanation": "L'IUT propose des formations courtes et pratiques après le bac.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "studies-after-the-bac",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Après le bac, un étudiant peut aller…",
+   "expected_answer": {
+    "value": "à l'université ou dans un IUT"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "à l'université ou dans un IUT",
+    "à l'école maternelle",
+    "à l'école primaire",
+    "au collège"
+   ],
+   "explanation": "Après le bac, on choisit l'université, un IUT ou une autre formation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "studies-after-the-bac",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quel mot désigne l'examen qu'on passe à la fin du lycée ?",
+   "expected_answer": {
+    "value": "le bac"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "le CV",
+    "le bac",
+    "la bourse",
+    "l'intérim"
+   ],
+   "explanation": "Le bac est l'abréviation de baccalauréat.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "studies-after-the-bac",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Elle fait ses études de droit à l'université."
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "Elle fait ses études à droit de l'université.",
+    "Elle fait ses études de droit à l'université.",
+    "Elle fait droit études à l'université.",
+    "Elle est ses études de droit à l'université."
+   ],
+   "explanation": "Faire ses études de + matière.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "verb-noun-forms",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Quel est le nom qui correspond au verbe « sortir » ?",
+   "expected_answer": {
+    "value": "une sortie"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "une arrivée",
+    "une sortie",
+    "un achat",
+    "un encouragement"
+   ],
+   "explanation": "sortir → une sortie.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "verb-noun-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quel est le nom qui correspond au verbe « partir » ?",
+   "expected_answer": {
+    "value": "un départ"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "une arrivée",
+    "un achat",
+    "un encouragement",
+    "un départ"
+   ],
+   "explanation": "partir → un départ.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "verb-noun-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quel est le nom qui correspond au verbe « acheter » ?",
+   "expected_answer": {
+    "value": "un achat"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "une arrivée",
+    "un départ",
+    "un achat",
+    "un encouragement"
+   ],
+   "explanation": "acheter → un achat.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "verb-noun-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quel est le nom qui correspond au verbe « consommer » ?",
+   "expected_answer": {
+    "value": "une consommation"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "une consommation",
+    "une arrivée",
+    "un départ",
+    "un encouragement"
+   ],
+   "explanation": "consommer → une consommation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "verb-noun-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quel est le nom qui correspond au verbe « encourager » ?",
+   "expected_answer": {
+    "value": "un encouragement"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "une arrivée",
+    "un encouragement",
+    "un départ",
+    "une consommation"
+   ],
+   "explanation": "encourager → un encouragement.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "study-expressions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quel verbe signifie « to fail » dans « Il ___ à l'examen » ?",
+   "expected_answer": {
+    "value": "échoue"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "réussit",
+    "suit",
+    "passe",
+    "échoue"
+   ],
+   "explanation": "Échouer à un examen = to fail.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "study-expressions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "« Suivre des cours » signifie…",
+   "expected_answer": {
+    "value": "to attend classes"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "to cancel classes",
+    "to teach classes",
+    "to avoid classes",
+    "to attend classes"
+   ],
+   "explanation": "Suivre des cours = to attend lessons.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "study-expressions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Elle a ___ à son examen : elle a eu une bonne note. »",
+   "expected_answer": {
+    "value": "réussi"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "échoué",
+    "réussi",
+    "suivi",
+    "oublié"
+   ],
+   "explanation": "Réussir à un examen = to pass successfully.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "office-vocabulary",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Quel objet sert à couper du papier ?",
+   "expected_answer": {
+    "value": "les ciseaux"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "les ciseaux",
+    "la colle",
+    "le trombone",
+    "le ruban adhésif"
+   ],
+   "explanation": "Les ciseaux coupent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "office-vocabulary",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quel objet sert à agrafer des feuilles ?",
+   "expected_answer": {
+    "value": "l'agrafeuse"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "l'imprimante",
+    "la chemise",
+    "le dossier",
+    "l'agrafeuse"
+   ],
+   "explanation": "L'agrafeuse agrafe (stapler).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "office-vocabulary",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Que fait une imprimante ?",
+   "expected_answer": {
+    "value": "Elle imprime des documents."
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "Elle coupe le papier.",
+    "Elle téléphone.",
+    "Elle range les dossiers.",
+    "Elle imprime des documents."
+   ],
+   "explanation": "Une imprimante = printer.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "office-vocabulary",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Que peut-on mettre dans une chemise (au bureau) ?",
+   "expected_answer": {
+    "value": "des documents"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "du thé",
+    "de la colle",
+    "des documents",
+    "des vêtements"
+   ],
+   "explanation": "Une chemise (de classement) protège les documents.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "job-search-vocabulary",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Où trouve-t-on des offres de travail dans un journal ?",
+   "expected_answer": {
+    "value": "dans les annonces classées"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "dans les annonces classées",
+    "dans la météo",
+    "dans le sport",
+    "dans les bandes dessinées"
+   ],
+   "explanation": "Les annonces classées présentent des offres d'emploi.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "job-search-vocabulary",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Que veut dire CV ?",
+   "expected_answer": {
+    "value": "curriculum vitae"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "carte de voyage",
+    "curriculum vitae",
+    "cours de vente",
+    "chambre vide"
+   ],
+   "explanation": "Le CV résume la formation et l'expérience.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "job-search-vocabulary",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Que signifie « l'intérim » ?",
+   "expected_answer": {
+    "value": "un travail temporaire"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "une retraite",
+    "un travail temporaire",
+    "un cours du soir",
+    "un congé"
+   ],
+   "explanation": "Faire de l'intérim = faire un travail temporaire.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "job-search-vocabulary",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "« pôle-emploi.fr » est un site pour…",
+   "expected_answer": {
+    "value": "chercher du travail"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "acheter des livres",
+    "réserver un hôtel",
+    "chercher du travail",
+    "apprendre le sport"
+   ],
+   "explanation": "Pôle emploi aide les chômeurs à trouver du travail.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "travail-expressions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "« Être au chômage » signifie…",
+   "expected_answer": {
+    "value": "ne pas avoir de travail"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "avoir deux emplois",
+    "partir en vacances",
+    "être médecin",
+    "ne pas avoir de travail"
+   ],
+   "explanation": "Être au chômage = to be unemployed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "travail-expressions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Il travaille à ___ partiel. » (part-time)",
+   "expected_answer": {
+    "value": "temps"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "jour",
+    "temps",
+    "mois",
+    "heure"
+   ],
+   "explanation": "Un travail à temps partiel.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "travail-expressions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est correcte ?",
+   "expected_answer": {
+    "value": "Elle a trouvé du travail dans une banque."
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "Elle a trouvé travail de la banque.",
+    "Elle a trouvé du travail dans une banque.",
+    "Elle est trouvé du travail à banque.",
+    "Elle a trouvée un travail banque."
+   ],
+   "explanation": "Trouver du travail dans + lieu.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "library-facts",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Pour avoir une carte de lecteur, un jeune doit en général donner…",
+   "expected_answer": {
+    "value": "une pièce d'identité et l'autorisation des parents"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "un passeport étranger",
+    "une pièce d'identité et l'autorisation des parents",
+    "une lettre de l'école seulement",
+    "un chèque de mille euros"
+   ],
+   "explanation": "La carte de lecteur demande une pièce d'identité et, pour un mineur, une autorisation des parents.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "library-facts",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Que signifie « une carte de lecteur » ?",
+   "expected_answer": {
+    "value": "a library card"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "a credit card",
+    "a library card",
+    "a bus pass",
+    "a birthday card"
+   ],
+   "explanation": "Une carte de lecteur = library membership card.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "library-facts",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quel justificatif de domicile peut-on donner à la bibliothèque ?",
+   "expected_answer": {
+    "value": "une quittance de loyer"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "un billet de train",
+    "un ticket de cinéma",
+    "une carte postale",
+    "une quittance de loyer"
+   ],
+   "explanation": "La quittance de loyer ou d'électricité prouve l'adresse.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "reading-genres-and-authors",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Qui a écrit « Le Tour du monde en quatre-vingts jours » ?",
+   "expected_answer": {
+    "value": "Jules Verne"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "La Fontaine",
+    "Perrault",
+    "Saint-Exupéry",
+    "Jules Verne"
+   ],
+   "explanation": "Jules Verne est l'auteur de ce roman d'aventures.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "reading-genres-and-authors",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "« Le Renard et les raisins » est une fable de…",
+   "expected_answer": {
+    "value": "La Fontaine"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Jules Verne",
+    "Mark Twain",
+    "Maurice Leblanc",
+    "La Fontaine"
+   ],
+   "explanation": "La Fontaine a écrit beaucoup de fables.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "reading-genres-and-authors",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quel personnage de roman est un gentleman cambrioleur ?",
+   "expected_answer": {
+    "value": "Arsène Lupin"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Tom Sawyer",
+    "Arsène Lupin",
+    "Le Petit Prince",
+    "Tintin"
+   ],
+   "explanation": "Arsène Lupin est le héros de Maurice Leblanc.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "reading-genres-and-authors",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Qui a écrit « Cendrillon » et « Le Chat botté » ?",
+   "expected_answer": {
+    "value": "Charles Perrault"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Charles Perrault",
+    "La Fontaine",
+    "Jules Verne",
+    "R. K. Narayan"
+   ],
+   "explanation": "Perrault est l'auteur de contes classiques.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "newspaper-sections",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Où trouve-t-on le temps qu'il fera demain ?",
+   "expected_answer": {
+    "value": "la météo"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "l'économie",
+    "la météo",
+    "la culture",
+    "les faits divers"
+   ],
+   "explanation": "La météo annonce le temps.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "newspaper-sections",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "« Les petites annonces » sont…",
+   "expected_answer": {
+    "value": "des messages pour acheter, vendre ou chercher du travail"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "des lettres de lecteurs",
+    "des photos de vacances",
+    "des recettes de cuisine",
+    "des messages pour acheter, vendre ou chercher du travail"
+   ],
+   "explanation": "Les petites annonces sont de courts messages.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "newspaper-sections",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Où lit-on les nouvelles du gouvernement ?",
+   "expected_answer": {
+    "value": "la politique"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "la météo",
+    "les jeux",
+    "le sport",
+    "la politique"
+   ],
+   "explanation": "La rubrique politique parle du gouvernement.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "media-vocabulary",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "« Zapper » veut dire…",
+   "expected_answer": {
+    "value": "changer de chaîne avec la télécommande"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "changer de chaîne avec la télécommande",
+    "éteindre la radio",
+    "acheter un journal",
+    "écrire un article"
+   ],
+   "explanation": "Zapper = to channel-surf.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "media-vocabulary",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Un « feuilleton » est…",
+   "expected_answer": {
+    "value": "une série à suivre à la télé"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "un journal du soir",
+    "un poste de radio",
+    "une publicité",
+    "une série à suivre à la télé"
+   ],
+   "explanation": "Un feuilleton raconte une histoire en plusieurs épisodes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "media-vocabulary",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Un journal « quotidien » paraît…",
+   "expected_answer": {
+    "value": "tous les jours"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "une fois par semaine",
+    "une fois par mois",
+    "tous les jours",
+    "une fois par an"
+   ],
+   "explanation": "Quotidien = daily; hebdomadaire = weekly; mensuel = monthly.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "media-vocabulary",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Un magazine « mensuel » paraît…",
+   "expected_answer": {
+    "value": "une fois par mois"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "une fois par mois",
+    "tous les jours",
+    "chaque semaine",
+    "chaque heure"
+   ],
+   "explanation": "Mensuel = monthly.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "french-media-facts",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quelle est une station de radio ?",
+   "expected_answer": {
+    "value": "Europe 1"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "TF1",
+    "Le Figaro",
+    "Europe 1",
+    "L'Express"
+   ],
+   "explanation": "Europe 1 est une radio; TF1 est une chaîne; Le Figaro et L'Express sont des journaux.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "french-media-facts",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quelle est une chaîne de télévision ?",
+   "expected_answer": {
+    "value": "TF1"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "RFI",
+    "TF1",
+    "Le Monde",
+    "France Musique"
+   ],
+   "explanation": "TF1 est une chaîne de télé; RFI et France Musique sont des radios.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "french-media-facts",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Lequel est un journal et non une chaîne de télévision ?",
+   "expected_answer": {
+    "value": "Le Figaro"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Le Figaro",
+    "France 2",
+    "Canal+",
+    "ARTE"
+   ],
+   "explanation": "Le Figaro est un quotidien.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "french-media-facts",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle chaîne de télévision est internationale et francophone ?",
+   "expected_answer": {
+    "value": "TV5"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Le Monde",
+    "RFI",
+    "L'Express",
+    "TV5"
+   ],
+   "explanation": "TV5 est une chaîne francophone.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hobbies-and-tastes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "« Ça te dit de venir au cinéma ? » signifie…",
+   "expected_answer": {
+    "value": "Do you feel like coming to the cinema?"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "Do you feel like coming to the cinema?",
+    "Did you tell me about the cinema?",
+    "Say it to the cinema.",
+    "Where is the cinema?"
+   ],
+   "explanation": "« Ça te dit de… ? » propose une activité.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hobbies-and-tastes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quel est un héros de bande dessinée ?",
+   "expected_answer": {
+    "value": "Astérix"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Arsène Lupin",
+    "Astérix",
+    "Le Petit Prince",
+    "Tom Sawyer"
+   ],
+   "explanation": "Astérix et Tintin sont des héros de BD.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hobbies-and-tastes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Qui a écrit « Malgudi Days » ?",
+   "expected_answer": {
+    "value": "R. K. Narayan"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Jules Verne",
+    "R. K. Narayan",
+    "La Fontaine",
+    "Perrault"
+   ],
+   "explanation": "R. K. Narayan est un auteur indien.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hobbies-and-tastes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase exprime un goût positif ?",
+   "expected_answer": {
+    "value": "J'adore le jardinage."
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "Je déteste le jardinage.",
+    "Je ne supporte pas le jardinage.",
+    "J'adore le jardinage.",
+    "Le jardinage m'ennuie."
+   ],
+   "explanation": "J'adore = I love.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "museums-and-cinema",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quel musée présente surtout des peintres impressionnistes ?",
+   "expected_answer": {
+    "value": "le musée d'Orsay"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "le Louvre",
+    "le Sénat",
+    "l'Élysée",
+    "le musée d'Orsay"
+   ],
+   "explanation": "Le musée d'Orsay montre Renoir, Van Gogh, etc.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "museums-and-cinema",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Le Louvre est situé sur quelle rive de la Seine ?",
+   "expected_answer": {
+    "value": "la rive droite"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "la rive gauche",
+    "une île",
+    "la rive nord de la Loire",
+    "la rive droite"
+   ],
+   "explanation": "Le Louvre est sur la rive droite de la Seine.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "museums-and-cinema",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Avant d'être un musée, le Louvre était…",
+   "expected_answer": {
+    "value": "un château et un palais de rois"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "un château et un palais de rois",
+    "une gare",
+    "une école",
+    "un marché"
+   ],
+   "explanation": "Le Louvre a été un château fort puis un palais royal.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "museums-and-cinema",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "« VO » dans « un film en VO » signifie…",
+   "expected_answer": {
+    "value": "version originale"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "voix officielle",
+    "vitesse de ouverture",
+    "version originale",
+    "vente organisée"
+   ],
+   "explanation": "VO = version originale (langue d'origine du film).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "proverbs-and-expressions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "« L'habit ne fait pas le moine » veut dire…",
+   "expected_answer": {
+    "value": "On ne juge pas quelqu'un sur son apparence."
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "Il faut s'habiller en noir.",
+    "On ne juge pas quelqu'un sur son apparence.",
+    "Les moines aiment les vêtements.",
+    "Il faut changer d'habit souvent."
+   ],
+   "explanation": "Il ne faut pas juger sur l'apparence.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "proverbs-and-expressions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "« Petit à petit, l'oiseau fait son nid » veut dire…",
+   "expected_answer": {
+    "value": "Avec de la patience, on arrive au but."
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "Avec de la patience, on arrive au but.",
+    "Les oiseaux sont petits.",
+    "Il faut construire vite.",
+    "Le nid est toujours petit."
+   ],
+   "explanation": "Patience et travail régulier.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "proverbs-and-expressions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez le proverbe : « Pierre qui roule n'amasse pas ___ . »",
+   "expected_answer": {
+    "value": "mousse"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "herbe",
+    "eau",
+    "mousse",
+    "sable"
+   ],
+   "explanation": "Pierre qui roule n'amasse pas mousse.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "healthy-lifestyle",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Que faut-il boire pour être en bonne santé ?",
+   "expected_answer": {
+    "value": "de l'eau"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "de l'eau",
+    "du soda",
+    "de la limonade sucrée",
+    "du café fort le soir"
+   ],
+   "explanation": "Il faut boire de l'eau.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "healthy-lifestyle",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quel repas est le plus équilibré ?",
+   "expected_answer": {
+    "value": "une salade avec du poisson"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "un burger avec des frites",
+    "un gâteau au chocolat",
+    "des bonbons",
+    "une salade avec du poisson"
+   ],
+   "explanation": "La salade et le poisson sont équilibrés.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "healthy-lifestyle",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Le yoga est…",
+   "expected_answer": {
+    "value": "un exercice du corps et de l'esprit"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "un plat",
+    "un médicament",
+    "un exercice du corps et de l'esprit",
+    "un sport d'équipe avec ballon"
+   ],
+   "explanation": "Le yoga est bon pour le corps et l'esprit.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "at-the-doctor",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Que donne le médecin pour acheter des médicaments ?",
+   "expected_answer": {
+    "value": "une ordonnance"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "un CV",
+    "une ordonnance",
+    "une quittance",
+    "une bourse"
+   ],
+   "explanation": "L'ordonnance se présente à la pharmacie.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "at-the-doctor",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Où achète-t-on les médicaments ?",
+   "expected_answer": {
+    "value": "à la pharmacie"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "à la pharmacie",
+    "à la poste",
+    "à la mairie",
+    "à la gare"
+   ],
+   "explanation": "La pharmacie vend les médicaments.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "at-the-doctor",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quel symptôme est une température élevée ?",
+   "expected_answer": {
+    "value": "la fièvre"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "le rhume",
+    "le vertige",
+    "la fièvre",
+    "l'insomnie"
+   ],
+   "explanation": "La fièvre = fever.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "at-the-doctor",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quel mal est un nez qui coule ?",
+   "expected_answer": {
+    "value": "un rhume"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "un rhume",
+    "une crise cardiaque",
+    "une fracture",
+    "une allergie au pollen"
+   ],
+   "explanation": "Un rhume = a cold.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "health-expressions-securite-sociale",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Il a mal ___ dents. »",
+   "expected_answer": {
+    "value": "aux"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "aux",
+    "au",
+    "à la",
+    "des"
+   ],
+   "explanation": "Avoir mal aux dents (à + les).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "health-expressions-securite-sociale",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "« La sécu » est le nom courant de…",
+   "expected_answer": {
+    "value": "la sécurité sociale"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "la sécurité routière",
+    "la sécurité de l'école",
+    "la sécurité sociale",
+    "la secrétaire"
+   ],
+   "explanation": "La sécu rembourse une partie des frais de santé.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "health-expressions-securite-sociale",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "« Passer une nuit blanche » signifie…",
+   "expected_answer": {
+    "value": "ne pas dormir de la nuit"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "dormir dans un lit blanc",
+    "dormir tard",
+    "rêver en couleurs",
+    "ne pas dormir de la nuit"
+   ],
+   "explanation": "Une nuit blanche = a sleepless night.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "health-expressions-securite-sociale",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "« L'insomnie » est…",
+   "expected_answer": {
+    "value": "la difficulté à dormir"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "la difficulté à dormir",
+    "la fatigue après le sport",
+    "un médicament",
+    "une maladie de peau"
+   ],
+   "explanation": "Insomnie = difficulty sleeping.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "environment-vocabulary",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "« Le gaspillage » signifie…",
+   "expected_answer": {
+    "value": "waste"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "recycling",
+    "waste",
+    "pollution only",
+    "energy"
+   ],
+   "explanation": "Gaspiller = to waste.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "environment-vocabulary",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "« La biodiversité » désigne…",
+   "expected_answer": {
+    "value": "la variété des êtres vivants"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "la quantité d'eau",
+    "la variété des êtres vivants",
+    "la hauteur des arbres",
+    "le prix de l'électricité"
+   ],
+   "explanation": "La biodiversité = variety of living things.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "environment-vocabulary",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Un « gaz à effet de serre » contribue…",
+   "expected_answer": {
+    "value": "au réchauffement de la planète"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "au réchauffement de la planète",
+    "à nettoyer l'air",
+    "à refroidir les océans",
+    "à faire pousser les arbres"
+   ],
+   "explanation": "Les gaz à effet de serre réchauffent la planète.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "protecting-the-planet",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Que faut-il faire quand on quitte une pièce ?",
+   "expected_answer": {
+    "value": "éteindre la lumière"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "laisser la lumière",
+    "allumer la télévision",
+    "ouvrir toutes les fenêtres",
+    "éteindre la lumière"
+   ],
+   "explanation": "Éteindre la lumière économise l'électricité.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "protecting-the-planet",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase protège l'environnement ?",
+   "expected_answer": {
+    "value": "Je trie mes déchets."
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "Je jette tout par terre.",
+    "Je laisse couler l'eau.",
+    "Je brûle le plastique.",
+    "Je trie mes déchets."
+   ],
+   "explanation": "Trier les déchets aide le recyclage.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "protecting-the-planet",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Il faut que nous ___ moins d'eau. » (utiliser)",
+   "expected_answer": {
+    "value": "utilisions"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "utilisons",
+    "utiliserons",
+    "utilisions",
+    "utilisions-nous"
+   ],
+   "explanation": "Il faut que + subjonctif : que nous utilisions.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "protecting-the-planet",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Je souhaite qu'on ___ la planète. » (protéger)",
+   "expected_answer": {
+    "value": "protège"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "protège-t-on",
+    "protège",
+    "protégera",
+    "protégeait"
+   ],
+   "explanation": "Souhaiter que + subjonctif : qu'on protège.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "french-political-system",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Où habite le Président de la République française ?",
+   "expected_answer": {
+    "value": "au Palais de l'Élysée"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "au Palais Bourbon",
+    "au Louvre",
+    "à l'Opéra",
+    "au Palais de l'Élysée"
+   ],
+   "explanation": "Le Président travaille à l'Élysée.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "french-political-system",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Qui élit les députés ?",
+   "expected_answer": {
+    "value": "les citoyens"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "les citoyens",
+    "le Sénat",
+    "le Président seul",
+    "les ambassadeurs"
+   ],
+   "explanation": "Les députés sont élus par le peuple.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "french-political-system",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Combien de temps dure le mandat du Président de la République ?",
+   "expected_answer": {
+    "value": "cinq ans"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "deux ans",
+    "dix ans",
+    "sept mois",
+    "cinq ans"
+   ],
+   "explanation": "Le mandat présidentiel dure cinq ans.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "french-political-system",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Qui nomme le Premier ministre en France ?",
+   "expected_answer": {
+    "value": "le Président"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "l'Assemblée nationale",
+    "les sénateurs",
+    "le peuple",
+    "le Président"
+   ],
+   "explanation": "Le Président nomme le Premier ministre.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "french-political-system",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Le Sénat siège…",
+   "expected_answer": {
+    "value": "au Palais du Luxembourg"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "à l'Élysée",
+    "au Palais du Luxembourg",
+    "au Louvre",
+    "à Orsay"
+   ],
+   "explanation": "Le Sénat se réunit au Palais du Luxembourg; ses membres sont les sénateurs.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "indian-political-system-in-french",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quelle assemblée est l'équivalent de la Chambre basse en Inde ?",
+   "expected_answer": {
+    "value": "Lok Sabha"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Rajya Sabha",
+    "le Sénat français",
+    "Lok Sabha",
+    "le Conseil d'État"
+   ],
+   "explanation": "Lok Sabha = Chambre du peuple.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "indian-political-system-in-french",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Qui dirige généralement le parti majoritaire et le gouvernement en Inde ?",
+   "expected_answer": {
+    "value": "le Premier ministre"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "le Président",
+    "le juge en chef",
+    "le Premier ministre",
+    "le ministre en chef de l'État"
+   ],
+   "explanation": "Le Premier ministre dirige le gouvernement.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "indian-political-system-in-french",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Comment appelle-t-on le chef du gouvernement d'un État indien ?",
+   "expected_answer": {
+    "value": "le Chief Minister"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "le Président",
+    "le sénateur",
+    "le député",
+    "le Chief Minister"
+   ],
+   "explanation": "Chief Minister = ministre en chef d'un État.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "telephone-expressions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "« Donner un coup de fil » signifie…",
+   "expected_answer": {
+    "value": "passer un appel téléphonique"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "passer un appel téléphonique",
+    "frapper à la porte",
+    "couper un fil",
+    "écrire une lettre"
+   ],
+   "explanation": "Un coup de fil = a phone call.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "telephone-expressions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "« Faire un faux numéro » signifie…",
+   "expected_answer": {
+    "value": "composer un mauvais numéro"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "appeler la police",
+    "répondre en retard",
+    "laisser un message",
+    "composer un mauvais numéro"
+   ],
+   "explanation": "Faux numéro = wrong number.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "telephone-expressions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "« Tomber sur un répondeur » signifie…",
+   "expected_answer": {
+    "value": "joindre un répondeur au lieu de la personne"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "joindre un répondeur au lieu de la personne",
+    "perdre son téléphone",
+    "casser le téléphone",
+    "répondre en français"
+   ],
+   "explanation": "Un répondeur enregistre les messages.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "telephone-expressions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Que fait-on après « Je tombe sur un répondeur » ?",
+   "expected_answer": {
+    "value": "On laisse un message."
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "On ferme la porte.",
+    "On laisse un message.",
+    "On ouvre un compte.",
+    "On achète un téléphone."
+   ],
+   "explanation": "Laisser un message sur le répondeur.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "passage-true-false",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Lecture : « Léa habite à Lyon avec ses parents et son petit frère. Tous les samedis, elle va à la bibliothèque et emprunte deux livres. Le dimanche, elle fait du jogging avec son père. » Quelle affirmation est fausse ?",
+   "expected_answer": {
+    "value": "Léa fait du jogging avec sa mère."
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Léa emprunte des livres.",
+    "Léa a un petit frère.",
+    "Léa fait du jogging avec sa mère.",
+    "Léa habite à Lyon."
+   ],
+   "explanation": "Elle fait du jogging avec son père, pas avec sa mère.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "passage-true-false",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Lecture : « Nous sommes allés au musée d'Orsay dimanche dernier. Il y avait beaucoup de visiteurs, mais nous avons vu les tableaux de Van Gogh. Mon frère a acheté une carte postale. » Quelle affirmation est vraie ?",
+   "expected_answer": {
+    "value": "Ils ont vu des tableaux de Van Gogh."
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Le musée était vide.",
+    "Ils sont allés au Louvre.",
+    "Ils ont vu des tableaux de Van Gogh.",
+    "Le frère a acheté un livre."
+   ],
+   "explanation": "Le texte dit qu'ils ont vu les tableaux de Van Gogh.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "passage-true-false",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Lecture : « Nous sommes allés au musée d'Orsay dimanche dernier. Il y avait beaucoup de visiteurs, mais nous avons vu les tableaux de Van Gogh. Mon frère a acheté une carte postale. » Quelle affirmation est fausse ?",
+   "expected_answer": {
+    "value": "Ils sont allés au musée lundi."
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Il y avait beaucoup de visiteurs.",
+    "Ils sont allés au musée lundi.",
+    "Le frère a acheté une carte postale.",
+    "Ils ont visité un musée à Paris."
+   ],
+   "explanation": "La visite était dimanche dernier, pas lundi.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "passage-short-answer",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Lecture : « Karim cherche du travail. Il a envoyé son CV à trois entreprises. Mardi, une entreprise l'a appelé pour un entretien. Karim était nerveux, mais l'entretien s'est bien passé. » Combien d'entreprises ont reçu son CV ?",
+   "expected_answer": {
+    "value": "trois"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "deux",
+    "cinq",
+    "une",
+    "trois"
+   ],
+   "explanation": "Il a envoyé son CV à trois entreprises.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "passage-short-answer",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Lecture : « Karim cherche du travail. Il a envoyé son CV à trois entreprises. Mardi, une entreprise l'a appelé pour un entretien. Karim était nerveux, mais l'entretien s'est bien passé. » Quand l'entreprise l'a-t-elle appelé ?",
+   "expected_answer": {
+    "value": "mardi"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "lundi",
+    "mardi",
+    "dimanche",
+    "jeudi"
+   ],
+   "explanation": "Mardi, une entreprise l'a appelé.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "passage-short-answer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Lecture : « Karim cherche du travail. Il a envoyé son CV à trois entreprises. Mardi, une entreprise l'a appelé pour un entretien. Karim était nerveux, mais l'entretien s'est bien passé. » Comment Karim se sentait-il avant l'entretien ?",
+   "expected_answer": {
+    "value": "nerveux"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "nerveux",
+    "content",
+    "fatigué",
+    "triste"
+   ],
+   "explanation": "Le texte dit qu'il était nerveux.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "vocabulary-search",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Lecture : « Hier, mon père a pris l'ordonnance du médecin et il est allé à la pharmacie. Il avait de la fièvre et un gros rhume. Il se repose maintenant à la maison. » Quel mot désigne le papier du médecin ?",
+   "expected_answer": {
+    "value": "ordonnance"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "ordonnance",
+    "fièvre",
+    "maison",
+    "rhume"
+   ],
+   "explanation": "L'ordonnance est le papier du médecin.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "vocabulary-search",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Lecture : « Hier, mon père a pris l'ordonnance du médecin et il est allé à la pharmacie. Il avait de la fièvre et un gros rhume. Il se repose maintenant à la maison. » Quel verbe veut dire « to rest » ?",
+   "expected_answer": {
+    "value": "se reposer"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "prendre",
+    "aller",
+    "avoir",
+    "se reposer"
+   ],
+   "explanation": "Il se repose = he is resting.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "vocabulary-search",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Lecture : « Hier, mon père a pris l'ordonnance du médecin et il est allé à la pharmacie. Il avait de la fièvre et un gros rhume. Il se repose maintenant à la maison. » Le mot « rhume » désigne…",
+   "expected_answer": {
+    "value": "a cold"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "a cold",
+    "a fever",
+    "a pharmacy",
+    "a prescription"
+   ],
+   "explanation": "Un rhume = a cold.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "data-and-picture-reading",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Horaires de la médiathèque : lundi fermé; mardi à vendredi 10 h–18 h; samedi 10 h–17 h; dimanche fermé. Quels jours est-elle fermée ?",
+   "expected_answer": {
+    "value": "lundi et dimanche"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "samedi et dimanche",
+    "lundi et dimanche",
+    "lundi et mardi",
+    "vendredi et samedi"
+   ],
+   "explanation": "Fermé le lundi et le dimanche.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "data-and-picture-reading",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Affiche : « Fête de l'école — samedi 14 décembre, de 14 h à 18 h — entrée gratuite pour les enfants, 3 euros pour les adultes. » Combien paie un adulte ?",
+   "expected_answer": {
+    "value": "3 euros"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "gratuit",
+    "3 euros",
+    "14 euros",
+    "18 euros"
+   ],
+   "explanation": "3 euros pour les adultes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "data-and-picture-reading",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Affiche : « Fête de l'école — samedi 14 décembre, de 14 h à 18 h — entrée gratuite pour les enfants, 3 euros pour les adultes. » À quelle heure la fête commence-t-elle ?",
+   "expected_answer": {
+    "value": "à 14 h"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "à 18 h",
+    "à 14 h",
+    "à 3 h",
+    "à 10 h"
+   ],
+   "explanation": "De 14 h à 18 h.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "informal-letter",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quelle formule convient pour terminer une lettre à un ami ?",
+   "expected_answer": {
+    "value": "Amitiés,"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Veuillez agréer mes salutations distinguées,",
+    "Amitiés,",
+    "Monsieur,",
+    "Objet :"
+   ],
+   "explanation": "Amitiés, Bises ou À bientôt, pour un ami.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "informal-letter",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Comment écrit-on la date en haut d'une lettre ?",
+   "expected_answer": {
+    "value": "Delhi, le 12 mars 2027"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "12 mars Delhi 2027 le",
+    "Le Delhi 12, mars",
+    "Delhi, le 12 mars 2027",
+    "2027 mars 12 Delhi"
+   ],
+   "explanation": "Lieu, le jour mois année.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "informal-letter",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase commence bien une lettre de remerciements ?",
+   "expected_answer": {
+    "value": "Merci beaucoup de ta lettre."
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Merci beaucoup de ta lettre.",
+    "Je suis monsieur.",
+    "Veuillez trouver ci-joint.",
+    "Salutations distinguées."
+   ],
+   "explanation": "Merci de ta lettre = Thanks for your letter.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "informal-letter",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quelle phrase est une bonne fin de lettre ?",
+   "expected_answer": {
+    "value": "J'attends ta réponse avec impatience."
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Je ne réponds pas.",
+    "Voici le CV.",
+    "J'attends ta réponse avec impatience.",
+    "Pas de nouvelles."
+   ],
+   "explanation": "On termine souvent en demandant des nouvelles.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "message-writing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quelle formule invite un ami ?",
+   "expected_answer": {
+    "value": "Viens à ma fête samedi !"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Viens à ma fête samedi !",
+    "Veuillez agréer mes salutations.",
+    "Voir pièce jointe.",
+    "Tu es invité de rien."
+   ],
+   "explanation": "Une invitation amicale à l'impératif.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "message-writing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Quelle formule remercie un ami ?",
+   "expected_answer": {
+    "value": "Merci pour le cadeau, c'est très gentil !"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Je n'ai pas de cadeau.",
+    "Merci pour le cadeau, c'est très gentil !",
+    "Donne-moi le cadeau.",
+    "Il n'y a pas de cadeau."
+   ],
+   "explanation": "Merci pour + nom.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "message-writing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quel message annonce un retard ?",
+   "expected_answer": {
+    "value": "Je serai en retard, j'arrive à 18 h."
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Je suis mort de rire.",
+    "Je ne viens jamais.",
+    "Je mange un gâteau.",
+    "Je serai en retard, j'arrive à 18 h."
+   ],
+   "explanation": "On donne l'heure d'arrivée.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "dialogue-rearranging",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Remettez dans l'ordre (réponse sous la forme « 2 puis 1 … ») : (1) Bonjour madame. (2) Bonjour. Vous désirez ? (3) Je voudrais un kilo de pommes.",
+   "expected_answer": {
+    "value": "2 puis 1 puis 3"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "2 puis 1 puis 3",
+    "3 puis 2 puis 1",
+    "1 puis 3 puis 2",
+    "2 puis 3 puis 1"
+   ],
+   "explanation": "On commence par saluer, puis on demande.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "dialogue-rearranging",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Quel est le bon début d'un appel téléphonique ?",
+   "expected_answer": {
+    "value": "Allô ? Bonjour, c'est Paul."
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Au revoir, Paul.",
+    "Allô ? Bonjour, c'est Paul.",
+    "Merci beaucoup, adieu.",
+    "Je raccroche."
+   ],
+   "explanation": "On commence par Allô et on se présente.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "dialogue-rearranging",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Remettez dans l'ordre (réponse sous la forme « 2 puis 1 … ») : (1) Merci, au revoir ! (2) Voilà, ça fait six euros. (3) Je voudrais deux croissants.",
+   "expected_answer": {
+    "value": "3 puis 2 puis 1"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "3 puis 2 puis 1",
+    "1 puis 2 puis 3",
+    "2 puis 3 puis 1",
+    "3 puis 1 puis 2"
+   ],
+   "explanation": "Demande, prix, remerciement.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "story-completion",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Quand je suis arrivé, le film ___ déjà commencé. »",
+   "expected_answer": {
+    "value": "avait"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "avait",
+    "a",
+    "aura",
+    "avait eu"
+   ],
+   "explanation": "Une action déjà passée → plus-que-parfait : avait commencé.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "story-completion",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Autrefois, nous ___ chez mes grands-parents tous les étés. »",
+   "expected_answer": {
+    "value": "allions"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "sommes allés",
+    "irons",
+    "allions",
+    "allons"
+   ],
+   "explanation": "Habitude dans le passé → imparfait.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "story-completion",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Complétez : « Demain, s'il fait beau, nous ___ au parc. »",
+   "expected_answer": {
+    "value": "irons"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "irons",
+    "irions",
+    "sommes allés",
+    "allons allé"
+   ],
+   "explanation": "Si + présent → futur.",
+   "content_status": "needs_review"
+  }
+ ]
+}

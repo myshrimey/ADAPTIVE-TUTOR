@@ -99,6 +99,29 @@ export const BLUEPRINTS: Blueprint[] = [
     chapterWeights: {},
     basis: STD_BASIS + ' The map-work section is not included.',
   },
+  {
+    id: 'french-planning-v1',
+    title: 'French (planning blueprint, 50 marks, objective parts only)',
+    subjectSlugs: ['french'],
+    totalMarks: 50,
+    durationMinutes: 90,
+    sections: [
+      { id: 'A', name: 'Section A: multiple choice (1 mark each)', marksPerQuestion: 1, count: 30, types: ['mcq'] },
+      { id: 'B', name: 'Section B: short answer (2 marks each)', marksPerQuestion: 2, count: 10, types: ['short_answer'] },
+    ],
+    // Official shape (CBSE 018, Class X): Reading 10, Writing 20, Grammar 30, Culture and Civilisation 20 (80 marks).
+    // Weights follow those marks. The 20 marks of writing (letter, message, dialogue, story) are marked by a teacher, so only the
+    // objective checks on writing format carry a small weight here.
+    chapterWeights: {
+      ...unitWeights([
+        { marks: 10, chapters: ['reading-comprehension'] },
+        { marks: 2, chapters: ['writing-tasks'] },
+        { marks: 30, chapters: ['les-verbes', 'pronoms-personnels', 'la-negation', 'trouver-la-question', 'discours-direct-indirect', 'pronoms-relatifs', 'adjectifs-pronoms-demonstratifs', 'adjectifs-pronoms-possessifs', 'le-subjonctif'] },
+        { marks: 20, chapters: ['apres-le-bac', 'chercher-du-travail', 'le-plaisir-de-lire', 'les-medias', 'chacun-ses-gouts', 'en-pleine-forme', 'lenvironnement', 'vive-la-republique'] },
+      ]),
+    },
+    basis: 'Objective practice only. The official French paper (80 marks) also has about 20 marks of writing and long answers that a teacher marks, so this is not a board-pattern paper. ' + STD_BASIS,
+  },
 ];
 
 /** Fallback for every other subject: objective questions only. */

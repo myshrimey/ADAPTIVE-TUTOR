@@ -48,6 +48,9 @@ function splitIntoComparableSets(raw: string): string[][] {
 
 function normalize(s: string): string {
   return s
+    // v123 (French): a phone keyboard types the curly apostrophe (j’ai) and may type an accent as a separate mark;
+    // write both one way first so "j’ai mangé" matches "j'ai mangé". Maths answers are unaffected.
+    .normalize('NFC').replace(/[’‘´`]/g, "'")
     .toLowerCase()
     .replace(/\s+/g, '')
     .replace(/\*\*/g, '^')

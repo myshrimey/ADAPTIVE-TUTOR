@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v122 (2026-11-09)
+## Latest delivery - v123 (2026-11-10)
+French added as a new subject (Class X, pilot). The website gets a French card, a French-letters keypad for typed answers (é, è, ç ...) and accent-aware answer checking. The content is 19 chapters, 71 skills and 356 original questions (grammar, reading, writing practice, and the textbook's culture lessons 2-8 and 10), all marked needs_review: a French teacher should read them. No migration. After deploying run `node packages/db/seed.js` then `node packages/db/seed-diagnostic.js` with your own settings. Apply after v122: `sahayak-v123-french-delta.zip`. Nothing was seen live.
+
+## Previous delivery - v122 (2026-11-09)
 IMPORTANT security fix with a database change (0063). A read-only look at your live database showed that any signed-in account could edit ANY question (answer key, prompt, review status) by calling the database directly, and could insert a payment already marked "confirmed". v122 closes both: the website now saves generated explanations with its own server key, and migration 0063 removes the open question-edit rules and tightens the payment insert rule. Order: deploy the v122 website first, then run 0063 in the Supabase SQL editor. Nothing was changed on your live database by Claude. Apply after v121: `sahayak-v122-close-open-write-rules-delta.zip`.
 
 ## Previous delivery - v121 (2026-11-09)

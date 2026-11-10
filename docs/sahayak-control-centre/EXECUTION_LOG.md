@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0035 - 2026-11-10 - founder chat request (add French with syllabus and textbook)
+- Summary: v123: French subject added (TASK-091).
+- Files: seed/cbse-class10-french*.json; seed-generators/fr_*.py gen_french_*.py build_french.py; core answers/grading/blueprint/translation/taxonomy; AnswerInput; HomeClient; SubjectIcon; tests/t123.ts
+- Database: none (seed data only)
+- Tests: t123, tsc, full npm test, production build
+- Open: Not deployed; seeds not run on the live database; no teacher review
+
 ## EX-0034 - 2026-11-09 - founder chat request (continue building)
 - Summary: v122: closed two too-open database write rules (TASK-090).
 - Files: 0063_close_open_write_rules.sql; core/explanations/ensure-explanation.ts; deploy-check; ROLLBACK_NOTES; DATABASE_SCHEMA; tests/t122.ts

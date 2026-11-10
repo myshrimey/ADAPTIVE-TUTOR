@@ -57,6 +57,16 @@ const GLYPHS: Record<string, { path: ReactNode; bg: string; fg: string }> = {
       </>
     ),
   },
+  french: {
+    bg: 'var(--subject-social-bg)',
+    fg: 'var(--subject-social)',
+    path: (
+      <>
+        <path d="M5 5.5h10.5a1.5 1.5 0 0 1 1.5 1.5v5a1.5 1.5 0 0 1-1.5 1.5H10l-3.5 3v-3H5A1.5 1.5 0 0 1 3.5 12V7A1.5 1.5 0 0 1 5 5.5Z" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+        <path d="M17 9.5h2A1.5 1.5 0 0 1 20.5 11v5A1.5 1.5 0 0 1 19 17.5h-.5v2.5l-3-2.5h-3" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" strokeLinecap="round" />
+      </>
+    ),
+  },
   'computer-applications': {
     bg: 'var(--subject-social-bg)',
     fg: 'var(--subject-social)',

@@ -34,7 +34,7 @@ export function causeFamily(subjectName: string): CauseFamily {
   const n = subjectName.toLowerCase();
   if (/math/.test(n)) return 'maths';
   if (/science/.test(n) && !/social/.test(n)) return 'science';
-  if (/english|hindi|language/.test(n)) return 'language';
+  if (/english|hindi|french|language/.test(n)) return 'language';
   return 'other';
 }
 

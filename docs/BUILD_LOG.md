@@ -834,3 +834,12 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Deploy check: DB version expected v122; read-only manual check for 0063 (count is now 5). Rollback note, schema doc and t101 list extended.
 - Test t122 (31 checks); two deliberate breaks both caught.
 - NOT fixed, noted for later: `students_update_own` lets a student change their own students row (e.g. parent_token, must_complete_profile; user_id is protected by the check), and `mastery_states_owner` / `question_attempts_owner` / other `for all` owner rules let a student write their own learning records directly. Those only affect that student's own data but could make their reports untrue; fixing needs the tutor engine to write with the server key, which is a larger supervised change.
+
+## v123 (2026-11-10) - French (Class X) added as a pilot subject
+- Founder request: add French with its syllabus and textbook (both attached) and create all the content.
+- Curriculum: 19 chapters, 71 skills from the CBSE 2026-27 French syllabus and Entre Jeunes lessons 2-8 and 10 (generator `seed-generators/gen_french_curriculum.py`).
+- Questions: 356 original questions (generators `fr_lib.py`, `gen_french_verbs.py`, `gen_french_grammar.py`, `gen_french_culture.py`, assembled and checked by `build_french.py`). Verb answer keys computed with verbecc. All `needs_review`.
+- Code: accent keypad and `accented` input kind, grading normalises curly apostrophes and decomposed accents, French excluded from Hindi-medium translation, language misconception family, blueprint french-planning-v1, home card and icon.
+- Test t123 (27 checks). No migration (DB version stays v122).
+- NOT done: teacher review, free-writing marking, Class IX, listening/speaking, any live check.
+

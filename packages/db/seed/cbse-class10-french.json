@@ -1,0 +1,750 @@
+{
+  "curriculum": {
+    "board": "CBSE",
+    "class": "10",
+    "version": "v1"
+  },
+  "subject": {
+    "name": "French",
+    "slug": "french",
+    "status": "pilot",
+    "description": "CBSE Class X French (code 018): grammar, reading, writing and the Entre Jeunes lessons 2-8 and 10. Questions were written for Sahayak; a French teacher has not reviewed them yet."
+  },
+  "chapters": [
+    {
+      "name": "Grammar: Verbs",
+      "slug": "les-verbes",
+      "sequence": 1,
+      "topics": [
+        {
+          "name": "Infinitive, present and imperative",
+          "slug": "verbes-present-imperatif",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Conjugate regular and irregular verbs in the présent",
+              "slug": "present-tense",
+              "requires": []
+            },
+            {
+              "name": "Conjugate pronominal verbs (se lever, s'habiller)",
+              "slug": "pronominal-verbs",
+              "requires": [
+                "present-tense"
+              ]
+            },
+            {
+              "name": "Form the impératif, affirmative and negative",
+              "slug": "imperative",
+              "requires": [
+                "present-tense"
+              ]
+            },
+            {
+              "name": "Use the infinitive after aller, vouloir, pouvoir, devoir and prepositions",
+              "slug": "infinitive-use",
+              "requires": [
+                "present-tense"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Past tenses",
+          "slug": "verbes-passe",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Form the passé composé and choose avoir or être",
+              "slug": "passe-compose-auxiliary",
+              "requires": [
+                "present-tense"
+              ]
+            },
+            {
+              "name": "Make the past participle agree (être verbs, pronominal verbs)",
+              "slug": "passe-compose-agreement",
+              "requires": [
+                "passe-compose-auxiliary"
+              ]
+            },
+            {
+              "name": "Form and use the imparfait",
+              "slug": "imparfait",
+              "requires": [
+                "present-tense"
+              ]
+            },
+            {
+              "name": "Choose between the imparfait and the passé composé",
+              "slug": "imparfait-vs-passe-compose",
+              "requires": [
+                "imparfait",
+                "passe-compose-auxiliary"
+              ]
+            },
+            {
+              "name": "Form and use the plus-que-parfait",
+              "slug": "plus-que-parfait",
+              "requires": [
+                "passe-compose-agreement",
+                "imparfait"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Future tenses and the conditional",
+          "slug": "verbes-futur-conditionnel",
+          "sequence": 3,
+          "skills": [
+            {
+              "name": "Form and use the futur proche",
+              "slug": "futur-proche",
+              "requires": [
+                "infinitive-use"
+              ]
+            },
+            {
+              "name": "Form and use the futur simple",
+              "slug": "futur-simple",
+              "requires": [
+                "present-tense"
+              ]
+            },
+            {
+              "name": "Form and use the futur antérieur",
+              "slug": "futur-anterieur",
+              "requires": [
+                "futur-simple",
+                "passe-compose-agreement"
+              ]
+            },
+            {
+              "name": "Form and use the conditionnel présent",
+              "slug": "conditionnel-present",
+              "requires": [
+                "futur-simple",
+                "imparfait"
+              ]
+            },
+            {
+              "name": "Use si-clauses (si + présent, si + imparfait, si + plus-que-parfait)",
+              "slug": "si-clauses",
+              "requires": [
+                "conditionnel-present"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grammar: Personal pronouns",
+      "slug": "pronoms-personnels",
+      "sequence": 2,
+      "topics": [
+        {
+          "name": "Direct and indirect object pronouns",
+          "slug": "pronoms-cod-coi",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Replace a direct object with le, la, l', les",
+              "slug": "cod-pronouns",
+              "requires": []
+            },
+            {
+              "name": "Replace an indirect object with lui, leur",
+              "slug": "coi-pronouns",
+              "requires": [
+                "cod-pronouns"
+              ]
+            },
+            {
+              "name": "Use the stressed pronouns moi, toi, lui, elle, nous, vous, eux, elles",
+              "slug": "tonic-pronouns",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "The pronouns y and en",
+          "slug": "pronoms-y-en",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Replace a place or a thing introduced by à with y",
+              "slug": "pronoun-y",
+              "requires": [
+                "cod-pronouns"
+              ]
+            },
+            {
+              "name": "Replace a quantity or a thing introduced by de with en",
+              "slug": "pronoun-en",
+              "requires": [
+                "cod-pronouns"
+              ]
+            },
+            {
+              "name": "Place pronouns correctly (passé composé, impératif, infinitif)",
+              "slug": "pronoun-placement",
+              "requires": [
+                "cod-pronouns",
+                "coi-pronouns",
+                "pronoun-y",
+                "pronoun-en"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grammar: Negation",
+      "slug": "la-negation",
+      "sequence": 3,
+      "topics": [
+        {
+          "name": "Negative forms",
+          "slug": "negation-forms",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Use ne…pas, ne…jamais, ne…plus, ne…rien, ne…personne",
+              "slug": "negation-forms",
+              "requires": []
+            },
+            {
+              "name": "Make negatives in the passé composé, with an infinitive and in the impératif",
+              "slug": "negation-tenses",
+              "requires": [
+                "negation-forms",
+                "passe-compose-auxiliary"
+              ]
+            },
+            {
+              "name": "Reply negatively to a question (pas encore, jamais, rien, personne)",
+              "slug": "negation-replies",
+              "requires": [
+                "negation-forms"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grammar: Finding the question",
+      "slug": "trouver-la-question",
+      "sequence": 4,
+      "topics": [
+        {
+          "name": "Asking questions",
+          "slug": "questions",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Form questions (intonation, est-ce que, inversion)",
+              "slug": "question-forms",
+              "requires": []
+            },
+            {
+              "name": "Choose the right question word (qui, que, où, quand, comment, pourquoi, combien)",
+              "slug": "question-words",
+              "requires": [
+                "question-forms"
+              ]
+            },
+            {
+              "name": "Find the question for an underlined answer",
+              "slug": "find-the-question",
+              "requires": [
+                "question-words"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grammar: Direct and indirect speech",
+      "slug": "discours-direct-indirect",
+      "sequence": 5,
+      "topics": [
+        {
+          "name": "Reporting what someone said",
+          "slug": "discours-indirect",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Turn a statement into indirect speech (dire que)",
+              "slug": "indirect-statements",
+              "requires": []
+            },
+            {
+              "name": "Turn a command into indirect speech (dire de, demander de)",
+              "slug": "indirect-commands",
+              "requires": [
+                "imperative"
+              ]
+            },
+            {
+              "name": "Turn a question into indirect speech (demander si, ce que, qui, où)",
+              "slug": "indirect-questions",
+              "requires": [
+                "question-words"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grammar: Relative pronouns",
+      "slug": "pronoms-relatifs",
+      "sequence": 6,
+      "topics": [
+        {
+          "name": "Simple and compound relative pronouns",
+          "slug": "relatifs",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Join sentences with qui, que and où",
+              "slug": "relative-qui-que-ou",
+              "requires": []
+            },
+            {
+              "name": "Join sentences with dont",
+              "slug": "relative-dont",
+              "requires": [
+                "relative-qui-que-ou"
+              ]
+            },
+            {
+              "name": "Use the compound forms (lequel, laquelle, auquel, duquel…)",
+              "slug": "relative-compose",
+              "requires": [
+                "relative-qui-que-ou",
+                "relative-dont"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grammar: Demonstrative adjectives and pronouns",
+      "slug": "adjectifs-pronoms-demonstratifs",
+      "sequence": 7,
+      "topics": [
+        {
+          "name": "Demonstratives",
+          "slug": "demonstratifs",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Use ce, cet, cette, ces",
+              "slug": "demonstrative-adjectives",
+              "requires": []
+            },
+            {
+              "name": "Use celui, celle, ceux, celles",
+              "slug": "demonstrative-pronouns-simple",
+              "requires": [
+                "demonstrative-adjectives"
+              ]
+            },
+            {
+              "name": "Use celui-ci, celui-là, ceci, cela, ce",
+              "slug": "demonstrative-pronouns-compound",
+              "requires": [
+                "demonstrative-pronouns-simple"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grammar: Possessive adjectives and pronouns",
+      "slug": "adjectifs-pronoms-possessifs",
+      "sequence": 8,
+      "topics": [
+        {
+          "name": "Possessives",
+          "slug": "possessifs",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Use mon, ma, mes, ton, ta, tes, son, sa, ses, notre, votre, leur",
+              "slug": "possessive-adjectives",
+              "requires": []
+            },
+            {
+              "name": "Use le mien, la tienne, les siens, le nôtre, le leur…",
+              "slug": "possessive-pronouns",
+              "requires": [
+                "possessive-adjectives"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grammar: The subjunctive",
+      "slug": "le-subjonctif",
+      "sequence": 9,
+      "topics": [
+        {
+          "name": "The subjonctif présent",
+          "slug": "subjonctif",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Form the subjonctif présent of regular verbs",
+              "slug": "subjonctif-formation",
+              "requires": [
+                "present-tense"
+              ]
+            },
+            {
+              "name": "Use the irregular subjunctives (être, avoir, aller, faire, pouvoir, savoir, vouloir)",
+              "slug": "subjonctif-irregular",
+              "requires": [
+                "subjonctif-formation"
+              ]
+            },
+            {
+              "name": "Choose the subjunctive after il faut que, vouloir que, souhaiter que and similar",
+              "slug": "subjonctif-triggers",
+              "requires": [
+                "subjonctif-formation"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Reading comprehension",
+      "slug": "reading-comprehension",
+      "sequence": 10,
+      "topics": [
+        {
+          "name": "Unseen passage",
+          "slug": "unseen-passage",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Decide whether a statement about a passage is true or false",
+              "slug": "passage-true-false",
+              "requires": []
+            },
+            {
+              "name": "Answer short questions about a passage",
+              "slug": "passage-short-answer",
+              "requires": [
+                "passage-true-false"
+              ]
+            },
+            {
+              "name": "Find nouns, verbs, opposites and synonyms in a passage",
+              "slug": "vocabulary-search",
+              "requires": []
+            },
+            {
+              "name": "Read information from a short advert, timetable or picture description",
+              "slug": "data-and-picture-reading",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Writing",
+      "slug": "writing-tasks",
+      "sequence": 11,
+      "topics": [
+        {
+          "name": "Letter and message",
+          "slug": "letters-messages",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Write an informal letter (layout and useful phrases)",
+              "slug": "informal-letter",
+              "requires": []
+            },
+            {
+              "name": "Write a short message (layout and useful phrases)",
+              "slug": "message-writing",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "name": "Dialogue and story",
+          "slug": "dialogue-story",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Put the lines of a dialogue in the right order",
+              "slug": "dialogue-rearranging",
+              "requires": []
+            },
+            {
+              "name": "Complete a text with the help of clues",
+              "slug": "story-completion",
+              "requires": [
+                "passe-compose-auxiliary"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lesson 2: Après le bac",
+      "slug": "apres-le-bac",
+      "sequence": 12,
+      "topics": [
+        {
+          "name": "Education systems",
+          "slug": "systemes-education",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Describe the French and the Indian school systems (stages, ages, diplomas)",
+              "slug": "education-system-france-india",
+              "requires": []
+            },
+            {
+              "name": "Talk about studies and plans after the bac (IUT, université, bourses)",
+              "slug": "studies-after-the-bac",
+              "requires": [
+                "education-system-france-india"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Words about studies",
+          "slug": "mots-etudes",
+          "sequence": 2,
+          "skills": [
+            {
+              "name": "Give the noun that goes with a verb (arriver, une arrivée)",
+              "slug": "verb-noun-forms",
+              "requires": []
+            },
+            {
+              "name": "Use expressions about exams and studies (passer un examen, suivre des cours)",
+              "slug": "study-expressions",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lesson 3: Chercher du travail",
+      "slug": "chercher-du-travail",
+      "sequence": 13,
+      "topics": [
+        {
+          "name": "The world of work",
+          "slug": "monde-du-travail",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Name common office objects and the tasks of a secretary",
+              "slug": "office-vocabulary",
+              "requires": []
+            },
+            {
+              "name": "Use vocabulary for finding a job (CV, chômage, intérim, annonces)",
+              "slug": "job-search-vocabulary",
+              "requires": []
+            },
+            {
+              "name": "Use expressions with the word travail",
+              "slug": "travail-expressions",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lesson 4: Le plaisir de lire",
+      "slug": "le-plaisir-de-lire",
+      "sequence": 14,
+      "topics": [
+        {
+          "name": "Reading and libraries",
+          "slug": "lecture",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Explain how to join and use a library (carte de lecteur)",
+              "slug": "library-facts",
+              "requires": []
+            },
+            {
+              "name": "Match literary genres, books and authors (roman, conte, fable, BD)",
+              "slug": "reading-genres-and-authors",
+              "requires": []
+            },
+            {
+              "name": "Name the sections of a newspaper (les rubriques)",
+              "slug": "newspaper-sections",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lesson 5: Les médias",
+      "slug": "les-medias",
+      "sequence": 15,
+      "topics": [
+        {
+          "name": "The media",
+          "slug": "medias",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Use media vocabulary (chaîne, émission, zapper, feuilleton)",
+              "slug": "media-vocabulary",
+              "requires": []
+            },
+            {
+              "name": "Recall French newspapers, channels and radio, and how often a magazine appears",
+              "slug": "french-media-facts",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lesson 6: Chacun ses goûts",
+      "slug": "chacun-ses-gouts",
+      "sequence": 16,
+      "topics": [
+        {
+          "name": "Tastes and leisure",
+          "slug": "gouts-loisirs",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Talk about hobbies and tastes (jardinage, lecture, passe-temps)",
+              "slug": "hobbies-and-tastes",
+              "requires": []
+            },
+            {
+              "name": "Recall facts about the Louvre and the musée d'Orsay and invite someone out",
+              "slug": "museums-and-cinema",
+              "requires": []
+            },
+            {
+              "name": "Complete common French proverbs and expressions",
+              "slug": "proverbs-and-expressions",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lesson 7: En pleine forme",
+      "slug": "en-pleine-forme",
+      "sequence": 17,
+      "topics": [
+        {
+          "name": "Health",
+          "slug": "sante",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Talk about healthy habits (sport, eau, fast-food, sommeil)",
+              "slug": "healthy-lifestyle",
+              "requires": []
+            },
+            {
+              "name": "Use vocabulary for a visit to the doctor (ordonnance, pharmacie, rhume, fièvre)",
+              "slug": "at-the-doctor",
+              "requires": []
+            },
+            {
+              "name": "Use health expressions (avoir mal à…) and explain la sécurité sociale",
+              "slug": "health-expressions-securite-sociale",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lesson 8: L'environnement",
+      "slug": "lenvironnement",
+      "sequence": 18,
+      "topics": [
+        {
+          "name": "The environment",
+          "slug": "environnement",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Use environment vocabulary (gaspillage, réchauffement, pollution, recyclage)",
+              "slug": "environment-vocabulary",
+              "requires": []
+            },
+            {
+              "name": "Explain actions that protect the environment (eau, énergie, biodiversité)",
+              "slug": "protecting-the-planet",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Lesson 10: Vive la République !",
+      "slug": "vive-la-republique",
+      "sequence": 19,
+      "topics": [
+        {
+          "name": "The Republic and the telephone",
+          "slug": "republique",
+          "sequence": 1,
+          "skills": [
+            {
+              "name": "Describe the French political system (Président, Assemblée nationale, Sénat, Élysée)",
+              "slug": "french-political-system",
+              "requires": []
+            },
+            {
+              "name": "Compare the Indian and French political systems (Lok Sabha, Rajya Sabha, Premier ministre)",
+              "slug": "indian-political-system-in-french",
+              "requires": [
+                "french-political-system"
+              ]
+            },
+            {
+              "name": "Use telephone expressions (coup de fil, faux numéro, répondeur)",
+              "slug": "telephone-expressions",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

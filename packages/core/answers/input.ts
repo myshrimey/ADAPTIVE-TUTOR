@@ -3,27 +3,30 @@
 // from the stored expected answer. The kind is sent to the browser; the expected answer itself never is.
 import { extractString } from '../question-engine/grading';
 
-export type InputKind = 'number' | 'text' | 'expression' | 'choice';
+export type InputKind = 'number' | 'text' | 'accented' | 'expression' | 'choice';
 
 const NUMBER_LIKE = /^[-+−]?\s*\d[\d,]*(\.\d+)?(\s*\/\s*\d+(\.\d+)?)?\s*(%|°)?$/;
 const WORDS_ONLY = /^[\p{L}\p{M}\s'’.,()\-]+$/u;
+const ACCENTED = /[àâäçéèêëîïôöùûüÿœæ]/i;
 
-/** number: only a number is a valid answer. text: only words (no digits). expression: maths/chemistry/mixed, symbols allowed. choice: pick an option. */
+/** number: only a number is a valid answer. text: only words (no digits). accented: words, and the answer has accents (French), so the accent keys are shown. expression: maths/chemistry/mixed, symbols allowed. choice: pick an option. */
 export function inputKindOf(questionType: string | undefined | null, expected?: unknown): InputKind {
   if (questionType === 'mcq') return 'choice';
   const e = expected === undefined || expected === null ? '' : extractString(expected).trim();
   if (e) {
     if (NUMBER_LIKE.test(e)) return 'number';
-    if (WORDS_ONLY.test(e) && e.length <= 80) return 'text';
+    // v123: a word answer that contains an accented Latin letter (French) gets a row of accent keys under the box.
+    if (WORDS_ONLY.test(e) && e.length <= 80) return ACCENTED.test(e) ? 'accented' : 'text';
     return 'expression';
   }
   // No expected answer available (browser side without a hint): a numeric question still expects a number.
   return questionType === 'numeric' ? 'number' : 'expression';
 }
 
-const ALLOWED: Record<'number' | 'text' | 'expression', RegExp> = {
+const ALLOWED: Record<'number' | 'text' | 'accented' | 'expression', RegExp> = {
   number: /[0-9.,\-−+/%°^×÷*() ]/,
   text: /[\p{L}\p{M}\s'’.,()\-]/u,
+  accented: /[\p{L}\p{M}\s'’.,()\-]/u,
   expression: /[\p{L}\p{M}\p{N}\s.,;:'’"\-−–+×÷*·/=^()[\]{}<>≤≥≠≈±√π∞°²³ⁿ⁺⁻₀₁₂₃₄₅₆₇₈₉½¼¾%∠θαβγδλμΩΔΣ∫|!_→⇌↑↓∴∵?“”‘’$&@#~`\\]/u,
 };
 
@@ -54,7 +57,7 @@ export function filterTyped(kind: InputKind, raw: string, lang: AnswerLang = 'en
     if (ch === '\n' && keepNewlines) out += ch; else if (re.test(ch)) out += ch; else removed.push(ch);
   }
   let warning: string | null = null;
-  if (removed.length) warning = answerMessage(kind === 'number' ? 'numberOnly' : kind === 'text' ? 'textOnly' : 'badChar', lang);
+  if (removed.length) warning = answerMessage(kind === 'number' ? 'numberOnly' : kind === 'text' || kind === 'accented' ? 'textOnly' : 'badChar', lang);
   if (out.length > MAX_ANSWER_LENGTH) { out = out.slice(0, MAX_ANSWER_LENGTH); warning = answerMessage('tooLong', lang); }
   return { text: out, removed, warning };
 }
@@ -87,3 +90,6 @@ export const MATH_KEYPAD: KeypadTab[] = [
   { id: 'alg', label: 'x y', keys: [...['x', 'y', 'z', 'a', 'b', 'c', 'n', 'p', 'q', 'r'].map((x) => k(x)), k('²', 'x²'), k('³', 'x³'), k('^', 'xⁿ', 'power'), k('√', '√', 'square root'), k('√(', '√( )', 'root of a bracket'), k('π'), k('θ'), k('°', '°', 'degree'), k('±'), k('≤'), k('≥'), k('≠'), k('<'), k('>'), k('∞')] },
   { id: 'sci', label: 'Science', keys: [...['₀', '₁', '₂', '₃', '₄', '₅', '₆', '₇', '₈', '₉'].map((x) => k(x)), k('→', '→', 'gives'), k('⇌', '⇌', 'reversible'), k('↑', '↑', 'gas'), k('↓', '↓', 'precipitate'), k('⁺', '⁺', 'positive charge'), k('⁻', '⁻', 'negative charge'), k('Ω'), k('μ'), k('λ'), k('α'), k('β'), k('γ'), k('Δ'), k('∠'), k('∴', '∴', 'therefore')] },
 ];
+
+/** French letters for the accent row (v123). Lower case first, then the capitals a student is most likely to need. */
+export const FRENCH_KEYS: KeypadKey[] = ['é', 'è', 'ê', 'ë', 'à', 'â', 'ç', 'î', 'ï', 'ô', 'ù', 'û', 'œ', 'É', 'À', 'Ç', "'"].map((x) => ({ insert: x, label: x }));

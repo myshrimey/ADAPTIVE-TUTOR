@@ -1,15 +1,31 @@
-Sahayak v122 - two too-open database write rules closed (IMPORTANT, has a database change)
-Apply after v121: copy these files over your repo (same paths), deploy, THEN run the database change.
+Sahayak v123 - French (Class X) added as a new pilot subject
+=============================================================
+Apply after v122. Copy these files over your project (same folders), then deploy the website the way you normally do.
+No database migration. Seed data only.
 
-WHY: a read-only look at your live database showed that (1) any signed-in account could edit ANY question (answer key, prompt, review status) by calling the database directly, and (2) a student could insert a payment already marked "confirmed" with access dates, which would distort your revenue numbers. Nothing here was changed on your live database by Claude, and I did not see anyone use these holes.
+WHAT CHANGED (plain English)
+- A new subject, French, on the home list (Pilot tag). Class X only.
+- 19 chapters and 71 skills: nine grammar chapters (verbs, pronouns, negation, questions, indirect speech, relative pronouns, demonstratives, possessives, subjunctive), reading comprehension, writing tasks, and eight lessons from the Entre Jeunes textbook (lessons 2-8 and 10).
+- 356 original multiple-choice questions (one short answer), all marked needs_review. Nothing is copied from the textbook. Verb answers were computed with a conjugation program, the rest were written by hand and spell-checked.
+- When a student types a French answer with accents, a French letters keypad appears (e, accents, c-cedilla, oe...). Answers are checked strictly for accents, but a curly apostrophe and the two ways of storing an accent are both accepted.
+- French is not translated to Hindi-medium; it has a planning blueprint (objective practice only).
 
-ORDER (important)
-1. Deploy the v122 website first (it now saves generated explanations with the server's own key).
-2. Then open Supabase -> SQL editor and run the whole file packages/db/migrations/0063_close_open_write_rules.sql. It is safe to run twice. It removes two rules and tightens one; no table, column or saved row is touched. Reading questions keeps working.
-3. Open /admin/deploy-check. It should say database v122. Then run the new "Only one write rule is left..." check shown there; expected: one row, pilot_payments_insert_own.
-If you run step 2 before step 1, nothing breaks: new explanations just are not saved for a while (the student still sees them).
+AFTER DEPLOYING (you, with your own settings - Claude never ran these):
+  node packages/db/seed.js
+  node packages/db/seed-diagnostic.js
+Both are safe to run again.
 
-TESTED: on a scratch copy of the database with a signed-in test student: before 0063 the student changed an answer key; after 0063 the same attempt changes 0 rows and reading still works; a confirmed or admin-field payment insert is refused, the normal pending claim is accepted, and a pending claim cannot be flipped to confirmed. 0063 ran twice with no error; the undo block was run and 0063 re-applied. New test t122 (31 checks); two deliberate breaks both fail it; type check; full test suite (94 passed, 4 known-old); production build with a stand-in database.
-NOT TESTED: anything on the live website or live database (including the new check at /admin/deploy-check).
-NOT BUILT: students can still write their OWN learning records directly (mastery scores and attempts). That only affects their own reports; closing it needs the tutor to write with the server key, a larger change that should be tried with supervision. Also students can edit some fields of their own student row (name, grade, parent link code).
-NOT DEPLOYED: you deploy and you run 0063.
+TESTED
+- New test t123 (27 checks): curriculum shape, unique skill slugs, every question well formed, one correct option, answers grade correctly, accents typed and graded, wiring. Full npm test: 95 passed, 4 known-stale (t3, t4, t42a, t42c), 0 failed (one earlier run showed one failure that did not repeat on re-run; the file was not identified).
+- TypeScript check clean; production build succeeded (with a stand-in for the web fonts and a fake database address).
+
+NOT TESTED
+- Nothing was seen live: no student, no browser, no real database. The keypad was not looked at on a phone.
+- The seed commands were not run on any real database.
+- Spelling was machine-checked only; no French teacher has read the questions.
+
+NOT BUILT
+- Class IX French; listening and speaking; automatic marking of free writing (writing is practised through objective questions only).
+
+NOT DEPLOYED
+- Nothing was deployed or changed on your live site or database.

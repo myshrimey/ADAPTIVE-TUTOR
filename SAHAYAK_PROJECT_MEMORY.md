@@ -155,3 +155,4 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v120 (2026-11-09): tutor message, typed answer and payment claim checked on the server (core/safety/chat-input.ts, t120). No migration.
 - v121 (2026-11-09): onboarding input checked on the server (core/onboarding/onboarding-input.ts, t121). No migration.
 - v122 (2026-11-09): migration 0063 closes two too-open write rules (question edit for any signed-in account; payment insert as confirmed). Deploy v122 website first, then run 0063. Open: students can still write their own learning records directly (owner 'for all' rules).
+- v123 (2026-11-10): French (Class X) added as pilot: 19 chapters, 71 skills, 356 AI-written needs_review questions, accent keypad, accent-aware grading. No migration. After deploy run seed.js then seed-diagnostic.js. Needs a French teacher's review.

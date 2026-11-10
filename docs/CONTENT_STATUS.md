@@ -18,6 +18,7 @@ What each subject actually contains, how far it has been checked, and what Sahay
 | English Language & Literature | pilot | 8 chapters, 21 skills | 21 (1 per skill) | AI-written; needs_review |
 | Hindi Course A | pilot | 8 chapters, 20 skills | 20 (1 per skill) | AI-written; needs_review. Questions are in Latin script/English only |
 | Computer Applications | pilot | 11 chapters, 38 skills (v104 added the 3 official units) | 96 (21 older + 75 v104) | AI-written, needs_review; older chapters (Boolean logic, spreadsheets, algorithms) are not in the 2026-27 syllabus summaries, teacher to decide |
+| French (Class X) | pilot | 19 chapters, 71 skills (v123) | 356 (71 diagnostic + 285 practice) | AI-written, needs_review; Class X only; objective practice for writing; not seen live |
 
 Depth beyond those starter questions comes from the generate-and-persist mechanism (v32/v33): AI-generated questions are saved as `needs_review`.
 
@@ -26,6 +27,9 @@ Depth beyond those starter questions comes from the generate-and-persist mechani
 
 ## Update v105 (2026-11-04)
 203 questions added (Maths 139, Science 64), all `needs_review`, written for Sahayak. Science gains the 3 chapters it lacked (Heredity, Human Eye, Our Environment). Maths and Science are `ready`; the loader now keeps these questions out of `verified`. Details: docs/CONTENT_V105.md.
+
+## Update v123 (2026-11-10)
+French (Class X) added as a pilot subject: 356 questions, all `needs_review`, written for Sahayak from the 2026-27 CBSE syllabus and the Entre Jeunes lessons 2-8 and 10. Details: docs/CONTENT_V123.md.
 
 ## Known limitations / things a teacher should look at first
 - Hindi: the "Kanyadaan" poem question tests a general reading rather than a specific fact; Lekhan (formal letter / notice) questions are general rather than tied to a specific marking rule.

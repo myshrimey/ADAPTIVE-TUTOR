@@ -95,6 +95,7 @@ REQ = [
 ('R70','O6','Claude-chosen (security/cost): what a student types and what a family submits as a payment claim must be checked on the server',PC,'v120: tutor message, typed answer and payment claim are size/shape checked before use; plain-words messages. Not seen live.'),
 ('R71','O6','Claude-chosen (security): onboarding must check what it is given',PC,'v121: onboarding name, class, subjects and target date are checked on the server; plain-words messages. Not seen live.'),
 ('R72','O6','Claude-chosen (security, critical): a signed-in account must not be able to edit questions or create a confirmed payment',PC,'v122: migration 0063 + server-key explanation save; tested on scratch Postgres with a before/after control. Needs founder to run 0063 after deploying v122. Not seen live.'),
+('R73','O6','Founder request: add French (Class X) as a subject with all its content',PC,'v123: curriculum 19 chapters/71 skills, 356 questions (needs_review), accent keypad, accent-aware grading; t123. Needs deploy + seed commands + a French teacher review. Not seen live.'),
  ('R50','O8','Phase 0 findings (12 items) produced', CM, 'PHASE0_AUDIT.md. Awaiting founder acceptance.'),
  ('R51','O8','Create the persistent registry and control documents under repository conventions', PC, 'Markdown set created. Database-backed records are Phase 1.'),
  ('R52','O8','Present Phase 0 findings and proposed Phase 1 tasks; wait for the founder to choose', CM, 'Presented in the chat reply of 2026-10-31. Founder choice pending.'),
@@ -166,6 +167,7 @@ TASKS = [
 ('TASK-088','P6','Check tutor message, answer size and payment claim on the server','O6','R70','TASK-087','S',RT,'v120: chat-input.ts; 52 checks in t120; two deliberate breaks caught; no migration.'),
 ('TASK-089','P6','Check onboarding input on the server','O6','R71','TASK-088','S',RT,'v121: onboarding-input.ts; 56 checks in t121; two deliberate breaks caught; no migration.'),
 ('TASK-090','P6','Close the open question-edit and payment-insert database rules','O6','R72','TASK-089','S',RT,'v122: 0063; t122 (31 checks); two deliberate breaks caught; undo block tested; founder must apply 0063.'),
+('TASK-091','P6','Add French (Class X) subject, content, keypad and grading','O6','R73','TASK-090','S',RT,'v123: t123 (27 checks); no migration; founder runs the two seed commands after deploy; teacher review pending.'),
 ]
 
 reqid = {r[0] for r in REQ}
@@ -404,6 +406,7 @@ EXECUTIONS = [
 ('EX-0032','2026-11-09','founder chat request (continue building)','v120: tutor message, answer size and payment claim checked (TASK-088).','core/safety/chat-input.ts; api/session/message,answer; api/pilot/payment; learn/page.tsx; PilotPaymentForm.tsx; tests/t120.ts','none','t120, mutation checks, type check, full npm test, production build','Not deployed; not seen live'),
 ('EX-0033','2026-11-09','founder chat request (continue building)','v121: onboarding input checked (TASK-089).','core/onboarding/onboarding-input.ts; api/student/onboarding/route.ts; HomeClient.tsx; tests/t121.ts','none','t121, mutation checks, type check, full npm test, production build','Not deployed; not seen live'),
 ('EX-0034','2026-11-09','founder chat request (continue building)','v122: closed two too-open database write rules (TASK-090).','0063_close_open_write_rules.sql; core/explanations/ensure-explanation.ts; deploy-check; ROLLBACK_NOTES; DATABASE_SCHEMA; tests/t122.ts','0063 (rules only; no tables or columns)','scratch Postgres before/after control, undo + re-apply, t122, t95, t101, full npm test, production build','Not deployed; migration not applied to the live database; live policies read only'),
+('EX-0035','2026-11-10','founder chat request (add French with syllabus and textbook)','v123: French subject added (TASK-091).','seed/cbse-class10-french*.json; seed-generators/fr_*.py gen_french_*.py build_french.py; core answers/grading/blueprint/translation/taxonomy; AnswerInput; HomeClient; SubjectIcon; tests/t123.ts','none (seed data only)','t123, tsc, full npm test, production build','Not deployed; seeds not run on the live database; no teacher review'),
 ]
 ALLTEXT = open(OUT + '/MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md').read().split('\n---\n', 1)[1].lstrip('\n')
 LEG = {

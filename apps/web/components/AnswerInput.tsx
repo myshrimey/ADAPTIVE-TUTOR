@@ -3,7 +3,7 @@
 // Blocks wrong characters while typing (letters in a number answer, digits in a word answer), shows a plain warning,
 // and offers an on-screen symbol keypad for maths and science answers.
 import { useRef, useState } from 'react';
-import { filterTyped, inputKindOf, validateAnswer, NUMBER_PAD, MATH_KEYPAD, type InputKind } from '@adaptive-tutor/core';
+import { filterTyped, inputKindOf, validateAnswer, NUMBER_PAD, MATH_KEYPAD, FRENCH_KEYS, type InputKind } from '@adaptive-tutor/core';
 
 interface Props {
   value: string;
@@ -31,6 +31,7 @@ export function AnswerInput({ value, onChange, questionType, inputKind, multilin
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState(0);
   const showPad = keypad && kind !== 'text' && kind !== 'choice';
+  const isFrench = kind === 'accented';
 
   const apply = (raw: string) => {
     const r = filterTyped(kind, raw, lang, !!multiline);
@@ -58,7 +59,7 @@ export function AnswerInput({ value, onChange, questionType, inputKind, multilin
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => apply(e.target.value),
     onPaste: undefined,
   };
-  const pad = kind === 'number' ? [{ id: 'n', label: '123', keys: NUMBER_PAD }] : MATH_KEYPAD;
+  const pad = kind === 'number' ? [{ id: 'n', label: '123', keys: NUMBER_PAD }] : isFrench ? [{ id: 'fr', label: 'é è à', keys: FRENCH_KEYS }] : MATH_KEYPAD;
   const keyStyle: React.CSSProperties = { minWidth: '2.4rem', minHeight: '2.4rem', padding: '0.2rem 0.5rem', border: '1px solid var(--line, #cbd5e1)', borderRadius: 8, background: '#fff', fontSize: '1.05rem', cursor: 'pointer' };
 
   return (
@@ -68,7 +69,7 @@ export function AnswerInput({ value, onChange, questionType, inputKind, multilin
       {showPad && (
         <div style={{ marginTop: '0.4rem' }}>
           <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open} style={{ ...keyStyle, fontSize: '0.85rem' }}>
-            {open ? 'Hide keypad ▲' : (kind === 'number' ? 'Number keypad ▼' : 'Symbols keypad ▼  (x², √, π, ≤ …)')}
+            {open ? 'Hide keypad ▲' : (kind === 'number' ? 'Number keypad ▼' : isFrench ? 'French letters ▼  (é, è, à, ç …)' : 'Symbols keypad ▼  (x², √, π, ≤ …)')}
           </button>
           {open && (
             <div style={{ marginTop: '0.4rem', padding: '0.5rem', border: '1px solid var(--line, #cbd5e1)', borderRadius: 10, background: '#f8fafc' }}>

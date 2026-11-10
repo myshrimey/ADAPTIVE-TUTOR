@@ -6,10 +6,10 @@ import type { AIProvider } from '../ai-provider/ai-provider.interface';
 //  - Translations are written by AI and are labelled "ai_translated" until a teacher checks them.
 //  - Marking never depends on Hindi text, except short answers (the Hindi expected answer is also accepted).
 //  - A translation is REJECTED by code if it loses any number from the question (so "12" can never become "21").
-//  - Language subjects (English, Hindi A/B) are not translated.
+//  - Language subjects (English, Hindi A/B, French) are not translated.
 
 export type MediumLang = 'en' | 'hi';
-export const HINDI_MEDIUM_EXCLUDED_SUBJECTS = ['english', 'hindi', 'hindi-b'];
+export const HINDI_MEDIUM_EXCLUDED_SUBJECTS = ['english', 'hindi', 'hindi-b', 'french'];
 export const TRANSLATION_BATCH_SIZE = 6;
 
 const DEVANAGARI = /[ऀ-ॿ]/;
