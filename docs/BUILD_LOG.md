@@ -820,3 +820,9 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Gaps found by scanning routes that read a request body without any limit: `/api/session/message` (any length, any type, straight into the AI prompt and the messages table), `/api/session/answer` (any size), `/api/pilot/payment` (any amount incl. negative/huge, any date string, unlimited reference).
 - New `packages/core/safety/chat-input.ts`: `checkTutorMessage` (text only, control characters removed, 1..1000 chars), `checkAnswerSize` (JSON size <= 4000), `cleanPaymentClaim` (amount 1..1,000,000, real YYYY-MM-DD date from 400 days back to 2 days ahead, reference <= 60 safe characters), plus `CHAT_ERROR_TEXT` / `PAYMENT_ERROR_TEXT`. Routes check before the tutor runs or anything is saved; the Learn page and payment form show plain sentences.
 - Test t120 (52 checks); two deliberate breaks both caught. No migration.
+
+## v121 (2026-11-09) - onboarding input is checked on the server
+- Gap: `/api/student/onboarding` used the raw request body: no cap on the name (sign-up caps it at 60), unlimited subject list into a database `in(...)` filter, any text as the target date.
+- New `packages/core/onboarding/onboarding-input.ts` (`cleanOnboardingInput`, `ONBOARDING_ERROR_TEXT`). The route now cleans first and uses only the cleaned copy. Page shows plain sentences.
+- Checked the contributor routes too: `contributeQuestion` already runs `cleanContribution`, so no change needed there.
+- Test t121 (56 checks); two deliberate breaks both caught. No migration.

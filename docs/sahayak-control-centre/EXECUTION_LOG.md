@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0033 - 2026-11-09 - founder chat request (continue building)
+- Summary: v121: onboarding input checked (TASK-089).
+- Files: core/onboarding/onboarding-input.ts; api/student/onboarding/route.ts; HomeClient.tsx; tests/t121.ts
+- Database: none
+- Tests: t121, mutation checks, type check, full npm test, production build
+- Open: Not deployed; not seen live
+
 ## EX-0032 - 2026-11-09 - founder chat request (continue building)
 - Summary: v120: tutor message, answer size and payment claim checked (TASK-088).
 - Files: core/safety/chat-input.ts; api/session/message,answer; api/pilot/payment; learn/page.tsx; PilotPaymentForm.tsx; tests/t120.ts

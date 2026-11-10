@@ -7,7 +7,7 @@ import { createClient } from '@/lib/supabase-client';
 import { useLanguage } from '@/components/LanguageProvider';
 import { accessErrorMessage } from '@/lib/access-errors';
 import { FaqSection } from '@/components/FaqSection';
-import { validateUsername, validatePassword, validateOptionalEmail, generateReadablePassword, IDENTITY_ERROR_TEXT, LOGIN_BLOCKED_TEXT } from '@adaptive-tutor/core';
+import { validateUsername, validatePassword, validateOptionalEmail, generateReadablePassword, IDENTITY_ERROR_TEXT, LOGIN_BLOCKED_TEXT, ONBOARDING_ERROR_TEXT } from '@adaptive-tutor/core';
 
 // Shown at sign-up. `status` mirrors subjects.status in the database (the
 // database is the real gate — registerSubject rejects anything not usable);
@@ -217,7 +217,7 @@ export function HomeClient({ signedIn = false }: { signedIn?: boolean }) {
     setSubmitting(false);
 
     if (json.error) {
-      setError(accessErrorMessage(json.error) ?? json.error);
+      setError(accessErrorMessage(json.error) ?? (ONBOARDING_ERROR_TEXT as Record<string, string>)[json.error] ?? json.error);
       return;
     }
     if (prefLanguage !== lang) setLang(prefLanguage);

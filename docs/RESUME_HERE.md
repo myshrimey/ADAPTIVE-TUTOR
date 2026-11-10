@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v120 (2026-11-09)
+## Latest delivery - v121 (2026-11-09)
+Onboarding (the step where a student picks subjects) is now checked on the server: name (tidied, up to 60 characters), board/class labels, the subject list (1 to 12 known-style names, repeats ignored), target date (a real date from today up to three years ahead), and exam year, language and daily minutes forced to safe values. Refusals show plain sentences. No migration. Apply after v120: `sahayak-v121-onboarding-input-delta.zip`.
+
+## Previous delivery - v120 (2026-11-09)
 The tutor chat box, typed answers and the payment form are now checked on the server. A chat message must be text of at most 1000 characters (the box allows 500), a typed answer must be small, and a payment claim needs a sensible amount (1 to 10 lakh rupees), a real date (not in the future, within a year) and a clean reference. Refusals show plain sentences. This also stops a huge message from reaching the AI (cost). No migration. Apply after v119: `sahayak-v120-chat-payment-limits-delta.zip`.
 
 ## Previous delivery - v119 (2026-11-09)

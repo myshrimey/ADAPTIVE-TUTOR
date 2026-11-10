@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient } from '@/lib/supabase-server';
 import { signupsOpen } from '@/lib/signups';
-import { logEvent, registerSubject, assertAccess, assertSubjectAllowed, publicError } from '@adaptive-tutor/core';
+import { logEvent, registerSubject, assertAccess, assertSubjectAllowed, publicError, cleanOnboardingInput } from '@adaptive-tutor/core';
 
 interface OnboardingBody {
   displayName: string;
@@ -10,18 +10,19 @@ interface OnboardingBody {
   class: string; // e.g. '10'
   subject?: string; // legacy single subject slug; kept so older clients keep working
   subjects?: string[]; // subject slugs the family registers for, e.g. ['maths','science','english']
-  targetDate?: string;
+  targetDate?: string | null;
   examYear?: number;
   preferredLanguage?: string;
-  dailyStudyMinutes?: number;
+  dailyStudyMinutes?: number | null;
 }
 
 export async function POST(request: Request) {
   try {
-    const body = (await request.json()) as OnboardingBody;
-    if (!body.displayName || !body.board || !body.class) {
-      return NextResponse.json({ data: null, error: 'missing_required_fields' }, { status: 400 });
-    }
+    // v121: every value is checked and tidied before any database work; only `body` (the cleaned copy) is used below.
+    const checked = cleanOnboardingInput(await request.json().catch(() => ({})));
+    if (!checked.ok) return NextResponse.json({ data: null, error: checked.code }, { status: 400 });
+    const c = checked.value;
+    const body = { displayName: c.displayName, grade: c.grade, board: c.board, class: c.classLevel, subjects: c.subjects, targetDate: c.targetDate, examYear: c.examYear, preferredLanguage: c.preferredLanguage, dailyStudyMinutes: c.dailyStudyMinutes } satisfies OnboardingBody;
 
     const supabase = await createServerClient();
     const {
@@ -85,7 +86,7 @@ export async function POST(request: Request) {
     // Register every chosen subject (a student may take 5-6). The first one in
     // the list becomes the active subject. Subjects that are 'coming soon' /
     // 'in development' are rejected by registerSubject.
-    const requestedSlugs = (body.subjects && body.subjects.length > 0 ? body.subjects : [body.subject ?? 'maths']).filter(Boolean);
+    const requestedSlugs = body.subjects;
     const { data: subjectRows, error: subjErr } = await service
       .from('subjects')
       .select('id, slug')
@@ -116,10 +117,7 @@ export async function POST(request: Request) {
           onboarding_completed: true,
           exam_year: body.examYear === 2028 ? 2028 : 2027,
           preferred_language: body.preferredLanguage === 'hi' ? 'hi' : 'en',
-          daily_study_minutes:
-            Number.isFinite(body.dailyStudyMinutes) && (body.dailyStudyMinutes as number) >= 5 && (body.dailyStudyMinutes as number) <= 480
-              ? Math.round(body.dailyStudyMinutes as number)
-              : null,
+          daily_study_minutes: body.dailyStudyMinutes,
           updated_at: new Date().toISOString(),
         },
         { onConflict: 'student_id' }

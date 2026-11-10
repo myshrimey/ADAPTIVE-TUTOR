@@ -1,9 +1,9 @@
-Sahayak v120 - tutor chat, typed answers and payment claims are checked on the server
-Apply after v119: copy these files over your repo (same paths). No database change.
+Sahayak v121 - onboarding input is checked on the server
+Apply after v120: copy these files over your repo (same paths). No database change.
 
-WHAT CHANGED: the tutor chat message must be text, 1 to 1000 characters (the box allows 500); a typed answer must be small; a payment claim needs an amount from 1 to 10,00,000 rupees, a real date (not more than 2 days ahead, not older than 400 days) and a clean reference (letters, numbers, spaces and . _ / -, up to 60). Refusals show plain sentences. A huge message can no longer reach the AI.
+WHAT CHANGED: the onboarding step (choosing subjects) now cleans what it receives before touching the database: the student's name (tidied, up to 60 characters), board/class labels, the subject list (1 to 12, repeats ignored), the target date (a real date from today up to three years ahead), and exam year, language and daily minutes are forced to safe values. Refusals show plain sentences.
 
-TESTED: new test t120 (52 checks); two deliberate breaks both fail it; type check; full test suite (92 passed, 4 known-old); production build with a stand-in database.
-NOT TESTED: sending a chat message or a payment claim on the live website.
-NOT BUILT: other routes still without limits (see the final reply).
+TESTED: new test t121 (56 checks); two deliberate breaks both fail it; type check; full test suite (93 passed, 4 known-old); production build with a stand-in database.
+NOT TESTED: onboarding on the live website.
+NOT BUILT: nothing else changed.
 NOT DEPLOYED: you deploy.

@@ -195,3 +195,4 @@ Read `docs/RESUME_HERE.md` — it always holds the exact next three tasks, curre
 - v117 (2026-11-09): any page that changes a password must call passwordProblemFor first and never show the raw Supabase error (t117). The real enforcement is the Supabase Auth password policy.
 - v119 (2026-11-09): /api/profile must call cleanProfileInput before any save and never pass the raw request body to the database (t119); the Profile page shows PROFILE_ERROR_TEXT, never raw codes.
 - v120 (2026-11-09): /api/session/message must call checkTutorMessage before the tutor runs, /api/session/answer checkAnswerSize, /api/pilot/payment cleanPaymentClaim before saving (t120). Never pass the raw body on.
+- v121 (2026-11-09): /api/student/onboarding must call cleanOnboardingInput first and use only the cleaned copy (t121).
