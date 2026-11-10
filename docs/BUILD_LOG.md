@@ -843,3 +843,9 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Test t123 (27 checks). No migration (DB version stays v122).
 - NOT done: teacher review, free-writing marking, Class IX, listening/speaking, any live check.
 
+## v124 (2026-11-10) - typed answers wrongly marked wrong (grading)
+- Trigger: a student shared three screenshots: "5,-1" for "x = 5, -1", "6 or -8" for "-8, 6", "29,106" for 29106, each shown "Not this time".
+- Cause (read from `core/question-engine/grading.ts`): the checker split on "=" so the missing "x =" gave a different number of parts; "or" was not a separator; a comma was always a list separator.
+- Fix: "or / and / ; / या / और" are list separators, repeated "x =" after a comma is dropped, a bare leading variable on only one side is ignored, a thousands comma (western or Indian grouping) is removed when the expected answer is a single number, a final full stop is ignored. Different variable names, missing/wrong/sign-flipped roots and odd comma placing are still wrong.
+- Test t124 (12 checks). No migration.
+- NOT checked: other question types the same student may have hit; any live check. Other answers that were wrongly marked wrong earlier are not recoverable from here.

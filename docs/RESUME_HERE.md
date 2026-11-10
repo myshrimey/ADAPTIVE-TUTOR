@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v123 (2026-11-10)
+## Latest delivery - v124 (2026-11-10)
+A student's screenshots showed correct maths answers marked wrong. Three causes, all in answer checking: typing roots without "x =" ("5,-1" for "x = 5, -1"), writing "6 or -8" instead of "-8, 6", and typing a thousands comma ("29,106" for 29106). All three are now accepted; a wrong, missing or sign-flipped answer is still wrong. No migration. Apply after v123: `sahayak-v124-answer-check-delta.zip`. Not seen live.
+
+## Previous delivery - v123 (2026-11-10)
 French added as a new subject (Class X, pilot). The website gets a French card, a French-letters keypad for typed answers (é, è, ç ...) and accent-aware answer checking. The content is 19 chapters, 71 skills and 356 original questions (grammar, reading, writing practice, and the textbook's culture lessons 2-8 and 10), all marked needs_review: a French teacher should read them. No migration. After deploying run `node packages/db/seed.js` then `node packages/db/seed-diagnostic.js` with your own settings. Apply after v122: `sahayak-v123-french-delta.zip`. Nothing was seen live.
 
 ## Previous delivery - v122 (2026-11-09)

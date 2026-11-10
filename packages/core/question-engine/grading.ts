@@ -17,10 +17,17 @@
 
 export function gradeAnswer(expected: unknown, given: unknown): boolean {
   const expectedStr = extractString(expected);
-  const givenStr = extractString(given);
+  // v124: "29,106" (a thousands comma, Indian "2,91,106" too) means 29106 when the expected answer is one plain number.
+  let givenStr = extractString(given);
+  if (!expectedStr.includes(',') && /^\s*[-+]?\d{1,3}(,\d{3})+(\.\d+)?\s*$/.test(givenStr) || (!expectedStr.includes(',') && /^\s*[-+]?\d{1,2}(,\d{2})+,\d{3}(\.\d+)?\s*$/.test(givenStr))) givenStr = givenStr.replace(/,/g, '');
 
-  const expectedSets = splitIntoComparableSets(expectedStr);
-  const givenSets = splitIntoComparableSets(givenStr);
+  let expectedSets = splitIntoComparableSets(expectedStr);
+  let givenSets = splitIntoComparableSets(givenStr);
+
+  // v124: "5, -1" and "x = 5, -1" are the same answer: when one side only adds a bare variable name ("x =") in front, ignore it.
+  const bareVar = (set: string[]) => set.length === 1 && /^[+]?[a-z][a-z0-9]?$/.test(set[0]);
+  if (expectedSets.length === givenSets.length + 1 && bareVar(expectedSets[0])) expectedSets = expectedSets.slice(1);
+  else if (givenSets.length === expectedSets.length + 1 && bareVar(givenSets[0])) givenSets = givenSets.slice(1);
 
   if (expectedSets.length !== givenSets.length) return false;
   return expectedSets.every((set, i) => sameSet(set, givenSets[i]));
@@ -47,6 +54,8 @@ function splitIntoComparableSets(raw: string): string[][] {
 }
 
 function normalize(s: string): string {
+  // v124: "6 or -8", "6 and -8", "6; -8" and "x=6 or x=-8" are lists of answers, like "6, -8".
+  s = s.replace(/\s+(?:or|and|या|और)\s+/gi, ',').replace(/;/g, ',').replace(/,\s*[a-z]\s*=/gi, ',').replace(/\.\s*$/, '');
   return s
     // v123 (French): a phone keyboard types the curly apostrophe (j’ai) and may type an accent as a separate mark;
     // write both one way first so "j’ai mangé" matches "j'ai mangé". Maths answers are unaffected.

@@ -1,31 +1,26 @@
-Sahayak v123 - French (Class X) added as a new pilot subject
-=============================================================
-Apply after v122. Copy these files over your project (same folders), then deploy the website the way you normally do.
-No database migration. Seed data only.
+Sahayak v124 - typed answers wrongly marked wrong (fix)
+========================================================
+Apply after v123. Copy these files over your project (same folders), then deploy the website the way you normally do.
+No database migration, nothing to run.
 
-WHAT CHANGED (plain English)
-- A new subject, French, on the home list (Pilot tag). Class X only.
-- 19 chapters and 71 skills: nine grammar chapters (verbs, pronouns, negation, questions, indirect speech, relative pronouns, demonstratives, possessives, subjunctive), reading comprehension, writing tasks, and eight lessons from the Entre Jeunes textbook (lessons 2-8 and 10).
-- 356 original multiple-choice questions (one short answer), all marked needs_review. Nothing is copied from the textbook. Verb answers were computed with a conjugation program, the rest were written by hand and spell-checked.
-- When a student types a French answer with accents, a French letters keypad appears (e, accents, c-cedilla, oe...). Answers are checked strictly for accents, but a curly apostrophe and the two ways of storing an accent are both accepted.
-- French is not translated to Hindi-medium; it has a planning blueprint (objective practice only).
+WHAT WAS WRONG (from your student's three screenshots)
+1. "5,-1" was marked wrong for "x = 5, -1" - the checker wanted "x =" typed too.
+2. "6 or -8" was marked wrong for "-8, 6" - the word "or" was not understood.
+3. "29,106" was marked wrong for 29106 - the comma was read as a list, not a thousands comma.
 
-AFTER DEPLOYING (you, with your own settings - Claude never ran these):
-  node packages/db/seed.js
-  node packages/db/seed-diagnostic.js
-Both are safe to run again.
+WHAT CHANGED
+- The answer checker now accepts: roots with or without "x =", lists joined with "or", "and" or ";", "x = 6 or x = -8", thousands commas (29,106 and Indian 2,91,106) when the right answer is one number, and a full stop at the end.
+- Still marked wrong: a missing root, a wrong root, a sign-flipped root, a different number, odd comma placing, a different variable name.
 
 TESTED
-- New test t123 (27 checks): curriculum shape, unique skill slugs, every question well formed, one correct option, answers grade correctly, accents typed and graded, wiring. Full npm test: 95 passed, 4 known-stale (t3, t4, t42a, t42c), 0 failed (one earlier run showed one failure that did not repeat on re-run; the file was not identified).
-- TypeScript check clean; production build succeeded (with a stand-in for the web fonts and a fake database address).
+- New test t124 (12 checks) including all three screenshots and the "still wrong" cases. Full npm test: 96 passed, 4 known-stale (t3, t4, t42a, t42c), 0 failed. TypeScript check clean.
 
 NOT TESTED
-- Nothing was seen live: no student, no browser, no real database. The keypad was not looked at on a phone.
-- The seed commands were not run on any real database.
-- Spelling was machine-checked only; no French teacher has read the questions.
+- Nothing was seen live; I only have the screenshots. Other kinds of correct answers that the checker might refuse (for example an unusual way of writing a fraction or an expression like 2(x+1) for 2x+2) were NOT looked at: the checker is still not a full algebra system.
+- Answers that students already typed and were wrongly marked wrong earlier are not corrected.
 
 NOT BUILT
-- Class IX French; listening and speaking; automatic marking of free writing (writing is practised through objective questions only).
+- A way to re-mark earlier answers.
 
 NOT DEPLOYED
 - Nothing was deployed or changed on your live site or database.

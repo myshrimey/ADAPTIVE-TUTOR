@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0036 - 2026-11-10 - founder chat (student screenshots)
+- Summary: v124: answer checking fixed (TASK-092).
+- Files: core/question-engine/grading.ts; deploy-check; tests/t124.ts
+- Database: none
+- Tests: t124, tsc, full npm test
+- Open: Not deployed; not seen live
+
 ## EX-0035 - 2026-11-10 - founder chat request (add French with syllabus and textbook)
 - Summary: v123: French subject added (TASK-091).
 - Files: seed/cbse-class10-french*.json; seed-generators/fr_*.py gen_french_*.py build_french.py; core answers/grading/blueprint/translation/taxonomy; AnswerInput; HomeClient; SubjectIcon; tests/t123.ts

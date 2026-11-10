@@ -1,7 +1,7 @@
 # Master Objective Tracker
 Updated 2026-10-31. Only SAH-PROMPT-0009 is tracked at requirement level. Status words are the 14 allowed ones. "Founder acceptance" is separate from technical status and is empty for everything (the founder has not accepted anything under this system yet).
 
-Counts for SAH-PROMPT-0009: 73 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 46, READY FOR TESTING: 8.
+Counts for SAH-PROMPT-0009: 74 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 47, READY FOR TESTING: 8.
 
 ## SAH-PROMPT-0009 / O1: Persistent registry and execution control (Parts 1-3, 11, 12)
 Requirements 11; PARTIALLY COMPLETED 11
@@ -74,7 +74,7 @@ Requirements 4; NOT STARTED 2, PARTIALLY COMPLETED 2
 | R40 | Flag Indian privacy / legal questions for professional review instead of claiming compliance | PARTIALLY COMPLETED | pending | Flagged in PHASE0_AUDIT.md section 10; review itself not done. |
 
 ## SAH-PROMPT-0009 / O6: Database and architecture rules (Part 8)
-Requirements 24; COMPLETED 2, PARTIALLY COMPLETED 21, READY FOR TESTING 1
+Requirements 25; COMPLETED 2, PARTIALLY COMPLETED 22, READY FOR TESTING 1
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
@@ -102,6 +102,7 @@ Requirements 24; COMPLETED 2, PARTIALLY COMPLETED 21, READY FOR TESTING 1
 | R71 | Claude-chosen (security): onboarding must check what it is given | PARTIALLY COMPLETED | pending | v121: onboarding name, class, subjects and target date are checked on the server; plain-words messages. Not seen live. |
 | R72 | Claude-chosen (security, critical): a signed-in account must not be able to edit questions or create a confirmed payment | PARTIALLY COMPLETED | pending | v122: migration 0063 + server-key explanation save; tested on scratch Postgres with a before/after control. Needs founder to run 0063 after deploying v122. Not seen live. |
 | R73 | Founder request: add French (Class X) as a subject with all its content | PARTIALLY COMPLETED | pending | v123: curriculum 19 chapters/71 skills, 356 questions (needs_review), accent keypad, accent-aware grading; t123. Needs deploy + seed commands + a French teacher review. Not seen live. |
+| R74 | Real student report (screenshots): correct typed maths answers were marked wrong | PARTIALLY COMPLETED | pending | v124: grading accepts "or" lists, missing "x =", thousands commas; t124. Not seen live. |
 
 ## SAH-PROMPT-0009 / O7: Testing and acceptance (Part 9)
 Requirements 6; NOT STARTED 4, PARTIALLY COMPLETED 2

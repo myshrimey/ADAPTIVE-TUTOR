@@ -96,6 +96,7 @@ REQ = [
 ('R71','O6','Claude-chosen (security): onboarding must check what it is given',PC,'v121: onboarding name, class, subjects and target date are checked on the server; plain-words messages. Not seen live.'),
 ('R72','O6','Claude-chosen (security, critical): a signed-in account must not be able to edit questions or create a confirmed payment',PC,'v122: migration 0063 + server-key explanation save; tested on scratch Postgres with a before/after control. Needs founder to run 0063 after deploying v122. Not seen live.'),
 ('R73','O6','Founder request: add French (Class X) as a subject with all its content',PC,'v123: curriculum 19 chapters/71 skills, 356 questions (needs_review), accent keypad, accent-aware grading; t123. Needs deploy + seed commands + a French teacher review. Not seen live.'),
+('R74','O6','Real student report (screenshots): correct typed maths answers were marked wrong',PC,'v124: grading accepts "or" lists, missing "x =", thousands commas; t124. Not seen live.'),
  ('R50','O8','Phase 0 findings (12 items) produced', CM, 'PHASE0_AUDIT.md. Awaiting founder acceptance.'),
  ('R51','O8','Create the persistent registry and control documents under repository conventions', PC, 'Markdown set created. Database-backed records are Phase 1.'),
  ('R52','O8','Present Phase 0 findings and proposed Phase 1 tasks; wait for the founder to choose', CM, 'Presented in the chat reply of 2026-10-31. Founder choice pending.'),
@@ -168,6 +169,7 @@ TASKS = [
 ('TASK-089','P6','Check onboarding input on the server','O6','R71','TASK-088','S',RT,'v121: onboarding-input.ts; 56 checks in t121; two deliberate breaks caught; no migration.'),
 ('TASK-090','P6','Close the open question-edit and payment-insert database rules','O6','R72','TASK-089','S',RT,'v122: 0063; t122 (31 checks); two deliberate breaks caught; undo block tested; founder must apply 0063.'),
 ('TASK-091','P6','Add French (Class X) subject, content, keypad and grading','O6','R73','TASK-090','S',RT,'v123: t123 (27 checks); no migration; founder runs the two seed commands after deploy; teacher review pending.'),
+('TASK-092','P6','Fix answer checking for three forms of correct answers a student typed','O6','R74','TASK-091','S',RT,'v124: t124 (12 checks); no migration.'),
 ]
 
 reqid = {r[0] for r in REQ}
@@ -407,6 +409,7 @@ EXECUTIONS = [
 ('EX-0033','2026-11-09','founder chat request (continue building)','v121: onboarding input checked (TASK-089).','core/onboarding/onboarding-input.ts; api/student/onboarding/route.ts; HomeClient.tsx; tests/t121.ts','none','t121, mutation checks, type check, full npm test, production build','Not deployed; not seen live'),
 ('EX-0034','2026-11-09','founder chat request (continue building)','v122: closed two too-open database write rules (TASK-090).','0063_close_open_write_rules.sql; core/explanations/ensure-explanation.ts; deploy-check; ROLLBACK_NOTES; DATABASE_SCHEMA; tests/t122.ts','0063 (rules only; no tables or columns)','scratch Postgres before/after control, undo + re-apply, t122, t95, t101, full npm test, production build','Not deployed; migration not applied to the live database; live policies read only'),
 ('EX-0035','2026-11-10','founder chat request (add French with syllabus and textbook)','v123: French subject added (TASK-091).','seed/cbse-class10-french*.json; seed-generators/fr_*.py gen_french_*.py build_french.py; core answers/grading/blueprint/translation/taxonomy; AnswerInput; HomeClient; SubjectIcon; tests/t123.ts','none (seed data only)','t123, tsc, full npm test, production build','Not deployed; seeds not run on the live database; no teacher review'),
+('EX-0036','2026-11-10','founder chat (student screenshots)','v124: answer checking fixed (TASK-092).','core/question-engine/grading.ts; deploy-check; tests/t124.ts','none','t124, tsc, full npm test','Not deployed; not seen live'),
 ]
 ALLTEXT = open(OUT + '/MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md').read().split('\n---\n', 1)[1].lstrip('\n')
 LEG = {
