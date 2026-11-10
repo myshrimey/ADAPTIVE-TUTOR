@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0032 - 2026-11-09 - founder chat request (continue building)
+- Summary: v120: tutor message, answer size and payment claim checked (TASK-088).
+- Files: core/safety/chat-input.ts; api/session/message,answer; api/pilot/payment; learn/page.tsx; PilotPaymentForm.tsx; tests/t120.ts
+- Database: none
+- Tests: t120, mutation checks, type check, full npm test, production build
+- Open: Not deployed; not seen live
+
 ## EX-0031 - 2026-11-09 - founder chat request (continue building)
 - Summary: v119: profile save input cleaned and validated (TASK-087).
 - Files: core/profile/profile-input.ts; api/profile/route.ts; profile/page.tsx; tests/t119.ts

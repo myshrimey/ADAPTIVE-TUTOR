@@ -815,3 +815,8 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Gap found by scanning routes: `/api/profile` POST passed the request body straight to the database (no length limits, no shape checks on email, phone, siblings, class rows or percentage).
 - New `packages/core/profile/profile-input.ts` (`cleanProfileInput`, `PROFILE_CAPS`, `PROFILE_ERROR_TEXT`): trims, strips control characters, cuts text to caps, drops non-text values, validates email/phone/siblings (0-20)/class rows (max 4, classes 6-9, unique)/percentage (0-100). The route calls it before saving and returns 400 with a code; the Profile page maps codes to plain sentences.
 - Test t119 (32 checks). No migration.
+
+## v120 (2026-11-09) - tutor message, typed answer and payment claim are checked on the server
+- Gaps found by scanning routes that read a request body without any limit: `/api/session/message` (any length, any type, straight into the AI prompt and the messages table), `/api/session/answer` (any size), `/api/pilot/payment` (any amount incl. negative/huge, any date string, unlimited reference).
+- New `packages/core/safety/chat-input.ts`: `checkTutorMessage` (text only, control characters removed, 1..1000 chars), `checkAnswerSize` (JSON size <= 4000), `cleanPaymentClaim` (amount 1..1,000,000, real YYYY-MM-DD date from 400 days back to 2 days ahead, reference <= 60 safe characters), plus `CHAT_ERROR_TEXT` / `PAYMENT_ERROR_TEXT`. Routes check before the tutor runs or anything is saved; the Learn page and payment form show plain sentences.
+- Test t120 (52 checks); two deliberate breaks both caught. No migration.

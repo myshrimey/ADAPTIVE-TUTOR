@@ -1,9 +1,9 @@
-Sahayak v119 - profile save is checked on the server
-Apply after v118: copy these files over your repo (same paths). No database change.
+Sahayak v120 - tutor chat, typed answers and payment claims are checked on the server
+Apply after v119: copy these files over your repo (same paths). No database change.
 
-WHAT CHANGED: /api/profile now trims and cuts text to sensible lengths, removes control characters, and checks parent email, phone, siblings (0-20), class rows (max 4, classes 6-9, no repeats) and percentage (0-100) before saving. The Profile page shows plain sentences for refusals.
+WHAT CHANGED: the tutor chat message must be text, 1 to 1000 characters (the box allows 500); a typed answer must be small; a payment claim needs an amount from 1 to 10,00,000 rupees, a real date (not more than 2 days ahead, not older than 400 days) and a clean reference (letters, numbers, spaces and . _ / -, up to 60). Refusals show plain sentences. A huge message can no longer reach the AI.
 
-TESTED: new test t119 (32 checks); breaking the route (passing raw values) fails it; type check; full test suite (91 passed, 4 known-old); production build with a stand-in database.
-NOT TESTED: saving a profile on the live website.
-NOT BUILT: nothing else changed.
+TESTED: new test t120 (52 checks); two deliberate breaks both fail it; type check; full test suite (92 passed, 4 known-old); production build with a stand-in database.
+NOT TESTED: sending a chat message or a payment claim on the live website.
+NOT BUILT: other routes still without limits (see the final reply).
 NOT DEPLOYED: you deploy.

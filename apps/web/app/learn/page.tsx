@@ -10,7 +10,7 @@ import { accessErrorMessage } from '@/lib/access-errors';
 import { AnimatedDiagram } from '@/components/AnimatedDiagram';
 import { AnswerFeedback } from '@/components/AnswerFeedback';
 import { SessionProgressReveal, type SessionProgress } from '@/components/SessionProgressReveal';
-import { animationLevelForScore } from '@adaptive-tutor/core';
+import { animationLevelForScore, CHAT_ERROR_TEXT } from '@adaptive-tutor/core';
 import { AnswerInput, answerProblem } from '@/components/AnswerInput';
 import { ReportQuestion } from '@/components/ReportQuestion';
 
@@ -109,6 +109,8 @@ function friendlyError(raw: string): string {
   if (raw === 'unauthenticated') {
     return 'Your session expired — please sign in again.';
   }
+  const chatMsg = (CHAT_ERROR_TEXT as Record<string, string>)[raw];
+  if (chatMsg) return chatMsg;
   return raw;
 }
 

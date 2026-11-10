@@ -97,6 +97,7 @@ export * from './auth/identity';
 export * from './auth/throttle';
 export * from './safety/public-error';
 export * from './safety/rate-limit';
+export * from './safety/chat-input';
 export * from './install-app';
 export * from './portals/portals';
 export * from './reports/test-report.service';

@@ -92,6 +92,7 @@ REQ = [
  ('R67','O6','Claude-chosen (security): password change and reset must follow the sign-up password rules and never show a raw error',PC,'v117: rules checked on both pages, raw error hidden. The real lock is the Supabase Auth password policy (founder to check).'),
  ('R68','O6','Claude-chosen (quality): the test suite must not fail at random',PC,'v118: flaky test t57b fixed (40 of 40 runs pass); cause was in the test, not the product.'),
 ('R69','O6','Claude-chosen (security): the profile save must check what it is given',PC,'v119: profile save input is cleaned and validated on the server; plain-words messages on the page. Not seen live.'),
+('R70','O6','Claude-chosen (security/cost): what a student types and what a family submits as a payment claim must be checked on the server',PC,'v120: tutor message, typed answer and payment claim are size/shape checked before use; plain-words messages. Not seen live.'),
  ('R50','O8','Phase 0 findings (12 items) produced', CM, 'PHASE0_AUDIT.md. Awaiting founder acceptance.'),
  ('R51','O8','Create the persistent registry and control documents under repository conventions', PC, 'Markdown set created. Database-backed records are Phase 1.'),
  ('R52','O8','Present Phase 0 findings and proposed Phase 1 tasks; wait for the founder to choose', CM, 'Presented in the chat reply of 2026-10-31. Founder choice pending.'),
@@ -160,6 +161,7 @@ TASKS = [
  ('TASK-085','P6','Same password rules on change and reset','O6','R67','TASK-084','S',RT,'v117: passwordProblemFor in core/auth/identity.ts, profile and reset pages, t117 (17 checks). Reset-link flow not tested end to end.'),
  ('TASK-086','P6','Fix the flaky test t57b','O6','R68','TASK-085','S',RT,'v118: the test now counts only its own battle mistakes; deliberate break still caught; 40/40 passes.'),
 ('TASK-087','P6','Validate and cap profile save input on the server','O6','R69','TASK-086','S',RT,'v119: cleanProfileInput before save; 32 checks in t119; mutation check; no migration.'),
+('TASK-088','P6','Check tutor message, answer size and payment claim on the server','O6','R70','TASK-087','S',RT,'v120: chat-input.ts; 52 checks in t120; two deliberate breaks caught; no migration.'),
 ]
 
 reqid = {r[0] for r in REQ}
@@ -395,6 +397,7 @@ EXECUTIONS = [
  ('EX-0029','2026-11-09','founder chat request (continue building)','v117: password change and reset follow sign-up rules (TASK-085).','packages/core/auth/identity.ts; apps/web/app/profile/page.tsx; apps/web/app/reset-password/page.tsx; docs/LIVE_JOURNEY_CHECKLIST.md; tests/t117.ts, t95b.ts','none','t117, type check, full npm test, production build','Reset-link email flow not tested; Supabase password policy not checked by Claude; not deployed'),
  ('EX-0030','2026-11-09','founder chat request (continue building)','v118: flaky test t57b fixed (TASK-086).','tests/t57b.ts; tests/t95b.ts; CLAUDE.md','none','t57b x40 runs, mutation check, type check, full npm test','Test change only; not deployed'),
 ('EX-0031','2026-11-09','founder chat request (continue building)','v119: profile save input cleaned and validated (TASK-087).','core/profile/profile-input.ts; api/profile/route.ts; profile/page.tsx; tests/t119.ts','none','t119, type check, full npm test, production build','Not deployed; not seen live'),
+('EX-0032','2026-11-09','founder chat request (continue building)','v120: tutor message, answer size and payment claim checked (TASK-088).','core/safety/chat-input.ts; api/session/message,answer; api/pilot/payment; learn/page.tsx; PilotPaymentForm.tsx; tests/t120.ts','none','t120, mutation checks, type check, full npm test, production build','Not deployed; not seen live'),
 ]
 ALLTEXT = open(OUT + '/MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md').read().split('\n---\n', 1)[1].lstrip('\n')
 LEG = {

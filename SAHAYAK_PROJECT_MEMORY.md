@@ -152,3 +152,4 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v117 (2026-11-09): password change/reset use the sign-up password rules (passwordProblemFor); real lock = Supabase Auth password policy (founder to check, checklist step 7). No migration.
 - v118 (2026-11-09): flaky test t57b fixed (test counted rows from earlier battles). Test-only; no migration.
 - v119 (2026-11-09): profile save input is cleaned and validated on the server (core/profile/profile-input.ts, t119). No migration.
+- v120 (2026-11-09): tutor message, typed answer and payment claim checked on the server (core/safety/chat-input.ts, t120). No migration.

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { runOrchestratorTurn, publicError } from '@adaptive-tutor/core';
+import { runOrchestratorTurn, publicError, checkAnswerSize } from '@adaptive-tutor/core';
 import { aiForStudent } from '@/lib/ai';
 
 export async function POST(request: Request) {
@@ -11,6 +11,9 @@ export async function POST(request: Request) {
     if (!sessionId || answer === undefined) {
       return NextResponse.json({ data: null, error: 'missing_required_fields' }, { status: 400 });
     }
+
+    const size = checkAnswerSize(answer);
+    if (!size.ok) return NextResponse.json({ data: null, error: size.code }, { status: 400 });
 
     const supabase = await createServerClient();
 

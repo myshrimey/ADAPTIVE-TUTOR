@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useLanguage } from './LanguageProvider';
-import { PLANS, PLAN_LABELS, SALE_PLAN_CODES, type PlanCode } from '@adaptive-tutor/core';
+import { PLANS, PLAN_LABELS, SALE_PLAN_CODES, PAYMENT_ERROR_TEXT, type PlanCode } from '@adaptive-tutor/core';
 
 interface Claim {
   id: string;
@@ -45,7 +45,7 @@ export function PilotPaymentForm({ priceInr }: { priceInr: number }) {
     const json = await res.json();
     setSubmitting(false);
     if (json.error) {
-      setError(json.error);
+      setError((PAYMENT_ERROR_TEXT as Record<string, string>)[json.error] ?? json.error);
       return;
     }
     setSubmitted(true);
