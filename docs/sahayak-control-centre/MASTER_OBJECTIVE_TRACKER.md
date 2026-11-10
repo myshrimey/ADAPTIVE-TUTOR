@@ -1,7 +1,7 @@
 # Master Objective Tracker
 Updated 2026-10-31. Only SAH-PROMPT-0009 is tracked at requirement level. Status words are the 14 allowed ones. "Founder acceptance" is separate from technical status and is empty for everything (the founder has not accepted anything under this system yet).
 
-Counts for SAH-PROMPT-0009: 71 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 44, READY FOR TESTING: 8.
+Counts for SAH-PROMPT-0009: 72 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 45, READY FOR TESTING: 8.
 
 ## SAH-PROMPT-0009 / O1: Persistent registry and execution control (Parts 1-3, 11, 12)
 Requirements 11; PARTIALLY COMPLETED 11
@@ -74,7 +74,7 @@ Requirements 4; NOT STARTED 2, PARTIALLY COMPLETED 2
 | R40 | Flag Indian privacy / legal questions for professional review instead of claiming compliance | PARTIALLY COMPLETED | pending | Flagged in PHASE0_AUDIT.md section 10; review itself not done. |
 
 ## SAH-PROMPT-0009 / O6: Database and architecture rules (Part 8)
-Requirements 22; COMPLETED 2, PARTIALLY COMPLETED 19, READY FOR TESTING 1
+Requirements 23; COMPLETED 2, PARTIALLY COMPLETED 20, READY FOR TESTING 1
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
@@ -100,6 +100,7 @@ Requirements 22; COMPLETED 2, PARTIALLY COMPLETED 19, READY FOR TESTING 1
 | R69 | Claude-chosen (security): the profile save must check what it is given | PARTIALLY COMPLETED | pending | v119: profile save input is cleaned and validated on the server; plain-words messages on the page. Not seen live. |
 | R70 | Claude-chosen (security/cost): what a student types and what a family submits as a payment claim must be checked on the server | PARTIALLY COMPLETED | pending | v120: tutor message, typed answer and payment claim are size/shape checked before use; plain-words messages. Not seen live. |
 | R71 | Claude-chosen (security): onboarding must check what it is given | PARTIALLY COMPLETED | pending | v121: onboarding name, class, subjects and target date are checked on the server; plain-words messages. Not seen live. |
+| R72 | Claude-chosen (security, critical): a signed-in account must not be able to edit questions or create a confirmed payment | PARTIALLY COMPLETED | pending | v122: migration 0063 + server-key explanation save; tested on scratch Postgres with a before/after control. Needs founder to run 0063 after deploying v122. Not seen live. |
 
 ## SAH-PROMPT-0009 / O7: Testing and acceptance (Part 9)
 Requirements 6; NOT STARTED 4, PARTIALLY COMPLETED 2

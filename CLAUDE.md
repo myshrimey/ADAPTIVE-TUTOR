@@ -196,3 +196,4 @@ Read `docs/RESUME_HERE.md` — it always holds the exact next three tasks, curre
 - v119 (2026-11-09): /api/profile must call cleanProfileInput before any save and never pass the raw request body to the database (t119); the Profile page shows PROFILE_ERROR_TEXT, never raw codes.
 - v120 (2026-11-09): /api/session/message must call checkTutorMessage before the tutor runs, /api/session/answer checkAnswerSize, /api/pilot/payment cleanPaymentClaim before saving (t120). Never pass the raw body on.
 - v121 (2026-11-09): /api/student/onboarding must call cleanOnboardingInput first and use only the cleaned copy (t121).
+- v122 (2026-11-09): no signed-in-account rule may allow editing questions or diagnostic_questions, and a student's own payment insert must stay pending with every admin-only field empty (migration 0063, t122). Every write to the question tables uses the server-side client. Generated explanations are saved with getServiceClient.

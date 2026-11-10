@@ -1,6 +1,7 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { AIProvider } from '../ai-provider/ai-provider.interface';
 import { buildExplanationPrompt } from '../prompts/explanation.prompt';
+import { getServiceClient } from '../db/service-client';
 
 // Shown only if generation genuinely fails (every AI provider down) — a
 // student should never see a bare "no explanation available" after getting
@@ -45,8 +46,11 @@ export async function ensureExplanation(
 
     // Best-effort write-through cache — never let a failed save stop the
     // student from seeing the explanation they're waiting on right now.
+    // v122: saved with the server's own key (migration 0063 removed the rule that let any signed-in
+    // account edit questions), and only when the question still has no explanation, so a stored one is never overwritten.
     try {
-      await supabase.from(table).update({ explanation: text }).eq('id', question.id);
+      const writer = getServiceClient();
+      await writer.from(table).update({ explanation: text }).eq('id', question.id).is('explanation', null);
     } catch (err) {
       console.error('ensureExplanation: failed to save generated explanation', question.id, err);
     }

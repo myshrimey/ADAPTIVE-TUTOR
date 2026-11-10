@@ -1,7 +1,7 @@
 # Task Backlog
-Updated 2026-10-31. 64 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
+Updated 2026-10-31. 65 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
 
-Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 41.
+Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 42.
 
 Changing a priority here does NOT start work. Work starts only when the founder says so in the chat.
 
@@ -71,3 +71,4 @@ Changing a priority here does NOT start work. Work starts only when the founder 
 | TASK-087 | P6 | Validate and cap profile save input on the server | O6 | R69 | TASK-086 | S | READY FOR TESTING | none yet |
 | TASK-088 | P6 | Check tutor message, answer size and payment claim on the server | O6 | R70 | TASK-087 | S | READY FOR TESTING | none yet |
 | TASK-089 | P6 | Check onboarding input on the server | O6 | R71 | TASK-088 | S | READY FOR TESTING | none yet |
+| TASK-090 | P6 | Close the open question-edit and payment-insert database rules | O6 | R72 | TASK-089 | S | READY FOR TESTING | none yet |

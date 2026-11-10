@@ -3,7 +3,7 @@ import { readFileSync, readdirSync } from 'fs';
 let n = 0, f = 0; const ok = (c: any, m: string) => { n++; if (!c) { f++; console.log('FAIL', m); } };
 const R = (p: string) => readFileSync(p, 'utf8');
 const doc = R('docs/ROLLBACK_NOTES.md');
-const MIGS = ['0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020', '0021', '0022', '0023', '0024', '0025', '0026', '0027', '0028', '0029', '0030', '0031', '0032', '0033', '0034', '0035', '0036', '0037', '0038', '0039', '0040', '0041', '0042', '0043', '0044', '0045', '0046', '0047', '0048', '0049', '0050', '0051', '0052', '0053', '0054', '0055', '0056', '0057', '0058', '0059', '0060', '0061', '0062'];
+const MIGS = ['0002', '0003', '0004', '0005', '0006', '0007', '0008', '0009', '0010', '0011', '0012', '0013', '0014', '0015', '0016', '0017', '0018', '0019', '0020', '0021', '0022', '0023', '0024', '0025', '0026', '0027', '0028', '0029', '0030', '0031', '0032', '0033', '0034', '0035', '0036', '0037', '0038', '0039', '0040', '0041', '0042', '0043', '0044', '0045', '0046', '0047', '0048', '0049', '0050', '0051', '0052', '0053', '0054', '0055', '0056', '0057', '0058', '0059', '0060', '0061', '0062', '0063'];
 const section = (m: string) => { const i = doc.indexOf(`## ${m} `); if (i < 0) return ''; const j = doc.indexOf('\n## ', i + 5); return doc.slice(i, j < 0 ? undefined : j); };
 const migFiles = (m: string) => readdirSync('packages/db/migrations').filter((x) => x.startsWith(m + '_'));  // 0023 has two files
 const PROTECTED_TABLES = ['users', 'students', 'student_access', 'audit_logs', 'system_changelog'];
@@ -17,7 +17,8 @@ for (const m of MIGS) {
   ok(/What you lose/.test(s), `${m}: says what is lost`);
   ok(sql.trim().length > 0, `${m}: has undo SQL`);
   const live = sql.split('\n').filter((l) => !l.trim().startsWith('--')).join('\n');
-  ok(!/\b(truncate|delete\s+from|update\s+\w)/i.test(live), `${m}: undo never deletes or edits rows`);
+  const liveNoPolicies = live.replace(/create\s+policy[\s\S]*?;/gi, ''); // `for update` inside a rule definition is not a row edit
+  ok(!/\b(truncate|delete\s+from|update\s+\w)/i.test(liveNoPolicies), `${m}: undo never deletes or edits rows`);
   ok(!/\bdrop\s+table\b(?!\s+if\s+exists)/i.test(live) && !/\bcascade\b/i.test(live), `${m}: drops are "if exists" and never cascade`);
   // every table the migration creates is dropped, and nothing else is
   const mig = migFiles(m).map((f) => R('packages/db/migrations/' + f)).join('\n').replace(/--.*$/gm, '');

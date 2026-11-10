@@ -154,3 +154,4 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v119 (2026-11-09): profile save input is cleaned and validated on the server (core/profile/profile-input.ts, t119). No migration.
 - v120 (2026-11-09): tutor message, typed answer and payment claim checked on the server (core/safety/chat-input.ts, t120). No migration.
 - v121 (2026-11-09): onboarding input checked on the server (core/onboarding/onboarding-input.ts, t121). No migration.
+- v122 (2026-11-09): migration 0063 closes two too-open write rules (question edit for any signed-in account; payment insert as confirmed). Deploy v122 website first, then run 0063. Open: students can still write their own learning records directly (owner 'for all' rules).

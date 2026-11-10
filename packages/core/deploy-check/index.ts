@@ -2,9 +2,9 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 
 // v95: "did my deployment take?" Read only. Probes ask the database whether a table or column exists (a SELECT of zero rows).
 // Nothing is changed, no value of any setting is ever read out: environment settings are reported as present / missing only.
-export const APP_VERSION = 'v121';
+export const APP_VERSION = 'v122';
 /** The newest version that changed the database (it writes a system_changelog row). Versions after it need no migration. Test t95 checks this against the migration files. */
-export const DB_VERSION_EXPECTED = 'v116';
+export const DB_VERSION_EXPECTED = 'v122';
 export interface DeployProbe { migration: string; version: string; what: string; table: string; column?: string }
 export const DEPLOY_PROBES: readonly DeployProbe[] = [
   { migration: '0046', version: 'v72', what: 'Social growth tables', table: 'social_campaigns' },
@@ -27,6 +27,7 @@ export const MANUAL_CHECKS: readonly { migration: string; what: string; sql: str
   { migration: '0055', what: 'Role-guard function has a fixed search path', sql: "select proconfig from pg_proc where proname = 'guard_user_role';", expect: 'one row containing search_path=public, pg_temp' },
   { migration: '0057', what: 'Audit log blocks edits, deletes and truncation', sql: "select tgname from pg_trigger where tgrelid = 'public.audit_logs'::regclass and not tgisinternal;", expect: 'two rows: trg_audit_logs_no_truncate and trg_audit_logs_no_update_delete' },
   { migration: '0062', what: 'Paper library bucket accepts only PDFs up to 10 MB', sql: "select id, file_size_limit, allowed_mime_types from storage.buckets where id = 'papers';", expect: 'one row: papers, 10485760, {application/pdf}' },
+  { migration: '0063', what: 'Only one write rule is left on questions, diagnostic questions and payment claims', sql: "select tablename, policyname, cmd from pg_policies where schemaname = 'public' and tablename in ('questions', 'diagnostic_questions', 'pilot_payments') and cmd <> 'SELECT';", expect: 'one row: pilot_payments, pilot_payments_insert_own (no row for questions or diagnostic_questions)' },
   { migration: 'all', what: 'Every table has row-level security on', sql: "select count(*) as tables_without_rls from pg_tables where schemaname = 'public' and not rowsecurity;", expect: '0' },
 ];
 export const ENV_CHECKS: readonly { name: string; why: string; required: boolean }[] = [

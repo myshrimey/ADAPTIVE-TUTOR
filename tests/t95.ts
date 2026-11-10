@@ -54,7 +54,7 @@ const all = R('packages/db/schema.sql') + '\n' + sql.map((s) => s.text).join('\n
   ok((await lv([])) === null && (await lv(null)) === null && (await lv(null, true)) === null, 'empty or broken changelog gives null');
 
   // ---- manual SQL is read only
-  ok(MANUAL_CHECKS.length === 4 && MANUAL_CHECKS.every((c) => /^\s*select\b/i.test(c.sql) && !/;\s*\S/.test(c.sql.trim()) && !/\b(insert|update|delete|drop|alter|create|truncate|grant)\b/i.test(c.sql)), 'the SQL we ask the founder to paste only reads');
+  ok(MANUAL_CHECKS.length === 5 && MANUAL_CHECKS.every((c) => /^\s*select\b/i.test(c.sql) && !/;\s*\S/.test(c.sql.trim()) && !/\b(insert|update|delete|drop|alter|create|truncate|grant)\b/i.test(c.sql)), 'the SQL we ask the founder to paste only reads');
 
   // ---- code rules
   const mod = R('packages/core/deploy-check/index.ts').replace(/\/\/.*$/gm, '').replace(/\/\*\*[\s\S]*?\*\//g, '');

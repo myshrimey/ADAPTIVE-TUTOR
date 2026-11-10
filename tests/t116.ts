@@ -39,7 +39,7 @@ const six = R('packages/db/migrations/0006_previous_papers.sql');
 ok(/papers_bucket_read/.test(six) && /papers_bucket_insert/.test(six), '0006 policies still present (not weakened or removed)');
 ok(/system_changelog/.test(mig) && /v116/.test(mig), 'migration writes its changelog row');
 const dc = R('packages/core/deploy-check/index.ts');
-ok(/migration: '0062'/.test(dc) && /DB_VERSION_EXPECTED = 'v116'/.test(dc), 'deploy check can verify the bucket setting by hand');
+ok(/migration: '0062'/.test(dc) && /DB_VERSION_EXPECTED = 'v\d+'/.test(dc), 'deploy check can verify the bucket setting by hand');
 const rb = R('docs/ROLLBACK_NOTES.md');
 ok(rb.indexOf('## 0062 ') > -1 && rb.indexOf('## 0062 ') < rb.indexOf('## 0061 '), 'undo note exists, newest first');
 console.log(`t116: ${n - f}/${n} passed`); if (f) process.exit(1);

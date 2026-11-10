@@ -724,3 +724,6 @@ Server-only (RLS on, no policies). control_prompts (id text, title, received_on,
 
 ## 0062 papers_bucket_limits (v116)
 No table changes. Sets two settings on the storage bucket `papers` (the public shared paper library): `file_size_limit` = 10485760 bytes (10 MB) and `allowed_mime_types` = {application/pdf}. Existing files are untouched. The 0006 policies (public read, signed-in insert, owner delete) are unchanged. Writes one `system_changelog` row (v116).
+
+## 0063 close_open_write_rules (v122)
+No table or column changes. Removes two rules from 0008 that let ANY signed-in account update ANY column of ANY row in `questions` and `diagnostic_questions` (`questions_update_explanation`, `diagnostic_questions_update_explanation`); reading (`*_read_all`) is unchanged. Replaces `pilot_payments_insert_own` (0009) with a stricter insert rule: the row must be for the signed-in student's own record, `status` = 'pending', `quantity` = 1, `discount_amount` = 0, and every admin-only field empty (confirmed_at, pilot dates, admin_notes, activated_at/by, product_code, list_amount, offer_code, subject_slugs, paid_by_user_id). There is still no update or delete rule on payments for signed-in accounts. Saving a generated explanation now uses the server key (v122 code). Re-runnable. Writes one `system_changelog` row (v122).

@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v121 (2026-11-09)
+## Latest delivery - v122 (2026-11-09)
+IMPORTANT security fix with a database change (0063). A read-only look at your live database showed that any signed-in account could edit ANY question (answer key, prompt, review status) by calling the database directly, and could insert a payment already marked "confirmed". v122 closes both: the website now saves generated explanations with its own server key, and migration 0063 removes the open question-edit rules and tightens the payment insert rule. Order: deploy the v122 website first, then run 0063 in the Supabase SQL editor. Nothing was changed on your live database by Claude. Apply after v121: `sahayak-v122-close-open-write-rules-delta.zip`.
+
+## Previous delivery - v121 (2026-11-09)
 Onboarding (the step where a student picks subjects) is now checked on the server: name (tidied, up to 60 characters), board/class labels, the subject list (1 to 12 known-style names, repeats ignored), target date (a real date from today up to three years ahead), and exam year, language and daily minutes forced to safe values. Refusals show plain sentences. No migration. Apply after v120: `sahayak-v121-onboarding-input-delta.zip`.
 
 ## Previous delivery - v120 (2026-11-09)

@@ -1,4 +1,4 @@
-# Rollback notes for the database changes 0002 to 0062
+# Rollback notes for the database changes 0002 to 0063
 
 Written in v101 (2 Nov 2026); 0002 to 0054 added in v113 and v115 (8 Nov 2026), worked out by comparing a scratch database before and after each change (scripts/db-test). **How to read this:** every database change in Sahayak only ADDS things and is safe to run again. If you ever need to go back, these are the undo steps, newest first. They were tested on a scratch copy of the database: apply 0055-0059, run every undo block below, check the objects are gone, then apply 0055-0059 again with no error (t101).
 
@@ -9,6 +9,17 @@ Written in v101 (2 Nov 2026); 0002 to 0054 added in v113 and v115 (8 Nov 2026), 
 4. After an undo, the matching version of the website must also be redeployed, otherwise a page may look for a table that is gone. `/admin/deploy-check` shows which side is behind.
 5. These notes undo structure only: they never delete rows from students, answers, payments or accounts, and never drop those core tables. They DO drop columns and new tables that a change added, and what was saved in them is lost (each section says which).
 6. This is a plan written by Claude and tested on a copy. It is not a promise about your live database. Nothing here has been run on it.
+
+## 0063 close_open_write_rules (v122) - two too-open write rules closed
+What you lose: nothing saved. This change removed two rules and tightened one; no table, column or row is touched. **Undoing it re-opens the hole it closed** (any signed-in account could change any question, and could insert a payment already marked confirmed), so only do it if the website is refusing a legitimate save and you cannot wait for a fix. The block below puts the three old rules back exactly as 0008 and 0009 wrote them. Redeploy the v121 website first if you undo this, because the v122 website saves explanations with the server key and does not need these rules.
+```sql
+drop policy if exists diagnostic_questions_update_explanation on diagnostic_questions;
+create policy diagnostic_questions_update_explanation on diagnostic_questions for update to authenticated using (true) with check (true);
+drop policy if exists questions_update_explanation on questions;
+create policy questions_update_explanation on questions for update to authenticated using (true) with check (true);
+drop policy if exists pilot_payments_insert_own on pilot_payments;
+create policy pilot_payments_insert_own on pilot_payments for insert to authenticated with check (student_id in (select s.id from students s join users u on u.id = s.user_id where u.auth_user_id = auth.uid()));
+```
 
 ## 0062 papers_bucket_limits (v116) - the paper library bucket accepts only PDFs up to 10 MB
 What you lose: nothing saved. This change only set two limits on the storage bucket `papers`; no table or file is changed. Undoing it means the public library accepts any file type and size again, which is the weaker setting, so only do it if uploads are being refused wrongly. There is no SQL block because undo never edits rows: use Supabase dashboard -> Storage -> papers -> Edit bucket, and clear "Restrict file upload size" and "Restrict MIME types". The version note below also applies.

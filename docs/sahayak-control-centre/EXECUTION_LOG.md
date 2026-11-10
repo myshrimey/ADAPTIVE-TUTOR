@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0034 - 2026-11-09 - founder chat request (continue building)
+- Summary: v122: closed two too-open database write rules (TASK-090).
+- Files: 0063_close_open_write_rules.sql; core/explanations/ensure-explanation.ts; deploy-check; ROLLBACK_NOTES; DATABASE_SCHEMA; tests/t122.ts
+- Database: 0063 (rules only; no tables or columns)
+- Tests: scratch Postgres before/after control, undo + re-apply, t122, t95, t101, full npm test, production build
+- Open: Not deployed; migration not applied to the live database; live policies read only
+
 ## EX-0033 - 2026-11-09 - founder chat request (continue building)
 - Summary: v121: onboarding input checked (TASK-089).
 - Files: core/onboarding/onboarding-input.ts; api/student/onboarding/route.ts; HomeClient.tsx; tests/t121.ts

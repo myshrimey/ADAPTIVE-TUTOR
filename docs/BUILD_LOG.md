@@ -826,3 +826,11 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - New `packages/core/onboarding/onboarding-input.ts` (`cleanOnboardingInput`, `ONBOARDING_ERROR_TEXT`). The route now cleans first and uses only the cleaned copy. Page shows plain sentences.
 - Checked the contributor routes too: `contributeQuestion` already runs `cleanContribution`, so no change needed there.
 - Test t121 (56 checks); two deliberate breaks both caught. No migration.
+
+## v122 (2026-11-09) - two too-open database write rules closed (migration 0063)
+- Found by reading the live policy list (read-only, no change made): `questions_update_explanation` and `diagnostic_questions_update_explanation` (0008) allowed any signed-in account to update any column of any question; `pilot_payments_insert_own` (0009) only checked ownership, so a row could be inserted already 'confirmed' with access dates. Confirmed on a scratch copy: with the old rules a signed-in test student changed an answer key; with 0063 the same attempt changes 0 rows and reading still works.
+- Migration 0063 drops the two question rules and tightens the payment insert rule (pending only, every admin-only field empty, quantity 1, no discount). Tested twice on scratch Postgres, the undo block was run and the migration re-applied.
+- Code: `ensureExplanation` now saves through the server key and only when the explanation is still empty. Every other write to the question tables already used the server key (t122 scans for it).
+- Deploy check: DB version expected v122; read-only manual check for 0063 (count is now 5). Rollback note, schema doc and t101 list extended.
+- Test t122 (31 checks); two deliberate breaks both caught.
+- NOT fixed, noted for later: `students_update_own` lets a student change their own students row (e.g. parent_token, must_complete_profile; user_id is protected by the check), and `mastery_states_owner` / `question_attempts_owner` / other `for all` owner rules let a student write their own learning records directly. Those only affect that student's own data but could make their reports untrue; fixing needs the tutor engine to write with the server key, which is a larger supervised change.
