@@ -1,7 +1,7 @@
 # Task Backlog
-Updated 2026-10-31. 60 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
+Updated 2026-10-31. 61 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
 
-Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 37.
+Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 38.
 
 Changing a priority here does NOT start work. Work starts only when the founder says so in the chat.
 
@@ -67,3 +67,4 @@ Changing a priority here does NOT start work. Work starts only when the founder 
 | TASK-083 | P6 | Undo notes for migrations 0002-0040 | O6 | R65 | TASK-082 | M | READY FOR TESTING | none yet |
 | TASK-084 | P6 | Limit uploads to the public paper library | O6 | R66 | TASK-083 | S | READY FOR TESTING | none yet |
 | TASK-085 | P6 | Same password rules on change and reset | O6 | R67 | TASK-084 | S | READY FOR TESTING | none yet |
+| TASK-086 | P6 | Fix the flaky test t57b | O6 | R68 | TASK-085 | S | READY FOR TESTING | none yet |

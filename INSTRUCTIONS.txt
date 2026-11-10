@@ -1,21 +1,14 @@
-SAHAYAK v117 - same password rules when changing or resetting a password
-Apply after v116: unzip over the project, then deploy as usual. NO migration.
-
-WHY
-- Only sign-up checked the password rules. Changing a password on the profile page only checked "8 characters", and the reset page checked nothing except that the two boxes match. Both also showed Supabase's raw error text.
+SAHAYAK v118 - flaky test fixed
+Apply after v117: unzip over the project. NO migration, NO website change (a test, the version number and documents only). Redeploying is optional.
 
 WHAT CHANGES
-- Both pages now apply the sign-up rules (8+ characters, not a common password, not the username) before changing the password, in plain words. Raw errors are no longer shown (the reason is kept in the browser console for you).
-- docs/LIVE_JOURNEY_CHECKLIST.md has a new Step 7: Supabase settings only you can change.
-
-IMPORTANT - PLEASE DO (Step 7)
-- A signed-in person can always talk to Supabase directly, so the website's rules only help honest users. The real lock is Supabase -> Authentication password settings: minimum length 8, and (if your plan offers it) refuse passwords found in known leaks. Also confirm "Allow new users to sign up" is OFF.
+- The old test t57b used to fail about 3 runs in 10 for no real reason. The test counted mistakes from earlier battles too, and the weakness battle picks questions at random. It now counts only its own battle.
 
 TESTED
-- New test t117 (17 checks). Type check. Full suite: 94 files, 90 passed, 4 known-old, 0 failed (the old flaky test t57b failed in an earlier run and in 3 of 10 solo runs; it is unrelated and was already listed as flaky). Production build compiled.
+- t57b: 40 of 40 runs pass (before: about 3 failures in 10). A deliberate break of the product code is still caught by it. Type check. Full suite: 94 files, 90 passed, 4 known-old, 0 failed.
 
 NOT TESTED
-- The reset email link end to end (cannot send email from here). Your Supabase settings.
+- Production build was not re-run (no website code changed).
 
 NOT DEPLOYED
 - Nothing is deployed by Claude.

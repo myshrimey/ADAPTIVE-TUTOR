@@ -832,6 +832,16 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R68",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R68",
+   "text": "Claude-chosen (quality): the test suite must not fail at random",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v118: flaky test t57b fixed (40 of 40 runs pass); cause was in the test, not the product.",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -2572,6 +2582,21 @@ export const REGISTRY = {
    "note": "v117: passwordProblemFor in core/auth/identity.ts, profile and reset pages, t117 (17 checks). Reset-link flow not tested end to end.",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-086",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Fix the flaky test t57b",
+   "objective_code": "O6",
+   "requirements": "R68",
+   "depends_on": "TASK-085",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v118: the test now counts only its own battle mistakes; deliberate break still caught; 40/40 passes.",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -3026,6 +3051,16 @@ export const REGISTRY = {
    "db_changes": "none",
    "tests": "t117, type check, full npm test, production build",
    "open_problems": "Reset-link email flow not tested; Supabase password policy not checked by Claude; not deployed"
+  },
+  {
+   "id": "EX-0030",
+   "executed_on": "2026-11-09",
+   "prompt_id": "founder chat request (continue building)",
+   "summary": "v118: flaky test t57b fixed (TASK-086).",
+   "files": "tests/t57b.ts; tests/t95b.ts; CLAUDE.md",
+   "db_changes": "none",
+   "tests": "t57b x40 runs, mutation check, type check, full npm test",
+   "open_problems": "Test change only; not deployed"
   }
  ]
 } as unknown as ControlRegistry;

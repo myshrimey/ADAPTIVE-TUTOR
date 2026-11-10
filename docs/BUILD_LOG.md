@@ -805,3 +805,8 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Fix: `passwordProblemFor` (core/auth/identity.ts) runs on both pages before the change; raw errors are logged and replaced by a plain sentence. t117: 17 checks.
 - Honest limit: a signed-in person can call Supabase directly with the public key, so this is a courtesy for honest users. The real lock is the Supabase Auth password policy: Step 7 added to the live checklist. A server route could not enforce it either.
 - Not tested: the reset email link end to end; Supabase's own settings.
+
+## v118 (2026-11-09) - flaky test t57b fixed
+- t57b failed about 3 runs in 10. Cause: `weakness mistakes recorded` counted every challenge mistake in the book, including rows from earlier battles in the same test; the weakness battle picks questions at random, so a wrong answer on a question already in the book updates that row (repeat count) instead of adding one. Product code behaves as designed.
+- Fix: count rows whose last reference is this battle (`ch:<attempt id>`). 40 of 40 runs pass; making the product skip recording the mistake still fails the test.
+- Noted, not changed: the question pick uses `sort(... || Math.random() - 0.5)`, an inconsistent comparator. Harmless here (ties only) but a cleaner shuffle would be better; left alone because it changes live behaviour.

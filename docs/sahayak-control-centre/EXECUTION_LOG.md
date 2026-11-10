@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0030 - 2026-11-09 - founder chat request (continue building)
+- Summary: v118: flaky test t57b fixed (TASK-086).
+- Files: tests/t57b.ts; tests/t95b.ts; CLAUDE.md
+- Database: none
+- Tests: t57b x40 runs, mutation check, type check, full npm test
+- Open: Test change only; not deployed
+
 ## EX-0029 - 2026-11-09 - founder chat request (continue building)
 - Summary: v117: password change and reset follow sign-up rules (TASK-085).
 - Files: packages/core/auth/identity.ts; apps/web/app/profile/page.tsx; apps/web/app/reset-password/page.tsx; docs/LIVE_JOURNEY_CHECKLIST.md; tests/t117.ts, t95b.ts

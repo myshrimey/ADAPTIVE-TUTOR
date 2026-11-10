@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v117 (2026-11-09)
+## Latest delivery - v118 (2026-11-09)
+Test reliability only: the old flaky test t57b (it failed about 3 runs in 10) now passes 40 of 40 runs. Cause: the test counted mistake-book rows from earlier battles too, and the weakness battle picks questions at random, so sometimes a wrong answer updated an existing row instead of adding one. The product code was fine. No website change, no migration. Apply after v117: `sahayak-v118-test-fix-delta.zip`.
+
+## Previous delivery - v117 (2026-11-09)
 Changing or resetting a password now follows the same rules as sign-up (8+ characters, not a common password, not the username) and no longer shows Supabase's raw error text. Found by the same scan as v116: only sign-up checked the rules. This is a courtesy for honest users; the real lock is the password policy in your Supabase Auth settings (new Step 7 in docs/LIVE_JOURNEY_CHECKLIST.md: please check it). No migration. The reset-link flow itself was NOT tested end to end. Apply after v116: `sahayak-v117-password-rules-delta.zip`.
 
 ## Previous delivery - v116 (2026-11-09)

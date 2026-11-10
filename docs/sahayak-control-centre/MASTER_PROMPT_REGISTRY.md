@@ -13,7 +13,7 @@ IMPORTANT, in plain words: the ORIGINAL TEXT of prompts 0001 to 0008 is not in t
 | SAH-PROMPT-0006 | Acquisition and Referral Intelligence | about v76 | No | 1 roadmap row | PARTIALLY COMPLETED | not set |
 | SAH-PROMPT-0007 | Role-based accounts, invitations, team, Help | about v79 | No | 1 roadmap row | PARTIALLY COMPLETED | not set |
 | SAH-PROMPT-0008 | Curriculum management and branded exports | about v81 | No | 1 roadmap row | PARTIALLY COMPLETED | not set |
-| SAH-PROMPT-0009 | Founder Command and Development Control System | 2026-10-31 10:59 IST | Yes: MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md | 67 requirements, 60 tasks | PARTIALLY COMPLETED. Phase 0 done; Phase 1 registry tables and screens built (v90), not yet applied or seen live | Founder handed ordering to Claude by criticality (FD-10) |
+| SAH-PROMPT-0009 | Founder Command and Development Control System | 2026-10-31 10:59 IST | Yes: MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md | 68 requirements, 61 tasks | PARTIALLY COMPLETED. Phase 0 done; Phase 1 registry tables and screens built (v90), not yet applied or seen live | Founder handed ordering to Claude by criticality (FD-10) |
 
 Order of 0004 to 0008 is by the build version that first delivered them, not by a verified date of receipt.
 

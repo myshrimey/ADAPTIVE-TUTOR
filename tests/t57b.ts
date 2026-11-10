@@ -78,7 +78,8 @@ t('difficulty never repeats questions', new Set(tables.challenge_attempts.find((
 t('difficulty steps with performance', diffs.some((d,i)=>i>=2&&diffs[i-1]!==undefined&&d!==diffs[0])||new Set(diffs).size>1);
 t('weakness concept note', /First 3 answers/.test(last.summary.conceptNote)&&/Hardest level/.test(last.summary.conceptNote));
 t('mastery untouched', !tables.mastery_states||tables.mastery_states.length===0); t('mastery note', /do not change your mastery/i.test(last.summary.masteryNote));
-t('weakness mistakes recorded', tables.mistake_book.filter((m:any)=>m.source==='challenge').length===2);
+// Count THIS battle's wrong answers by its own reference. The old total counted rows from earlier battles too, and the battle picks questions at random, so a wrong answer on a question already in the book updates that row instead of adding one (v118: this was the cause of the occasional failure).
+t('weakness mistakes recorded', tables.mistake_book.filter((m:any)=>m.last_ref==='ch:'+wid).length===2);
 t('next action present', !!last.summary.nextAction.text&&!!last.summary.nextAction.href);
 t('weakness xp', last.summary.xp.amount>0&&last.summary.xp.breakdown.some((b:any)=>/Weakness Battle finished/.test(b.label)));
 // ===== S6: personal best =====
