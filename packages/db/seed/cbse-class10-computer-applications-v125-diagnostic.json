@@ -1,0 +1,1525 @@
+{
+ "subject_slug": "computer-applications",
+ "questions": [
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A bank links its branch offices in Delhi, Chennai and Kolkata into one network. Which type of network is this?",
+   "expected_answer": {
+    "value": "WAN"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "WAN",
+    "LAN",
+    "PAN",
+    "MAN"
+   ],
+   "explanation": "A network spreading across cities or countries is a WAN (Wide Area Network). A LAN covers only a building or campus.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which type of network is formed when a phone connects to wireless earbuds using Bluetooth?",
+   "expected_answer": {
+    "value": "PAN"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "PAN",
+    "LAN",
+    "MAN",
+    "WAN"
+   ],
+   "explanation": "A PAN (Personal Area Network) covers the few metres around one person's own devices.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which device converts a computer's digital signals into signals that can travel over a telephone line, and converts them back again?",
+   "expected_answer": {
+    "value": "Modem"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Switch",
+    "Hub",
+    "Repeater",
+    "Modem"
+   ],
+   "explanation": "A modem modulates and demodulates signals so digital data can pass over analogue lines.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which device is used to regenerate a weakening signal so it can travel farther along a cable?",
+   "expected_answer": {
+    "value": "Repeater"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Modem",
+    "Switch",
+    "Router",
+    "Repeater"
+   ],
+   "explanation": "A repeater amplifies or regenerates the signal to extend the distance it can cover.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which topology connects all devices to one common main cable called the backbone?",
+   "expected_answer": {
+    "value": "Bus topology"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Star topology",
+    "Ring topology",
+    "Bus topology",
+    "Mesh topology"
+   ],
+   "explanation": "In a bus topology every node taps into a single shared backbone cable.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In which topology is every device directly connected to every other device, giving many alternate paths?",
+   "expected_answer": {
+    "value": "Mesh topology"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Mesh topology",
+    "Bus topology",
+    "Star topology",
+    "Ring topology"
+   ],
+   "explanation": "A mesh has links between all nodes, so data can take another route if one link fails, though it needs a lot of cabling.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does DNS do when you type www.example.com into a browser?",
+   "expected_answer": {
+    "value": "It translates the domain name into an IP address"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It translates the domain name into an IP address",
+    "It encrypts the web page before sending it",
+    "It stores a permanent copy of the website on your computer",
+    "It assigns a new IP address to your computer"
+   ],
+   "explanation": "DNS works like a phone book, converting a human-friendly name into the numeric IP address of the server.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Why are domain names used instead of asking people to type IP addresses?",
+   "expected_answer": {
+    "value": "Names are easier for people to remember"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "IP addresses cannot be used on the Internet",
+    "Names are easier for people to remember",
+    "Domain names travel faster than IP addresses",
+    "Domain names do not need to be resolved"
+   ],
+   "explanation": "Domain names are memorable; DNS maps them to the numeric addresses computers actually use.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is a valid IPv4 address?",
+   "expected_answer": {
+    "value": "192.168.1.20"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "192.168.1.20",
+    "192.168.1.256",
+    "192.168.1",
+    "192.168.1.20.5"
+   ],
+   "explanation": "IPv4 has four numbers, each from 0 to 255, separated by dots. 256 is out of range and the others have the wrong number of parts.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "IPv6 addresses are 128 bits long. Why was IPv6 introduced?",
+   "expected_answer": {
+    "value": "IPv4 addresses were running out"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "IPv4 could not be used with websites",
+    "IPv4 addresses were running out",
+    "IPv6 makes every website load instantly",
+    "IPv4 does not support email"
+   ],
+   "explanation": "IPv4 has only about 4.3 billion addresses; IPv6 provides a vastly larger address space.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which part of a web address shows that data between your browser and the site is encrypted?",
+   "expected_answer": {
+    "value": "https:// at the beginning"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "www. at the beginning",
+    "https:// at the beginning",
+    ".com at the end",
+    "/index.html at the end"
+   ],
+   "explanation": "The 's' in https stands for secure; it means the connection uses encryption (TLS).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A padlock icon next to a website address mainly indicates that:",
+   "expected_answer": {
+    "value": "the connection to the site is encrypted"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "every page on the site is free of viruses",
+    "the site is owned by the government",
+    "the connection to the site is encrypted",
+    "the site's content is always true"
+   ],
+   "explanation": "The padlock shows the data in transit is encrypted; it does not vouch for the honesty or safety of the content.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag holds the visible content of a web page, such as paragraphs and images?",
+   "expected_answer": {
+    "value": "<body>"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "<head>",
+    "<title>",
+    "<body>",
+    "<meta>"
+   ],
+   "explanation": "Content shown in the browser window goes inside <body>; <head> holds information about the page.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is the correct basic skeleton of an HTML page?",
+   "expected_answer": {
+    "value": "<html><head><title>Home</title></head><body>Hi</body></html>"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "<html><body><head><title>Home</title></head></body></html>",
+    "<html><head><title>Home</title></head><body>Hi</body></html>",
+    "<head><html><body>Hi</body></html></head>",
+    "<body><html><title>Home</title></html></body>"
+   ],
+   "explanation": "The <html> element contains <head> first and then <body>; they are siblings, not nested in each other.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which code displays the word Sale in italics?",
+   "expected_answer": {
+    "value": "<i>Sale</i>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<i>Sale</i>",
+    "<b>Sale</b>",
+    "<u>Sale</u>",
+    "<sub>Sale</sub>"
+   ],
+   "explanation": "<i> italicises text, <b> makes it bold, <u> underlines it and <sub> lowers it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which code shows the 2 in the chemical formula H2O as a subscript?",
+   "expected_answer": {
+    "value": "H<sub>2</sub>O"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "H<sup>2</sup>O",
+    "H<small>2</small>O",
+    "H<strike>2</strike>O",
+    "H<sub>2</sub>O"
+   ],
+   "explanation": "<sub> lowers text below the baseline; <sup> raises it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag correctly inserts the image file logo.png into a page?",
+   "expected_answer": {
+    "value": "<img src=\"logo.png\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<img src=\"logo.png\">",
+    "<img href=\"logo.png\">",
+    "<image src=\"logo.png\">",
+    "<img link=\"logo.png\">"
+   ],
+   "explanation": "The image tag is <img> and the file is given in the src attribute; href is used by links.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which code creates a link with the text Visit that goes to https://example.com ?",
+   "expected_answer": {
+    "value": "<a href=\"https://example.com\">Visit</a>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<a href=\"https://example.com\">Visit</a>",
+    "<a src=\"https://example.com\">Visit</a>",
+    "<link href=\"https://example.com\">Visit</link>",
+    "<a url=\"https://example.com\">Visit</a>"
+   ],
+   "explanation": "A hyperlink uses the <a> tag with the destination in href and the clickable text between the tags.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag creates a row in an HTML table?",
+   "expected_answer": {
+    "value": "<tr>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<td>",
+    "<th>",
+    "<li>",
+    "<tr>"
+   ],
+   "explanation": "<tr> is a table row; <td> and <th> are cells inside it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which code produces a bulleted list of Tea and Milk?",
+   "expected_answer": {
+    "value": "<ul><li>Tea</li><li>Milk</li></ul>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<ol><li>Tea</li><li>Milk</li></ol>",
+    "<list><item>Tea</item><item>Milk</item></list>",
+    "<ul><li>Tea</li><li>Milk</li></ul>",
+    "<dl><dt>Tea</dt><dt>Milk</dt></dl>"
+   ],
+   "explanation": "<ul> gives an unordered (bulleted) list with <li> items; <ol> would number them.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "An email that pretends to be from your bank and asks you to enter your password on a fake page is an example of:",
+   "expected_answer": {
+    "value": "phishing"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "phishing",
+    "cyberbullying",
+    "defragmentation",
+    "firewalling"
+   ],
+   "explanation": "Phishing tricks people into revealing private information by imitating a trusted source.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which malicious program attaches itself to files and spreads when those files are opened or shared?",
+   "expected_answer": {
+    "value": "Virus"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Virus",
+    "Firewall",
+    "Cookie",
+    "Antivirus"
+   ],
+   "explanation": "A virus replicates by infecting other files; a firewall and antivirus are protective tools.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which password would be hardest for an attacker to guess?",
+   "expected_answer": {
+    "value": "Rk8$tW!n4Qz"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "password123",
+    "sahil2008",
+    "Rk8$tW!n4Qz",
+    "12345678"
+   ],
+   "explanation": "A strong password is long and mixes upper and lower case letters, digits and symbols without personal details.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "You get a message saying you have won a prize and must click a link and enter your bank details. What is the best action?",
+   "expected_answer": {
+    "value": "Do not click; delete it and report it as spam"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Click the link to check if it is genuine",
+    "Do not click; delete it and report it as spam",
+    "Reply with your account number to claim the prize",
+    "Forward it to all your friends"
+   ],
+   "explanation": "Unexpected prize messages asking for bank details are typical scams; avoid the link and report it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Copying paragraphs from a website into your project and submitting them as your own work is:",
+   "expected_answer": {
+    "value": "plagiarism"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "referencing",
+    "plagiarism",
+    "paraphrasing with credit",
+    "fair citation"
+   ],
+   "explanation": "Presenting someone else's words as your own without credit is plagiarism.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Copyright law protects:",
+   "expected_answer": {
+    "value": "the original expression of a creator's work, such as a song or a book"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "the original expression of a creator's work, such as a song or a book",
+    "any common word or colour name",
+    "only physical objects such as machines",
+    "only works that have been sold"
+   ],
+   "explanation": "Copyright gives creators rights over their original creative works from the moment they are created.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "When A = 1 and B = 0, which expression has the value 1?",
+   "expected_answer": {
+    "value": "A OR B"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "A OR B",
+    "A AND B",
+    "NOT A",
+    "(NOT A) OR B"
+   ],
+   "explanation": "OR is 1 if either input is 1. A AND B = 0, NOT A = 0 and (NOT A) OR B = 0 OR 0 = 0.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "When A = 1, B = 0 and C = 1, which expression has the value 0?",
+   "expected_answer": {
+    "value": "A AND B"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "A OR B",
+    "A AND B",
+    "NOT B",
+    "B OR C"
+   ],
+   "explanation": "AND needs both inputs to be 1, and B is 0. The other expressions all evaluate to 1.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "By De Morgan's law, NOT (A AND B) is equal to:",
+   "expected_answer": {
+    "value": "(NOT A) OR (NOT B)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "(NOT A) AND (NOT B)",
+    "(NOT A) OR (NOT B)",
+    "A OR B",
+    "NOT A AND B"
+   ],
+   "explanation": "De Morgan: negating an AND gives the OR of the negations.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "By De Morgan's law, NOT (A OR B) is equal to:",
+   "expected_answer": {
+    "value": "(NOT A) AND (NOT B)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "(NOT A) OR (NOT B)",
+    "A AND B",
+    "A OR (NOT B)",
+    "(NOT A) AND (NOT B)"
+   ],
+   "explanation": "Negating an OR gives the AND of the negations.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Cells B2 to B5 contain 10, 20, 30 and 40. What does =SUM(B2:B5) give?",
+   "expected_answer": {
+    "value": "100"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "25",
+    "40",
+    "90",
+    "100"
+   ],
+   "explanation": "SUM adds all values in the range: 10 + 20 + 30 + 40 = 100.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which formula finds the largest value in cells C1 to C10?",
+   "expected_answer": {
+    "value": "=MAX(C1:C10)"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "=MIN(C1:C10)",
+    "=MAX(C1:C10)",
+    "=AVERAGE(C1:C10)",
+    "=COUNT(C1:C10)"
+   ],
+   "explanation": "MAX returns the largest number in a range; MIN gives the smallest, and COUNT only counts numeric cells.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cell C2 contains =A2*$B$1. If this formula is copied to C3, what will C3 contain?",
+   "expected_answer": {
+    "value": "=A3*$B$1"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=A3*B2",
+    "=A2*$B$1",
+    "=A3*$B$2",
+    "=A3*$B$1"
+   ],
+   "explanation": "The relative reference A2 moves down to A3, while the absolute reference $B$1 stays fixed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which cell reference does not change when the formula is copied to any other cell?",
+   "expected_answer": {
+    "value": "$A$1"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A1",
+    "$A$1",
+    "$A1",
+    "A$1"
+   ],
+   "explanation": "Dollar signs before both column and row make the reference fully absolute.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Besides the main document, what does a mail merge need?",
+   "expected_answer": {
+    "value": "A data source with the recipients' details"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A printer driver only",
+    "A data source with the recipients' details",
+    "A slide template",
+    "An empty spreadsheet with no names"
+   ],
+   "explanation": "Mail merge combines a main letter with a data source such as a table of names and addresses.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In a mail merge, a placeholder like «Name» in the main document is called a:",
+   "expected_answer": {
+    "value": "merge field"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "macro",
+    "merge field",
+    "bookmark",
+    "hyperlink"
+   ],
+   "explanation": "Merge fields are replaced with data from each record of the data source.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of the following correctly defines an algorithm?",
+   "expected_answer": {
+    "value": "a finite, step-by-step set of instructions to solve a problem"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "a programming language",
+    "a finite, step-by-step set of instructions to solve a problem",
+    "a piece of computer hardware",
+    "a type of flowchart symbol"
+   ],
+   "explanation": "An algorithm is a clear sequence of steps leading to a solution; it is independent of any particular language.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is an essential property of a good algorithm?",
+   "expected_answer": {
+    "value": "It must end after a finite number of steps"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It must be written in Python",
+    "It must have at least ten steps",
+    "It must always contain a loop",
+    "It must end after a finite number of steps"
+   ],
+   "explanation": "An algorithm must terminate; it need not use any language, specific length or loop.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which flowchart symbol is used for a decision with Yes/No branches?",
+   "expected_answer": {
+    "value": "Diamond"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Oval",
+    "Rectangle",
+    "Parallelogram",
+    "Diamond"
+   ],
+   "explanation": "A diamond represents a condition being tested, with branches for each outcome.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which flowchart symbol is used for input and output?",
+   "expected_answer": {
+    "value": "Parallelogram"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Rectangle",
+    "Parallelogram",
+    "Diamond",
+    "Oval"
+   ],
+   "explanation": "The parallelogram marks input or output steps such as reading a number or printing a result.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Breaking a large problem into smaller, manageable sub-problems is called:",
+   "expected_answer": {
+    "value": "decomposition"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "debugging",
+    "compilation",
+    "decomposition",
+    "iteration"
+   ],
+   "explanation": "Decomposition splits a complex task into parts that are easier to solve.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "You want to display the numbers 1 to 100 without writing 100 separate statements. What should you use?",
+   "expected_answer": {
+    "value": "A loop"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A decision symbol",
+    "A comment",
+    "A connector",
+    "A loop"
+   ],
+   "explanation": "A loop repeats a set of instructions, so one block can handle all 100 numbers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Saving a PDF from your school's website onto your laptop is an example of:",
+   "expected_answer": {
+    "value": "downloading"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "uploading",
+    "downloading",
+    "hosting",
+    "browsing history"
+   ],
+   "explanation": "Downloading copies a file from a remote computer to your own device.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A computer that stores web pages and sends them when a browser asks is called a:",
+   "expected_answer": {
+    "value": "web server"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "web browser",
+    "web server",
+    "modem",
+    "search query"
+   ],
+   "explanation": "A web server holds website files and responds to browser requests.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which protocol is used to send an email from your computer to the mail server?",
+   "expected_answer": {
+    "value": "SMTP"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SMTP",
+    "POP3",
+    "HTTP",
+    "FTP"
+   ],
+   "explanation": "SMTP sends mail out; POP3 retrieves it from the server.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which protocol is used to download your incoming email from a mail server to your computer?",
+   "expected_answer": {
+    "value": "POP3"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SMTP",
+    "POP3",
+    "HTTPS",
+    "TCP"
+   ],
+   "explanation": "POP3 fetches stored messages from the mailbox; SMTP is for sending.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tool transfers files over an encrypted connection?",
+   "expected_answer": {
+    "value": "SFTP"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SFTP",
+    "FTP",
+    "TELNET",
+    "HTTP"
+   ],
+   "explanation": "SFTP (SSH File Transfer Protocol) encrypts the data; plain FTP sends it unprotected.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why is TELNET considered unsafe for remote login?",
+   "expected_answer": {
+    "value": "It sends data, including passwords, as plain text"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It sends data, including passwords, as plain text",
+    "It cannot log in to remote computers",
+    "It needs a paid licence for every login",
+    "It only works inside one building"
+   ],
+   "explanation": "TELNET does not encrypt traffic, so passwords can be read by anyone intercepting it; SSH is the secure alternative.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Transferring money using your bank's mobile app is an example of:",
+   "expected_answer": {
+    "value": "e-Banking"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "e-Governance",
+    "video conferencing",
+    "a search engine",
+    "e-Banking"
+   ],
+   "explanation": "e-Banking means carrying out banking transactions over the Internet.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which Internet service lets people in different cities see and hear each other live during a meeting?",
+   "expected_answer": {
+    "value": "Video conferencing"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "e-Governance",
+    "Video conferencing",
+    "A search engine",
+    "e-Banking"
+   ],
+   "explanation": "Video conferencing transmits live audio and video between participants.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which service can carry pictures, audio and video clips in a message, unlike plain text-only messages?",
+   "expected_answer": {
+    "value": "MMS"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SMS",
+    "SMTP",
+    "DNS",
+    "MMS"
+   ],
+   "explanation": "MMS (Multimedia Messaging Service) supports multimedia; SMS is limited to short text.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is the latest and fastest generation of mobile network?",
+   "expected_answer": {
+    "value": "5G"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "4G",
+    "3G",
+    "5G",
+    "2G"
+   ],
+   "explanation": "Each generation improved speed; 5G is the most recent of those listed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which code sets the background colour of the page to yellow?",
+   "expected_answer": {
+    "value": "<body bgcolor=\"yellow\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<body color=\"yellow\">",
+    "<body text=\"yellow\">",
+    "<body border=\"yellow\">",
+    "<body bgcolor=\"yellow\">"
+   ],
+   "explanation": "bgcolor sets the background colour of the body; text sets the colour of the text.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "The text placed inside which tag appears on the browser's title bar or tab?",
+   "expected_answer": {
+    "value": "<title>"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "<title>",
+    "<h1>",
+    "<p>",
+    "<caption>"
+   ],
+   "explanation": "<title>, placed inside <head>, gives the page name shown on the tab.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag starts a new line without starting a new paragraph?",
+   "expected_answer": {
+    "value": "<br>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<hr>",
+    "<p>",
+    "<h6>",
+    "<br>"
+   ],
+   "explanation": "<br> is a line break; <hr> draws a horizontal rule and <p> starts a paragraph.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which heading tag gives the largest heading text by default?",
+   "expected_answer": {
+    "value": "<h1>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<h1>",
+    "<h6>",
+    "<head>",
+    "<p>"
+   ],
+   "explanation": "Headings run from <h1> (largest) to <h6> (smallest); <head> is not a heading.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Look at this code: <ol type=\"A\"><li>Red</li><li>Blue</li></ol>. How is the second item labelled?",
+   "expected_answer": {
+    "value": "B"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "2",
+    "B",
+    "ii",
+    "A"
+   ],
+   "explanation": "type=\"A\" makes the list use capital letters, so items are A, B, C and so on.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What numbers will the three items show in <ol start=\"5\"> with three <li> items?",
+   "expected_answer": {
+    "value": "5, 6, 7"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "1, 2, 3",
+    "5, 6, 7",
+    "4, 5, 6",
+    "5, 5, 5"
+   ],
+   "explanation": "start sets the first number, and the rest continue from it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which attribute of <img> gives the text shown if the image cannot be displayed?",
+   "expected_answer": {
+    "value": "alt"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "alt",
+    "src",
+    "width",
+    "href"
+   ],
+   "explanation": "alt supplies alternative text for missing images and screen readers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code adds an audio player with play and pause buttons for song.mp3?",
+   "expected_answer": {
+    "value": "<audio src=\"song.mp3\" controls>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<audio src=\"song.mp3\" controls>",
+    "<audio src=\"song.mp3\" play>",
+    "<sound src=\"song.mp3\" controls>",
+    "<audio href=\"song.mp3\" controls>"
+   ],
+   "explanation": "The <audio> tag takes the file in src, and the controls attribute shows the player buttons.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which attribute makes a table cell stretch across two columns?",
+   "expected_answer": {
+    "value": "colspan=\"2\""
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "colspan=\"2\"",
+    "rowspan=\"2\"",
+    "colwidth=\"2\"",
+    "merge=\"2\""
+   ],
+   "explanation": "colspan spans columns; rowspan spans rows.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag defines a heading cell in a table, shown bold and centred by default?",
+   "expected_answer": {
+    "value": "<th>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<th>",
+    "<td>",
+    "<tr>",
+    "<caption>"
+   ],
+   "explanation": "<th> is a table header cell, while <td> is an ordinary data cell.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A form asks pupils to select exactly one house: Red, Blue, Green or Yellow. Which control suits this best?",
+   "expected_answer": {
+    "value": "Radio buttons"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Checkboxes",
+    "A password field",
+    "Radio buttons",
+    "A submit button"
+   ],
+   "explanation": "Radio buttons in one group allow only one choice; checkboxes allow several.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which input type hides the characters typed, showing dots instead?",
+   "expected_answer": {
+    "value": "type=\"password\""
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "type=\"text\"",
+    "type=\"password\"",
+    "type=\"radio\"",
+    "type=\"checkbox\""
+   ],
+   "explanation": "A password field masks what is typed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which link opens the user's email program with a message addressed to help@school.in ?",
+   "expected_answer": {
+    "value": "<a href=\"mailto:help@school.in\">Email us</a>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<a href=\"email:help@school.in\">Email us</a>",
+    "<a href=\"help@school.in\">Email us</a>",
+    "<a href=\"mailto:help@school.in\">Email us</a>",
+    "<a href=\"web:help@school.in\">Email us</a>"
+   ],
+   "explanation": "The mailto: scheme in href starts a new email to that address.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which attribute makes a link open in a new browser tab?",
+   "expected_answer": {
+    "value": "target=\"_blank\""
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "target=\"_self\"",
+    "type=\"_blank\"",
+    "open=\"new\"",
+    "target=\"_blank\""
+   ],
+   "explanation": "target=\"_blank\" opens the destination in a new tab or window; _self uses the same one.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which CSS rule makes all paragraph text red?",
+   "expected_answer": {
+    "value": "p { color: red; }"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "p { color: red; }",
+    "p { text-color: red; }",
+    "p { font-colour: red; }",
+    "p { red: color; }"
+   ],
+   "explanation": "The text colour property in CSS is color, written as property: value.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which CSS property sets the space outside an element's border?",
+   "expected_answer": {
+    "value": "margin"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "margin",
+    "padding",
+    "font-size",
+    "color"
+   ],
+   "explanation": "Margin is the space outside the border; padding is the space inside it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Typing a whole message in capital letters online is generally seen as:",
+   "expected_answer": {
+    "value": "shouting, which is rude"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "shouting, which is rude",
+    "polite and clear",
+    "more formal",
+    "a sign of respect"
+   ],
+   "explanation": "Capitals are read as raising your voice, so good netiquette avoids it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Before posting a photograph of a classmate online, what should you do?",
+   "expected_answer": {
+    "value": "Ask for their permission"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Post it at once and tell them later",
+    "Tag everyone in the class without asking",
+    "Ask for their permission",
+    "Edit it so it looks funny"
+   ],
+   "explanation": "Respecting others' privacy means getting consent before sharing their pictures.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Software whose source code is freely available for anyone to study and modify is called:",
+   "expected_answer": {
+    "value": "open-source software"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "proprietary software",
+    "pirated software",
+    "open-source software",
+    "a trial version"
+   ],
+   "explanation": "Open-source licences allow users to view, change and share the source code.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is an open-source operating system?",
+   "expected_answer": {
+    "value": "Linux"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Windows",
+    "macOS",
+    "Photoshop",
+    "Linux"
+   ],
+   "explanation": "Linux is open-source; Windows and macOS are proprietary, and Photoshop is an application, not an operating system.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which action helps you avoid plagiarism when using ideas from an article?",
+   "expected_answer": {
+    "value": "Quote or paraphrase it and credit the author"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Copy it and leave out the author's name",
+    "Change a few words and give no credit",
+    "Use it without reading it fully",
+    "Quote or paraphrase it and credit the author"
+   ],
+   "explanation": "Giving credit to the source for quoted or paraphrased material is the way to avoid plagiarism.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "IPR stands for:",
+   "expected_answer": {
+    "value": "Intellectual Property Rights"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Internet Protection Rules",
+    "Internal Property Records",
+    "Individual Privacy Rights",
+    "Intellectual Property Rights"
+   ],
+   "explanation": "IPR are legal rights over creations of the mind, such as writings, inventions and designs.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Before typing your card details on a shopping site, what should you check?",
+   "expected_answer": {
+    "value": "The address starts with https and a padlock is shown"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "That the site has many advertisements",
+    "That it offers the highest discounts",
+    "That it asks for your PIN by email",
+    "The address starts with https and a padlock is shown"
+   ],
+   "explanation": "https and the padlock show an encrypted connection; genuine sites never ask for a PIN by email.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these should you never share with anyone, even someone claiming to be from the bank?",
+   "expected_answer": {
+    "value": "The OTP received on your phone"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The OTP received on your phone",
+    "The name of your school",
+    "The browser you use",
+    "The city you live in"
+   ],
+   "explanation": "An OTP authorises a transaction; sharing it lets others take money from your account.",
+   "content_status": "needs_review"
+  }
+ ]
+}

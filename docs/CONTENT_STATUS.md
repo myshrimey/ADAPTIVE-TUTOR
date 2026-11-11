@@ -31,6 +31,9 @@ Depth beyond those starter questions comes from the generate-and-persist mechani
 ## Update v123 (2026-11-10)
 French (Class X) added as a pilot subject: 356 questions, all `needs_review`, written for Sahayak from the 2026-27 CBSE syllabus and the Entre Jeunes lessons 2-8 and 10. Details: docs/CONTENT_V123.md.
 
+## Update v125 (2026-11-11)
+503 questions added across all seven subjects (Hindi A 116, Hindi B 77, Social Science 120, Computer Applications 76, English 42, Science 42, Maths 30), all `needs_review`. Details and the items a teacher should check first: docs/CONTENT_V125.md.
+
 ## Known limitations / things a teacher should look at first
 - Hindi: the "Kanyadaan" poem question tests a general reading rather than a specific fact; Lekhan (formal letter / notice) questions are general rather than tied to a specific marking rule.
 - Computer Applications: verify the chapter list against the current official CBSE Class 10 syllabus (cbseacademic.nic.in) before calling it anything beyond pilot.

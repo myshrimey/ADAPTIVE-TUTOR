@@ -1,0 +1,2325 @@
+{
+ "subject_slug": "hindi",
+ "questions": [
+  {
+   "skill_slug": "identify-netaji-ka-chashma-subject",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In \"Netaji ka Chashma\", who keeps changing the chashma on the statue of Netaji?",
+   "expected_answer": {
+    "value": "The Captain (the chashmewala)"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "The town's mayor",
+    "The sculptor himself",
+    "The narrator",
+    "The Captain (the chashmewala)"
+   ],
+   "explanation": "The old chashmewala, called Captain by the townspeople, fits a new frame on the statue each time a customer takes one.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-netaji-ka-chashma-subject",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does the small chashma at the end of \"Netaji ka Chashma\" stand for?",
+   "expected_answer": {
+    "value": "The respect and patriotism of ordinary people, even children, for the nation's heroes"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "The wealth of the town's shopkeepers",
+    "The sculptor's signature on the statue",
+    "A gift from the government to the statue",
+    "The respect and patriotism of ordinary people, even children, for the nation's heroes"
+   ],
+   "explanation": "The tiny sarkanda chashma placed by a child moves the narrator and shows that love for the country lives in common people.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-netaji-ka-chashma-subject",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Netaji ka Chashma\" is written by:",
+   "expected_answer": {
+    "value": "Swayam Prakash"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Yashpal",
+    "Ramvriksh Benipuri",
+    "Shivpujan Sahay",
+    "Swayam Prakash"
+   ],
+   "explanation": "Swayam Prakash wrote this story about a statue of Subhash Chandra Bose and a humble chashmewala.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-lakhnavi-andaz-satire",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In \"Lakhnavi Andaz\", what does the Nawab do with the cucumbers (kheere) after cutting them and sprinkling salt-masala?",
+   "expected_answer": {
+    "value": "He only smells them and throws them out of the window"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "He eats them happily",
+    "He only smells them and throws them out of the window",
+    "He offers them to the narrator",
+    "He keeps them for later"
+   ],
+   "explanation": "The Nawab smells the kheere and throws the pieces away, showing off a refined 'nawabi' manner.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-lakhnavi-andaz-satire",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why does the narrator feel the Nawab acted that way in the compartment?",
+   "expected_answer": {
+    "value": "To show off his aristocratic style, as if he was not an ordinary person who eats such a common thing"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Because he was ill and could not eat",
+    "Because the kheere were rotten",
+    "Because he wanted the narrator to eat them",
+    "To show off his aristocratic style, as if he was not an ordinary person who eats such a common thing"
+   ],
+   "explanation": "Yashpal mocks the pretence of a decaying nawabi class that cares for show rather than reality.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-lakhnavi-andaz-satire",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "With the Nawab's behaviour, Yashpal chiefly criticises:",
+   "expected_answer": {
+    "value": "Showy, artificial lifestyle of the declining feudal class"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The railways and their poor service",
+    "Showy, artificial lifestyle of the declining feudal class",
+    "Poverty of farmers",
+    "The habit of eating raw vegetables"
+   ],
+   "explanation": "The satire is directed at an empty, pretentious lifestyle that survives only as show.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-balgobin-bhagat-devotion",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"Balgobin Bhagat\" is a sketch written by:",
+   "expected_answer": {
+    "value": "Ramvriksh Benipuri"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Swayam Prakash",
+    "Yashpal",
+    "Ramvriksh Benipuri",
+    "Mannu Bhandari"
+   ],
+   "explanation": "Ramvriksh Benipuri wrote this rekhachitra about a farmer-devotee of Kabir.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-balgobin-bhagat-devotion",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Balgobin Bhagat lived a householder's life, yet people called him a bhagat because of:",
+   "expected_answer": {
+    "value": "His simple, truthful conduct and devotion to Kabir's songs"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "His long saffron robes and matted hair",
+    "His vow of never speaking",
+    "His work as a temple priest",
+    "His simple, truthful conduct and devotion to Kabir's songs"
+   ],
+   "explanation": "He was a grihastha with a farm, but his honesty and Kabir bhajans made people respect him as a saint.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-balgobin-bhagat-devotion",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "When Balgobin Bhagat's son died, what did he ask his daughter-in-law to do?",
+   "expected_answer": {
+    "value": "Go to her brother's home and remarry"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Perform a grand feast",
+    "Stay and cry for a year",
+    "Sell the farm",
+    "Go to her brother's home and remarry"
+   ],
+   "explanation": "Despite his grief, he kept faith and advised her to remarry; his mind stayed on singing his devotion.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-uddhav-gopi-sandesh",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which collection of Surdas contains the \"Bhramargeet\" pads?",
+   "expected_answer": {
+    "value": "Sursagar"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Ramcharitmanas",
+    "Kavitavali",
+    "Sursagar",
+    "Padmavat"
+   ],
+   "explanation": "Surdas's famous work Sursagar contains the Bhramargeet pads.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-uddhav-gopi-sandesh",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The gopis say Uddhav is fortunate because he never felt attached to Krishna. They compare him to:",
+   "expected_answer": {
+    "value": "A lotus leaf that stays untouched by water"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "A bee that stays in one flower",
+    "A river that dries in summer",
+    "A lotus leaf that stays untouched by water",
+    "A cloud that always rains"
+   ],
+   "explanation": "The gopis taunt that Uddhav, like a lotus leaf (and oil drop in water), remains untouched by love.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-uddhav-gopi-sandesh",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The gopis say that Krishna is like \"haril ki lakri\" for them. This means:",
+   "expected_answer": {
+    "value": "They cling to him firmly and will never give him up"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "They find him dry and lifeless",
+    "They want to burn him away",
+    "They cling to him firmly and will never give him up",
+    "They are afraid of him"
+   ],
+   "explanation": "The haril bird never lets go of the twig it holds; similarly the gopis hold on to their love for Krishna.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-parshuram-anger",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Whose bow was broken in the swayamvar, making Parashuram furious?",
+   "expected_answer": {
+    "value": "Shiva's bow"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Vishnu's bow",
+    "Indra's bow",
+    "Shiva's bow",
+    "Parashuram's own bow"
+   ],
+   "explanation": "Parashuram was a devotee of Shiva, so the breaking of Shiva's bow provoked his anger.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-parshuram-anger",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who tries to calm Parashuram with polite and respectful words?",
+   "expected_answer": {
+    "value": "Ram"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Lakshman",
+    "Ram",
+    "Janak",
+    "Vishwamitra"
+   ],
+   "explanation": "Ram speaks humbly, while Lakshman's witty taunts make Parashuram angrier.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-parshuram-anger",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why does Lakshman's speech increase Parashuram's anger?",
+   "expected_answer": {
+    "value": "Lakshman taunts him, saying they broke many small bows as children and never saw such anger"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "Lakshman apologises to him loudly",
+    "Lakshman refuses to meet him",
+    "Lakshman threatens Janak",
+    "Lakshman taunts him, saying they broke many small bows as children and never saw such anger"
+   ],
+   "explanation": "Lakshman's sarcastic, fearless remarks hurt Parashuram's pride and inflame him more.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-parshuram-anger",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "The \"Ram-Lakshman-Parashuram Samvad\" is taken from which work of Tulsidas?",
+   "expected_answer": {
+    "value": "Ramcharitmanas (Balkand)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Sursagar",
+    "Ramcharitmanas (Balkand)",
+    "Vinay Patrika",
+    "Rasik Priya"
+   ],
+   "explanation": "This dialogue is a part of the Balkand of Tulsidas's Ramcharitmanas, composed in Awadhi.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-aatmakathya-poet",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which poet wrote \"Chhaya mat chhoona\"?",
+   "expected_answer": {
+    "value": "Girija Kumar Mathur"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Jaishankar Prasad",
+    "Girija Kumar Mathur",
+    "Sumitranandan Pant",
+    "Nagarjun"
+   ],
+   "explanation": "Girija Kumar Mathur is the poet of 'Chhaya mat chhoona'.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-aatmakathya-poet",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Aatmakathya\" belongs to which poetic movement of Hindi literature?",
+   "expected_answer": {
+    "value": "Chhayavad"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Pragativad",
+    "Rahasyavad only",
+    "Chhayavad",
+    "Reeti-kaal"
+   ],
+   "explanation": "Jaishankar Prasad was a leading Chhayavadi poet along with Nirala, Pant and Mahadevi Varma.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-aatmakathya-poet",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who is the poet of \"Kanyadan\" in Kshitij?",
+   "expected_answer": {
+    "value": "Ritu Raj"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Ritu Raj",
+    "Mangalesh Dabral",
+    "Kunwar Narayan",
+    "Jaishankar Prasad"
+   ],
+   "explanation": "'Kanyadan' is a poem by Ritu Raj, about a mother's advice to her daughter.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-mata-ka-aanchal-author",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Shivpujan Sahay, author of \"Mata ka Aanchal\", also wrote the work:",
+   "expected_answer": {
+    "value": "Dehati Duniya"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Godan",
+    "Dehati Duniya",
+    "Gaban",
+    "Rashmirathi"
+   ],
+   "explanation": "Dehati Duniya is a well-known novel by Shivpujan Sahay.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-mata-ka-aanchal-author",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In \"Mata ka Aanchal\", when a snake frightens the children, the child runs and takes shelter with:",
+   "expected_answer": {
+    "value": "His mother"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "His mother",
+    "His father",
+    "His teacher",
+    "His friends"
+   ],
+   "explanation": "Frightened, the child runs home and hides in his mother's lap, though he normally stays close to his father; this shows a mother's comfort.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-mata-ka-aanchal-author",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"Mata ka Aanchal\" is a part of which book?",
+   "expected_answer": {
+    "value": "Kritika"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Sparsh",
+    "Kritika",
+    "Sanchayan only",
+    "Kshitij"
+   ],
+   "explanation": "'Mata ka Aanchal' is a lesson of the supplementary reader Kritika.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-ras-sthayi-bhav",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What is the sthayi bhav of Karun ras?",
+   "expected_answer": {
+    "value": "Shok"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Utsah",
+    "Krodh",
+    "Bhay",
+    "Shok"
+   ],
+   "explanation": "Karun ras has shok (grief) as its sthayi bhav.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-ras-sthayi-bhav",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What is the sthayi bhav of Hasya ras?",
+   "expected_answer": {
+    "value": "Hasya (hansi)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Rati",
+    "Jugupsa",
+    "Vismay",
+    "Hasya (hansi)"
+   ],
+   "explanation": "The sthayi bhav of Hasya ras is hasya itself.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-ras-sthayi-bhav",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which ras has \"Nirved\" as its sthayi bhav?",
+   "expected_answer": {
+    "value": "Shant ras"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Veer ras",
+    "Shant ras",
+    "Raudra ras",
+    "Adbhut ras"
+   ],
+   "explanation": "Shant ras has nirved (detachment) as sthayi bhav.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-ras-sthayi-bhav",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Sher ko dekhkar sabhi bachche daud pade, unke chehre pasine se bhig gaye aur saans ukhad gayi.\" Which ras is shown?",
+   "expected_answer": {
+    "value": "Bhayanak ras"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Veer ras",
+    "Karun ras",
+    "Hasya ras",
+    "Bhayanak ras"
+   ],
+   "explanation": "Fear (bhay) is the main feeling, so the ras is Bhayanak.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-ras-sthayi-bhav",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is the sthayi bhav of Raudra ras?",
+   "expected_answer": {
+    "value": "Krodh"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Shok",
+    "Utsah",
+    "Jugupsa",
+    "Krodh"
+   ],
+   "explanation": "Krodh is the sthayi bhav of Raudra ras.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-alankar-upama",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In \"Vah sher ki tarah bahadur hai\", which alankar is used?",
+   "expected_answer": {
+    "value": "Upama"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Rupak",
+    "Upama",
+    "Utpreksha",
+    "Anupras"
+   ],
+   "explanation": "Two things are compared using the word 'ki tarah', so it is Upama.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-alankar-upama",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Mano chandrama hi dharti par utar aaya ho.\" Which alankar is used?",
+   "expected_answer": {
+    "value": "Utpreksha"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Utpreksha",
+    "Upama",
+    "Rupak",
+    "Yamak"
+   ],
+   "explanation": "The word 'mano' expresses imagination (sambhavna) of one thing as another: Utpreksha.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-alankar-upama",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Mukh-chandra par muskan khil gayi.\" Which alankar is it?",
+   "expected_answer": {
+    "value": "Rupak"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Upama",
+    "Rupak",
+    "Utpreksha",
+    "Slesh"
+   ],
+   "explanation": "The face is directly identified with the moon, without 'jaise' or 'mano': Rupak.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-alankar-upama",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In an Upama alankar, \"upaman\" is:",
+   "expected_answer": {
+    "value": "The thing with which comparison is made"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The thing being compared",
+    "The common quality",
+    "The word of comparison",
+    "The thing with which comparison is made"
+   ],
+   "explanation": "In 'mukh chandra ke saman', mukh is upmey and chandra is upaman.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-muhavare-meaning",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does the muhavara \"naak kat jana\" mean?",
+   "expected_answer": {
+    "value": "To lose one's honour"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "To get a cold",
+    "To be very proud",
+    "To lose one's honour",
+    "To win a race"
+   ],
+   "explanation": "'Naak kat jana' means disgrace or loss of reputation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-muhavare-meaning",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does \"ghee ke diye jalana\" mean?",
+   "expected_answer": {
+    "value": "To celebrate happily"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "To waste ghee",
+    "To celebrate happily",
+    "To be very rich only",
+    "To start a puja"
+   ],
+   "explanation": "The idiom means celebrating or rejoicing at something good.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-muhavare-meaning",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does \"doodh ka doodh, paani ka paani\" mean?",
+   "expected_answer": {
+    "value": "Fair and just decision"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "Mixing things well",
+    "Becoming very poor",
+    "Cheating a customer",
+    "Fair and just decision"
+   ],
+   "explanation": "The idiom means complete justice where truth and falsehood are separated.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-muhavare-meaning",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Ullu seedha karna\" means:",
+   "expected_answer": {
+    "value": "To get one's work done by cleverness"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "To make an owl sit straight",
+    "To get one's work done by cleverness",
+    "To spoil someone's work",
+    "To sleep at night"
+   ],
+   "explanation": "It means to get one's own selfish purpose fulfilled.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-muhavare-meaning",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"Anguthaa dikhana\" means:",
+   "expected_answer": {
+    "value": "To refuse flatly when needed"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "To show your thumb injury",
+    "To praise somebody",
+    "To ask for help",
+    "To refuse flatly when needed"
+   ],
+   "explanation": "The idiom stands for refusing bluntly.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-samas-type",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"Mata-pita\" is which type of samas?",
+   "expected_answer": {
+    "value": "Dwandwa"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Tatpurush",
+    "Dwandwa",
+    "Bahuvrihi",
+    "Avyayibhav"
+   ],
+   "explanation": "Both parts are equally important and joined by 'aur': Dwandwa samas.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-samas-type",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Pratidin\" (har din) is which type of samas?",
+   "expected_answer": {
+    "value": "Avyayibhav"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Dwigu",
+    "Karmdharay",
+    "Dwandwa",
+    "Avyayibhav"
+   ],
+   "explanation": "The first word 'prati' is an avyay and gives the meaning: Avyayibhav.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-samas-type",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Neelkamal\" (neela jo kamal) is which type of samas?",
+   "expected_answer": {
+    "value": "Karmdharay"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Dwigu",
+    "Karmdharay",
+    "Bahuvrihi",
+    "Avyayibhav"
+   ],
+   "explanation": "The first word is a visheshan of the second, with vigrah 'neela jo kamal': Karmdharay.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-samas-type",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"Dashanan\" (dus hain aanan jiske, arthat Ravan) is which type of samas?",
+   "expected_answer": {
+    "value": "Bahuvrihi"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Dwigu",
+    "Tatpurush",
+    "Dwandwa",
+    "Bahuvrihi"
+   ],
+   "explanation": "Neither word gives the meaning; a third thing (Ravan) is indicated: Bahuvrihi.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-samas-type",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Trilok\" (teen lokon ka samuh) is which type of samas?",
+   "expected_answer": {
+    "value": "Dwigu"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Dwigu",
+    "Karmdharay",
+    "Avyayibhav",
+    "Dwandwa"
+   ],
+   "explanation": "The first word is a number and the compound denotes a group: Dwigu.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-sandhi-type",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"Himalay\" is formed from hima + alay. Which sandhi is it?",
+   "expected_answer": {
+    "value": "Svar sandhi (Dirgh)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Vyanjan sandhi",
+    "Visarg sandhi",
+    "Yan sandhi",
+    "Svar sandhi (Dirgh)"
+   ],
+   "explanation": "'a' + 'a' merge into 'aa': Dirgh svar sandhi.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-sandhi-type",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Sanmarg\" is formed from sat + marg. Which type of sandhi is this?",
+   "expected_answer": {
+    "value": "Vyanjan sandhi"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Svar sandhi",
+    "Vyanjan sandhi",
+    "Visarg sandhi",
+    "Dirgh sandhi"
+   ],
+   "explanation": "The last consonant of 'sat' changes before 'm': Vyanjan sandhi.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-sandhi-type",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Manohar\" is formed from manah + har. Which type of sandhi is this?",
+   "expected_answer": {
+    "value": "Visarg sandhi"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Svar sandhi",
+    "Vyanjan sandhi",
+    "Vriddhi sandhi",
+    "Visarg sandhi"
+   ],
+   "explanation": "The visarg of 'manah' changes into 'o': Visarg sandhi.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-sandhi-type",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"Sadaiv\" (sada + ev) is an example of:",
+   "expected_answer": {
+    "value": "Vriddhi sandhi"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Vriddhi sandhi",
+    "Guna sandhi",
+    "Dirgh sandhi",
+    "Yan sandhi"
+   ],
+   "explanation": "'a' + 'e' becomes 'ai', which is Vriddhi sandhi.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-sandhi-type",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"Atyadhik\" (ati + adhik) is an example of:",
+   "expected_answer": {
+    "value": "Yan sandhi"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Dirgh sandhi",
+    "Yan sandhi",
+    "Guna sandhi",
+    "Vyanjan sandhi"
+   ],
+   "explanation": "'i' changes into 'y' before a dissimilar vowel: Yan sandhi.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-vakya-bhed",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"Seeta gaati hai.\" is which type of vakya by structure?",
+   "expected_answer": {
+    "value": "Saral vakya"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Mishra vakya",
+    "Sanyukt vakya",
+    "Prashnavachak vakya",
+    "Saral vakya"
+   ],
+   "explanation": "The sentence has just one subject and one predicate (one main clause).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-vakya-bhed",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Jo mehnat karta hai, vah safal hota hai.\" is which type of vakya?",
+   "expected_answer": {
+    "value": "Mishra vakya"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Saral vakya",
+    "Sanyukt vakya",
+    "Ichchhavachak vakya",
+    "Mishra vakya"
+   ],
+   "explanation": "It has a main clause and a dependent clause (jo...): Mishra vakya.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-vakya-bhed",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Main bazaar gaya lekin dukan band thi.\" is which type of vakya?",
+   "expected_answer": {
+    "value": "Sanyukt vakya"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Saral vakya",
+    "Sanyukt vakya",
+    "Mishra vakya",
+    "Sandeh vakya"
+   ],
+   "explanation": "Two independent clauses are joined by 'lekin': Sanyukt vakya.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-vakya-bhed",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"Jab baarish hui, tab fasal lahlahane lagi.\" is:",
+   "expected_answer": {
+    "value": "Mishra vakya"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Mishra vakya",
+    "Sanyukt vakya",
+    "Saral vakya",
+    "Vidhanvachak only"
+   ],
+   "explanation": "'Jab' introduces a dependent clause attached to a main clause.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-vachya",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"Kitab padhi jati hai.\" is in which vachya?",
+   "expected_answer": {
+    "value": "Karm vachya"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Kartri vachya",
+    "Bhav vachya",
+    "Karm vachya",
+    "Sanyukt vachya"
+   ],
+   "explanation": "The verb agrees with the karm (kitab), so it is Karm vachya.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-vachya",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Bachche khel rahe hain.\" is in which vachya?",
+   "expected_answer": {
+    "value": "Kartri vachya"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Karm vachya",
+    "Bhav vachya",
+    "Nishchay vachya",
+    "Kartri vachya"
+   ],
+   "explanation": "The verb follows the kartta (bachche): Kartri vachya.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-vachya",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"Mujhse hansa nahi jata.\" is in which vachya?",
+   "expected_answer": {
+    "value": "Bhav vachya"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "Karm vachya",
+    "Bhav vachya",
+    "Kartri vachya",
+    "Prerana vachya"
+   ],
+   "explanation": "Only the action (bhav) is stressed and the verb is intransitive/neutral: Bhav vachya.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-vachya",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In Karm vachya, with whom does the verb agree?",
+   "expected_answer": {
+    "value": "With the karm (object)"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "With the kartta (subject)",
+    "With the sarvanam only",
+    "With the karm (object)",
+    "With none; always singular masculine"
+   ],
+   "explanation": "In karm vachya the verb's linga and vachan follow the karm.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-aupcharik-patra",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A letter to the editor about garbage in your locality is which type of letter?",
+   "expected_answer": {
+    "value": "Aupcharik patra"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Aupcharik patra",
+    "Anaupcharik patra",
+    "Nimantran patra",
+    "Vyaktigat patra"
+   ],
+   "explanation": "Letters to editors, officials and organisations are formal letters.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-aupcharik-patra",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In an aupcharik patra, the \"Vishay\" line is usually written:",
+   "expected_answer": {
+    "value": "After 'Sewa mein' and the receiver's address and before the salutation"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "After the closing",
+    "At the very end",
+    "Before the sender's address",
+    "After 'Sewa mein' and the receiver's address and before the salutation"
+   ],
+   "explanation": "Format: sender's address, date, receiver, vishay, salutation (Mahoday), body, closing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-aupcharik-patra",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which closing is appropriate for a student writing to the Principal?",
+   "expected_answer": {
+    "value": "Aapka aagyakari shishya"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Tumhara dost",
+    "Aapka putra",
+    "Aapka shubhchintak",
+    "Aapka aagyakari shishya"
+   ],
+   "explanation": "A student writes 'Aapka/Aapki aagyakari shishya/shishya' to the Principal.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-aupcharik-patra",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which salutation suits a formal letter to the Principal?",
+   "expected_answer": {
+    "value": "Mahoday / Mahodaya"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Priya mitra",
+    "Mahoday / Mahodaya",
+    "Pyare Papa",
+    "Mere pyare Principal"
+   ],
+   "explanation": "Formal letters begin with 'Mahoday' or 'Mahodaya'.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anuchchhed",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "An anuchchhed should deal with:",
+   "expected_answer": {
+    "value": "One central idea, with connected sentences"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Many unrelated ideas",
+    "One central idea, with connected sentences",
+    "Only a list of words",
+    "Only quotations"
+   ],
+   "explanation": "A good anuchchhed develops a single theme in a unified flow.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anuchchhed",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is the best structure of an anuchchhed?",
+   "expected_answer": {
+    "value": "Beginning, development of the idea, and a conclusion"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Only a conclusion",
+    "Different paragraphs for each sentence",
+    "Beginning, development of the idea, and a conclusion",
+    "Just a title"
+   ],
+   "explanation": "It should open with the topic, develop it with points, and end with a brief conclusion.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anuchchhed",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is NOT a sign of a good anuchchhed?",
+   "expected_answer": {
+    "value": "Repeating the same sentence again and again to fill space"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Linked sentences",
+    "Relevant examples",
+    "Repeating the same sentence again and again to fill space",
+    "Clear and simple language"
+   ],
+   "explanation": "Repetition without new ideas weakens the unity of the paragraph.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-suchna",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In a suchna, the heading \"Suchna\" is written:",
+   "expected_answer": {
+    "value": "At the top, along with the name of the school or office"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "At the end",
+    "Inside the middle of the text",
+    "At the top, along with the name of the school or office",
+    "It is not written"
+   ],
+   "explanation": "A notice begins with the issuing institution's name and the word Suchna.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-suchna",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of the following must appear in a suchna for a school event?",
+   "expected_answer": {
+    "value": "Date of issue, name of issuer with post"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "The writer's personal story",
+    "Date of issue, name of issuer with post",
+    "A long poem",
+    "The writer's home phone only"
+   ],
+   "explanation": "A notice carries date, event details and the name and designation of the issuer.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-suchna",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A suchna should be:",
+   "expected_answer": {
+    "value": "Short and clear"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "Short and clear",
+    "Long and emotional",
+    "Written as a letter",
+    "Written in the first person narrative"
+   ],
+   "explanation": "A notice is brief and direct so that readers can understand it quickly.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-apathit-bhav",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "गद्यांश: \"पेड़ हमें छाया, फल और स्वच्छ वायु देते हैं। यदि हम वृक्षों को काटते रहेंगे तो धरती पर जीवन कठिन हो जाएगा। इसलिए अधिक से अधिक पेड़ लगाना हमारा कर्तव्य है।\" इसका सबसे उपयुक्त शीर्षक कौन-सा है?",
+   "expected_answer": {
+    "value": "वृक्षों का महत्त्व और संरक्षण"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "बाज़ार का एक दिन",
+    "छाया की कहानी",
+    "वृक्षों का महत्त्व और संरक्षण",
+    "मेरी विद्यालय-यात्रा"
+   ],
+   "explanation": "गद्यांश का केंद्रीय भाव पेड़ों की उपयोगिता और उन्हें बचाने की आवश्यकता है, इसलिए यही शीर्षक उचित है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-apathit-bhav",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "गद्यांश: \"समय बीत जाने पर पछताने से कुछ नहीं मिलता। जो विद्यार्थी हर काम समय पर करता है, वही आगे बढ़ता है।\" इसका मुख्य संदेश क्या है?",
+   "expected_answer": {
+    "value": "समय का सदुपयोग करना चाहिए"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "विद्यार्थियों को खेलना नहीं चाहिए",
+    "पछताना सबसे अच्छा गुण है",
+    "समय का सदुपयोग करना चाहिए",
+    "कठिन काम टाल देना चाहिए"
+   ],
+   "explanation": "गद्यांश समय पर काम करने और समय का मूल्य समझने पर बल देता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-apathit-bhav",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "अपठित गद्यांश का शीर्षक चुनते समय किस बात से बचना चाहिए?",
+   "expected_answer": {
+    "value": "ऐसा शीर्षक चुनना जो केवल एक छोटे-से अंश पर आधारित हो"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "शीर्षक का संक्षिप्त होना",
+    "शीर्षक का मूल विषय से जुड़ा होना",
+    "शीर्षक का सारगर्भित होना",
+    "ऐसा शीर्षक चुनना जो केवल एक छोटे-से अंश पर आधारित हो"
+   ],
+   "explanation": "शीर्षक पूरे गद्यांश के मूल भाव को दर्शाए; केवल एक अंश पर आधारित शीर्षक अधूरा रहता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-apathit-kavya-bhav",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "काव्यांश: \"चलना हमारा काम है, गति ही हमारा गान है; रुकना कभी जाना नहीं, यह कर्म का अपमान है।\" इस काव्यांश का भाव क्या है?",
+   "expected_answer": {
+    "value": "निरंतर कर्म करते रहने की प्रेरणा"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "आराम करने का संदेश",
+    "यात्रा से डरने की सलाह",
+    "भाग्य पर भरोसा करना",
+    "निरंतर कर्म करते रहने की प्रेरणा"
+   ],
+   "explanation": "पंक्तियाँ रुकने को कर्म का अपमान कहती हैं, अतः निरंतर चलते रहने का भाव प्रकट होता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-apathit-kavya-bhav",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "काव्यांश: \"दीप जले, तम दूर भगे, हर घर में उजियारा हो; मन से सबके मैल मिटे, हर मन में भाईचारा हो।\" इसका मूल भाव क्या है?",
+   "expected_answer": {
+    "value": "अज्ञान और द्वेष मिटाकर प्रकाश व प्रेम फैलाना"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "दीपक बेचने की इच्छा",
+    "अज्ञान और द्वेष मिटाकर प्रकाश व प्रेम फैलाना",
+    "अँधेरे से प्रेम करना",
+    "केवल घर की सफ़ाई करना"
+   ],
+   "explanation": "कवि अँधेरे और मन की मलिनता के मिटने तथा भाईचारे की कामना करता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-apathit-kavya-bhav",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "अपठित काव्यांश में \"तम\" शब्द प्रायः किसका प्रतीक होता है?",
+   "expected_answer": {
+    "value": "अज्ञान या अंधकार"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "प्रकाश",
+    "अज्ञान या अंधकार",
+    "आनंद",
+    "धन"
+   ],
+   "explanation": "'तम' का अर्थ अंधकार है और काव्य में इसे अज्ञान या दुख के प्रतीक के रूप में प्रयोग करते हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-vakya-bhed-rachna",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"जो परिश्रम करता है, वह सफल होता है।\" रचना के आधार पर यह कौन-सा वाक्य है?",
+   "expected_answer": {
+    "value": "मिश्र वाक्य"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "सरल वाक्य",
+    "संयुक्त वाक्य",
+    "मिश्र वाक्य",
+    "आज्ञावाचक वाक्य"
+   ],
+   "explanation": "इसमें एक प्रधान उपवाक्य और एक आश्रित उपवाक्य (जो...) है, इसलिए यह मिश्र वाक्य है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-vakya-bhed-rachna",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"वह आया पर बैठा नहीं।\" रचना के आधार पर यह कौन-सा वाक्य है?",
+   "expected_answer": {
+    "value": "संयुक्त वाक्य"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "संयुक्त वाक्य",
+    "सरल वाक्य",
+    "मिश्र वाक्य",
+    "निषेधवाचक वाक्य"
+   ],
+   "explanation": "दो स्वतंत्र उपवाक्य 'पर' से जुड़े हैं, अतः संयुक्त वाक्य है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-vakya-bhed-rachna",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"बच्चा हँस रहा है।\" रचना के आधार पर यह कौन-सा वाक्य है?",
+   "expected_answer": {
+    "value": "सरल वाक्य"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "संयुक्त वाक्य",
+    "मिश्र वाक्य",
+    "सरल वाक्य",
+    "प्रश्नवाचक वाक्य"
+   ],
+   "explanation": "इसमें एक ही उद्देश्य और एक ही विधेय है, इसलिए यह सरल वाक्य है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-vakya-bhed-rachna",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"जब वर्षा हुई तब किसान प्रसन्न हो गए।\" रचना के आधार पर यह कौन-सा वाक्य है?",
+   "expected_answer": {
+    "value": "मिश्र वाक्य"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "सरल वाक्य",
+    "संयुक्त वाक्य",
+    "संदेहवाचक वाक्य",
+    "मिश्र वाक्य"
+   ],
+   "explanation": "'जब' से आरंभ होने वाला उपवाक्य आश्रित है और 'तब' वाला मुख्य उपवाक्य है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-vachya",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"पत्र पढ़ा जाता है।\" इस वाक्य में कौन-सा वाच्य है?",
+   "expected_answer": {
+    "value": "कर्मवाच्य"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "कर्मवाच्य",
+    "कर्तृवाच्य",
+    "भाववाच्य",
+    "प्रेरणार्थक वाच्य"
+   ],
+   "explanation": "क्रिया कर्म (पत्र) के अनुसार चल रही है, इसलिए कर्मवाच्य है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-vachya",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"सीता गीत गाती है।\" इस वाक्य में कौन-सा वाच्य है?",
+   "expected_answer": {
+    "value": "कर्तृवाच्य"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "कर्मवाच्य",
+    "भाववाच्य",
+    "संयुक्त वाच्य",
+    "कर्तृवाच्य"
+   ],
+   "explanation": "क्रिया कर्ता (सीता) के लिंग-वचन के अनुसार है, अतः कर्तृवाच्य है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-vachya",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"उससे बैठा नहीं जाता।\" इस वाक्य में कौन-सा वाच्य है?",
+   "expected_answer": {
+    "value": "भाववाच्य"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "कर्तृवाच्य",
+    "कर्मवाच्य",
+    "मिश्र वाच्य",
+    "भाववाच्य"
+   ],
+   "explanation": "क्रिया अकर्मक है और केवल भाव (क्रिया) प्रधान है, इसलिए भाववाच्य है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-vachya",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "कर्तृवाच्य \"माली पौधे सींचता है।\" का कर्मवाच्य रूप कौन-सा है?",
+   "expected_answer": {
+    "value": "माली द्वारा पौधे सींचे जाते हैं।"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "माली द्वारा पौधे सींचे जाते हैं।",
+    "माली से पौधा सींचा नहीं जाता।",
+    "पौधे माली को सींचते हैं।",
+    "माली पौधे सींच रहा था।"
+   ],
+   "explanation": "कर्मवाच्य में कर्म प्रधान होता है और क्रिया 'सींचे जाते हैं' कर्म के अनुसार बदलती है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-pad-parichay",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"सुंदर फूल खिला है।\" में \"सुंदर\" का पद परिचय क्या है?",
+   "expected_answer": {
+    "value": "गुणवाचक विशेषण, 'फूल' की विशेषता बताने वाला"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "जातिवाचक संज्ञा, पुल्लिंग",
+    "सर्वनाम, पुरुषवाचक",
+    "गुणवाचक विशेषण, 'फूल' की विशेषता बताने वाला",
+    "क्रियाविशेषण, रीतिवाचक"
+   ],
+   "explanation": "'सुंदर' फूल (विशेष्य) का गुण बताता है, इसलिए गुणवाचक विशेषण है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-pad-parichay",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"बालक धीरे-धीरे चलता है।\" में \"धीरे-धीरे\" का पद परिचय क्या है?",
+   "expected_answer": {
+    "value": "क्रियाविशेषण (रीतिवाचक), 'चलता है' क्रिया की विशेषता"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "क्रियाविशेषण (रीतिवाचक), 'चलता है' क्रिया की विशेषता",
+    "विशेषण, गुणवाचक",
+    "संज्ञा, भाववाचक",
+    "संबंधबोधक"
+   ],
+   "explanation": "यह क्रिया के होने की रीति बताता है, इसलिए रीतिवाचक क्रियाविशेषण है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-pad-parichay",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"हम विद्यालय जाते हैं।\" में \"हम\" का पद परिचय क्या है?",
+   "expected_answer": {
+    "value": "पुरुषवाचक सर्वनाम, उत्तम पुरुष, बहुवचन"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "जातिवाचक संज्ञा, बहुवचन",
+    "पुरुषवाचक सर्वनाम, उत्तम पुरुष, बहुवचन",
+    "निश्चयवाचक सर्वनाम",
+    "विशेषण, संख्यावाचक"
+   ],
+   "explanation": "'हम' बोलने वाले के लिए प्रयुक्त होता है, इसलिए उत्तम पुरुष का पुरुषवाचक सर्वनाम है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-pad-parichay",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"राम और श्याम खेल रहे हैं।\" में \"और\" का पद परिचय क्या है?",
+   "expected_answer": {
+    "value": "समुच्चयबोधक (योजक) अव्यय"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "संबंधबोधक अव्यय",
+    "क्रियाविशेषण",
+    "समुच्चयबोधक (योजक) अव्यय",
+    "विस्मयादिबोधक"
+   ],
+   "explanation": "'और' दो शब्दों को जोड़ता है, अतः समुच्चयबोधक अव्यय है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-alankar",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"उसकी आँखें कमल जैसी सुंदर हैं।\" में कौन-सा अलंकार है?",
+   "expected_answer": {
+    "value": "उपमा"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "रूपक",
+    "उत्प्रेक्षा",
+    "अतिशयोक्ति",
+    "उपमा"
+   ],
+   "explanation": "'जैसी' वाचक शब्द से आँखों की कमल से समानता बताई गई है: उपमा अलंकार।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-alankar",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"मानो चाँद आकाश में दीपक बनकर जल रहा हो।\" में कौन-सा अलंकार है?",
+   "expected_answer": {
+    "value": "उत्प्रेक्षा"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "उपमा",
+    "रूपक",
+    "मानवीकरण",
+    "उत्प्रेक्षा"
+   ],
+   "explanation": "'मानो' से संभावना या कल्पना की गई है, अतः उत्प्रेक्षा अलंकार है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-alankar",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"सागर की लहरें गले मिलने दौड़ीं।\" में कौन-सा अलंकार है?",
+   "expected_answer": {
+    "value": "मानवीकरण"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "उपमा",
+    "मानवीकरण",
+    "अतिशयोक्ति",
+    "रूपक"
+   ],
+   "explanation": "लहरों पर मनुष्य जैसा व्यवहार (दौड़ना, गले मिलना) आरोपित किया गया है: मानवीकरण।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-alankar",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"उसने ऐसी दौड़ लगाई कि हवा भी पीछे छूट गई।\" में कौन-सा अलंकार है?",
+   "expected_answer": {
+    "value": "अतिशयोक्ति"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "अतिशयोक्ति",
+    "उपमा",
+    "रूपक",
+    "उत्प्रेक्षा"
+   ],
+   "explanation": "बात को बहुत बढ़ा-चढ़ाकर कहा गया है, इसलिए अतिशयोक्ति अलंकार है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-alankar",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"भारत-माता के मुख-चंद्र पर लालिमा छा गई।\" में कौन-सा अलंकार है?",
+   "expected_answer": {
+    "value": "रूपक"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "उपमा",
+    "उत्प्रेक्षा",
+    "रूपक",
+    "मानवीकरण"
+   ],
+   "explanation": "मुख और चंद्र में भेद नहीं रखा गया, दोनों को एक मान लिया गया है: रूपक।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-ek-kahani-lekhak",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"एक कहानी यह भी\" की लेखिका मन्नू भंडारी की कौन-सी रचना प्रसिद्ध है?",
+   "expected_answer": {
+    "value": "आपका बंटी"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "आपका बंटी",
+    "गोदान",
+    "रश्मिरथी",
+    "कामायनी"
+   ],
+   "explanation": "'आपका बंटी' मन्नू भंडारी का प्रसिद्ध उपन्यास है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-ek-kahani-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"एक कहानी यह भी\" किस विधा की रचना है?",
+   "expected_answer": {
+    "value": "आत्मकथ्य (आत्मकथात्मक अंश)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "नाटक",
+    "रेखाचित्र",
+    "एकांकी",
+    "आत्मकथ्य (आत्मकथात्मक अंश)"
+   ],
+   "explanation": "लेखिका ने इसमें अपने जीवन और लेखन-यात्रा का अंश स्वयं वर्णित किया है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-ek-kahani-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"एक कहानी यह भी\" में लेखिका को स्वतंत्रता-आंदोलन से जोड़ने में किन अध्यापिका की प्रमुख भूमिका रही?",
+   "expected_answer": {
+    "value": "शीला अग्रवाल"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "शीला अग्रवाल",
+    "महादेवी वर्मा",
+    "सुभद्रा कुमारी चौहान",
+    "सरोजिनी नायडू"
+   ],
+   "explanation": "हिंदी की प्राध्यापिका शीला अग्रवाल ने लेखिका को साहित्य और आंदोलन से जोड़ा।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-naubatkhana-vishay",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"नौबतखाने में इबादत\" के लेखक कौन हैं?",
+   "expected_answer": {
+    "value": "यतींद्र मिश्र"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "यशपाल",
+    "भदंत आनंद कौसल्यायन",
+    "शिवपूजन सहाय",
+    "यतींद्र मिश्र"
+   ],
+   "explanation": "यह व्यक्तिचित्र यतींद्र मिश्र द्वारा लिखा गया है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-naubatkhana-vishay",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "बिस्मिल्ला खाँ का जन्म किस स्थान पर हुआ था?",
+   "expected_answer": {
+    "value": "डुमराँव (बिहार)"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "डुमराँव (बिहार)",
+    "लखनऊ",
+    "जयपुर",
+    "अजमेर"
+   ],
+   "explanation": "बिस्मिल्ला खाँ का जन्म बिहार के डुमराँव में हुआ था।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-naubatkhana-vishay",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "बिस्मिल्ला खाँ का संबंध किस नगर और किस वाद्य से विशेष रूप से जुड़ा है?",
+   "expected_answer": {
+    "value": "काशी और शहनाई"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "मथुरा और बाँसुरी",
+    "दिल्ली और सितार",
+    "काशी और शहनाई",
+    "जयपुर और तबला"
+   ],
+   "explanation": "वे काशी में रहे और शहनाई वादन के लिए विश्वप्रसिद्ध हुए।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-naubatkhana-vishay",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"नौबतखाने में इबादत\" पाठ का केंद्रीय भाव क्या है?",
+   "expected_answer": {
+    "value": "संगीत-साधना, सादगी और गंगा-जमुनी संस्कृति का सम्मान"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "राजनीति में सफलता",
+    "संगीत-साधना, सादगी और गंगा-जमुनी संस्कृति का सम्मान",
+    "व्यापार की उन्नति",
+    "युद्ध की वीरता"
+   ],
+   "explanation": "पाठ में उनकी साधना, विनम्रता और हिंदू-मुस्लिम एकता की भावना उभरती है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-sanskriti-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"संस्कृति\" निबंध के लेखक भदंत आनंद कौसल्यायन किस विषय पर विचार करते हैं?",
+   "expected_answer": {
+    "value": "सभ्यता और संस्कृति में अंतर"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "वृक्षारोपण",
+    "सभ्यता और संस्कृति में अंतर",
+    "खेलों का महत्त्व",
+    "विज्ञान की प्रगति"
+   ],
+   "explanation": "निबंध में सभ्यता और संस्कृति का अर्थ तथा अंतर स्पष्ट किया गया है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-sanskriti-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"संस्कृति\" निबंध में आग और सुई-धागे के आविष्कारकों का उदाहरण किसलिए दिया गया है?",
+   "expected_answer": {
+    "value": "संस्कृति को समझाने के लिए"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "इतिहास की तिथियाँ बताने के लिए",
+    "बाज़ार का वर्णन करने के लिए",
+    "संस्कृति को समझाने के लिए",
+    "युद्ध का चित्रण करने के लिए"
+   ],
+   "explanation": "लेखक आविष्कार और आविष्कर्ता के उदाहरणों से संस्कृति की अवधारणा समझाते हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-sanskriti-lekhak",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"संस्कृति\" किस विधा की रचना है?",
+   "expected_answer": {
+    "value": "निबंध"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "कहानी",
+    "एकांकी",
+    "रेखाचित्र",
+    "निबंध"
+   ],
+   "explanation": "यह भदंत आनंद कौसल्यायन का निबंध है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-kavi-pehchan",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"छाया मत छूना\" कविता के कवि कौन हैं?",
+   "expected_answer": {
+    "value": "गिरिजा कुमार माथुर"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "ऋतुराज",
+    "कुँवर नारायण",
+    "गिरिजा कुमार माथुर",
+    "मंगलेश डबराल"
+   ],
+   "explanation": "'छाया मत छूना' गिरिजा कुमार माथुर की कविता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-kavi-pehchan",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"कन्यादान\" कविता के रचयिता कौन हैं?",
+   "expected_answer": {
+    "value": "ऋतुराज"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "नागार्जुन",
+    "निराला",
+    "जयशंकर प्रसाद",
+    "ऋतुराज"
+   ],
+   "explanation": "'कन्यादान' ऋतुराज की कविता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-kavi-pehchan",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"कविता के बहाने\" और \"बात सीधी थी पर\" के कवि कौन हैं?",
+   "expected_answer": {
+    "value": "कुँवर नारायण"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "कुँवर नारायण",
+    "गिरिजा कुमार माथुर",
+    "मंगलेश डबराल",
+    "सूरदास"
+   ],
+   "explanation": "दोनों कविताएँ कुँवर नारायण की रचनाएँ हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-kavi-pehchan",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"आत्मकथ्य\" कविता किसकी रचना है?",
+   "expected_answer": {
+    "value": "जयशंकर प्रसाद"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "सूर्यकांत त्रिपाठी 'निराला'",
+    "तुलसीदास",
+    "नागार्जुन",
+    "जयशंकर प्रसाद"
+   ],
+   "explanation": "'आत्मकथ्य' जयशंकर प्रसाद की कविता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-kritika-lekhak",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"माता का अँचल\" के लेखक कौन हैं?",
+   "expected_answer": {
+    "value": "शिवपूजन सहाय"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "कमलेश्वर",
+    "मधु कांकरिया",
+    "अज्ञेय",
+    "शिवपूजन सहाय"
+   ],
+   "explanation": "'माता का अँचल' शिवपूजन सहाय द्वारा रचित संस्मरणात्मक पाठ है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-kritika-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"जॉर्ज पंचम की नाक\" के लेखक कौन हैं?",
+   "expected_answer": {
+    "value": "कमलेश्वर"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "कमलेश्वर",
+    "शिवपूजन सहाय",
+    "रामवृक्ष बेनीपुरी",
+    "यशपाल"
+   ],
+   "explanation": "यह व्यंग्यात्मक रचना कमलेश्वर ने लिखी है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-kritika-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"साना-साना हाथ जोड़ि\" किस विधा का पाठ है?",
+   "expected_answer": {
+    "value": "यात्रा-वृत्तांत"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "नाटक",
+    "कहानी",
+    "निबंध",
+    "यात्रा-वृत्तांत"
+   ],
+   "explanation": "मधु कांकरिया ने इसमें सिक्किम की यात्रा का वर्णन किया है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-vigyapan-tatva",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "विज्ञापन का मुख्य उद्देश्य क्या होता है?",
+   "expected_answer": {
+    "value": "वस्तु या सेवा की जानकारी देकर लोगों को आकर्षित करना"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "लंबी कहानी सुनाना",
+    "वस्तु या सेवा की जानकारी देकर लोगों को आकर्षित करना",
+    "केवल शिकायत करना",
+    "किसी का परिचय देना"
+   ],
+   "explanation": "विज्ञापन उत्पाद या सेवा की जानकारी देकर ग्राहकों को आकर्षित करने के लिए होता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-vigyapan-tatva",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "किसी विज्ञापन में निम्न में से क्या होना आवश्यक है?",
+   "expected_answer": {
+    "value": "आकर्षक नारा और संपर्क का पता या फ़ोन नंबर"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "लेखक की पारिवारिक कहानी",
+    "लंबा इतिहास",
+    "आकर्षक नारा और संपर्क का पता या फ़ोन नंबर",
+    "कठिन शब्दों की सूची"
+   ],
+   "explanation": "प्रभावी विज्ञापन में आकर्षक शीर्षक/नारा और संपर्क-विवरण होना चाहिए।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-vigyapan-tatva",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "विज्ञापन की भाषा कैसी होनी चाहिए?",
+   "expected_answer": {
+    "value": "संक्षिप्त, प्रभावशाली और आकर्षक"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "लंबी और बोझिल",
+    "अत्यंत क्लिष्ट",
+    "संक्षिप्त, प्रभावशाली और आकर्षक",
+    "केवल औपचारिक पत्र जैसी"
+   ],
+   "explanation": "सीमित शब्दों में प्रभावशाली भाषा विज्ञापन की विशेषता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-sandesh-tatva",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "शुभकामना संदेश में सबसे पहले क्या होना चाहिए?",
+   "expected_answer": {
+    "value": "अवसर के अनुरूप शुभकामना या अभिवादन"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "अवसर के अनुरूप शुभकामना या अभिवादन",
+    "लंबी शिकायत",
+    "अपने खर्च का ब्योरा",
+    "किसी की निंदा"
+   ],
+   "explanation": "संदेश अवसर के अनुसार शुभकामना या अभिवादन से आरंभ होता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-sandesh-tatva",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "संदेश लेखन में अंत में किसका नाम लिखा जाता है?",
+   "expected_answer": {
+    "value": "संदेश भेजने वाले का"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "संदेश पाने वाले के पड़ोसी का",
+    "विद्यालय के चपरासी का",
+    "किसी अन्य व्यक्ति का",
+    "संदेश भेजने वाले का"
+   ],
+   "explanation": "संदेश के अंत में भेजने वाले का नाम लिखते हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-sandesh-tatva",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "संदेश लेखन में कौन-सी बात उचित है?",
+   "expected_answer": {
+    "value": "संक्षिप्त, भावपूर्ण और अवसर के अनुकूल भाषा"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "बहुत लंबा और अनावश्यक विवरण",
+    "कठोर और आलोचनात्मक भाषा",
+    "अप्रासंगिक विषय",
+    "संक्षिप्त, भावपूर्ण और अवसर के अनुकूल भाषा"
+   ],
+   "explanation": "संदेश छोटा, भावपूर्ण और प्रसंग के अनुरूप होना चाहिए।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-email-roop",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "ई-मेल में \"Bcc\" का क्या अर्थ है?",
+   "expected_answer": {
+    "value": "छिपी हुई प्रति जिसे अन्य प्राप्तकर्ता नहीं देख पाते"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "मुख्य प्राप्तकर्ता",
+    "छिपी हुई प्रति जिसे अन्य प्राप्तकर्ता नहीं देख पाते",
+    "ई-मेल का विषय",
+    "संलग्न फ़ाइल"
+   ],
+   "explanation": "Bcc में डाले गए पते अन्य प्राप्तकर्ताओं को दिखाई नहीं देते।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-email-roop",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "औपचारिक ई-मेल का आरंभ किस संबोधन से करना उचित है?",
+   "expected_answer": {
+    "value": "आदरणीय महोदय"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "हाय दोस्त",
+    "ओ भाई",
+    "प्यारे मित्र",
+    "आदरणीय महोदय"
+   ],
+   "explanation": "औपचारिक ई-मेल में 'आदरणीय महोदय/महोदया' जैसा संबोधन होता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-email-roop",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "ई-मेल के अंत में कौन-सी बात उचित है?",
+   "expected_answer": {
+    "value": "धन्यवाद सहित भेजने वाले का नाम"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "केवल हँसी वाला चिह्न",
+    "धन्यवाद सहित भेजने वाले का नाम",
+    "प्राप्तकर्ता का पता",
+    "एक लंबी कहानी"
+   ],
+   "explanation": "औपचारिक ई-मेल का समापन विनम्र अभिवादन और भेजने वाले के नाम से होता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-swavritt-tatva",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "स्ववृत्त (बायोडाटा) में कौन-सी जानकारी लिखी जाती है?",
+   "expected_answer": {
+    "value": "शैक्षिक योग्यता और अनुभव"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "शैक्षिक योग्यता और अनुभव",
+    "पड़ोसियों की बुराई",
+    "मनपसंद फ़िल्म की कहानी",
+    "परिवार के झगड़े"
+   ],
+   "explanation": "स्ववृत्त में नाम, पता, शैक्षिक योग्यता, अनुभव, रुचियाँ आदि दी जाती हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-swavritt-tatva",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "स्ववृत्त के अंत में प्रायः क्या लिखा जाता है?",
+   "expected_answer": {
+    "value": "घोषणा, दिनांक, स्थान और हस्ताक्षर"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "चुटकुले",
+    "घोषणा, दिनांक, स्थान और हस्ताक्षर",
+    "प्रशंसकों की सूची",
+    "केवल फ़ोटो"
+   ],
+   "explanation": "अंत में घोषणा करके दिनांक, स्थान और हस्ताक्षर दिए जाते हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ha-swavritt-tatva",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "इनमें से कौन-सी जानकारी स्ववृत्त में अनावश्यक है?",
+   "expected_answer": {
+    "value": "मित्रों के घर के रंग"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "जन्मतिथि",
+    "संपर्क-संख्या",
+    "शैक्षिक योग्यता",
+    "मित्रों के घर के रंग"
+   ],
+   "explanation": "स्ववृत्त में केवल प्रासंगिक व्यक्तिगत व शैक्षिक जानकारी दी जाती है।",
+   "content_status": "needs_review"
+  }
+ ]
+}

@@ -1,26 +1,25 @@
-Sahayak v124 - typed answers wrongly marked wrong (fix)
-========================================================
-Apply after v123. Copy these files over your project (same folders), then deploy the website the way you normally do.
-No database migration, nothing to run.
+Sahayak v125 - 503 more questions in all subjects
+==================================================
+Apply after v124. Copy these files over your project (same folders). No database migration. The website itself only changes its version number, so deploy it the way you normally do (or, if you prefer, just copy the files and run the seed command).
 
-WHAT WAS WRONG (from your student's three screenshots)
-1. "5,-1" was marked wrong for "x = 5, -1" - the checker wanted "x =" typed too.
-2. "6 or -8" was marked wrong for "-8, 6" - the word "or" was not understood.
-3. "29,106" was marked wrong for 29106 - the comma was read as a list, not a thousands comma.
+WHAT WAS ADDED (all multiple choice, all marked "needs review", original wording)
+- Hindi Course A 116, Hindi Course B 77, Social Science 120, Computer Applications 76, English 42, Science 42, Maths 30 = 503.
+- Every skill in the thin subjects now has at least 2 new questions. Maths and Science already had 1000+, so they got a targeted top-up (thinnest skills). Maths numbers were all computed by code.
 
-WHAT CHANGED
-- The answer checker now accepts: roots with or without "x =", lists joined with "or", "and" or ";", "x = 6 or x = -8", thousands commas (29,106 and Indian 2,91,106) when the right answer is one number, and a full stop at the end.
-- Still marked wrong: a missing root, a wrong root, a sign-flipped root, a different number, odd comma placing, a different variable name.
+AFTER DEPLOYING (you, with your own settings - Claude never ran it):
+  node packages/db/seed-diagnostic.js
+It is safe to run again; it skips questions it already has. The new questions are saved as "needs review", so a teacher can check them.
 
 TESTED
-- New test t124 (12 checks) including all three screenshots and the "still wrong" cases. Full npm test: 96 passed, 4 known-stale (t3, t4, t42a, t42c), 0 failed. TypeScript check clean.
+- New test t125 (44 checks): real skills, 4 different options, the right answer is present and spread over all four positions, no repeats of existing questions, needs-review status. Full npm test: 97 passed, 4 known-stale (t3, t4, t42a, t42c), 0 failed. TypeScript check clean.
+- 15 of the 30 maths questions were re-worked by hand and were right.
 
 NOT TESTED
-- Nothing was seen live; I only have the screenshots. Other kinds of correct answers that the checker might refuse (for example an unusual way of writing a fraction or an expression like 2(x+1) for 2x+2) were NOT looked at: the checker is still not a full algebra system.
-- Answers that students already typed and were wrongly marked wrong earlier are not corrected.
+- Nothing was seen live. The seed command was not run on any real database.
+- Facts in Hindi, Social Science, Science, English and Computer Applications were NOT independently checked. The writers flagged some items for a teacher: see docs/CONTENT_V125.md.
 
 NOT BUILT
-- A way to re-mark earlier answers.
+- Teacher review screens or marking of questions as verified (that stays with a human).
 
 NOT DEPLOYED
 - Nothing was deployed or changed on your live site or database.

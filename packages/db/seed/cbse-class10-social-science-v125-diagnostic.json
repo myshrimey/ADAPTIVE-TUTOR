@@ -1,0 +1,2405 @@
+{
+ "subject_slug": "social-science",
+ "questions": [
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "After the French Revolution, which flag replaced the royal standard as the flag of the French nation?",
+   "expected_answer": {
+    "value": "The tricolour"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A plain white flag with a golden crown",
+    "A red flag with a hammer and sickle",
+    "A flag with a double-headed eagle",
+    "The tricolour"
+   ],
+   "explanation": "The revolutionaries replaced the royal standard with the tricolour as a symbol of the nation of citizens.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Greek struggle for independence that began in 1821 was fought against rule by which empire?",
+   "expected_answer": {
+    "value": "The Ottoman Empire"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The Austrian Empire",
+    "The Ottoman Empire",
+    "The Russian Empire",
+    "The Spanish Empire"
+   ],
+   "explanation": "Greece was under the Ottoman Empire, and its war of independence drew sympathy from nationalists across Europe.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The cultural movement of Romanticism contributed to nationalism mainly by stressing which of the following?",
+   "expected_answer": {
+    "value": "Emotions, folk culture and a shared cultural heritage of the people"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Strict reliance on scientific reasoning alone",
+    "Free trade between all European states",
+    "The divine right of kings to rule",
+    "Emotions, folk culture and a shared cultural heritage of the people"
+   ],
+   "explanation": "Romantic thinkers such as Herder looked to folk songs, poetry and dance to build a sense of a common nation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In January 1871 the German Empire was proclaimed in which place?",
+   "expected_answer": {
+    "value": "The Palace of Versailles in France"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The Prussian city of Potsdam",
+    "The Austrian capital Vienna",
+    "The Palace of Versailles in France",
+    "The Italian city of Turin"
+   ],
+   "explanation": "After defeating France, Prussia's King William I was proclaimed German Emperor in the Hall of Mirrors at Versailles.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What name was given to the volunteers led by Giuseppe Garibaldi who marched into the Kingdom of the Two Sicilies in 1860?",
+   "expected_answer": {
+    "value": "The Red Shirts"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The Black Shirts",
+    "The Carbonari",
+    "The Young Italy guards",
+    "The Red Shirts"
+   ],
+   "explanation": "Garibaldi's roughly thousand volunteers were popularly known as the Red Shirts.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The Zollverein, set up in 1834 under Prussian leadership, was a union of German states for which purpose?",
+   "expected_answer": {
+    "value": "Abolishing tariff barriers and creating a customs union"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Forming a common army",
+    "Writing a single constitution",
+    "Choosing a common emperor",
+    "Abolishing tariff barriers and creating a customs union"
+   ],
+   "explanation": "The Zollverein removed tariff barriers among member states and prepared the economic ground for German unity.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Rowlatt Act of 1919 angered Indians mainly because it allowed the government to do what?",
+   "expected_answer": {
+    "value": "Imprison people without trial for up to two years"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Ban the sale of Indian cloth",
+    "Raise the land revenue sharply",
+    "Stop all Indian newspapers permanently",
+    "Imprison people without trial for up to two years"
+   ],
+   "explanation": "The Act gave the colonial government power to detain political prisoners without trial, which Gandhi opposed with a nationwide satyagraha.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Khilafat issue that Gandhi linked with Non-Cooperation concerned the future of which ruler after the First World War?",
+   "expected_answer": {
+    "value": "The Ottoman Sultan, the Caliph of the Islamic world"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The Shah of Persia",
+    "The Ottoman Sultan, the Caliph of the Islamic world",
+    "The King of Egypt",
+    "The Mughal emperor"
+   ],
+   "explanation": "Indian Muslims were worried about the harsh treatment of the Ottoman Caliph, and the Khilafat leaders joined hands with Gandhi.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these was part of the Non-Cooperation Movement's programme?",
+   "expected_answer": {
+    "value": "Boycotting foreign cloth and British-run schools, courts and councils"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Attacking police stations",
+    "Refusing to read newspapers",
+    "Boycotting foreign cloth and British-run schools, courts and councils",
+    "Forming a separate Indian army"
+   ],
+   "explanation": "Non-Cooperation meant peaceful withdrawal from British institutions and goods, with foreign cloth boycotted widely.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Vande Mataram, later a popular nationalist song, first appeared in which novel by Bankim Chandra Chattopadhyay?",
+   "expected_answer": {
+    "value": "Anandamath"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Gora",
+    "Devi Chaudhurani",
+    "Kapalkundala",
+    "Anandamath"
+   ],
+   "explanation": "The hymn is part of Anandamath, published in the 1880s, and became widely sung during the Swadeshi movement.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Gandhi designed the Swaraj flag in 1921. What did it carry at its centre?",
+   "expected_answer": {
+    "value": "A spinning wheel"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A lotus",
+    "A rising sun",
+    "A crescent moon",
+    "A spinning wheel"
+   ],
+   "explanation": "The tricolour Swaraj flag carried the charkha, symbolising self-help and the idea of the Gandhian economy.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which Bengali poet collected ballads, nursery rhymes and myths and led a folk revival in the age of nationalism?",
+   "expected_answer": {
+    "value": "Rabindranath Tagore"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Rabindranath Tagore",
+    "Bankim Chandra Chattopadhyay",
+    "Subramania Bharati",
+    "Muhammad Iqbal"
+   ],
+   "explanation": "Tagore gathered folk traditions in Bengal as part of the movement to rediscover Indian culture.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "The ancient trade routes were called Silk Routes because they were famous for carrying what?",
+   "expected_answer": {
+    "value": "Chinese silk cloth sent westward"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Chinese silk cloth sent westward",
+    "Silk worms bred in Europe",
+    "Indian spices wrapped in silk",
+    "Silk-weaving machines"
+   ],
+   "explanation": "The name comes from the Chinese silk that travelled along these routes to Asia and Europe.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these foods was introduced to Europe and Asia only after contact with the Americas?",
+   "expected_answer": {
+    "value": "Potato"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Wheat",
+    "Rice",
+    "Barley",
+    "Potato"
+   ],
+   "explanation": "Potatoes, maize, tomatoes and chillies came from the Americas after Columbus's voyages.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Cowries, which were used as a form of currency in some regions, are what?",
+   "expected_answer": {
+    "value": "Sea shells"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Small copper coins",
+    "Pieces of dried cloth",
+    "Sea shells",
+    "Polished stones"
+   ],
+   "explanation": "Cowries were sea shells that circulated as money in parts of Asia and Africa.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What is the main reason agricultural prices fell sharply in the years just before and during the Great Depression?",
+   "expected_answer": {
+    "value": "Overproduction of crops"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Overproduction of crops",
+    "Shortage of fertilisers",
+    "Rise in the number of farm workers",
+    "Heavy floods across the world"
+   ],
+   "explanation": "Farm output grew faster than demand, so prices and farmers' incomes fell.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The stock market collapse of October 1929 in New York is popularly called what?",
+   "expected_answer": {
+    "value": "The Wall Street Crash"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The Black Monday of Paris",
+    "The Bretton Woods Meeting",
+    "The Marshall Plan",
+    "The Wall Street Crash"
+   ],
+   "explanation": "The Wall Street Crash of 1929 triggered the Great Depression in the United States.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Between 1928 and 1934, what happened to India's exports and imports during the Depression?",
+   "expected_answer": {
+    "value": "They nearly halved"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "They doubled",
+    "They stayed unchanged",
+    "They rose slowly",
+    "They nearly halved"
+   ],
+   "explanation": "Falling world prices badly hit India's trade, and peasants who grew crops like jute fell into debt.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why did merchants in 17th and 18th century Europe move production to the countryside?",
+   "expected_answer": {
+    "value": "Urban guilds were powerful and restricted new producers"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Peasants had better machines",
+    "Urban guilds were powerful and restricted new producers",
+    "Towns had no labour",
+    "Villages had steam engines"
+   ],
+   "explanation": "Town guilds controlled production and entry, so merchants turned to peasants in villages.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "For peasant families, what was an advantage of working for merchants under proto-industry?",
+   "expected_answer": {
+    "value": "It gave extra income alongside their small farms"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It gave them ownership of factories",
+    "It gave extra income alongside their small farms",
+    "It ended their need to farm",
+    "It provided free machines"
+   ],
+   "explanation": "Cottage-based work let poor peasants supplement their income from small plots.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which inventor created the spinning jenny in 1764?",
+   "expected_answer": {
+    "value": "James Hargreaves"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "James Watt",
+    "Richard Arkwright",
+    "James Hargreaves",
+    "Thomas Newcomen"
+   ],
+   "explanation": "Hargreaves' spinning jenny sped up spinning in Britain's cotton industry.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Who were the gomasthas appointed by the East India Company in the weaving trade?",
+   "expected_answer": {
+    "value": "Paid servants who supervised weavers and collected supplies"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Paid servants who supervised weavers and collected supplies",
+    "Rich merchants who owned looms",
+    "British officers who commanded troops",
+    "Weavers' elected leaders"
+   ],
+   "explanation": "Gomasthas supervised weavers, checked cloth quality and prevented them from selling to other buyers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "As the Company's trade changed, which two port cities grew in importance while Surat and Hooghly declined?",
+   "expected_answer": {
+    "value": "Bombay and Calcutta"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Madras and Cochin",
+    "Delhi and Lahore",
+    "Karachi and Goa",
+    "Bombay and Calcutta"
+   ],
+   "explanation": "Colonial trade shifted to Bombay and Calcutta, which became centres of the new system.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Where did India's first cotton mill open in 1854?",
+   "expected_answer": {
+    "value": "Bombay"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Madras",
+    "Bombay",
+    "Kanpur",
+    "Ahmedabad"
+   ],
+   "explanation": "The first cotton mill in India was set up in Bombay in 1854.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What was the first major book printed by Gutenberg's press?",
+   "expected_answer": {
+    "value": "The Bible"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The Bible",
+    "The Quran",
+    "Aesop's Fables",
+    "A book of laws"
+   ],
+   "explanation": "Gutenberg's first major work was the Bible, printed in the 1450s.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who brought the knowledge of woodblock printing from China to Italy in 1295?",
+   "expected_answer": {
+    "value": "Marco Polo"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Christopher Columbus",
+    "Marco Polo",
+    "Vasco da Gama",
+    "Johann Gutenberg"
+   ],
+   "explanation": "Marco Polo returned from China with woodblock printing, which spread across Europe.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Martin Luther's Ninety-five Theses of 1517, once printed and circulated, helped bring about what?",
+   "expected_answer": {
+    "value": "The Protestant Reformation"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The French Revolution",
+    "The Industrial Revolution",
+    "The Protestant Reformation",
+    "The fall of Constantinople"
+   ],
+   "explanation": "Print spread his criticisms of the Catholic Church widely and led to the Protestant Reformation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who started the Bengal Gazette in 1780, considered one of the first newspapers in India?",
+   "expected_answer": {
+    "value": "James Augustus Hicky"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Raja Rammohan Roy",
+    "James Augustus Hicky",
+    "Bal Gangadhar Tilak",
+    "Dadabhai Naoroji"
+   ],
+   "explanation": "Hicky's weekly was a private English journal that criticised colonial officials.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Raja Rammohan Roy's Sambad Kaumudi was first published in which year?",
+   "expected_answer": {
+    "value": "1821"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "1780",
+    "1878",
+    "1821",
+    "1905"
+   ],
+   "explanation": "The Sambad Kaumudi appeared in 1821 and promoted social reform and debate.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In which language was Tilak's newspaper Kesari mainly published?",
+   "expected_answer": {
+    "value": "Marathi"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Tamil",
+    "Urdu",
+    "Gujarati",
+    "Marathi"
+   ],
+   "explanation": "Kesari was a Marathi newspaper, with an English counterpart called The Mahratta.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A village pasture and pond used by all residents is an example of which kind of resource by ownership?",
+   "expected_answer": {
+    "value": "Community resource"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Individual resource",
+    "Community resource",
+    "National resource",
+    "International resource"
+   ],
+   "explanation": "Resources accessible to all members of a community are called community-owned resources.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Resources found in the open ocean beyond the Exclusive Economic Zone belong to which category?",
+   "expected_answer": {
+    "value": "International resources"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "National resources",
+    "International resources",
+    "Individual resources",
+    "Community resources"
+   ],
+   "explanation": "The oceanic area beyond 200 nautical miles of the EEZ is open ocean, governed by international institutions.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is an abiotic resource?",
+   "expected_answer": {
+    "value": "Iron ore"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Fish",
+    "Forests",
+    "Cattle",
+    "Iron ore"
+   ],
+   "explanation": "Abiotic resources are non-living things like rocks and metals, while the others are biotic.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which soil forms in regions of high temperature and heavy rainfall by intense leaching, and is suitable for tea, coffee and cashew?",
+   "expected_answer": {
+    "value": "Laterite soil"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Laterite soil",
+    "Black soil",
+    "Alluvial soil",
+    "Desert soil"
+   ],
+   "explanation": "Laterite develops under heavy rain where nutrients leach away, and fertilisers are needed to improve it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In the alluvial plains, the newer, more fertile deposits found near river banks are called what?",
+   "expected_answer": {
+    "value": "Khadar"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Bangar",
+    "Regur",
+    "Laterite",
+    "Khadar"
+   ],
+   "explanation": "Khadar is the newer alluvium and is more fertile than the older, kankar-rich bangar.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What gives red soil its colour?",
+   "expected_answer": {
+    "value": "Diffusion of iron in crystalline and metamorphic rocks"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Diffusion of iron in crystalline and metamorphic rocks",
+    "High content of humus",
+    "A large amount of lime",
+    "Salt deposits"
+   ],
+   "explanation": "The reddish colour comes from iron compounds, and the soil looks yellow when hydrated.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In which year was Project Tiger launched in India?",
+   "expected_answer": {
+    "value": "1973"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "1952",
+    "1988",
+    "2002",
+    "1973"
+   ],
+   "explanation": "Project Tiger began in 1973 to protect the dwindling population of the tiger.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Sacred groves in India are what?",
+   "expected_answer": {
+    "value": "Patches of forest preserved by communities because of religious beliefs"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Plantations owned by temples for timber",
+    "Zoos run by the government",
+    "Patches of forest preserved by communities because of religious beliefs",
+    "Parks created for tourists"
+   ],
+   "explanation": "Local traditions protect these forest patches, which shelter many plant and animal species.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which state first started Joint Forest Management, with a resolution passed in 1988?",
+   "expected_answer": {
+    "value": "Odisha"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Rajasthan",
+    "Kerala",
+    "Odisha",
+    "Assam"
+   ],
+   "explanation": "Odisha passed the first JFM resolution in 1988, involving local communities in managing degraded forests.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which state has made rooftop rainwater harvesting compulsory for all houses?",
+   "expected_answer": {
+    "value": "Tamil Nadu"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Tamil Nadu",
+    "Kerala",
+    "Punjab",
+    "Gujarat"
+   ],
+   "explanation": "Tamil Nadu made rooftop harvesting structures mandatory in all houses.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The 200-year-old system of using bamboo pipes to channel stream water for irrigation is practised in which state?",
+   "expected_answer": {
+    "value": "Meghalaya"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Meghalaya",
+    "Rajasthan",
+    "Bihar",
+    "Tamil Nadu"
+   ],
+   "explanation": "Meghalaya's bamboo drip irrigation brings water from hill springs to the plants.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In the Western Himalayas, what are guls and kuls?",
+   "expected_answer": {
+    "value": "Diversion channels for agriculture"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Types of terrace crops",
+    "Diversion channels for agriculture",
+    "Ponds in desert areas",
+    "Dams on big rivers"
+   ],
+   "explanation": "People in Himachal and Jammu built guls or kuls as channels to divert river water into fields.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Hirakud Dam is built on which river?",
+   "expected_answer": {
+    "value": "Mahanadi"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Krishna",
+    "Sutlej",
+    "Mahanadi",
+    "Godavari"
+   ],
+   "explanation": "Hirakud in Odisha is on the Mahanadi.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which leader called dams the 'temples of modern India'?",
+   "expected_answer": {
+    "value": "Jawaharlal Nehru"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Mahatma Gandhi",
+    "Vallabhbhai Patel",
+    "Rajendra Prasad",
+    "Jawaharlal Nehru"
+   ],
+   "explanation": "Nehru saw dams as symbols of progress that would integrate agriculture and industry.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How do dams affect the river's natural flow of sediments?",
+   "expected_answer": {
+    "value": "They trap sediments, so the reservoir silts up and downstream land gets less"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "They carry more sediment to the sea",
+    "They destroy all sediments",
+    "They change sediment into soil",
+    "They trap sediments, so the reservoir silts up and downstream land gets less"
+   ],
+   "explanation": "Sedimentation in the reservoir lowers the fertility of downstream floodplains and shortens a dam's useful life.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Watermelon, cucumber and vegetables grown between the Rabi and Kharif seasons are what kind of crops?",
+   "expected_answer": {
+    "value": "Zaid crops"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Rabi crops",
+    "Kharif crops",
+    "Plantation crops",
+    "Zaid crops"
+   ],
+   "explanation": "Zaid is a short summer-season between harvest of Rabi and sowing of Kharif.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which crop is called the golden fibre?",
+   "expected_answer": {
+    "value": "Jute"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Cotton",
+    "Jute",
+    "Hemp",
+    "Silk"
+   ],
+   "explanation": "Jute is called the golden fibre because of its colour and value, and grows in hot, humid areas.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which state is the largest producer of coffee in India?",
+   "expected_answer": {
+    "value": "Karnataka"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Assam",
+    "Punjab",
+    "Uttar Pradesh",
+    "Karnataka"
+   ],
+   "explanation": "Karnataka grows the major part of India's coffee, mainly in hill districts like Kodagu.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What was the aim of the Bhoodan-Gramdan movement started by Vinoba Bhave?",
+   "expected_answer": {
+    "value": "To get landowners to donate land to landless farmers"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "To set up large industries in villages",
+    "To increase the price of wheat",
+    "To get landowners to donate land to landless farmers",
+    "To import farming machines"
+   ],
+   "explanation": "Vinoba Bhave asked landowners to voluntarily donate land to the landless.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Green Revolution of the 1960s mainly increased the production of which crops?",
+   "expected_answer": {
+    "value": "Wheat and rice"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Tea and coffee",
+    "Pulses and oilseeds",
+    "Wheat and rice",
+    "Jute and cotton"
+   ],
+   "explanation": "HYV seeds, irrigation and fertilisers raised wheat and rice output, especially in Punjab and Haryana.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why does the government announce a Minimum Support Price for crops?",
+   "expected_answer": {
+    "value": "To assure farmers a minimum price for their produce"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "To fix the price consumers pay in markets",
+    "To assure farmers a minimum price for their produce",
+    "To limit how much farmers can grow",
+    "To tax the farmers"
+   ],
+   "explanation": "The MSP protects farmers from steep drops in market prices.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is a ferrous mineral?",
+   "expected_answer": {
+    "value": "Manganese"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Copper",
+    "Mica",
+    "Limestone",
+    "Manganese"
+   ],
+   "explanation": "Ferrous minerals contain iron, such as iron ore and manganese, which is essential for steel.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is a non-ferrous metallic mineral?",
+   "expected_answer": {
+    "value": "Copper"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Iron ore",
+    "Mica",
+    "Copper",
+    "Coal"
+   ],
+   "explanation": "Copper is a metallic mineral with no iron content, used in electrical equipment.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which non-metallic mineral is used widely in electrical and electronic industries because it is an excellent insulator?",
+   "expected_answer": {
+    "value": "Mica"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Bauxite",
+    "Manganese",
+    "Gold",
+    "Mica"
+   ],
+   "explanation": "Mica is a non-metallic mineral that resists heat and electricity.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which two minerals are the fuels used to produce nuclear power in India?",
+   "expected_answer": {
+    "value": "Uranium and thorium"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Coal and lignite",
+    "Copper and zinc",
+    "Mica and gypsum",
+    "Uranium and thorium"
+   ],
+   "explanation": "Atomic minerals such as uranium and thorium power reactors.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The largest cluster of wind farms in India extends from Nagercoil to Madurai in which state?",
+   "expected_answer": {
+    "value": "Tamil Nadu"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Tamil Nadu",
+    "Gujarat",
+    "Odisha",
+    "West Bengal"
+   ],
+   "explanation": "Tamil Nadu has the biggest wind power cluster in India.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The geothermal energy plant at Manikaran is located in which state?",
+   "expected_answer": {
+    "value": "Himachal Pradesh"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Himachal Pradesh",
+    "Kerala",
+    "Rajasthan",
+    "Assam"
+   ],
+   "explanation": "Manikaran in the Parvati valley of Himachal Pradesh has a geothermal project.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Steel Authority of India Limited (SAIL) is an example of which sector by ownership?",
+   "expected_answer": {
+    "value": "Public sector"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Private sector",
+    "Cooperative sector",
+    "Joint sector",
+    "Public sector"
+   ],
+   "explanation": "SAIL is owned and run by the government.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Oil India Limited, owned jointly by the government and private promoters, is an example of which sector?",
+   "expected_answer": {
+    "value": "Joint sector"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Joint sector",
+    "Public sector",
+    "Private sector",
+    "Cooperative sector"
+   ],
+   "explanation": "Joint sector industries are run by the state and private enterprise together.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Industries owned and operated by producers or suppliers of raw materials, such as sugar mills in Maharashtra, are in which sector?",
+   "expected_answer": {
+    "value": "Cooperative sector"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Cooperative sector",
+    "Public sector",
+    "Private sector",
+    "Joint sector"
+   ],
+   "explanation": "Cooperative industries are run by the producers who pool their resources.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Hot water from factories and power plants released into rivers causes which type of pollution?",
+   "expected_answer": {
+    "value": "Thermal pollution"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Thermal pollution",
+    "Noise pollution",
+    "Air pollution",
+    "Soil pollution"
+   ],
+   "explanation": "Hot waste water lowers oxygen in rivers and harms aquatic life.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Bhopal gas tragedy of 1984 was caused by the leak of which gas?",
+   "expected_answer": {
+    "value": "Methyl isocyanate"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Carbon dioxide",
+    "Sulphur dioxide",
+    "Chlorine",
+    "Methyl isocyanate"
+   ],
+   "explanation": "The leak at the Union Carbide factory caused thousands of deaths.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which device helps factories reduce particulate matter released into the air?",
+   "expected_answer": {
+    "value": "Electrostatic precipitators"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Electrostatic precipitators",
+    "Water pumps",
+    "Boilers",
+    "Conveyor belts"
+   ],
+   "explanation": "Precipitators and filters remove particles from smoke before it leaves the chimney.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which mode of transport is mainly used to move crude oil and natural gas over long distances?",
+   "expected_answer": {
+    "value": "Pipelines"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Pipelines",
+    "Roadways",
+    "Airways",
+    "Waterways of rivers"
+   ],
+   "explanation": "Pipelines carry liquids and gases, as from oil fields to refineries.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Golden Quadrilateral Super Highway connects which four metropolitan cities?",
+   "expected_answer": {
+    "value": "Delhi, Mumbai, Chennai and Kolkata"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Delhi, Jaipur, Pune and Bengaluru",
+    "Delhi, Mumbai, Chennai and Kolkata",
+    "Mumbai, Surat, Kochi and Goa",
+    "Kolkata, Patna, Lucknow and Bhopal"
+   ],
+   "explanation": "It links the four metros and is a major national highway project.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which mode of transport can give door-to-door service?",
+   "expected_answer": {
+    "value": "Roadways"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Railways",
+    "Airways",
+    "Roadways",
+    "Pipelines"
+   ],
+   "explanation": "Roads can reach even remote places where other modes cannot go.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is the difference between a country's exports and imports of goods called?",
+   "expected_answer": {
+    "value": "Balance of trade"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Gross domestic product",
+    "Balance of trade",
+    "Per capita income",
+    "Tariff"
+   ],
+   "explanation": "The balance of trade compares the value of exports with the value of imports.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "If a country's exports are greater than its imports, its balance of trade is said to be what?",
+   "expected_answer": {
+    "value": "Favourable"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Unfavourable",
+    "Favourable",
+    "Equal",
+    "Invalid"
+   ],
+   "explanation": "Exports above imports mean a trade surplus, considered favourable.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which is one economic benefit of tourism for India?",
+   "expected_answer": {
+    "value": "Earning foreign exchange and creating jobs"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Reducing exports",
+    "Lower imports of oil",
+    "Earning foreign exchange and creating jobs",
+    "Fewer roads"
+   ],
+   "explanation": "Tourists spend money on hotels, transport and handicrafts.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The idea that no organ of government can exercise unlimited power because other organs control it is called what?",
+   "expected_answer": {
+    "value": "Checks and balances"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Checks and balances",
+    "Federal division",
+    "Community government",
+    "Coalition"
+   ],
+   "explanation": "Under checks and balances, the executive, legislature and judiciary keep an eye on each other.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Reserved constituencies for SC and ST in India are an example of power sharing among which?",
+   "expected_answer": {
+    "value": "Different social groups"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Different levels of government",
+    "Different organs of government",
+    "Different social groups",
+    "Different pressure groups"
+   ],
+   "explanation": "Reservation gives representation to weaker social groups.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Coalition governments in which several parties rule together are an example of power sharing among whom?",
+   "expected_answer": {
+    "value": "Different political parties"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Different language groups",
+    "Different organs of government",
+    "Different tiers of government",
+    "Different political parties"
+   ],
+   "explanation": "Coalitions share power between parties and groups.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In Belgium, how are ministers shared in the central government?",
+   "expected_answer": {
+    "value": "Equal numbers of Dutch- and French-speaking ministers"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Only Dutch-speaking ministers",
+    "Mostly French-speaking ministers",
+    "Ministers chosen by the king",
+    "Equal numbers of Dutch- and French-speaking ministers"
+   ],
+   "explanation": "Belgium's constitution requires equal numbers from the two language groups in the central government.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "About what proportion of Sri Lanka's population is Sinhala-speaking?",
+   "expected_answer": {
+    "value": "About 74 percent"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "About 40 percent",
+    "About 15 percent",
+    "About 90 percent",
+    "About 74 percent"
+   ],
+   "explanation": "Sinhalas form roughly 74 per cent, Sri Lankan Tamils 13 per cent and Indian Tamils 5 per cent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which lesson is drawn from comparing Belgium with Sri Lanka?",
+   "expected_answer": {
+    "value": "Power sharing among communities protects unity, while majoritarianism can fuel conflict"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Majority rule is always the best",
+    "Power sharing among communities protects unity, while majoritarianism can fuel conflict",
+    "Federal government cannot work",
+    "Language should be made uniform"
+   ],
+   "explanation": "Belgium's accommodation kept it together, while Sri Lanka's majoritarian measures fed civil conflict.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these subjects is on the Union List in India?",
+   "expected_answer": {
+    "value": "Defence"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Police",
+    "Defence",
+    "Agriculture",
+    "Trade within a state"
+   ],
+   "explanation": "Defence, foreign affairs and currency are on the Union List, while police is on the State List.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A federation formed when independent states come together to form a bigger unit, as in the USA, is called what?",
+   "expected_answer": {
+    "value": "A coming-together federation"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A holding-together federation",
+    "A unitary state",
+    "A coming-together federation",
+    "A monarchy"
+   ],
+   "explanation": "India is a holding-together federation, where the Constitution divided power between the centre and states.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In a federal system, who settles disputes between the centre and the states?",
+   "expected_answer": {
+    "value": "The independent judiciary"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The Prime Minister",
+    "The Election Commission",
+    "The independent judiciary",
+    "The state governors"
+   ],
+   "explanation": "The courts interpret the constitutional division of powers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "The 74th Constitutional Amendment of 1992 gave constitutional status to which institutions?",
+   "expected_answer": {
+    "value": "Urban local bodies like municipalities"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Village panchayats",
+    "State assemblies",
+    "The Supreme Court",
+    "Urban local bodies like municipalities"
+   ],
+   "explanation": "The 73rd Amendment concerns rural bodies and the 74th concerns urban bodies.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Who make up the Gram Sabha of a village?",
+   "expected_answer": {
+    "value": "All the adult voters of the village"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "All the adult voters of the village",
+    "Only elected members",
+    "Only the sarpanch",
+    "Government officials"
+   ],
+   "explanation": "The Gram Sabha includes all registered voters and acts as the village's decision-making body.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who conducts elections to local bodies after the 1992 amendments?",
+   "expected_answer": {
+    "value": "The State Election Commission"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "The Election Commission of India",
+    "The State Election Commission",
+    "The Supreme Court",
+    "The Governor"
+   ],
+   "explanation": "Each state has an independent State Election Commission for local elections.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A person who advocates equal rights and opportunities for women and men is called what?",
+   "expected_answer": {
+    "value": "A feminist"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A patriarch",
+    "A separatist",
+    "A communalist",
+    "A feminist"
+   ],
+   "explanation": "Feminists support equality in personal and public life.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Equal Remuneration Act of 1976 declares what?",
+   "expected_answer": {
+    "value": "Equal wages for equal work for men and women"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Reservation of seats for women",
+    "Free education for girls",
+    "Equal wages for equal work for men and women",
+    "No work for women at night"
+   ],
+   "explanation": "The Act says employers must pay women and men the same wages for equal work.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A society that gives more importance and power to men than to women is called what?",
+   "expected_answer": {
+    "value": "Patriarchal"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Matriarchal",
+    "Patriarchal",
+    "Egalitarian",
+    "Federal"
+   ],
+   "explanation": "In a patriarchal society, men dominate.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which social reformer from Tamil Nadu led a movement against caste discrimination?",
+   "expected_answer": {
+    "value": "Periyar E.V. Ramaswami Naicker"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Raja Rammohan Roy",
+    "Periyar E.V. Ramaswami Naicker",
+    "Swami Vivekananda",
+    "Dadabhai Naoroji"
+   ],
+   "explanation": "Periyar led the Self-Respect movement against caste hierarchy.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which Article of the Constitution abolishes untouchability?",
+   "expected_answer": {
+    "value": "Article 17"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Article 14",
+    "Article 21",
+    "Article 32",
+    "Article 17"
+   ],
+   "explanation": "Article 17 abolished untouchability and made its practice an offence.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why is it wrong to say that elections in India are decided only on caste?",
+   "expected_answer": {
+    "value": "No caste or community is a single homogeneous group that votes together"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Caste has no role in India",
+    "Only women vote on caste lines",
+    "Elections are not held by caste",
+    "No caste or community is a single homogeneous group that votes together"
+   ],
+   "explanation": "Voters of the same caste often have different interests, and many candidates win despite belonging to a small caste.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What is a document in which a party promises what it will do if elected called?",
+   "expected_answer": {
+    "value": "Manifesto"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Constitution",
+    "Charter",
+    "Manifesto",
+    "Resolution"
+   ],
+   "explanation": "Parties issue manifestos before elections.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The law against defection of elected members from their party was passed through which amendment?",
+   "expected_answer": {
+    "value": "The 52nd Amendment (1985)"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The 52nd Amendment (1985)",
+    "The 42nd Amendment",
+    "The 73rd Amendment",
+    "The 86th Amendment"
+   ],
+   "explanation": "This amendment added the anti-defection law to prevent legislators from switching parties for gain.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which is a main function of political parties?",
+   "expected_answer": {
+    "value": "Contest elections and put forward candidates"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Collect land revenue",
+    "Decide court cases",
+    "Print currency notes",
+    "Contest elections and put forward candidates"
+   ],
+   "explanation": "Parties field candidates and take part in elections.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which two main parties dominate the party system of the United States?",
+   "expected_answer": {
+    "value": "The Democratic and Republican parties"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The Democratic and Republican parties",
+    "Labour and Conservative parties",
+    "Congress and Janata parties",
+    "The Liberal and Green parties"
+   ],
+   "explanation": "The USA is the usual example of a two-party system.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A group of parties that join together to contest elections or form a government is called what?",
+   "expected_answer": {
+    "value": "An alliance or a coalition"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "An alliance or a coalition",
+    "A pressure group",
+    "A monarchy",
+    "A council"
+   ],
+   "explanation": "Alliances like NDA and UPA exist in India's multi-party system.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which two parties alternate in power in the United Kingdom?",
+   "expected_answer": {
+    "value": "Labour and Conservative parties"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Labour and Conservative parties",
+    "Democratic and Republican parties",
+    "Congress and BJP",
+    "Communist and Nationalist parties"
+   ],
+   "explanation": "The UK is usually described as having a two-party system.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which law of 2005 gives Indian citizens the right to seek information from public authorities?",
+   "expected_answer": {
+    "value": "The Right to Information Act"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The Consumer Protection Act",
+    "The Hindu Marriage Act",
+    "The Wildlife Protection Act",
+    "The Right to Information Act"
+   ],
+   "explanation": "The RTI Act supports transparency and accountability in a democracy.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How does economic growth in democracies compare with dictatorships, on average?",
+   "expected_answer": {
+    "value": "Dictatorships show only a slightly higher growth rate"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Democracies always grow far faster",
+    "Dictatorships show only a slightly higher growth rate",
+    "Dictatorships always grow faster",
+    "There is no growth in either"
+   ],
+   "explanation": "Democracies may grow a little slower overall, but the difference is small.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A democratic government is considered legitimate because of what?",
+   "expected_answer": {
+    "value": "It is the people's own government"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It was set up by a king",
+    "It is the people's own government",
+    "It is very powerful",
+    "It never makes mistakes"
+   ],
+   "explanation": "People accept it as their own government.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Infant Mortality Rate refers to what?",
+   "expected_answer": {
+    "value": "Number of children who die before age one per 1000 live births"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Number of children born per 1000 people",
+    "Number of children in school per 1000",
+    "Number of children who die before age one per 1000 live births",
+    "Number of adults dying per 1000"
+   ],
+   "explanation": "IMR is a health indicator used in comparing development.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why can average income be misleading when comparing countries?",
+   "expected_answer": {
+    "value": "It hides differences between rich and poor people"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It is always too high",
+    "It ignores the government",
+    "It hides differences between rich and poor people",
+    "It is only for cities"
+   ],
+   "explanation": "Average income does not show how income is distributed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is a non-income indicator used for development?",
+   "expected_answer": {
+    "value": "Life expectancy"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Per capita income",
+    "Life expectancy",
+    "Average income",
+    "GDP"
+   ],
+   "explanation": "Life expectancy, literacy and health are non-income indicators.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which leader said that the earth has enough for everyone's need but not for everyone's greed?",
+   "expected_answer": {
+    "value": "Mahatma Gandhi"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Jawaharlal Nehru",
+    "Mahatma Gandhi",
+    "Subhas Chandra Bose",
+    "Dr Ambedkar"
+   ],
+   "explanation": "The statement is linked to Gandhi's ideas about restraint in consumption.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why is heavy dependence on fossil fuels a concern for sustainable development?",
+   "expected_answer": {
+    "value": "They are non-renewable and will run out"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They are infinite",
+    "They are free",
+    "They are non-renewable and will run out",
+    "They have no pollution"
+   ],
+   "explanation": "Fossil fuels are exhaustible, and burning them pollutes the air.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is a good example of sustainable practice?",
+   "expected_answer": {
+    "value": "Harvesting rainwater to recharge groundwater"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Cutting more trees for fuel",
+    "Using more plastic",
+    "Harvesting rainwater to recharge groundwater",
+    "Digging deeper tube wells"
+   ],
+   "explanation": "It conserves resources for the future.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Dairy farming is classified into which sector?",
+   "expected_answer": {
+    "value": "Primary sector"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Secondary sector",
+    "Tertiary sector",
+    "Quaternary sector",
+    "Primary sector"
+   ],
+   "explanation": "Dairy uses natural products and so is in the primary sector.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does GDP measure?",
+   "expected_answer": {
+    "value": "The value of all final goods and services produced in a country in a year"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The value of all final goods and services produced in a country in a year",
+    "Total number of workers",
+    "Total exports",
+    "The wealth of the government"
+   ],
+   "explanation": "GDP counts only final goods and services to avoid counting twice.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which sector contributes the largest share of India's GDP today?",
+   "expected_answer": {
+    "value": "Tertiary sector"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Primary sector",
+    "Secondary sector",
+    "Informal sector",
+    "Tertiary sector"
+   ],
+   "explanation": "The service sector has become the largest in GDP.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Under the MGNREGA 2005, how many days of work are guaranteed per year to a rural household?",
+   "expected_answer": {
+    "value": "100 days"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "30 days",
+    "200 days",
+    "365 days",
+    "100 days"
+   ],
+   "explanation": "The Act guarantees 100 days of employment.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Provident fund and gratuity are benefits usually available in which sector?",
+   "expected_answer": {
+    "value": "Organised sector"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Unorganised sector",
+    "Both equally",
+    "Organised sector",
+    "Neither"
+   ],
+   "explanation": "Organised sector workers get social security benefits.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which person is part of the unorganised sector?",
+   "expected_answer": {
+    "value": "A street vendor"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A government clerk",
+    "A bank manager",
+    "A street vendor",
+    "A teacher in a government school"
+   ],
+   "explanation": "Street vendors have no fixed wages and no security.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What is the main role of money that removes the problem of barter?",
+   "expected_answer": {
+    "value": "It acts as a medium of exchange"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "It acts as a medium of exchange",
+    "It is a type of loan",
+    "It is a type of bank",
+    "It is a type of tax"
+   ],
+   "explanation": "Money is accepted by everyone for goods, so a double coincidence is not needed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Cheques drawn on bank accounts are possible because of which form of money?",
+   "expected_answer": {
+    "value": "Demand deposits"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Coins",
+    "Demand deposits",
+    "Gold",
+    "Barter"
+   ],
+   "explanation": "People hold deposits in banks which they can withdraw on demand.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why is the rupee called legal tender in India?",
+   "expected_answer": {
+    "value": "Law does not allow anyone to refuse payment in rupees"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "It is made of gold",
+    "It is used only by the RBI",
+    "Law does not allow anyone to refuse payment in rupees",
+    "It cannot be exchanged"
+   ],
+   "explanation": "The law states that currency notes issued by the RBI cannot be refused for settling payments in India.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A person borrows Rs 20,000 at 10 percent annual interest. How much interest must be paid after one year?",
+   "expected_answer": {
+    "value": "Rs 2,000"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Rs 2,000",
+    "Rs 200",
+    "Rs 10,000",
+    "Rs 22,000"
+   ],
+   "explanation": "Ten percent of 20,000 is 2,000.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which body supervises the banks' lending activities in India?",
+   "expected_answer": {
+    "value": "Reserve Bank of India"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SEBI",
+    "The Finance Ministry",
+    "Reserve Bank of India",
+    "Supreme Court"
+   ],
+   "explanation": "The RBI oversees banks to ensure they lend to a wider section.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is commonly given as collateral for a housing loan?",
+   "expected_answer": {
+    "value": "Property papers of the house"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A promise to repay",
+    "Cash in a locker",
+    "A cheque book",
+    "Property papers of the house"
+   ],
+   "explanation": "Collateral is an asset the lender can sell if the loan is not repaid.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What are tariffs?",
+   "expected_answer": {
+    "value": "Taxes on imports"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Taxes on income",
+    "Taxes on imports",
+    "Subsidies",
+    "Loans"
+   ],
+   "explanation": "Tariffs raise the price of imports.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "India began the policy of liberalisation in which year?",
+   "expected_answer": {
+    "value": "1991"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "1947",
+    "1965",
+    "1991",
+    "2005"
+   ],
+   "explanation": "The 1991 reforms removed many trade barriers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Special Economic Zones were set up to attract what?",
+   "expected_answer": {
+    "value": "Foreign investment"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Tourists",
+    "Pilgrims",
+    "Loans from villages",
+    "Foreign investment"
+   ],
+   "explanation": "SEZs offer facilities and tax benefits to attract investors.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which Indian company is cited as a successful MNC that has acquired foreign companies?",
+   "expected_answer": {
+    "value": "Tata Motors"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Ambassador",
+    "Air India",
+    "Tata Motors",
+    "Hindustan Zinc"
+   ],
+   "explanation": "Tata Motors bought Jaguar Land Rover in 2008.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why have many employers shifted to flexible employment?",
+   "expected_answer": {
+    "value": "To reduce costs by hiring workers on short-term contracts"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "To pay higher wages",
+    "To train workers",
+    "To increase holidays",
+    "To reduce costs by hiring workers on short-term contracts"
+   ],
+   "explanation": "Flexible jobs lower costs but workers lose security.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "How have consumers in India benefited from globalisation?",
+   "expected_answer": {
+    "value": "More choice of goods and often lower prices"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "More choice of goods and often lower prices",
+    "Higher tax",
+    "Fewer products",
+    "No competition"
+   ],
+   "explanation": "Competition improved quality and variety.",
+   "content_status": "needs_review"
+  }
+ ]
+}

@@ -849,3 +849,10 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Fix: "or / and / ; / या / और" are list separators, repeated "x =" after a comma is dropped, a bare leading variable on only one side is ignored, a thousands comma (western or Indian grouping) is removed when the expected answer is a single number, a final full stop is ignored. Different variable names, missing/wrong/sign-flipped roots and odd comma placing are still wrong.
 - Test t124 (12 checks). No migration.
 - NOT checked: other question types the same student may have hit; any live check. Other answers that were wrongly marked wrong earlier are not recoverable from here.
+
+## v125 (2026-11-11) - 503 more questions in all subjects
+- Founder request: "Add more questions in all subjects".
+- Chosen scope: thin subjects topped up to at least 2 per skill (Hindi A 116, Hindi B 77, Social Science 120, Computer Applications 76, English 42), Science 42 (thinnest 8 skills), Maths 30 (thinnest skills; numbers computed in code). Maths and Science already had 1000+, so only a targeted top-up.
+- Written in parallel by helper agents (two were interrupted by a usage limit and re-run), checked by `seed-generators/v125_finalize.py` and test t125 (44 checks). One helper overwrote an earlier same-named Science file (backed up in the scratchpad); the final file holds the 42 Science questions.
+- All `needs_review`. No migration, no code change except APP_VERSION.
+- NOT done: teacher review, independent fact-check (apart from 15 maths questions re-worked by hand), Hindi in-app translation, any live check.

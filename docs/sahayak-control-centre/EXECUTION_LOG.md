@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0037 - 2026-11-11 - founder chat request (more questions in all subjects)
+- Summary: v125: 503 questions added (TASK-093).
+- Files: seed/*-v125-diagnostic.json (7); seed-generators/v125_finalize.py; tests/t125.ts; deploy-check version
+- Database: none (seed data only)
+- Tests: t125, full npm test
+- Open: Not deployed; seeds not run on the live database; no teacher review
+
 ## EX-0036 - 2026-11-10 - founder chat (student screenshots)
 - Summary: v124: answer checking fixed (TASK-092).
 - Files: core/question-engine/grading.ts; deploy-check; tests/t124.ts

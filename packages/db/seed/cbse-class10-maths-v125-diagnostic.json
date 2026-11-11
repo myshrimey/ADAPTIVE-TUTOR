@@ -1,0 +1,605 @@
+{
+ "subject_slug": "maths",
+ "questions": [
+  {
+   "skill_slug": "plot-linear-equation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The line 3x − 4y = 24 cuts the x-axis at (p, 0) and the y-axis at (0, q). Find p + q.",
+   "expected_answer": {
+    "value": "2"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "14",
+    "−1",
+    "−14",
+    "2"
+   ],
+   "explanation": "Put y = 0: x = 24/3 = 8; put x = 0: y = 24/(−4) = -6. So p + q = 2.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "plot-linear-equation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these points lies on the line 5x − 2y = 7?",
+   "expected_answer": {
+    "value": "(3, 4)"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "(3, 4)",
+    "(4, 3)",
+    "(1, 1)",
+    "(2, −2)"
+   ],
+   "explanation": "Substitute: 5(3) − 2(4) = 15 − 8 = 7, so (3, 4) satisfies the equation; the others give 14, 3, 14.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "plot-linear-equation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A taxi charges a fixed Rs 40 plus Rs 12 per km. If y is the fare in rupees for x km, the graph of y = 40 + 12x passes through which point for a 5 km ride?",
+   "expected_answer": {
+    "value": "(5, 100)"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "(5, 100)",
+    "(5, 60)",
+    "(5, 260)",
+    "(100, 5)"
+   ],
+   "explanation": "At x = 5: y = 40 + 12×5 = 100, so the point is (5, 100).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-linear-equation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Solve for x: 3(2x − 5) − 4(x − 2) = 11.",
+   "expected_answer": {
+    "value": "9"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "17",
+    "14",
+    "4",
+    "9"
+   ],
+   "explanation": "6x − 15 − 4x + 8 = 11 gives 2x − 7 = 11, so 2x = 18 and x = 9.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-linear-equation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Solve: (x + 3)/4 − (x − 1)/6 = 2.",
+   "expected_answer": {
+    "value": "13"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "17",
+    "13",
+    "−9",
+    "16"
+   ],
+   "explanation": "Multiply by 12: 3(x + 3) − 2(x − 1) = 24, so x + 11 = 24 and x = 13.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-linear-equation",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Five more than three times a number equals twenty less than eight times the same number. Find the number.",
+   "expected_answer": {
+    "value": "5"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "3",
+    "−5",
+    "5",
+    "−25/11"
+   ],
+   "explanation": "3x + 5 = 8x − 20 gives 25 = 5x, so x = 5.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "standard-form-quadratic",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which one of the following is a quadratic equation?",
+   "expected_answer": {
+    "value": "(x − 2)(x + 5) = 3x + 1"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "(x + 3)² = x² + 2x − 7",
+    "(2x + 1)(x − 3) = 2x(x − 1)",
+    "x(x + 4) = x² − 9",
+    "(x − 2)(x + 5) = 3x + 1"
+   ],
+   "explanation": "(x − 2)(x + 5) = 3x + 1 simplifies to x² − 11 = 0, which has degree 2; in the others the x² terms cancel, leaving a linear equation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "standard-form-quadratic",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Write 3x(x − 4) = 2x − 5 in the form ax² + bx + c = 0 with a > 0.",
+   "expected_answer": {
+    "value": "3x² − 14x + 5 = 0"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "3x² − 10x + 5 = 0",
+    "3x² − 14x − 5 = 0",
+    "3x² − 14x + 5 = 0",
+    "3x² − 6x + 5 = 0"
+   ],
+   "explanation": "Expand: 3x² − 12x = 2x − 5; moving the right side across gives 3x² − 14x + 5 = 0.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "standard-form-quadratic",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "For which value of k is (2k − 7)x² + 3x − 1 = 0 NOT a quadratic equation?",
+   "expected_answer": {
+    "value": "3.5"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "7",
+    "−7/2",
+    "3.5",
+    "2/7"
+   ],
+   "explanation": "It stops being quadratic when the x² coefficient is zero: 2k − 7 = 0, so k = 7/2 = 3.5.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-quadratic-formula",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Using the quadratic formula, the roots of 2x² − 5x − 6 = 0 are:",
+   "expected_answer": {
+    "value": "(5 ± √73)/4"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "(−5 ± √73)/4",
+    "(5 ± √73)/4",
+    "(5 ± √73)/2",
+    "(5 ± √37)/4"
+   ],
+   "explanation": "Here D = b² − 4ac = 25 + 48 = 73, so x = (5 ± √73)/(2×2) = (5 ± √73)/4.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-quadratic-formula",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "The length of a rectangular park is 3 m more than twice its breadth and its area is 77 m². Find the breadth in metres.",
+   "expected_answer": {
+    "value": "5.5"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "5.5",
+    "11",
+    "7",
+    "14"
+   ],
+   "explanation": "2b² + 3b − 77 = 0, D = 9 + 616 = 625, so b = (−3 + 25)/4 = 5.5 (the negative root is rejected).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-quadratic-formula",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The smaller root of x² − 4x − 1 = 0, found with the quadratic formula, is:",
+   "expected_answer": {
+    "value": "2 − √5"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "2 − √5",
+    "2 + √5",
+    "−2 − √5",
+    "−2 + √5"
+   ],
+   "explanation": "D = 16 + 4 = 20, so x = (4 ± √20)/2 = 2 ± √5; the smaller is 2 − √5 ≈ −0.24.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "integer-arithmetic",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "When 2025 is divided by 37, what is the remainder?",
+   "expected_answer": {
+    "value": "27"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "54",
+    "10",
+    "27",
+    "11"
+   ],
+   "explanation": "2025 = 37×54 + 27, so the remainder is 27.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "integer-arithmetic",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the smallest number that must be added to 4000 so that the sum is exactly divisible by 29?",
+   "expected_answer": {
+    "value": "2"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "27",
+    "2",
+    "29",
+    "3"
+   ],
+   "explanation": "4000 = 29×137 + 27, so we need 29 − 27 = 2 more.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "integer-arithmetic",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Using Euclid's division lemma, write −23 = 5q + r with 0 ≤ r < 5. What is r?",
+   "expected_answer": {
+    "value": "2"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "3",
+    "−3",
+    "−2",
+    "2"
+   ],
+   "explanation": "−23 = 5×(−5) + 2; taking q = −4 would give r = −3, which is not allowed since r must be at least 0.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-by-substitution",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Solve x = 2y − 2 and 3x + y = 15 by substitution. Find x + y.",
+   "expected_answer": {
+    "value": "7"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "12",
+    "7",
+    "1",
+    "4"
+   ],
+   "explanation": "3(2y − 2) + y = 15 gives 7y = 21, so y = 3 and x = 4; hence x + y = 7.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-by-substitution",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Given y = 3x − 5 and 4x + 2y = 20, find the value of y.",
+   "expected_answer": {
+    "value": "4"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "4",
+    "3",
+    "8",
+    "7"
+   ],
+   "explanation": "4x + 2(3x − 5) = 20 gives 10x = 30, so x = 3 and y = 3(3) − 5 = 4.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "solve-by-substitution",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "From x + y = 14 and 2x − y = 4, substitute y = 14 − x into the second equation. What is y?",
+   "expected_answer": {
+    "value": "8"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "6",
+    "−4",
+    "8",
+    "18"
+   ],
+   "explanation": "2x − (14 − x) = 4 gives 3x = 18, so x = 6 and y = 14 − 6 = 8. A sign slip on −(14 − x) gives x = 18 and y = −4.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "formulate-linear-equations-word-problem",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "3 pens and 2 notebooks cost Rs 40 together, and 2 pens and 5 notebooks cost Rs 67. If a pen costs Rs x and a notebook Rs y, which pair of equations represents this?",
+   "expected_answer": {
+    "value": "3x + 2y = 40 and 2x + 5y = 67"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "3x + 2y = 40 and 2x + 5y = 67",
+    "3x + 2y = 40 and 5x + 2y = 67",
+    "2x + 3y = 40 and 2x + 5y = 67",
+    "3x + 2y = 67 and 2x + 5y = 40"
+   ],
+   "explanation": "Cost of 3 pens and 2 notebooks: 3x + 2y = 40; cost of 2 pens and 5 notebooks: 2x + 5y = 67 (x = 6, y = 11 satisfies both).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "formulate-linear-equations-word-problem",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Five years ago a father was 4 times as old as his son. Seven years from now he will be twice as old as his son. If their present ages are x and y years (father, son), which pair of equations is correct?",
+   "expected_answer": {
+    "value": "x − 5 = 4(y − 5) and x + 7 = 2(y + 7)"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "x − 5 = 4(y − 5) and x + 7 = 2(y + 7)",
+    "x − 5 = 4y − 5 and x + 7 = 2(y + 7)",
+    "x + 5 = 4(y + 5) and x + 7 = 2(y + 7)",
+    "x − 5 = 4(y − 5) and x + 7 = 2y + 7"
+   ],
+   "explanation": "Five years ago: x − 5 = 4(y − 5). After 7 years: x + 7 = 2(y + 7). (x = 29, y = 11 satisfies both.)",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "formulate-linear-equations-word-problem",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A boat takes 6 hours to go 24 km upstream and 6 hours to go 36 km downstream. If its speed in still water is x km/h and the stream's speed is y km/h, which pair of equations represents this?",
+   "expected_answer": {
+    "value": "24/(x − y) = 6 and 36/(x + y) = 6"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "24/(x + y) = 6 and 36/(x − y) = 6",
+    "24/(x − y) = 6 and 36/(x + y) = 6",
+    "24(x − y) = 6 and 36(x + y) = 6",
+    "x − y = 24 × 6 and x + y = 36 × 6"
+   ],
+   "explanation": "Upstream speed is x − y and downstream speed is x + y, and time = distance/speed, so 24/(x − y) = 6 and 36/(x + y) = 6.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-tangent-length",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A point P is 29 cm from the centre O of a circle of radius 20 cm. Find the length of the tangent PT from P to the circle.",
+   "expected_answer": {
+    "value": "21 cm"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "9 cm",
+    "49 cm",
+    "35.2 cm",
+    "21 cm"
+   ],
+   "explanation": "OT ⟂ PT, so PT² = OP² − OT² = 841 − 400 = 441, giving PT = 21 cm.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-tangent-length",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Two tangents PA and PB are drawn to a circle of radius 9 cm from an external point P, and ∠APB = 60°. Find PA.",
+   "expected_answer": {
+    "value": "9√3 cm"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "9√3 cm",
+    "3√3 cm",
+    "18 cm",
+    "9 cm"
+   ],
+   "explanation": "OP bisects ∠APB so ∠OPA = 30°, and tan 30° = OA/PA gives PA = 9/tan 30° = 9√3 ≈ 15.6 cm.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "find-tangent-length",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Tangents PA and PB are drawn from an external point P to a circle. If PA = (3x + 2) cm and PB = (5x − 6) cm, find the length PA.",
+   "expected_answer": {
+    "value": "14 cm"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "4 cm",
+    "3.5 cm",
+    "14 cm",
+    "26 cm"
+   ],
+   "explanation": "Tangents from an external point are equal: 3x + 2 = 5x − 6, so x = 4 and PA = 3(4) + 2 = 14 cm.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "multiply-binomials",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Expand (3x − 4)(2x + 5).",
+   "expected_answer": {
+    "value": "6x² + 7x − 20"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "6x² + 23x − 20",
+    "6x² + 7x + 20",
+    "6x² + 7x − 20",
+    "5x² + x − 20"
+   ],
+   "explanation": "3x·2x + 3x·5 − 4·2x − 4·5 = 6x² + 15x − 8x − 20 = 6x² + 7x − 20.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "multiply-binomials",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Expand (2x − 3y)².",
+   "expected_answer": {
+    "value": "4x² − 12xy + 9y²"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "4x² + 9y²",
+    "4x² − 12xy + 9y²",
+    "4x² − 6xy + 9y²",
+    "4x² − 12xy − 9y²"
+   ],
+   "explanation": "(a − b)² = a² − 2ab + b² with a = 2x, b = 3y gives 4x² − 12xy + 9y².",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "multiply-binomials",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Simplify (x + 7)(x − 7) − (x − 3)².",
+   "expected_answer": {
+    "value": "6x − 58"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "−6x − 40",
+    "6x − 40",
+    "6x − 58",
+    "−58"
+   ],
+   "explanation": "(x² − 49) − (x² − 6x + 9) = x² − 49 − x² + 6x − 9 = 6x − 58; the minus sign must change every term of the second bracket.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "factorise-trinomial",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Factorise 2x² + 11x + 12.",
+   "expected_answer": {
+    "value": "(2x + 3)(x + 4)"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "(2x + 4)(x + 3)",
+    "(2x + 12)(x + 1)",
+    "(2x + 1)(x + 12)",
+    "(2x + 3)(x + 4)"
+   ],
+   "explanation": "Split 11x as 8x + 3x: 2x² + 8x + 3x + 12 = 2x(x + 4) + 3(x + 4) = (2x + 3)(x + 4).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "factorise-trinomial",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Factorise x² − 5x − 24.",
+   "expected_answer": {
+    "value": "(x − 8)(x + 3)"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "(x − 8)(x + 3)",
+    "(x + 8)(x − 3)",
+    "(x − 6)(x + 4)",
+    "(x − 12)(x + 2)"
+   ],
+   "explanation": "Find two numbers with product −24 and sum −5: −8 and 3, so x² − 5x − 24 = (x − 8)(x + 3).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "factorise-trinomial",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which of the following is a factor of 6x² − x − 15?",
+   "expected_answer": {
+    "value": "3x − 5"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "3x + 5",
+    "2x − 3",
+    "3x − 5",
+    "2x + 5"
+   ],
+   "explanation": "6x² − x − 15 = 6x² − 10x + 9x − 15 = (3x − 5)(2x + 3); only 3x − 5 gives zero at x = 5/3.",
+   "content_status": "needs_review"
+  }
+ ]
+}

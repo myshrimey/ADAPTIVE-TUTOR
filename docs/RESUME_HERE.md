@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v124 (2026-11-10)
+## Latest delivery - v125 (2026-11-11)
+503 more questions in all seven subjects (Hindi A 116, Hindi B 77, Social Science 120, Computer Applications 76, English 42, Science 42, Maths 30), all marked needs_review for a teacher. No website change except the version number, no migration. After deploying run `node packages/db/seed-diagnostic.js` with your own settings (safe to re-run). Apply after v124: `sahayak-v125-more-questions-delta.zip`. Not seen live; facts not independently checked beyond the maths numbers.
+
+## Previous delivery - v124 (2026-11-10)
 A student's screenshots showed correct maths answers marked wrong. Three causes, all in answer checking: typing roots without "x =" ("5,-1" for "x = 5, -1"), writing "6 or -8" instead of "-8, 6", and typing a thousands comma ("29,106" for 29106). All three are now accepted; a wrong, missing or sign-flipped answer is still wrong. No migration. Apply after v123: `sahayak-v124-answer-check-delta.zip`. Not seen live.
 
 ## Previous delivery - v123 (2026-11-10)

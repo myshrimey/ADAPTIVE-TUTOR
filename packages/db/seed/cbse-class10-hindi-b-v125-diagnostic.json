@@ -1,0 +1,1545 @@
+{
+ "subject_slug": "hindi-b",
+ "questions": [
+  {
+   "skill_slug": "hb-apathit-bhav",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "गद्यांश: \"समय सबसे बड़ा धन है। जो इसकी कद्र करते हैं, वे जीवन में आगे बढ़ते हैं; जो इसे व्यर्थ गँवाते हैं, वे पछताते रहते हैं।\" इस गद्यांश का मुख्य भाव क्या है?",
+   "expected_answer": {
+    "value": "समय का सदुपयोग करना चाहिए"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "केवल धन कमाना ही जीवन का लक्ष्य है",
+    "पछताना एक अच्छी आदत है",
+    "आगे बढ़ना केवल भाग्य पर निर्भर है",
+    "समय का सदुपयोग करना चाहिए"
+   ],
+   "explanation": "गद्यांश समय की कद्र करने और उसे व्यर्थ न गँवाने की बात कहता है, इसलिए मुख्य भाव समय का सदुपयोग है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-apathit-bhav",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "गद्यांश: \"नदी अपना जल स्वयं नहीं पीती, वृक्ष अपने फल स्वयं नहीं खाते और बादल अपने लिए नहीं बरसते। प्रकृति हमें परोपकार की शिक्षा देती है।\" इसका सबसे उपयुक्त शीर्षक कौन-सा है?",
+   "expected_answer": {
+    "value": "प्रकृति और परोपकार"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "प्रकृति और परोपकार",
+    "नदी का जल",
+    "बादलों की गर्जना",
+    "वृक्षों के प्रकार"
+   ],
+   "explanation": "पूरा गद्यांश प्रकृति के उदाहरणों से परोपकार की शिक्षा देता है, इसलिए \"प्रकृति और परोपकार\" उपयुक्त शीर्षक है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-apathit-bhav",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "गद्यांश: \"जिसने हार से डरना सीख लिया, उसने जीतना छोड़ दिया। असफलता तो सफलता की सीढ़ी है; गिरकर उठने वाला ही आगे पहुँचता है।\" गद्यांश का केंद्रीय विचार क्या है?",
+   "expected_answer": {
+    "value": "असफलता से घबराए बिना निरंतर प्रयास करते रहना चाहिए"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "हार से बचने के लिए कोई काम ही न करना चाहिए",
+    "असफलता से घबराए बिना निरंतर प्रयास करते रहना चाहिए",
+    "सफलता केवल सीढ़ियाँ चढ़ने से मिलती है",
+    "गिरना जीवन की सबसे बड़ी भूल है"
+   ],
+   "explanation": "गद्यांश कहता है कि असफलता सफलता की सीढ़ी है, अतः डरे बिना प्रयास जारी रखना ही उसका मुख्य भाव है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-apathit-shabdarth",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"कठिन परिश्रम ही सफलता की कुंजी है।\" इस वाक्य में \"कुंजी\" का प्रसंगानुसार अर्थ क्या है?",
+   "expected_answer": {
+    "value": "सबसे ज़रूरी साधन या उपाय"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "ताला",
+    "रुकावट",
+    "सबसे ज़रूरी साधन या उपाय",
+    "भाग्य"
+   ],
+   "explanation": "यहाँ \"कुंजी\" का लाक्षणिक अर्थ सफलता पाने का मुख्य उपाय है, चाबी नहीं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-apathit-shabdarth",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"गाँव में सब उसकी दरियादिली की चर्चा करते थे।\" इस वाक्य में \"दरियादिली\" का अर्थ है:",
+   "expected_answer": {
+    "value": "उदारता"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "कंजूसी",
+    "क्रोध",
+    "चालाकी",
+    "उदारता"
+   ],
+   "explanation": "\"दरियादिली\" का अर्थ बड़े दिल वाला होना, अर्थात् उदारता है; प्रसंग में लोग उसकी प्रशंसा कर रहे हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-apathit-shabdarth",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"परीक्षा में अव्वल आने पर माँ का हृदय गद्गद हो उठा।\" यहाँ \"गद्गद\" का अर्थ है:",
+   "expected_answer": {
+    "value": "अत्यंत प्रसन्न और भावुक"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "दुखी",
+    "अत्यंत प्रसन्न और भावुक",
+    "क्रोधित",
+    "भयभीत"
+   ],
+   "explanation": "पुत्र की सफलता पर माँ का मन खुशी और भावुकता से भर गया, इसलिए \"गद्गद\" का अर्थ अत्यंत प्रसन्न है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-padbandh-bhed",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"मेरे पड़ोस में रहने वाला वह बूढ़ा आदमी बीमार है।\" इसमें रेखांकित अंश \"मेरे पड़ोस में रहने वाला वह बूढ़ा आदमी\" कौन-सा पदबंध है?",
+   "expected_answer": {
+    "value": "संज्ञा पदबंध"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "विशेषण पदबंध",
+    "संज्ञा पदबंध",
+    "क्रिया पदबंध",
+    "क्रियाविशेषण पदबंध"
+   ],
+   "explanation": "यह पूरा शब्द-समूह वाक्य में कर्ता (संज्ञा \"आदमी\") का काम कर रहा है, इसलिए संज्ञा पदबंध है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-padbandh-bhed",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"वह धीरे-धीरे और बहुत सँभलकर चल रहा था।\" इसमें \"धीरे-धीरे और बहुत सँभलकर\" कौन-सा पदबंध है?",
+   "expected_answer": {
+    "value": "क्रियाविशेषण पदबंध"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "संज्ञा पदबंध",
+    "सर्वनाम पदबंध",
+    "विशेषण पदबंध",
+    "क्रियाविशेषण पदबंध"
+   ],
+   "explanation": "यह शब्द-समूह \"चलने\" की रीति बताता है, अतः क्रियाविशेषण पदबंध है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-padbandh-bhed",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"तुम में से कोई भी वहाँ नहीं जाएगा।\" इसमें \"तुम में से कोई भी\" कौन-सा पदबंध है?",
+   "expected_answer": {
+    "value": "सर्वनाम पदबंध"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "क्रिया पदबंध",
+    "क्रियाविशेषण पदबंध",
+    "सर्वनाम पदबंध",
+    "विशेषण पदबंध"
+   ],
+   "explanation": "यह शब्द-समूह वाक्य में सर्वनाम की तरह कर्ता का काम कर रहा है, इसलिए सर्वनाम पदबंध है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-padbandh-bhed",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "पदबंध और उपवाक्य में मुख्य अंतर क्या है?",
+   "expected_answer": {
+    "value": "उपवाक्य में उद्देश्य और विधेय (क्रिया) होते हैं, पदबंध में नहीं"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "पदबंध में क्रिया होती है, उपवाक्य में नहीं",
+    "उपवाक्य में उद्देश्य और विधेय (क्रिया) होते हैं, पदबंध में नहीं",
+    "दोनों में कोई अंतर नहीं है",
+    "पदबंध हमेशा एक ही शब्द का होता है"
+   ],
+   "explanation": "उपवाक्य में उद्देश्य-विधेय होता है, जबकि पदबंध केवल पद का काम करने वाला शब्द-समूह है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-vakya-rupantaran",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"यदि तुम परिश्रम करोगे तो सफल होगे।\" रचना के आधार पर यह कौन-सा वाक्य है?",
+   "expected_answer": {
+    "value": "मिश्र वाक्य"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "सरल वाक्य",
+    "संयुक्त वाक्य",
+    "प्रश्नवाचक वाक्य",
+    "मिश्र वाक्य"
+   ],
+   "explanation": "इसमें प्रधान उपवाक्य के साथ \"यदि\" से जुड़ा आश्रित उपवाक्य है, इसलिए यह मिश्र वाक्य है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-vakya-rupantaran",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"सूर्योदय होते ही पक्षी चहचहाने लगे।\" रचना के आधार पर यह कौन-सा वाक्य है?",
+   "expected_answer": {
+    "value": "सरल वाक्य"
+   },
+   "misconception_tags": [
+    "GRAMMAR_RULE"
+   ],
+   "options": [
+    "संयुक्त वाक्य",
+    "मिश्र वाक्य",
+    "सरल वाक्य",
+    "इच्छावाचक वाक्य"
+   ],
+   "explanation": "इसमें केवल एक ही मुख्य क्रिया (\"चहचहाने लगे\") है, इसलिए यह सरल वाक्य है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-vakya-rupantaran",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "मिश्र वाक्य \"जो परिश्रम करता है, वह सफल होता है।\" का सरल वाक्य में सही रूपांतरण कौन-सा है?",
+   "expected_answer": {
+    "value": "परिश्रमी व्यक्ति सफल होता है।"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "वह परिश्रम करता है और सफल होता है।",
+    "वह सफल होता है क्योंकि वह परिश्रम करता है।",
+    "परिश्रमी व्यक्ति सफल होता है।",
+    "परिश्रमी व्यक्ति सफल नहीं होता।"
+   ],
+   "explanation": "आश्रित उपवाक्य को विशेषण \"परिश्रमी\" में बदलने पर एक ही क्रिया वाला सरल वाक्य बनता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-vakya-rupantaran",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "सरल वाक्य \"सच बोलने वाला व्यक्ति सम्मान पाता है।\" का मिश्र वाक्य में सही रूप कौन-सा है?",
+   "expected_answer": {
+    "value": "जो व्यक्ति सच बोलता है, वह सम्मान पाता है।"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "व्यक्ति सच बोलता है और सम्मान पाता है।",
+    "सच बोलने से व्यक्ति को सम्मान मिलता है।",
+    "सच बोलो और सम्मान पाओ।",
+    "जो व्यक्ति सच बोलता है, वह सम्मान पाता है।"
+   ],
+   "explanation": "मिश्र वाक्य में एक प्रधान और एक आश्रित उपवाक्य (\"जो... बोलता है\") होना चाहिए; शेष विकल्प संयुक्त, सरल या आज्ञार्थक हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-samas-pehchan",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"राजपुत्र\" (राजा का पुत्र) में कौन-सा समास है?",
+   "expected_answer": {
+    "value": "तत्पुरुष समास"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "तत्पुरुष समास",
+    "द्वंद्व समास",
+    "कर्मधारय समास",
+    "अव्ययीभाव समास"
+   ],
+   "explanation": "इसमें \"का\" विभक्ति लुप्त है और उत्तरपद प्रधान है, इसलिए यह तत्पुरुष समास है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-samas-pehchan",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"चौराहा\" (चार राहों का समूह) में कौन-सा समास है?",
+   "expected_answer": {
+    "value": "द्विगु समास"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "द्वंद्व समास",
+    "बहुव्रीहि समास",
+    "द्विगु समास",
+    "अव्ययीभाव समास"
+   ],
+   "explanation": "पूर्वपद संख्यावाचक (\"चौ\") है और समूह का बोध होता है, इसलिए यह द्विगु समास है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-samas-pehchan",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"प्रतिदिन\" (हर दिन) में कौन-सा समास है?",
+   "expected_answer": {
+    "value": "अव्ययीभाव समास"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "कर्मधारय समास",
+    "अव्ययीभाव समास",
+    "द्वंद्व समास",
+    "तत्पुरुष समास"
+   ],
+   "explanation": "पूर्वपद \"प्रति\" अव्यय है और पूरा पद अव्यय की तरह प्रयुक्त होता है, इसलिए अव्ययीभाव समास है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-samas-pehchan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"महापुरुष\" का विग्रह और समास क्या है?",
+   "expected_answer": {
+    "value": "महान है जो पुरुष, कर्मधारय समास"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "महान है जो पुरुष, कर्मधारय समास",
+    "महान का पुरुष, तत्पुरुष समास",
+    "महान और पुरुष, द्वंद्व समास",
+    "महान है पुरुष जिसका, बहुव्रीहि समास"
+   ],
+   "explanation": "\"महा\" विशेषण है और \"पुरुष\" विशेष्य, दोनों में विशेषण-विशेष्य संबंध है, अतः कर्मधारय समास है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-muhavare-arth",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"आग बबूला होना\" मुहावरे का अर्थ है:",
+   "expected_answer": {
+    "value": "बहुत क्रोधित होना"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "बहुत खुश होना",
+    "बहुत क्रोधित होना",
+    "आग लगा देना",
+    "डर जाना"
+   ],
+   "explanation": "\"आग बबूला होना\" का अर्थ अत्यंत गुस्से में आ जाना है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-muhavare-arth",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"चार चाँद लगाना\" मुहावरे का अर्थ है:",
+   "expected_answer": {
+    "value": "शोभा बढ़ाना"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "चाँद को देखना",
+    "बहुत दूर जाना",
+    "धोखा देना",
+    "शोभा बढ़ाना"
+   ],
+   "explanation": "\"चार चाँद लगाना\" का अर्थ किसी की सुंदरता या शोभा को और बढ़ा देना है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-muhavare-arth",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"ऊँट के मुँह में जीरा\" का अर्थ है:",
+   "expected_answer": {
+    "value": "आवश्यकता से बहुत कम वस्तु मिलना"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "बहुत अधिक धन मिलना",
+    "आवश्यकता से बहुत कम वस्तु मिलना",
+    "ऊँट को खिलाना",
+    "बहुत कठिन काम करना"
+   ],
+   "explanation": "ऊँट जैसे बड़े पेट में जीरा बहुत कम है, इसलिए यह ज़रूरत से बहुत कम मिलने का अर्थ देता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-muhavare-arth",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"आसमान सिर पर उठाना\" मुहावरे का अर्थ है:",
+   "expected_answer": {
+    "value": "बहुत शोर या उत्पात मचाना"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "बहुत ऊँचाई पर पहुँचना",
+    "बहुत शोर या उत्पात मचाना",
+    "बहुत बोझ उठाना",
+    "सब कुछ त्याग देना"
+   ],
+   "explanation": "\"आसमान सिर पर उठाना\" का अर्थ बहुत हल्ला-गुल्ला या उधम मचाना है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-bade-bhai-sandesh",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"बड़े भाई साहब\" किस विधा की रचना है?",
+   "expected_answer": {
+    "value": "कहानी"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "नाटक",
+    "निबंध",
+    "कहानी",
+    "यात्रा-वृत्तांत"
+   ],
+   "explanation": "प्रेमचंद की \"बड़े भाई साहब\" दो भाइयों की पात्र-प्रधान कहानी है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-bade-bhai-sandesh",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"बड़े भाई साहब\" कहानी में छोटे भाई का मन पढ़ाई से अधिक किसमें लगता है?",
+   "expected_answer": {
+    "value": "गुल्ली-डंडा और पतंग जैसे खेलों में"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "संगीत सीखने में",
+    "गुल्ली-डंडा और पतंग जैसे खेलों में",
+    "चित्र बनाने में",
+    "सिक्के जमा करने में"
+   ],
+   "explanation": "छोटा भाई पढ़ाई से जी चुराकर गुल्ली-डंडा, कंकरी और पतंगबाज़ी जैसे खेलों में रमता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-bade-bhai-sandesh",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"बड़े भाई साहब\" के लेखक प्रेमचंद को किस उपाधि से भी जाना जाता है?",
+   "expected_answer": {
+    "value": "उपन्यास सम्राट"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "राष्ट्रकवि",
+    "महाकवि",
+    "उपन्यास सम्राट",
+    "जनकवि"
+   ],
+   "explanation": "प्रेमचंद को उनके उपन्यासों के कारण \"उपन्यास सम्राट\" कहा जाता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-diary-vishay",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"डायरी का एक पन्ना\" किस विधा की रचना है?",
+   "expected_answer": {
+    "value": "डायरी"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "डायरी",
+    "कहानी",
+    "नाटक",
+    "कविता"
+   ],
+   "explanation": "इसमें लेखक ने किसी दिन की घटनाओं को डायरी के रूप में लिखा है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-diary-vishay",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"डायरी का एक पन्ना\" में वर्णित स्वतंत्रता-दिवस का उत्सव किस नगर का है?",
+   "expected_answer": {
+    "value": "कलकत्ता (कोलकाता)"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "कलकत्ता (कोलकाता)",
+    "बंबई",
+    "लाहौर",
+    "मद्रास"
+   ],
+   "explanation": "लेखक सीताराम सेकसरिया ने इसमें कलकत्ता में मनाए गए उत्सव का वर्णन किया है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-tantara-vishay",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"तताँरा-वामीरो कथा\" के अंत में द्वीप के साथ क्या हुआ?",
+   "expected_answer": {
+    "value": "द्वीप दो टुकड़ों में बँट गया"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "द्वीप समुद्र में डूब गया",
+    "द्वीप पर बाढ़ आ गई",
+    "द्वीप का नाम बदल गया",
+    "द्वीप दो टुकड़ों में बँट गया"
+   ],
+   "explanation": "तताँरा की तलवार धरती में गड़ने से धरती फट गई और द्वीप दो भागों में बँट गया।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-tantara-vishay",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "तताँरा और वामीरो के मिलन में मुख्य बाधा क्या थी?",
+   "expected_answer": {
+    "value": "अलग-अलग गाँवों की परंपराएँ"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "दोनों की आपसी लड़ाई",
+    "वामीरो का विदेश चले जाना",
+    "अलग-अलग गाँवों की परंपराएँ",
+    "तताँरा का राजा बन जाना"
+   ],
+   "explanation": "दोनों अलग गाँवों के थे और गाँव की परंपराएँ उनके विवाह में बाधा बनीं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-tantara-vishay",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"तताँरा-वामीरो कथा\" किस प्रकार की रचना है?",
+   "expected_answer": {
+    "value": "लोककथा"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "एकांकी",
+    "जीवनी",
+    "लोककथा",
+    "निबंध"
+   ],
+   "explanation": "यह निकोबार द्वीप की लोकप्रचलित कथा है, इसलिए लोककथा है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-shailendra-vishay",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "शैलेंद्र मुख्य रूप से किस रूप में प्रसिद्ध थे?",
+   "expected_answer": {
+    "value": "गीतकार और कवि"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "चित्रकार",
+    "क्रिकेट खिलाड़ी",
+    "गीतकार और कवि",
+    "नाटककार"
+   ],
+   "explanation": "शैलेंद्र हिंदी फ़िल्मों के प्रसिद्ध गीतकार और कवि थे।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-shailendra-vishay",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"तीसरी कसम\" फ़िल्म में हीरामन की भूमिका किस अभिनेता ने निभाई?",
+   "expected_answer": {
+    "value": "राज कपूर"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "दिलीप कुमार",
+    "राज कपूर",
+    "देव आनंद",
+    "अशोक कुमार"
+   ],
+   "explanation": "फ़िल्म में गाड़ीवान हीरामन की भूमिका राज कपूर ने निभाई थी।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-shailendra-vishay",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"तीसरी कसम\" फ़िल्म के निर्माता कौन थे?",
+   "expected_answer": {
+    "value": "शैलेंद्र"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "शैलेंद्र",
+    "राज कपूर",
+    "फणीश्वरनाथ रेणु",
+    "प्रह्लाद अग्रवाल"
+   ],
+   "explanation": "शैलेंद्र ने स्वयं यह फ़िल्म बनाई थी; रेणु कहानी के लेखक और प्रह्लाद अग्रवाल पाठ के लेखक हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-nida-vishay",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"अब कहाँ दूसरे के दुख से दुखी होने वाले\" पाठ का मुख्य संदेश क्या है?",
+   "expected_answer": {
+    "value": "पृथ्वी पर सभी जीवों का समान अधिकार है और प्रकृति का संतुलन बनाए रखना चाहिए"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "मनुष्य ही पृथ्वी का एकमात्र स्वामी है",
+    "बड़े शहरों में बसना ही श्रेष्ठ है",
+    "पृथ्वी पर सभी जीवों का समान अधिकार है और प्रकृति का संतुलन बनाए रखना चाहिए",
+    "प्रकृति केवल मनुष्य के उपयोग के लिए है"
+   ],
+   "explanation": "पाठ बताता है कि मनुष्य ने प्रकृति और अन्य जीवों के हिस्से पर कब्ज़ा किया है, जिससे असंतुलन बढ़ा है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-nida-vishay",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "निदा फ़ाज़ली मूल रूप से किस रूप में जाने जाते हैं?",
+   "expected_answer": {
+    "value": "शायर और कवि"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "शायर और कवि",
+    "चित्रकार",
+    "वैज्ञानिक",
+    "इतिहासकार"
+   ],
+   "explanation": "निदा फ़ाज़ली उर्दू-हिंदी के प्रसिद्ध शायर और कवि थे।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-patjhar-lekhak",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "रवींद्र केलेकर के \"गिन्नी का सोना\" में ताँबा मिला सोना किसका प्रतीक है?",
+   "expected_answer": {
+    "value": "व्यावहारिकता मिले आदर्श का"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "पूरी तरह शुद्ध आदर्श का",
+    "केवल लोभ का",
+    "व्यावहारिकता मिले आदर्श का",
+    "गरीबी का"
+   ],
+   "explanation": "शुद्ध सोना शुद्ध आदर्श है, जबकि ताँबा मिला गिन्नी का सोना व्यावहारिकता मिले आदर्श का प्रतीक है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-patjhar-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"झेन की देन\" में वर्णित \"चा-नो-यू\" किस देश की चाय-समारोह की परंपरा है?",
+   "expected_answer": {
+    "value": "जापान"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "श्रीलंका",
+    "जापान",
+    "भारत",
+    "नेपाल"
+   ],
+   "explanation": "\"चा-नो-यू\" जापान की चाय पीने की विशेष शांत परंपरा है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-patjhar-lekhak",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "रवींद्र केलेकर मूल रूप से किस भाषा के लेखक हैं?",
+   "expected_answer": {
+    "value": "कोंकणी"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "कोंकणी",
+    "बांग्ला",
+    "पंजाबी",
+    "तमिल"
+   ],
+   "explanation": "केलेकर गोवा के प्रसिद्ध कोंकणी लेखक हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-kartoos-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "हबीब तनवीर मुख्य रूप से किस क्षेत्र के लिए प्रसिद्ध हैं?",
+   "expected_answer": {
+    "value": "रंगमंच (नाटक)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "क्रिकेट",
+    "चित्रकला",
+    "विज्ञान-अनुसंधान",
+    "रंगमंच (नाटक)"
+   ],
+   "explanation": "हबीब तनवीर प्रसिद्ध नाटककार, निर्देशक और रंगकर्मी थे।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-kartoos-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"चरणदास चोर\" नाटक की प्रस्तुति के लिए प्रसिद्ध रंगकर्मी कौन हैं?",
+   "expected_answer": {
+    "value": "हबीब तनवीर"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "हबीब तनवीर",
+    "भीष्म साहनी",
+    "मोहन राकेश",
+    "जयशंकर प्रसाद"
+   ],
+   "explanation": "\"चरणदास चोर\" हबीब तनवीर की सबसे प्रसिद्ध नाट्य-प्रस्तुतियों में है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-kabir-meera-kavi",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"ऐसी बानी बोलिए, मन का आपा खोइ। अपना तन सीतल करै, औरन कौं सुख होइ॥\" इस साखी का भाव क्या है?",
+   "expected_answer": {
+    "value": "ऐसी मीठी वाणी बोलें जिससे दूसरों को सुख और स्वयं को शीतलता मिले"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "क्रोध में कठोर बात कहनी चाहिए",
+    "कम बोलना ही सबसे बड़ा दोष है",
+    "ऐसी मीठी वाणी बोलें जिससे दूसरों को सुख और स्वयं को शीतलता मिले",
+    "अपने मन की बात किसी से न कहें"
+   ],
+   "explanation": "कबीर कहते हैं कि अहंकार छोड़कर मधुर बोलने से बोलने वाले और सुनने वाले दोनों को शांति मिलती है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-kabir-meera-kavi",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"हरि आप हरो जन री भीर\" पद की रचयिता कौन हैं?",
+   "expected_answer": {
+    "value": "मीरा"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "कबीर",
+    "मीरा",
+    "सूरदास",
+    "तुलसीदास"
+   ],
+   "explanation": "यह प्रसिद्ध पद मीराबाई का है, जिसमें वे भक्तों के संकट हरने वाले कृष्ण का स्मरण करती हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-kabir-meera-kavi",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "कबीर किस भक्ति-धारा के कवि माने जाते हैं?",
+   "expected_answer": {
+    "value": "निर्गुण भक्ति"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "निर्गुण भक्ति",
+    "सगुण राम-भक्ति",
+    "शृंगार-रस प्रधान रीतिकाल",
+    "आधुनिक छायावाद"
+   ],
+   "explanation": "कबीर निराकार ईश्वर को मानने वाले निर्गुण संत कवि थे।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-manushyata-sandesh",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"मनुष्यता\" कविता के कवि मैथिलीशरण गुप्त को किस नाम से भी जाना जाता है?",
+   "expected_answer": {
+    "value": "राष्ट्रकवि"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "महाप्राण",
+    "प्रकृति के सुकुमार कवि",
+    "जनकवि",
+    "राष्ट्रकवि"
+   ],
+   "explanation": "मैथिलीशरण गुप्त को \"राष्ट्रकवि\" कहा जाता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-manushyata-sandesh",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"मनुष्यता\" कविता में अपनी हड्डियाँ दान करने वाले महान दानी का नाम क्या है?",
+   "expected_answer": {
+    "value": "दधीचि"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "भीष्म",
+    "अर्जुन",
+    "दधीचि",
+    "हनुमान"
+   ],
+   "explanation": "कविता में परोपकारी उदाहरण के रूप में महर्षि दधीचि का उल्लेख है, जिन्होंने अपनी अस्थियाँ दान कीं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-manushyata-sandesh",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"मनुष्यता\" कविता के अनुसार पशु-प्रवृत्ति क्या है?",
+   "expected_answer": {
+    "value": "केवल अपने लिए जीना"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "केवल अपने लिए जीना",
+    "दूसरों की सहायता करना",
+    "सबके साथ मिलकर रहना",
+    "त्याग और दान करना"
+   ],
+   "explanation": "कवि के अनुसार जो केवल अपने स्वार्थ के लिए जीता है, वह पशु-प्रवृत्ति है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-pavas-kavi",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "\"पर्वत प्रदेश में पावस\" में \"पावस\" का क्या अर्थ है?",
+   "expected_answer": {
+    "value": "वर्षा ऋतु"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "शरद ऋतु",
+    "वर्षा ऋतु",
+    "ग्रीष्म ऋतु",
+    "वसंत ऋतु"
+   ],
+   "explanation": "\"पावस\" वर्षा ऋतु का नाम है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-pavas-kavi",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "सुमित्रानंदन पंत को किस नाम से भी जाना जाता है?",
+   "expected_answer": {
+    "value": "प्रकृति के सुकुमार कवि"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "राष्ट्रकवि",
+    "जनकवि",
+    "महाप्राण",
+    "प्रकृति के सुकुमार कवि"
+   ],
+   "explanation": "प्रकृति के कोमल चित्रण के कारण पंत \"प्रकृति के सुकुमार कवि\" कहलाते हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-pavas-kavi",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "सुमित्रानंदन पंत किस काव्य-धारा के प्रमुख कवि माने जाते हैं?",
+   "expected_answer": {
+    "value": "छायावाद"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "प्रगतिवाद",
+    "भक्तिकाल",
+    "रीतिकाल",
+    "छायावाद"
+   ],
+   "explanation": "पंत जयशंकर प्रसाद, निराला और महादेवी वर्मा के साथ छायावाद के चार स्तंभों में गिने जाते हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-top-fida-kavi",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"कर चले हम फ़िदा जान-ओ-तन साथियो\" गीत किस फ़िल्म का है?",
+   "expected_answer": {
+    "value": "हक़ीक़त"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "उपकार",
+    "हक़ीक़त",
+    "शहीद",
+    "तीसरी कसम"
+   ],
+   "explanation": "कैफ़ी आज़मी का यह गीत 1964 की फ़िल्म \"हक़ीक़त\" का है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-top-fida-kavi",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "वीरेंद्र मिश्र की कविता \"तोप\" में 1857 की तोप कहाँ रखी हुई बताई गई है?",
+   "expected_answer": {
+    "value": "कंपनी बाग के मुहाने पर"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "लाल किले के भीतर",
+    "इंडिया गेट के पास",
+    "जंतर-मंतर में",
+    "कंपनी बाग के मुहाने पर"
+   ],
+   "explanation": "कविता की आरंभिक पंक्ति में तोप को कंपनी बाग के मुहाने पर रखा बताया गया है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-top-fida-kavi",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"कर चले हम फ़िदा\" गीत में मुख्य रूप से कौन-सा भाव है?",
+   "expected_answer": {
+    "value": "देश के लिए बलिदान और देशभक्ति"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "प्रकृति-प्रेम",
+    "देश के लिए बलिदान और देशभक्ति",
+    "हास्य-विनोद",
+    "विरह की पीड़ा"
+   ],
+   "explanation": "गीत में शहीद सैनिक देश को साथियों के हवाले कर बलिदान की भावना व्यक्त करते हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-atmatran-bhav",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"आत्मत्राण\" के मूल रचयिता रवींद्रनाथ ठाकुर को किस रचना पर नोबेल पुरस्कार मिला था?",
+   "expected_answer": {
+    "value": "गीतांजलि"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "गोदान",
+    "गीतांजलि",
+    "साकेत",
+    "कामायनी"
+   ],
+   "explanation": "रवींद्रनाथ ठाकुर को \"गीतांजलि\" के लिए नोबेल पुरस्कार मिला।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-atmatran-bhav",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"आत्मत्राण\" शब्द का सही अर्थ क्या है?",
+   "expected_answer": {
+    "value": "स्वयं की रक्षा या भय से मुक्ति"
+   },
+   "misconception_tags": [
+    "VOCABULARY_GAP"
+   ],
+   "options": [
+    "स्वयं की रक्षा या भय से मुक्ति",
+    "ईश्वर की निंदा",
+    "दूसरों से सहायता लेना",
+    "अपनी प्रशंसा करना"
+   ],
+   "explanation": "\"आत्म\" का अर्थ स्वयं और \"त्राण\" का अर्थ रक्षा है; कविता में भय से मुक्ति और आत्मबल की चाह है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-atmatran-bhav",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"आत्मत्राण\" कविता में कवि ईश्वर से क्या नहीं माँगता?",
+   "expected_answer": {
+    "value": "विपदाओं का आना ही रोक दिया जाए"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "विपत्ति में निर्भय रहना",
+    "दुख सहने की शक्ति",
+    "विपदाओं का आना ही रोक दिया जाए",
+    "अपने बल पर विश्वास"
+   ],
+   "explanation": "कवि कहता है कि मेरी प्रार्थना यह नहीं कि विपदाओं से बचाओ, बल्कि यह कि मैं उनसे न डरूँ।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-harihar-lekhak",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"हरिहर काका\" कहानी में ठाकुरबारी के महंत की नज़र मुख्य रूप से किस पर थी?",
+   "expected_answer": {
+    "value": "हरिहर काका की ज़मीन-जायदाद पर"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "उनके स्वास्थ्य पर",
+    "उनकी विद्वत्ता पर",
+    "हरिहर काका की ज़मीन-जायदाद पर",
+    "उनके मित्रों पर"
+   ],
+   "explanation": "महंत उनकी ज़मीन अपने नाम करवाना चाहता था।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-harihar-lekhak",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"हरिहर काका\" कहानी में रिश्तों के बारे में क्या दिखाया गया है?",
+   "expected_answer": {
+    "value": "स्वार्थ के कारण अपने भी पराए जैसा व्यवहार करने लगते हैं"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "रिश्ते हमेशा निःस्वार्थ होते हैं",
+    "परिवार का महत्त्व नहीं होता",
+    "गाँव के लोग धन नहीं चाहते",
+    "स्वार्थ के कारण अपने भी पराए जैसा व्यवहार करने लगते हैं"
+   ],
+   "explanation": "कहानी में परिवारजन और महंत दोनों ज़मीन के स्वार्थ में काका के साथ अनुचित व्यवहार करते हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-sapno-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"सपनों के-से दिन\" किस विधा की रचना है?",
+   "expected_answer": {
+    "value": "संस्मरण"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "संस्मरण",
+    "एकांकी",
+    "निबंध",
+    "कविता"
+   ],
+   "explanation": "इसमें लेखक ने अपने बचपन और स्कूल के दिनों की यादें लिखी हैं, इसलिए यह संस्मरण है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-sapno-lekhak",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "इनमें से किस लेखक को ज्ञानपीठ पुरस्कार से सम्मानित किया गया है?",
+   "expected_answer": {
+    "value": "गुरदयाल सिंह"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "प्रेमचंद",
+    "मिथिलेश्वर",
+    "हबीब तनवीर",
+    "गुरदयाल सिंह"
+   ],
+   "explanation": "पंजाबी के प्रसिद्ध साहित्यकार गुरदयाल सिंह को ज्ञानपीठ पुरस्कार मिला था।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-topi-lekhak",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"आधा गाँव\" उपन्यास के लेखक कौन हैं?",
+   "expected_answer": {
+    "value": "राही मासूम रज़ा"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "राही मासूम रज़ा",
+    "गुरदयाल सिंह",
+    "निदा फ़ाज़ली",
+    "कैफ़ी आज़मी"
+   ],
+   "explanation": "\"आधा गाँव\" राही मासूम रज़ा का प्रसिद्ध उपन्यास है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-topi-lekhak",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "राही मासूम रज़ा ने किस प्रसिद्ध टेलीविज़न धारावाहिक के संवाद लिखे?",
+   "expected_answer": {
+    "value": "महाभारत"
+   },
+   "misconception_tags": [
+    "COMPREHENSION_GAP"
+   ],
+   "options": [
+    "रामायण",
+    "बुनियाद",
+    "हम लोग",
+    "महाभारत"
+   ],
+   "explanation": "राही मासूम रज़ा ने धारावाहिक \"महाभारत\" के संवाद लिखे थे।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-topi-lekhak",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "\"टोपी शुक्ला\" का केंद्रीय विषय क्या है?",
+   "expected_answer": {
+    "value": "धार्मिक भेदभाव के बीच दोस्ती और अकेलापन"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "पर्वतारोहण का रोमांच",
+    "खेती-किसानी की समस्याएँ",
+    "चुनाव की राजनीति",
+    "धार्मिक भेदभाव के बीच दोस्ती और अकेलापन"
+   ],
+   "explanation": "कहानी टोपी और इफ़्फ़न की मित्रता तथा समाज के धार्मिक भेदभाव को दिखाती है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-anuchhed-gun",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "अच्छे अनुच्छेद में कितने केंद्रीय विचार होने चाहिए?",
+   "expected_answer": {
+    "value": "एक ही केंद्रीय विचार"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "एक ही केंद्रीय विचार",
+    "कई अलग-अलग विचार",
+    "कोई निश्चित विचार नहीं",
+    "हर वाक्य में नया विषय"
+   ],
+   "explanation": "अनुच्छेद एक ही विचार पर केंद्रित और क्रमबद्ध होता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-anuchhed-gun",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "अनुच्छेद लेखन में सामान्यतः कितने शब्दों की सीमा रखी जाती है?",
+   "expected_answer": {
+    "value": "लगभग 80 से 100 शब्द"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "5 से 10 शब्द",
+    "300 से 400 शब्द",
+    "1000 से अधिक शब्द",
+    "लगभग 80 से 100 शब्द"
+   ],
+   "explanation": "अनुच्छेद संक्षिप्त होता है; सामान्यतः लगभग 80 से 100 शब्दों में लिखा जाता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-anuchhed-gun",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "अनुच्छेद के वाक्यों के बारे में कौन-सा कथन सही है?",
+   "expected_answer": {
+    "value": "वाक्य आपस में सुसंबद्ध और क्रमबद्ध होने चाहिए"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "वाक्य आपस में सुसंबद्ध और क्रमबद्ध होने चाहिए",
+    "वाक्य बिना क्रम के लिखे जा सकते हैं",
+    "हर वाक्य अलग विषय का होना चाहिए",
+    "वाक्य बहुत लंबे और जटिल होने चाहिए"
+   ],
+   "explanation": "अच्छे अनुच्छेद के वाक्य एक-दूसरे से जुड़े होते हैं ताकि विचार सहजता से आगे बढ़े।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-patra-roop",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "इनमें से कौन-सा औपचारिक पत्र है?",
+   "expected_answer": {
+    "value": "प्रधानाचार्य को अवकाश के लिए प्रार्थना-पत्र"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "मित्र को जन्मदिन की बधाई का पत्र",
+    "माँ को कुशल-क्षेम का पत्र",
+    "बहन को घर आने का स्नेह-भरा निमंत्रण",
+    "प्रधानाचार्य को अवकाश के लिए प्रार्थना-पत्र"
+   ],
+   "explanation": "अधिकारी या प्रधानाचार्य को लिखा प्रार्थना-पत्र औपचारिक पत्र है; शेष व्यक्तिगत (अनौपचारिक) हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-patra-roop",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "प्रधानाचार्य को लिखे औपचारिक पत्र का समापन कैसे होना चाहिए?",
+   "expected_answer": {
+    "value": "आपका आज्ञाकारी शिष्य, नाम"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "तुम्हारा प्यारा मित्र, नाम",
+    "ढेर सारे प्यार के साथ, नाम",
+    "आपका आज्ञाकारी शिष्य, नाम",
+    "तुम्हारा भाई, नाम"
+   ],
+   "explanation": "प्रधानाचार्य के प्रति आदरपूर्ण \"आपका आज्ञाकारी शिष्य\" ही उचित समापन है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-patra-roop",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "औपचारिक पत्र में \"विषय\" पंक्ति कहाँ लिखी जाती है?",
+   "expected_answer": {
+    "value": "प्राप्तकर्ता का पता लिखने के बाद और संबोधन से पहले"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "प्राप्तकर्ता का पता लिखने के बाद और संबोधन से पहले",
+    "हस्ताक्षर के बाद पत्र के अंत में",
+    "दिनांक से भी ऊपर",
+    "पत्र के मुख्य भाग के बीच में"
+   ],
+   "explanation": "सेवा में... के बाद \"विषय:\" लिखा जाता है और उसके बाद \"महोदय\" जैसा संबोधन आता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-vigyapan-tatva",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "विज्ञापन की भाषा कैसी होनी चाहिए?",
+   "expected_answer": {
+    "value": "सरल, संक्षिप्त और आकर्षक"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "लंबी और जटिल",
+    "नीरस और अस्पष्ट",
+    "केवल कठिन शब्दों वाली",
+    "सरल, संक्षिप्त और आकर्षक"
+   ],
+   "explanation": "विज्ञापन कम शब्दों में पाठक का ध्यान खींचता है, इसलिए भाषा सरल, संक्षिप्त और आकर्षक होनी चाहिए।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-vigyapan-tatva",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "\"मकान किराये के लिए खाली है, संपर्क करें\" जैसा छोटा विज्ञापन किस प्रकार का होता है?",
+   "expected_answer": {
+    "value": "वर्गीकृत विज्ञापन"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "प्रदर्शन विज्ञापन",
+    "सरकारी निविदा",
+    "निमंत्रण-पत्र",
+    "वर्गीकृत विज्ञापन"
+   ],
+   "explanation": "अख़बार में किराये, बिक्री या आवश्यकता से जुड़े छोटे विज्ञापन वर्गीकृत विज्ञापन कहलाते हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-vigyapan-tatva",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "वस्तु की बिक्री के विज्ञापन में कौन-सी जानकारी अनावश्यक है?",
+   "expected_answer": {
+    "value": "विज्ञापनदाता की निजी पारिवारिक बातें"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "वस्तु की विशेषताएँ",
+    "संपर्क का पता या फ़ोन नंबर",
+    "विज्ञापनदाता की निजी पारिवारिक बातें",
+    "वस्तु का नाम"
+   ],
+   "explanation": "विज्ञापन में वस्तु, उसकी विशेषताएँ और संपर्क-सूत्र ज़रूरी हैं; निजी पारिवारिक बातों का कोई काम नहीं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-email-roop",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "ई-मेल में \"Bcc\" में जिसका पता लिखा जाता है, उसके बारे में क्या सही है?",
+   "expected_answer": {
+    "value": "अन्य प्राप्तकर्ताओं को उसका नाम दिखाई नहीं देता"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "उसे ई-मेल नहीं मिलता",
+    "वह ई-मेल का लेखक माना जाता है",
+    "अन्य प्राप्तकर्ताओं को उसका नाम दिखाई नहीं देता",
+    "उसका नाम विषय-पंक्ति में छप जाता है"
+   ],
+   "explanation": "Bcc (गुप्त प्रतिलिपि) पाने वाले का पता बाकी प्राप्तकर्ताओं से छिपा रहता है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-email-roop",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "किसी अधिकारी को लिखे औपचारिक ई-मेल का आरंभिक संबोधन कौन-सा उचित है?",
+   "expected_answer": {
+    "value": "आदरणीय महोदय"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "अरे दोस्त",
+    "आदरणीय महोदय",
+    "हाय यार",
+    "सुन भाई"
+   ],
+   "explanation": "औपचारिक ई-मेल में आदरपूर्ण संबोधन \"आदरणीय महोदय/महोदया\" उचित है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-email-roop",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "ई-मेल के साथ कोई फ़ाइल या चित्र जोड़ने की सुविधा को क्या कहते हैं?",
+   "expected_answer": {
+    "value": "अटैचमेंट (संलग्नक)"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "इनबॉक्स",
+    "अटैचमेंट (संलग्नक)",
+    "स्पैम",
+    "विषय-पंक्ति"
+   ],
+   "explanation": "ई-मेल के साथ जोड़ी गई फ़ाइल को अटैचमेंट या संलग्नक कहते हैं।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-laghukatha-tatva",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "लघुकथा और कहानी में मुख्य अंतर क्या है?",
+   "expected_answer": {
+    "value": "लघुकथा बहुत संक्षिप्त होती है और प्रायः एक ही घटना या क्षण पर केंद्रित होती है"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "लघुकथा में कई अध्याय होते हैं",
+    "लघुकथा केवल कविता में लिखी जाती है",
+    "लघुकथा कहानी से अधिक लंबी होती है",
+    "लघुकथा बहुत संक्षिप्त होती है और प्रायः एक ही घटना या क्षण पर केंद्रित होती है"
+   ],
+   "explanation": "लघुकथा कम शब्दों में एक ही घटना या क्षण को प्रभावशाली ढंग से कहती है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-laghukatha-tatva",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "लघुकथा में प्रायः पात्र और घटनाएँ कैसी होती हैं?",
+   "expected_answer": {
+    "value": "कम पात्र और एक ही मुख्य घटना"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "बहुत-से पात्र और अनेक घटनाएँ",
+    "कोई पात्र नहीं",
+    "कम पात्र और एक ही मुख्य घटना",
+    "केवल लंबे संवाद"
+   ],
+   "explanation": "संक्षिप्तता के कारण लघुकथा में कम पात्र और एक केंद्रीय घटना होती है।",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "hb-laghukatha-tatva",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "लघुकथा का अंत कैसा होना चाहिए?",
+   "expected_answer": {
+    "value": "प्रभावशाली, चौंकाने वाला या संदेश देने वाला"
+   },
+   "misconception_tags": [
+    "STRUCTURE_FORMAT"
+   ],
+   "options": [
+    "प्रभावशाली, चौंकाने वाला या संदेश देने वाला",
+    "बिना किसी निष्कर्ष के लंबा खिंचा हुआ",
+    "पूरी तरह भूला-बिसरा",
+    "अनावश्यक उपदेशों से भरा"
+   ],
+   "explanation": "लघुकथा का अंत पाठक पर गहरा प्रभाव छोड़ने वाला होना चाहिए।",
+   "content_status": "needs_review"
+  }
+ ]
+}

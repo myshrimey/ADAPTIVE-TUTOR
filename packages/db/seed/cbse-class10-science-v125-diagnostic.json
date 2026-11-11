@@ -1,0 +1,845 @@
+{
+ "subject_slug": "science",
+ "questions": [
+  {
+   "skill_slug": "sci-mendel-ratios",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A tall pea plant (Tt) is self-pollinated. What fraction of the F2 offspring is expected to be homozygous (either TT or tt)?",
+   "expected_answer": {
+    "value": "One half"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "One quarter",
+    "Three quarters",
+    "All of them",
+    "One half"
+   ],
+   "explanation": "The F2 genotypes are 1 TT : 2 Tt : 1 tt, so TT and tt together make 2 out of 4, which is one half.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-mendel-ratios",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In an F2 generation from Tt x Tt, one quarter of the plants are TT. What is the full genotype ratio TT : Tt : tt?",
+   "expected_answer": {
+    "value": "1 : 2 : 1"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "3 : 1",
+    "1 : 1 : 2",
+    "1 : 2 : 1",
+    "2 : 1 : 1"
+   ],
+   "explanation": "Each parent gives T or t with equal chance, so the offspring are 1 TT : 2 Tt : 1 tt.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-mendel-ratios",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "All F1 plants from a TT x tt cross are tall, yet some F2 plants are dwarf. What does this show about the dwarf trait in the F1 plants?",
+   "expected_answer": {
+    "value": "It was present in the F1 plants but not expressed"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It was lost in F1 and re-created by mutation in F2",
+    "It was present in the F1 plants but not expressed",
+    "It blended with tallness to give medium-height plants",
+    "It was destroyed by the dominant tall trait"
+   ],
+   "explanation": "F1 plants are Tt, so they carry the recessive allele hidden by the dominant one; it reappears when tt combinations form in F2.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dominant-recessive",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A pea plant has the alleles Tt and is tall. Which statement correctly names its genotype and phenotype?",
+   "expected_answer": {
+    "value": "Genotype Tt, phenotype tall"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Genotype Tt, phenotype tall",
+    "Genotype tall, phenotype Tt",
+    "Genotype T, phenotype tall",
+    "Genotype Tt, phenotype dwarf"
+   ],
+   "explanation": "Genotype is the allele combination (Tt); phenotype is the visible trait (tall).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dominant-recessive",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A pea plant shows the dominant tall trait. Which genotype(s) could it have?",
+   "expected_answer": {
+    "value": "TT or Tt"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Only the homozygous dominant genotype",
+    "Only the heterozygous genotype",
+    "The homozygous recessive genotype",
+    "TT or Tt"
+   ],
+   "explanation": "One dominant allele is enough to give the tall phenotype, so both TT and Tt plants are tall.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dominant-recessive",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A dwarf pea plant (tt) is crossed with a tall plant (Tt). What percentage of the offspring is expected to be dwarf?",
+   "expected_answer": {
+    "value": "50 per cent"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "25 per cent",
+    "75 per cent",
+    "50 per cent",
+    "100 per cent"
+   ],
+   "explanation": "The tall parent gives T or t equally, so half the offspring are Tt (tall) and half are tt (dwarf).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-sex-determination",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which pair of sex chromosomes is found in a normal human male?",
+   "expected_answer": {
+    "value": "One X and one Y"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Two X",
+    "Two Y",
+    "One X only",
+    "One X and one Y"
+   ],
+   "explanation": "Males have the XY pair of sex chromosomes; females have XX.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-sex-determination",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A boy inherits his Y chromosome from which parent?",
+   "expected_answer": {
+    "value": "His father"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "His mother",
+    "Equally from both parents",
+    "Either parent, by chance",
+    "His father"
+   ],
+   "explanation": "Only the father has a Y chromosome, so a boy must have received it from his father's sperm.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-sex-determination",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Of the 23 pairs of chromosomes in a human body cell, how many pairs are autosomes (not sex chromosomes)?",
+   "expected_answer": {
+    "value": "22"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "23",
+    "22",
+    "21",
+    "24"
+   ],
+   "explanation": "One of the 23 pairs is the pair of sex chromosomes, so the other 22 pairs are autosomes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-eye-parts",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which part of the eye changes its curvature so that we can focus on objects at different distances?",
+   "expected_answer": {
+    "value": "The eye lens"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The cornea",
+    "The pupil",
+    "The retina",
+    "The eye lens"
+   ],
+   "explanation": "The ciliary muscles change the curvature of the lens, which changes its focal length.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-eye-parts",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which part of the eye carries the electrical signals produced on the retina to the brain?",
+   "expected_answer": {
+    "value": "The optic nerve"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The ciliary muscle",
+    "The iris",
+    "The optic nerve",
+    "The cornea"
+   ],
+   "explanation": "Light-sensitive cells on the retina generate signals that the optic nerve sends to the brain.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-eye-parts",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "When we step from a dark room into bright sunlight, the pupil becomes smaller. Why is this useful?",
+   "expected_answer": {
+    "value": "It reduces the amount of light entering and protects the retina"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It makes the lens thicker for better focus",
+    "It reduces the amount of light entering and protects the retina",
+    "It lets more light reach the retina",
+    "It makes the image larger"
+   ],
+   "explanation": "The iris contracts the pupil in bright light so that less light enters the eye.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-vision-defects",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A student can read a book comfortably but cannot read the writing on the board from the last bench. Which defect does the student have and which lens corrects it?",
+   "expected_answer": {
+    "value": "Myopia, corrected by a concave lens"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Myopia, corrected by a concave lens",
+    "Myopia, corrected by a convex lens",
+    "Hypermetropia, corrected by a concave lens",
+    "Hypermetropia, corrected by a convex lens"
+   ],
+   "explanation": "Seeing near objects but not far ones is myopia, corrected by a diverging (concave) lens.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-vision-defects",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In a hypermetropic eye, the image of a nearby object is formed:",
+   "expected_answer": {
+    "value": "Behind the retina"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Behind the retina",
+    "In front of the retina",
+    "Exactly on the retina",
+    "On the cornea"
+   ],
+   "explanation": "The eye cannot bend near-object rays enough, so they would meet beyond the retina.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-vision-defects",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A convex lens of power +2.5 D is used to correct a vision defect. What is its focal length?",
+   "expected_answer": {
+    "value": "+40 cm"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "+40 cm",
+    "-40 cm",
+    "+2.5 cm",
+    "+250 cm"
+   ],
+   "explanation": "f = 1/P = 1/2.5 m = 0.4 m = +40 cm; the positive sign shows a convex lens.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dispersion-scattering",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "White light passes through a rectangular glass slab, yet no spectrum is seen on the other side. Why?",
+   "expected_answer": {
+    "value": "The emerging colours travel parallel to each other and recombine to appear white"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A glass slab does not refract light at all",
+    "Glass slabs absorb every colour except white",
+    "The emerging colours travel parallel to each other and recombine to appear white",
+    "Dispersion happens only in lenses, not in glass"
+   ],
+   "explanation": "The slab's opposite faces are parallel, so the colours separated inside emerge as parallel rays that overlap into white light.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dispersion-scattering",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "We see the Sun a couple of minutes before it actually rises above the horizon. This is due to:",
+   "expected_answer": {
+    "value": "Atmospheric refraction of sunlight"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Dispersion of sunlight by a prism",
+    "Atmospheric refraction of sunlight",
+    "Scattering of red light by dust",
+    "Reflection of sunlight from the clouds"
+   ],
+   "explanation": "Light bends as it passes through air layers of changing density, so the Sun appears raised above its real position.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-dispersion-scattering",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In a primary rainbow, which colour appears at the outer top edge of the arc?",
+   "expected_answer": {
+    "value": "Red"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Violet",
+    "Red",
+    "Green",
+    "Blue"
+   ],
+   "explanation": "Red light deviates least, so it appears along the outer (top) edge of the primary rainbow with violet on the inner edge.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-food-chain-energy",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In the chain phytoplankton -> zooplankton -> small fish -> tuna, which organism is the secondary consumer?",
+   "expected_answer": {
+    "value": "Small fish"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Zooplankton",
+    "Small fish",
+    "Tuna",
+    "Phytoplankton"
+   ],
+   "explanation": "Phytoplankton are producers, zooplankton are primary consumers, and small fish eat them so they are secondary consumers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-food-chain-energy",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Producers in a food chain hold 20000 J of energy. By the 10 per cent law, how much energy reaches the fourth trophic level?",
+   "expected_answer": {
+    "value": "20 J"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "20 J",
+    "200 J",
+    "2000 J",
+    "2 J"
+   ],
+   "explanation": "Each step passes on 10 per cent: 20000 -> 2000 -> 200 -> 20 J at the fourth level.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-food-chain-energy",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which organisms break down dead plants and animals and return nutrients to the soil?",
+   "expected_answer": {
+    "value": "Decomposers"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Producers",
+    "Decomposers",
+    "Primary consumers",
+    "Carnivores"
+   ],
+   "explanation": "Bacteria and fungi act as decomposers and recycle nutrients from dead matter.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-ozone-waste",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The thinning of the ozone layer, called the ozone hole, was first noticed over which region?",
+   "expected_answer": {
+    "value": "Antarctica"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Antarctica",
+    "The Sahara desert",
+    "The Amazon forest",
+    "The equator"
+   ],
+   "explanation": "Ozone depletion was first reported over Antarctica.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-ozone-waste",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which pair contains only non-biodegradable items?",
+   "expected_answer": {
+    "value": "Plastic bottle and glass jar"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Newspaper and plastic bottle",
+    "Plastic bottle and glass jar",
+    "Dry leaves and glass jar",
+    "Cow dung and polythene bag"
+   ],
+   "explanation": "Plastic and glass are not broken down by microbes, whereas paper, leaves and dung are.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "sci-ozone-waste",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The build-up of harmful chemicals such as pesticides at successively higher trophic levels is called:",
+   "expected_answer": {
+    "value": "Biological magnification"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Biodegradation",
+    "Decomposition",
+    "Photosynthesis",
+    "Biological magnification"
+   ],
+   "explanation": "These chemicals are not broken down, so their concentration increases at each higher level of a food chain.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-chemical-reaction",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Na2SO4 + BaCl2 -> BaSO4 + 2NaCl, in which a white precipitate forms, is a:",
+   "expected_answer": {
+    "value": "Double displacement reaction"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Combination reaction",
+    "Double displacement reaction",
+    "Displacement reaction",
+    "Decomposition reaction"
+   ],
+   "explanation": "Two compounds exchange ions to form two new compounds, so it is double displacement.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "balance-chemical-equation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Fe + H2O -> Fe3O4 + H2 is balanced as 3Fe + xH2O -> Fe3O4 + yH2. What is the value of x?",
+   "expected_answer": {
+    "value": "4"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "3",
+    "4",
+    "2",
+    "8"
+   ],
+   "explanation": "Fe3O4 has 4 oxygen atoms, so 4 H2O are needed, giving 4 H2 on the right.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "determine-acid-base-neutral",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The pH of a solution falls from 4 to 2. How does its hydrogen ion concentration change?",
+   "expected_answer": {
+    "value": "It becomes 100 times greater"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It becomes 100 times greater",
+    "It becomes 2 times greater",
+    "It becomes 10 times greater",
+    "It becomes half"
+   ],
+   "explanation": "Each unit fall in pH means a tenfold rise in H+ ions, so two units means 100 times.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "predict-neutralization-products",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "H2SO4 reacts with NaOH in the ratio 1 : 2. What are the products?",
+   "expected_answer": {
+    "value": "Na2SO4 and 2H2O"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "NaSO4 and H2O",
+    "Na2SO4 and H2",
+    "Na2SO4 and 2H2O",
+    "Na2SO3 and 2H2O"
+   ],
+   "explanation": "An acid and a base give a salt and water: H2SO4 + 2NaOH -> Na2SO4 + 2H2O.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-nutrition-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cuscuta (amarbel) is a plant that lives on other plants and takes ready-made food from them. Its mode of nutrition is:",
+   "expected_answer": {
+    "value": "Heterotrophic (parasitic)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Autotrophic, as it is a plant",
+    "Saprotrophic",
+    "Heterotrophic (parasitic)",
+    "Autotrophic by photosynthesis"
+   ],
+   "explanation": "Cuscuta lacks the ability to make its own food and absorbs it from its host, so it is a parasitic heterotroph.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-respiration-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "During very heavy exercise a muscle cell can run short of oxygen. What does it then form from pyruvate?",
+   "expected_answer": {
+    "value": "Lactic acid"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Lactic acid",
+    "Ethanol and carbon dioxide",
+    "Carbon dioxide and water",
+    "Glucose"
+   ],
+   "explanation": "In muscles, anaerobic breakdown of pyruvate gives lactic acid, which can cause cramps.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-metals-nonmetals",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these non-metals is a good conductor of electricity?",
+   "expected_answer": {
+    "value": "Graphite"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Graphite",
+    "Sulphur",
+    "Phosphorus",
+    "Diamond"
+   ],
+   "explanation": "Graphite, a form of carbon, conducts electricity; most other non-metals (and diamond) do not.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "predict-displacement-using-reactivity-series",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A piece of copper is placed separately in solutions of ZnSO4, FeSO4, AgNO3 and MgSO4. In which solution will a displacement reaction occur?",
+   "expected_answer": {
+    "value": "AgNO3"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "ZnSO4",
+    "FeSO4",
+    "AgNO3",
+    "MgSO4"
+   ],
+   "explanation": "Copper is more reactive than silver but less reactive than zinc, iron and magnesium, so it displaces only silver.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-covalent-bonding",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How many electron pairs are shared between the two atoms in a nitrogen molecule (N2)?",
+   "expected_answer": {
+    "value": "3"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "1",
+    "2",
+    "3",
+    "4"
+   ],
+   "explanation": "Each nitrogen needs three more electrons to complete its octet, so they share three pairs (a triple bond).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-homologous-series",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which pair of compounds belongs to the same homologous series?",
+   "expected_answer": {
+    "value": "C3H8 and C5H12"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "C2H4 and C2H6",
+    "CH3OH and CH3COOH",
+    "C2H5OH and C2H6",
+    "C3H8 and C5H12"
+   ],
+   "explanation": "C3H8 and C5H12 are both alkanes (CnH2n+2) and differ by two CH2 units; the other pairs have different functional groups.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mirror-formula",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "An object is placed 45 cm in front of a concave mirror of focal length 15 cm. Where is the image formed?",
+   "expected_answer": {
+    "value": "22.5 cm in front of the mirror"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "22.5 cm behind the mirror",
+    "22.5 cm in front of the mirror",
+    "11.25 cm in front of the mirror",
+    "30 cm in front of the mirror"
+   ],
+   "explanation": "With f = -15 and u = -45, 1/v = 1/f - 1/u = -1/15 + 1/45 = -2/45, so v = -22.5 cm (real image in front).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-lens-formula",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "An object is 30 cm from a convex lens of focal length 20 cm. Find the image distance.",
+   "expected_answer": {
+    "value": "+60 cm"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "+12 cm",
+    "-60 cm",
+    "+50 cm",
+    "+60 cm"
+   ],
+   "explanation": "With f = +20 and u = -30, 1/v = 1/f + 1/u = 1/20 - 1/30 = 1/60, so v = +60 cm.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-ohms-law",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A 15 ohm resistor carries a current of 0.4 A. What is the potential difference across it?",
+   "expected_answer": {
+    "value": "6 V"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "37.5 V",
+    "6 V",
+    "0.03 V",
+    "15.4 V"
+   ],
+   "explanation": "V = IR = 0.4 x 15 = 6 V.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "calculate-equivalent-resistance",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Resistors of 6 ohm and 3 ohm are connected in parallel and this pair is joined in series with a 4 ohm resistor. What is the total resistance?",
+   "expected_answer": {
+    "value": "6 ohm"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "6 ohm",
+    "13 ohm",
+    "1.33 ohm",
+    "2 ohm"
+   ],
+   "explanation": "The parallel pair gives 6 x 3 / (6 + 3) = 2 ohm; adding the 4 ohm in series gives 6 ohm.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-right-hand-thumb-rule",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A long straight wire carries current vertically upward. Looking down from above, the magnetic field lines around it are:",
+   "expected_answer": {
+    "value": "Concentric circles directed anticlockwise"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Concentric circles directed clockwise",
+    "Concentric circles directed anticlockwise",
+    "Straight lines directed radially outward",
+    "Straight lines parallel to the wire"
+   ],
+   "explanation": "Thumb along the current (up), the curled fingers show the field direction, which is anticlockwise when seen from above.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-reflex-action-pathway",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In a reflex arc, which part carries the message from the spinal cord to the muscle?",
+   "expected_answer": {
+    "value": "Motor neuron"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Sensory neuron",
+    "Receptor cell",
+    "Motor neuron",
+    "Association neuron in the brain"
+   ],
+   "explanation": "The motor neuron carries the response signal from the spinal cord to the effector (muscle).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-plant-hormone-response",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which plant hormone is found in greater amounts in rapidly dividing tissues such as fruits and seeds?",
+   "expected_answer": {
+    "value": "Cytokinin"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Abscisic acid",
+    "Auxin",
+    "Cytokinin",
+    "Gibberellin"
+   ],
+   "explanation": "Cytokinins promote cell division and are abundant where cells divide rapidly.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-reproduction-modes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these organisms reproduces by spore formation?",
+   "expected_answer": {
+    "value": "Rhizopus"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Amoeba",
+    "Rhizopus",
+    "Hydra",
+    "Planaria"
+   ],
+   "explanation": "Rhizopus produces spores; Amoeba divides by binary fission, Hydra by budding, and Planaria by regeneration.",
+   "content_status": "needs_review"
+  }
+ ]
+}
