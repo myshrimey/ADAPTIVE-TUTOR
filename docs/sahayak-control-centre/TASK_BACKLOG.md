@@ -1,7 +1,7 @@
 # Task Backlog
-Updated 2026-10-31. 68 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
+Updated 2026-10-31. 69 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
 
-Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 45.
+Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 46.
 
 Changing a priority here does NOT start work. Work starts only when the founder says so in the chat.
 
@@ -75,3 +75,4 @@ Changing a priority here does NOT start work. Work starts only when the founder 
 | TASK-091 | P6 | Add French (Class X) subject, content, keypad and grading | O6 | R73 | TASK-090 | S | READY FOR TESTING | none yet |
 | TASK-092 | P6 | Fix answer checking for three forms of correct answers a student typed | O6 | R74 | TASK-091 | S | READY FOR TESTING | none yet |
 | TASK-093 | P6 | Add more questions in all subjects (thin subjects to 2+ per skill) | O6 | R75 | TASK-092 | M | READY FOR TESTING | none yet |
+| TASK-094 | P6 | Add 1000+ Computer Applications questions covering every skill | O6 | R76 | TASK-093 | M | READY FOR TESTING | none yet |

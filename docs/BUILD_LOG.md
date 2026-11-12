@@ -856,3 +856,10 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Written in parallel by helper agents (two were interrupted by a usage limit and re-run), checked by `seed-generators/v125_finalize.py` and test t125 (44 checks). One helper overwrote an earlier same-named Science file (backed up in the scratchpad); the final file holds the 42 Science questions.
 - All `needs_review`. No migration, no code change except APP_VERSION.
 - NOT done: teacher review, independent fact-check (apart from 15 maths questions re-worked by hand), Hindi in-app translation, any live check.
+
+## v126 (2026-11-12) - 1,076 Computer Applications questions
+- Founder request: "Add 1000+ questions covering each skill in computer application".
+- Six helper agents wrote 27-30 questions for every one of the 38 skills; Boolean/cell-reference answers computed in code; `seed-generators/v126_finalize.py` validated and wrote `seed/cbse-class10-computer-applications-v126[a-f]-diagnostic.json`. Test t126 (12 checks).
+- Several helper runs were cut off by a usage limit and re-run (hours of delay, nothing lost).
+- All needs_review. No migration; only APP_VERSION changed in code.
+- NOT done: teacher review, running HTML/CSS in a browser, any live check.

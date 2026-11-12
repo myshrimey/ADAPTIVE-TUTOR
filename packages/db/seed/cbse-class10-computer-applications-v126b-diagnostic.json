@@ -1,0 +1,3965 @@
+{
+ "subject_slug": "computer-applications",
+ "questions": [
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What is the purpose of the line <!DOCTYPE html> at the top of a page?",
+   "expected_answer": {
+    "value": "It tells the browser the page is written in HTML5"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "It sets the title of the page",
+    "It tells the browser the page is written in HTML5",
+    "It starts the visible body of the page",
+    "It links the page to a style sheet"
+   ],
+   "explanation": "The doctype declaration tells the browser which version of HTML to expect; it is not displayed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag holds the text that appears in the browser tab?",
+   "expected_answer": {
+    "value": "<title>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<title>",
+    "<body>",
+    "<h1>",
+    "<head>"
+   ],
+   "explanation": "The <title> element sets the page title shown on the tab or title bar.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Inside which tag should the <title> tag be placed?",
+   "expected_answer": {
+    "value": "<head>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<head>",
+    "<body>",
+    "<p>",
+    "<footer>"
+   ],
+   "explanation": "<title> is page information, so it belongs inside <head>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which closing tag ends a whole HTML document?",
+   "expected_answer": {
+    "value": "</html>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "</html>",
+    "</body>",
+    "</head>",
+    "</doctype>"
+   ],
+   "explanation": "<html> wraps everything, so </html> is the last tag.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which file extension is normally used to save a web page written in HTML?",
+   "expected_answer": {
+    "value": ".html"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    ".txt",
+    ".doc",
+    ".exe",
+    ".html"
+   ],
+   "explanation": "Web pages are saved as .html (or .htm) so the browser can render them.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does the <head> section of a page mainly contain?",
+   "expected_answer": {
+    "value": "Information about the page such as its title and meta data"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Information about the page such as its title and meta data",
+    "The visible paragraphs and images",
+    "The footer links only",
+    "The page's main heading only"
+   ],
+   "explanation": "<head> holds information about the page; visible content goes in <body>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tag acts as the outermost container of an HTML page?",
+   "expected_answer": {
+    "value": "<html>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<head>",
+    "<body>",
+    "<title>",
+    "<html>"
+   ],
+   "explanation": "<html> is the root element that contains <head> and <body>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A complete unit made of an opening tag, content and closing tag, such as <p>Hello</p>, is called an:",
+   "expected_answer": {
+    "value": "element"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "element",
+    "attribute",
+    "protocol",
+    "comment"
+   ],
+   "explanation": "Tag pair plus content together form an HTML element.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is an empty tag that needs no closing tag?",
+   "expected_answer": {
+    "value": "<br>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<br>",
+    "<p>",
+    "<title>",
+    "<body>"
+   ],
+   "explanation": "<br> inserts a line break and has no content, so it has no closing tag.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which heading tag gives the largest heading?",
+   "expected_answer": {
+    "value": "<h1>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<h6>",
+    "<h3>",
+    "<h1>",
+    "<head>"
+   ],
+   "explanation": "<h1> is the largest heading and <h6> the smallest.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A browser shows nothing for the text inside <!-- ... -->. What is this part called?",
+   "expected_answer": {
+    "value": "a comment"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "a heading",
+    "a comment",
+    "a hyperlink",
+    "an attribute"
+   ],
+   "explanation": "Comments are notes for the programmer and are not displayed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "HTML stands for:",
+   "expected_answer": {
+    "value": "HyperText Markup Language"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "High Text Machine Language",
+    "HyperText Making Link",
+    "Home Tool Markup Language",
+    "HyperText Markup Language"
+   ],
+   "explanation": "HTML is the HyperText Markup Language.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Find the error: <html><body><title>Fees</title><p>Pay now</p></body></html>",
+   "expected_answer": {
+    "value": "<title> must be placed inside <head>, not <body>"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "<p> cannot be used inside <body>",
+    "<html> should be closed before <body>",
+    "<title> must be placed inside <head>, not <body>",
+    "The page needs two <title> tags"
+   ],
+   "explanation": "Title information goes into <head>; the page has no <head> at all here.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In <html><head><title>Shop</title></head><body><h1>Offers</h1></body></html>, where does the word Shop appear?",
+   "expected_answer": {
+    "value": "On the browser tab or title bar"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "As a heading in the page",
+    "As a paragraph in the page",
+    "Nowhere, it is hidden",
+    "On the browser tab or title bar"
+   ],
+   "explanation": "The title text appears in the tab/title bar, while <h1> text appears in the page.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which line is correctly nested?",
+   "expected_answer": {
+    "value": "<p><b>Hello</b></p>"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "<p><b>Hello</b></p>",
+    "<p><b>Hello</p></b>",
+    "<b><p>Hello</b></p>",
+    "<p><b>Hello</p>"
+   ],
+   "explanation": "Tags must close in the reverse order they were opened.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about HTML tag names is true?",
+   "expected_answer": {
+    "value": "<BODY> and <body> are treated the same by browsers"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<BODY> works but <body> does not",
+    "<BODY> and <body> are treated the same by browsers",
+    "Tags must always be typed in capitals",
+    "Only the first tag may be capital"
+   ],
+   "explanation": "HTML tag names are not case-sensitive, though lowercase is the usual style.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A student types the page text on five separate lines with several spaces between words, with no tags. How does the browser display it?",
+   "expected_answer": {
+    "value": "Extra spaces and line breaks are collapsed into single spaces"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Extra spaces and line breaks are collapsed into single spaces",
+    "Exactly as typed, line by line",
+    "Each line becomes a heading",
+    "Only the first line is shown"
+   ],
+   "explanation": "HTML ignores extra whitespace; use <br> or <p> to control breaks.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag would you use inside <body> to draw a horizontal dividing line?",
+   "expected_answer": {
+    "value": "<hr>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<br>",
+    "<line>",
+    "<hr>",
+    "<head>"
+   ],
+   "explanation": "<hr> draws a horizontal rule; <br> only breaks a line.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In <p align=\"center\">, the word align is called a(n):",
+   "expected_answer": {
+    "value": "attribute"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "element",
+    "tag name",
+    "value",
+    "attribute"
+   ],
+   "explanation": "An attribute gives extra information about a tag, written as name=\"value\".",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag holds <meta charset=\"UTF-8\"> and what does that line do?",
+   "expected_answer": {
+    "value": "<head>; it sets the character encoding of the page"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<body>; it prints UTF-8 on the page",
+    "<head>; it sets the character encoding of the page",
+    "<head>; it adds a heading to the page",
+    "<title>; it names the page"
+   ],
+   "explanation": "Meta tags live in <head>; charset tells the browser how to decode text.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which sequence of parts is the correct order inside <html>?",
+   "expected_answer": {
+    "value": "<head> first, then <body>"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "<head> first, then <body>",
+    "<body> first, then <head>",
+    "<title> first, then <head>",
+    "<body> only, with <head> inside it"
+   ],
+   "explanation": "The head comes before the body and is not inside it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How many <body> elements should a valid HTML page have?",
+   "expected_answer": {
+    "value": "One"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Two, one for each half",
+    "As many as there are paragraphs",
+    "One",
+    "None, it is optional to have a body"
+   ],
+   "explanation": "A page has exactly one <body> holding all visible content.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A page has <html><head><title>A</title></head><p>Text</p></html>. What is missing?",
+   "expected_answer": {
+    "value": "A <body> element around the visible content"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "A closing </title> tag",
+    "A second <head> tag",
+    "A <body> element around the visible content",
+    "A <br> tag after the title"
+   ],
+   "explanation": "Visible content such as <p> should sit inside <body>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about the <head> and <body> sections is FALSE?",
+   "expected_answer": {
+    "value": "Text inside <head> is shown as the main content of the page"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<body> holds the visible page content",
+    "<head> can contain the <title>",
+    "Both are placed inside <html>",
+    "Text inside <head> is shown as the main content of the page"
+   ],
+   "explanation": "Only <body> content is shown in the page area; <head> holds page information.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which pair correctly matches tag to role?",
+   "expected_answer": {
+    "value": "<h2> : sub-heading; <p> : paragraph"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<h2> : paragraph; <p> : sub-heading",
+    "<br> : heading; <hr> : line break",
+    "<title> : paragraph; <html> : heading",
+    "<h2> : sub-heading; <p> : paragraph"
+   ],
+   "explanation": "<h2> is a second-level heading and <p> marks a paragraph.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which tag among these is NOT an element that can appear directly as a child of <head>?",
+   "expected_answer": {
+    "value": "<h1>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<title>",
+    "<meta>",
+    "<h1>",
+    "<link>"
+   ],
+   "explanation": "A visible heading belongs in <body>; title, meta and link belong in <head>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which of these is a valid complete minimal HTML5 page?",
+   "expected_answer": {
+    "value": "<!DOCTYPE html><html><head><title>T</title></head><body><p>Hi</p></body></html>"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "<html><body><head><title>T</title></head><p>Hi</p></body></html>",
+    "<!DOCTYPE html><head><title>T</title><html><body>Hi</body></html>",
+    "<!DOCTYPE html><html><head><title>T</title></head><body><p>Hi</p></body></html>",
+    "<html><title>T</title><p>Hi</p></head></body></html>"
+   ],
+   "explanation": "Only the first has head before body, both inside html, with properly closed tags.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-html-structure",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "In <html><head></head><body><p>One<br>Two</p><p>Three</p></body></html>, how many separate visual lines/blocks of text are produced?",
+   "expected_answer": {
+    "value": "Three lines: One, Two, and Three"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Three lines: One, Two, and Three",
+    "Two lines",
+    "One line",
+    "Four lines"
+   ],
+   "explanation": "<br> splits One and Two within a paragraph, and the second <p> starts a new block.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag underlines text?",
+   "expected_answer": {
+    "value": "<u>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<u>",
+    "<ul>",
+    "<under>",
+    "<line>"
+   ],
+   "explanation": "<u> displays underlined text; <ul> makes a bulleted list.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which code displays the 2 in x squared as a superscript?",
+   "expected_answer": {
+    "value": "x<sup>2</sup>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "x<sub>2</sub>",
+    "x<up>2</up>",
+    "x<sup>2</sup>",
+    "x<b>2</b>"
+   ],
+   "explanation": "<sup> raises text above the baseline; <sub> lowers it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag makes a paragraph of text?",
+   "expected_answer": {
+    "value": "<p>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<pg>",
+    "<para>",
+    "<br>",
+    "<p>"
+   ],
+   "explanation": "<p> defines a paragraph.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does <br> do?",
+   "expected_answer": {
+    "value": "Breaks the line and starts text on the next line"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Makes text bold",
+    "Draws a horizontal line",
+    "Breaks the line and starts text on the next line",
+    "Starts a new paragraph with a heading"
+   ],
+   "explanation": "<br> is a line break; it has no closing tag.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag gives a heading of medium size, smaller than <h1> but larger than <h4>?",
+   "expected_answer": {
+    "value": "<h3>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<h6>",
+    "<h3>",
+    "<head>",
+    "<h0>"
+   ],
+   "explanation": "Heading sizes go h1 (largest) to h6 (smallest), so h3 is between h1 and h4.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which code displays the word Total in bold?",
+   "expected_answer": {
+    "value": "<b>Total</b>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<b>Total</b>",
+    "<bold>Total</bold>",
+    "<i>Total</i>",
+    "<u>Total</u>"
+   ],
+   "explanation": "<b> makes text bold; <i> is italic and <u> is underline.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tag is meant to highlight text like a marker pen?",
+   "expected_answer": {
+    "value": "<mark>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<mark>",
+    "<u>",
+    "<small>",
+    "<sub>"
+   ],
+   "explanation": "<mark> highlights text, usually with a yellow background.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which code shows struck-through (crossed out) text for an old price?",
+   "expected_answer": {
+    "value": "<s>Rs 500</s>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<u>Rs 500</u>",
+    "<sup>Rs 500</sup>",
+    "<i>Rs 500</i>",
+    "<s>Rs 500</s>"
+   ],
+   "explanation": "<s> (or <del>) draws a line through text.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does the browser show for <b><i>Note</i></b>?",
+   "expected_answer": {
+    "value": "Note in bold and italic"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Note in bold only",
+    "Note in bold and italic",
+    "Note in italic only",
+    "Note underlined"
+   ],
+   "explanation": "Both tags apply because the italic element is inside the bold one.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which code writes H2SO4 with correct subscripts?",
+   "expected_answer": {
+    "value": "H<sub>2</sub>SO<sub>4</sub>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "H<sub>2</sub>SO<sub>4</sub>",
+    "H<sup>2</sup>SO<sup>4</sup>",
+    "H<b>2</b>SO<b>4</b>",
+    "H<i>2</i>SO<i>4</i>"
+   ],
+   "explanation": "Subscript numbers in a chemical formula use <sub>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tag makes text appear smaller than the surrounding text?",
+   "expected_answer": {
+    "value": "<small>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<small>",
+    "<mark>",
+    "<sup>",
+    "<big>"
+   ],
+   "explanation": "<small> reduces the text size.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Find the error: <b><i>Sale</b></i>",
+   "expected_answer": {
+    "value": "The tags are not nested properly; </i> should close before </b>"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The tags are not nested properly; </i> should close before </b>",
+    "<b> and <i> cannot be used together",
+    "The word Sale must be capital",
+    "<i> must come outside the page"
+   ],
+   "explanation": "Tags must close in reverse order: <b><i>Sale</i></b>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In <p>I like <b>tea and coffee</p>, the closing </b> is forgotten. What is the likely effect?",
+   "expected_answer": {
+    "value": "The bold may carry on past the intended text"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The page will not open at all",
+    "The bold may carry on past the intended text",
+    "Only the word tea is bold",
+    "The text becomes italic"
+   ],
+   "explanation": "Without </b> the bold formatting is not properly ended, so it can leak on.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code makes text red using inline CSS?",
+   "expected_answer": {
+    "value": "<p style=\"color:red\">Alert</p>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<p color=\"style:red\">Alert</p>",
+    "<p style=\"color:red\">Alert</p>",
+    "<p style=\"red\">Alert</p>",
+    "<p css=\"color:red\">Alert</p>"
+   ],
+   "explanation": "The style attribute takes CSS property:value pairs such as color:red.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code centres a paragraph using inline CSS?",
+   "expected_answer": {
+    "value": "<p style=\"text-align:center\">Hi</p>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<p style=\"align:centre\">Hi</p>",
+    "<p style=\"text:center\">Hi</p>",
+    "<p style=\"center\">Hi</p>",
+    "<p style=\"text-align:center\">Hi</p>"
+   ],
+   "explanation": "The CSS property text-align:center centres the text.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code displays E = mc squared correctly?",
+   "expected_answer": {
+    "value": "E = mc<sup>2</sup>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "E = mc<sub>2</sub>",
+    "E = mc<br>2",
+    "E = mc<small>2</small>",
+    "E = mc<sup>2</sup>"
+   ],
+   "explanation": "The 2 must be raised, so use <sup>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the effect of <pre> in HTML?",
+   "expected_answer": {
+    "value": "It keeps the spaces and line breaks exactly as typed"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It keeps the spaces and line breaks exactly as typed",
+    "It makes the text bold",
+    "It hides the text",
+    "It adds a bullet before the text"
+   ],
+   "explanation": "<pre> shows preformatted text with its spacing preserved, usually in a fixed-width font.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A student writes <p>One</p><p>Two</p>. How does it appear?",
+   "expected_answer": {
+    "value": "One and Two on separate lines with a gap between them"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "One Two on a single line",
+    "Both words in bold",
+    "One and Two on separate lines with a gap between them",
+    "Only One is shown"
+   ],
+   "explanation": "Each <p> is a block, normally with space above and below.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which choice shows a computer code word such as print in a fixed-width font?",
+   "expected_answer": {
+    "value": "<code>print</code>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<mark>print</mark>",
+    "<code>print</code>",
+    "<sup>print</sup>",
+    "<u>print</u>"
+   ],
+   "explanation": "<code> displays text as computer code, usually monospaced.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag marks deleted text so it appears with a line through it?",
+   "expected_answer": {
+    "value": "<del>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<ins>",
+    "<sub>",
+    "<del>",
+    "<em>"
+   ],
+   "explanation": "<del> shows removed text struck through, while <ins> shows inserted text underlined.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the difference between <br> and <p> ?",
+   "expected_answer": {
+    "value": "<br> only breaks the line; <p> begins a new paragraph block"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<br> makes bold text; <p> makes italic text",
+    "<br> needs a closing tag; <p> does not",
+    "<br> only breaks the line; <p> begins a new paragraph block",
+    "They are exactly the same"
+   ],
+   "explanation": "A line break stays in the same block; a paragraph is a separate block with spacing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code makes the text 24 pixels tall using inline CSS?",
+   "expected_answer": {
+    "value": "<p style=\"font-size:24px\">Hi</p>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<p style=\"size=24px\">Hi</p>",
+    "<p font=\"24px\">Hi</p>",
+    "<p style=\"text-size:24\">Hi</p>",
+    "<p style=\"font-size:24px\">Hi</p>"
+   ],
+   "explanation": "font-size is the CSS property for text size, written as property:value.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag is normally shown in italic to give stress to a word?",
+   "expected_answer": {
+    "value": "<em>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<strong>",
+    "<em>",
+    "<mark>",
+    "<sub>"
+   ],
+   "explanation": "<em> marks emphasised text, which browsers show in italic; <strong> is shown bold.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which code gives bold, underlined text?",
+   "expected_answer": {
+    "value": "<b><u>Read</u></b>"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "<b><u>Read</u></b>",
+    "<b><ul>Read</ul></b>",
+    "<b>Read</u>",
+    "<bu>Read</bu>"
+   ],
+   "explanation": "Nest <u> inside <b> and close in reverse order.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What does <p>Hello<br>World<br>Again</p> display?",
+   "expected_answer": {
+    "value": "Three lines inside one paragraph"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Three lines inside one paragraph",
+    "Three separate paragraphs",
+    "One line: HelloWorldAgain",
+    "Two lines only"
+   ],
+   "explanation": "Each <br> forces a new line but does not start a new paragraph.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which snippet shows a^2 + b^2 correctly?",
+   "expected_answer": {
+    "value": "a<sup>2</sup> + b<sup>2</sup>"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "a<sup>2</sup> + b<sup>2</sup>",
+    "a<sub>2</sub> + b<sub>2</sub>",
+    "a<sup>2 + b</sup>2",
+    "a2<sup> + </sup>b2"
+   ],
+   "explanation": "Each exponent needs its own <sup>...</sup> pair around only the 2.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which line contains a formatting mistake?",
+   "expected_answer": {
+    "value": "<p>Water is H<sub>2</sub>O</sup></p>"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "<p>Sale <b>50%</b> off</p>",
+    "<p>Date: 5<sup>th</sup> May</p>",
+    "<p><i>Note</i> this</p>",
+    "<p>Water is H<sub>2</sub>O</sup></p>"
+   ],
+   "explanation": "The stray </sup> was never opened, so it is wrongly formed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-text-formatting-tags",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "What appears for <p style=\"color:blue\">Hi <b>there</b></p>?",
+   "expected_answer": {
+    "value": "Hi there in blue, with there in bold"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Only Hi in blue",
+    "Hi there in bold only",
+    "Hi there in blue, with there in bold",
+    "Hi there in blue, with Hi in bold"
+   ],
+   "explanation": "The paragraph's colour is inherited by the bold element inside it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does the letter a in the <a> tag stand for?",
+   "expected_answer": {
+    "value": "anchor"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "address",
+    "attribute",
+    "audio",
+    "anchor"
+   ],
+   "explanation": "The <a> tag is the anchor element used to create links.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which attribute of <img> gives the file name of the picture?",
+   "expected_answer": {
+    "value": "src"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "src",
+    "alt",
+    "href",
+    "link"
+   ],
+   "explanation": "src is short for source and holds the image's path or file name.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Does the <img> tag need a closing tag?",
+   "expected_answer": {
+    "value": "No, it is an empty tag"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "No, it is an empty tag",
+    "Yes, </img>",
+    "Yes, </image>",
+    "Only when it has alt text"
+   ],
+   "explanation": "<img> has no content, so it has no closing tag.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which attribute makes a link point to a web address?",
+   "expected_answer": {
+    "value": "href"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "src",
+    "alt",
+    "href",
+    "name"
+   ],
+   "explanation": "href (hypertext reference) holds the destination of a link.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is the use of the alt attribute in an image tag?",
+   "expected_answer": {
+    "value": "It gives text to show or read out if the image cannot be seen"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It sets the picture's file name",
+    "It makes the picture a link",
+    "It gives text to show or read out if the image cannot be seen",
+    "It changes the picture's colour"
+   ],
+   "explanation": "Alternative text appears when an image fails to load and is read by screen readers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does target=\"_blank\" do in a link?",
+   "expected_answer": {
+    "value": "Opens the linked page in a new tab or window"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Closes the current page",
+    "Opens the link in the same tab",
+    "Opens the linked page in a new tab or window",
+    "Makes the link text blank"
+   ],
+   "explanation": "_blank requests a new browsing context for the destination.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Find the error: <a src=\"home.html\">Home</a>",
+   "expected_answer": {
+    "value": "The attribute should be href, not src"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The word Home must be in bold",
+    "</a> should be </link>",
+    "The file must end in .jpg",
+    "The attribute should be href, not src"
+   ],
+   "explanation": "Links use href; src belongs to images.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Find the error: <img href=\"cat.png\">",
+   "expected_answer": {
+    "value": "The attribute should be src, not href"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The tag should be <image>",
+    "The tag needs </img>",
+    "The attribute should be src, not href",
+    "The file must be .html"
+   ],
+   "explanation": "An image's file is given by src.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which attributes set the display size of an image?",
+   "expected_answer": {
+    "value": "width and height"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "width and height",
+    "size and length",
+    "big and small",
+    "x and y"
+   ],
+   "explanation": "width and height (in pixels) control the displayed size.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which code creates a link that opens the user's email program to write to info@school.in?",
+   "expected_answer": {
+    "value": "<a href=\"mailto:info@school.in\">Email us</a>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<a href=\"email:info@school.in\">Email us</a>",
+    "<a href=\"mailto:info@school.in\">Email us</a>",
+    "<a src=\"mailto:info@school.in\">Email us</a>",
+    "<a href=\"info@school.in\">Email us</a>"
+   ],
+   "explanation": "The mailto: scheme in href opens the mail client.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code makes the picture logo.png a clickable link to home.html?",
+   "expected_answer": {
+    "value": "<a href=\"home.html\"><img src=\"logo.png\" alt=\"Logo\"></a>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<img href=\"home.html\" src=\"logo.png\">",
+    "<a src=\"logo.png\"><img href=\"home.html\"></a>",
+    "<img src=\"logo.png\"><a>home.html</a>",
+    "<a href=\"home.html\"><img src=\"logo.png\" alt=\"Logo\"></a>"
+   ],
+   "explanation": "Put the <img> inside the <a> element so the picture becomes the link text.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is a relative link to a page in the same folder?",
+   "expected_answer": {
+    "value": "<a href=\"about.html\">About</a>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<a href=\"https://www.site.com/about.html\">About</a>",
+    "<a href=\"about.html\">About</a>",
+    "<a href=\"www:about.html\">About</a>",
+    "<a link=\"about.html\">About</a>"
+   ],
+   "explanation": "A relative path gives just the file name; a full https URL is absolute.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In <a href=\"menu.html\">Today's Menu</a>, what is Today's Menu called?",
+   "expected_answer": {
+    "value": "The link text that the visitor clicks"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The href value",
+    "The target",
+    "The alt text",
+    "The link text that the visitor clicks"
+   ],
+   "explanation": "The content between <a> and </a> is the clickable link text.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is an absolute URL?",
+   "expected_answer": {
+    "value": "https://www.example.com/news.html"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "news.html",
+    "images/news.png",
+    "https://www.example.com/news.html",
+    "../news.html"
+   ],
+   "explanation": "An absolute URL includes the protocol and domain name.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Where does <a href=\"#contact\">Contact</a> take the visitor, if some element has id=\"contact\"?",
+   "expected_answer": {
+    "value": "To that element lower on the same page"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "To a page named contact.html",
+    "To an email address",
+    "To a new website",
+    "To that element lower on the same page"
+   ],
+   "explanation": "A # link jumps to the element with the matching id.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A page uses <img src=\"pics/dog.jpg\">. Where must dog.jpg be stored?",
+   "expected_answer": {
+    "value": "In a folder named pics next to the HTML file"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "In a folder named pics next to the HTML file",
+    "Anywhere on the internet",
+    "Inside the <head> tag",
+    "In a file named pics.html"
+   ],
+   "explanation": "The relative path says: go into the pics folder from the page's location.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute shows a small tooltip when the mouse rests on a link?",
+   "expected_answer": {
+    "value": "title"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "title",
+    "alt",
+    "src",
+    "tooltip"
+   ],
+   "explanation": "The title attribute gives extra text, usually shown as a tooltip on hover.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does a browser most likely do with <img src=\"missing.png\" alt=\"Our school\">, when missing.png does not exist?",
+   "expected_answer": {
+    "value": "Shows the alt text or a broken-image icon"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Shows an error page for the whole site",
+    "Shows the alt text or a broken-image icon",
+    "Deletes the tag",
+    "Shows the page title instead"
+   ],
+   "explanation": "If the image cannot load, alt text is displayed in its place.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag below is NOT a valid attribute of <img>?",
+   "expected_answer": {
+    "value": "href"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "src",
+    "alt",
+    "width",
+    "href"
+   ],
+   "explanation": "href is used on <a>, not <img>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Fix the error: <a href=\"https://school.in>Visit</a>",
+   "expected_answer": {
+    "value": "The closing quotation mark after the URL is missing"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "href should be src",
+    "Visit must be in capitals",
+    "</a> should be </href>",
+    "The closing quotation mark after the URL is missing"
+   ],
+   "explanation": "Attribute values need matching quotation marks.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "If no target is given, where does a normal link open?",
+   "expected_answer": {
+    "value": "In the same tab"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "In a new window",
+    "In a pop-up",
+    "Nowhere",
+    "In the same tab"
+   ],
+   "explanation": "The default behaviour is the same browsing context (_self).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which code shows logo.png at 100 pixels wide and keeps the picture's shape?",
+   "expected_answer": {
+    "value": "<img src=\"logo.png\" width=\"100\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<img src=\"logo.png\" 100>",
+    "<img src=\"logo.png\" width=\"100\">",
+    "<img src=\"logo.png\" width=100px height=100px>",
+    "<img width=\"100\">"
+   ],
+   "explanation": "Giving only width lets the browser scale the height in proportion.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A page is in folder web, and logo.png is in the folder above web. Which src reaches it?",
+   "expected_answer": {
+    "value": "../logo.png"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "logo.png/..",
+    "web/logo.png",
+    "../logo.png",
+    "./logo.png"
+   ],
+   "explanation": "../ means go up one folder.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which code opens https://example.com in a new tab?",
+   "expected_answer": {
+    "value": "<a href=\"https://example.com\" target=\"_blank\">Go</a>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<a href=\"https://example.com\" new=\"tab\">Go</a>",
+    "<a href=\"https://example.com\" target=\"_blank\">Go</a>",
+    "<a target=\"https://example.com\">Go</a>",
+    "<a href=\"https://example.com\" open=\"_blank\">Go</a>"
+   ],
+   "explanation": "The target attribute with value _blank opens the link in a new tab.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A link is written <a>Click here</a>. What happens?",
+   "expected_answer": {
+    "value": "It is not a working link because href is missing"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It links to the home page",
+    "It opens a new tab",
+    "It becomes an image",
+    "It is not a working link because href is missing"
+   ],
+   "explanation": "Without href the anchor has no destination.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which image tag is written correctly?",
+   "expected_answer": {
+    "value": "<img src=\"a.png\" alt=\"Map\" width=\"50\">"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "<img src=a.png alt=Map></img width=50>",
+    "<img src=\"a.png\" alt=\"Map\" width=\"50\">",
+    "<img=\"a.png\" alt=\"Map\">",
+    "<img src:\"a.png\", alt:\"Map\">"
+   ],
+   "explanation": "Attributes are written name=\"value\" separated by spaces, with no closing tag.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which link correctly points to a phone number for tapping to call?",
+   "expected_answer": {
+    "value": "<a href=\"tel:+911234567890\">Call</a>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<a href=\"phone=+911234567890\">Call</a>",
+    "<a src=\"tel:+911234567890\">Call</a>",
+    "<a href=\"tel:+911234567890\">Call</a>",
+    "<a href=\"call.html:+911234567890\">Call</a>"
+   ],
+   "explanation": "The tel: scheme is used in href for phone links.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-anchor-image",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "In <a href=\"gallery.html\"><img src=\"p.png\" alt=\"Photos\"></a>, what must the visitor click to reach gallery.html?",
+   "expected_answer": {
+    "value": "The picture p.png"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The word Photos only",
+    "Nothing, the tag has no text",
+    "The picture p.png",
+    "The word gallery.html"
+   ],
+   "explanation": "The image is the content of the anchor, so clicking it follows the link.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag creates a numbered list?",
+   "expected_answer": {
+    "value": "<ol>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<ul>",
+    "<li>",
+    "<ol>",
+    "<dl>"
+   ],
+   "explanation": "<ol> is an ordered list, shown with numbers by default.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag marks each item inside a list?",
+   "expected_answer": {
+    "value": "<li>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<ul>",
+    "<it>",
+    "<td>",
+    "<li>"
+   ],
+   "explanation": "<li> stands for list item.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag defines a data cell in a table?",
+   "expected_answer": {
+    "value": "<td>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<tr>",
+    "<th>",
+    "<td>",
+    "<tb>"
+   ],
+   "explanation": "<td> is table data; <tr> is a row.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag holds the title text of a table, shown above it?",
+   "expected_answer": {
+    "value": "<caption>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<head>",
+    "<title>",
+    "<th>",
+    "<caption>"
+   ],
+   "explanation": "<caption> gives a table its caption.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tag makes a heading cell that is bold and centred by default?",
+   "expected_answer": {
+    "value": "<th>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<td>",
+    "<tr>",
+    "<thead>",
+    "<th>"
+   ],
+   "explanation": "<th> is a table header cell.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which attribute on <table> makes the cell borders visible in older-style HTML?",
+   "expected_answer": {
+    "value": "border=\"1\""
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "lines=\"1\"",
+    "frame=\"on\"",
+    "edge=\"1\"",
+    "border=\"1\""
+   ],
+   "explanation": "The border attribute sets border width; border=\"1\" shows lines.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tag is placed directly inside <table> to make one row?",
+   "expected_answer": {
+    "value": "<tr>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<td>",
+    "<tr>",
+    "<li>",
+    "<row>"
+   ],
+   "explanation": "<tr> is the table row; cells <td>/<th> go inside it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A <ul> list contains <li>Pen</li><li>Ink</li><li>Pad</li>. How many bullets appear?",
+   "expected_answer": {
+    "value": "3"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "1",
+    "2",
+    "3",
+    "4"
+   ],
+   "explanation": "Each <li> in a bulleted list produces one bullet.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "For which task is an ordered list <ol> the better choice?",
+   "expected_answer": {
+    "value": "Steps of a recipe where the order matters"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A shopping list in any order",
+    "A set of unrelated names",
+    "Steps of a recipe where the order matters",
+    "A group of colour choices"
+   ],
+   "explanation": "Numbers suit sequences where order matters.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does <dl> create?",
+   "expected_answer": {
+    "value": "A description (definition) list of terms and meanings"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A downloadable link",
+    "A description (definition) list of terms and meanings",
+    "A drop-down menu",
+    "A dotted line"
+   ],
+   "explanation": "<dl> uses <dt> for terms and <dd> for descriptions.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Find the error: <ul><td>Tea</td><td>Milk</td></ul>",
+   "expected_answer": {
+    "value": "List items should use <li>, not <td>"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "<ul> must be <table>",
+    "Tea and Milk must be capitals",
+    "List items should use <li>, not <td>",
+    "<ul> needs a border"
+   ],
+   "explanation": "Cells belong to tables; list entries use <li>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Find the error: <table><td>A</td><td>B</td></table> if the aim is a valid table.",
+   "expected_answer": {
+    "value": "The cells should sit inside a <tr> row"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The cells should sit inside a <tr> row",
+    "<td> should be <li>",
+    "The table needs <ol>",
+    "The word table must be capital"
+   ],
+   "explanation": "Cells must be placed in rows, so a <tr> is needed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A table has one header row and two data rows, each with three cells. How many <td>/<th> cells are there in total?",
+   "expected_answer": {
+    "value": "9"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "6",
+    "9",
+    "3",
+    "12"
+   ],
+   "explanation": "3 rows x 3 cells = 9 cells.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A table has 4 <tr> elements and each row has 2 cells. How many columns does it show?",
+   "expected_answer": {
+    "value": "2"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "4",
+    "8",
+    "2",
+    "6"
+   ],
+   "explanation": "Number of columns equals cells per row, here 2.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does <td colspan=\"2\"> do?",
+   "expected_answer": {
+    "value": "The cell stretches across two columns"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The cell stretches across two rows",
+    "The cell is repeated twice",
+    "The cell stretches across two columns",
+    "The cell is hidden"
+   ],
+   "explanation": "colspan merges a cell across columns.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does <td rowspan=\"2\"> do?",
+   "expected_answer": {
+    "value": "The cell stretches down across two rows"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The cell stretches down across two rows",
+    "The cell stretches across two columns",
+    "The cell is deleted",
+    "The cell is made 2 pixels tall"
+   ],
+   "explanation": "rowspan merges a cell downward across rows.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is shown for <ol start=\"5\"><li>X</li><li>Y</li></ol>?",
+   "expected_answer": {
+    "value": "5. X and 6. Y"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "1. X and 2. Y",
+    "5. X and 5. Y",
+    "X and Y with no numbers",
+    "5. X and 6. Y"
+   ],
+   "explanation": "start sets the first number, and numbering continues.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code gives a list numbered with small letters a, b, c?",
+   "expected_answer": {
+    "value": "<ol type=\"a\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<ul type=\"a\">",
+    "<ol type=\"a\">",
+    "<ol letters=\"a\">",
+    "<ol style=\"abc\">"
+   ],
+   "explanation": "<ol type=\"a\"> uses lowercase letters.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code shows a sub-list nested inside the item Fruits?",
+   "expected_answer": {
+    "value": "<ul><li>Fruits<ul><li>Apple</li></ul></li></ul>"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "<ul><li>Fruits</li><ul>Apple</ul></ul>",
+    "<ul><li>Fruits<ul><li>Apple</li></ul></li></ul>",
+    "<ul><li>Fruits</li></ul><li>Apple</li>",
+    "<ul><li>Fruits<li>Apple</li></li></ul>"
+   ],
+   "explanation": "A nested list goes inside the parent <li>, before it closes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A row is written <tr><td colspan=\"2\">A</td><td>B</td></tr>. How many columns does the table need at least?",
+   "expected_answer": {
+    "value": "3"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "2",
+    "1",
+    "3",
+    "4"
+   ],
+   "explanation": "The first cell takes two columns and the second takes one, making three.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which list type is best for a list of names where order does not matter?",
+   "expected_answer": {
+    "value": "<ul>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<ol>",
+    "<dl>",
+    "<table>",
+    "<ul>"
+   ],
+   "explanation": "Unordered lists show bullets and suit items with no order.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which element is the parent that must contain <tr> rows?",
+   "expected_answer": {
+    "value": "<table>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<ul>",
+    "<li>",
+    "<body> only, with no table",
+    "<table>"
+   ],
+   "explanation": "Rows are placed inside <table>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What does a browser show for <table border=\"1\"><tr><th>Name</th><th>Marks</th></tr><tr><td>Ria</td><td>90</td></tr></table>?",
+   "expected_answer": {
+    "value": "A bordered table with 2 rows and 2 columns, header row bold"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A table with 1 row and 4 columns",
+    "A bulleted list of four items",
+    "A bordered table with 2 rows and 2 columns, header row bold",
+    "A table with 2 rows and 4 columns"
+   ],
+   "explanation": "Two <tr> rows, each with two cells, give a 2 x 2 table.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "An empty cell <td></td> in a table is:",
+   "expected_answer": {
+    "value": "Still a cell that takes up a place in its row"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Ignored so the row becomes shorter",
+    "An error that stops the table",
+    "Still a cell that takes up a place in its row",
+    "Counted as a header"
+   ],
+   "explanation": "An empty <td> is a valid cell and holds its position.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which choice correctly describes <ol type=\"I\">?",
+   "expected_answer": {
+    "value": "Items are numbered with capital Roman numerals I, II, III"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Items are numbered with capital letters",
+    "Items are numbered with capital Roman numerals I, II, III",
+    "Items are shown with bullets",
+    "Items are numbered 1, 2, 3 in italics"
+   ],
+   "explanation": "type=\"I\" selects uppercase Roman numerals.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which tag groups the header row(s) of a table separately from the body rows?",
+   "expected_answer": {
+    "value": "<thead>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<thead>",
+    "<head>",
+    "<caption>",
+    "<header>"
+   ],
+   "explanation": "<thead> wraps header rows; <head> is the page's head section.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A table's first row has <th>A</th><th>B</th><th>C</th>. The second row is <td rowspan=\"2\">X</td><td>Y</td><td>Z</td>. How many cells must the third row hold to fill the table?",
+   "expected_answer": {
+    "value": "2"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "2",
+    "3",
+    "1",
+    "0"
+   ],
+   "explanation": "X already fills the first column of row 3, so only two more cells are needed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compose-lists-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag groups the summary or total rows at the bottom of a table, separately from the body rows?",
+   "expected_answer": {
+    "value": "<tfoot>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<foot>",
+    "<tfoot>",
+    "<tbody>",
+    "<bottom>"
+   ],
+   "explanation": "<tfoot> wraps footer rows; <tbody> wraps the main body rows.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Unwanted bulk emails, usually advertisements, sent to many people are called:",
+   "expected_answer": {
+    "value": "spam"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "phishing",
+    "a worm",
+    "spam",
+    "a firewall"
+   ],
+   "explanation": "Spam is unsolicited bulk messages; it is not always harmful but is unwanted.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Harmful software designed to damage or gain access to a device is called:",
+   "expected_answer": {
+    "value": "malware"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "freeware",
+    "hardware",
+    "a browser",
+    "malware"
+   ],
+   "explanation": "Malware is short for malicious software.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Repeatedly sending hurtful messages to a classmate online is called:",
+   "expected_answer": {
+    "value": "cyberbullying"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "spamming",
+    "cyberbullying",
+    "hacking only",
+    "browsing"
+   ],
+   "explanation": "Using digital media to harass or humiliate someone is cyberbullying.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which threat locks your files and demands money to unlock them?",
+   "expected_answer": {
+    "value": "Ransomware"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Adware",
+    "Ransomware",
+    "Spam",
+    "A cookie"
+   ],
+   "explanation": "Ransomware encrypts files and asks for a ransom.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which program secretly records what you type, such as passwords?",
+   "expected_answer": {
+    "value": "Keylogger"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Firewall",
+    "Keylogger",
+    "Browser",
+    "Search engine"
+   ],
+   "explanation": "A keylogger captures keystrokes and sends them to an attacker.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Software that secretly collects your information and sends it to someone else is:",
+   "expected_answer": {
+    "value": "spyware"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "a compiler",
+    "spyware",
+    "an antivirus",
+    "a plug-in for games"
+   ],
+   "explanation": "Spyware monitors activity and gathers data without consent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A program that copies itself and spreads across a network without needing a host file is a:",
+   "expected_answer": {
+    "value": "worm"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "worm",
+    "virus that needs a host file",
+    "cookie",
+    "firewall"
+   ],
+   "explanation": "Worms self-replicate across networks; viruses attach to host files.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A harmless-looking free game that secretly opens a back door on your computer is a:",
+   "expected_answer": {
+    "value": "Trojan horse"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Trojan horse",
+    "worm",
+    "spam message",
+    "cookie"
+   ],
+   "explanation": "A Trojan disguises itself as legitimate software.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which software shows unwanted advertisements, often as pop-ups, while you use a computer?",
+   "expected_answer": {
+    "value": "Adware"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Ransomware",
+    "Adware",
+    "Keylogger",
+    "Firewall"
+   ],
+   "explanation": "Adware displays ads, often bundled with free software.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Pretending to be someone else online to use their personal details for fraud is called:",
+   "expected_answer": {
+    "value": "identity theft"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "firewalling",
+    "backing up",
+    "downloading",
+    "identity theft"
+   ],
+   "explanation": "Misusing someone's personal information to impersonate them is identity theft.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "You get an SMS saying your bank account is blocked and to click a link and enter your details. This type of attack is:",
+   "expected_answer": {
+    "value": "phishing (smishing)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "phishing (smishing)",
+    "a virus update",
+    "a legitimate alert",
+    "spam filtering"
+   ],
+   "explanation": "Fraudulent messages that trick you into revealing details are phishing, and by SMS it is often called smishing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A website is flooded with requests from thousands of computers so genuine users cannot open it. This is a:",
+   "expected_answer": {
+    "value": "DDoS attack"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "DDoS attack",
+    "phishing attack",
+    "cookie",
+    "spyware"
+   ],
+   "explanation": "A distributed denial of service attack overwhelms a server with traffic.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about a computer virus is true?",
+   "expected_answer": {
+    "value": "It can attach to a file and spread when the file is opened or shared"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It only spreads through the keyboard",
+    "It is always visible as a pop-up",
+    "It can attach to a file and spread when the file is opened or shared",
+    "It cannot harm files"
+   ],
+   "explanation": "Viruses attach to host files or programs and spread when those are run or shared.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these best describes hacking?",
+   "expected_answer": {
+    "value": "Gaining unauthorised access to a computer system or data"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Installing an antivirus program",
+    "Gaining unauthorised access to a computer system or data",
+    "Updating the operating system",
+    "Backing up files to a drive"
+   ],
+   "explanation": "Hacking in the harmful sense means breaking into systems without permission.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A fake website that looks exactly like your bank's site is designed to:",
+   "expected_answer": {
+    "value": "steal your login details"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "speed up your internet",
+    "show you free songs",
+    "update your browser",
+    "steal your login details"
+   ],
+   "explanation": "Look-alike pages are used in phishing to capture credentials.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A user finds that all files in a folder have been encrypted and a note asks for payment to restore them. Which is the most likely cause?",
+   "expected_answer": {
+    "value": "Ransomware"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A broken keyboard",
+    "Ransomware",
+    "Adware",
+    "A slow router"
+   ],
+   "explanation": "Encrypting files and demanding payment is typical of ransomware.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement is TRUE about spam?",
+   "expected_answer": {
+    "value": "It is unsolicited bulk messaging and can carry malicious links"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It only comes from your own contacts",
+    "It can never contain a virus",
+    "It is a type of antivirus",
+    "It is unsolicited bulk messaging and can carry malicious links"
+   ],
+   "explanation": "Spam is unwanted bulk mail, which may contain links or attachments with malware.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is cyber stalking?",
+   "expected_answer": {
+    "value": "Repeatedly following or harassing a person online"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Fixing a network cable",
+    "Repeatedly following or harassing a person online",
+    "Scanning a document",
+    "Saving a web page offline"
+   ],
+   "explanation": "Cyber stalking is persistent online harassment or monitoring of a person.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the main difference between a virus and a worm?",
+   "expected_answer": {
+    "value": "A worm spreads by itself across networks, while a virus needs a host file"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A virus is harmless, a worm is not",
+    "A worm only works on phones",
+    "A worm spreads by itself across networks, while a virus needs a host file",
+    "There is no difference at all"
+   ],
+   "explanation": "Worms are standalone and self-spreading; viruses attach to other files.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "An email attachment named invoice.pdf.exe is most likely:",
+   "expected_answer": {
+    "value": "a malicious program disguised as a document"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "a safe PDF",
+    "a picture file",
+    "a web page",
+    "a malicious program disguised as a document"
+   ],
+   "explanation": "The real extension is .exe, meaning an executable program, not a PDF.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A caller pretends to be from your bank and asks for the OTP sent to your phone. This is known as:",
+   "expected_answer": {
+    "value": "vishing (voice phishing)"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "spamming",
+    "a firewall check",
+    "vishing (voice phishing)",
+    "hot-swapping"
+   ],
+   "explanation": "Phishing by phone call is called vishing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A friend sees pop-ups appear all the time after installing a free video converter. Which threat is most likely?",
+   "expected_answer": {
+    "value": "Adware"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Ransomware",
+    "A DDoS attack",
+    "Adware",
+    "A power surge"
+   ],
+   "explanation": "Free software bundled with unwanted ads points to adware.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is NOT a type of malware?",
+   "expected_answer": {
+    "value": "Firewall"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Spyware",
+    "Trojan",
+    "Worm",
+    "Firewall"
+   ],
+   "explanation": "A firewall is a protective tool, not malware.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A hacker redirects visitors from a genuine website to a fake lookalike without them clicking anything odd. This attack is best called:",
+   "expected_answer": {
+    "value": "pharming"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "spamming",
+    "pharming",
+    "adware",
+    "cyber stalking"
+   ],
+   "explanation": "Pharming silently redirects users to fake sites to steal data.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "An email greets you as 'Dear Customer', has spelling mistakes and urges you to act within 2 hours. Which is the best conclusion?",
+   "expected_answer": {
+    "value": "It is likely a phishing attempt"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It is a genuine message from the bank",
+    "It is likely a phishing attempt",
+    "It is an antivirus alert",
+    "It is a harmless newsletter"
+   ],
+   "explanation": "Generic greetings, errors and false urgency are common phishing signs.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A program that shows a free utility but also lets someone control your PC remotely is a:",
+   "expected_answer": {
+    "value": "Trojan"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Browser",
+    "Worm that needs no help",
+    "Search engine",
+    "Trojan"
+   ],
+   "explanation": "A Trojan hides harmful functions inside seemingly useful software.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Using a computer system to harm a person's reputation by posting false rumours is an example of:",
+   "expected_answer": {
+    "value": "cyberbullying or online harassment"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "software piracy",
+    "cyberbullying or online harassment",
+    "hardware failure",
+    "data backup"
+   ],
+   "explanation": "Spreading humiliating false content about someone is online harassment.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-cyber-threats",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which scenario is a Denial of Service attack?",
+   "expected_answer": {
+    "value": "A server stops responding because it is overloaded with fake requests"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A user forgets their password and cannot log in",
+    "A server stops responding because it is overloaded with fake requests",
+    "A file is deleted by mistake",
+    "A student pays an online fee twice"
+   ],
+   "explanation": "DoS attacks make services unavailable by flooding them with requests.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Should you share your OTP with a caller who says he is from your bank?",
+   "expected_answer": {
+    "value": "No, an OTP must never be shared with anyone"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Yes, if he knows your name",
+    "Yes, if he sounds polite",
+    "Yes, but only the first three digits",
+    "No, an OTP must never be shared with anyone"
+   ],
+   "explanation": "Banks never ask for OTPs; sharing one lets a criminal approve transactions.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which padlock sign in the address bar shows that a site uses an encrypted connection?",
+   "expected_answer": {
+    "value": "A closed padlock with https://"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A red cross with http://",
+    "A closed padlock with https://",
+    "A music symbol",
+    "A star with www"
+   ],
+   "explanation": "HTTPS with a padlock means data is encrypted in transit.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What should you do before leaving a school computer after checking your email?",
+   "expected_answer": {
+    "value": "Log out of your account"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Just close the lid",
+    "Log out of your account",
+    "Leave the page open",
+    "Save the password in the browser"
+   ],
+   "explanation": "Logging out prevents the next user from accessing your account.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is the best habit for a password?",
+   "expected_answer": {
+    "value": "Use a different password for each account"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Use the same password everywhere",
+    "Write it on a sticky note on the monitor",
+    "Use your name only",
+    "Use a different password for each account"
+   ],
+   "explanation": "Unique passwords stop one leak from exposing all accounts.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which password is strongest?",
+   "expected_answer": {
+    "value": "t7$Lm!2qVx9"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "rahul2010",
+    "t7$Lm!2qVx9",
+    "password123",
+    "12345678"
+   ],
+   "explanation": "Length plus a mix of letters, digits and symbols with no personal info is strongest.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does two-factor authentication add to a login?",
+   "expected_answer": {
+    "value": "A second proof of identity such as an OTP"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A second password typed twice",
+    "A faster internet connection",
+    "A second proof of identity such as an OTP",
+    "A larger screen"
+   ],
+   "explanation": "Two-factor authentication requires something extra beyond the password.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is the purpose of antivirus software?",
+   "expected_answer": {
+    "value": "To detect and remove malicious software"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "To increase RAM",
+    "To speed up the keyboard",
+    "To design web pages",
+    "To detect and remove malicious software"
+   ],
+   "explanation": "Antivirus scans for and removes malware.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why should you keep your operating system and apps updated?",
+   "expected_answer": {
+    "value": "Updates fix security weaknesses that attackers use"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Updates make the screen brighter",
+    "Updates delete your files",
+    "Updates fix security weaknesses that attackers use",
+    "Updates are only for games"
+   ],
+   "explanation": "Patches close vulnerabilities that malware could exploit.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A pop-up claims 'Your PC is infected, click to clean now'. The safe response is to:",
+   "expected_answer": {
+    "value": "Close it without clicking and run your own antivirus"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Click it quickly",
+    "Enter your card number to buy the cleaner",
+    "Close it without clicking and run your own antivirus",
+    "Forward it to friends"
+   ],
+   "explanation": "Such pop-ups are often scams that install malware.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does a firewall do?",
+   "expected_answer": {
+    "value": "Monitors and filters network traffic to block unwanted access"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Prints documents",
+    "Fixes spelling errors",
+    "Monitors and filters network traffic to block unwanted access",
+    "Deletes old emails"
+   ],
+   "explanation": "A firewall acts as a gatekeeper between a device and the network.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the safest place to download a mobile app?",
+   "expected_answer": {
+    "value": "The official app store of your phone"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The official app store of your phone",
+    "A link in a chat message",
+    "A pop-up advertisement",
+    "A friend's shared zip file"
+   ],
+   "explanation": "Official stores check apps for malware before listing them.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "You are on free public Wi-Fi at a railway station. Which activity is the riskiest?",
+   "expected_answer": {
+    "value": "Doing online banking"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Doing online banking",
+    "Reading a news website",
+    "Checking a train time table",
+    "Listening to music"
+   ],
+   "explanation": "Public networks can be snooped on, so avoid sensitive transactions.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A classmate sends you cruel messages online. What is the best first step?",
+   "expected_answer": {
+    "value": "Do not reply, save the evidence and tell a trusted adult"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Do not reply, save the evidence and tell a trusted adult",
+    "Reply with worse messages",
+    "Delete everything and say nothing",
+    "Share the messages with the whole class"
+   ],
+   "explanation": "Keep proof, avoid retaliation and report to a teacher or parent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A friend asks for your password 'only for a minute' to play a game. You should:",
+   "expected_answer": {
+    "value": "Refuse, because passwords should not be shared"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Refuse, because passwords should not be shared",
+    "Share it and change it later",
+    "Share it because he is a friend",
+    "Send it by chat so he can copy it"
+   ],
+   "explanation": "Sharing passwords gives control of your account to others.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is safest to post publicly on social media?",
+   "expected_answer": {
+    "value": "A photo of a school science fair project"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A photo of a school science fair project",
+    "Your home address and phone number",
+    "Your ATM PIN",
+    "Photos of your house key"
+   ],
+   "explanation": "Never post sensitive personal details that could be misused.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why is it risky to use the 'remember password' option on a shared computer?",
+   "expected_answer": {
+    "value": "The next person could log in to your account"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It makes the page slower",
+    "It deletes your cookies",
+    "It disables the keyboard",
+    "The next person could log in to your account"
+   ],
+   "explanation": "Saved credentials can be used by anyone who uses that device.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these helps protect against losing files to ransomware?",
+   "expected_answer": {
+    "value": "Keeping regular backups on a separate drive"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Keeping regular backups on a separate drive",
+    "Opening unknown attachments",
+    "Using one weak password",
+    "Turning off updates"
+   ],
+   "explanation": "A backup lets you restore files without paying a ransom.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "You receive an email attachment from an unknown sender. The best action is to:",
+   "expected_answer": {
+    "value": "Delete it without opening"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Open it to check",
+    "Forward it to friends",
+    "Delete it without opening",
+    "Download and run it"
+   ],
+   "explanation": "Unknown attachments may carry malware.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which web address is most likely to be the genuine bank site?",
+   "expected_answer": {
+    "value": "https://www.examplebank.com"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "http://examplebank.secure-login.xyz",
+    "https://examp1ebank-login.net",
+    "http://www.examplebank.com.fake-site.in",
+    "https://www.examplebank.com"
+   ],
+   "explanation": "The real domain is examplebank.com; the others add look-alike or tricked domains.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does 'Incognito' or private browsing mode do?",
+   "expected_answer": {
+    "value": "Does not save your browsing history on that device"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Hides you completely from your internet provider",
+    "Does not save your browsing history on that device",
+    "Blocks all viruses",
+    "Makes your connection encrypted"
+   ],
+   "explanation": "It only avoids local history, cookies and form data; others can still see your traffic.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A website asks for your Aadhaar number to download a free wallpaper. You should:",
+   "expected_answer": {
+    "value": "Not give it and leave the site"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Enter it, it is free",
+    "Give it with a fake name",
+    "Not give it and leave the site",
+    "Ask a friend to enter his"
+   ],
+   "explanation": "A free wallpaper never needs sensitive ID numbers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is the best way to create a strong but memorable password?",
+   "expected_answer": {
+    "value": "Combine several unrelated words with numbers and symbols"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Use your birth date",
+    "Use your pet's name",
+    "Combine several unrelated words with numbers and symbols",
+    "Use abcd1234"
+   ],
+   "explanation": "A long passphrase mixed with other characters is hard to guess.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "You get a message from a 'friend' on social media in a language style he never uses, with a link to win a phone. What is the likely reason?",
+   "expected_answer": {
+    "value": "His account may have been hacked, so do not click"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "He wants to share a gift",
+    "His account may have been hacked, so do not click",
+    "The platform is giving prizes",
+    "The link is certainly safe"
+   ],
+   "explanation": "Hijacked accounts spread scam links to contacts.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about a strong password policy is TRUE?",
+   "expected_answer": {
+    "value": "Changing a password after a data breach reduces risk"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A password must never be longer than 6 characters",
+    "Changing a password after a data breach reduces risk",
+    "Passwords should contain your phone number",
+    "The same password is safest for all sites"
+   ],
+   "explanation": "After a breach, old passwords may be known to attackers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which setting should you check to control who can see your posts and photos?",
+   "expected_answer": {
+    "value": "Privacy settings of the account"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The monitor brightness",
+    "The keyboard layout",
+    "Privacy settings of the account",
+    "The printer queue"
+   ],
+   "explanation": "Privacy settings control the audience of your content.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is a sign that a received email is safe to trust?",
+   "expected_answer": {
+    "value": "It comes from a verified address and does not ask for secrets"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It uses lots of capital letters",
+    "It comes from a verified address and does not ask for secrets",
+    "It asks you to act in 1 hour",
+    "It asks for your password to 'verify'"
+   ],
+   "explanation": "Genuine senders do not demand passwords or use false urgency.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A shop's website address starts with http:// instead of https:// and asks for card details. What should you do?",
+   "expected_answer": {
+    "value": "Avoid entering card details on that page"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Enter them quickly",
+    "Enter them using Wi-Fi at a cafe",
+    "Avoid entering card details on that page",
+    "Email the card number instead"
+   ],
+   "explanation": "Without HTTPS the data is not encrypted in transit.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which combination gives the best account protection?",
+   "expected_answer": {
+    "value": "A unique strong password plus two-factor authentication"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "One strong password used on every site",
+    "A weak password plus a long username",
+    "A unique strong password plus two-factor authentication",
+    "Two accounts with the same weak password"
+   ],
+   "explanation": "Different strong passwords plus a second factor protect even if one password leaks.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-safe-online-practices",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Rina sees 'Your parcel is held. Pay Rs 20 at this link' from an unknown number. Which action is safest?",
+   "expected_answer": {
+    "value": "Ignore the link and check the courier's official site or app"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Pay Rs 20 since it is small",
+    "Ignore the link and check the courier's official site or app",
+    "Click the link only to look",
+    "Reply with her address"
+   ],
+   "explanation": "Small payments are a common trick to steal card details; use the official channel.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does the symbol (c) next to a work usually show?",
+   "expected_answer": {
+    "value": "The work is protected by copyright"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The work is free for anyone to copy",
+    "The work is protected by copyright",
+    "The work is a computer virus",
+    "The work has been deleted"
+   ],
+   "explanation": "The copyright symbol signals the creator's legal rights.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Downloading and using a paid software without paying for it is called:",
+   "expected_answer": {
+    "value": "software piracy"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "software piracy",
+    "freeware use",
+    "open-source use",
+    "fair backup"
+   ],
+   "explanation": "Using unlicensed copies of paid software is piracy.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Intellectual property means:",
+   "expected_answer": {
+    "value": "Creations of the mind such as writings, inventions and designs"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Only physical property",
+    "Only computer hardware",
+    "Only land and buildings",
+    "Creations of the mind such as writings, inventions and designs"
+   ],
+   "explanation": "IP covers creative and inventive works that the law protects.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is plagiarism?",
+   "expected_answer": {
+    "value": "Copying a classmate's essay and handing it in as your own"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Writing an essay in your own words and listing sources",
+    "Copying a classmate's essay and handing it in as your own",
+    "Quoting a sentence with the source named",
+    "Reading a book for ideas"
+   ],
+   "explanation": "Presenting another person's work as your own is plagiarism.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "You change a few words of a paragraph from a website but give no source. Is this plagiarism?",
+   "expected_answer": {
+    "value": "Yes, using the ideas without credit is still plagiarism"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "No, changing words makes it your own",
+    "No, because it is on the internet",
+    "Yes, using the ideas without credit is still plagiarism",
+    "No, if the page is long"
+   ],
+   "explanation": "Even paraphrased text needs credit to the original author.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "How can you avoid plagiarism when using someone's idea in a project?",
+   "expected_answer": {
+    "value": "Give credit by naming the source"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Delete the author's name",
+    "Say you thought of it",
+    "Copy it word for word silently",
+    "Give credit by naming the source"
+   ],
+   "explanation": "Citing sources shows where the information came from.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these protects a company's brand name or logo?",
+   "expected_answer": {
+    "value": "Trademark"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Copyright of the building",
+    "A password",
+    "Trademark",
+    "A firewall"
+   ],
+   "explanation": "A trademark protects names, logos and symbols that identify a brand.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which protects a new invention such as a new machine design?",
+   "expected_answer": {
+    "value": "Patent"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Trademark",
+    "Plagiarism",
+    "Patent",
+    "Spam filter"
+   ],
+   "explanation": "A patent gives the inventor exclusive rights to an invention for a period.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who generally owns the copyright of a song written and recorded by a singer?",
+   "expected_answer": {
+    "value": "The creator, unless rights are given away"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The creator, unless rights are given away",
+    "Everyone who listens to it",
+    "The first person who downloads it",
+    "The internet service provider"
+   ],
+   "explanation": "Copyright starts with the creator or their employer, unless transferred.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Software whose source code is available for others to view, change and share under a licence is called:",
+   "expected_answer": {
+    "value": "open-source software"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "open-source software",
+    "pirated software",
+    "a computer virus",
+    "adware"
+   ],
+   "explanation": "Open-source licences allow use, modification and sharing under stated terms.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A student uses a photo found through a search engine on her blog without asking. Which is the best action?",
+   "expected_answer": {
+    "value": "Use only images that are free to use or get permission and credit"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Use it, since the search engine showed it",
+    "Remove the creator's watermark",
+    "Use only images that are free to use or get permission and credit",
+    "Say it is her own photo"
+   ],
+   "explanation": "Finding an image online does not make it free; check the licence.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In India, is registration needed for a work to be protected by copyright?",
+   "expected_answer": {
+    "value": "No, copyright exists automatically once the work is created"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Yes, it exists only after registration",
+    "No, copyright exists automatically once the work is created",
+    "Yes, only after one year",
+    "No, it can never be protected"
+   ],
+   "explanation": "Copyright arises on creation; registration only provides additional proof.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Creative Commons licences are used to:",
+   "expected_answer": {
+    "value": "Let creators say how others may share and reuse their work"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Create new computers",
+    "Block all copying forever",
+    "Let creators say how others may share and reuse their work",
+    "Remove copyright from every work"
+   ],
+   "explanation": "Creative Commons licences set clear reuse conditions chosen by the creator.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A work with the licence CC BY lets you reuse it provided you:",
+   "expected_answer": {
+    "value": "Give credit to the author"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Pay the author each year",
+    "Give credit to the author",
+    "Delete the original",
+    "Change the author's name"
+   ],
+   "explanation": "BY means attribution is required.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is a correct way to use a short passage from a book in a school project?",
+   "expected_answer": {
+    "value": "Put it in quotation marks and name the book and author"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Paste it with no mention of the book",
+    "Change the title and call it yours",
+    "Put it in quotation marks and name the book and author",
+    "Hide the page number"
+   ],
+   "explanation": "Quoting with attribution acknowledges the original source.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement is TRUE about copyright?",
+   "expected_answer": {
+    "value": "It protects the way an idea is expressed, not the bare idea itself"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It protects every idea someone thinks of",
+    "It protects the way an idea is expressed, not the bare idea itself",
+    "It lasts only one day",
+    "It applies only to music"
+   ],
+   "explanation": "Copyright covers the expression of an idea, such as text or a drawing, not the idea alone.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Using your own earlier project again as a new assignment without telling the teacher is called:",
+   "expected_answer": {
+    "value": "self-plagiarism"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "fair use",
+    "copyright",
+    "self-plagiarism",
+    "piracy"
+   ],
+   "explanation": "Reusing your own work without disclosure can also be treated as plagiarism.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A tool that compares submitted text with other sources to find copied passages is called:",
+   "expected_answer": {
+    "value": "a plagiarism checker"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "an antivirus",
+    "a firewall",
+    "a spreadsheet",
+    "a plagiarism checker"
+   ],
+   "explanation": "Plagiarism checkers look for matches with existing writing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Freeware is software that:",
+   "expected_answer": {
+    "value": "Is free to use but may not allow changing or reselling"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Always provides source code",
+    "Always costs money",
+    "Is free to use but may not allow changing or reselling",
+    "Can only be used for one day"
+   ],
+   "explanation": "Freeware costs nothing to use but is not necessarily open source.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which action violates a software licence that allows installation on one computer only?",
+   "expected_answer": {
+    "value": "Installing the same copy on ten computers"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Installing it on one computer",
+    "Making one backup copy if the licence permits",
+    "Installing the same copy on ten computers",
+    "Uninstalling it"
+   ],
+   "explanation": "Using one licensed copy on many machines breaks the licence terms.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is NOT an example of plagiarism?",
+   "expected_answer": {
+    "value": "Writing a summary in your own words and listing the sources"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Buying a ready-made essay and submitting it",
+    "Writing a summary in your own words and listing the sources",
+    "Copying a paragraph from a website",
+    "Using a friend's work as yours"
+   ],
+   "explanation": "Properly cited summaries credit the original author.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about public domain works is TRUE?",
+   "expected_answer": {
+    "value": "Their copyright has expired or does not apply, so they can be used freely"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They can never be read",
+    "They belong only to the government",
+    "They must be paid for",
+    "Their copyright has expired or does not apply, so they can be used freely"
+   ],
+   "explanation": "Works in the public domain are free for anyone to use.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Under the Indian Copyright Act, for how long does copyright generally last for a literary work?",
+   "expected_answer": {
+    "value": "The author's lifetime plus 60 years"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The author's lifetime plus 60 years",
+    "10 years from publication",
+    "Exactly 100 years for all works",
+    "Only during the author's lifetime"
+   ],
+   "explanation": "In India, copyright typically lasts for the author's life plus 60 years after death.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A teacher copies one chapter of a book for each of 200 students without permission, to avoid buying books. This is:",
+   "expected_answer": {
+    "value": "an infringement of copyright"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "fair use always",
+    "plagiarism of another person's idea only",
+    "an infringement of copyright",
+    "permitted because it is education"
+   ],
+   "explanation": "Mass copying of a copyrighted work without permission is infringement.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What is the difference between plagiarism and copyright infringement?",
+   "expected_answer": {
+    "value": "Plagiarism is about not giving credit, while infringement is about using protected work without legal permission"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They mean exactly the same",
+    "Plagiarism is a legal crime only, infringement is a school rule",
+    "Infringement means giving credit",
+    "Plagiarism is about not giving credit, while infringement is about using protected work without legal permission"
+   ],
+   "explanation": "Plagiarism is an ethical matter of credit; infringement is breaking the law on use of protected work.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A video creator uses a famous song in the background of his video without a licence, but names the singer. Is this acceptable?",
+   "expected_answer": {
+    "value": "No, naming the singer does not give permission to use it"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Yes, crediting is enough",
+    "Yes, if the video is short",
+    "No, naming the singer does not give permission to use it",
+    "Yes, if the singer is famous"
+   ],
+   "explanation": "Credit and permission are different; a licence may still be required.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which of these gives the owner an exclusive right to use a brand name as a business symbol?",
+   "expected_answer": {
+    "value": "Trademark registration"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Copyright on a photo",
+    "A firewall",
+    "A strong password",
+    "Trademark registration"
+   ],
+   "explanation": "A registered trademark gives exclusive use of the mark for its products or services.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Open-source software compared with proprietary software is generally:",
+   "expected_answer": {
+    "value": "Allowed to be studied and modified under licence terms"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Always illegal to copy",
+    "Allowed to be studied and modified under licence terms",
+    "Never available online",
+    "Only usable on phones"
+   ],
+   "explanation": "Open-source licences permit viewing and modifying the code, within conditions.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-plagiarism-copyright",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A student cites every source in her report but copies two whole pages from a book word for word without quotation marks. What is the problem?",
+   "expected_answer": {
+    "value": "The copied text is presented as her own wording; it needs quotation marks as well as citation"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "None, listing sources is always enough",
+    "The copied text is presented as her own wording; it needs quotation marks as well as citation",
+    "The report is too long",
+    "The sources should be removed"
+   ],
+   "explanation": "Copied words must be marked as quotes; a source list alone does not make copying acceptable.",
+   "content_status": "needs_review"
+  }
+ ]
+}

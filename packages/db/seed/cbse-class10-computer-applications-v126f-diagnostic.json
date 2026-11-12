@@ -1,0 +1,3925 @@
+{
+ "subject_slug": "computer-applications",
+ "questions": [
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is an example of an algorithm in daily life?",
+   "expected_answer": {
+    "value": "A recipe listing the steps to make tea"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A recipe listing the steps to make tea",
+    "A photograph of a cup of tea",
+    "The name of a tea brand",
+    "A cup of hot tea"
+   ],
+   "explanation": "A recipe is an ordered, finite set of steps that solves a problem, which is what an algorithm is.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "An algorithm is written before a program is coded. Its main purpose is to:",
+   "expected_answer": {
+    "value": "plan the solution steps clearly"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "make the computer run faster",
+    "remove the need for input",
+    "plan the solution steps clearly",
+    "store data permanently"
+   ],
+   "explanation": "An algorithm is a plan of the solution steps, written before coding so the logic is clear.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which sequence correctly shows the order in which a problem is usually solved with a computer?",
+   "expected_answer": {
+    "value": "Understand problem, write algorithm, code, test"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Understand problem, write algorithm, code, test",
+    "Code, test, write algorithm, understand problem",
+    "Test, understand problem, code, write algorithm",
+    "Write algorithm, test, understand problem, code"
+   ],
+   "explanation": "You must understand the problem first, plan with an algorithm, then code and test.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is NOT a suitable way to express an algorithm?",
+   "expected_answer": {
+    "value": "A video game console"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Pseudocode",
+    "A flowchart",
+    "Numbered steps in plain English",
+    "A video game console"
+   ],
+   "explanation": "Algorithms are expressed as steps, pseudocode or flowcharts; a console is hardware.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which property says that every step of an algorithm must be clear and unambiguous?",
+   "expected_answer": {
+    "value": "Definiteness"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Finiteness",
+    "Output",
+    "Universality",
+    "Definiteness"
+   ],
+   "explanation": "Definiteness means each instruction has exactly one clear meaning.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "An algorithm that never stops after starting violates which property?",
+   "expected_answer": {
+    "value": "Finiteness"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Definiteness",
+    "Input",
+    "Readability",
+    "Finiteness"
+   ],
+   "explanation": "A valid algorithm must terminate after a finite number of steps.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which statement about the output of an algorithm is true?",
+   "expected_answer": {
+    "value": "It should produce at least one result"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It must always be a number",
+    "It should produce at least one result",
+    "It is optional and can be absent",
+    "It must be printed on paper"
+   ],
+   "explanation": "A useful algorithm produces at least one output, which need not be numeric or printed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is a step-by-step procedure written in an English-like form, not tied to a programming language?",
+   "expected_answer": {
+    "value": "Pseudocode"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Machine code",
+    "Pseudocode",
+    "Compiler",
+    "Bytecode file"
+   ],
+   "explanation": "Pseudocode uses plain, structured wording to describe an algorithm without strict syntax.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which instruction is NOT acceptable inside an algorithm because it is ambiguous?",
+   "expected_answer": {
+    "value": "Add a suitable amount of sugar"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Add 2 spoons of sugar",
+    "Read the number N",
+    "Print the sum",
+    "Add a suitable amount of sugar"
+   ],
+   "explanation": "'A suitable amount' has no exact meaning, so it breaks the definiteness property.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is a valid algorithm to find the larger of two numbers A and B?",
+   "expected_answer": {
+    "value": "Read A, B; if A > B print A, else print B"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Read A, B; print A + B",
+    "Read A; print B",
+    "Read A, B; if A > B print A, else print B",
+    "Read A, B; if A > B print B, else print A"
+   ],
+   "explanation": "Comparing the numbers and printing the greater one correctly solves the problem.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "An algorithm to find the average of 3 numbers is: 1 Read A,B,C  2 Set S = A+B+C  3 Set AVG = S/3  4 Print AVG. If A=4, B=5, C=9 what is printed?",
+   "expected_answer": {
+    "value": "6"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "18",
+    "9",
+    "6",
+    "5"
+   ],
+   "explanation": "S = 18 and AVG = 18/3 = 6.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Algorithm: 1 Read N  2 If N mod 2 = 0 print 'Even' else print 'Odd'. What is printed for N = 17?",
+   "expected_answer": {
+    "value": "Odd"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Even",
+    "Odd",
+    "17",
+    "0"
+   ],
+   "explanation": "17 mod 2 gives remainder 1, so the else branch prints Odd.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Algorithm: 1 Set X = 5  2 Set Y = 3  3 Set X = X + Y  4 Set Y = X - Y  5 Print X, Y. What is printed?",
+   "expected_answer": {
+    "value": "8 5"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "8 3",
+    "5 3",
+    "5 8",
+    "8 5"
+   ],
+   "explanation": "After step 3 X=8, then Y=8-3=5, so X and Y are 8 and 5.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why should an algorithm be independent of any one programming language?",
+   "expected_answer": {
+    "value": "So it can be coded in any language"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "So it never needs testing",
+    "So it cannot contain decisions",
+    "So it runs without a computer",
+    "So it can be coded in any language"
+   ],
+   "explanation": "A language-independent plan can be translated to Python, Java, C and so on.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about algorithms is TRUE?",
+   "expected_answer": {
+    "value": "Different algorithms can solve the same problem"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Each problem has exactly one algorithm",
+    "Different algorithms can solve the same problem",
+    "An algorithm must contain a loop",
+    "An algorithm must be written in code"
+   ],
+   "explanation": "There are often several correct ways, such as different methods to add or search.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is an error in the algorithm: 1 Read N  2 Print N squared  3 Go to step 2?",
+   "expected_answer": {
+    "value": "It never terminates"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It never terminates",
+    "It has no input",
+    "It has no output",
+    "It uses a variable"
+   ],
+   "explanation": "Step 3 repeats step 2 forever, so the algorithm does not end.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of the following is the best reason to dry-run (trace) an algorithm with sample values?",
+   "expected_answer": {
+    "value": "To find logical errors before coding"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "To increase the internet speed",
+    "To compile the program",
+    "To save the file",
+    "To find logical errors before coding"
+   ],
+   "explanation": "Tracing sample values reveals logic mistakes early, before time is spent coding.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of the following is a precondition shown by the 'Input' property of an algorithm?",
+   "expected_answer": {
+    "value": "It may take zero or more inputs"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It may take zero or more inputs",
+    "It must take exactly one input",
+    "It must take at least two inputs",
+    "It cannot take any input"
+   ],
+   "explanation": "An algorithm can have zero or more inputs, for example one that prints 'Hello'.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Algorithm: 1 Set SUM = 0  2 Read N  3 SUM = SUM + N  4 Read N  5 SUM = SUM + N  6 Print SUM. Inputs are 7 then 8. What is printed?",
+   "expected_answer": {
+    "value": "15"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "7",
+    "8",
+    "15",
+    "0"
+   ],
+   "explanation": "SUM becomes 7, then 15, and 15 is printed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Algorithm: 1 Read A  2 If A >= 40 print 'Pass' else print 'Fail'. What is printed for A = 40?",
+   "expected_answer": {
+    "value": "Pass"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Pass",
+    "Fail",
+    "40",
+    "Nothing is printed"
+   ],
+   "explanation": "The condition A >= 40 is true when A equals 40, so Pass is printed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which ordering of steps gives a correct algorithm to find the area of a rectangle?",
+   "expected_answer": {
+    "value": "Read L, Read B, AREA = L*B, Print AREA"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "AREA = L*B, Read L, Read B, Print AREA",
+    "Read L, Read B, AREA = L*B, Print AREA",
+    "Print AREA, Read L, Read B, AREA = L*B",
+    "Read L, AREA = L*B, Read B, Print AREA"
+   ],
+   "explanation": "Values must be read before the area is computed, and printing comes last.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Algorithm: 1 Read A,B  2 T = A  3 A = B  4 B = T  5 Print A, B. For A=10 and B=20, what is printed?",
+   "expected_answer": {
+    "value": "20 10"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "10 20",
+    "10 10",
+    "20 10",
+    "20 20"
+   ],
+   "explanation": "The temporary variable T swaps A and B, giving A=20 and B=10.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A step in an algorithm reads: 'Set P = 100 / Q'. Which extra check makes the algorithm safe?",
+   "expected_answer": {
+    "value": "Check that Q is not zero before dividing"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Check that P is not zero",
+    "Check that Q is a text value",
+    "Check that the result is 100",
+    "Check that Q is not zero before dividing"
+   ],
+   "explanation": "Division by zero is undefined, so Q must be tested first.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which pair correctly matches a property of algorithms to its meaning?",
+   "expected_answer": {
+    "value": "Finiteness: it must end"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Definiteness: it must never end",
+    "Output: it must take no input",
+    "Finiteness: it must end",
+    "Effectiveness: it must be very long"
+   ],
+   "explanation": "Finiteness means the algorithm terminates after a limited number of steps.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is the best description of 'effectiveness' of an algorithm?",
+   "expected_answer": {
+    "value": "Each step is basic enough to be carried out exactly"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "It has the largest number of steps",
+    "Each step is basic enough to be carried out exactly",
+    "It uses only one variable",
+    "It is always drawn as a flowchart"
+   ],
+   "explanation": "An effective algorithm uses steps simple enough to be performed in finite time.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Algorithm: 1 Read N  2 If N > 0 print 'Positive'. 3 If N < 0 print 'Negative'. What is printed for N = 0?",
+   "expected_answer": {
+    "value": "Nothing"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Positive",
+    "Nothing",
+    "Negative",
+    "Zero"
+   ],
+   "explanation": "Neither condition is true for 0, and there is no case for it, so nothing is printed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Algorithm: 1 Set A=6, B=4  2 Set A = A - B  3 Set B = A + B  4 Set A = B - A  5 Print A, B. What is printed?",
+   "expected_answer": {
+    "value": "4 6"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "6 4",
+    "2 4",
+    "2 6",
+    "4 6"
+   ],
+   "explanation": "A=2; B=2+4=6; A=6-2=4. So A=4 and B=6, which is a swap of the originals.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-algorithm",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these best shows that an algorithm must be unambiguous?",
+   "expected_answer": {
+    "value": "Two people following it get the same result"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It uses colourful diagrams",
+    "It is typed on a computer",
+    "Two people following it get the same result",
+    "It is very short"
+   ],
+   "explanation": "Clear, definite steps lead every reader to the same outcome.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which flowchart symbol marks the Start and the End of a flowchart?",
+   "expected_answer": {
+    "value": "Oval (terminator)"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Rectangle",
+    "Oval (terminator)",
+    "Diamond",
+    "Parallelogram"
+   ],
+   "explanation": "The oval, also called the terminator, shows where the flowchart begins and ends.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which symbol is used for a calculation such as SUM = A + B?",
+   "expected_answer": {
+    "value": "Rectangle"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Rectangle",
+    "Oval",
+    "Diamond",
+    "Circle"
+   ],
+   "explanation": "The rectangle is the process symbol, used for calculations and assignments.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What do the arrows between symbols in a flowchart show?",
+   "expected_answer": {
+    "value": "The direction of flow of control"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The amount of data stored",
+    "The speed of execution",
+    "The names of variables",
+    "The direction of flow of control"
+   ],
+   "explanation": "Flow lines with arrowheads show the order in which steps are carried out.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which symbol would you use for the step 'Read the marks'?",
+   "expected_answer": {
+    "value": "Parallelogram"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Rectangle",
+    "Parallelogram",
+    "Diamond",
+    "Oval"
+   ],
+   "explanation": "Reading input is shown with the parallelogram.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which symbol would you use for the step 'Print the result'?",
+   "expected_answer": {
+    "value": "Parallelogram"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Diamond",
+    "Parallelogram",
+    "Oval",
+    "Rectangle"
+   ],
+   "explanation": "Output, like input, is drawn as a parallelogram.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A diamond in a flowchart usually has how many exits for a simple Yes/No condition?",
+   "expected_answer": {
+    "value": "Two"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Two",
+    "One",
+    "Three",
+    "Four"
+   ],
+   "explanation": "A yes/no decision has two outgoing paths, labelled Yes and No (or True and False).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which symbol is placed in the flowchart for the question 'Is age >= 18?'",
+   "expected_answer": {
+    "value": "Diamond"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Diamond",
+    "Rectangle",
+    "Oval",
+    "Parallelogram"
+   ],
+   "explanation": "Conditions that lead to different paths are put in a decision diamond.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which symbol is used to join two parts of a flowchart that continue on another page or elsewhere?",
+   "expected_answer": {
+    "value": "Connector (small circle)"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Oval",
+    "Diamond",
+    "Rectangle",
+    "Connector (small circle)"
+   ],
+   "explanation": "A small circle connector links broken parts, often with a label inside such as A.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is the correct pairing of symbol and meaning?",
+   "expected_answer": {
+    "value": "Parallelogram - input/output"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Oval - decision",
+    "Parallelogram - input/output",
+    "Diamond - process",
+    "Rectangle - start"
+   ],
+   "explanation": "The parallelogram represents input and output operations.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A flowchart must begin with which symbol?",
+   "expected_answer": {
+    "value": "Oval labelled Start"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Diamond labelled Start",
+    "Rectangle labelled Input",
+    "Circle labelled End",
+    "Oval labelled Start"
+   ],
+   "explanation": "Every flowchart begins at a terminator oval marked Start.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which symbol should contain the text 'N = N + 1'?",
+   "expected_answer": {
+    "value": "Rectangle"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Diamond",
+    "Parallelogram",
+    "Rectangle",
+    "Oval"
+   ],
+   "explanation": "Updating a variable is a process step, so it goes in a rectangle.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In which situation is a flowchart most useful?",
+   "expected_answer": {
+    "value": "To show the logic of a solution visually"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "To store large amounts of data",
+    "To show the logic of a solution visually",
+    "To connect computers in a network",
+    "To translate code to machine language"
+   ],
+   "explanation": "Flowcharts picture the logic and order of steps of an algorithm.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A flowchart has the symbols in this order: Oval, Parallelogram, Rectangle, Parallelogram, Oval. Which task fits best?",
+   "expected_answer": {
+    "value": "Start, read a value, compute, print answer, end"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Start, decide, loop, decide, end",
+    "Start, read a value, compute, print answer, end",
+    "Start, print, read, compute, end",
+    "Start, compute, decide, compute, end"
+   ],
+   "explanation": "Parallelograms for input and output surround the process rectangle, between Start and End ovals.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In a flowchart, the symbol that has more than one outgoing arrow is the:",
+   "expected_answer": {
+    "value": "Diamond"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Diamond",
+    "Oval",
+    "Parallelogram",
+    "Rectangle"
+   ],
+   "explanation": "Only the decision diamond branches into separate paths.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How many arrows normally enter the Start oval of a flowchart?",
+   "expected_answer": {
+    "value": "None"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "One",
+    "None",
+    "Two",
+    "As many as there are decisions"
+   ],
+   "explanation": "Start is where the flow begins, so nothing leads into it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A rectangle in a correct flowchart normally has how many arrows leaving it?",
+   "expected_answer": {
+    "value": "One"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Two",
+    "One",
+    "None",
+    "Three"
+   ],
+   "explanation": "A process step has one exit, unlike a decision which has two.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which symbol would be wrong for the step 'Enter the radius R'?",
+   "expected_answer": {
+    "value": "Rectangle"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Parallelogram",
+    "Any symbol is acceptable",
+    "Rectangle",
+    "Oval and parallelogram are both wrong"
+   ],
+   "explanation": "Input should use a parallelogram, so a rectangle is the wrong choice.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A student draws 'Is X > Y?' inside a rectangle with two arrows leaving it. What is the error?",
+   "expected_answer": {
+    "value": "A decision should be in a diamond"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "The arrows should be curved",
+    "A decision should be in a diamond",
+    "It should be in an oval",
+    "It should have three arrows"
+   ],
+   "explanation": "Conditions that branch belong in the diamond decision symbol.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What should label the two arrows leaving a decision symbol?",
+   "expected_answer": {
+    "value": "Yes and No (or True and False)"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Start and End",
+    "Input and Output",
+    "Loop and Stop",
+    "Yes and No (or True and False)"
+   ],
+   "explanation": "Each branch is labelled with the outcome of the condition it follows.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which step of a flowchart will NOT use a rectangle?",
+   "expected_answer": {
+    "value": "Check whether the number is even"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Add 5 to the total",
+    "Set count to 0",
+    "Check whether the number is even",
+    "Multiply price by quantity"
+   ],
+   "explanation": "Checking a condition is a decision, drawn as a diamond.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A flowchart has one Start oval, three parallelograms, two rectangles and one End oval. How many symbols in all?",
+   "expected_answer": {
+    "value": "7"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "6",
+    "7",
+    "8",
+    "5"
+   ],
+   "explanation": "1 + 3 + 2 + 1 = 7 symbols.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of the following describes why flow lines should not cross each other unnecessarily?",
+   "expected_answer": {
+    "value": "It keeps the flowchart easy to read"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It keeps the flowchart easy to read",
+    "Crossing lines delete the data",
+    "The computer cannot read them",
+    "They change the symbol type"
+   ],
+   "explanation": "Clear, uncrossed flow lines make the logic easier to follow.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which standard direction is a flowchart normally drawn in?",
+   "expected_answer": {
+    "value": "Top to bottom and left to right"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Bottom to top",
+    "Top to bottom and left to right",
+    "Right to left only",
+    "In circles only"
+   ],
+   "explanation": "Flowcharts are conventionally read from top to bottom and left to right.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A flowchart has a diamond with 'Is N > 0?'. Yes leads to Print 'Positive' and No leads to Print 'Not positive'. What kind of structure is this?",
+   "expected_answer": {
+    "value": "Selection (if-else)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Iteration (loop)",
+    "Sequence only",
+    "Recursion",
+    "Selection (if-else)"
+   ],
+   "explanation": "Two alternative paths from one condition form a selection structure.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "In a flowchart, an arrow from after a rectangle goes back to a diamond placed earlier. What does this create?",
+   "expected_answer": {
+    "value": "A loop"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A syntax error",
+    "A second Start",
+    "A connector page break",
+    "A loop"
+   ],
+   "explanation": "A flow line returning to an earlier decision repeats steps, forming a loop.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which pairing of flowchart symbol and example is correct?",
+   "expected_answer": {
+    "value": "Diamond - Is balance < 500?"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Oval - Total = Price * Qty",
+    "Diamond - Is balance < 500?",
+    "Rectangle - Read X",
+    "Parallelogram - Stop"
+   ],
+   "explanation": "The decision diamond holds a yes/no condition like a balance check.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A flowchart has a diamond with both exits joined to Stop and no other path. What is wrong?",
+   "expected_answer": {
+    "value": "Both outcomes end the same way so the decision is pointless"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The diamond needs three exits",
+    "Both outcomes end the same way so the decision is pointless",
+    "Stop must be a diamond",
+    "The flowchart needs no Start"
+   ],
+   "explanation": "If both paths lead to the same place, the decision has no effect on the flow.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-flowchart-symbols",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A flowchart: Start, Read N, S=0, then diamond 'N>0?'. Yes: S=S+N, N=N-1, back to diamond. No: Print S, Stop. For N=3, what is printed?",
+   "expected_answer": {
+    "value": "6"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "3",
+    "0",
+    "6",
+    "5"
+   ],
+   "explanation": "The loop adds 3+2+1 into S, so S=6 when N reaches 0.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Dividing a project report into introduction, body and conclusion is an example of:",
+   "expected_answer": {
+    "value": "decomposition"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "a loop",
+    "decomposition",
+    "a syntax error",
+    "encryption"
+   ],
+   "explanation": "Splitting a task into smaller parts is decomposition.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is a loop?",
+   "expected_answer": {
+    "value": "Repeating a step until a condition is met"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Running a step once",
+    "Skipping a step",
+    "Naming a step",
+    "Repeating a step until a condition is met"
+   ],
+   "explanation": "A loop repeats a block of steps several times.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why is decomposition useful when solving a big problem?",
+   "expected_answer": {
+    "value": "Each small part is easier to solve and test"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It removes the need for algorithms",
+    "It makes the problem unsolvable",
+    "Each small part is easier to solve and test",
+    "It stores data online"
+   ],
+   "explanation": "Smaller parts are simpler to understand, solve and check separately.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "To plan a school fair, a student lists: stalls, tickets, cleaning, food. This is:",
+   "expected_answer": {
+    "value": "decomposing the task into sub-tasks"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "decomposing the task into sub-tasks",
+    "looping the task",
+    "debugging the task",
+    "encrypting the task"
+   ],
+   "explanation": "Breaking the event into smaller jobs is decomposition.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which task is best suited to a loop?",
+   "expected_answer": {
+    "value": "Printing the table of 7 up to 10 terms"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Printing your name once",
+    "Printing the table of 7 up to 10 terms",
+    "Reading one number",
+    "Stopping a program"
+   ],
+   "explanation": "Repeated similar steps, such as the multiples of 7, are ideal for a loop.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A loop that never ends because its condition stays true forever is called a(n):",
+   "expected_answer": {
+    "value": "infinite loop"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "infinite loop",
+    "nested loop",
+    "counting loop",
+    "decision loop"
+   ],
+   "explanation": "A loop with a condition that never becomes false runs endlessly.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these pairs is a correct statement?",
+   "expected_answer": {
+    "value": "Loop - repeats steps"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Decomposition - repeats steps",
+    "Loop - splits a problem into parts",
+    "Loop - repeats steps",
+    "Decomposition - ends the program"
+   ],
+   "explanation": "Loops repeat steps; decomposition splits a problem into parts.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Count = 1. Repeat while Count <= 5: print Count, Count = Count + 1. How many numbers are printed?",
+   "expected_answer": {
+    "value": "5"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "4",
+    "6",
+    "5",
+    "1"
+   ],
+   "explanation": "Count takes values 1,2,3,4,5, so five numbers are printed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "S = 0. For I = 1 to 4: S = S + I. What is the final value of S?",
+   "expected_answer": {
+    "value": "10"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "4",
+    "10",
+    "6",
+    "24"
+   ],
+   "explanation": "The loop adds 1, 2, 3 and 4 to S, giving 1+2+3+4 = 10.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "P = 1. For I = 1 to 4: P = P * I. What is the final value of P?",
+   "expected_answer": {
+    "value": "24"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "10",
+    "4",
+    "16",
+    "24"
+   ],
+   "explanation": "P becomes 1, 2, 6, 24, which is 4 factorial.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "N = 10. While N > 4: N = N - 3. What is N when the loop stops?",
+   "expected_answer": {
+    "value": "4"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "1",
+    "4",
+    "7",
+    "10"
+   ],
+   "explanation": "N goes 10, 7, 4; at N = 4 the condition N > 4 is false so the loop stops with N = 4.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the best first step in decomposing 'create a class timetable app'?",
+   "expected_answer": {
+    "value": "List smaller features like add subject, set time, show view"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Write all the code at once",
+    "Buy a new computer",
+    "Draw only the final screen",
+    "List smaller features like add subject, set time, show view"
+   ],
+   "explanation": "Decomposition begins by splitting the app into smaller manageable features.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A loop prints 2, 4, 6, 8, 10. Which description fits it?",
+   "expected_answer": {
+    "value": "Start at 2, add 2 each time, stop after 10"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Start at 1, add 2, stop at 10",
+    "Start at 2, add 1, stop at 5",
+    "Start at 2, add 2 each time, stop after 10",
+    "Start at 0, add 4, stop at 10"
+   ],
+   "explanation": "The sequence starts at 2 and increases by 2 until reaching 10.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which problem is solved by the loop: 'Set T = 0; repeat 5 times: read M, T = T + M; print T'?",
+   "expected_answer": {
+    "value": "Finding the total of 5 marks"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Finding the largest mark",
+    "Finding the smallest mark",
+    "Finding the total of 5 marks",
+    "Counting the vowels"
+   ],
+   "explanation": "The loop reads 5 values and keeps adding them to T, giving their total.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A loop is written: I = 1; while I <= 3: print 'Hi'. The loop body has no change to I. What happens?",
+   "expected_answer": {
+    "value": "It prints Hi forever"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It prints Hi three times",
+    "It prints nothing",
+    "It prints Hi forever",
+    "It prints Hi once"
+   ],
+   "explanation": "I never changes, so the condition remains true and the loop is infinite.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How many times does the loop run: for I = 3 to 9 (both included)?",
+   "expected_answer": {
+    "value": "7"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "6",
+    "9",
+    "7",
+    "3"
+   ],
+   "explanation": "The values are 3,4,5,6,7,8,9 which is 7 values.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "For making a tricolour flag poster, which is a sensible decomposition?",
+   "expected_answer": {
+    "value": "Draw rectangle, colour three bands, add the wheel"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Colour everything the same",
+    "Print the flag first",
+    "Decide by loops only",
+    "Draw rectangle, colour three bands, add the wheel"
+   ],
+   "explanation": "Splitting the job into small drawing steps is decomposition.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these will print the first 5 even numbers with a loop?",
+   "expected_answer": {
+    "value": "Start at 2, add 2, repeat 5 times"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Start at 1, add 2, repeat 5 times",
+    "Start at 0, add 5, repeat 2 times",
+    "Start at 2, add 2, repeat 5 times",
+    "Start at 5, subtract 2, repeat 2 times"
+   ],
+   "explanation": "Starting at 2 and adding 2 five times gives 2,4,6,8,10.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Decomposition helps a team mainly by letting them:",
+   "expected_answer": {
+    "value": "work on different parts at the same time"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "skip testing",
+    "avoid writing algorithms",
+    "use fewer computers only",
+    "work on different parts at the same time"
+   ],
+   "explanation": "Independent sub-problems can be assigned to different people and worked on in parallel.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A loop runs 'While N <> 0'. Which input value will make it stop?",
+   "expected_answer": {
+    "value": "0"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "1",
+    "-1",
+    "Any positive number",
+    "0"
+   ],
+   "explanation": "The loop continues while N is not zero, and stops when N becomes 0.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "C = 0. For I = 1 to 10: if I mod 3 = 0 then C = C + 1. What is C at the end?",
+   "expected_answer": {
+    "value": "3"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "4",
+    "3",
+    "10",
+    "1"
+   ],
+   "explanation": "I = 3, 6, 9 are multiples of 3, so C = 3.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "S = 0, I = 1. While I <= 10: S = S + I, I = I + 2. What is S?",
+   "expected_answer": {
+    "value": "25"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "30",
+    "55",
+    "36",
+    "25"
+   ],
+   "explanation": "I takes 1,3,5,7,9 and their sum is 25.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "X = 1. Repeat 4 times: X = X * 3 . What is X?",
+   "expected_answer": {
+    "value": "81"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "12",
+    "27",
+    "64",
+    "81"
+   ],
+   "explanation": "3 multiplied in four times gives 3 to the power 4, which is 81.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "I = 5. While I > 0: print I, I = I - 2. What is printed?",
+   "expected_answer": {
+    "value": "5 3 1"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "5 3 1",
+    "5 3 1 -1",
+    "5 4 3 2 1",
+    "3 1"
+   ],
+   "explanation": "I goes 5, 3, 1 and then becomes -1, which stops the loop without printing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which part of an algorithm to compute the average of N marks is a separate sub-problem?",
+   "expected_answer": {
+    "value": "Adding up the marks"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The word 'average'",
+    "The Start symbol",
+    "The title",
+    "Adding up the marks"
+   ],
+   "explanation": "Summation can be treated as its own sub-task, followed by division by N.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A loop is meant to print 1 to 5 but prints 1 to 4. The code is: I=1; while I < 5: print I; I=I+1. What fix gives 1 to 5?",
+   "expected_answer": {
+    "value": "Change I < 5 to I <= 5"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Change I < 5 to I <= 5",
+    "Change I=1 to I=0",
+    "Change I=I+1 to I=I+2",
+    "Remove the print"
+   ],
+   "explanation": "The condition I < 5 stops before 5, so <= is needed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "T = 0. For I = 1 to 5: for J = 1 to 2: T = T + 1. What is T?",
+   "expected_answer": {
+    "value": "10"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "7",
+    "5",
+    "2",
+    "10"
+   ],
+   "explanation": "The outer loop runs 5 times and the inner 2 times each, so 5 x 2 = 10.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-decomposition-loops",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which statement about a loop body is correct?",
+   "expected_answer": {
+    "value": "It is the set of steps that gets repeated"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "It is the first step before Start",
+    "It is the final printed output",
+    "It is the name of the variable",
+    "It is the set of steps that gets repeated"
+   ],
+   "explanation": "The loop body contains the instructions executed on each repetition.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is good netiquette in an email to your teacher?",
+   "expected_answer": {
+    "value": "Write a clear subject line and a polite greeting"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Use only emojis",
+    "Write a clear subject line and a polite greeting",
+    "Write in all capitals",
+    "Leave the subject blank"
+   ],
+   "explanation": "A clear subject and polite tone show respect and make the email easy to understand.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which is rude online behaviour?",
+   "expected_answer": {
+    "value": "Posting insulting comments about someone"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Posting insulting comments about someone",
+    "Thanking a helper",
+    "Waiting for your turn to speak",
+    "Using respectful words"
+   ],
+   "explanation": "Insulting others is cyberbullying and breaks netiquette.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "The word 'netiquette' combines which two words?",
+   "expected_answer": {
+    "value": "Network and etiquette"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Net and equal",
+    "Internet and equation",
+    "Network and etiquette",
+    "Network and quiet"
+   ],
+   "explanation": "Netiquette means good manners (etiquette) used on the network or Internet.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which action is good netiquette in a group chat?",
+   "expected_answer": {
+    "value": "Stay on the topic of the group"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Send forwards at midnight",
+    "Spam the group with ads",
+    "Stay on the topic of the group",
+    "Share others' private messages"
+   ],
+   "explanation": "Keeping to the topic respects everyone's time and attention.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Harassing or threatening someone repeatedly through messages or social media is called:",
+   "expected_answer": {
+    "value": "cyberbullying"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "e-commerce",
+    "netbanking",
+    "cyberbullying",
+    "web hosting"
+   ],
+   "explanation": "Repeated hurtful or threatening online behaviour is cyberbullying.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Sending the same unrequested promotional email to thousands of people is called:",
+   "expected_answer": {
+    "value": "spamming"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "browsing",
+    "spamming",
+    "podcasting",
+    "blogging"
+   ],
+   "explanation": "Unsolicited bulk messages are spam.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What should you do if you receive a rude message from a stranger online?",
+   "expected_answer": {
+    "value": "Do not reply, block them and report the message"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Reply with a rude message",
+    "Forward it to everyone",
+    "Do not reply, block them and report the message",
+    "Post your phone number"
+   ],
+   "explanation": "Not engaging, blocking and reporting is the safe, respectful response.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why should you avoid sharing a friend's private photo or chat without their consent?",
+   "expected_answer": {
+    "value": "It violates their privacy and trust"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It slows the Internet",
+    "It is faster",
+    "It uses more data only",
+    "It violates their privacy and trust"
+   ],
+   "explanation": "Sharing without consent invades privacy and may hurt the person.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which message tone is best in a formal online class discussion?",
+   "expected_answer": {
+    "value": "Polite and respectful"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Sarcastic",
+    "Polite and respectful",
+    "Abusive",
+    "Anonymous insulting"
+   ],
+   "explanation": "Respectful language keeps discussions useful and safe.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is an example of 'flaming'?",
+   "expected_answer": {
+    "value": "Sending angry or hostile messages online"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Sending angry or hostile messages online",
+    "Sending a thank-you note",
+    "Sharing a useful link",
+    "Writing a long essay"
+   ],
+   "explanation": "Flaming is posting hostile, insulting messages, often during arguments.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is a good practice before you forward a message to many people?",
+   "expected_answer": {
+    "value": "Check that it is true and useful"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Check that it is true and useful",
+    "Forward immediately",
+    "Add more rumours",
+    "Delete the sender's name"
+   ],
+   "explanation": "Forwarding unverified messages can spread false information.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "You disagree with a classmate's post. Which reply shows good netiquette?",
+   "expected_answer": {
+    "value": "'I see it differently; here is my reason.'"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "'You are stupid.'",
+    "Posting a meme mocking them",
+    "Reporting them to prank",
+    "'I see it differently; here is my reason.'"
+   ],
+   "explanation": "A calm, reasoned reply disagrees without attacking the person.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A teacher asks for an email with the heading 'Assignment 3 - Rahul, Class 10B'. Why is this useful?",
+   "expected_answer": {
+    "value": "It lets the teacher identify and sort the mail quickly"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It lets the teacher identify and sort the mail quickly",
+    "It makes the mail load faster",
+    "It encrypts the email",
+    "It avoids the need for attachments"
+   ],
+   "explanation": "A descriptive subject helps the reader quickly identify the sender and topic.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which choice is the best use of 'Reply All' in an email?",
+   "expected_answer": {
+    "value": "Only when everyone needs to see the reply"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Always, to be safe",
+    "To share private opinions",
+    "To send jokes to the whole class",
+    "Only when everyone needs to see the reply"
+   ],
+   "explanation": "Reply All sends to all recipients, so use it only when all of them need the message.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these shows poor netiquette in a video call?",
+   "expected_answer": {
+    "value": "Talking while others are speaking, with your mic on"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Talking while others are speaking, with your mic on",
+    "Muting when not speaking",
+    "Raising your hand to speak",
+    "Greeting everyone"
+   ],
+   "explanation": "Interrupting and leaving your mic on disturbs others.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about posting on social media is TRUE?",
+   "expected_answer": {
+    "value": "Posts can be copied and stay available even after deletion"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Posts can be copied and stay available even after deletion",
+    "Deleted posts vanish everywhere instantly",
+    "Only friends can ever see a post",
+    "A post cannot be traced"
+   ],
+   "explanation": "Online content can be screenshotted and saved, so think before posting.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the best reason to use short, clear sentences in online messages?",
+   "expected_answer": {
+    "value": "The reader cannot see your tone or face"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Computers prefer short sentences",
+    "It is a legal rule",
+    "It saves electricity",
+    "The reader cannot see your tone or face"
+   ],
+   "explanation": "Without body language, clear wording reduces misunderstanding.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Your friend shares a rumour about a teacher in a group. The best response is to:",
+   "expected_answer": {
+    "value": "Not forward it and tell them it may be harmful"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Forward it to others",
+    "Not forward it and tell them it may be harmful",
+    "Add your own made-up details",
+    "Post it publicly"
+   ],
+   "explanation": "Not spreading unverified, damaging content is responsible online behaviour.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is an example of respecting others' time online?",
+   "expected_answer": {
+    "value": "Keeping messages brief and relevant"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Sending daily chain messages",
+    "Keeping messages brief and relevant",
+    "Sending large files to everyone",
+    "Calling at odd hours without notice"
+   ],
+   "explanation": "Brief, relevant messages respect the receiver's time.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A classmate posts a photo of you that you dislike. What is the right step?",
+   "expected_answer": {
+    "value": "Politely ask them to take it down and report if they refuse"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Post an insulting photo of them",
+    "Hack their account",
+    "Ignore all rules",
+    "Politely ask them to take it down and report if they refuse"
+   ],
+   "explanation": "Calmly requesting removal and using report options is the responsible approach.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is MOST likely to be considered bad netiquette in a forum?",
+   "expected_answer": {
+    "value": "Posting off-topic advertisements"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Giving a helpful answer",
+    "Thanking someone",
+    "Citing a source",
+    "Posting off-topic advertisements"
+   ],
+   "explanation": "Off-topic ads clutter discussion and are treated as spam.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement is correct about using other people's usernames and passwords?",
+   "expected_answer": {
+    "value": "Using them without permission is unethical"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It is fine if they are friends",
+    "It is fine for short use",
+    "Using them without permission is unethical",
+    "It is fine in school"
+   ],
+   "explanation": "Accessing an account without permission violates privacy and ethics.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A student writes 'plz snd me notes asap!!!' to the principal. What is the main netiquette problem?",
+   "expected_answer": {
+    "value": "Informal language is inappropriate for a formal reader"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Informal language is inappropriate for a formal reader",
+    "Exclamation marks are illegal",
+    "The message is too long",
+    "It contains attachments"
+   ],
+   "explanation": "Formal contacts should be addressed in proper, polite language.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which behaviour is an example of 'trolling'?",
+   "expected_answer": {
+    "value": "Posting provocative remarks to upset people"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Posting a helpful tutorial",
+    "Reporting a bug",
+    "Sharing a news link",
+    "Posting provocative remarks to upset people"
+   ],
+   "explanation": "Trolls deliberately provoke others to cause arguments or distress.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "You find out a friend is being cyberbullied in a group. Which is the most responsible action?",
+   "expected_answer": {
+    "value": "Support the friend, save evidence and tell a trusted adult"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Support the friend, save evidence and tell a trusted adult",
+    "Join in for fun",
+    "Stay silent and delete the app",
+    "Reply with threats"
+   ],
+   "explanation": "Helping the victim and reporting through proper channels is the responsible response.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which sentence about copying someone's email text into a public post is correct?",
+   "expected_answer": {
+    "value": "You should get the sender's permission first"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It is fine since it was sent to you",
+    "You should get the sender's permission first",
+    "It is fine if you change the date",
+    "It is always legal"
+   ],
+   "explanation": "A private email belongs to its writer, so sharing it publicly needs their consent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which combination shows the best netiquette when emailing a teacher a doubt?",
+   "expected_answer": {
+    "value": "Clear subject, greeting, specific question, thanks and your name"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Blank subject, caps, many questions",
+    "Clear subject, greeting, specific question, thanks and your name",
+    "Only an emoji",
+    "A forward of a joke"
+   ],
+   "explanation": "Good emails have a subject, a polite greeting, a clear question and a sign-off.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-netiquette",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is the safest way to respond to a chain message that says 'forward to 10 people or face bad luck'?",
+   "expected_answer": {
+    "value": "Do not forward it"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Forward it to 10 people",
+    "Forward it to everyone",
+    "Reply with your address",
+    "Do not forward it"
+   ],
+   "explanation": "Chain messages are spam-like and spread needlessly, so it is best not to forward them.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is an open-source web browser?",
+   "expected_answer": {
+    "value": "Mozilla Firefox"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Internet Explorer",
+    "Safari only",
+    "None of them",
+    "Mozilla Firefox"
+   ],
+   "explanation": "Firefox is developed as open-source software.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A licence for software is:",
+   "expected_answer": {
+    "value": "a legal agreement on how the software may be used"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "a hardware part",
+    "a legal agreement on how the software may be used",
+    "a virus",
+    "a type of network"
+   ],
+   "explanation": "A software licence sets the terms for using, copying and sharing the software.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is open-source office software?",
+   "expected_answer": {
+    "value": "LibreOffice"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Microsoft Office",
+    "Adobe Photoshop",
+    "LibreOffice",
+    "Tally"
+   ],
+   "explanation": "LibreOffice is free and its source code is open.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is proprietary software?",
+   "expected_answer": {
+    "value": "Adobe Photoshop"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "GIMP",
+    "Linux",
+    "Adobe Photoshop",
+    "Apache web server"
+   ],
+   "explanation": "Photoshop is commercial software owned by Adobe.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Proprietary software is software that:",
+   "expected_answer": {
+    "value": "is owned by a company that controls its source code"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "is always free",
+    "has public source code",
+    "is owned by a company that controls its source code",
+    "cannot be installed"
+   ],
+   "explanation": "The owner keeps control and normally does not release the source code.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is TRUE about open-source software?",
+   "expected_answer": {
+    "value": "Users can modify it under the licence terms"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Users cannot see its code",
+    "It is always illegal",
+    "It cannot be shared",
+    "Users can modify it under the licence terms"
+   ],
+   "explanation": "Open source allows studying, modifying and distributing, within licence terms.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Freeware can best be described as software that:",
+   "expected_answer": {
+    "value": "is free to use but whose source code is not usually open"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "has source code open to all",
+    "must be paid for monthly",
+    "is free to use but whose source code is not usually open",
+    "is only available on paper"
+   ],
+   "explanation": "Freeware costs nothing to use, but the owner usually keeps the code closed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Shareware is software that:",
+   "expected_answer": {
+    "value": "can be tried for a limited time before payment"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "is always open source",
+    "is always free forever",
+    "cannot be downloaded",
+    "can be tried for a limited time before payment"
+   ],
+   "explanation": "Shareware is distributed for a trial period, after which users must pay to continue.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is an open-source programming language?",
+   "expected_answer": {
+    "value": "Python"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Visual Basic 6",
+    "Tally script",
+    "Python",
+    "MS Word macro"
+   ],
+   "explanation": "Python is released under an open-source licence.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is the meaning of 'source code'?",
+   "expected_answer": {
+    "value": "The human-readable instructions that a programmer writes"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A password",
+    "An email address",
+    "The price of the software",
+    "The human-readable instructions that a programmer writes"
+   ],
+   "explanation": "Source code is the programmer-written text from which a program is built.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Using pirated software means:",
+   "expected_answer": {
+    "value": "using an illegal, unlicensed copy of software"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "using free open-source software",
+    "buying a licence",
+    "using an illegal, unlicensed copy of software",
+    "using shareware as the licence allows"
+   ],
+   "explanation": "Piracy is using or distributing software copies without a valid licence.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A school wants a free word processor that students can install at home legally. Which choice fits best?",
+   "expected_answer": {
+    "value": "LibreOffice Writer"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A cracked copy of a paid suite",
+    "A shared licence key from a friend",
+    "Any file from a torrent site",
+    "LibreOffice Writer"
+   ],
+   "explanation": "An open-source suite can be legally installed on many computers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement is FALSE?",
+   "expected_answer": {
+    "value": "Open-source software has no licence"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Open-source software comes with a licence",
+    "Proprietary software has a licence",
+    "Software licences set usage rules",
+    "Open-source software has no licence"
+   ],
+   "explanation": "Open-source software has licences too, such as GPL, that state conditions of use.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A single-user licence for proprietary software usually allows you to:",
+   "expected_answer": {
+    "value": "install it on the number of devices stated in the licence"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "give copies to all friends",
+    "sell copies",
+    "change and republish the code",
+    "install it on the number of devices stated in the licence"
+   ],
+   "explanation": "Licences limit the number of installations or users.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is an advantage of open-source software?",
+   "expected_answer": {
+    "value": "Many users can inspect and improve the code"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The code is hidden",
+    "It is always paid",
+    "It cannot be updated",
+    "Many users can inspect and improve the code"
+   ],
+   "explanation": "Public code lets a community find bugs and improve it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is an advantage of proprietary software?",
+   "expected_answer": {
+    "value": "The company usually provides official support"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The code is public",
+    "The company usually provides official support",
+    "Anyone can resell it",
+    "It has no licence"
+   ],
+   "explanation": "Paid software often includes official customer support and updates.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which software is matched with the correct licence type?",
+   "expected_answer": {
+    "value": "Linux - open source"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Windows - open source",
+    "Photoshop - open source",
+    "Linux - open source",
+    "MS Office - open source"
+   ],
+   "explanation": "Linux is open-source; the others are proprietary products.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which pair is NOT correctly matched?",
+   "expected_answer": {
+    "value": "Mozilla Firefox - proprietary"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Mozilla Firefox - proprietary",
+    "Android core (AOSP) - open source",
+    "LibreOffice - open source",
+    "Adobe Acrobat - proprietary"
+   ],
+   "explanation": "Firefox is open-source, not proprietary.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "An EULA that appears during installation is:",
+   "expected_answer": {
+    "value": "the end-user licence agreement you must accept"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "an antivirus",
+    "a spreadsheet",
+    "the end-user licence agreement you must accept",
+    "a font"
+   ],
+   "explanation": "EULA stands for End User Licence Agreement.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A programmer downloads open-source code, changes it, and shares it. This is allowed:",
+   "expected_answer": {
+    "value": "as long as the licence conditions are followed"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "never",
+    "only after paying the original author",
+    "only on a school computer",
+    "as long as the licence conditions are followed"
+   ],
+   "explanation": "Open-source licences allow modification and sharing under their stated conditions.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is an open-source database system?",
+   "expected_answer": {
+    "value": "MySQL"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Microsoft Access",
+    "Oracle Database (commercial edition)",
+    "FileMaker",
+    "MySQL"
+   ],
+   "explanation": "MySQL is available as open-source software.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about free software and open-source is correct?",
+   "expected_answer": {
+    "value": "Free of cost does not always mean open source"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They are always identical",
+    "Open source is never free",
+    "Free software never has a licence",
+    "Free of cost does not always mean open source"
+   ],
+   "explanation": "A program can be free to use (freeware) without having its source code released.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "If you buy a DVD of paid software and install it on 20 computers with a single licence, you are:",
+   "expected_answer": {
+    "value": "violating the licence"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "following the licence",
+    "making it open source",
+    "upgrading the software",
+    "violating the licence"
+   ],
+   "explanation": "A single licence covers only the permitted number of installations.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which of the following best explains why a company may choose proprietary rather than open-source licensing?",
+   "expected_answer": {
+    "value": "To keep control of code and earn from sales"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "To make the code public",
+    "To keep control of code and earn from sales",
+    "To let anyone sell it",
+    "To avoid having a licence"
+   ],
+   "explanation": "Proprietary licensing helps protect the code and revenue.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which of these actions is allowed under most open-source licences?",
+   "expected_answer": {
+    "value": "Studying the source code to learn how it works"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Claiming you wrote the whole program",
+    "Studying the source code to learn how it works",
+    "Removing the licence text",
+    "Selling it as your own invention"
+   ],
+   "explanation": "Studying is allowed; falsely claiming authorship or removing licence notices is not.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Trial (demo) versions of paid software are usually limited because:",
+   "expected_answer": {
+    "value": "the company wants you to buy the full version"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "they are open source",
+    "they are viruses",
+    "the company wants you to buy the full version",
+    "they are only for Linux"
+   ],
+   "explanation": "Limits encourage users to purchase the complete licensed product.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which licence name is commonly used for open-source software?",
+   "expected_answer": {
+    "value": "GNU General Public License (GPL)"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "GNU General Public License (GPL)",
+    "Microsoft EULA",
+    "Single-user retail licence",
+    "Trial licence"
+   ],
+   "explanation": "GPL is a widely used open-source licence.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-software-licensing",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A student downloads a cracked game from a website. Which problem applies?",
+   "expected_answer": {
+    "value": "It is software piracy and may contain malware"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It becomes open source",
+    "It is shareware",
+    "It is software piracy and may contain malware",
+    "It is freeware"
+   ],
+   "explanation": "Cracked copies breach the licence and often carry malicious code.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What is copyright?",
+   "expected_answer": {
+    "value": "The legal right of a creator over an original work"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The legal right of a creator over an original work",
+    "A type of computer virus",
+    "A website address",
+    "A kind of password"
+   ],
+   "explanation": "Copyright gives creators legal control over copying and use of their original work.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these can be a creator's intellectual property?",
+   "expected_answer": {
+    "value": "A poem, a painting or a software program"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A poem, a painting or a software program",
+    "A natural river",
+    "The weather",
+    "Sunlight"
+   ],
+   "explanation": "Original creations of the mind are intellectual property.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which symbol commonly shows that a work is protected by copyright?",
+   "expected_answer": {
+    "value": "The (c) in a circle"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The @ sign",
+    "The # sign",
+    "A padlock",
+    "The (c) in a circle"
+   ],
+   "explanation": "The circled C indicates a copyright notice.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Copying another student's homework and submitting it as yours is:",
+   "expected_answer": {
+    "value": "plagiarism"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "research",
+    "paraphrasing with credit",
+    "brainstorming",
+    "plagiarism"
+   ],
+   "explanation": "Passing off someone else's work as your own is plagiarism.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A trademark protects:",
+   "expected_answer": {
+    "value": "a brand name, logo or symbol used for goods and services"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "a secret recipe only",
+    "a new scientific idea",
+    "a house",
+    "a brand name, logo or symbol used for goods and services"
+   ],
+   "explanation": "Trademarks identify the source of products via names, logos and symbols.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A patent is granted for:",
+   "expected_answer": {
+    "value": "a new invention"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "a new invention",
+    "a poem",
+    "a website colour",
+    "a song lyric"
+   ],
+   "explanation": "Patents protect new inventions for a limited period.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is the correct way to use a quotation from a book in your project?",
+   "expected_answer": {
+    "value": "Put it in quotes and cite the author and source"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Put it in quotes and cite the author and source",
+    "Copy it without quotes",
+    "Remove the author's name",
+    "Change two words and hide the source"
+   ],
+   "explanation": "Quoting with a citation gives credit and avoids plagiarism.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which action below counts as plagiarism in a school project?",
+   "expected_answer": {
+    "value": "Copying a paragraph from a site and not mentioning the source"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Copying a paragraph from a site and not mentioning the source",
+    "Writing in your own words with a source listed",
+    "Quoting with proper credit",
+    "Citing a book in a bibliography"
+   ],
+   "explanation": "Using material without credit presents it as your own.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why should you cite the sources in your project?",
+   "expected_answer": {
+    "value": "To give credit and let readers verify the information"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "To make the project longer",
+    "To hide copying",
+    "To give credit and let readers verify the information",
+    "To reduce marks"
+   ],
+   "explanation": "Citations acknowledge creators and let others check the facts.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Downloading a paid movie from an illegal website is an example of:",
+   "expected_answer": {
+    "value": "copyright infringement (piracy)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "fair use",
+    "open licensing",
+    "copyright infringement (piracy)",
+    "trademark registration"
+   ],
+   "explanation": "Getting copyrighted material without permission infringes the owner's rights.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of the following is NOT an intellectual property right?",
+   "expected_answer": {
+    "value": "Right to use the Internet for free"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Copyright",
+    "Patent",
+    "Right to use the Internet for free",
+    "Trademark"
+   ],
+   "explanation": "Copyright, patent and trademark are IPR types; free Internet use is not.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A student rewrites a paragraph by only replacing a few words and gives no credit. This is:",
+   "expected_answer": {
+    "value": "still plagiarism"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "still plagiarism",
+    "fully original work",
+    "a patent",
+    "a trademark"
+   ],
+   "explanation": "Changing a few words without crediting the idea's source is still plagiarism.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about copyright on the Internet is TRUE?",
+   "expected_answer": {
+    "value": "Something being on the Internet does not make it free to copy"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Something being on the Internet does not make it free to copy",
+    "All images on the Internet are free to copy",
+    "Copyright ends when a photo is uploaded",
+    "Only text can be copyrighted"
+   ],
+   "explanation": "Online content is still protected by its owner's rights unless stated otherwise.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Using someone else's photograph in your school blog is best done by:",
+   "expected_answer": {
+    "value": "taking permission or using a licensed, properly credited image"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "taking permission or using a licensed, properly credited image",
+    "using it without telling anyone",
+    "cropping off the name",
+    "claiming you took it"
+   ],
+   "explanation": "Permission or a suitable licence, plus credit, respects the photographer's rights.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A logo designed by a company is protected mainly by:",
+   "expected_answer": {
+    "value": "trademark"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "patent for software",
+    "paper licence only",
+    "trademark",
+    "nothing"
+   ],
+   "explanation": "Brand logos are protected as trademarks.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A new type of machine invented by an engineer is best protected by a:",
+   "expected_answer": {
+    "value": "patent"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "patent",
+    "copyright notice only",
+    "trademark only",
+    "domain name"
+   ],
+   "explanation": "An invention is protected by a patent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A novel written by an author is protected by:",
+   "expected_answer": {
+    "value": "copyright"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "copyright",
+    "patent",
+    "trademark",
+    "licence plate"
+   ],
+   "explanation": "Literary works are covered by copyright.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is an example of self-plagiarism?",
+   "expected_answer": {
+    "value": "Submitting your own earlier assignment again as new work"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Writing a new essay",
+    "Quoting a book with credit",
+    "Submitting your own earlier assignment again as new work",
+    "Making a bibliography"
+   ],
+   "explanation": "Reusing your own previously submitted work without telling is self-plagiarism.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these shows how to paraphrase properly?",
+   "expected_answer": {
+    "value": "Explain the idea in your own words and credit the source"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Copy the sentence exactly",
+    "Swap a single word only",
+    "Explain the idea in your own words and credit the source",
+    "Remove the author's name"
+   ],
+   "explanation": "A proper paraphrase restates the idea in your own words and still credits the source.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which activity is a violation of IPR?",
+   "expected_answer": {
+    "value": "Selling copied versions of a paid software"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Writing your own program",
+    "Selling copied versions of a paid software",
+    "Reading a book",
+    "Citing a source"
+   ],
+   "explanation": "Selling unauthorised copies infringes the owner's rights.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why do IPR laws encourage creativity?",
+   "expected_answer": {
+    "value": "Creators can earn from and control their work"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "They stop people from creating",
+    "Creators can earn from and control their work",
+    "They remove all rewards",
+    "They make works free for all"
+   ],
+   "explanation": "Rights give creators incentives to produce new work.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these can be detected by plagiarism-checking software?",
+   "expected_answer": {
+    "value": "Text matching existing sources"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The speed of a computer",
+    "The weather",
+    "The font size",
+    "Text matching existing sources"
+   ],
+   "explanation": "Such tools compare a document with existing sources to find similar text.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A student uses a friend's code in a program and submits it unchanged under their own name. This is:",
+   "expected_answer": {
+    "value": "plagiarism"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "plagiarism",
+    "teamwork with credit",
+    "fair paraphrase",
+    "open source release"
+   ],
+   "explanation": "Presenting another person's code as your own is plagiarism.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which of the following is generally NOT protected by copyright?",
+   "expected_answer": {
+    "value": "A bare idea not yet expressed in any form"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A bare idea not yet expressed in any form",
+    "A written story",
+    "A recorded song",
+    "A software program"
+   ],
+   "explanation": "Copyright protects the expression of ideas, not the bare ideas themselves.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement correctly distinguishes copyright and patent?",
+   "expected_answer": {
+    "value": "Copyright protects original works; patent protects inventions"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Copyright protects inventions; patent protects poems",
+    "They are identical",
+    "Both protect only logos",
+    "Copyright protects original works; patent protects inventions"
+   ],
+   "explanation": "Copyright covers creative works; patents cover technical inventions.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A teacher finds that two projects have identical paragraphs with no sources. What is the most likely issue?",
+   "expected_answer": {
+    "value": "Plagiarism by at least one student"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A patent claim",
+    "A trademark",
+    "Plagiarism by at least one student",
+    "Valid citation"
+   ],
+   "explanation": "Identical uncited text suggests copying.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A website says 'All rights reserved'. What does this mean?",
+   "expected_answer": {
+    "value": "The owner keeps all rights and you need permission to reuse"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The owner keeps all rights and you need permission to reuse",
+    "Anyone can copy it",
+    "It is in the public domain",
+    "It is open source"
+   ],
+   "explanation": "The phrase tells users that the owner retains rights and reuse needs permission.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ipr-plagiarism",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A student copies a sentence from a site, puts it in quotation marks but gives no source. What is the issue?",
+   "expected_answer": {
+    "value": "The quote lacks credit, so it is still improper"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It is perfectly acceptable",
+    "It is a trademark",
+    "It is a patent",
+    "The quote lacks credit, so it is still improper"
+   ],
+   "explanation": "Quotation marks show the words are not yours but the source must also be named.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "E-commerce means:",
+   "expected_answer": {
+    "value": "buying and selling goods or services online"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "buying and selling goods or services online",
+    "sending only emails",
+    "repairing computers",
+    "drawing pictures"
+   ],
+   "explanation": "E-commerce is conducting commercial transactions over the Internet.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is a strong password?",
+   "expected_answer": {
+    "value": "Rk#9tL!2pQ7a"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Rk#9tL!2pQ7a",
+    "12345",
+    "password",
+    "your name"
+   ],
+   "explanation": "Long, mixed characters make a password hard to guess.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does the 's' in https stand for?",
+   "expected_answer": {
+    "value": "secure"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "simple",
+    "speed",
+    "secure",
+    "server"
+   ],
+   "explanation": "HTTPS is HTTP with a secure, encrypted connection.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is a safe habit while shopping online?",
+   "expected_answer": {
+    "value": "Using a trusted, known website"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Clicking every pop-up",
+    "Sharing your PIN",
+    "Using a trusted, known website",
+    "Using any link from a stranger"
+   ],
+   "explanation": "Trusted sites reduce the risk of fraud.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "An email says 'Your account is blocked. Click here and enter your password.' This is most likely:",
+   "expected_answer": {
+    "value": "a phishing attempt"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "a genuine bank message",
+    "a discount",
+    "a phishing attempt",
+    "an update"
+   ],
+   "explanation": "Urgent requests for credentials via links are typical phishing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Encryption is the process of:",
+   "expected_answer": {
+    "value": "converting data into a coded form"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "deleting data",
+    "converting data into a coded form",
+    "copying data",
+    "printing data"
+   ],
+   "explanation": "Encryption scrambles data so only authorised parties can read it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these should you avoid doing on public Wi-Fi?",
+   "expected_answer": {
+    "value": "Online banking or entering card details"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Reading news",
+    "Watching a public video",
+    "Online banking or entering card details",
+    "Checking the weather"
+   ],
+   "explanation": "Public Wi-Fi may be insecure so sensitive transactions are risky.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Two-factor authentication (2FA) means:",
+   "expected_answer": {
+    "value": "using two different proofs of identity to log in"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "using two passwords of the same type",
+    "using two computers",
+    "logging in twice",
+    "using two different proofs of identity to log in"
+   ],
+   "explanation": "2FA combines two kinds of proof such as a password and an OTP.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A digital payment app asks for your UPI PIN to RECEIVE money. What does this suggest?",
+   "expected_answer": {
+    "value": "It is probably a scam"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It is probably a scam",
+    "Normal behaviour",
+    "A discount",
+    "A bank update"
+   ],
+   "explanation": "A PIN is needed only to send money, never to receive it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is a firewall mainly used for?",
+   "expected_answer": {
+    "value": "Blocking unauthorised network access"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Printing documents",
+    "Drawing charts",
+    "Blocking unauthorised network access",
+    "Playing music"
+   ],
+   "explanation": "A firewall filters network traffic to block unauthorised access.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which information should you keep private on online forms?",
+   "expected_answer": {
+    "value": "Passwords and card numbers"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Your favourite colour",
+    "The weather",
+    "Passwords and card numbers",
+    "A public name"
+   ],
+   "explanation": "Sensitive credentials should not be shared with anyone.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A website address begins with http:// and shows no padlock. Which action is wisest at its payment page?",
+   "expected_answer": {
+    "value": "Avoid entering card details"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Enter card details quickly",
+    "Share your OTP",
+    "Avoid entering card details",
+    "Save the PIN"
+   ],
+   "explanation": "Without https, data may be sent unprotected, so do not enter sensitive details.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does SSL/TLS do for a website?",
+   "expected_answer": {
+    "value": "Encrypts data between browser and server"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Increases screen size",
+    "Encrypts data between browser and server",
+    "Removes pop-ups",
+    "Deletes cookies"
+   ],
+   "explanation": "These protocols encrypt data sent between a browser and server.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is a good reason to log out after using a shared computer?",
+   "expected_answer": {
+    "value": "To stop others accessing your account"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "To save electricity only",
+    "To clear the screen size",
+    "To update software",
+    "To stop others accessing your account"
+   ],
+   "explanation": "Logging out ends your session so another user cannot access it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A caller who claims to be from your bank asks for your CVV. Which is the correct response?",
+   "expected_answer": {
+    "value": "Refuse and end the call"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Refuse and end the call",
+    "Give the CVV",
+    "Give half of it",
+    "Send it by message"
+   ],
+   "explanation": "Banks never ask for CVV or OTP over a call.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is identity theft?",
+   "expected_answer": {
+    "value": "Stealing personal details to impersonate someone"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Buying a new ID card",
+    "Changing your name legally",
+    "Stealing personal details to impersonate someone",
+    "Losing an ID card in a bag only"
+   ],
+   "explanation": "Criminals misuse another person's identifying information to commit fraud.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about cookies is TRUE?",
+   "expected_answer": {
+    "value": "They are small files websites store on your device"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They are viruses by definition",
+    "They are always food orders",
+    "They are small files websites store on your device",
+    "They are hardware"
+   ],
+   "explanation": "Cookies are small data files saved by websites in your browser.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these makes online shopping safer?",
+   "expected_answer": {
+    "value": "Checking seller reviews and using a secure payment method"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Paying by sending cash through a stranger",
+    "Ignoring the URL",
+    "Checking seller reviews and using a secure payment method",
+    "Using the same password everywhere"
+   ],
+   "explanation": "Reviews and secure payment options help avoid fraud.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Using the same password on every website is risky because:",
+   "expected_answer": {
+    "value": "one leak exposes all your accounts"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "passwords expire daily",
+    "it slows down sites",
+    "one leak exposes all your accounts",
+    "websites forbid it"
+   ],
+   "explanation": "If one site is breached, attackers can try the same password elsewhere.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A one-time password (OTP) is valid:",
+   "expected_answer": {
+    "value": "for a single login or transaction for a short time"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "for ever",
+    "for one year",
+    "only on Mondays",
+    "for a single login or transaction for a short time"
+   ],
+   "explanation": "An OTP can be used once and expires quickly.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A pop-up says 'You won a prize! Enter card details to claim.' The best response is to:",
+   "expected_answer": {
+    "value": "close it and do not enter anything"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "close it and do not enter anything",
+    "enter details",
+    "share it",
+    "forward it"
+   ],
+   "explanation": "Prize pop-ups asking for card details are scams.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why should software and antivirus be kept updated?",
+   "expected_answer": {
+    "value": "Updates fix security weaknesses"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Updates remove the Internet",
+    "Updates fix security weaknesses",
+    "Updates cancel licences",
+    "Updates delete data"
+   ],
+   "explanation": "Updates patch vulnerabilities which attackers could exploit.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A digital certificate on a website helps to:",
+   "expected_answer": {
+    "value": "confirm the site's identity"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "confirm the site's identity",
+    "speed up downloads",
+    "change prices",
+    "remove ads"
+   ],
+   "explanation": "Certificates verify that a site is who it claims to be.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which term is matched with its correct meaning?",
+   "expected_answer": {
+    "value": "Phishing - fake messages that steal details"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Encryption - deleting a file",
+    "Firewall - editing images",
+    "OTP - permanent password",
+    "Phishing - fake messages that steal details"
+   ],
+   "explanation": "Phishing uses fake messages or sites to trick people into revealing details.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which of these is a typical sign of a fake shopping site?",
+   "expected_answer": {
+    "value": "Prices far lower than everywhere else and no contact details"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A clear returns policy",
+    "Prices far lower than everywhere else and no contact details",
+    "A secure https page",
+    "Verified seller details"
+   ],
+   "explanation": "Unrealistic prices and missing contact information are red flags.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Data is encrypted with a key so that:",
+   "expected_answer": {
+    "value": "only someone with the right key can read it"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "everyone can read it",
+    "it is deleted at once",
+    "it is made bigger",
+    "only someone with the right key can read it"
+   ],
+   "explanation": "Only holders of the correct key can decrypt the data.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A message says 'Click this short link to track your parcel' from an unknown number. Why be careful?",
+   "expected_answer": {
+    "value": "The link may lead to a fake or harmful site"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Short links are illegal",
+    "The link may lead to a fake or harmful site",
+    "It will charge a fee automatically",
+    "Parcels cannot be tracked"
+   ],
+   "explanation": "Unknown links can be phishing or malware, so avoid clicking.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-ecommerce-security",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which combination gives the best protection for an online account?",
+   "expected_answer": {
+    "value": "A strong unique password plus 2FA"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A short password and a nickname",
+    "A strong unique password plus 2FA",
+    "Same password and no logout",
+    "No password but an OTP shared with friends"
+   ],
+   "explanation": "Strong unique passwords and a second factor greatly reduce takeover risk.",
+   "content_status": "needs_review"
+  }
+ ]
+}

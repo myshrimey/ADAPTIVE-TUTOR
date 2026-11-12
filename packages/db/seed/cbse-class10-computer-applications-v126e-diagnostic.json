@@ -1,0 +1,3965 @@
+{
+ "subject_slug": "computer-applications",
+ "questions": [
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag makes the enclosed text bold?",
+   "expected_answer": {
+    "value": "<b>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<br>",
+    "<b>",
+    "<bl>",
+    "<i>"
+   ],
+   "explanation": "The <b> tag displays its content in bold type; <br> is a line break and <i> is italic.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag underlines the text placed inside it?",
+   "expected_answer": {
+    "value": "<u>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<ul>",
+    "<un>",
+    "<line>",
+    "<u>"
+   ],
+   "explanation": "<u> underlines text; <ul> is an unordered list.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which code shows the chemical formula of water correctly, with the 2 written below the line?",
+   "expected_answer": {
+    "value": "H<sub>2</sub>O"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "H<sub>2</sub>O",
+    "H<sup>2</sup>O",
+    "H<small>2</small>O",
+    "H<b>2</b>O"
+   ],
+   "explanation": "<sub> lowers text below the baseline; <sup> would raise it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which code shows the expression x squared, with the 2 raised above the line?",
+   "expected_answer": {
+    "value": "x<sup>2</sup>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "x<sub>2</sub>",
+    "x<sup>2</sup>",
+    "x<big>2</big>",
+    "x<u>2</u>"
+   ],
+   "explanation": "<sup> makes superscript text that sits above the baseline.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which heading tag gives the SMALLEST heading by default?",
+   "expected_answer": {
+    "value": "<h6>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<h1>",
+    "<h3>",
+    "<head>",
+    "<h6>"
+   ],
+   "explanation": "Headings shrink from <h1> (largest) to <h6> (smallest).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which pair of tags are both EMPTY tags that need no closing tag?",
+   "expected_answer": {
+    "value": "<br> and <hr>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<br> and <hr>",
+    "<p> and <br>",
+    "<b> and <hr>",
+    "<i> and <u>"
+   ],
+   "explanation": "<br> and <hr> hold no content, so they have no closing tag; <p>, <b>, <i> and <u> wrap content.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does the browser show for: Roll No: 12<br>Name: Asha ?",
+   "expected_answer": {
+    "value": "Two lines: 'Roll No: 12' and 'Name: Asha' one under the other"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Two lines: 'Roll No: 12' and 'Name: Asha' one under the other",
+    "One line: Roll No: 12 Name: Asha",
+    "Two lines with a horizontal rule between them",
+    "Two paragraphs with a blank line between them"
+   ],
+   "explanation": "<br> only breaks the line; it adds no rule and no paragraph spacing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about <p> and <br> is TRUE?",
+   "expected_answer": {
+    "value": "<p> starts a new paragraph with space around it, while <br> only moves to the next line"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<p> starts a new paragraph with space around it, while <br> only moves to the next line",
+    "<br> starts a new paragraph, while <p> only moves to the next line",
+    "Both need a closing tag",
+    "<p> draws a line across the page"
+   ],
+   "explanation": "A paragraph is separated by extra space; a line break just continues on the next line.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A page contains the text: Good        morning (with many spaces between the words). How does a browser normally display it?",
+   "expected_answer": {
+    "value": "Good morning, with the spaces collapsed to one"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Good morning, with the spaces collapsed to one",
+    "Good        morning, with all spaces kept",
+    "Good and morning on two separate lines",
+    "Good morning in bold"
+   ],
+   "explanation": "Browsers collapse runs of spaces into a single space unless <pre> or &nbsp; is used.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag displays text exactly as typed, keeping spaces and line breaks?",
+   "expected_answer": {
+    "value": "<pre>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<p>",
+    "<br>",
+    "<pre>",
+    "<hr>"
+   ],
+   "explanation": "<pre> keeps preformatted text, including spaces and new lines, usually in a monospaced font.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is wrong with <b><i>Hello</b></i> ?",
+   "expected_answer": {
+    "value": "The tags are closed in the wrong order"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "The <b> tag cannot hold text",
+    "<i> must come before the heading",
+    "Nothing is wrong",
+    "The tags are closed in the wrong order"
+   ],
+   "explanation": "Tags must be closed in reverse order of opening: </i> should come before </b>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The page has <b>Note and the closing </b> tag is forgotten. What is the likely result?",
+   "expected_answer": {
+    "value": "Everything after the opening tag may appear bold"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Only the word Note is bold",
+    "The page shows an error and nothing loads",
+    "Note appears italic",
+    "Everything after the opening tag may appear bold"
+   ],
+   "explanation": "A missing closing tag makes the style continue to the rest of the page.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code centres a paragraph of text using an attribute?",
+   "expected_answer": {
+    "value": "<p align=\"center\">Welcome</p>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<p align=\"center\">Welcome</p>",
+    "<p center>Welcome</p>",
+    "<p position=\"middle\">Welcome</p>",
+    "<center=p>Welcome</p>"
+   ],
+   "explanation": "The align attribute with value center centres the paragraph.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does <hr width=\"50%\"> do?",
+   "expected_answer": {
+    "value": "Draws a horizontal line half as wide as its container"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Draws a line 50 pixels thick",
+    "Draws a line at 50% of the page height",
+    "Draws a horizontal line half as wide as its container",
+    "Draws a line in a lighter colour"
+   ],
+   "explanation": "The width attribute set in percent controls the length of the rule relative to its container.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute of <hr> controls how THICK the line is?",
+   "expected_answer": {
+    "value": "size"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "width",
+    "align",
+    "length",
+    "size"
+   ],
+   "explanation": "size sets the thickness of the rule; width sets its length.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code changes the colour of the word Alert to red using an HTML tag attribute?",
+   "expected_answer": {
+    "value": "<font color=\"red\">Alert</font>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<b color=\"red\">Alert</b>",
+    "<red>Alert</red>",
+    "<font color=\"red\">Alert</font>",
+    "<p colour=\"red\">Alert</p>"
+   ],
+   "explanation": "<font color=\"red\"> colours the enclosed text; the other forms are invalid.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How do you write a comment that the browser will NOT display?",
+   "expected_answer": {
+    "value": "<!-- Remember to update -->"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "// Remember to update",
+    "<comment>Remember to update</comment>",
+    "/* Remember to update */",
+    "<!-- Remember to update -->"
+   ],
+   "explanation": "HTML comments use the <!-- ... --> syntax.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which two tags both display text in bold by default?",
+   "expected_answer": {
+    "value": "<b> and <strong>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<i> and <em>",
+    "<u> and <b>",
+    "<br> and <strong>",
+    "<b> and <strong>"
+   ],
+   "explanation": "<b> and <strong> are both rendered bold; <i> and <em> are italic.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The code is <p>One<br>Two</p><p>Three</p>. What is the arrangement on screen?",
+   "expected_answer": {
+    "value": "One and Two on consecutive lines, then a gap, then Three"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "One, Two and Three on three consecutive lines with no gap",
+    "One Two Three on a single line",
+    "One and Two on consecutive lines, then a gap, then Three",
+    "One alone, then a gap, then Two Three"
+   ],
+   "explanation": "<br> gives no gap, but the second <p> adds space before Three.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which heading is the best choice for the main title of a page?",
+   "expected_answer": {
+    "value": "<h1>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<h1>",
+    "<h6>",
+    "<head>",
+    "<hr>"
+   ],
+   "explanation": "<h1> is the top-level heading and is used for the main title.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A student writes <h1 align=\"right\">Index</h1>. What is the effect?",
+   "expected_answer": {
+    "value": "The heading is large and placed at the right edge"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The heading is small and placed at the right edge",
+    "The heading is large and placed at the right edge",
+    "The heading is placed at the right and underlined",
+    "The line after the heading is drawn at the right"
+   ],
+   "explanation": "align=\"right\" moves the heading to the right edge; its size stays that of <h1>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "In the old <font size=\"n\"> tag, which value gives the LARGEST text?",
+   "expected_answer": {
+    "value": "7"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "7",
+    "1",
+    "0",
+    "10"
+   ],
+   "explanation": "The legacy font sizes run from 1 (smallest) to 7 (largest).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which line produces: E = mc squared, with the 2 raised and the whole text bold?",
+   "expected_answer": {
+    "value": "<b>E = mc<sup>2</sup></b>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<b>E = mc<sub>2</sub></b>",
+    "<i>E = mc<sup>2</sup></i>",
+    "<b>E = mc</b><sub>2</sub>",
+    "<b>E = mc<sup>2</sup></b>"
+   ],
+   "explanation": "<sup> raises the 2 and <b> around everything makes it bold.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A student wants a line break inside a poem line but wrote <br/> in some places and <br> in others. What happens?",
+   "expected_answer": {
+    "value": "Both work as line breaks"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Both work as line breaks",
+    "Only <br/> works",
+    "Only <br> works",
+    "Both cause an error"
+   ],
+   "explanation": "Browsers accept <br> and the self-closing form <br/> alike.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "How many horizontal lines does this code draw? <hr><p>Hi</p><hr><hr>",
+   "expected_answer": {
+    "value": "3"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "2",
+    "1",
+    "3",
+    "0"
+   ],
+   "explanation": "Each <hr> tag draws one rule, and there are three.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which statement about the text <b><u>Note</u></b> is TRUE?",
+   "expected_answer": {
+    "value": "It appears both bold and underlined"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It appears both bold and underlined",
+    "It appears bold only",
+    "It appears underlined only",
+    "It appears italic and bold"
+   ],
+   "explanation": "Nested style tags combine, so the text gets both bold and underline.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which code correctly displays: Water is H2O and 10 squared is 10^2 (as small raised 2) on ONE line?",
+   "expected_answer": {
+    "value": "Water is H<sub>2</sub>O and 10<sup>2</sup>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Water is H<sup>2</sup>O and 10<sub>2</sub>",
+    "Water is H<sub>2</sub>O and 10<sup>2</sup>",
+    "Water is H<sub>2</sub>O<br>and 10<sup>2</sup>",
+    "Water is H<b>2</b>O and 10<u>2</u>"
+   ],
+   "explanation": "Subscript lowers the 2 in H2O, superscript raises the 2 in 10 squared, and no <br> keeps one line.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-formatting-tags",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tag marks text as emphasised, shown in italics by default?",
+   "expected_answer": {
+    "value": "<em>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<strong>",
+    "<mark>",
+    "<em>",
+    "<big>"
+   ],
+   "explanation": "<em> emphasises text and browsers display it in italics; <strong> is shown bold.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which statement about the <img> tag is TRUE?",
+   "expected_answer": {
+    "value": "It is an empty tag and has no closing tag"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It is an empty tag and has no closing tag",
+    "It must be closed with </img>",
+    "It can only show GIF files",
+    "It plays video files"
+   ],
+   "explanation": "<img> needs only its attributes, so it has no closing tag.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these file names is an audio file?",
+   "expected_answer": {
+    "value": "song.mp3"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "photo.jpg",
+    "song.mp3",
+    "logo.png",
+    "clip.mp4"
+   ],
+   "explanation": "mp3 is an audio format; jpg and png are images and mp4 is video.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is wrong with <img scr=\"cat.jpg\"> ?",
+   "expected_answer": {
+    "value": "The attribute should be src, not scr"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "The tag should be <image>",
+    "The file must be a PNG",
+    "A closing tag is missing",
+    "The attribute should be src, not scr"
+   ],
+   "explanation": "The source file is given with src; a misspelt attribute leaves the image unloaded.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is wrong with <image src=\"cat.jpg\"> ?",
+   "expected_answer": {
+    "value": "The tag name should be <img>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The src attribute should be href",
+    "The file name needs capital letters",
+    "The tag name should be <img>",
+    "The alt attribute is not allowed"
+   ],
+   "explanation": "The correct tag name is <img>; there is no <image> tag in HTML.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which attribute of <video> and <audio> makes the play, pause and volume buttons appear?",
+   "expected_answer": {
+    "value": "controls"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "control-panel",
+    "buttons",
+    "play",
+    "controls"
+   ],
+   "explanation": "The controls attribute shows the browser's playback controls.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which attribute makes an audio file start playing as soon as the page loads?",
+   "expected_answer": {
+    "value": "autoplay"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "start",
+    "onload",
+    "autoplay",
+    "begin"
+   ],
+   "explanation": "autoplay asks the browser to begin playback automatically.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute makes a video play again from the start each time it ends?",
+   "expected_answer": {
+    "value": "loop"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "repeat",
+    "replay",
+    "loop",
+    "again"
+   ],
+   "explanation": "The loop attribute repeats the media continuously.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "An image file is stored in a folder named pics next to the web page. Which src value is correct?",
+   "expected_answer": {
+    "value": "pics/map.png"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "pics/map.png",
+    "map.png/pics",
+    "pics\\map",
+    "/map/pics.png"
+   ],
+   "explanation": "A relative path lists the folder, a slash, then the file name.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code shows school.jpg 200 pixels wide and 100 pixels high?",
+   "expected_answer": {
+    "value": "<img src=\"school.jpg\" width=\"200\" height=\"100\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<img src=\"school.jpg\" size=\"200x100\">",
+    "<img src=\"school.jpg\" w=\"200\" h=\"100\">",
+    "<img href=\"school.jpg\" width=\"200\" height=\"100\">",
+    "<img src=\"school.jpg\" width=\"200\" height=\"100\">"
+   ],
+   "explanation": "The width and height attributes with numbers set the display size in pixels.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "If an image is given width=\"50%\", what does 50% refer to?",
+   "expected_answer": {
+    "value": "Half the width of the space available to it"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Half the width of the space available to it",
+    "Half of the image file size",
+    "50 pixels",
+    "Half of the screen height"
+   ],
+   "explanation": "A percentage width is relative to the containing element.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What appears if the file named in src is missing or cannot be loaded?",
+   "expected_answer": {
+    "value": "The alt text, usually with a broken-image icon"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The page title",
+    "A blank page",
+    "The alt text, usually with a broken-image icon",
+    "The next image in the page"
+   ],
+   "explanation": "The alt text is shown in place of an image that cannot load.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute of <img> shows a small pop-up text when the mouse rests on the picture?",
+   "expected_answer": {
+    "value": "title"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "name",
+    "title",
+    "popup",
+    "caption"
+   ],
+   "explanation": "The title attribute supplies the tooltip.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute of <video> shows a still picture before the video is played?",
+   "expected_answer": {
+    "value": "poster"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "cover",
+    "thumb",
+    "preview",
+    "poster"
+   ],
+   "explanation": "poster gives the image displayed until playback starts.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the purpose of text written between <video> and </video>?",
+   "expected_answer": {
+    "value": "It is shown only if the browser cannot play the video"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It is shown only if the browser cannot play the video",
+    "It is shown as the video title always",
+    "It is played as a subtitle",
+    "It sets the video size"
+   ],
+   "explanation": "Such content is fallback text for browsers that do not support the tag.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code makes clicking the picture go to home.html?",
+   "expected_answer": {
+    "value": "<a href=\"home.html\"><img src=\"logo.png\"></a>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<img src=\"logo.png\" href=\"home.html\">",
+    "<img><a>home.html</a>",
+    "<a src=\"home.html\"><img=\"logo.png\"></a>",
+    "<a href=\"home.html\"><img src=\"logo.png\"></a>"
+   ],
+   "explanation": "An <img> placed inside an <a> element becomes a clickable link.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute starts a video with its sound turned off?",
+   "expected_answer": {
+    "value": "muted"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "silent",
+    "nosound",
+    "volume=\"off\"",
+    "muted"
+   ],
+   "explanation": "The muted attribute starts playback with audio off.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which complete tag correctly embeds a 320 by 240 video with controls?",
+   "expected_answer": {
+    "value": "<video src=\"talk.mp4\" width=\"320\" height=\"240\" controls></video>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<video file=\"talk.mp4\" size=\"320,240\" controls></video>",
+    "<movie src=\"talk.mp4\" width=\"320\" height=\"240\"></movie>",
+    "<video href=\"talk.mp4\" width=\"320\" height=\"240\"/>",
+    "<video src=\"talk.mp4\" width=\"320\" height=\"240\" controls></video>"
+   ],
+   "explanation": "video uses src for the file, width and height for size and controls for buttons, with a closing tag.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag nested inside <audio> lets you offer the same sound in different file formats?",
+   "expected_answer": {
+    "value": "<source>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<source>",
+    "<file>",
+    "<format>",
+    "<track>"
+   ],
+   "explanation": "Several <source> elements let the browser pick the first format it supports.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The picture is on another website. What should src contain?",
+   "expected_answer": {
+    "value": "The full web address (URL) of the image"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Only the file name of the image",
+    "The name of the other website",
+    "The alt text",
+    "The full web address (URL) of the image"
+   ],
+   "explanation": "A picture hosted elsewhere is referenced by its complete URL.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A 3000 pixel wide photo is shown with width=\"300\". Which statement is true?",
+   "expected_answer": {
+    "value": "It looks smaller, but the whole large file still has to be downloaded"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The file is reduced to 300 pixels before download",
+    "Only the left part of the image is shown",
+    "It looks smaller, but the whole large file still has to be downloaded",
+    "The photo is converted to a GIF"
+   ],
+   "explanation": "The width attribute only changes display size, not the file's size.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which format can show a short animation in an <img> tag?",
+   "expected_answer": {
+    "value": "GIF"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "TXT",
+    "MP3",
+    "GIF",
+    "HTML"
+   ],
+   "explanation": "An animated GIF can play frames inside an <img> tag.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is the best purpose of a meaningful alt text such as alt=\"Bar chart of marks\"?",
+   "expected_answer": {
+    "value": "Screen readers can describe the picture to a blind user"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It makes the picture load faster",
+    "It resizes the image",
+    "Screen readers can describe the picture to a blind user",
+    "It adds a border"
+   ],
+   "explanation": "Alt text is read aloud by screen readers and is the fallback when images fail.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A student wrote <img src=\"Logo.PNG\"> but the file is saved as logo.png on a web server. Why might the image fail?",
+   "expected_answer": {
+    "value": "File names can be case-sensitive on a server"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "PNG files are not supported",
+    "The width is missing",
+    "src needs a full stop at the end",
+    "File names can be case-sensitive on a server"
+   ],
+   "explanation": "Many servers treat Logo.PNG and logo.png as different names.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "The page is in a folder and the image is in the PARENT folder. Which src is correct?",
+   "expected_answer": {
+    "value": "../photo.jpg"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "./photo.jpg",
+    "../photo.jpg",
+    "photo.jpg/..",
+    "/photo.jpg/.."
+   ],
+   "explanation": "Two dots and a slash move up one folder level.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which code gives a 100 pixel wide logo with the description School logo?",
+   "expected_answer": {
+    "value": "<img src=\"logo.png\" width=\"100\" alt=\"School logo\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<img src=\"logo.png\" width=\"100\" alt=\"School logo\">",
+    "<img src=\"logo.png\" width=\"100\" text=\"School logo\">",
+    "<img src=\"School logo\" width=\"100\" alt=\"logo.png\">",
+    "<img alt=\"logo.png\" src=\"100\" width=\"School logo\">"
+   ],
+   "explanation": "src holds the file, width the size and alt the text description.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which attribute pair on <audio> gives a player that starts by itself, repeats forever, and shows buttons?",
+   "expected_answer": {
+    "value": "autoplay loop controls"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "start repeat buttons",
+    "play loop panel",
+    "autoplay loop controls",
+    "autoplay replay controls"
+   ],
+   "explanation": "The standard attributes are autoplay, loop and controls.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which statement about <img border=\"3\" src=\"a.jpg\"> is correct?",
+   "expected_answer": {
+    "value": "It draws a 3 pixel border around the picture"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It adds 3 pixels of space inside the picture",
+    "It reduces the image to 3 pixels",
+    "It repeats the picture 3 times",
+    "It draws a 3 pixel border around the picture"
+   ],
+   "explanation": "The border attribute (legacy) sets the border width in pixels.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which file type is generally the best choice for a photograph where small file size matters and transparency is not needed?",
+   "expected_answer": {
+    "value": "JPG"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "MP3",
+    "TXT",
+    "HTML",
+    "JPG"
+   ],
+   "explanation": "JPG compresses photographs well; MP3 is audio and TXT/HTML are text.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-images-media",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is a common video file extension?",
+   "expected_answer": {
+    "value": "mp4"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "mp3",
+    "mp4",
+    "jpg",
+    "txt"
+   ],
+   "explanation": "mp4 is a video container; mp3 is audio and jpg is an image.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag marks each individual item inside an ordered or unordered list?",
+   "expected_answer": {
+    "value": "<li>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<ol>",
+    "<ul>",
+    "<li>",
+    "<dt>"
+   ],
+   "explanation": "<li> defines one list item; <ol> and <ul> are the list containers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "By default, how does an ordered list <ol> label its items?",
+   "expected_answer": {
+    "value": "1, 2, 3 ..."
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Bullets",
+    "a, b, c ...",
+    "I, II, III ...",
+    "1, 2, 3 ..."
+   ],
+   "explanation": "The default type of an ordered list is Arabic numbers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which kind of list is best for the steps of a recipe that must be followed in order?",
+   "expected_answer": {
+    "value": "Ordered list"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Unordered list",
+    "Description list",
+    "Ordered list",
+    "Table"
+   ],
+   "explanation": "Steps in a sequence suit a numbered (ordered) list.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which kind of list is best for items such as ingredients that have no fixed order?",
+   "expected_answer": {
+    "value": "Unordered list"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Unordered list",
+    "Ordered list with roman numerals",
+    "Description list",
+    "Nested table"
+   ],
+   "explanation": "An unordered (bulleted) list shows items with no sequence.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What marker does an unordered list <ul> show by default?",
+   "expected_answer": {
+    "value": "A filled round bullet (disc)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A hollow square",
+    "Numbers",
+    "Letters",
+    "A filled round bullet (disc)"
+   ],
+   "explanation": "Browsers display discs by default for the first level of <ul>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which list type is suited to a glossary where each term is followed by its meaning?",
+   "expected_answer": {
+    "value": "Description list <dl>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Ordered list <ol>",
+    "Unordered list <ul>",
+    "Description list <dl>",
+    "Table <tr>"
+   ],
+   "explanation": "<dl> pairs terms (<dt>) with their descriptions (<dd>).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tag is NOT part of any HTML list structure?",
+   "expected_answer": {
+    "value": "<tr>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<tr>",
+    "<dd>",
+    "<li>",
+    "<ul>"
+   ],
+   "explanation": "<tr> is a table-row tag; <ul>, <li> and <dd> belong to lists.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In a description list, which tag holds the explanation or meaning of a term?",
+   "expected_answer": {
+    "value": "<dd>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<dt>",
+    "<dd>",
+    "<dl>",
+    "<li>"
+   ],
+   "explanation": "<dd> holds the description; <dt> holds the term.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How is the third item labelled in <ol type=\"i\"><li>A</li><li>B</li><li>C</li></ol> ?",
+   "expected_answer": {
+    "value": "iii"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "c",
+    "iii",
+    "iv",
+    "3"
+   ],
+   "explanation": "type=\"i\" gives lowercase roman numerals: i, ii, iii.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What labels appear for the two items in <ol type=\"I\" start=\"4\"> with two <li> items?",
+   "expected_answer": {
+    "value": "IV and V"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "4 and 5",
+    "IV and V",
+    "i and ii",
+    "D and E"
+   ],
+   "explanation": "type=\"I\" uses uppercase roman numerals and start=\"4\" begins at 4, so IV then V.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What labels appear for three items in <ol type=\"a\" start=\"3\"> ?",
+   "expected_answer": {
+    "value": "c, d, e"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "c, d, e",
+    "3, 4, 5",
+    "a, b, c",
+    "iii, iv, v"
+   ],
+   "explanation": "start is a number; with type=\"a\" the 3rd letter, c, is used first.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What numbers do the two items show in <ol start=\"10\"><li>A</li><li>B</li></ol> ?",
+   "expected_answer": {
+    "value": "10 and 11"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "1 and 2",
+    "9 and 10",
+    "10 and 10",
+    "10 and 11"
+   ],
+   "explanation": "Numbering starts at 10 and increases by one.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is wrong with this code? <ul><li>Pen</li><li>Ink</li></ol>",
+   "expected_answer": {
+    "value": "The list is opened with <ul> but closed with </ol>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "The <li> tags are not allowed in a list",
+    "A list cannot have two items",
+    "Nothing is wrong",
+    "The list is opened with <ul> but closed with </ol>"
+   ],
+   "explanation": "The opening and closing list tags must match: </ul> should close <ul>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute value gives hollow circle bullets in an unordered list?",
+   "expected_answer": {
+    "value": "type=\"circle\""
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "type=\"round\"",
+    "type=\"o\"",
+    "style=\"hollow\"",
+    "type=\"circle\""
+   ],
+   "explanation": "<ul type=\"circle\"> displays hollow circles.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A <ul> is placed inside an <li> of another <ul>. What is the result?",
+   "expected_answer": {
+    "value": "A nested list shown indented as a sub-list"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "An error and nothing is displayed",
+    "The inner list replaces the outer one",
+    "A nested list shown indented as a sub-list",
+    "Two separate pages"
+   ],
+   "explanation": "A list can be nested in a list item to make sub-items.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How many bullets appear for <ul><li>A</li><li>B</li><li>C</li><li>D</li></ul> ?",
+   "expected_answer": {
+    "value": "4"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "4",
+    "3",
+    "1",
+    "5"
+   ],
+   "explanation": "Each <li> inside <ul> displays one bullet.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag directly contains the <li> items of a numbered list?",
+   "expected_answer": {
+    "value": "<ol>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<dl>",
+    "<ol>",
+    "<dt>",
+    "<table>"
+   ],
+   "explanation": "<ol> (ordered list) is the container of <li> items for a numbered list.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is another name for an ordered list?",
+   "expected_answer": {
+    "value": "Numbered list"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Bulleted list",
+    "Definition term",
+    "Nested table",
+    "Numbered list"
+   ],
+   "explanation": "An ordered list shows items with numbers or letters, so it is called a numbered list.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the correct structure for a description list with one entry?",
+   "expected_answer": {
+    "value": "<dl><dt>CPU</dt><dd>Brain of the computer</dd></dl>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<dl><li>CPU</li><li>Brain of the computer</li></dl>",
+    "<dl><dt>CPU</dt><dd>Brain of the computer</dd></dl>",
+    "<dl><dd>CPU</dd><dt>Brain of the computer</dt></dl>",
+    "<dt><dl>CPU</dl><dd>Brain of the computer</dd></dt>"
+   ],
+   "explanation": "Inside <dl>, each term goes in <dt> and its meaning in <dd>, in that order.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "With <ol><li>A</li><li value=\"10\">B</li><li>C</li></ol>, what numbers appear?",
+   "expected_answer": {
+    "value": "1, 10, 11"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "1, 10, 3",
+    "1, 2, 3",
+    "10, 11, 12",
+    "1, 10, 11"
+   ],
+   "explanation": "value=\"10\" sets that item to 10 and following items continue from it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What numbers appear for three items in <ol reversed>?",
+   "expected_answer": {
+    "value": "3, 2, 1"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "1, 2, 3",
+    "0, -1, -2",
+    "3, 3, 3",
+    "3, 2, 1"
+   ],
+   "explanation": "The reversed attribute makes the list count down from the number of items.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What is the label of the 26th item in <ol type=\"A\"> ?",
+   "expected_answer": {
+    "value": "Z"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Y",
+    "AA",
+    "Z",
+    "26"
+   ],
+   "explanation": "type=\"A\" uses uppercase letters; the 26th letter of the alphabet is Z.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which code gives the labels iii, iv, v for three items?",
+   "expected_answer": {
+    "value": "<ol type=\"i\" start=\"3\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<ol type=\"i\" start=\"3\">",
+    "<ol type=\"1\" start=\"3\">",
+    "<ol type=\"a\" start=\"3\">",
+    "<ol type=\"i\" start=\"5\">"
+   ],
+   "explanation": "Lowercase roman numerals start at the third value, iii, with start=\"3\".",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A description list has two <dt> tags and two <dd> tags written alternately. How many term-meaning pairs does it show?",
+   "expected_answer": {
+    "value": "2"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "4",
+    "1",
+    "3",
+    "2"
+   ],
+   "explanation": "Each <dt> with its <dd> forms one pair, so two pairs.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "An ordered list contains an item whose text is another <ul> with 3 <li>, and the outer list has 2 more <li>. How many <li> tags are there in total?",
+   "expected_answer": {
+    "value": "6"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "5",
+    "3",
+    "6",
+    "8"
+   ],
+   "explanation": "3 inner + the outer item holding the inner list + 2 other outer items = 6 <li> tags.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "What does <ol start=\"0\"><li>X</li><li>Y</li></ol> show as labels?",
+   "expected_answer": {
+    "value": "0 and 1"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "1 and 2",
+    "Nothing, start must be 1 or more",
+    "0 and 1",
+    "0 and 0"
+   ],
+   "explanation": "start can be 0, so numbering runs 0, 1.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag ends a list item?",
+   "expected_answer": {
+    "value": "</li>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "</ol>",
+    "</dd>",
+    "</li>",
+    "</item>"
+   ],
+   "explanation": "</li> closes a list item; there is no <item> tag.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-lists",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which of these is a valid way to show the labels a., b., c. as lowercase letters with an ordered list?",
+   "expected_answer": {
+    "value": "<ol type=\"a\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<ol type=\"abc\">",
+    "<ul type=\"a\">",
+    "<ol type=\"a\">",
+    "<ol style=\"letters\">"
+   ],
+   "explanation": "type=\"a\" on <ol> gives lowercase letters.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag is the container for a whole table?",
+   "expected_answer": {
+    "value": "<table>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<tr>",
+    "<td>",
+    "<th>",
+    "<table>"
+   ],
+   "explanation": "<table> wraps all rows and cells of a table.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag creates an ordinary data cell in a row?",
+   "expected_answer": {
+    "value": "<td>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<tr>",
+    "<tb>",
+    "<td>",
+    "<cell>"
+   ],
+   "explanation": "<td> holds the data in one cell; <tr> is the row.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which attribute makes the lines of a table visible, such as border=\"1\"?",
+   "expected_answer": {
+    "value": "border"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "line",
+    "border",
+    "frame-line",
+    "grid"
+   ],
+   "explanation": "The border attribute on <table> draws borders around the table and its cells.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tag gives a title shown above a table?",
+   "expected_answer": {
+    "value": "<caption>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<caption>",
+    "<title>",
+    "<head>",
+    "<h1>"
+   ],
+   "explanation": "<caption> placed inside <table> gives the table a caption.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is wrong with <table><td>A</td><td>B</td></table> ?",
+   "expected_answer": {
+    "value": "The <td> cells are not placed inside a <tr> row"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "The table has no border",
+    "The <td> cells are not placed inside a <tr> row",
+    "<td> should be <th>",
+    "The table has too few cells"
+   ],
+   "explanation": "Cells must be inside <tr> rows, which in turn are inside <table>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tag closes a table row?",
+   "expected_answer": {
+    "value": "</tr>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "</td>",
+    "</table>",
+    "</th>",
+    "</tr>"
+   ],
+   "explanation": "</tr> ends a table row.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the correct nesting order for a table?",
+   "expected_answer": {
+    "value": "<table><tr><td>...</td></tr></table>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<table><tr><td>...</td></tr></table>",
+    "<table><td><tr>...</tr></td></table>",
+    "<tr><table><td>...</td></table></tr>",
+    "<td><tr><table>...</table></tr></td>"
+   ],
+   "explanation": "Rows sit inside the table and cells sit inside rows.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute adds space BETWEEN the cells of a table?",
+   "expected_answer": {
+    "value": "cellspacing"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "cellpadding",
+    "colspan",
+    "cellspacing",
+    "border"
+   ],
+   "explanation": "cellspacing sets the gap between cells; cellpadding sets the space inside each cell.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute adds space INSIDE each cell, between the cell's border and its text?",
+   "expected_answer": {
+    "value": "cellpadding"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "cellpadding",
+    "cellspacing",
+    "rowspan",
+    "width"
+   ],
+   "explanation": "cellpadding controls the inner space of each cell.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The first row of a 3-column table has 3 cells. Its first cell has rowspan=\"2\". How many <td> tags does the second row need?",
+   "expected_answer": {
+    "value": "2"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "2",
+    "3",
+    "1",
+    "0"
+   ],
+   "explanation": "The first column of row 2 is already covered by the cell stretching down, leaving 2 cells.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A row in a 4-column table starts with a cell that has colspan=\"2\". How many more <td> tags are needed in that row?",
+   "expected_answer": {
+    "value": "2"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "3",
+    "4",
+    "2",
+    "1"
+   ],
+   "explanation": "The wide cell covers 2 columns, so 2 more cells fill the remaining columns.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code correctly makes the heading row with the column names Name and Class?",
+   "expected_answer": {
+    "value": "<tr><th>Name</th><th>Class</th></tr>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<th><tr>Name</tr><tr>Class</tr></th>",
+    "<tr><td>Name<td>Class</tr></td>",
+    "<head>Name Class</head>",
+    "<tr><th>Name</th><th>Class</th></tr>"
+   ],
+   "explanation": "A heading row is a <tr> containing <th> cells.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A timetable needs the single cell 'Lunch' to cover all 5 weekday columns in its row. Which code does this?",
+   "expected_answer": {
+    "value": "<td colspan=\"5\">Lunch</td>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<td rowspan=\"5\">Lunch</td>",
+    "<td span=\"5\">Lunch</td>",
+    "<td colspan=\"5\">Lunch</td>",
+    "<td cols=\"5\">Lunch</td>"
+   ],
+   "explanation": "Merging cells across columns uses colspan.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code sets the background colour of a single cell to yellow using an attribute?",
+   "expected_answer": {
+    "value": "<td bgcolor=\"yellow\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<td colour=\"yellow\">",
+    "<td bgcolor=\"yellow\">",
+    "<td background-yellow>",
+    "<td fill=\"yellow\">"
+   ],
+   "explanation": "bgcolor sets the background colour of the cell.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute centres the text inside one cell?",
+   "expected_answer": {
+    "value": "<td align=\"center\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<td middle>",
+    "<td align=\"center\">",
+    "<td text=\"centre\">",
+    "<td position=\"c\">"
+   ],
+   "explanation": "align=\"center\" on <td> centres its content horizontally.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "If border is not given in <table>, how are the cell lines shown by default?",
+   "expected_answer": {
+    "value": "No visible borders"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Thick black borders",
+    "No visible borders",
+    "Dotted borders",
+    "Only the outer border"
+   ],
+   "explanation": "Without a border attribute or CSS, a table is drawn without visible lines.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A table has 4 <tr> rows and each row has 3 <td> cells with no merging. How many columns does the table have?",
+   "expected_answer": {
+    "value": "3"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "4",
+    "7",
+    "12",
+    "3"
+   ],
+   "explanation": "The number of cells in each row gives the number of columns.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag would you place inside a <td> to put a picture in a cell?",
+   "expected_answer": {
+    "value": "<img>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<tr>",
+    "<th>",
+    "<src>",
+    "<img>"
+   ],
+   "explanation": "A cell can hold any content, including an <img> tag.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A table has 3 rows and 3 columns. Row 1 is one <td colspan=\"3\">, and rows 2 and 3 each have 3 plain <td>. How many <td> tags are written?",
+   "expected_answer": {
+    "value": "7"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "9",
+    "7",
+    "6",
+    "5"
+   ],
+   "explanation": "1 + 3 + 3 = 7 tags, although the grid has 9 positions.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A 3-row, 4-column table has one cell with rowspan=\"3\" in column 1 and no other merging. How many <td> tags are needed altogether?",
+   "expected_answer": {
+    "value": "10"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "12",
+    "9",
+    "10",
+    "11"
+   ],
+   "explanation": "The tall cell is one tag covering 3 grid cells, so 12 - 2 = 10 tags.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement is TRUE about a <td> and a table?",
+   "expected_answer": {
+    "value": "A <td> can contain another complete table"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A <td> can never hold more than one word",
+    "A <table> can have only one <tr>",
+    "A <th> cannot be inside <tr>",
+    "A <td> can contain another complete table"
+   ],
+   "explanation": "Tables can be nested by placing a table inside a cell.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A heading 'Marks' must sit above two sub-columns, Maths and Science. Which attribute is needed on the 'Marks' cell?",
+   "expected_answer": {
+    "value": "colspan=\"2\""
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "rowspan=\"2\"",
+    "cellspan=\"2\"",
+    "colspan=\"2\"",
+    "width=\"2\""
+   ],
+   "explanation": "The heading must stretch across two columns, which colspan does.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "For a column heading that must cover two ROWS on the left side of a table, which attribute is used?",
+   "expected_answer": {
+    "value": "rowspan=\"2\""
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "rowspan=\"2\"",
+    "colspan=\"2\"",
+    "height=\"2\"",
+    "merge=\"2\""
+   ],
+   "explanation": "Stretching down across rows is done with rowspan.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A cell should stay empty but still hold its place in the grid. Which is suitable?",
+   "expected_answer": {
+    "value": "<td></td>"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Leave out the tag entirely",
+    "<td/>",
+    "<td></td>",
+    "<tr></tr> in its place"
+   ],
+   "explanation": "An empty <td></td> keeps the column alignment, whereas missing a tag shifts later cells.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Row 1 of a 3-column table has two cells, the first with colspan=\"2\". What is the visible effect if all other rows have 3 cells?",
+   "expected_answer": {
+    "value": "Row 1 still spans all 3 columns with a wide cell and one normal cell"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Row 1 has only 2 columns and the table has 2 columns",
+    "Row 1 still spans all 3 columns with a wide cell and one normal cell",
+    "The table is not displayed",
+    "Row 1 is hidden"
+   ],
+   "explanation": "Span counts add to 3 columns: 2 from the wide cell plus 1 from the other.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "In which situation is <th> better than <td>?",
+   "expected_answer": {
+    "value": "For the cells that label a column or row"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "For cells containing images only",
+    "For the cells that label a column or row",
+    "For every cell in the table",
+    "For cells that must be merged"
+   ],
+   "explanation": "<th> marks header cells that label the data.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A student writes <td rowspan=\"2\">A</td> in row 1 of a 2-column table and also writes two <td> cells in row 2. What is the effect?",
+   "expected_answer": {
+    "value": "Row 2 has an extra cell that makes the table wider"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Row 2 has an extra cell that makes the table wider",
+    "The table is shown perfectly",
+    "Row 2 is deleted",
+    "The first cell is split in two"
+   ],
+   "explanation": "The first column is already covered by the tall cell, so two cells in row 2 push beyond the 2 columns.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-tables",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which attribute sets a table's size as a percentage of the page, such as 80%?",
+   "expected_answer": {
+    "value": "width"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "width",
+    "length",
+    "size",
+    "span"
+   ],
+   "explanation": "width accepts pixels or a percentage.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag creates a form in which a visitor can enter data?",
+   "expected_answer": {
+    "value": "<form>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<input>",
+    "<table>",
+    "<form>",
+    "<submit>"
+   ],
+   "explanation": "<form> is the container that groups the controls a visitor fills in.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag creates a single-line text box, a checkbox or a button, depending on its type attribute?",
+   "expected_answer": {
+    "value": "<input>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<textbox>",
+    "<field>",
+    "<entry>",
+    "<input>"
+   ],
+   "explanation": "<input> changes its look according to the type attribute.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which input type shows a small square that can be ticked or cleared?",
+   "expected_answer": {
+    "value": "checkbox"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "checkbox",
+    "radio",
+    "text",
+    "button"
+   ],
+   "explanation": "type=\"checkbox\" gives a tick box that can be switched on or off.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which input type shows a button that sends the form data when clicked?",
+   "expected_answer": {
+    "value": "submit"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "send",
+    "enter",
+    "go",
+    "submit"
+   ],
+   "explanation": "type=\"submit\" makes the button that submits the form.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which input type hides the characters typed, showing dots or stars instead?",
+   "expected_answer": {
+    "value": "password"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "hidden",
+    "secret",
+    "password",
+    "text"
+   ],
+   "explanation": "type=\"password\" masks the characters on screen.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tag creates a multi-line box where a visitor can type a long message?",
+   "expected_answer": {
+    "value": "<textarea>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<input type=\"textarea\">",
+    "<text>",
+    "<textarea>",
+    "<message>"
+   ],
+   "explanation": "<textarea> gives a multi-line text area and has a closing tag.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tag creates a drop-down list of choices?",
+   "expected_answer": {
+    "value": "<select>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<dropdown>",
+    "<list>",
+    "<select>",
+    "<option>"
+   ],
+   "explanation": "<select> holds the drop-down, and <option> tags inside it hold the choices.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tag inside <select> defines one choice of the drop-down list?",
+   "expected_answer": {
+    "value": "<option>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<item>",
+    "<li>",
+    "<option>",
+    "<choice>"
+   ],
+   "explanation": "Each choice in a <select> is written with an <option> tag.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which input type is best for choosing exactly ONE of the options Male, Female or Other?",
+   "expected_answer": {
+    "value": "radio"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "checkbox",
+    "radio",
+    "text",
+    "submit"
+   ],
+   "explanation": "Radio buttons with the same name allow only one selection.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which input type lets a visitor choose several hobbies from a list at the same time?",
+   "expected_answer": {
+    "value": "checkbox"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "checkbox",
+    "radio",
+    "password",
+    "reset"
+   ],
+   "explanation": "Checkboxes can be ticked independently, so several may be selected.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute of <form> gives the page or program that receives the submitted data?",
+   "expected_answer": {
+    "value": "action"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "action",
+    "target",
+    "method",
+    "name"
+   ],
+   "explanation": "action holds the address of the page or script that processes the form.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does clicking <input type=\"reset\" value=\"Clear\"> do?",
+   "expected_answer": {
+    "value": "Restores all form fields to their starting values"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Sends the form to the server",
+    "Restores all form fields to their starting values",
+    "Closes the browser window",
+    "Deletes the web page"
+   ],
+   "explanation": "A reset button clears what the visitor typed and puts the defaults back.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code creates a button that shows the label Register and submits the form?",
+   "expected_answer": {
+    "value": "<input type=\"submit\" value=\"Register\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<input type=\"submit\" value=\"Register\">",
+    "<input type=\"submit\" label=\"Register\">",
+    "<input type=\"button\" text=\"Register\">",
+    "<submit>Register</submit>"
+   ],
+   "explanation": "The value attribute supplies the text shown on a submit button.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How do you put the starting text Guest in a text box?",
+   "expected_answer": {
+    "value": "<input type=\"text\" value=\"Guest\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<input type=\"text\" start=\"Guest\">",
+    "<input type=\"text\">Guest</input>",
+    "<input type=\"text\" value=\"Guest\">",
+    "<input type=\"text\" default=Guest=\"\">"
+   ],
+   "explanation": "The value attribute sets the initial content of a text field.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute gives a text box a faint hint, such as Enter your name, that disappears when typing starts?",
+   "expected_answer": {
+    "value": "placeholder"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "hint",
+    "tooltip",
+    "label",
+    "placeholder"
+   ],
+   "explanation": "placeholder shows grey guidance text inside an empty field.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute stops a form from being submitted while a particular field is empty?",
+   "expected_answer": {
+    "value": "required"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "required",
+    "needed",
+    "mandatory",
+    "notempty"
+   ],
+   "explanation": "The required attribute makes the browser check that the field is filled.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Three radio buttons must work as one group so only one can be selected. What must they share?",
+   "expected_answer": {
+    "value": "The same name attribute"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The same name attribute",
+    "The same value attribute",
+    "The same id attribute",
+    "The same width"
+   ],
+   "explanation": "Radio buttons with an identical name belong to one group.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which choice in a drop-down appears already selected when the page opens?",
+   "expected_answer": {
+    "value": "The <option> that has the selected attribute"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The option with the longest text",
+    "The <option> that has the selected attribute",
+    "The last <option> always",
+    "The option with the checked attribute"
+   ],
+   "explanation": "The selected attribute marks the option chosen by default.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which attribute makes a checkbox appear already ticked?",
+   "expected_answer": {
+    "value": "checked"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "selected",
+    "checked",
+    "ticked",
+    "default"
+   ],
+   "explanation": "checked pre-selects a checkbox or radio button.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the role of the <label> tag?",
+   "expected_answer": {
+    "value": "It attaches a text caption to a form control"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "It prints the form on paper",
+    "It attaches a text caption to a form control",
+    "It creates a text box",
+    "It sets the colour of the form"
+   ],
+   "explanation": "A <label> describes a control, and clicking it can focus that control.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which line limits a text box so that at most 10 characters can be typed?",
+   "expected_answer": {
+    "value": "<input type=\"text\" maxlength=\"10\">"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<input type=\"text\" maxlength=\"10\">",
+    "<input type=\"text\" size=\"10\">",
+    "<input type=\"text\" limit=\"10\">",
+    "<input type=\"text\" length=\"10\" end>"
+   ],
+   "explanation": "maxlength restricts the number of characters; size only sets the visible width.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A visitor's password must not be visible in the address bar after submission. Which form method is the better choice?",
+   "expected_answer": {
+    "value": "post"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "post",
+    "get",
+    "put",
+    "show"
+   ],
+   "explanation": "With post the data travels in the request body, not in the URL as with get.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What is the main difference between method=\"get\" and method=\"post\"?",
+   "expected_answer": {
+    "value": "get adds the form data to the URL, post sends it in the request body"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "post adds the data to the URL, get hides it",
+    "get is only for images, post is only for text",
+    "There is no difference at all",
+    "get adds the form data to the URL, post sends it in the request body"
+   ],
+   "explanation": "With get, the entered values appear after a question mark in the address.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about <textarea rows=\"4\" cols=\"30\"> is TRUE?",
+   "expected_answer": {
+    "value": "It shows a box about 4 lines high and 30 characters wide"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It shows 4 boxes each 30 pixels wide",
+    "It limits the text to 4 words",
+    "It creates 30 rows and 4 columns of cells",
+    "It shows a box about 4 lines high and 30 characters wide"
+   ],
+   "explanation": "rows is the visible height in lines and cols is the visible width in characters.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Two text boxes are written as <input type=\"text\" name=\"city\"> and <input type=\"text\" name=\"city\">. What problem may occur?",
+   "expected_answer": {
+    "value": "The server receives two values under the same name and they can be confused"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Only one text box is displayed",
+    "The form refuses to open",
+    "The server receives two values under the same name and they can be confused",
+    "The second box becomes a checkbox"
+   ],
+   "explanation": "The name identifies each field's data, so duplicate names make the values ambiguous.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A student wrote <select><option>Red<option>Blue</select>. How many choices appear in the drop-down?",
+   "expected_answer": {
+    "value": "2"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "2",
+    "1",
+    "3",
+    "0"
+   ],
+   "explanation": "Each <option> adds one entry, so Red and Blue are two choices.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which is the most suitable control for choosing a Class from 6, 7, 8, 9 and 10 when space on the page is small?",
+   "expected_answer": {
+    "value": "<select> drop-down list"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Five checkboxes",
+    "<select> drop-down list",
+    "<textarea>",
+    "Five submit buttons"
+   ],
+   "explanation": "A drop-down takes little space and allows a single choice.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A form has <input type=\"text\" name=\"age\" value=\"15\">. The visitor does not change anything and submits. What value is sent for age?",
+   "expected_answer": {
+    "value": "15"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "15",
+    "Nothing is sent",
+    "age",
+    "An empty value"
+   ],
+   "explanation": "The initial value stays in the field and is submitted unless changed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-forms",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which input type creates a button that does nothing by itself and is normally used with a script?",
+   "expected_answer": {
+    "value": "button"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "button",
+    "submit",
+    "reset",
+    "image"
+   ],
+   "explanation": "type=\"button\" is a plain push button with no default action.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag creates a hyperlink?",
+   "expected_answer": {
+    "value": "<a>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<a>",
+    "<link>",
+    "<href>",
+    "<url>"
+   ],
+   "explanation": "The anchor tag <a> makes a hyperlink.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which attribute of <a> holds the address the link leads to?",
+   "expected_answer": {
+    "value": "href"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "src",
+    "href",
+    "url",
+    "link"
+   ],
+   "explanation": "href (hypertext reference) stores the destination.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In <a href=\"about.html\">About us</a>, what does the visitor see and click?",
+   "expected_answer": {
+    "value": "About us"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "about.html",
+    "<a>",
+    "href",
+    "About us"
+   ],
+   "explanation": "The text between the tags is the clickable link text; the href is hidden.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does target=\"_self\" do in an <a> tag?",
+   "expected_answer": {
+    "value": "Opens the link in the same tab or window"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Opens the link in a new tab",
+    "Opens the link in a pop-up box",
+    "Stops the link from working",
+    "Opens the link in the same tab or window"
+   ],
+   "explanation": "_self is the default, loading the page in the current window.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which value makes a link open in a new browser tab or window?",
+   "expected_answer": {
+    "value": "target=\"_blank\""
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "target=\"_blank\"",
+    "target=\"_new_page\"",
+    "open=\"new\"",
+    "window=\"blank\""
+   ],
+   "explanation": "target=\"_blank\" opens the destination in a new tab or window.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is wrong with <a>Home</a> as a link?",
+   "expected_answer": {
+    "value": "It has no href, so it leads nowhere"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "The tag should be <link>",
+    "The text must be inside quotes",
+    "It has no href, so it leads nowhere",
+    "It needs a src attribute"
+   ],
+   "explanation": "Without href an <a> tag is not a working link.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which code correctly makes the words Visit us a link to https://www.example.com ?",
+   "expected_answer": {
+    "value": "<a href=\"https://www.example.com\">Visit us</a>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<a src=\"https://www.example.com\">Visit us</a>",
+    "<link href=\"https://www.example.com\">Visit us</link>",
+    "<a href=\"https://www.example.com\">Visit us</a>",
+    "<a>https://www.example.com=Visit us</a>"
+   ],
+   "explanation": "The address goes in href and the visible words go between the tags.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A link to https://www.example.com is written without the https:// part: <a href=\"www.example.com\">. What usually happens?",
+   "expected_answer": {
+    "value": "The browser treats it as a file name inside the current site"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The browser treats it as a file name inside the current site",
+    "It works exactly as the full address",
+    "The page closes",
+    "The link opens in a new tab"
+   ],
+   "explanation": "Without a protocol, www.example.com is read as a relative path.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which href makes a link that opens the visitor's email program to write to info@school.org ?",
+   "expected_answer": {
+    "value": "mailto:info@school.org"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "email:info@school.org",
+    "mail=info@school.org",
+    "www.info@school.org",
+    "mailto:info@school.org"
+   ],
+   "explanation": "The mailto: prefix starts an email message to that address.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The link <a href=\"notes.html\"> is on a page. Where must notes.html be, to be found?",
+   "expected_answer": {
+    "value": "In the same folder as the current page"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "On the visitor's computer desktop",
+    "In the same folder as the current page",
+    "Only on another website",
+    "Inside the <head> tag"
+   ],
+   "explanation": "A bare file name is relative to the current page's folder.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which link goes to a page called fees.html stored in a folder named info, which is inside the current page's folder?",
+   "expected_answer": {
+    "value": "<a href=\"info/fees.html\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<a href=\"fees.html/info\">",
+    "<a href=\"info/fees.html\">",
+    "<a href=\"info.fees.html\">",
+    "<a href=\"/fees/info.html\">"
+   ],
+   "explanation": "The folder name, a slash and then the file name give the relative path.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the difference between an absolute and a relative URL in a link?",
+   "expected_answer": {
+    "value": "An absolute URL has the full address, a relative URL is given from the current page"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "An absolute URL is shorter than a relative one",
+    "An absolute URL has the full address, a relative URL is given from the current page",
+    "A relative URL always opens a new tab",
+    "Absolute URLs work only for images"
+   ],
+   "explanation": "A relative path depends on where the current page is stored.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code makes the link text open a website in a new tab?",
+   "expected_answer": {
+    "value": "<a href=\"https://example.com\" target=\"_blank\">Open</a>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<a href=\"https://example.com\" new>Open</a>",
+    "<a target=\"_blank\">https://example.com</a>",
+    "<a href=\"https://example.com\" target=\"_blank\">Open</a>",
+    "<a href=\"_blank\" target=\"https://example.com\">Open</a>"
+   ],
+   "explanation": "href has the address and target=\"_blank\" asks for a new tab.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "By default, how are unvisited links usually shown by a browser?",
+   "expected_answer": {
+    "value": "Blue and underlined"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Blue and underlined",
+    "Black and bold",
+    "Red and italic",
+    "Green and boxed"
+   ],
+   "explanation": "The traditional default link style is blue with an underline.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A link that has already been visited is usually shown in which default colour?",
+   "expected_answer": {
+    "value": "Purple"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Blue",
+    "Black",
+    "Purple",
+    "Orange"
+   ],
+   "explanation": "Browsers traditionally display visited links in purple.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag, placed in the head part, can be written as <link rel=\"stylesheet\" href=\"style.css\"> ?",
+   "expected_answer": {
+    "value": "<link>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<link>",
+    "<a>",
+    "<style>",
+    "<script>"
+   ],
+   "explanation": "The <link> tag connects an external resource such as a style sheet to the page.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does the title attribute of an <a> tag usually do?",
+   "expected_answer": {
+    "value": "Shows a small tooltip when the mouse rests on the link"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Shows a small tooltip when the mouse rests on the link",
+    "Changes the page title",
+    "Sets the link colour",
+    "Opens the link in a new tab"
+   ],
+   "explanation": "The title attribute gives extra text shown as a tooltip.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code turns a picture logo.png into a link to home.html ?",
+   "expected_answer": {
+    "value": "<a href=\"home.html\"><img src=\"logo.png\"></a>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<img href=\"home.html\" src=\"logo.png\">",
+    "<a src=\"logo.png\">home.html</a>",
+    "<img><a href=\"logo.png\">home.html</a></img>",
+    "<a href=\"home.html\"><img src=\"logo.png\"></a>"
+   ],
+   "explanation": "Placing the <img> tag inside <a> makes the picture clickable.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "An element has id=\"results\" on a long page. Which href jumps to it?",
+   "expected_answer": {
+    "value": "#results"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "#results",
+    "@results",
+    "results#",
+    "&results"
+   ],
+   "explanation": "A hash followed by the id jumps to that element on the page.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which code makes a link that scrolls to the section with id=\"top\" on the same page?",
+   "expected_answer": {
+    "value": "<a href=\"#top\">Go to top</a>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<a href=\"top\">Go to top</a>",
+    "<a href=\"#top\">Go to top</a>",
+    "<a name=\"#top\">Go to top</a>",
+    "<a href=\"top#\">Go to top</a>"
+   ],
+   "explanation": "An in-page link uses # and the id of the target.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A student writes <a href=\"index.html\">Home<a>. What is wrong?",
+   "expected_answer": {
+    "value": "The closing tag should be </a>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "The href must be href=index.html without quotes",
+    "The closing tag should be </a>",
+    "The text Home must be in bold",
+    "The file should be .htm"
+   ],
+   "explanation": "The second <a> must be written with a slash to close the first.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about the href value \"https://www.example.com/page.html\" is TRUE?",
+   "expected_answer": {
+    "value": "It is an absolute URL naming protocol, site and file"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It is a relative URL",
+    "It is an email address",
+    "It is an absolute URL naming protocol, site and file",
+    "It refers to a file on the visitor's own computer"
+   ],
+   "explanation": "An address with the protocol and the site name is absolute.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A visitor clicks <a href=\"tel:+911234567890\">Call</a> on a phone. What is the likely effect?",
+   "expected_answer": {
+    "value": "The phone offers to dial that number"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The page opens a website named tel",
+    "A text message is sent",
+    "The browser downloads a file",
+    "The phone offers to dial that number"
+   ],
+   "explanation": "The tel: prefix lets the device start a phone call.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which href lets a visitor download a file named form.pdf stored beside the page, when the download attribute is added?",
+   "expected_answer": {
+    "value": "<a href=\"form.pdf\" download>Get form</a>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<a href=\"form.pdf\" download>Get form</a>",
+    "<a src=\"form.pdf\" download>Get form</a>",
+    "<a href=\"download:form.pdf\">Get form</a>",
+    "<a href=\"form.pdf\" save=\"yes\">Get form</a>"
+   ],
+   "explanation": "href names the file and the download attribute asks the browser to save it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A page has 3 links, and one of them has no text between its <a> tags. What will the visitor notice?",
+   "expected_answer": {
+    "value": "That link has nothing to click, so it is invisible"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The link is shown with its href as text",
+    "The page will not load",
+    "The link opens automatically",
+    "That link has nothing to click, so it is invisible"
+   ],
+   "explanation": "Link text is the part that can be seen and clicked; an empty one cannot be clicked.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Why do writers avoid link text like click here?",
+   "expected_answer": {
+    "value": "It does not tell the reader or screen reader where the link goes"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It is not allowed in HTML",
+    "It does not tell the reader or screen reader where the link goes",
+    "It makes the link slower",
+    "It breaks the href"
+   ],
+   "explanation": "Meaningful link text helps readers and screen readers understand the destination.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which pair correctly matches the tags with their jobs?",
+   "expected_answer": {
+    "value": "<a> links to a page, <img> shows a picture"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<a> shows a picture, <img> links to a page",
+    "<a> makes a list, <li> links to a page",
+    "<a> links to a page, <img> shows a picture",
+    "<a> makes a table, <td> shows a picture"
+   ],
+   "explanation": "<a> is the anchor for links, and <img> embeds pictures.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-links",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A page in folder site/pages must link to site/index.html. Which href is correct?",
+   "expected_answer": {
+    "value": "../index.html"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "index.html/..",
+    "pages/index.html",
+    "/pages/../index",
+    "../index.html"
+   ],
+   "explanation": "The two dots move one folder up from pages to site.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In web design, the abbreviation CSS expands to which phrase?",
+   "expected_answer": {
+    "value": "Cascading Style Sheets"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Computer Style System",
+    "Creative Style Syntax",
+    "Cascading Style Sheets",
+    "Coded Screen Styles"
+   ],
+   "explanation": "CSS is the Cascading Style Sheets language for the look of web pages.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What is CSS mainly used for in a web page?",
+   "expected_answer": {
+    "value": "Controlling its appearance, such as colours and fonts"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Storing the visitor's data",
+    "Sending email",
+    "Connecting to the Internet",
+    "Controlling its appearance, such as colours and fonts"
+   ],
+   "explanation": "CSS styles the look and layout of HTML content.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In the rule p { color: red; }, what is p called?",
+   "expected_answer": {
+    "value": "The selector"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The property",
+    "The value",
+    "The declaration",
+    "The selector"
+   ],
+   "explanation": "The part before the braces, which chooses the elements, is the selector.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In the rule p { color: red; }, what is red called?",
+   "expected_answer": {
+    "value": "The value"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The value",
+    "The selector",
+    "The property",
+    "The tag"
+   ],
+   "explanation": "The word after the colon is the value given to the property.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which symbol separates a property from its value in CSS?",
+   "expected_answer": {
+    "value": "Colon :"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Colon :",
+    "Equals sign =",
+    "Hyphen -",
+    "Comma ,"
+   ],
+   "explanation": "A declaration is written as property: value;",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which symbols enclose the declarations of a CSS rule?",
+   "expected_answer": {
+    "value": "Curly braces { }"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Curly braces { }",
+    "Round brackets ( )",
+    "Angle brackets < >",
+    "Square brackets [ ]"
+   ],
+   "explanation": "Declarations are placed inside curly braces after the selector.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which property sets the colour of the text?",
+   "expected_answer": {
+    "value": "color"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "text-style",
+    "color",
+    "font-paint",
+    "foreground"
+   ],
+   "explanation": "The color property sets the text colour.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which property changes the background colour of an element?",
+   "expected_answer": {
+    "value": "background-color"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "background-color",
+    "bgcolor",
+    "back-colour",
+    "color-background"
+   ],
+   "explanation": "background-color is the CSS property for the background.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which declaration makes the text size 20 pixels?",
+   "expected_answer": {
+    "value": "font-size: 20px;"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "text-size: 20px;",
+    "font-size: 20px;",
+    "font: size 20;",
+    "size = 20px;"
+   ],
+   "explanation": "font-size takes a length such as 20px.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which declaration centres the text inside a heading?",
+   "expected_answer": {
+    "value": "text-align: center;"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "align-text: middle;",
+    "text-position: centre;",
+    "text-align: center;",
+    "center: text;"
+   ],
+   "explanation": "text-align with value center centres inline text.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which code applies CSS directly to a single paragraph?",
+   "expected_answer": {
+    "value": "<p style=\"color: blue;\">Hello</p>"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<p css=\"color: blue;\">Hello</p>",
+    "<p color=\"style: blue;\">Hello</p>",
+    "<p style=\"color: blue;\">Hello</p>",
+    "<style p=\"blue\">Hello</style>"
+   ],
+   "explanation": "The style attribute carries an inline CSS declaration for that one element.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Where is an internal style sheet written?",
+   "expected_answer": {
+    "value": "Inside a <style> tag, usually in <head>"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Inside a <p> tag only",
+    "In a separate .css file",
+    "After the </html> tag",
+    "Inside a <style> tag, usually in <head>"
+   ],
+   "explanation": "Internal CSS is placed within <style> ... </style> in the page.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tag links a separate .css file to the page?",
+   "expected_answer": {
+    "value": "<link rel=\"stylesheet\" href=\"main.css\">"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "<css src=\"main.css\">",
+    "<style href=\"main.css\"></style>",
+    "<a href=\"main.css\">",
+    "<link rel=\"stylesheet\" href=\"main.css\">"
+   ],
+   "explanation": "An external style sheet is attached with <link> in the head.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the file extension of an external style sheet?",
+   "expected_answer": {
+    "value": "css"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "html",
+    "css",
+    "style",
+    "txt"
+   ],
+   "explanation": "External style sheets are saved with the .css extension.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the main advantage of one external style sheet used by every page of a website?",
+   "expected_answer": {
+    "value": "Changing it updates the look of all pages at once"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Pages load without any HTML",
+    "Each page needs its own copy",
+    "It hides the pages from search",
+    "Changing it updates the look of all pages at once"
+   ],
+   "explanation": "A single shared .css file keeps styling consistent and easy to change.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does the rule h1, h2 { color: green; } do?",
+   "expected_answer": {
+    "value": "Colours both h1 and h2 headings green"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Colours only h2 inside h1",
+    "Colours h1 green and h2 black",
+    "Gives an error",
+    "Colours both h1 and h2 headings green"
+   ],
+   "explanation": "A comma-separated selector list applies the same rule to each.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which CSS comment is correct?",
+   "expected_answer": {
+    "value": "/* This is a note */"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "// This is a note",
+    "/* This is a note */",
+    "<!-- This is a note -->",
+    "# This is a note"
+   ],
+   "explanation": "CSS comments are written between /* and */.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which selector chooses every element that has class=\"note\"?",
+   "expected_answer": {
+    "value": ".note"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "#note",
+    "note",
+    ".note",
+    "*note"
+   ],
+   "explanation": "A class is selected with a dot before its name.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which selector chooses the single element with id=\"menu\"?",
+   "expected_answer": {
+    "value": "#menu"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    ".menu",
+    "#menu",
+    "menu#",
+    "@menu"
+   ],
+   "explanation": "An id is selected with a hash before its name.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A paragraph has an inline style color: red, and the internal style sheet says p { color: blue; }. What colour is the text?",
+   "expected_answer": {
+    "value": "Red"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Blue",
+    "Black",
+    "Purple",
+    "Red"
+   ],
+   "explanation": "An inline style is more specific and overrides the style sheet rule.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which declaration gives a 2 pixel solid black border?",
+   "expected_answer": {
+    "value": "border: 2px solid black;"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "border: 2px solid black;",
+    "border: solid 2 black px;",
+    "border-width: black 2px;",
+    "line: 2px black;"
+   ],
+   "explanation": "The border shorthand lists width, style and colour.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What does this rule do? p { font-weight: bold; }",
+   "expected_answer": {
+    "value": "Makes paragraph text bold"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Makes paragraph text bold",
+    "Makes paragraphs wider",
+    "Makes the paragraph text underlined",
+    "Makes the text italic"
+   ],
+   "explanation": "font-weight controls how bold the text appears.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which declaration italicises the text?",
+   "expected_answer": {
+    "value": "font-style: italic;"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "font-weight: italic;",
+    "font-style: italic;",
+    "text-style: slant;",
+    "font: bold;"
+   ],
+   "explanation": "font-style set to italic gives slanted text.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What is the error in this rule? p { color red; }",
+   "expected_answer": {
+    "value": "The colon between property and value is missing"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "The selector is wrong",
+    "The colon between property and value is missing",
+    "The braces should be brackets",
+    "Colours cannot be used on p"
+   ],
+   "explanation": "Each declaration needs property: value.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which declaration removes the underline from links?",
+   "expected_answer": {
+    "value": "a { text-decoration: none; }"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "a { underline: none; }",
+    "a { text: no-line; }",
+    "a { text-decoration: none; }",
+    "a { border: 0; }"
+   ],
+   "explanation": "text-decoration: none removes the underline from the link text.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "In the code <p class=\"big\">Hi</p> with .big { font-size: 30px; } and p { font-size: 12px; }, what size is Hi?",
+   "expected_answer": {
+    "value": "30px"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "12px",
+    "30px",
+    "42px",
+    "18px"
+   ],
+   "explanation": "The class selector is more specific than the p selector, so its size wins.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "What colour is the text in <div style=\"color:red\"><p>Hi</p></div> when no other CSS is used?",
+   "expected_answer": {
+    "value": "Red, because the paragraph inherits the colour"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Red, because the paragraph inherits the colour",
+    "Black, because p has its own colour",
+    "Blue",
+    "Nothing is shown"
+   ],
+   "explanation": "Text colour is inherited by child elements.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-css-basics",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which of the three ways of using CSS has the narrowest reach, affecting just one element?",
+   "expected_answer": {
+    "value": "Inline CSS"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Internal CSS",
+    "External CSS",
+    "Inline CSS",
+    "All three equally"
+   ],
+   "explanation": "Inline CSS is applied through the style attribute of a single tag.",
+   "content_status": "needs_review"
+  }
+ ]
+}

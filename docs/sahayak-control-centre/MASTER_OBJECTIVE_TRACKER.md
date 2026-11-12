@@ -1,7 +1,7 @@
 # Master Objective Tracker
 Updated 2026-10-31. Only SAH-PROMPT-0009 is tracked at requirement level. Status words are the 14 allowed ones. "Founder acceptance" is separate from technical status and is empty for everything (the founder has not accepted anything under this system yet).
 
-Counts for SAH-PROMPT-0009: 75 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 48, READY FOR TESTING: 8.
+Counts for SAH-PROMPT-0009: 76 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 49, READY FOR TESTING: 8.
 
 ## SAH-PROMPT-0009 / O1: Persistent registry and execution control (Parts 1-3, 11, 12)
 Requirements 11; PARTIALLY COMPLETED 11
@@ -74,7 +74,7 @@ Requirements 4; NOT STARTED 2, PARTIALLY COMPLETED 2
 | R40 | Flag Indian privacy / legal questions for professional review instead of claiming compliance | PARTIALLY COMPLETED | pending | Flagged in PHASE0_AUDIT.md section 10; review itself not done. |
 
 ## SAH-PROMPT-0009 / O6: Database and architecture rules (Part 8)
-Requirements 26; COMPLETED 2, PARTIALLY COMPLETED 23, READY FOR TESTING 1
+Requirements 27; COMPLETED 2, PARTIALLY COMPLETED 24, READY FOR TESTING 1
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
@@ -104,6 +104,7 @@ Requirements 26; COMPLETED 2, PARTIALLY COMPLETED 23, READY FOR TESTING 1
 | R73 | Founder request: add French (Class X) as a subject with all its content | PARTIALLY COMPLETED | pending | v123: curriculum 19 chapters/71 skills, 356 questions (needs_review), accent keypad, accent-aware grading; t123. Needs deploy + seed commands + a French teacher review. Not seen live. |
 | R74 | Real student report (screenshots): correct typed maths answers were marked wrong | PARTIALLY COMPLETED | pending | v124: grading accepts "or" lists, missing "x =", thousands commas; t124. Not seen live. |
 | R75 | Founder request 2026-11-10 (chat): add more questions in all subjects | PARTIALLY COMPLETED | pending | v125: 503 original needs_review questions over all seven subjects; t125. Needs deploy + seed-diagnostic.js + teacher review. Not seen live. |
+| R76 | Founder request 2026-11-11 (chat): add 1000+ questions covering each skill in Computer Applications | PARTIALLY COMPLETED | pending | v126: 1,076 needs_review questions over all 38 skills; t126. Needs deploy + seed-diagnostic.js + teacher review. Not seen live. |
 
 ## SAH-PROMPT-0009 / O7: Testing and acceptance (Part 9)
 Requirements 6; NOT STARTED 4, PARTIALLY COMPLETED 2

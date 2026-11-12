@@ -1,0 +1,3365 @@
+{
+ "subject_slug": "computer-applications",
+ "questions": [
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is a web browser?",
+   "expected_answer": {
+    "value": "Mozilla Firefox"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Microsoft Excel",
+    "Windows Explorer",
+    "Mozilla Firefox",
+    "Google Search"
+   ],
+   "explanation": "Firefox is a program installed on the client device to open and display web pages; Google Search is a search engine website.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "The unique address typed in a browser's address bar to reach a web page is called its:",
+   "expected_answer": {
+    "value": "URL"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "ISP",
+    "CPU",
+    "URL",
+    "Modem"
+   ],
+   "explanation": "A URL (Uniform Resource Locator) identifies where a web page or resource is located on the Internet.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Copying a video from a website to your phone's storage is called:",
+   "expected_answer": {
+    "value": "Downloading"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Uploading",
+    "Browsing",
+    "Hosting",
+    "Downloading"
+   ],
+   "explanation": "Downloading means receiving a copy of a file from a remote computer onto your own device.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The first page that opens when you visit a website is usually called its:",
+   "expected_answer": {
+    "value": "Home page"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Home page",
+    "Back page",
+    "Login key",
+    "Web server"
+   ],
+   "explanation": "The home page is the main entry page of a website from which other pages are reached.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A company that gives you a connection to the Internet is called an:",
+   "expected_answer": {
+    "value": "Internet Service Provider (ISP)"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Domain registrar",
+    "Internet Service Provider (ISP)",
+    "Web browser",
+    "Search engine"
+   ],
+   "explanation": "An ISP supplies Internet access to homes and organisations, usually for a fee.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is NOT a web browser?",
+   "expected_answer": {
+    "value": "Gmail"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Safari",
+    "Microsoft Edge",
+    "Opera",
+    "Gmail"
+   ],
+   "explanation": "Safari, Edge and Opera are browsers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Uploading a photo to a school website means:",
+   "expected_answer": {
+    "value": "Sending the photo from your computer to a web server"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Receiving the photo from the web server",
+    "Deleting the photo from the server",
+    "Sending the photo from your computer to a web server",
+    "Printing the photo through the Internet"
+   ],
+   "explanation": "Uploading transfers a file from your device to a remote computer such as a server.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A student types www.example.org in a browser. Which machine ultimately sends back the page contents?",
+   "expected_answer": {
+    "value": "The web server hosting that site"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The student's ISP modem",
+    "The student's own browser",
+    "The web server hosting that site",
+    "A search engine's keyboard"
+   ],
+   "explanation": "A web server stores the website's files and responds to browser requests with the page.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In the client-server model of the Web, the browser on your laptop acts as the:",
+   "expected_answer": {
+    "value": "Client that requests pages"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Server that stores pages",
+    "Router that assigns addresses",
+    "Client that requests pages",
+    "Domain that owns the site"
+   ],
+   "explanation": "The browser is the client: it asks servers for web pages and displays the replies.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about a website and a web page is correct?",
+   "expected_answer": {
+    "value": "A website is a collection of web pages, and each page is one document within it"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A web page is a collection of websites",
+    "A website and a web page are always the same single file",
+    "A web page is the software used to view websites",
+    "A website is a collection of web pages, and each page is one document within it"
+   ],
+   "explanation": "One website contains many related web pages, linked together under a common domain.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Tim Berners-Lee is credited with inventing which of these?",
+   "expected_answer": {
+    "value": "The World Wide Web"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The World Wide Web",
+    "The first email program",
+    "The modem",
+    "The Google search engine"
+   ],
+   "explanation": "Tim Berners-Lee proposed and built the World Wide Web in the early 1990s at CERN.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The Internet is best described as:",
+   "expected_answer": {
+    "value": "A worldwide network of interconnected computer networks"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A single giant computer in one country",
+    "A collection of only web pages",
+    "A software program installed on a phone",
+    "A worldwide network of interconnected computer networks"
+   ],
+   "explanation": "The Internet links many separate networks together; the Web is just one service that runs on it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Riya watches a live cricket match online without saving the video file on her phone. This is called:",
+   "expected_answer": {
+    "value": "Streaming"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Uploading",
+    "Compiling",
+    "Hosting",
+    "Streaming"
+   ],
+   "explanation": "Streaming plays media as it arrives over the network, without storing the whole file first.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A hyperlink on a web page is mainly used to:",
+   "expected_answer": {
+    "value": "Jump to another page or resource when clicked"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Increase the size of the text",
+    "Jump to another page or resource when clicked",
+    "Remove the page from the server",
+    "Change the colour of the browser"
+   ],
+   "explanation": "A hyperlink connects one page or resource to another so users can navigate.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which task is an example of uploading?",
+   "expected_answer": {
+    "value": "Attaching your assignment file to a school portal's submission form"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Reading a news article on a site",
+    "Saving a recipe page to your tablet",
+    "Attaching your assignment file to a school portal's submission form",
+    "Playing a song streamed from a site"
+   ],
+   "explanation": "Submitting your file to the portal sends data from your device to the server.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of the following is correct about a web server?",
+   "expected_answer": {
+    "value": "It is a computer (with software) that stores websites and delivers pages on request"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "It is a program used to view pages",
+    "It is the cable connecting a PC to the router",
+    "It is a computer (with software) that stores websites and delivers pages on request",
+    "It is the typed address of a website"
+   ],
+   "explanation": "A web server stores web content and serves it to clients; the viewing program is the browser.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Two friends both say they 'surfed the Web' yesterday. What exactly did they do?",
+   "expected_answer": {
+    "value": "Visited and moved between web pages using a browser"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Repaired a network cable",
+    "Installed an operating system",
+    "Visited and moved between web pages using a browser",
+    "Wrote a program in C"
+   ],
+   "explanation": "Browsing or surfing means navigating web pages with a browser.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which pair correctly matches a term with its role?",
+   "expected_answer": {
+    "value": "Browser - views web pages; Web server - stores and serves them"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Browser - stores websites; Web server - views web pages",
+    "Browser - connects to ISP; Web server - types URLs",
+    "Browser - assigns IP addresses; Web server - blocks viruses",
+    "Browser - views web pages; Web server - stores and serves them"
+   ],
+   "explanation": "The browser is client software for viewing; the server holds and sends content.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A website that is no longer reachable for anyone, because its server is switched off, is said to be:",
+   "expected_answer": {
+    "value": "Offline (down)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Offline (down)",
+    "Streaming",
+    "Downloaded",
+    "Bookmarked"
+   ],
+   "explanation": "If the hosting server is unavailable, the site cannot be reached by anyone until it is back up.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A user saves the address of a favourite site inside the browser so she can open it with one click later. This feature is called a:",
+   "expected_answer": {
+    "value": "Bookmark"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Bookmark",
+    "Download",
+    "Upload",
+    "Cookie server"
+   ],
+   "explanation": "A bookmark stores a page's address inside the browser for quick access.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is an accurate difference between the Internet and the World Wide Web?",
+   "expected_answer": {
+    "value": "The Web is a service (linked pages) that runs on the Internet"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The Internet is a service that runs on the Web",
+    "They are two names for exactly the same thing",
+    "The Web is a service (linked pages) that runs on the Internet",
+    "The Web is the hardware and the Internet is only software"
+   ],
+   "explanation": "The Internet is the global network; the Web is a collection of linked pages accessed over it, like email is another service.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Mira clicks a link and a page of a site hosted in another country appears. Which sequence is correct?",
+   "expected_answer": {
+    "value": "Browser sends a request, web server responds with the page, browser displays it"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Browser sends a request, web server responds with the page, browser displays it",
+    "Web server sends a request, browser stores the page, ISP displays it",
+    "ISP writes the page, server types the URL, browser downloads it",
+    "Browser uploads the page, server displays it, ISP requests it"
+   ],
+   "explanation": "The client (browser) requests, the server responds, and the browser renders what it receives.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A student says: 'Google is a browser because I open it to see websites.' What is the best correction?",
+   "expected_answer": {
+    "value": "Google Search is a website (search engine); the program she opens it in, such as Chrome, is the browser"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Google is the server of the browser",
+    "Google is the ISP of her school",
+    "Google is a download she made earlier",
+    "Google Search is a website (search engine); the program she opens it in, such as Chrome, is the browser"
+   ],
+   "explanation": "A search engine is a website used to find pages; the browser is the program that displays any website.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which scenario involves BOTH downloading and uploading?",
+   "expected_answer": {
+    "value": "Receiving a worksheet from a portal, then sending your solved copy back to it"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Receiving a worksheet from a portal, then sending your solved copy back to it",
+    "Reading a page offline from a saved copy",
+    "Watching a lecture streamed once",
+    "Typing a URL and closing the browser at once"
+   ],
+   "explanation": "Getting the worksheet is a download; sending the solved file back is an upload.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is the most accurate description of 'hosting' a website?",
+   "expected_answer": {
+    "value": "Storing its files on a server connected to the Internet so others can access them"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Visiting it daily through a browser",
+    "Copying its pages to a pen drive",
+    "Registering a phone number for it",
+    "Storing its files on a server connected to the Internet so others can access them"
+   ],
+   "explanation": "Web hosting means keeping a site's files on an always-connected server so visitors can open it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A browser shows www.myschool.edu/results.html. Which part names the specific page file on the site?",
+   "expected_answer": {
+    "value": "results.html"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "www",
+    "myschool",
+    "results.html",
+    "edu"
+   ],
+   "explanation": "The path/file at the end identifies the exact page; the other parts name the host and domain.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which of these statements is FALSE?",
+   "expected_answer": {
+    "value": "A web browser stores all websites of the world inside it"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A browser requests pages from web servers",
+    "A web browser stores all websites of the world inside it",
+    "Many different browsers can open the same website",
+    "A website can be viewed on phones as well as PCs"
+   ],
+   "explanation": "Websites live on web servers; a browser only requests and displays them.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-basics",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Why can email still work for a user when a particular website is down?",
+   "expected_answer": {
+    "value": "Email is a different Internet service from the Web, with its own servers"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Email does not use the Internet",
+    "Email is a different Internet service from the Web, with its own servers",
+    "Email only works on websites",
+    "Browsers refuse to open websites when email works"
+   ],
+   "explanation": "The Web and email are separate services running over the same Internet, so one can fail while another works.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In the term 'protocol' used in networking, what does a protocol mean?",
+   "expected_answer": {
+    "value": "A set of rules for communication between devices"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A set of rules for communication between devices",
+    "A type of network cable",
+    "A program for drawing diagrams",
+    "A password for a network"
+   ],
+   "explanation": "A protocol defines how devices format, send and receive data so they understand each other.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does the 'H' in HTTP stand for?",
+   "expected_answer": {
+    "value": "Hypertext"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Hardware",
+    "Hypertext",
+    "Hyperlink",
+    "Host"
+   ],
+   "explanation": "HTTP stands for Hypertext Transfer Protocol.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does SMTP stand for?",
+   "expected_answer": {
+    "value": "Simple Mail Transfer Protocol"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Secure Message Transport Program",
+    "Simple Media Transfer Process",
+    "System Mail Tracking Protocol",
+    "Simple Mail Transfer Protocol"
+   ],
+   "explanation": "SMTP is the Simple Mail Transfer Protocol, used for sending mail.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A web address that begins with https:// is using:",
+   "expected_answer": {
+    "value": "A secure, encrypted version of HTTP"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A secure, encrypted version of HTTP",
+    "A file transfer tool",
+    "A faster version of email",
+    "An unencrypted old protocol"
+   ],
+   "explanation": "The S in HTTPS means secure; data between browser and server is encrypted.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "POP3 stands for:",
+   "expected_answer": {
+    "value": "Post Office Protocol version 3"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Private Online Protocol 3",
+    "Packet Output Process 3",
+    "Public Office Protocol 3",
+    "Post Office Protocol version 3"
+   ],
+   "explanation": "POP3 is the Post Office Protocol, version 3, used to retrieve mail.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which protocol suite forms the basic communication rules of the Internet?",
+   "expected_answer": {
+    "value": "TCP/IP"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "HTML/CSS",
+    "FTP/SSH",
+    "TCP/IP",
+    "SMS/MMS"
+   ],
+   "explanation": "TCP/IP is the core protocol suite that makes communication across the Internet possible.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which protocol is mainly used to fetch web pages from web servers?",
+   "expected_answer": {
+    "value": "HTTP"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SMTP",
+    "HTTP",
+    "POP3",
+    "SCP"
+   ],
+   "explanation": "Browsers use HTTP (or HTTPS) to request and receive web pages.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In TCP/IP, which protocol takes care of addressing and routing packets towards their destination?",
+   "expected_answer": {
+    "value": "IP"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "IP",
+    "TCP",
+    "SMTP",
+    "HTTPS"
+   ],
+   "explanation": "IP handles addresses and routes packets; TCP manages reliable delivery and ordering.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why does a bank website's login page use HTTPS?",
+   "expected_answer": {
+    "value": "To encrypt the data passing between the browser and the server"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "To make the page load faster than any other page",
+    "To encrypt the data passing between the browser and the server",
+    "To stop the user from needing a password",
+    "To store the user's money on the browser"
+   ],
+   "explanation": "HTTPS encrypts traffic so passwords and details cannot easily be read by others on the way.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Aman sends an email to a friend. Which protocol carries it from his mail program to his mail server?",
+   "expected_answer": {
+    "value": "SMTP"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "POP3",
+    "HTTP",
+    "SMTP",
+    "TCP only"
+   ],
+   "explanation": "SMTP is used for sending (pushing) mail out.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which pairing of protocol and purpose is correct?",
+   "expected_answer": {
+    "value": "POP3 - receiving email from a mail server"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "POP3 - sending email to the server",
+    "SMTP - receiving web pages",
+    "HTTP - sending email",
+    "POP3 - receiving email from a mail server"
+   ],
+   "explanation": "POP3 retrieves incoming mail; SMTP sends it; HTTP is for web pages.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "When a large file is sent over a network, TCP:",
+   "expected_answer": {
+    "value": "Splits it into packets and reassembles them in order at the destination"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Chooses the colour of the packets",
+    "Splits it into packets and reassembles them in order at the destination",
+    "Encrypts the file with a lock icon",
+    "Prints the file at the receiver"
+   ],
+   "explanation": "TCP breaks data into packets, numbers them and puts them back in order, resending any that are lost.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A padlock icon appears next to a site address in the browser. This usually indicates that the site is using:",
+   "expected_answer": {
+    "value": "HTTPS"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "HTTPS",
+    "Plain HTTP",
+    "SMTP",
+    "POP3"
+   ],
+   "explanation": "The padlock shows an HTTPS (encrypted) connection.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about HTTP is TRUE?",
+   "expected_answer": {
+    "value": "It is the set of rules browsers and web servers use to exchange web pages"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It is used only to send email attachments",
+    "It is the set of rules browsers and web servers use to exchange web pages",
+    "It encrypts all data by default",
+    "It stores web pages on the browser"
+   ],
+   "explanation": "HTTP defines the request and response format between browser and web server.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these protocols is related to e-mail?",
+   "expected_answer": {
+    "value": "SMTP"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SMTP",
+    "HTTPS",
+    "TCP",
+    "FTP"
+   ],
+   "explanation": "SMTP is an e-mail protocol, along with POP3 and IMAP.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why is TCP called a 'reliable' protocol?",
+   "expected_answer": {
+    "value": "It checks that all packets arrive and resends missing ones"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It checks that all packets arrive and resends missing ones",
+    "It never uses packets",
+    "It makes the Internet free of cost",
+    "It only works on one computer"
+   ],
+   "explanation": "TCP uses acknowledgements and retransmission to make sure all data arrives correctly.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which sentence about POP3 is the most accurate?",
+   "expected_answer": {
+    "value": "It is used by an email client to retrieve messages from the mail server"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It is used by an email client to retrieve messages from the mail server",
+    "It is used to publish websites",
+    "It encrypts web traffic",
+    "It is the address of a mail server"
+   ],
+   "explanation": "POP3 pulls received messages down from the server to the user's device.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A user can open a site with both http:// and https:// in the address, but only one is protected. Which one, and why?",
+   "expected_answer": {
+    "value": "https:// - its data is encrypted between browser and server"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "http:// - it uses a stronger lock",
+    "Neither - both are identical",
+    "https:// - its data is encrypted between browser and server",
+    "http:// - it is signed by the browser"
+   ],
+   "explanation": "Only HTTPS encrypts the traffic.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which describes correctly how an email travels from a sender to a friend?",
+   "expected_answer": {
+    "value": "Sender sends with SMTP to a mail server; the friend later fetches it with POP3"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Friend sends it with POP3 and the sender receives with SMTP",
+    "Sender sends it with HTTP and friend fetches it with SMTP",
+    "Sender sends with POP3 and the friend fetches it with SMTP",
+    "Sender sends with SMTP to a mail server; the friend later fetches it with POP3"
+   ],
+   "explanation": "Sending uses SMTP; the receiver later fetches the message from their mailbox using POP3 (or similar).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Match the protocols to jobs. Which row is fully correct?",
+   "expected_answer": {
+    "value": "SMTP: send mail; HTTP: web pages; TCP/IP: general Internet delivery"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SMTP: web pages; HTTP: send mail; TCP/IP: encrypt data",
+    "SMTP: receive mail; POP3: send mail; HTTP: file copy",
+    "HTTPS: unencrypted pages; HTTP: encrypted pages; TCP: sending mail",
+    "SMTP: send mail; HTTP: web pages; TCP/IP: general Internet delivery"
+   ],
+   "explanation": "SMTP sends mail, HTTP serves web pages, and TCP/IP provides the base rules for Internet delivery.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the main security benefit of HTTPS over HTTP?",
+   "expected_answer": {
+    "value": "Eavesdroppers on the network cannot easily read the data exchanged"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Viruses can never reach the computer",
+    "The website becomes free to access",
+    "The page downloads in zero seconds",
+    "Eavesdroppers on the network cannot easily read the data exchanged"
+   ],
+   "explanation": "HTTPS encrypts the connection; it does not remove all risks like malware or fake sites.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about TCP and IP is correct?",
+   "expected_answer": {
+    "value": "They work together: IP addresses and routes packets, TCP ensures reliable ordered delivery"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "TCP gives each device a web address, IP checks spelling",
+    "They work together: IP addresses and routes packets, TCP ensures reliable ordered delivery",
+    "They both are used only for sending email",
+    "IP encrypts the data and TCP deletes it"
+   ],
+   "explanation": "TCP/IP combines TCP (reliable delivery) and IP (addressing and routing).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A site shows the 'Not secure' warning in the address bar. Which protocol is it most likely using?",
+   "expected_answer": {
+    "value": "HTTP"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "HTTPS",
+    "SSH",
+    "HTTP",
+    "SFTP"
+   ],
+   "explanation": "Browsers warn about pages served over plain HTTP, which does not encrypt data.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which of these statements about Internet protocols is FALSE?",
+   "expected_answer": {
+    "value": "SMTP is used to download incoming mail to the user's device"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SMTP is used to send email",
+    "HTTP is used by browsers",
+    "SMTP is used to download incoming mail to the user's device",
+    "TCP/IP underlies the Internet"
+   ],
+   "explanation": "Downloading incoming mail is the job of POP3 (or IMAP), not SMTP.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why can the same Internet connection support web browsing, email and file copying together?",
+   "expected_answer": {
+    "value": "Different protocols run over TCP/IP, each handling its own type of service"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Each activity has its own separate Internet",
+    "Only HTTP is allowed to use the cable",
+    "All of them use the same single protocol for everything",
+    "Different protocols run over TCP/IP, each handling its own type of service"
+   ],
+   "explanation": "Application protocols such as HTTP, SMTP and POP3 all use TCP/IP as a common base.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Why would an online shop be unwise to take card details over plain HTTP?",
+   "expected_answer": {
+    "value": "The details could be read by someone intercepting the data on the way"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "HTTP cannot display numbers",
+    "The details could be read by someone intercepting the data on the way",
+    "HTTP deletes the card after use",
+    "HTTP only works for downloading"
+   ],
+   "explanation": "Plain HTTP sends data unencrypted, so intercepted details can be read.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "In https://www.abc.com, what does the 'https' part tell the browser?",
+   "expected_answer": {
+    "value": "Which protocol to use for the connection"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Which protocol to use for the connection",
+    "Which folder holds the page",
+    "Which country the server is in",
+    "Who owns the domain"
+   ],
+   "explanation": "The part before :// names the protocol the browser should use.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-protocols",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A browser sends a request and the server sends back a reply containing the page. This request-reply exchange is defined by which protocol?",
+   "expected_answer": {
+    "value": "HTTP"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SMTP",
+    "POP3",
+    "TCP alone",
+    "HTTP"
+   ],
+   "explanation": "HTTP defines how a client requests web resources and how the server responds.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does FTP stand for?",
+   "expected_answer": {
+    "value": "File Transfer Protocol"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "File Transfer Protocol",
+    "Fast Transmission Program",
+    "Field Text Protocol",
+    "File Tracking Process"
+   ],
+   "explanation": "FTP is the File Transfer Protocol, used to move files between computers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does SSH stand for?",
+   "expected_answer": {
+    "value": "Secure Shell"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Simple Server Host",
+    "Safe Socket Handler",
+    "Secured Software Hub",
+    "Secure Shell"
+   ],
+   "explanation": "SSH stands for Secure Shell, a protocol for secure remote login and commands.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Logging in to another computer over a network and working on it as if sitting there is called:",
+   "expected_answer": {
+    "value": "Remote login"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Remote login",
+    "Streaming",
+    "Bookmarking",
+    "Uploading"
+   ],
+   "explanation": "Remote login lets a user operate a distant computer through a network connection.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is mainly a file transfer tool rather than a remote login tool?",
+   "expected_answer": {
+    "value": "FTP"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SSH",
+    "TELNET",
+    "Remote login",
+    "FTP"
+   ],
+   "explanation": "FTP exists to copy files between computers; SSH and TELNET are for remote login.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does SCP stand for?",
+   "expected_answer": {
+    "value": "Secure Copy Protocol"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Simple Copy Program",
+    "System Control Panel",
+    "Shared Cable Port",
+    "Secure Copy Protocol"
+   ],
+   "explanation": "SCP is the Secure Copy Protocol, used to copy files securely over SSH.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which tool sends data, including passwords, in readable plain text?",
+   "expected_answer": {
+    "value": "TELNET"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SSH",
+    "SFTP",
+    "TELNET",
+    "SCP"
+   ],
+   "explanation": "TELNET does not encrypt, so passwords can be seen by anyone capturing the traffic.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these provides an encrypted way to log in to a remote machine?",
+   "expected_answer": {
+    "value": "SSH"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "TELNET",
+    "FTP",
+    "SSH",
+    "HTTP"
+   ],
+   "explanation": "SSH encrypts the whole session, protecting passwords and commands.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A web developer uploads website files to a hosting server using a tool that encrypts the transfer. Which is the best fit?",
+   "expected_answer": {
+    "value": "SFTP"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "TELNET",
+    "Plain FTP",
+    "HTTP",
+    "SFTP"
+   ],
+   "explanation": "SFTP transfers files over a secure, encrypted channel; plain FTP and TELNET are not encrypted.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about plain FTP is true?",
+   "expected_answer": {
+    "value": "It transfers files but does not encrypt the login details or data"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It always encrypts the user name and password",
+    "It is only used for remote login",
+    "It transfers files but does not encrypt the login details or data",
+    "It cannot upload files, only download"
+   ],
+   "explanation": "Plain FTP sends credentials and data unencrypted, which is why secure variants exist.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A system administrator must fix a server located in another city by typing commands from her office. Which is the safest choice?",
+   "expected_answer": {
+    "value": "SSH"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "TELNET",
+    "SSH",
+    "FTP",
+    "SMS"
+   ],
+   "explanation": "SSH offers encrypted remote login and command execution; TELNET is the unsafe alternative.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which pair consists only of tools that allow remote login?",
+   "expected_answer": {
+    "value": "SSH and TELNET"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "FTP and SCP",
+    "SFTP and SCP",
+    "FTP and SFTP",
+    "SSH and TELNET"
+   ],
+   "explanation": "SSH and TELNET give remote terminal access; FTP, SFTP and SCP transfer files.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which pair consists only of tools meant for file transfer?",
+   "expected_answer": {
+    "value": "SFTP and SCP"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SSH and TELNET",
+    "TELNET and FTP",
+    "HTTP and SSH",
+    "SFTP and SCP"
+   ],
+   "explanation": "SFTP and SCP both transfer files securely.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about SSH and TELNET is correct?",
+   "expected_answer": {
+    "value": "SSH encrypts the session, TELNET does not"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SSH encrypts the session, TELNET does not",
+    "TELNET encrypts but SSH does not",
+    "Both send everything in plain text",
+    "Neither can be used for remote login"
+   ],
+   "explanation": "The main difference is encryption: SSH is secure, TELNET is not.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why is SFTP preferred over FTP on public Wi-Fi?",
+   "expected_answer": {
+    "value": "It encrypts both the login and the transferred files"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It deletes files after upload",
+    "It makes the Wi-Fi free",
+    "It does not need a server",
+    "It encrypts both the login and the transferred files"
+   ],
+   "explanation": "Encryption stops others on the network from reading credentials and files.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A student copies a project folder from her laptop to a lab server with a single secure command. Which tool best fits?",
+   "expected_answer": {
+    "value": "SCP"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "TELNET",
+    "HTTP",
+    "SCP",
+    "SMTP"
+   ],
+   "explanation": "SCP copies files between machines securely.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is a possible use of FTP?",
+   "expected_answer": {
+    "value": "Downloading a software installer from a company's file server"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Sending a text message",
+    "Downloading a software installer from a company's file server",
+    "Viewing a web page with images",
+    "Making a video call"
+   ],
+   "explanation": "FTP is designed to move files to and from servers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of the following is the best reason for choosing SSH over TELNET in a school lab?",
+   "expected_answer": {
+    "value": "Passwords cannot be easily read by other students sniffing the network"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Passwords cannot be easily read by other students sniffing the network",
+    "SSH makes the computer faster",
+    "SSH needs no password",
+    "SSH works only without Internet"
+   ],
+   "explanation": "Encryption is the security advantage of SSH.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A teacher says 'SFTP = FTP with encryption.' Which is the most accurate comment on this?",
+   "expected_answer": {
+    "value": "Broadly true: SFTP moves files like FTP but over a secure channel"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Broadly true: SFTP moves files like FTP but over a secure channel",
+    "False: SFTP cannot move files",
+    "False: SFTP sends passwords in plain text",
+    "True: SFTP is used for email"
+   ],
+   "explanation": "SFTP provides FTP-style file transfer over an encrypted connection.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which one is NOT a secure tool?",
+   "expected_answer": {
+    "value": "TELNET"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SSH",
+    "SFTP",
+    "TELNET",
+    "SCP"
+   ],
+   "explanation": "TELNET is unencrypted; the others protect data with encryption.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Remote login tools mainly let you:",
+   "expected_answer": {
+    "value": "Run commands on a distant computer through the network"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Send pictures as messages",
+    "Convert web pages to PDF",
+    "Run commands on a distant computer through the network",
+    "Increase mobile signal strength"
+   ],
+   "explanation": "Remote login provides terminal-like control of another machine.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which scenario is the BEST example of using FTP?",
+   "expected_answer": {
+    "value": "Moving many site files to a web host to publish a website"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Chatting with a friend by text",
+    "Reading an email",
+    "Searching for a recipe",
+    "Moving many site files to a web host to publish a website"
+   ],
+   "explanation": "Publishing website files to a server is a classic file transfer task.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A firm's old server accepts only TELNET. What is the main risk of using it across the Internet?",
+   "expected_answer": {
+    "value": "Attackers capturing the traffic could read passwords and commands"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Files will be deleted",
+    "The server would send spam",
+    "It will change the user's IP address",
+    "Attackers capturing the traffic could read passwords and commands"
+   ],
+   "explanation": "TELNET sends everything unencrypted, so intercepted traffic is readable.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which sentence correctly compares SCP and SSH?",
+   "expected_answer": {
+    "value": "SCP copies files securely, while SSH gives a secure remote login session"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "SCP gives remote login, SSH only copies files",
+    "Both are unencrypted",
+    "SCP is for email, SSH is for web pages",
+    "SCP copies files securely, while SSH gives a secure remote login session"
+   ],
+   "explanation": "Both are secure; SCP is for copying files and SSH for remote sessions (SCP runs over SSH).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Complete: 'To transfer files without encryption we may use ___, but to do it securely we should use ___.'",
+   "expected_answer": {
+    "value": "FTP; SFTP"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "SFTP; FTP",
+    "TELNET; SSH",
+    "FTP; SFTP",
+    "SSH; TELNET"
+   ],
+   "explanation": "FTP lacks encryption; SFTP adds it. TELNET/SSH are remote login pairs, not file transfer.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "An organisation wants staff to transfer files AND avoid sending passwords in the clear. Which choice satisfies both needs?",
+   "expected_answer": {
+    "value": "SFTP"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "TELNET",
+    "Plain FTP",
+    "SFTP",
+    "HTTP"
+   ],
+   "explanation": "SFTP transfers files over an encrypted channel.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which of these statements about remote access tools is FALSE?",
+   "expected_answer": {
+    "value": "TELNET is the preferred modern choice for secure remote administration"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "TELNET is the preferred modern choice for secure remote administration",
+    "SSH can be used for remote login",
+    "FTP can transfer files",
+    "SCP copies files securely"
+   ],
+   "explanation": "TELNET is considered insecure; SSH is preferred.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Why is using FTP with a username and password on an open network risky even though the server asks for a login?",
+   "expected_answer": {
+    "value": "The login details travel unencrypted and can be intercepted"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "FTP blocks all logins",
+    "The server can never verify passwords",
+    "Passwords are shown on the server's screen",
+    "The login details travel unencrypted and can be intercepted"
+   ],
+   "explanation": "Authentication does not help if the credentials themselves are visible in transit.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-remote-file-transfer",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Match: (a) log in securely to a distant machine, (b) copy a file securely, (c) log in without encryption. Which row is right?",
+   "expected_answer": {
+    "value": "(a) SSH, (b) SCP, (c) TELNET"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "(a) SSH, (b) SCP, (c) TELNET",
+    "(a) TELNET, (b) SCP, (c) SSH",
+    "(a) SCP, (b) SSH, (c) TELNET",
+    "(a) SSH, (b) TELNET, (c) SCP"
+   ],
+   "explanation": "SSH is secure remote login, SCP secure copy, TELNET unencrypted remote login.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Google, Bing and DuckDuckGo are examples of:",
+   "expected_answer": {
+    "value": "Search engines"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Web browsers",
+    "Operating systems",
+    "Search engines",
+    "Mail servers"
+   ],
+   "explanation": "Search engines are websites that find pages matching keywords.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Zoom and Google Meet are mostly used for:",
+   "expected_answer": {
+    "value": "Video conferencing"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Online banking",
+    "Weather forecasting",
+    "Compiling programs",
+    "Video conferencing"
+   ],
+   "explanation": "These tools allow live audio-video meetings between people at distant places.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Checking your bank balance on the bank's website is part of:",
+   "expected_answer": {
+    "value": "e-Banking"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "e-Banking",
+    "e-Governance",
+    "Video conferencing",
+    "Web hosting"
+   ],
+   "explanation": "e-Banking (net banking) lets customers use bank services over the Internet.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Filing an income tax return on a government portal is an example of:",
+   "expected_answer": {
+    "value": "e-Governance"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "e-Commerce",
+    "e-Governance",
+    "Social media",
+    "Streaming"
+   ],
+   "explanation": "e-Governance uses the Internet to deliver government services to citizens.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these needs a camera and microphone to be useful?",
+   "expected_answer": {
+    "value": "Video conferencing"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Searching with a search engine",
+    "Reading an e-newspaper",
+    "Video conferencing",
+    "Checking an online bank balance"
+   ],
+   "explanation": "Video conferencing transmits live video and sound, so it needs both devices.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Typing a few keywords to find web pages about 'solar energy' uses a:",
+   "expected_answer": {
+    "value": "Search engine"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Web server",
+    "Mail client",
+    "Modem",
+    "Search engine"
+   ],
+   "explanation": "A search engine returns pages matching the keywords entered.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is an advantage of e-Banking?",
+   "expected_answer": {
+    "value": "Banking services can be used at any time from home"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Cash is printed at home",
+    "No password is needed",
+    "Banking services can be used at any time from home",
+    "It works without any Internet"
+   ],
+   "explanation": "e-Banking offers 24x7 convenience without visiting the branch.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does a search engine do after you type a keyword and press Enter?",
+   "expected_answer": {
+    "value": "Shows a list of web pages related to the keyword"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Sends your keyword as email",
+    "Shows a list of web pages related to the keyword",
+    "Deletes unrelated websites",
+    "Installs the pages on your computer"
+   ],
+   "explanation": "It looks through its index of pages and lists the most relevant results.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is an e-Governance service?",
+   "expected_answer": {
+    "value": "Downloading a birth certificate from a state government website"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Buying shoes from a shop's website",
+    "Chatting with friends in a game",
+    "Watching a movie trailer",
+    "Downloading a birth certificate from a state government website"
+   ],
+   "explanation": "Government-to-citizen services delivered online are e-Governance.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is NOT a typical e-Banking facility?",
+   "expected_answer": {
+    "value": "Withdrawing physical cash through the Internet connection itself"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Withdrawing physical cash through the Internet connection itself",
+    "Transferring funds to another account",
+    "Paying a utility bill",
+    "Viewing a statement of transactions"
+   ],
+   "explanation": "Online banking handles transfers, payments and statements; physical cash needs a branch or an ATM.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A company's directors in three cities hold a meeting in which all see and hear each other live. Which service is this?",
+   "expected_answer": {
+    "value": "Video conferencing"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Online shopping",
+    "Video conferencing",
+    "Web browsing",
+    "e-Governance"
+   ],
+   "explanation": "Live audio and video between several locations is video conferencing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which pair is matched correctly?",
+   "expected_answer": {
+    "value": "Online fee payment to a bank - e-Banking; Applying for a driving licence online - e-Governance"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Online fee payment - e-Governance; Driving licence - e-Banking",
+    "Driving licence - video conferencing; fee payment - search engine",
+    "Online fee payment to a bank - e-Banking; Applying for a driving licence online - e-Governance",
+    "Online fee payment - search engine; Driving licence - e-Banking"
+   ],
+   "explanation": "Money services belong to e-Banking; government services belong to e-Governance.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about search engines is correct?",
+   "expected_answer": {
+    "value": "They maintain an index of web pages to answer keyword searches quickly"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They are the same as web browsers",
+    "They store every website on your hard disk",
+    "They maintain an index of web pages to answer keyword searches quickly",
+    "They only search for email addresses"
+   ],
+   "explanation": "Search engines gather and index pages, then rank results for your query.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "An online store lets customers choose goods and pay over the Internet. This is called:",
+   "expected_answer": {
+    "value": "e-Commerce"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "e-Governance",
+    "e-Commerce",
+    "Video conferencing",
+    "Remote login"
+   ],
+   "explanation": "Buying and selling goods and services online is e-Commerce.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is a benefit of e-Governance?",
+   "expected_answer": {
+    "value": "Citizens save time by avoiding visits to government offices"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Government offices are closed permanently",
+    "Citizens save time by avoiding visits to government offices",
+    "Citizens do not need any documents",
+    "Taxes are no longer applicable"
+   ],
+   "explanation": "Online services reduce travel and waiting, making them more convenient and transparent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A user searches for 'best study tips' and gets the same words in a different result page layout in two search engines. Why might results differ?",
+   "expected_answer": {
+    "value": "Each search engine uses its own index and ranking method"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The keywords change by themselves",
+    "One search engine hides the Internet",
+    "One browser stores all websites",
+    "Each search engine uses its own index and ranking method"
+   ],
+   "explanation": "Different engines index and rank pages differently.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which requirement is common to e-Banking, e-Governance and video conferencing?",
+   "expected_answer": {
+    "value": "An Internet connection and a suitable device"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A printer",
+    "A fax machine",
+    "A telephone directory",
+    "An Internet connection and a suitable device"
+   ],
+   "explanation": "All of these services work over the Internet, so connectivity and a device are essential.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why do banks ask customers to log out after using net banking?",
+   "expected_answer": {
+    "value": "To prevent others from using the open session"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "To prevent others from using the open session",
+    "To empty the account",
+    "To make the Internet faster",
+    "To update the browser"
+   ],
+   "explanation": "Logging out closes the session so nobody else can access the account.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which pair does NOT match?",
+   "expected_answer": {
+    "value": "Search engine - transferring money between accounts"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Search engine - transferring money between accounts",
+    "Video conferencing - virtual meetings",
+    "e-Governance - online certificates",
+    "e-Banking - paying bills"
+   ],
+   "explanation": "Transferring money is e-Banking; a search engine finds web pages.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A farmer checks a government portal to see his land records and apply for a subsidy. This is mainly:",
+   "expected_answer": {
+    "value": "e-Governance"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "e-Banking",
+    "Video conferencing",
+    "Web hosting",
+    "e-Governance"
+   ],
+   "explanation": "Accessing government records and schemes online is e-Governance.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which drawback is most associated with video conferencing?",
+   "expected_answer": {
+    "value": "It needs good Internet speed or the picture and sound may break up"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It cannot show faces",
+    "It works only in one country",
+    "It needs good Internet speed or the picture and sound may break up",
+    "It always deletes recordings"
+   ],
+   "explanation": "Weak bandwidth causes lag and poor quality in live meetings.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which action is an example of using BOTH a search engine and e-Governance?",
+   "expected_answer": {
+    "value": "Searching for the passport portal and then applying for a passport on it"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Searching and then buying shoes",
+    "Opening a video call",
+    "Typing a URL and closing it",
+    "Searching for the passport portal and then applying for a passport on it"
+   ],
+   "explanation": "Finding the portal is search; applying for a passport is e-Governance.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement is TRUE about e-Banking security?",
+   "expected_answer": {
+    "value": "Users should never share their net banking password or OTP"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "OTP can be shared with bank staff on a call",
+    "Passwords should be the same on all sites",
+    "Users should never share their net banking password or OTP",
+    "Public Wi-Fi is the safest place to bank"
+   ],
+   "explanation": "Passwords and OTPs are secret; genuine banks never ask for them.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A teacher wants to take a class for students living in different villages, with a shared screen and discussion. Which service is the most suitable?",
+   "expected_answer": {
+    "value": "Video conferencing"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A search engine",
+    "Video conferencing",
+    "A phone SMS",
+    "A web server"
+   ],
+   "explanation": "Video conferencing supports live teaching with sound, video and screen sharing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is the best description of an 'Internet service'?",
+   "expected_answer": {
+    "value": "A facility that is used over the Internet, such as email, search or online banking"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A hardware cable that carries signals",
+    "A virus that spreads on the Internet",
+    "A type of keyboard",
+    "A facility that is used over the Internet, such as email, search or online banking"
+   ],
+   "explanation": "Services are the things we use on the Internet; hardware and malware are different ideas.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Why is it risky to enter bank login details on a site reached through a link in a suspicious email?",
+   "expected_answer": {
+    "value": "The page may be a fake that steals the details"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The email will be deleted",
+    "The browser will stop working",
+    "The page may be a fake that steals the details",
+    "The bank will lose its servers"
+   ],
+   "explanation": "Fake sites mimic banks to capture credentials; always type the bank's address yourself.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which of these is TRUE of search engine results?",
+   "expected_answer": {
+    "value": "The first result is not guaranteed to be the most accurate or reliable page"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The first result is always correct",
+    "The first result is not guaranteed to be the most accurate or reliable page",
+    "Results never contain adverts",
+    "Results come only from government sites"
+   ],
+   "explanation": "Ranking depends on algorithms and may include adverts; users must judge reliability.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-internet-services",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A citizen pays a property tax online and receives a digital receipt. Which TWO ideas apply?",
+   "expected_answer": {
+    "value": "e-Governance and online payment"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Video conferencing and streaming",
+    "e-Governance and online payment",
+    "Search engine and chat",
+    "Remote login and web hosting"
+   ],
+   "explanation": "Government service delivered online with a payment through the Internet.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "MMS stands for:",
+   "expected_answer": {
+    "value": "Multimedia Messaging Service"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Multimedia Messaging Service",
+    "Mobile Memory Storage",
+    "Multiple Mail System",
+    "Mass Message Signal"
+   ],
+   "explanation": "MMS is the Multimedia Messaging Service for sending pictures, audio and video.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is plain text-only messaging on a mobile?",
+   "expected_answer": {
+    "value": "SMS"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "MMS",
+    "Video call",
+    "Email with a photo",
+    "SMS"
+   ],
+   "explanation": "SMS carries text messages only.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In '5G', the letter G stands for:",
+   "expected_answer": {
+    "value": "Generation"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Generation",
+    "Gigabyte",
+    "Global",
+    "Graphics"
+   ],
+   "explanation": "3G, 4G and 5G refer to the third, fourth and fifth generations of mobile networks.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which is the oldest of these mobile technology generations?",
+   "expected_answer": {
+    "value": "3G"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "3G",
+    "4G",
+    "5G",
+    "All are the same age"
+   ],
+   "explanation": "3G came before 4G, which came before 5G.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A SIM card in a mobile phone mainly stores:",
+   "expected_answer": {
+    "value": "The subscriber identity used to authenticate the user on the mobile network"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The phone's operating system",
+    "All the apps installed on the phone",
+    "The screen brightness settings",
+    "The subscriber identity used to authenticate the user on the mobile network"
+   ],
+   "explanation": "The SIM holds the subscriber's identity information that lets the network recognise and authenticate the user.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is a limitation of SMS?",
+   "expected_answer": {
+    "value": "It was designed mainly for short text messages"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It can send high definition videos",
+    "It was designed mainly for short text messages",
+    "It needs a computer on both ends",
+    "It can carry only photographs"
+   ],
+   "explanation": "SMS has a short length limit and handles text only, unlike MMS.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which mobile technology generation introduced faster mobile data and made video streaming common before 5G?",
+   "expected_answer": {
+    "value": "4G"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "1G",
+    "2G only voice",
+    "4G",
+    "SMS"
+   ],
+   "explanation": "4G offered much higher data speeds suitable for streaming and video calls.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these would be a typical benefit of 5G over 4G?",
+   "expected_answer": {
+    "value": "Very high speed and low delay"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A lower speed",
+    "It needs no signal",
+    "Very high speed and low delay",
+    "It works only for text"
+   ],
+   "explanation": "5G provides higher speeds and lower latency than 4G.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which technology lets a phone connect to the Internet through a mobile service provider's network?",
+   "expected_answer": {
+    "value": "Mobile data (3G/4G/5G)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Floppy disk",
+    "Parallel port",
+    "Mobile data (3G/4G/5G)",
+    "Projector"
+   ],
+   "explanation": "Mobile networks provide Internet access through cellular data.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A user wants to send a short video clip as a message through the mobile network. Which service is suitable?",
+   "expected_answer": {
+    "value": "MMS"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "SMS",
+    "Plain SMS with long text",
+    "MMS",
+    "A missed call"
+   ],
+   "explanation": "SMS can't carry video, whereas MMS can include multimedia.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about SMS is TRUE?",
+   "expected_answer": {
+    "value": "It is a text-based service that works through the mobile network without needing Internet data"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It can only be sent over Wi-Fi",
+    "It is a text-based service that works through the mobile network without needing Internet data",
+    "It always carries video",
+    "It needs a laptop"
+   ],
+   "explanation": "SMS uses the cellular network's signalling rather than the data connection, to send short texts.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about MMS is TRUE?",
+   "expected_answer": {
+    "value": "It can include images, audio and video along with text"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It can carry only text up to 160 characters",
+    "It is the name of a mobile network generation",
+    "It is a type of Wi-Fi",
+    "It can include images, audio and video along with text"
+   ],
+   "explanation": "MMS extends SMS to multimedia content.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about mobile generations is FALSE?",
+   "expected_answer": {
+    "value": "5G is slower than 3G"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "4G is faster than 3G",
+    "5G is the newest of the three",
+    "5G is slower than 3G",
+    "Each generation aims to improve speed or features"
+   ],
+   "explanation": "Each new generation is faster; 5G is not slower than 3G.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A person in a village can now watch a live online class on a phone smoothly because of better mobile data speeds. This mainly relates to:",
+   "expected_answer": {
+    "value": "3G/4G/5G technology"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "3G/4G/5G technology",
+    "SMS only",
+    "Floppy drives",
+    "Scanner technology"
+   ],
+   "explanation": "Faster mobile data generations support live streaming.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of the following needs a data connection (3G/4G/5G or Wi-Fi) rather than the basic text messaging service?",
+   "expected_answer": {
+    "value": "Video calling using a messaging app"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Video calling using a messaging app",
+    "Receiving a plain SMS",
+    "Receiving a missed call alert",
+    "Dialling a call"
+   ],
+   "explanation": "Video calls via an app require Internet data.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the correct order of mobile network generations from oldest to newest among these?",
+   "expected_answer": {
+    "value": "3G, 4G, 5G"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "5G, 4G, 3G",
+    "4G, 3G, 5G",
+    "3G, 5G, 4G",
+    "3G, 4G, 5G"
+   ],
+   "explanation": "The generations follow 3G, then 4G, then 5G.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is a mobile operating system?",
+   "expected_answer": {
+    "value": "Android"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Microsoft Word",
+    "Mozilla Firefox",
+    "Android",
+    "Adobe Reader"
+   ],
+   "explanation": "Android (like iOS) is an operating system for mobile devices; the others are application programs.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which word best describes the 'speed' improvement in newer mobile networks?",
+   "expected_answer": {
+    "value": "Higher bandwidth"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Lower memory",
+    "Smaller keypad",
+    "Higher bandwidth",
+    "Heavier battery"
+   ],
+   "explanation": "Newer generations give more data capacity (bandwidth) and faster transfer.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which generation of mobile networks first brought digital voice calls together with the SMS text service to the general public?",
+   "expected_answer": {
+    "value": "2G"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "2G",
+    "1G",
+    "3G",
+    "5G"
+   ],
+   "explanation": "1G was analogue voice only; 2G introduced digital voice and SMS.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A phone shows '4G' in its status bar. What does this indicate?",
+   "expected_answer": {
+    "value": "It is connected to a fourth-generation mobile network"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The phone has 4 GB of memory",
+    "The phone has 4 cameras",
+    "The phone has 4 SIM cards",
+    "It is connected to a fourth-generation mobile network"
+   ],
+   "explanation": "The label shows the type of mobile network connection currently in use.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is a use of 3G, 4G or 5G networks?",
+   "expected_answer": {
+    "value": "Browsing the Internet and video calls on a mobile"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Printing documents",
+    "Formatting a hard disk",
+    "Browsing the Internet and video calls on a mobile",
+    "Typing a letter offline"
+   ],
+   "explanation": "They provide data connectivity for Internet-based mobile services.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Using your own phone number on another operator's network while travelling to a different region or country is called:",
+   "expected_answer": {
+    "value": "Roaming"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Tethering",
+    "Streaming",
+    "Bookmarking",
+    "Roaming"
+   ],
+   "explanation": "Roaming lets a subscriber keep using mobile services through a partner network outside the home area.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A student shares her phone's mobile data connection with her laptop so the laptop can get online. This feature is commonly called:",
+   "expected_answer": {
+    "value": "Hotspot (tethering)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Roaming",
+    "MMS forwarding",
+    "Hotspot (tethering)",
+    "SIM cloning"
+   ],
+   "explanation": "A phone hotspot or tethering shares its mobile data connection with other devices.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about 5G is correct?",
+   "expected_answer": {
+    "value": "It aims at higher speeds, lower delay and the ability to connect many devices"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It replaced the need for SIM cards in all phones",
+    "It aims at higher speeds, lower delay and the ability to connect many devices",
+    "It is slower but safer than 4G",
+    "It works only for SMS"
+   ],
+   "explanation": "5G is designed for greater speed, lower latency and many connected devices.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A farmer receives a weather alert on a basic phone with no data plan. Which service most likely delivered it?",
+   "expected_answer": {
+    "value": "SMS"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Video streaming",
+    "SMS",
+    "5G video call",
+    "A web app that needs Internet"
+   ],
+   "explanation": "SMS can reach even basic phones without a data plan.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which of these correctly pairs the term with its meaning?",
+   "expected_answer": {
+    "value": "3G - third generation of mobile technology"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "3G - three gigabytes of data",
+    "3G - three phones joined",
+    "3G - three-second delay",
+    "3G - third generation of mobile technology"
+   ],
+   "explanation": "The G represents a generation, not gigabytes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Telemedicine in a remote area would work best with:",
+   "expected_answer": {
+    "value": "a faster mobile network such as 4G/5G"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "only SMS",
+    "a 1990s paging system",
+    "no network",
+    "a faster mobile network such as 4G/5G"
+   ],
+   "explanation": "Real-time video and medical data need high-speed mobile connections.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-mobile-technologies",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which of the following is the best explanation of why video calls work better on 4G than on a plain-text SMS service?",
+   "expected_answer": {
+    "value": "4G supports high-speed data suitable for audio and video streams"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "SMS can carry live video",
+    "4G is a text-only service",
+    "4G removes the need for a camera",
+    "4G supports high-speed data suitable for audio and video streams"
+   ],
+   "explanation": "Video streams need much higher data rates than text messages.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag encloses all the content that is displayed in the browser window?",
+   "expected_answer": {
+    "value": "<body>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "<head>",
+    "<title>",
+    "<meta>",
+    "<body>"
+   ],
+   "explanation": "The <body> tag holds the visible content of the page.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which attribute of <body> sets the colour of the text in the page?",
+   "expected_answer": {
+    "value": "text"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "bgcolor",
+    "link",
+    "text",
+    "background"
+   ],
+   "explanation": "The text attribute sets the default text colour of the document.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which code gives the page a red background?",
+   "expected_answer": {
+    "value": "<body bgcolor=\"red\">"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<body text=\"red\">",
+    "<body link=\"red\">",
+    "<body color=\"red\">",
+    "<body bgcolor=\"red\">"
+   ],
+   "explanation": "bgcolor sets the background colour; text sets the text colour; link sets unvisited hyperlink colour.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Where does the <title> tag normally go in a page?",
+   "expected_answer": {
+    "value": "Inside the <head> section"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Inside the <body> section after all text",
+    "Inside the <head> section",
+    "After the </html> tag",
+    "Inside an <img> tag"
+   ],
+   "explanation": "The title belongs in the head; the browser shows it on the tab, not in the page body.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which tag marks the end of the body of a page?",
+   "expected_answer": {
+    "value": "</body>"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "</head>",
+    "<end>",
+    "</body>",
+    "</title>"
+   ],
+   "explanation": "A closing tag has a slash; </body> closes the body.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is the effect of <body text=\"green\">?",
+   "expected_answer": {
+    "value": "All normal text appears in green by default"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The background becomes green",
+    "Hyperlinks become green",
+    "The page title becomes green",
+    "All normal text appears in green by default"
+   ],
+   "explanation": "The text attribute sets the default text colour.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which attribute sets the colour of hyperlinks that have not been visited yet?",
+   "expected_answer": {
+    "value": "link"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "vlink",
+    "alink",
+    "text",
+    "link"
+   ],
+   "explanation": "link is the unvisited link colour; vlink is for visited and alink for active links.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which attribute sets the colour of hyperlinks that the visitor has already clicked?",
+   "expected_answer": {
+    "value": "vlink"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "link",
+    "vlink",
+    "alink",
+    "bgcolor"
+   ],
+   "explanation": "vlink stands for visited link.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which attribute sets the colour of a link at the moment it is being clicked?",
+   "expected_answer": {
+    "value": "alink"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "vlink",
+    "link",
+    "text",
+    "alink"
+   ],
+   "explanation": "alink stands for active link.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which attribute of <body> lets you use a picture as the background of the page?",
+   "expected_answer": {
+    "value": "background"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "background",
+    "bgcolor",
+    "text",
+    "link"
+   ],
+   "explanation": "background takes the file name or path of the image.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What text appears on the browser tab for: <title>My Diary</title> ?",
+   "expected_answer": {
+    "value": "My Diary"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "<title>",
+    "Diary only",
+    "Nothing",
+    "My Diary"
+   ],
+   "explanation": "The text between the title tags is what the tab shows.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the correct way to write a page with a blue background and white text?",
+   "expected_answer": {
+    "value": "<body bgcolor=\"blue\" text=\"white\">"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "<body bgcolor=\"white\" text=\"blue\">",
+    "<body bgcolor=blue, text=white>",
+    "<body background=\"blue\" text=\"white\">",
+    "<body bgcolor=\"blue\" text=\"white\">"
+   ],
+   "explanation": "bgcolor takes the background colour; text takes the text colour; attributes are separated by a space.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is wrong with <body background=\"yellow\">?",
+   "expected_answer": {
+    "value": "background expects an image file, not a colour; bgcolor should be used"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Nothing, it is correct",
+    "yellow is not a valid colour",
+    "background expects an image file, not a colour; bgcolor should be used",
+    "The tag needs two attributes"
+   ],
+   "explanation": "The background attribute is for image files; colours go in bgcolor.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the effect of <body bgcolor=\"#000000\" text=\"#FFFFFF\">?",
+   "expected_answer": {
+    "value": "Black background with white text"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "White background with black text",
+    "Black background with black text",
+    "Black background with white text",
+    "White background with white text"
+   ],
+   "explanation": "#000000 is black and #FFFFFF is white.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In <body bgcolor=\"#FF0000\">, #FF0000 represents which colour?",
+   "expected_answer": {
+    "value": "Red"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Green",
+    "Red",
+    "Blue",
+    "Black"
+   ],
+   "explanation": "In #RRGGBB, FF in the red position with 00 for the others gives pure red.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In <body link=\"#0000FF\">, which colour will unvisited hyperlinks be?",
+   "expected_answer": {
+    "value": "Blue"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Red",
+    "Blue",
+    "Green",
+    "Yellow"
+   ],
+   "explanation": "#0000FF has only the blue component at full strength.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is a correct HTML skeleton?",
+   "expected_answer": {
+    "value": "<html><head><title>T</title></head><body>Hi</body></html>"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "<html><head><title>T</title></head><body>Hi</body></html>",
+    "<html><body><title>T</title></body><head>Hi</head></html>",
+    "<head><html><title>T</title></html><body>Hi</body></head>",
+    "<html><title>T</title><body>Hi</html></body>"
+   ],
+   "explanation": "The head (with the title) comes first and then the body, all inside <html>.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Where should attributes such as bgcolor be written?",
+   "expected_answer": {
+    "value": "Inside the opening tag, after the tag name"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Inside the closing tag",
+    "Between the tags as text",
+    "Inside the opening tag, after the tag name",
+    "Before the <html> tag"
+   ],
+   "explanation": "Attributes go within the start tag, e.g. <body bgcolor=\"red\">.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A page shows its heading but the browser tab still says the file name. Which line was probably missing?",
+   "expected_answer": {
+    "value": "The <title> tag in the head"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The <body> tag's bgcolor",
+    "The </html> tag",
+    "The <title> tag in the head",
+    "An <img> tag"
+   ],
+   "explanation": "Without a title, the browser falls back to showing the file name or address on the tab.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is a correct body tag with the text colour set to maroon?",
+   "expected_answer": {
+    "value": "<body text=\"maroon\">"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "<body text=maroon\">",
+    "<body text=\"maroon\">",
+    "<body = text \"maroon\">",
+    "<body: text=\"maroon\">"
+   ],
+   "explanation": "The attribute is written as name=\"value\" inside the start tag.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement is TRUE about the title of a web page?",
+   "expected_answer": {
+    "value": "It is shown on the browser's title bar or tab, not inside the page area"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It is shown on the browser's title bar or tab, not inside the page area",
+    "It is shown as the first heading on the page",
+    "It is shown only when the page is printed",
+    "It sets the background colour"
+   ],
+   "explanation": "The <title> is metadata displayed by the browser outside the page content.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these statements about <body> attributes is FALSE?",
+   "expected_answer": {
+    "value": "The text attribute changes the background colour of the page"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "bgcolor changes the background colour",
+    "link, vlink and alink are used for hyperlinks colours",
+    "background can be used for an image",
+    "The text attribute changes the background colour of the page"
+   ],
+   "explanation": "text controls the text colour, whereas bgcolor controls the background.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does the vlink attribute change?",
+   "expected_answer": {
+    "value": "The colour of links already visited"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The colour of the page title",
+    "The size of text",
+    "The colour of links already visited",
+    "The background image"
+   ],
+   "explanation": "vlink is for visited links.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which code produces a page with a black background, yellow text and unvisited links in white?",
+   "expected_answer": {
+    "value": "<body bgcolor=\"black\" text=\"yellow\" link=\"white\">"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "<body bgcolor=\"black\" text=\"yellow\" link=\"white\">",
+    "<body bgcolor=\"yellow\" text=\"black\" link=\"white\">",
+    "<body background=\"black\" text=\"yellow\" vlink=\"white\">",
+    "<body bgcolor=\"black\" link=\"yellow\" text=\"white\">"
+   ],
+   "explanation": "bgcolor is black, text is yellow, and link (unvisited) is white.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "In <body bgcolor=\"blue\" text=\"blue\">, what is the most likely problem?",
+   "expected_answer": {
+    "value": "The text blends with the background and cannot be read"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The text blends with the background and cannot be read",
+    "The page will not open",
+    "The title is lost",
+    "Hyperlinks are removed"
+   ],
+   "explanation": "Same colour for text and background makes text invisible.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A page uses both <body background=\"sky.jpg\" bgcolor=\"black\"> and sky.jpg exists. What will normally be seen first behind the text?",
+   "expected_answer": {
+    "value": "The picture sky.jpg, drawn over the background colour"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Only black, the image is ignored",
+    "The picture sky.jpg, drawn over the background colour",
+    "Only a white page",
+    "An error message"
+   ],
+   "explanation": "The image is displayed on top of the background colour; the colour is visible only where the image is missing or transparent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which is the correct reason that <title> should NOT be placed in the <body>?",
+   "expected_answer": {
+    "value": "It belongs to the document's head information and is shown in the tab, not the page area"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It would change the text colour",
+    "It would remove all images",
+    "It would close the HTML tag",
+    "It belongs to the document's head information and is shown in the tab, not the page area"
+   ],
+   "explanation": "The title is document metadata and is placed in the head.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "ca-html-body-attributes",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A student writes <body text=\"green\" bgcolor=\"green\">. Which fix makes the page readable?",
+   "expected_answer": {
+    "value": "Change one of the two to a contrasting colour, e.g. text=\"white\""
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Change one of the two to a contrasting colour, e.g. text=\"white\"",
+    "Add a </title> tag",
+    "Replace body with head",
+    "Remove the closing tag"
+   ],
+   "explanation": "Contrasting text and background are needed so that the content is visible.",
+   "content_status": "needs_review"
+  }
+ ]
+}

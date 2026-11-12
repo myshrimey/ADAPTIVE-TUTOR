@@ -1,0 +1,2965 @@
+{
+ "subject_slug": "computer-applications",
+ "questions": [
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which logical operation gives 1 only when every one of its inputs is 1?",
+   "expected_answer": {
+    "value": "AND"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "OR",
+    "NOT",
+    "XOR",
+    "AND"
+   ],
+   "explanation": "AND outputs 1 only if all inputs are 1; OR needs just one 1, and NOT has a single input that it inverts.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does the NOT operation do to its single input?",
+   "expected_answer": {
+    "value": "It reverses it: 0 becomes 1 and 1 becomes 0"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It reverses it: 0 becomes 1 and 1 becomes 0",
+    "It leaves the input unchanged",
+    "It always gives 0",
+    "It adds the input to itself"
+   ],
+   "explanation": "NOT is the inverter, so it flips the bit it receives.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "An OR operation with two inputs gives 0 in which situation?",
+   "expected_answer": {
+    "value": "Both inputs are 0"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Only one input is 0",
+    "Both inputs are 1",
+    "Both inputs are 0",
+    "Inputs are different"
+   ],
+   "explanation": "OR is 1 whenever at least one input is 1, so it is 0 only when both are 0.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A student writes the truth table of A OR B as (0,0)->0, (0,1)->1, (1,0)->1, (1,1)->0. Which row is wrong?",
+   "expected_answer": {
+    "value": "The row (1,1), which should give 1"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The row (0,0), which should give 1",
+    "The row (1,1), which should give 1",
+    "The row (0,1), which should give 0",
+    "No row is wrong"
+   ],
+   "explanation": "OR gives 1 when at least one input is 1, so (1,1) must give 1; the student has mixed it up with exclusive OR.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A student says, \"AND gives 1 when at least one input is 1.\" What is the mistake?",
+   "expected_answer": {
+    "value": "That describes OR, not AND"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "That describes OR, not AND",
+    "That describes NOT, not AND",
+    "Nothing; the statement is correct",
+    "AND gives 1 only when all inputs are 0"
+   ],
+   "explanation": "AND needs all inputs to be 1; 'at least one' is the rule for OR.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "When A = 0 and B = 1, which expression has the value 1?",
+   "expected_answer": {
+    "value": "A OR B"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A AND B",
+    "NOT B",
+    "A OR B",
+    "A AND NOT B"
+   ],
+   "explanation": "A OR B = 0 OR 1 = 1, while the other three expressions all evaluate to 0.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "When A = 0, B = 1 and C = 1, which expression has the value 0?",
+   "expected_answer": {
+    "value": "A AND B"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A OR B",
+    "B AND C",
+    "NOT A AND C",
+    "A AND B"
+   ],
+   "explanation": "A AND B = 0 AND 1 = 0; the others give 1 (0 OR 1, 1 AND 1, 1 AND 1).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "An alarm should ring only when the door is open AND the system is armed. Which operation links the two conditions?",
+   "expected_answer": {
+    "value": "AND"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "OR",
+    "NOT",
+    "AND",
+    "XOR"
+   ],
+   "explanation": "Both conditions must be true together, which is the AND operation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A hall light turns on if switch 1 is pressed, or switch 2 is pressed, or both. Which operation models this?",
+   "expected_answer": {
+    "value": "OR"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "AND",
+    "NOT",
+    "OR",
+    "NAND only"
+   ],
+   "explanation": "The light is on when at least one switch is pressed, which is OR.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Login is allowed when the password is correct (P) and the account is not locked (L). Which expression expresses this?",
+   "expected_answer": {
+    "value": "P AND NOT L"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "P AND NOT L",
+    "P AND L",
+    "P OR NOT L",
+    "NOT P AND L"
+   ],
+   "explanation": "The password must be correct and the lock must be false, so L is inverted and joined with AND.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A shop gives a discount when age < 12 OR age > 60. Which customer gets the discount?",
+   "expected_answer": {
+    "value": "A customer aged 8"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A customer aged 12",
+    "A customer aged 30",
+    "A customer aged 60",
+    "A customer aged 8"
+   ],
+   "explanation": "Age 8 satisfies age < 12; ages 12, 30 and 60 satisfy neither part.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which condition on a number n can never be true?",
+   "expected_answer": {
+    "value": "n > 10 AND n < 5"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "n > 10 OR n < 5",
+    "n > 5 AND n < 10",
+    "n > 10 AND n < 5",
+    "n < 10 OR n > 5"
+   ],
+   "explanation": "No number is both greater than 10 and less than 5, so the AND of those is always false.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which expression is true for every possible value of A?",
+   "expected_answer": {
+    "value": "A OR NOT A"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A AND NOT A",
+    "A OR A",
+    "A OR NOT A",
+    "NOT A"
+   ],
+   "explanation": "Whatever A is, either A or NOT A is 1, so A OR NOT A is always 1; A AND NOT A is always 0.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A AND 1 is always equal to which of these?",
+   "expected_answer": {
+    "value": "A"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "1",
+    "0",
+    "NOT A",
+    "A"
+   ],
+   "explanation": "ANDing with 1 does not change the value of A.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A OR 1 is always equal to which of these?",
+   "expected_answer": {
+    "value": "1"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "1",
+    "A",
+    "0",
+    "NOT A"
+   ],
+   "explanation": "If one input of OR is 1 the result is 1 whatever the other input is.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A AND 0 is always equal to which of these?",
+   "expected_answer": {
+    "value": "0"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A",
+    "1",
+    "0",
+    "NOT A"
+   ],
+   "explanation": "If one input of AND is 0 the result is 0 whatever the other input is.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is NOT (NOT A) equal to?",
+   "expected_answer": {
+    "value": "A"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A",
+    "NOT A",
+    "0",
+    "1"
+   ],
+   "explanation": "Two inversions cancel out and return the original value.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A table has 4 input combinations of A and B. For how many of them is A OR B equal to 1?",
+   "expected_answer": {
+    "value": "3"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "3",
+    "1",
+    "2",
+    "4"
+   ],
+   "explanation": "Only the combination (0,0) gives 0, so 3 of the 4 combinations give 1.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Out of the 4 input combinations of A and B, for how many is (NOT A) AND B equal to 1?",
+   "expected_answer": {
+    "value": "1"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "0",
+    "2",
+    "1",
+    "3"
+   ],
+   "explanation": "It needs A = 0 and B = 1, which happens only in the single combination (0,1).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In the 8-row truth table of A OR B OR C, how many rows give the output 0?",
+   "expected_answer": {
+    "value": "1"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "0",
+    "3",
+    "1",
+    "7"
+   ],
+   "explanation": "The output is 0 only when A, B and C are all 0, which is one row.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "In the 8-row truth table of A AND (B OR C), how many rows give the output 1?",
+   "expected_answer": {
+    "value": "3"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "1",
+    "4",
+    "3",
+    "5"
+   ],
+   "explanation": "A must be 1 (4 rows) and at least one of B, C must be 1 (3 of those 4 rows), so 3 rows.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "For how many of the 4 combinations of A and B is (A OR B) AND NOT (A AND B) equal to 1?",
+   "expected_answer": {
+    "value": "2"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "2",
+    "1",
+    "3",
+    "4"
+   ],
+   "explanation": "It is 1 when at least one input is 1 but not both: (0,1) and (1,0).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Without brackets, AND is evaluated before OR. Which bracketed form is the same as A AND B OR C?",
+   "expected_answer": {
+    "value": "(A AND B) OR C"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "A AND (B OR C)",
+    "(A OR B) AND C",
+    "NOT (A AND B) OR C",
+    "(A AND B) OR C"
+   ],
+   "explanation": "AND has higher precedence than OR, so the AND pair is grouped first.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which bracketed form means the same as NOT A OR B?",
+   "expected_answer": {
+    "value": "(NOT A) OR B"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "(NOT A) OR B",
+    "NOT (A OR B)",
+    "A OR NOT B",
+    "NOT A AND B"
+   ],
+   "explanation": "NOT acts only on the variable right next to it, so only A is inverted before the OR.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "For A = 1, B = 0, C = 0, what are the values of A OR (B AND C) and (A OR B) AND C respectively?",
+   "expected_answer": {
+    "value": "1 and 0"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "0 and 1",
+    "1 and 1",
+    "0 and 0",
+    "1 and 0"
+   ],
+   "explanation": "A OR (0 AND 0) = 1 OR 0 = 1, but (1 OR 0) AND 0 = 1 AND 0 = 0, so brackets change the result.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which input combination makes a NAND gate (AND followed by NOT) output 0?",
+   "expected_answer": {
+    "value": "A = 1, B = 1"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A = 0, B = 0",
+    "A = 1, B = 0",
+    "A = 1, B = 1",
+    "A = 0, B = 1"
+   ],
+   "explanation": "AND gives 1 only for (1,1), and NOT turns that into 0; every other input gives 1.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which input combination makes a NOR gate (OR followed by NOT) output 1?",
+   "expected_answer": {
+    "value": "A = 0, B = 0"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A = 1, B = 1",
+    "A = 0, B = 0",
+    "A = 1, B = 0",
+    "A = 0, B = 1"
+   ],
+   "explanation": "OR gives 0 only for (0,0), and NOT turns that into 1.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A web search for \"tea AND coffee\" using Boolean search rules returns pages that contain:",
+   "expected_answer": {
+    "value": "Both the word tea and the word coffee"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Either tea or coffee, but not both",
+    "Both the word tea and the word coffee",
+    "Tea but never coffee",
+    "Neither word"
+   ],
+   "explanation": "AND narrows a search to pages that match both terms.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A Boolean web search \"tea NOT coffee\" is meant to return pages that:",
+   "expected_answer": {
+    "value": "Contain tea but do not contain coffee"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Contain coffee but not tea",
+    "Contain both words",
+    "Contain neither word",
+    "Contain tea but do not contain coffee"
+   ],
+   "explanation": "NOT excludes the term that follows it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-and-or-not",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A circuit's output is (A AND NOT B) OR (NOT A AND B). Which description of the output is correct?",
+   "expected_answer": {
+    "value": "It is 1 exactly when A and B are different"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It is 1 exactly when A and B are the same",
+    "It is 1 exactly when A and B are different",
+    "It is 1 only when both A and B are 1",
+    "It is 1 whenever at least one input is 1"
+   ],
+   "explanation": "Each bracket covers one of the cases (1,0) and (0,1); (0,0) and (1,1) give 0.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which expression is equal to NOT (A AND B) by De Morgan's law?",
+   "expected_answer": {
+    "value": "NOT A OR NOT B"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "NOT A AND NOT B",
+    "NOT A OR NOT B",
+    "A OR B",
+    "NOT A OR B"
+   ],
+   "explanation": "De Morgan's law: negating an AND gives the OR of the negated terms.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which expression is equal to NOT (A OR B)?",
+   "expected_answer": {
+    "value": "NOT A AND NOT B"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "NOT A OR NOT B",
+    "NOT A AND NOT B",
+    "A AND B",
+    "A AND NOT B"
+   ],
+   "explanation": "Negating an OR gives the AND of the negated terms.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "When De Morgan's law is applied to move a NOT inside brackets, what happens to the operator inside?",
+   "expected_answer": {
+    "value": "AND changes to OR and OR changes to AND"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "AND and OR both stay the same",
+    "Both change to NOT",
+    "Both become XOR",
+    "AND changes to OR and OR changes to AND"
+   ],
+   "explanation": "Pushing the NOT through the bracket swaps AND with OR and negates each variable.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A student writes NOT (A AND B) = NOT A AND NOT B. What is the mistake?",
+   "expected_answer": {
+    "value": "The AND should have changed to OR"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The NOT signs should have been removed",
+    "The AND should have changed to OR",
+    "The brackets should have been kept",
+    "Nothing; the statement is correct"
+   ],
+   "explanation": "De Morgan's law flips the operator, so the right side should be NOT A OR NOT B.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A student writes NOT (A OR B) = NOT A OR NOT B. What is the mistake?",
+   "expected_answer": {
+    "value": "The OR should have changed to AND"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Only A should have been negated",
+    "The NOT signs should have been removed",
+    "Nothing; the statement is correct",
+    "The OR should have changed to AND"
+   ],
+   "explanation": "The operator must be flipped, giving NOT A AND NOT B.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Simplify NOT (A AND NOT B) using De Morgan's law and double negation.",
+   "expected_answer": {
+    "value": "NOT A OR B"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A OR NOT B",
+    "NOT A OR B",
+    "NOT A AND B",
+    "A AND B"
+   ],
+   "explanation": "NOT (A AND NOT B) = NOT A OR NOT (NOT B) = NOT A OR B.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Simplify NOT (NOT A OR B).",
+   "expected_answer": {
+    "value": "A AND NOT B"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "NOT A AND B",
+    "A OR NOT B",
+    "NOT A AND NOT B",
+    "A AND NOT B"
+   ],
+   "explanation": "NOT of an OR gives AND of the negations: NOT(NOT A) AND NOT B = A AND NOT B.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Simplify NOT (NOT A AND NOT B).",
+   "expected_answer": {
+    "value": "A OR B"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A OR B",
+    "A AND B",
+    "NOT A OR NOT B",
+    "NOT A AND NOT B"
+   ],
+   "explanation": "The NOT turns AND into OR and cancels the inner negations, leaving A OR B.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Simplify NOT (NOT A OR NOT B).",
+   "expected_answer": {
+    "value": "A AND B"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A OR B",
+    "A AND B",
+    "NOT A AND NOT B",
+    "NOT A OR B"
+   ],
+   "explanation": "The outer NOT turns OR into AND, and the double negations cancel: A AND B.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is equal to NOT (A OR B OR C)?",
+   "expected_answer": {
+    "value": "NOT A AND NOT B AND NOT C"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "NOT A OR NOT B OR NOT C",
+    "NOT A AND NOT B AND NOT C",
+    "NOT A AND NOT B AND C",
+    "A AND B AND C"
+   ],
+   "explanation": "De Morgan's law extends to three terms: negate each and change OR to AND.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is equal to NOT (A AND B AND C)?",
+   "expected_answer": {
+    "value": "NOT A OR NOT B OR NOT C"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "NOT A OR NOT B OR NOT C",
+    "NOT A AND NOT B AND NOT C",
+    "A OR B OR C",
+    "NOT A OR NOT B OR C"
+   ],
+   "explanation": "Negate every term and change AND to OR for all three.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which is equal to NOT (A AND (B OR C))?",
+   "expected_answer": {
+    "value": "NOT A OR (NOT B AND NOT C)"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "NOT A AND (NOT B OR NOT C)",
+    "NOT A OR (NOT B OR NOT C)",
+    "NOT A OR (NOT B AND NOT C)",
+    "A OR (NOT B AND NOT C)"
+   ],
+   "explanation": "Outer AND becomes OR of NOT A and NOT (B OR C), and the latter is NOT B AND NOT C.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which is equal to NOT (A OR (B AND C))?",
+   "expected_answer": {
+    "value": "NOT A AND (NOT B OR NOT C)"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "NOT A OR (NOT B OR NOT C)",
+    "NOT A AND (NOT B OR NOT C)",
+    "NOT A AND (NOT B AND NOT C)",
+    "A AND (NOT B OR NOT C)"
+   ],
+   "explanation": "The outer OR becomes AND with NOT A, and NOT (B AND C) becomes NOT B OR NOT C.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which single negated expression equals (NOT A) AND (NOT B)?",
+   "expected_answer": {
+    "value": "NOT (A OR B)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "NOT (A AND B)",
+    "NOT A OR NOT B",
+    "A OR B",
+    "NOT (A OR B)"
+   ],
+   "explanation": "Reading De Morgan's law backwards: NOT A AND NOT B = NOT (A OR B).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which single negated expression equals (NOT A) OR (NOT B)?",
+   "expected_answer": {
+    "value": "NOT (A AND B)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "NOT (A OR B)",
+    "A AND B",
+    "NOT A AND NOT B",
+    "NOT (A AND B)"
+   ],
+   "explanation": "NOT A OR NOT B = NOT (A AND B) by De Morgan's law.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "For how many of the 4 input combinations of A and B is NOT (A AND B) equal to 1?",
+   "expected_answer": {
+    "value": "3"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "1",
+    "3",
+    "2",
+    "4"
+   ],
+   "explanation": "It is 0 only when A = 1 and B = 1, so 3 combinations give 1; NOT A OR NOT B behaves identically.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "For how many of the 4 input combinations of A and B is NOT (A OR B) equal to 1?",
+   "expected_answer": {
+    "value": "1"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "0",
+    "2",
+    "3",
+    "1"
+   ],
+   "explanation": "It is 1 only for A = 0, B = 0, which matches NOT A AND NOT B.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "For A = 1 and B = 0, what are the values of NOT (A AND B) and NOT A AND NOT B respectively?",
+   "expected_answer": {
+    "value": "1 and 0"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "0 and 1",
+    "1 and 0",
+    "1 and 1",
+    "0 and 0"
+   ],
+   "explanation": "NOT (1 AND 0) = 1, but NOT 1 AND NOT 0 = 0 AND 1 = 0, so they are not equal; the correct partner is NOT A OR NOT B.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which gate is equivalent to an AND gate whose output is inverted?",
+   "expected_answer": {
+    "value": "NAND"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "NOR",
+    "XOR",
+    "NAND",
+    "XNOR"
+   ],
+   "explanation": "NAND means NOT AND; by De Morgan's law it equals an OR gate fed with inverted inputs.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "By De Morgan's law, a NOR gate gives the same output as which circuit?",
+   "expected_answer": {
+    "value": "An AND gate with both inputs inverted"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "An OR gate with both inputs inverted",
+    "An AND gate with its output inverted",
+    "An OR gate with one input inverted",
+    "An AND gate with both inputs inverted"
+   ],
+   "explanation": "NOT (A OR B) = NOT A AND NOT B, which is an AND of inverted inputs.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "By De Morgan's law, a NAND gate gives the same output as which circuit?",
+   "expected_answer": {
+    "value": "An OR gate with both inputs inverted"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "An AND gate with both inputs inverted",
+    "An OR gate with its output inverted",
+    "An AND gate with one input inverted",
+    "An OR gate with both inputs inverted"
+   ],
+   "explanation": "NOT (A AND B) = NOT A OR NOT B, an OR of inverted inputs.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A rule says a form is rejected when it is NOT (name filled AND age filled). When is the form rejected?",
+   "expected_answer": {
+    "value": "When the name is missing or the age is missing (or both)"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "When the name is missing or the age is missing (or both)",
+    "Only when both name and age are missing",
+    "Only when the name is missing",
+    "Only when both are filled"
+   ],
+   "explanation": "NOT (N AND G) = NOT N OR NOT G, so at least one missing field causes rejection.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A ride is allowed unless (age < 10 OR height < 100). Which condition describes a rider who is allowed?",
+   "expected_answer": {
+    "value": "age >= 10 AND height >= 100"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "age >= 10 OR height >= 100",
+    "age < 10 AND height < 100",
+    "age >= 10 AND height >= 100",
+    "age >= 10 AND height < 100"
+   ],
+   "explanation": "NOT (age < 10 OR height < 100) = NOT(age<10) AND NOT(height<100), and the NOT of < is >=.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The negation of the condition (marks >= 33 AND attendance >= 75) is:",
+   "expected_answer": {
+    "value": "marks < 33 OR attendance < 75"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "marks < 33 AND attendance < 75",
+    "marks <= 33 OR attendance <= 75",
+    "marks < 33 OR attendance < 75",
+    "marks < 33 OR attendance >= 75"
+   ],
+   "explanation": "Flip AND to OR and reverse each comparison: >= becomes <.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "The negation of the condition (x > 5 OR y == 2) is:",
+   "expected_answer": {
+    "value": "x <= 5 AND y != 2"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "x <= 5 AND y != 2",
+    "x <= 5 OR y != 2",
+    "x < 5 AND y != 2",
+    "x <= 5 AND y == 2"
+   ],
+   "explanation": "NOT turns OR into AND, > becomes <=, and == becomes !=.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A search engine filter is written NOT (cheap OR old). Which items does it keep?",
+   "expected_answer": {
+    "value": "Items that are neither cheap nor old"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Items that are neither cheap nor old",
+    "Items that are either cheap or old",
+    "Items that are cheap but not old",
+    "Items that are not cheap or are old"
+   ],
+   "explanation": "NOT (cheap OR old) = NOT cheap AND NOT old.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does applying NOT twice to a variable, as in NOT (NOT A), give?",
+   "expected_answer": {
+    "value": "A"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "NOT A",
+    "A",
+    "0",
+    "1"
+   ],
+   "explanation": "Double negation cancels, which is the step used after applying De Morgan's law to a negated term.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-de-morgan",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about De Morgan's laws is true?",
+   "expected_answer": {
+    "value": "They hold for every possible combination of input values"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They hold only when A and B are different",
+    "They hold only when both inputs are 1",
+    "They hold only for three or more variables",
+    "They hold for every possible combination of input values"
+   ],
+   "explanation": "De Morgan's laws are identities, true for all inputs.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Every formula in a spreadsheet must begin with which symbol?",
+   "expected_answer": {
+    "value": "The equals sign (=)"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The at sign (@)",
+    "The equals sign (=)",
+    "The hash sign (#)",
+    "A bracket ("
+   ],
+   "explanation": "A leading = tells the spreadsheet to calculate instead of treating the entry as text.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In a spreadsheet, A1:A5 is best described as:",
+   "expected_answer": {
+    "value": "A range of five cells in column A"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A formula that divides A1 by A5",
+    "A range of five cells in column A",
+    "A single cell named A1:A5",
+    "A range of five cells in row 1"
+   ],
+   "explanation": "A colon joins the first and last cells of a range, here A1 to A5 down column A.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Cells A1, A2 and A3 hold 4, 6 and 8. What does =AVERAGE(A1:A3) give?",
+   "expected_answer": {
+    "value": "6"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "18",
+    "6",
+    "8",
+    "4"
+   ],
+   "explanation": "The sum is 18 and 18 divided by 3 values is 6.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Cells B1 to B4 hold 12, 5, 30 and 7. What does =MIN(B1:B4) give?",
+   "expected_answer": {
+    "value": "5"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "7",
+    "12",
+    "30",
+    "5"
+   ],
+   "explanation": "MIN returns the smallest value in the range, which is 5.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which formula multiplies the values in cells A1 and B1?",
+   "expected_answer": {
+    "value": "=A1*B1"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=A1*B1",
+    "=A1+B1",
+    "A1*B1",
+    "=A1xB1"
+   ],
+   "explanation": "The multiplication operator is * and the formula must start with =.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Cells A1 to A4 hold 3, 0, 9 and 6. What does =COUNT(A1:A4) give?",
+   "expected_answer": {
+    "value": "4"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "3",
+    "18",
+    "4",
+    "9"
+   ],
+   "explanation": "COUNT counts cells holding numbers, and zero is a number, so all 4 cells are counted.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Cell A1 holds 10, A2 holds the word Absent and A3 holds 20. What does =COUNT(A1:A3) give?",
+   "expected_answer": {
+    "value": "2"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "3",
+    "30",
+    "1",
+    "2"
+   ],
+   "explanation": "COUNT counts only numeric cells, so the text cell is ignored.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "With the same cells (10, the word Absent, 20), what does =COUNTA(A1:A3) give?",
+   "expected_answer": {
+    "value": "3"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "2",
+    "3",
+    "30",
+    "1"
+   ],
+   "explanation": "COUNTA counts every non-empty cell, whether it holds a number or text.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Cell A1 holds 7. What does =IF(A1>5,\"High\",\"Low\") display?",
+   "expected_answer": {
+    "value": "High"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Low",
+    "High",
+    "True",
+    "7"
+   ],
+   "explanation": "7 > 5 is true, so the second argument, High, is returned.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Cell A1 holds 40. What does =IF(A1>=50,\"Pass\",\"Fail\") display?",
+   "expected_answer": {
+    "value": "Fail"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Pass",
+    "Fail",
+    "40",
+    "False"
+   ],
+   "explanation": "40 is not >= 50, so the false-value, Fail, is shown.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What value does =2+3*4 give?",
+   "expected_answer": {
+    "value": "14"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "14",
+    "20",
+    "24",
+    "9"
+   ],
+   "explanation": "Multiplication is done before addition: 3*4 = 12, then 12 + 2 = 14.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What value does =(2+3)*4 give?",
+   "expected_answer": {
+    "value": "20"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "14",
+    "24",
+    "9",
+    "20"
+   ],
+   "explanation": "Brackets are evaluated first: 5*4 = 20.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does =2^3 give?",
+   "expected_answer": {
+    "value": "8"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "6",
+    "8",
+    "5",
+    "9"
+   ],
+   "explanation": "The ^ operator raises to a power, so 2^3 = 2*2*2 = 8.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does =10-4/2 give?",
+   "expected_answer": {
+    "value": "8"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "3",
+    "4",
+    "8",
+    "12"
+   ],
+   "explanation": "Division is done first: 4/2 = 2, and 10 - 2 = 8.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cells A1, A2, A3 hold 10, 20, 30. What does =SUM(A1:A3)/COUNT(A1:A3) calculate?",
+   "expected_answer": {
+    "value": "The average of the three values, 20"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The average of the three values, 20",
+    "The total of the three values, 60",
+    "The largest value, 30",
+    "The count of the values, 3"
+   ],
+   "explanation": "SUM gives 60 and COUNT gives 3, and 60/3 = 20, the same as AVERAGE.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cells A1 to A3 hold 10, 20, 30. What does =SUM(A1,A3) give?",
+   "expected_answer": {
+    "value": "40"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "60",
+    "40",
+    "30",
+    "20"
+   ],
+   "explanation": "Commas separate individual arguments, so only A1 and A3 are added: 10 + 30.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does =ROUND(3.14159,2) give?",
+   "expected_answer": {
+    "value": "3.14"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "3.14",
+    "3.1",
+    "3.15",
+    "3"
+   ],
+   "explanation": "The second argument is the number of decimal places to keep, so 3.14159 becomes 3.14.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cells B1:B5 hold 15, 40, 8, 40, 22. What does =MAX(B1:B5)-MIN(B1:B5) give?",
+   "expected_answer": {
+    "value": "32"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "40",
+    "8",
+    "32",
+    "25"
+   ],
+   "explanation": "The largest is 40 and the smallest is 8, so the difference is 32.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cells C1:C4 hold 5, 10, 15, 20. What does =SUM(C1:C4)*10% give?",
+   "expected_answer": {
+    "value": "5"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "50",
+    "5",
+    "500",
+    "0.5"
+   ],
+   "explanation": "The sum is 50 and 10% means 0.1, so the result is 5.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cell A1 holds 8 and cell B1 is empty. Which error appears for =A1/B1?",
+   "expected_answer": {
+    "value": "#DIV/0!"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "#NAME?",
+    "#REF!",
+    "#DIV/0!",
+    "#VALUE!"
+   ],
+   "explanation": "An empty cell counts as zero, and division by zero gives #DIV/0!.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A user types =SUMM(A1:A5) and sees #NAME?. What is the cause?",
+   "expected_answer": {
+    "value": "The function name is spelled wrongly"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The function name is spelled wrongly",
+    "The range has too many cells",
+    "A1:A5 holds only numbers",
+    "The formula is missing a closing bracket"
+   ],
+   "explanation": "#NAME? appears when the spreadsheet does not recognise a function name; the correct one is SUM.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cell A1 holds the word Hello and B1 holds the number 5. What does the formula =A1+B1 produce?",
+   "expected_answer": {
+    "value": "An error, because text cannot be added to a number"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Hello5",
+    "5",
+    "The number 10",
+    "An error, because text cannot be added to a number"
+   ],
+   "explanation": "Arithmetic on a non-numeric text cell gives #VALUE!; joining text needs the & operator.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cells A1 and B1 hold the text Ravi and Kumar. Which formula displays RaviKumar?",
+   "expected_answer": {
+    "value": "=A1&B1"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=A1&B1",
+    "=A1+B1",
+    "=A1*B1",
+    "=A1,B1"
+   ],
+   "explanation": "The & operator joins (concatenates) text; the other symbols are arithmetic or separators.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which formula counts how many cells in A1:A10 contain a value greater than 50?",
+   "expected_answer": {
+    "value": "=COUNTIF(A1:A10,\">50\")"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=COUNT(A1:A10>50)",
+    "=COUNTIF(A1:A10,\">50\")",
+    "=IF(A1:A10>50)",
+    "=SUMIF(A1:A10,50)"
+   ],
+   "explanation": "COUNTIF takes a range and a condition in quotes and counts matching cells.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A1:A4 hold 10, 20, 30, 40 and B1:B4 hold Yes, No, Yes, No. What does =SUMIF(B1:B4,\"Yes\",A1:A4) give?",
+   "expected_answer": {
+    "value": "40"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "30",
+    "40",
+    "60",
+    "100"
+   ],
+   "explanation": "SUMIF adds cells of A1:A4 whose matching cell in B1:B4 is Yes: 10 + 30.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A1 holds 25. What does =IF(A1>20,IF(A1>30,\"Big\",\"Medium\"),\"Small\") display?",
+   "expected_answer": {
+    "value": "Medium"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Big",
+    "Small",
+    "Medium",
+    "25"
+   ],
+   "explanation": "25 > 20 is true, so the inner IF runs; 25 > 30 is false, so Medium is returned.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Cells A1 and A2 hold 60 and 45. What does =IF(AND(A1>=50,A2>=50),\"Pass\",\"Fail\") display?",
+   "expected_answer": {
+    "value": "Fail"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Pass",
+    "60",
+    "Fail",
+    "True"
+   ],
+   "explanation": "AND needs both tests true, but 45 is not >= 50, so Fail is shown.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Cells A1 and A2 hold 60 and 45. What does =IF(OR(A1>=50,A2>=50),\"Pass\",\"Fail\") display?",
+   "expected_answer": {
+    "value": "Pass"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Fail",
+    "Pass",
+    "45",
+    "False"
+   ],
+   "explanation": "OR needs only one true test, and 60 >= 50 is true.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Marks are in B2:B6. Which formula gives the average of only the first three marks?",
+   "expected_answer": {
+    "value": "=AVERAGE(B2:B4)"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=AVERAGE(B2:B3)",
+    "=AVERAGE(B2:B6)/3",
+    "=AVERAGE(B2:B4)",
+    "=SUM(B2:B4)/B4"
+   ],
+   "explanation": "B2:B4 spans exactly three cells; the other choices cover two cells, five cells, or divide by a cell value.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-spreadsheet-formulas",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A1 holds 6, A2 holds 4. What does =A1+A2*2-A1/3 give?",
+   "expected_answer": {
+    "value": "12"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "16",
+    "12",
+    "8",
+    "13"
+   ],
+   "explanation": "Multiplication and division come first: 4*2 = 8 and 6/3 = 2, so 6 + 8 - 2 = 12.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is a relative cell reference?",
+   "expected_answer": {
+    "value": "B4"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "$B$4",
+    "$B4",
+    "B$4",
+    "B4"
+   ],
+   "explanation": "A reference with no dollar signs, such as B4, changes when the formula is copied.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which reference below is fully absolute, locking both column and row?",
+   "expected_answer": {
+    "value": "$C$2"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "$C$2",
+    "C2",
+    "$C2",
+    "C$2"
+   ],
+   "explanation": "Dollar signs before both the column letter and the row number lock the reference completely.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What is a reference such as $A1 or A$1, with only one dollar sign, called?",
+   "expected_answer": {
+    "value": "A mixed reference"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "An absolute reference",
+    "A relative reference",
+    "A range reference",
+    "A mixed reference"
+   ],
+   "explanation": "A mixed reference locks either the column or the row but not both.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which keyboard key, pressed while editing a reference in most spreadsheets, cycles it through relative, absolute and mixed forms?",
+   "expected_answer": {
+    "value": "F4"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "F1",
+    "F4",
+    "F2",
+    "F12"
+   ],
+   "explanation": "F4 adds and cycles the dollar signs, for example B2 to $B$2 to B$2 to $B2.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Cell C2 contains =A2+B2. If it is copied to C3, what will C3 contain?",
+   "expected_answer": {
+    "value": "=A3+B3"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=A3+B3",
+    "=A2+B3",
+    "=A3+B2",
+    "=A2+B2"
+   ],
+   "explanation": "Both references are relative, so moving down one row raises each row number by 1.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Cell B1 contains =A1*10. If it is copied to B4, what will B4 contain?",
+   "expected_answer": {
+    "value": "=A4*10"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=A1*10",
+    "=A4*10",
+    "=A3*10",
+    "=A4*13"
+   ],
+   "explanation": "The relative row number moves down by 3 rows, from 1 to 4.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Cell C2 contains =A2+B2. If it is copied to D2, what will D2 contain?",
+   "expected_answer": {
+    "value": "=B2+C2"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=A2+B2",
+    "=A2+C2",
+    "=B2+C2",
+    "=B3+C3"
+   ],
+   "explanation": "Copying one column right shifts every relative column letter by one, so A2+B2 becomes B2+C2.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Cell C1 contains =$A$1+B1. If it is copied to C2, what will C2 contain?",
+   "expected_answer": {
+    "value": "=$A$1+B2"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=$A$1+B1",
+    "=$A$2+B2",
+    "=$A$1+B2",
+    "=A2+B2"
+   ],
+   "explanation": "Only B1 is relative, so it becomes B2, while $A$1 stays fixed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cell E2 contains =B2*$D$1. If it is copied to E5, what will E5 contain?",
+   "expected_answer": {
+    "value": "=B5*$D$1"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=B2*$D$1",
+    "=B5*$D$4",
+    "=B5*D$1",
+    "=B5*$D$1"
+   ],
+   "explanation": "B2 moves down 3 rows to B5 while the absolute $D$1 never changes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cell C2 contains =A2*$B2. If it is copied to D5, what will D5 contain?",
+   "expected_answer": {
+    "value": "=B5*$B5"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=B5*$B2",
+    "=B5*$B5",
+    "=B5*$C5",
+    "=A5*$B5"
+   ],
+   "explanation": "A2 shifts one column and three rows to B5; $B2 keeps column B but its relative row moves to 5.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cell C2 contains =A$1+B2. If it is copied to D3, what will D3 contain?",
+   "expected_answer": {
+    "value": "=B$1+C3"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=B$1+C3",
+    "=B$2+C4",
+    "=B$1+C2",
+    "=A$1+C3"
+   ],
+   "explanation": "A$1 keeps row 1 but its column moves to B; B2 moves one column and one row to C3.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cell C1 contains =$A1+$B1. If it is copied to D4, what will D4 contain?",
+   "expected_answer": {
+    "value": "=$A4+$B4"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=$A1+$B1",
+    "=$A4+$B4",
+    "=$B4+$C4",
+    "=$A1+$B4"
+   ],
+   "explanation": "Columns are locked at A and B, while the relative row numbers move from 1 to 4.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cell D3 contains =B2+C2. If it is copied to C2, what will C2 contain?",
+   "expected_answer": {
+    "value": "=A1+B1"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=A1+B1",
+    "=B2+C2",
+    "=A2+B3",
+    "=C1+D1"
+   ],
+   "explanation": "Copying one column left and one row up shifts each relative reference by minus one column and minus one row.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Cell B1 contains =SUM(A1:A3). If it is copied to C1, what will C1 contain?",
+   "expected_answer": {
+    "value": "=SUM(B1:B3)"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=SUM(B1:B3)",
+    "=SUM(A1:A3)",
+    "=SUM(B2:B4)",
+    "=SUM(B1:B2)"
+   ],
+   "explanation": "Both ends of the range are relative, so each column letter moves one step to the right.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Cell B1 contains =SUM($A1:$A3). If it is copied to C2, what will C2 contain?",
+   "expected_answer": {
+    "value": "=SUM($A2:$A4)"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=SUM(B2:B4)",
+    "=SUM($A1:$A3)",
+    "=SUM($A2:$A4)",
+    "=SUM($B2:$B4)"
+   ],
+   "explanation": "The locked columns stay A, and the relative row numbers each increase by 1.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Cell B1 contains =SUM(A$1:A$3). If it is copied to C2, what will C2 contain?",
+   "expected_answer": {
+    "value": "=SUM(B$1:B$3)"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=SUM(B2:B4)",
+    "=SUM(A1:A3)",
+    "=SUM(B$1:B$3)",
+    "=SUM(A$2:A$4)"
+   ],
+   "explanation": "Rows 1 and 3 are locked, but the relative column letters move from A to B.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cell D3 contains =C3/C$10. If it is copied to D8, what will D8 contain?",
+   "expected_answer": {
+    "value": "=C8/C$10"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=C8/C$15",
+    "=C8/C10",
+    "=D8/D$10",
+    "=C8/C$10"
+   ],
+   "explanation": "C3 moves down 5 rows to C8; the row of C$10 is locked so it stays C$10.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Cell B2 contains =$A2*B$1. If it is copied to D4, what will D4 contain?",
+   "expected_answer": {
+    "value": "=$A4*D$1"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=$A2*D$1",
+    "=$A4*D$1",
+    "=$A4*B$1",
+    "=$A4*D$3"
+   ],
+   "explanation": "$A2 keeps column A and moves its row to 4; B$1 keeps row 1 and its column moves to D.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Cell C2 contains =SUM($B$2:B2). If it is copied to C6, what will C6 contain?",
+   "expected_answer": {
+    "value": "=SUM($B$2:B6)"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=SUM($B$2:B2)",
+    "=SUM($B$6:B6)",
+    "=SUM($B$2:B6)",
+    "=SUM(B2:B6)"
+   ],
+   "explanation": "The start of the range is fixed at $B$2 while the end B2 moves down to B6, giving a running total.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Cell D5 contains =B5*C5. If it is copied to D6, which formula is correct for D6?",
+   "expected_answer": {
+    "value": "=B6*C6"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=B5*C5",
+    "=B6*C6",
+    "=B6*C5",
+    "=B5*C6"
+   ],
+   "explanation": "Both references are relative and the copy is one row down, so both rows increase by 1.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A tax rate sits in cell F1 and prices are in B2:B20. Which formula in C2, copied down the column, multiplies every price by the rate?",
+   "expected_answer": {
+    "value": "=B2*$F$1"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "=B2*F1",
+    "=$B$2*F1",
+    "=B2*$F$1",
+    "=B2*F$2"
+   ],
+   "explanation": "The rate must stay fixed while the price reference moves, so only F1 is made absolute.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cell C2 holds =B2*F1 and is copied down to C3 and C4. Why do C3 and C4 give wrong results?",
+   "expected_answer": {
+    "value": "F1 is relative and shifts to F2 and F3"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "B2 is absolute",
+    "The formula has no equals sign",
+    "F1 is relative and shifts to F2 and F3",
+    "The copy converts it to text"
+   ],
+   "explanation": "The rate reference F1 moves down with each copy; it should have been written $F$1.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why does a formula such as =A1+B1 keep working correctly after the row is inserted above it and cells shift?",
+   "expected_answer": {
+    "value": "References adjust to follow the cells they point to"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "References adjust to follow the cells they point to",
+    "References are converted to values",
+    "The formula is deleted",
+    "References are always absolute"
+   ],
+   "explanation": "When cells move because of an insertion, the formula's references are updated so they still point to the same data.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does the formula =Sheet2!B3 do?",
+   "expected_answer": {
+    "value": "Takes the value from cell B3 on the sheet named Sheet2"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Takes the value from B3 on every sheet",
+    "Divides Sheet2 by B3",
+    "Takes the value from cell B3 on the sheet named Sheet2",
+    "Copies Sheet2 into B3"
+   ],
+   "explanation": "The sheet name followed by ! identifies the worksheet containing the referenced cell.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Cell B2 holds =A2*2 and is moved (cut and pasted, not copied) to D5. What will D5 contain?",
+   "expected_answer": {
+    "value": "=A2*2"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "=C5*2",
+    "=C2*2",
+    "=A2*2",
+    "=A5*2"
+   ],
+   "explanation": "Cutting and moving a formula does not alter its references; only copying shifts relative references.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which cell reference style is best for a cell containing a fixed discount rate used by a whole column of formulas?",
+   "expected_answer": {
+    "value": "Absolute, such as $B$1"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Relative, such as B1",
+    "Absolute, such as $B$1",
+    "Mixed with row locked only, such as B$1",
+    "Any style works the same when copied down"
+   ],
+   "explanation": "An absolute reference does not move when the formula is copied in any direction.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A formula in B2 is =A$1*2 and is copied down to B5. What does B5 contain?",
+   "expected_answer": {
+    "value": "=A$1*2"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "=A4*2",
+    "=A$1*2",
+    "=A$4*2",
+    "=A5*2"
+   ],
+   "explanation": "The row is locked with $ and the copy stays in column B, so the reference does not change.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In the reference $B$3, what does the first $ lock?",
+   "expected_answer": {
+    "value": "The column B"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The row 3",
+    "The sheet name",
+    "The cell value",
+    "The column B"
+   ],
+   "explanation": "The $ before the letter locks the column and the $ before the number locks the row.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A formula in E2 is =$A2+B$1. What stays fixed when it is copied anywhere?",
+   "expected_answer": {
+    "value": "Column A of the first reference and row 1 of the second"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Row 2 and column B",
+    "Column A of the first reference and row 1 of the second",
+    "Nothing, both are relative",
+    "Both whole references"
+   ],
+   "explanation": "$A locks the column of the first reference and 1 after $ locks the row of the second.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-cell-references",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A multiplication table uses row 1 for multipliers (B1:F1) and column A for numbers (A2:A10). Which formula in B2 can be copied to every cell of the table?",
+   "expected_answer": {
+    "value": "=$A2*B$1"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "=A2*B1",
+    "=$A2*B$1",
+    "=$A$2*$B$1",
+    "=A$2*$B1"
+   ],
+   "explanation": "The column of A is locked for the left-hand numbers and the row of 1 is locked for the top multipliers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What is the main benefit of mail merge?",
+   "expected_answer": {
+    "value": "It produces many personalised documents from one template and a list of data"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "It produces many personalised documents from one template and a list of data",
+    "It translates a letter into other languages",
+    "It sends a document only to your own address",
+    "It compresses a letter so it takes less space"
+   ],
+   "explanation": "One main document is combined with each record of a data list to make a personalised copy for each.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In mail merge, which file holds the common text such as the body of a letter?",
+   "expected_answer": {
+    "value": "The main document"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The data source",
+    "The output printer",
+    "The address book of the operating system",
+    "The main document"
+   ],
+   "explanation": "The main document has the fixed text plus the placeholders that are filled from the data source.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In a data source used for mail merge, each column normally represents:",
+   "expected_answer": {
+    "value": "A field, such as Name or City"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A field, such as Name or City",
+    "A complete record",
+    "A separate letter",
+    "The main document"
+   ],
+   "explanation": "Columns hold fields; each row is a record about one person or item.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In a data source used for mail merge, each row (after the header row) normally represents:",
+   "expected_answer": {
+    "value": "One record, for example one person"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "One field name",
+    "The merge document",
+    "One page of the letter",
+    "One record, for example one person"
+   ],
+   "explanation": "A row collects all the field values belonging to one recipient.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A data source has a header row and 40 filled rows below it. How many personalised letters will a merge produce if all records are chosen?",
+   "expected_answer": {
+    "value": "40"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "41",
+    "40",
+    "1",
+    "39"
+   ],
+   "explanation": "The header row only names the fields; each of the 40 data rows creates one letter.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these can be used as a data source for a mail merge in a word processor?",
+   "expected_answer": {
+    "value": "A spreadsheet table with a header row"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A scanned photograph",
+    "An audio file",
+    "An image of a signature",
+    "A spreadsheet table with a header row"
+   ],
+   "explanation": "A spreadsheet, database table or contact list organised in rows and columns can supply the records.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In Microsoft Word, which tab contains the Mail Merge commands?",
+   "expected_answer": {
+    "value": "Mailings"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Insert",
+    "Review",
+    "View",
+    "Mailings"
+   ],
+   "explanation": "The Mailings tab holds Start Mail Merge, Select Recipients, Insert Merge Field and Finish & Merge.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is the correct order of the main steps of a mail merge?",
+   "expected_answer": {
+    "value": "Create main document, connect data source, insert merge fields, preview, finish and merge"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Create main document, connect data source, insert merge fields, preview, finish and merge",
+    "Insert merge fields, finish and merge, create main document, connect data source",
+    "Finish and merge, preview, connect data source, create main document",
+    "Preview, create main document, finish and merge, insert merge fields"
+   ],
+   "explanation": "The template and data must exist before fields are inserted, and the merge is completed last.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A merge field in the main document, such as «City», is replaced during the merge by:",
+   "expected_answer": {
+    "value": "The City value from each record of the data source"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The word City",
+    "The first record's City for every letter",
+    "A blank space",
+    "The City value from each record of the data source"
+   ],
+   "explanation": "For each record, the field is replaced with that record's value in the City column.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A student types the text «Name» directly with the keyboard characters. Why does it fail to merge?",
+   "expected_answer": {
+    "value": "It was typed as plain text instead of being inserted as a merge field"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "The data source cannot contain names",
+    "It was typed as plain text instead of being inserted as a merge field",
+    "Merge fields can only be numbers",
+    "Merge fields work only in the footer"
+   ],
+   "explanation": "Merge fields must be inserted with the Insert Merge Field command to link to the data source.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which text in a form letter will be the same in every merged copy?",
+   "expected_answer": {
+    "value": "The text typed directly in the main document that is not a merge field"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The text in a merge field",
+    "The text typed directly in the main document that is not a merge field",
+    "The values of each record",
+    "The recipient's name"
+   ],
+   "explanation": "Only merge fields change from record to record; typed text stays constant.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Before finishing the merge you want to see how the first letter will look with real data. Which command should you use?",
+   "expected_answer": {
+    "value": "Preview Results"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Preview Results",
+    "Insert Merge Field",
+    "Select Recipients",
+    "Start Mail Merge"
+   ],
+   "explanation": "Preview Results shows actual record data in place of field names so errors can be spotted before merging.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which option of Finish & Merge produces one editable new document that holds all merged letters?",
+   "expected_answer": {
+    "value": "Edit Individual Documents"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Print Documents",
+    "Edit Individual Documents",
+    "Send Email Messages",
+    "Insert Merge Field"
+   ],
+   "explanation": "Edit Individual Documents merges everything into a single new document that can be edited letter by letter.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A school wants to send a personalised message directly to the email address of every parent in the data source. Which output option suits this?",
+   "expected_answer": {
+    "value": "Send Email Messages"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Print Documents",
+    "Send Email Messages",
+    "Edit Individual Documents",
+    "Save as template only"
+   ],
+   "explanation": "This output type uses the email address field of each record to send the merged messages.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Only the students of Class 10 B should receive a notice from a school list of all classes. What is the best way to do it in mail merge?",
+   "expected_answer": {
+    "value": "Filter the recipient list on the Class field"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Delete the main document",
+    "Filter the recipient list on the Class field",
+    "Retype the notice for each student",
+    "Merge all and discard the other letters afterwards"
+   ],
+   "explanation": "Filtering the recipients limits the merge to matching records.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The merged letters should appear in alphabetical order of surname. What should be done?",
+   "expected_answer": {
+    "value": "Sort the recipient list by the Surname field"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Sort the main document",
+    "Rename the surname field",
+    "Sort the recipient list by the Surname field",
+    "Change the font of the letters"
+   ],
+   "explanation": "Sorting the recipient list controls the order of the records and hence of the output letters.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which merge document type creates a page of small address blocks, with one block for each record?",
+   "expected_answer": {
+    "value": "Labels"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Labels",
+    "Directory only",
+    "Letters",
+    "Normal text"
+   ],
+   "explanation": "The Labels type arranges one address for each label cell on a sheet.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "After a merge, every letter says \"Dear Dear Anil\". What is the most likely cause?",
+   "expected_answer": {
+    "value": "The word Dear was typed in the template and also stored inside the merge field or greeting line"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The data source is empty",
+    "Merge fields cannot hold names",
+    "Page margins are too small",
+    "The word Dear was typed in the template and also stored inside the merge field or greeting line"
+   ],
+   "explanation": "The greeting text was duplicated, once in the template and once from the field or greeting line; remove one.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The data source has a blank row in the middle, between filled records. What is likely to happen in the merge?",
+   "expected_answer": {
+    "value": "A letter with empty fields may be produced for it"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The merge will always stop with an error",
+    "All letters will be merged into one",
+    "A letter with empty fields may be produced for it",
+    "The blank row fills in itself with the previous record"
+   ],
+   "explanation": "A row without data is still a row in the list, so Word may create a letter with blank field values; delete the row or exclude it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which part of the data source decides the names of the merge fields offered in the document?",
+   "expected_answer": {
+    "value": "The header row"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The header row",
+    "The last row",
+    "The file name",
+    "The font size in the cells"
+   ],
+   "explanation": "The first row of column names becomes the list of available fields.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which change to the data source will not be reflected in an already prepared main document unless the fields are re-linked?",
+   "expected_answer": {
+    "value": "Renaming a column header that the merge field uses"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Adding a new record at the bottom",
+    "Changing a phone number in a record",
+    "Renaming a column header that the merge field uses",
+    "Correcting a spelling in a name"
+   ],
+   "explanation": "The merge field points to a field name, so a renamed header breaks the link; value or record changes are picked up.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about a mail merge is true?",
+   "expected_answer": {
+    "value": "One main document can be merged with many different data sources"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "One main document can be merged with only one data source ever",
+    "The data source must be inside the main document",
+    "The merge changes the data source permanently",
+    "One main document can be merged with many different data sources"
+   ],
+   "explanation": "The same template can be connected to different recipient lists at different times.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about mail merge is false?",
+   "expected_answer": {
+    "value": "The merge fields are stored in the data source and not in the main document"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The main document contains the merge fields",
+    "The merge fields are stored in the data source and not in the main document",
+    "The data source stores records",
+    "The merged output can be printed or emailed"
+   ],
+   "explanation": "Merge fields are inserted in the main document; they are linked to columns of the data source.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "For a fees reminder, an extra sentence should appear only for students with pending dues. Which mail merge feature provides this?",
+   "expected_answer": {
+    "value": "An If...Then...Else rule"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A page break",
+    "A header and footer",
+    "A bookmark",
+    "An If...Then...Else rule"
+   ],
+   "explanation": "The rule inserts different text depending on the value of a field.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A data source has 60 records. A filter keeps only those with City = Pune, leaving 18. How many letters does finish & merge produce?",
+   "expected_answer": {
+    "value": "18"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "18",
+    "60",
+    "42",
+    "1"
+   ],
+   "explanation": "Only the records that pass the filter are merged.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A merge produces envelopes, but one record has a blank Address2 field. What is the sensible, expected outcome?",
+   "expected_answer": {
+    "value": "The envelope prints without that line, or with an empty line"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The envelope prints without that line, or with an empty line",
+    "The merge deletes the record",
+    "The whole data source is erased",
+    "The envelope shows the field name Address2"
+   ],
+   "explanation": "An empty field simply provides no text; the record is still merged.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "An office keeps customers' names, addresses and due dates in a table and wants a reminder letter for each. Which feature solves this without retyping?",
+   "expected_answer": {
+    "value": "Mail merge"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Find and replace",
+    "Mail merge",
+    "Spell check",
+    "Table of contents"
+   ],
+   "explanation": "Mail merge fills a single template with each customer's data.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "After a merge to a new document, you change the main document template. Does the already merged document change?",
+   "expected_answer": {
+    "value": "No, the merged document is separate"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Yes, it updates automatically",
+    "Yes, but only the first letter",
+    "Yes, but only its footer",
+    "No, the merged document is separate"
+   ],
+   "explanation": "The output is a new document; later edits to the template do not affect it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Where does a mail merge normally take the recipient's email address from when sending email messages?",
+   "expected_answer": {
+    "value": "A field in the data source chosen for the To address"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The main document title",
+    "The printer settings",
+    "A field in the data source chosen for the To address",
+    "A random field"
+   ],
+   "explanation": "The merge needs a data source field containing email addresses to send each message.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "apply-mail-merge",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is an ordinary use of mail merge in a school?",
+   "expected_answer": {
+    "value": "Printing personalised admit cards for all students"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Compressing student photos",
+    "Printing personalised admit cards for all students",
+    "Calculating averages in a spreadsheet",
+    "Browsing the web safely"
+   ],
+   "explanation": "Each admit card uses the same layout filled with one student's details.",
+   "content_status": "needs_review"
+  }
+ ]
+}

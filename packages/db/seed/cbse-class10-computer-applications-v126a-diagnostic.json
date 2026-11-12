@@ -1,0 +1,3365 @@
+{
+ "subject_slug": "computer-applications",
+ "questions": [
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does the abbreviation MAN stand for in networking?",
+   "expected_answer": {
+    "value": "Metropolitan Area Network"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Multiple Access Network",
+    "Main Area Node",
+    "Metropolitan Area Network",
+    "Managed Access Network"
+   ],
+   "explanation": "MAN stands for Metropolitan Area Network, which covers a city or large town.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which network type is usually limited to a few metres around one person?",
+   "expected_answer": {
+    "value": "PAN"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "LAN",
+    "MAN",
+    "PAN",
+    "WAN"
+   ],
+   "explanation": "A Personal Area Network covers only the immediate surroundings of one person, typically a few metres.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these best describes what the Internet is?",
+   "expected_answer": {
+    "value": "A global network of interconnected networks"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A single very large LAN",
+    "A global network of interconnected networks",
+    "A private network owned by one company",
+    "A MAN spread over one city"
+   ],
+   "explanation": "The Internet joins many separate networks across the world, so it is a network of networks.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these networks covers the largest geographical area?",
+   "expected_answer": {
+    "value": "WAN"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "PAN",
+    "WAN",
+    "LAN",
+    "MAN"
+   ],
+   "explanation": "A WAN can span countries and continents, so it covers more area than PAN, LAN or MAN.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Your smartwatch syncs with your phone using Bluetooth. This small network around you is a:",
+   "expected_answer": {
+    "value": "PAN"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "LAN",
+    "MAN",
+    "PAN",
+    "WAN"
+   ],
+   "explanation": "A network built around one person's own devices over a very short range is a PAN.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A cable TV operator connects thousands of homes across one city into a single network. This is most like a:",
+   "expected_answer": {
+    "value": "MAN"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "PAN",
+    "LAN",
+    "WAN",
+    "MAN"
+   ],
+   "explanation": "A network covering a whole city or town is a Metropolitan Area Network.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Arrange these networks from the smallest to the largest coverage.",
+   "expected_answer": {
+    "value": "PAN, LAN, MAN, WAN"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "LAN, PAN, MAN, WAN",
+    "PAN, MAN, LAN, WAN",
+    "LAN, PAN, WAN, MAN",
+    "PAN, LAN, MAN, WAN"
+   ],
+   "explanation": "Coverage grows from personal space (PAN) to a building (LAN), a city (MAN) and then countries (WAN).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Computers in one computer lab share a printer through a switch. Which network type is this?",
+   "expected_answer": {
+    "value": "LAN"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "WAN",
+    "MAN",
+    "PAN",
+    "LAN"
+   ],
+   "explanation": "Devices in one room or building sharing resources form a Local Area Network.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A company has offices in Mumbai and London joined over leased lines. Which statement is TRUE about this network?",
+   "expected_answer": {
+    "value": "It is a WAN because the offices are in different countries"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It is a LAN because it belongs to one company",
+    "It is a PAN because it is private",
+    "It is a WAN because the offices are in different countries",
+    "It is a MAN because both cities are large"
+   ],
+   "explanation": "Network type depends on geographical spread, not ownership; two countries means a WAN.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about a LAN is TRUE?",
+   "expected_answer": {
+    "value": "It is typically owned and managed by a single organisation"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It always needs a satellite link",
+    "It must cover at least one city",
+    "It is typically owned and managed by a single organisation",
+    "It can only contain wireless devices"
+   ],
+   "explanation": "A LAN usually serves one building or campus and is owned and managed by one organisation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which pair correctly matches a network type with a typical example?",
+   "expected_answer": {
+    "value": "WAN - the Internet"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "PAN - a university campus",
+    "LAN - a network across several states",
+    "WAN - the Internet",
+    "MAN - a headset paired to a phone"
+   ],
+   "explanation": "The Internet is the best-known WAN; the other pairs mismatch size and example.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A hotel provides Wi-Fi throughout its single building for guests. The Wi-Fi network is a:",
+   "expected_answer": {
+    "value": "LAN"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "PAN",
+    "LAN",
+    "MAN",
+    "WAN"
+   ],
+   "explanation": "Wi-Fi inside one building is a wireless LAN (WLAN); being wireless does not change it to another type.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A school connects its main campus and a nearby branch campus 5 km apart across the same city using its own network. Which type fits best?",
+   "expected_answer": {
+    "value": "MAN"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "PAN",
+    "LAN",
+    "WAN",
+    "MAN"
+   ],
+   "explanation": "Spread across a city but not across countries, the best fit is a MAN.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is a key difference between a LAN and a WAN?",
+   "expected_answer": {
+    "value": "A WAN covers a much larger area than a LAN"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A LAN covers a larger area than a WAN",
+    "A LAN always needs the Internet, a WAN does not",
+    "A WAN covers a much larger area than a LAN",
+    "A WAN cannot use cables"
+   ],
+   "explanation": "The main difference is geographical coverage: WANs cover wide regions, LANs a limited local area.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is an example of a PAN?",
+   "expected_answer": {
+    "value": "A laptop sharing a file with a nearby phone over Bluetooth"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Computers in an office floor connected by Ethernet",
+    "Branches of a bank connected across India",
+    "A laptop sharing a file with a nearby phone over Bluetooth",
+    "Cable network covering an entire city"
+   ],
+   "explanation": "Short-range links among a person's own devices form a PAN.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about the Internet is FALSE?",
+   "expected_answer": {
+    "value": "It is owned and controlled by a single company"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It connects many different networks",
+    "It spans the whole world",
+    "It is owned and controlled by a single company",
+    "It lets devices on different LANs communicate"
+   ],
+   "explanation": "No single company owns the Internet; it is a worldwide interconnection of many networks.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Two friends in the same room use a mobile hotspot to connect their phones and laptop. This small group of devices is best called a:",
+   "expected_answer": {
+    "value": "PAN"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "WAN",
+    "MAN",
+    "PAN",
+    "Internet"
+   ],
+   "explanation": "A phone hotspot linking nearby personal devices is a personal-scale network.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A university links its three campuses in different cities of one state. The connection between them is usually classified as a:",
+   "expected_answer": {
+    "value": "WAN"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "PAN",
+    "WAN",
+    "LAN",
+    "Bluetooth network"
+   ],
+   "explanation": "Campuses in different cities exceed the scope of a LAN or MAN, so a WAN connects them, while each campus network is a LAN.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A single LAN is connected to the Internet. Which statement is correct?",
+   "expected_answer": {
+    "value": "The LAN becomes part of the larger network of networks"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The LAN turns into a WAN and stops being a LAN",
+    "The LAN becomes part of the larger network of networks",
+    "The LAN is no longer able to share local printers",
+    "The LAN loses its own addressing"
+   ],
+   "explanation": "Connecting a LAN to the Internet makes it one of the networks that form the Internet; it remains a LAN.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which network type typically offers the highest data transfer speed within its own range, being short and privately owned?",
+   "expected_answer": {
+    "value": "LAN"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "WAN",
+    "MAN",
+    "LAN",
+    "Internet"
+   ],
+   "explanation": "Short distances and private infrastructure let LANs reach higher speeds than long WAN links.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The full form of WAN is:",
+   "expected_answer": {
+    "value": "Wide Area Network"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Wireless Area Network",
+    "Web Access Network",
+    "World Active Network",
+    "Wide Area Network"
+   ],
+   "explanation": "WAN stands for Wide Area Network.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The full form of LAN is:",
+   "expected_answer": {
+    "value": "Local Area Network"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Long Access Network",
+    "Linked Area Node",
+    "Large Area Network",
+    "Local Area Network"
+   ],
+   "explanation": "LAN stands for Local Area Network.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A wireless network connects devices only inside one apartment. Which statement is most accurate?",
+   "expected_answer": {
+    "value": "It is a WLAN, which is a kind of LAN"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It is a WAN because it is wireless",
+    "It is a WLAN, which is a kind of LAN",
+    "It is a MAN because several devices share it",
+    "It is the Internet because it uses Wi-Fi"
+   ],
+   "explanation": "Wireless access limited to one building is a Wireless LAN, still in the LAN category by coverage.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which of the following is NOT a valid reason to call a network a WAN?",
+   "expected_answer": {
+    "value": "The network is owned by a large company"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It links offices in different countries",
+    "The network is owned by a large company",
+    "It uses public telecom lines to cover long distances",
+    "It spans a very large geographical region"
+   ],
+   "explanation": "Ownership does not decide network type; coverage does.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which network is MOST likely to use a public service such as telephone or satellite links for long-distance connection?",
+   "expected_answer": {
+    "value": "WAN"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "WAN",
+    "PAN",
+    "LAN",
+    "Bluetooth"
+   ],
+   "explanation": "WANs span long distances, so they commonly rely on telecom carriers and satellite links.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A student argues: 'My home Wi-Fi router connects to the Internet, so my home network is a WAN.' What is the best correction?",
+   "expected_answer": {
+    "value": "The home network is a LAN; the Internet is the WAN it connects to"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "She is right, any Internet-connected network is a WAN",
+    "The home network is a MAN",
+    "The home network is a LAN; the Internet is the WAN it connects to",
+    "The home network is a PAN because it is wireless"
+   ],
+   "explanation": "The home network covers a small local area (LAN) and uses an ISP link to reach the wider Internet.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Ten offices of a firm in one city are each LANs. Joining them over a city-wide high-speed backbone produces a network classified as a:",
+   "expected_answer": {
+    "value": "MAN"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "PAN",
+    "MAN",
+    "LAN only",
+    "WAN covering several countries"
+   ],
+   "explanation": "Multiple LANs linked across one city form a Metropolitan Area Network.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-network-types",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which statement correctly compares PAN and LAN?",
+   "expected_answer": {
+    "value": "A PAN centres on one person's devices, while a LAN serves a building or campus"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A PAN is bigger than a LAN",
+    "A PAN centres on one person's devices, while a LAN serves a building or campus",
+    "Both always require cables",
+    "A LAN is limited to two devices"
+   ],
+   "explanation": "PAN is personal-scale and a few metres; LAN spans a room, building or campus.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which device connects a computer to a wired network by providing the network interface in the computer?",
+   "expected_answer": {
+    "value": "Network Interface Card (NIC)"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Network Interface Card (NIC)",
+    "Repeater",
+    "Modem",
+    "Gateway"
+   ],
+   "explanation": "The NIC is the hardware inside a computer that lets it connect to a network.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which device joins several computers in a LAN and sends data only to the intended computer?",
+   "expected_answer": {
+    "value": "Switch"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Hub",
+    "Switch",
+    "Repeater",
+    "Modem"
+   ],
+   "explanation": "A switch learns which device sits on which port and forwards data only to the destination device.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which device broadcasts incoming data to ALL connected ports?",
+   "expected_answer": {
+    "value": "Hub"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Switch",
+    "Router",
+    "Hub",
+    "Bridge"
+   ],
+   "explanation": "A hub does not filter; it copies incoming data to every other port.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A Wi-Fi access point mainly allows:",
+   "expected_answer": {
+    "value": "Wireless devices to connect to a wired network"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Domain names to be converted to IP addresses",
+    "Digital signals to be encrypted on paper",
+    "Wireless devices to connect to a wired network",
+    "Two LANs to be merged without any address"
+   ],
+   "explanation": "An access point acts as a bridge between wireless clients and a wired network.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which device chooses the best path for a data packet to reach another network?",
+   "expected_answer": {
+    "value": "Router"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Hub",
+    "Repeater",
+    "Router",
+    "NIC"
+   ],
+   "explanation": "Routers look at destination addresses and decide the path between networks.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The word 'modem' comes from combining which two processes?",
+   "expected_answer": {
+    "value": "Modulation and demodulation"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Modulation and demodulation",
+    "Monitoring and decoding",
+    "Mediation and distribution",
+    "Multiplexing and decryption"
+   ],
+   "explanation": "A modem modulates digital data into analog signals and demodulates analog back into digital.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which device would you use to extend a network cable run that is too long and causes the signal to fade?",
+   "expected_answer": {
+    "value": "Repeater"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Router",
+    "Switch",
+    "Repeater",
+    "Gateway"
+   ],
+   "explanation": "A repeater amplifies or regenerates the signal so it can cover a greater distance.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A hub and a switch both connect many computers in a LAN. Which statement is TRUE?",
+   "expected_answer": {
+    "value": "A switch sends data only to the destination port, a hub sends it to all ports"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A hub is smarter than a switch",
+    "A hub sends data only to the destination port",
+    "A switch sends data only to the destination port, a hub sends it to all ports",
+    "Both devices route data between different networks"
+   ],
+   "explanation": "Switches forward frames selectively, while hubs repeat everything to every port.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which device is generally used to link two networks that use different protocols or architectures?",
+   "expected_answer": {
+    "value": "Gateway"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Hub",
+    "Gateway",
+    "Repeater",
+    "NIC"
+   ],
+   "explanation": "A gateway translates between different network protocols so that dissimilar networks can communicate.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Home Internet using a telephone line (DSL) needs a device that converts signals between the phone line and the computer. This device is a:",
+   "expected_answer": {
+    "value": "Modem"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Modem",
+    "Repeater",
+    "Hub",
+    "Bridge"
+   ],
+   "explanation": "A modem converts between digital data and the analog signals used on a phone line.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about a router is TRUE?",
+   "expected_answer": {
+    "value": "It forwards packets between different networks"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It only repeats signals without reading addresses",
+    "It forwards packets between different networks",
+    "It stores web pages for later",
+    "It converts domain names into IP addresses"
+   ],
+   "explanation": "Routers connect networks and forward packets using IP addresses.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A network has 8 computers connected through a hub. Computer 1 sends a file to Computer 2. Which computers receive the data frame at their ports?",
+   "expected_answer": {
+    "value": "All the other 7 computers"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Only Computer 2",
+    "All the other 7 computers",
+    "Only the router",
+    "No computers"
+   ],
+   "explanation": "A hub repeats the frame to every other port, so all the other computers receive it (only the intended one accepts it).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which device operates as the entrance point of a network, connecting a home LAN to the Internet service provider?",
+   "expected_answer": {
+    "value": "Router"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Repeater",
+    "Hub",
+    "Router",
+    "NIC"
+   ],
+   "explanation": "The home router connects the local network to the ISP and shares the Internet connection.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the purpose of a bridge in a network?",
+   "expected_answer": {
+    "value": "To connect two LAN segments and filter traffic between them"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "To convert digital data to analog",
+    "To assign names to websites",
+    "To boost the signal in a long cable",
+    "To connect two LAN segments and filter traffic between them"
+   ],
+   "explanation": "A bridge links two segments of a network and passes only the necessary traffic between them.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Every NIC has a unique hardware address. It is called the:",
+   "expected_answer": {
+    "value": "MAC address"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "IP address",
+    "MAC address",
+    "Domain name",
+    "URL"
+   ],
+   "explanation": "A MAC address is the unique physical address burned into a NIC.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about a repeater is FALSE?",
+   "expected_answer": {
+    "value": "It chooses the best route between networks"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It regenerates the signal",
+    "It chooses the best route between networks",
+    "It extends the distance a signal can travel",
+    "It works with the signal rather than deciding routes"
+   ],
+   "explanation": "Choosing routes is the router's work; a repeater only regenerates and retransmits the signal.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Match the device to its function: 'Converts between analog signals and digital data'.",
+   "expected_answer": {
+    "value": "Modem"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Switch",
+    "Router",
+    "Modem",
+    "Hub"
+   ],
+   "explanation": "The modem handles modulation and demodulation for analog lines.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A school wants to give wireless access to students in a hall that already has a wired LAN. Which single device should be added?",
+   "expected_answer": {
+    "value": "Wireless access point"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Modem",
+    "Repeater only",
+    "Hub only",
+    "Wireless access point"
+   ],
+   "explanation": "An access point attaches to the wired network and broadcasts Wi-Fi to wireless devices.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which device works with logical (IP) addresses to forward packets, rather than just physical (MAC) addresses?",
+   "expected_answer": {
+    "value": "Router"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Hub",
+    "Router",
+    "Repeater",
+    "NIC"
+   ],
+   "explanation": "Routers use IP addresses to deliver packets across networks; hubs and repeaters do not read addresses.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why is a switch generally preferred over a hub in a busy LAN?",
+   "expected_answer": {
+    "value": "It reduces unnecessary traffic by sending frames only to the target port"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It makes the cable length unlimited",
+    "It converts domain names into IP addresses",
+    "It reduces unnecessary traffic by sending frames only to the target port",
+    "It allows the LAN to work without cables"
+   ],
+   "explanation": "Selective forwarding reduces collisions and wasted traffic compared with a hub's broadcast approach.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "An office has two networks that use completely different protocol suites and must exchange data. Which device is the best fit?",
+   "expected_answer": {
+    "value": "Gateway"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Gateway",
+    "Repeater",
+    "Hub",
+    "Switch"
+   ],
+   "explanation": "Only a gateway can perform protocol translation between dissimilar networks.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A long cable between two buildings carries a signal that becomes too weak to read at the other end. Adding a hub in the middle:",
+   "expected_answer": {
+    "value": "Would not be the standard solution; a repeater is designed to regenerate the signal"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Would not be the standard solution; a repeater is designed to regenerate the signal",
+    "Is the best solution since hubs filter noise",
+    "Will convert it into an IP address",
+    "Will make the router unnecessary"
+   ],
+   "explanation": "Repeaters are made for signal regeneration, which is the correct fix for attenuation over distance.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which device is the 'network card' in a computer commonly called?",
+   "expected_answer": {
+    "value": "NIC"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "USB",
+    "BIOS",
+    "CPU",
+    "NIC"
+   ],
+   "explanation": "NIC stands for Network Interface Card.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which sequence shows data flowing from a home laptop to the Internet over a DSL phone line?",
+   "expected_answer": {
+    "value": "Laptop, router/switch, modem, phone line, ISP"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Laptop, router/switch, modem, phone line, ISP",
+    "Laptop, repeater, hub, ISP, modem",
+    "Modem, laptop, phone line, router, ISP",
+    "Laptop, phone line, router, modem, ISP"
+   ],
+   "explanation": "The local network device passes data to the modem, which converts it for the phone line toward the ISP.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A student says: 'A router and a switch do the same job.' Which reply is most accurate?",
+   "expected_answer": {
+    "value": "A switch connects devices within a network; a router connects different networks"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A router connects devices within one LAN; a switch connects the Internet",
+    "Both only repeat signals",
+    "Both convert domain names to IP addresses",
+    "A switch connects devices within a network; a router connects different networks"
+   ],
+   "explanation": "Switches operate inside a network; routers link separate networks and decide paths.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which device combination lets a company share one Internet connection among all its LAN computers wired in a star shape?",
+   "expected_answer": {
+    "value": "Modem or router with a switch"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Two repeaters and a hub only",
+    "A NIC alone",
+    "Modem or router with a switch",
+    "A bridge alone with no external link"
+   ],
+   "explanation": "The modem/router provides the Internet link and the switch distributes the connection to every wired device.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of the following is a function of a hub?",
+   "expected_answer": {
+    "value": "Connecting multiple devices in a LAN by sharing the same signal to all ports"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Translating protocols between networks",
+    "Choosing the best route for packets",
+    "Connecting multiple devices in a LAN by sharing the same signal to all ports",
+    "Converting analog signals to digital"
+   ],
+   "explanation": "A hub is a simple multiport repeater that sends data to all connected devices.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In which topology are all devices connected to a central device such as a switch or hub?",
+   "expected_answer": {
+    "value": "Star topology"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Bus topology",
+    "Star topology",
+    "Ring topology",
+    "Mesh topology"
+   ],
+   "explanation": "A star topology has every node linked to a central device.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which topology connects devices in a closed loop where each device has exactly two neighbours?",
+   "expected_answer": {
+    "value": "Ring topology"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Star topology",
+    "Bus topology",
+    "Tree topology",
+    "Ring topology"
+   ],
+   "explanation": "In a ring each node connects to the previous and next node, forming a circle.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "The term 'topology' in networking refers to:",
+   "expected_answer": {
+    "value": "The arrangement or layout of devices in a network"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The speed of the Internet connection",
+    "The arrangement or layout of devices in a network",
+    "The software installed on computers",
+    "The brand of cables used"
+   ],
+   "explanation": "Topology describes how nodes and links are arranged.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which topology needs the LEAST amount of cable for a small number of computers?",
+   "expected_answer": {
+    "value": "Bus topology"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Mesh topology",
+    "Bus topology",
+    "Star topology",
+    "Ring topology only with two cables each"
+   ],
+   "explanation": "A bus uses a single backbone cable shared by all devices, so it needs little cabling.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is the main disadvantage of a star topology?",
+   "expected_answer": {
+    "value": "If the central device fails, the whole network stops"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "If the central device fails, the whole network stops",
+    "Any single cable break stops the network",
+    "It cannot be extended",
+    "It needs a backbone cable"
+   ],
+   "explanation": "The central hub or switch is a single point of failure.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In a bus topology, what is the cable that all devices share called?",
+   "expected_answer": {
+    "value": "Backbone"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Gateway",
+    "Hub",
+    "Backbone",
+    "Terminator"
+   ],
+   "explanation": "The main shared cable in a bus network is the backbone.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which topology is the easiest to expand by simply plugging a new device into the central switch?",
+   "expected_answer": {
+    "value": "Star topology"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Star topology",
+    "Bus topology",
+    "Ring topology",
+    "Mesh topology"
+   ],
+   "explanation": "New nodes in a star just need a cable to a free port on the central device.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A mesh network of 4 fully connected computers requires how many direct links?",
+   "expected_answer": {
+    "value": "6"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "4",
+    "8",
+    "6",
+    "12"
+   ],
+   "explanation": "For n nodes in a full mesh the links are n(n-1)/2 = 4*3/2 = 6.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A full mesh of 5 devices needs how many direct cable links?",
+   "expected_answer": {
+    "value": "10"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "10",
+    "5",
+    "15",
+    "20"
+   ],
+   "explanation": "n(n-1)/2 = 5*4/2 = 10 links.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which topology offers the highest reliability because there are many alternate paths?",
+   "expected_answer": {
+    "value": "Mesh topology"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Mesh topology",
+    "Bus topology",
+    "Star topology",
+    "Ring topology"
+   ],
+   "explanation": "In a mesh each device has multiple routes, so one failed link does not isolate it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the main drawback of a mesh topology?",
+   "expected_answer": {
+    "value": "It needs many cables and connections, so it is costly"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A single failure stops everything",
+    "It cannot connect more than two devices",
+    "It always needs a central hub",
+    "It needs many cables and connections, so it is costly"
+   ],
+   "explanation": "Number of links grows rapidly with devices, making a mesh expensive to install.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In a basic bus topology, what happens if the main backbone cable breaks?",
+   "expected_answer": {
+    "value": "The network is split or stops working"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The network is split or stops working",
+    "Only one device is affected",
+    "Nothing, since data uses a hub",
+    "All traffic reroutes automatically"
+   ],
+   "explanation": "All devices depend on the single backbone, so a break disrupts the network.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A tree topology is best described as:",
+   "expected_answer": {
+    "value": "A combination of star networks connected through a bus-like backbone"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A combination of star networks connected through a bus-like backbone",
+    "Every device connected to every other device",
+    "Devices connected in a closed circle",
+    "Two computers connected by one cable"
+   ],
+   "explanation": "A tree topology joins groups of star-connected devices in a hierarchy.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which topology is the most common in modern office LANs using switches?",
+   "expected_answer": {
+    "value": "Star topology"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Bus topology",
+    "Ring topology",
+    "Full mesh topology",
+    "Star topology"
+   ],
+   "explanation": "Switched Ethernet star layouts are standard because they are easy to manage.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In a ring topology where data flows in one direction, what happens if one device or link fails?",
+   "expected_answer": {
+    "value": "Data flow can be interrupted for the whole ring"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Only that device is affected",
+    "The central hub reroutes the data",
+    "Nothing happens",
+    "Data flow can be interrupted for the whole ring"
+   ],
+   "explanation": "Because data passes through each node in turn, a break can stop the ring unless it has a backup path.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement is TRUE about a star topology?",
+   "expected_answer": {
+    "value": "Faults are easy to locate because each device has its own cable to the centre"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It uses a single shared cable",
+    "Faults are easy to locate because each device has its own cable to the centre",
+    "Cable cost is the lowest of all topologies",
+    "It has no central point"
+   ],
+   "explanation": "Each node has its own link, so a faulty cable affects only that node and is simple to identify.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A small lab with 6 computers connected to one switch uses which topology?",
+   "expected_answer": {
+    "value": "Star topology"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Star topology",
+    "Bus topology",
+    "Ring topology",
+    "Mesh topology"
+   ],
+   "explanation": "All devices connect to a central switch.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which topology can suffer from slow performance as more devices share the single main cable?",
+   "expected_answer": {
+    "value": "Bus topology"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Mesh topology",
+    "Star topology with a switch",
+    "Full mesh",
+    "Bus topology"
+   ],
+   "explanation": "All devices share the same backbone, so heavy traffic slows it down.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A school wants a network where one broken cable should affect only one computer, and new computers can be added easily. Best choice?",
+   "expected_answer": {
+    "value": "Star topology"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Bus topology",
+    "Star topology",
+    "Ring topology",
+    "Mesh topology with 3 nodes"
+   ],
+   "explanation": "Star isolates faults to a single cable and is simple to extend.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A power company needs a control network that must keep working even if several links fail. Which topology is the best fit despite higher cost?",
+   "expected_answer": {
+    "value": "Mesh topology"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Bus topology",
+    "Mesh topology",
+    "Star topology",
+    "Single ring with one direction"
+   ],
+   "explanation": "Redundant paths in a mesh keep communication alive when links fail.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which pair is correctly matched?",
+   "expected_answer": {
+    "value": "Bus - shared backbone; Star - central switch"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Bus - shared backbone; Star - central switch",
+    "Bus - central switch; Star - shared backbone",
+    "Ring - central switch; Mesh - closed loop",
+    "Mesh - single cable; Ring - shared backbone"
+   ],
+   "explanation": "Bus uses a common backbone; star uses a central connecting device.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Number of direct links in a full mesh of 8 devices is:",
+   "expected_answer": {
+    "value": "28"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "8",
+    "16",
+    "56",
+    "28"
+   ],
+   "explanation": "n(n-1)/2 = 8*7/2 = 28.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A star network of 10 computers uses how many cables to connect devices to the central switch?",
+   "expected_answer": {
+    "value": "10"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "9",
+    "45",
+    "10",
+    "20"
+   ],
+   "explanation": "Each computer needs one cable to the switch, so 10 cables.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "If the central switch of a star network fails, then:",
+   "expected_answer": {
+    "value": "All computers lose connection with each other"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "All computers lose connection with each other",
+    "Only the first computer loses connection",
+    "Only the last computer loses connection",
+    "The computers continue to talk through a backbone"
+   ],
+   "explanation": "Without the central device, no node can reach any other node.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Why does a full mesh become impractical as the number of devices grows to a large number?",
+   "expected_answer": {
+    "value": "The number of links grows roughly with the square of the devices"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The number of links stays constant",
+    "The cables must be shorter than 1 metre",
+    "Only an even number of devices is allowed",
+    "The number of links grows roughly with the square of the devices"
+   ],
+   "explanation": "Links = n(n-1)/2, which increases rapidly with n.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which feature makes tree topology useful for a large organisation with departments?",
+   "expected_answer": {
+    "value": "It groups star networks hierarchically so each department can be managed separately"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It needs no cables between departments",
+    "It connects every device to every other device",
+    "It groups star networks hierarchically so each department can be managed separately",
+    "It guarantees no single point of failure"
+   ],
+   "explanation": "A tree extends star groups through a hierarchy, though the upper links remain critical.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Compare bus and star: which statement is correct?",
+   "expected_answer": {
+    "value": "Bus costs less cabling, but star isolates faults better"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Star costs less cabling and bus isolates faults better",
+    "Both are equal in fault isolation",
+    "Bus has a central device, star does not",
+    "Bus costs less cabling, but star isolates faults better"
+   ],
+   "explanation": "Bus saves cable but one backbone fault affects all; star isolates cable faults to one node.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-network-topologies",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "In a ring where every node has two links, a mesh-like improvement is to add a second ring in the opposite direction. What is the main benefit?",
+   "expected_answer": {
+    "value": "If one link breaks, data can travel the other way round"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It removes the need for cables",
+    "If one link breaks, data can travel the other way round",
+    "It makes the network a bus",
+    "It converts the ring into a star"
+   ],
+   "explanation": "A dual ring provides a backup path in the opposite direction, improving fault tolerance.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "DNS stands for:",
+   "expected_answer": {
+    "value": "Domain Name System"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Digital Network Service",
+    "Data Name Server",
+    "Domain Network Security",
+    "Domain Name System"
+   ],
+   "explanation": "DNS is the Domain Name System.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is a domain name?",
+   "expected_answer": {
+    "value": "www.wikipedia.org"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "172.217.0.4",
+    "www.wikipedia.org",
+    "192.168.0.1",
+    "00:1A:2B:3C:4D:5E"
+   ],
+   "explanation": "A domain name is a human-readable name; the others are IP and MAC addresses.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A DNS server stores mainly a database of:",
+   "expected_answer": {
+    "value": "Domain names and their IP addresses"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Passwords of users",
+    "Web page images",
+    "Antivirus signatures",
+    "Domain names and their IP addresses"
+   ],
+   "explanation": "DNS servers map domain names to IP addresses.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is the correct order of events when a user opens a website by name?",
+   "expected_answer": {
+    "value": "Browser asks DNS for the IP, then connects to the web server at that IP"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Browser asks DNS for the IP, then connects to the web server at that IP",
+    "Browser connects to the server, then asks DNS for the name",
+    "DNS sends the web page to the browser",
+    "Router converts the web page into an IP address"
+   ],
+   "explanation": "The name must be resolved to an IP address before the browser can contact the server.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is the process of finding an IP address from a domain name called?",
+   "expected_answer": {
+    "value": "Name resolution"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Encryption",
+    "Routing",
+    "Name resolution",
+    "Compression"
+   ],
+   "explanation": "DNS performs name resolution, turning names into addresses.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "If DNS stops working but you know a website's IP address, you can often still:",
+   "expected_answer": {
+    "value": "Reach the site by typing the IP address in the browser"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Reach it only by e-mail",
+    "Reach the site by typing the IP address in the browser",
+    "Do nothing, since IP is blocked",
+    "Reach it only through a repeater"
+   ],
+   "explanation": "The Internet routes by IP; DNS only helps convert names, so the IP address can still work.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why is DNS sometimes compared to a phone book?",
+   "expected_answer": {
+    "value": "It looks up a name to find a number (address)"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It records all phone calls",
+    "It looks up a name to find a number (address)",
+    "It blocks unknown numbers",
+    "It stores passwords"
+   ],
+   "explanation": "DNS maps a name to a numeric address like a directory maps a name to a phone number.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Your browser shows 'DNS server not responding'. What does this most directly mean?",
+   "expected_answer": {
+    "value": "The domain name could not be translated into an IP address"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The website has been deleted forever",
+    "The monitor is faulty",
+    "Your keyboard is disconnected",
+    "The domain name could not be translated into an IP address"
+   ],
+   "explanation": "The resolver failed to respond, so the name could not be resolved.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about DNS is TRUE?",
+   "expected_answer": {
+    "value": "It lets users type easy names instead of numeric addresses"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It encrypts all web traffic",
+    "It lets users type easy names instead of numeric addresses",
+    "It is a type of browser",
+    "It assigns MAC addresses"
+   ],
+   "explanation": "DNS is a naming service; it does not encrypt traffic or provide hardware addresses.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which part of 'mail.school.edu.in' is the top-level domain?",
+   "expected_answer": {
+    "value": "in"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "mail",
+    "in",
+    "school",
+    "edu"
+   ],
+   "explanation": "The rightmost label 'in' is the top-level domain (country code).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In 'www.example.com', the '.com' is called the:",
+   "expected_answer": {
+    "value": "Top-level domain"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Top-level domain",
+    "Subdomain",
+    "Protocol",
+    "Port"
+   ],
+   "explanation": ".com sits at the top of the domain hierarchy.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Who typically provides the DNS resolver that your home computer uses by default?",
+   "expected_answer": {
+    "value": "Your Internet service provider or router settings"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Your Internet service provider or router settings",
+    "Your keyboard",
+    "The website's owner only",
+    "Your antivirus program"
+   ],
+   "explanation": "Home devices are usually given the ISP's DNS server through the router.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A website moves to a new server with a new IP address. How do users still reach it with the same name?",
+   "expected_answer": {
+    "value": "DNS records are updated to point the name to the new IP"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Users must memorise the new IP",
+    "Browsers are re-installed",
+    "DNS records are updated to point the name to the new IP",
+    "Routers rename the site"
+   ],
+   "explanation": "Only the DNS entry changes, so the name continues to work.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which one is NOT the job of DNS?",
+   "expected_answer": {
+    "value": "Encrypting data between browser and server"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Mapping names to IP addresses",
+    "Helping browsers locate web servers",
+    "Resolving a domain name",
+    "Encrypting data between browser and server"
+   ],
+   "explanation": "Encryption is done by protocols like HTTPS/TLS, not DNS.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A DNS lookup returns which kind of value for www.example.com?",
+   "expected_answer": {
+    "value": "An IP address"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A password",
+    "An IP address",
+    "A MAC address of your phone",
+    "A file extension"
+   ],
+   "explanation": "The answer to a lookup is the IP address of the server for that name.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why does DNS use many servers spread across the world instead of one?",
+   "expected_answer": {
+    "value": "To share the load and avoid a single point of failure"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "To share the load and avoid a single point of failure",
+    "Because IP addresses cannot be stored in one place",
+    "So that each website gets its own Internet",
+    "To make websites run on a LAN only"
+   ],
+   "explanation": "Distributing the database improves speed and reliability.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A user types a site name and gets an error, but a friend using the same Wi-Fi opens it by its IP address. Most likely cause?",
+   "expected_answer": {
+    "value": "A DNS (name resolution) problem"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The web server is switched off",
+    "The Wi-Fi password is wrong",
+    "The site has no IP address",
+    "A DNS (name resolution) problem"
+   ],
+   "explanation": "IP access works, so the server is up; the name-to-IP step is failing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is the correct hierarchy of the domain name 'www.cbse.gov.in' reading from the root side (rightmost first)?",
+   "expected_answer": {
+    "value": "in, gov, cbse, www"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "www, cbse, gov, in",
+    "gov, in, cbse, www",
+    "cbse, www, in, gov",
+    "in, gov, cbse, www"
+   ],
+   "explanation": "DNS reads from right to left: country code 'in', then 'gov', then 'cbse', then host 'www'.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A DNS cache stores recently looked-up answers. What is its main benefit?",
+   "expected_answer": {
+    "value": "Faster repeat visits because the lookup need not be repeated"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Stronger encryption",
+    "Faster repeat visits because the lookup need not be repeated",
+    "More storage for web pages on the server",
+    "Automatic virus scanning"
+   ],
+   "explanation": "Cached answers avoid repeating the full lookup, saving time.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement is TRUE about DNS and web hosting?",
+   "expected_answer": {
+    "value": "DNS points a name to a server; the web hosting server holds the website files"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "DNS holds all the website pages",
+    "The hosting server converts names to IPs",
+    "DNS and hosting are the same service",
+    "DNS points a name to a server; the web hosting server holds the website files"
+   ],
+   "explanation": "These are separate roles: naming vs storing and serving pages.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "One IP address can be known by several domain names. This shows that:",
+   "expected_answer": {
+    "value": "Many names can map to the same IP address"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Domain names are unique MAC addresses",
+    "IP addresses are not needed",
+    "DNS can only have one entry",
+    "Many names can map to the same IP address"
+   ],
+   "explanation": "DNS can have several names pointing to the same server address.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which of these could a user change in network settings to use a different DNS service?",
+   "expected_answer": {
+    "value": "DNS server address"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Monitor resolution",
+    "Page margins",
+    "Screen saver",
+    "DNS server address"
+   ],
+   "explanation": "Network settings include the address of the DNS server used for name lookups.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What problem would DNS most directly solve for a person who runs a new website?",
+   "expected_answer": {
+    "value": "Visitors can use a readable name instead of a number"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Their pages become encrypted",
+    "Their site becomes immune to viruses",
+    "Their site loads without a server",
+    "Visitors can use a readable name instead of a number"
+   ],
+   "explanation": "The domain name makes the site easy to remember and share.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "If a DNS entry for a site points to a wrong IP address, what will happen when users type the name?",
+   "expected_answer": {
+    "value": "They reach the wrong server or get an error, even though the correct server is running"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The correct server will fix the entry itself",
+    "They reach the wrong server or get an error, even though the correct server is running",
+    "The browser will translate the entry itself",
+    "Nothing, since browsers ignore DNS"
+   ],
+   "explanation": "The browser trusts the DNS answer, so a wrong record sends traffic to the wrong place.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which statement distinguishes a URL from a domain name?",
+   "expected_answer": {
+    "value": "A URL includes the protocol and path, while the domain name is only the site's name part"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A URL is always shorter",
+    "A domain name includes the protocol",
+    "They are identical terms",
+    "A URL includes the protocol and path, while the domain name is only the site's name part"
+   ],
+   "explanation": "For https://www.example.com/page, the domain is www.example.com; the URL has the scheme and path too.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Why does the browser need DNS even though routers forward packets?",
+   "expected_answer": {
+    "value": "Routers need a numeric destination address, which DNS supplies from the name"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Routers read domain names directly",
+    "Routers only work with MAC addresses",
+    "Routers need a numeric destination address, which DNS supplies from the name",
+    "Browsers cannot display names"
+   ],
+   "explanation": "Packets are routed by IP address, so the name must first be resolved.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which sequence is more accurate for opening http://www.example.com?",
+   "expected_answer": {
+    "value": "Resolve name via DNS, connect to the IP, request the page"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Request the page, resolve the name, connect",
+    "Connect, request, resolve",
+    "Resolve, request, then connect",
+    "Resolve name via DNS, connect to the IP, request the page"
+   ],
+   "explanation": "The IP address must be found first so a connection can be made before requesting a page.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-dns-role",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which is easier for humans to remember?",
+   "expected_answer": {
+    "value": "A domain name"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "An IPv4 address",
+    "An IPv6 address",
+    "A MAC address",
+    "A domain name"
+   ],
+   "explanation": "Domain names exist to make addresses memorable.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "How many bits are used in an IPv4 address?",
+   "expected_answer": {
+    "value": "32"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "16",
+    "32",
+    "64",
+    "128"
+   ],
+   "explanation": "IPv4 addresses are 32 bits long.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "IPv4 addresses are usually written in which format?",
+   "expected_answer": {
+    "value": "Four decimal numbers separated by dots"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Eight hexadecimal groups separated by colons",
+    "Six pairs of hex digits separated by hyphens",
+    "A word followed by .com",
+    "Four decimal numbers separated by dots"
+   ],
+   "explanation": "Dotted decimal notation such as 192.168.1.1 is used for IPv4.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which notation uses hexadecimal digits separated by colons?",
+   "expected_answer": {
+    "value": "IPv6"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "IPv6",
+    "IPv4",
+    "URL",
+    "MAC with dots only"
+   ],
+   "explanation": "IPv6 addresses are written in hexadecimal with colons, e.g. 2001:db8::1.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Each of the four numbers in an IPv4 address (an octet) can range from:",
+   "expected_answer": {
+    "value": "0 to 255"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "0 to 255",
+    "1 to 256",
+    "0 to 100",
+    "0 to 999"
+   ],
+   "explanation": "Each octet is 8 bits, so values run from 0 to 255.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is NOT a valid IPv4 address?",
+   "expected_answer": {
+    "value": "192.168.1.300"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "10.0.0.1",
+    "172.16.5.9",
+    "8.8.8.8",
+    "192.168.1.300"
+   ],
+   "explanation": "300 is greater than 255, which is not possible in an octet.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "How many groups of hexadecimal digits does a full IPv6 address have?",
+   "expected_answer": {
+    "value": "8"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "8",
+    "4",
+    "6",
+    "16"
+   ],
+   "explanation": "A full IPv6 address has eight groups of four hex digits separated by colons.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is a valid IPv6 address?",
+   "expected_answer": {
+    "value": "2001:0db8:85a3:0000:0000:8a2e:0370:7334"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "192.168.0.1",
+    "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+    "2001.0db8.85a3.0000",
+    "FF:GG:12:34:56:78:90:AB"
+   ],
+   "explanation": "Eight colon-separated groups of hexadecimal digits form a valid IPv6 address.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Approximately how many addresses can IPv4 provide in theory?",
+   "expected_answer": {
+    "value": "About 4.3 billion"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "About 4.3 billion",
+    "About 65 thousand",
+    "About 340 trillion trillion trillion",
+    "About 1 million"
+   ],
+   "explanation": "2^32 is about 4.29 billion addresses.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement is TRUE about IPv6 compared with IPv4?",
+   "expected_answer": {
+    "value": "IPv6 offers a vastly larger address space"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "IPv6 uses 32-bit addresses",
+    "IPv6 offers a vastly larger address space",
+    "IPv6 addresses are written in dotted decimal",
+    "IPv6 was designed to replace domain names"
+   ],
+   "explanation": "IPv6 has 128-bit addresses, enough for an enormous number of devices.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The double colon (::) in an IPv6 address is used to:",
+   "expected_answer": {
+    "value": "Replace one run of consecutive groups of zeros"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Separate the network from the host",
+    "Mark the end of the address",
+    "Replace one run of consecutive groups of zeros",
+    "Indicate an IPv4 address"
+   ],
+   "explanation": "One sequence of all-zero groups can be shortened to '::'.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which IPv4 address is the loopback address used to test your own computer?",
+   "expected_answer": {
+    "value": "127.0.0.1"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "192.168.1.1",
+    "255.255.255.255",
+    "127.0.0.1",
+    "8.8.4.4"
+   ],
+   "explanation": "127.0.0.1 refers to the local machine itself (localhost).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is a private IPv4 address commonly used inside home networks?",
+   "expected_answer": {
+    "value": "192.168.0.10"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "192.168.0.10",
+    "8.8.8.8",
+    "1.1.1.1",
+    "200.10.10.1"
+   ],
+   "explanation": "192.168.x.x is a private range used on local networks.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Each of the four parts of an IPv4 address is called an:",
+   "expected_answer": {
+    "value": "Octet"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Octet",
+    "Nibble",
+    "Segment of 16 bits",
+    "Hextet"
+   ],
+   "explanation": "Each part holds 8 bits and is called an octet.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is a main reason IPv6 was created?",
+   "expected_answer": {
+    "value": "The shortage of IPv4 addresses"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "To make Wi-Fi faster in every case",
+    "To remove the need for routers",
+    "To replace MAC addresses",
+    "The shortage of IPv4 addresses"
+   ],
+   "explanation": "IPv4's address space was nearly exhausted, motivating IPv6.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Each group in a full IPv6 address contains how many bits?",
+   "expected_answer": {
+    "value": "16"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "8",
+    "32",
+    "16",
+    "4"
+   ],
+   "explanation": "128 bits divided into 8 groups gives 16 bits per group.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How many hexadecimal digits are in each group of a full IPv6 address?",
+   "expected_answer": {
+    "value": "4"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "2",
+    "8",
+    "3",
+    "4"
+   ],
+   "explanation": "Each 16-bit group is written as 4 hex digits.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In IPv6, can the leading zeros in a group be left out? E.g. 0db8 written as db8.",
+   "expected_answer": {
+    "value": "Yes, leading zeros in a group may be omitted"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "No, all four digits must always be shown",
+    "Only if the group is the first one",
+    "Yes, leading zeros in a group may be omitted",
+    "Only in IPv4"
+   ],
+   "explanation": "Leading zeros inside a group can be dropped, shortening the notation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which IPv6 address is a correctly shortened form of 2001:0db8:0000:0000:0000:0000:0000:0001?",
+   "expected_answer": {
+    "value": "2001:db8::1"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "2001:db8:1",
+    "2001:db8::1",
+    "2001::db8::1",
+    "2001:db8:0:1"
+   ],
+   "explanation": "Leading zeros are dropped and one run of zero groups becomes '::'.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why is '2001::db8::1' NOT a valid IPv6 address?",
+   "expected_answer": {
+    "value": "'::' can appear only once in an address"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "IPv6 cannot contain letters",
+    "It has too few digits",
+    "It needs dots instead of colons",
+    "'::' can appear only once in an address"
+   ],
+   "explanation": "Two '::' would make it ambiguous how many zero groups each stands for.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about IPv4 and IPv6 is correct?",
+   "expected_answer": {
+    "value": "They are different protocol versions and are not directly compatible without special support"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "IPv6 is just IPv4 with extra dots",
+    "IPv4 can hold more devices than IPv6",
+    "They use the same 32-bit length",
+    "They are different protocol versions and are not directly compatible without special support"
+   ],
+   "explanation": "IPv4 and IPv6 are separate protocols; transition methods allow them to coexist.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is a valid IPv4 address?",
+   "expected_answer": {
+    "value": "10.255.0.254"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "10.256.0.1",
+    "10.255.0.254",
+    "10.0.0",
+    "10.0.0.0.1"
+   ],
+   "explanation": "It has four octets, each from 0 to 255.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which of the following is true of IPv6 addresses?",
+   "expected_answer": {
+    "value": "They are 128 bits long, written in hexadecimal"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They are 64 bits long, written in decimal",
+    "They are 128 bits long, written in hexadecimal",
+    "They are 32 bits long, written in binary only",
+    "They are 128 bits long, written in dotted decimal"
+   ],
+   "explanation": "IPv6 uses 128-bit addresses in hexadecimal with colons.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which digit or letter is NOT allowed in an IPv6 address?",
+   "expected_answer": {
+    "value": "G"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "G",
+    "A",
+    "F",
+    "0"
+   ],
+   "explanation": "Hexadecimal uses 0-9 and A-F only, so G is invalid.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "An IPv4 address is 32 bits split into 4 octets. What is the largest possible value of one octet in decimal?",
+   "expected_answer": {
+    "value": "255"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "255",
+    "256",
+    "127",
+    "99"
+   ],
+   "explanation": "8 bits can express 0 to 2^8-1 = 255.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "How many times larger in bit length is an IPv6 address than an IPv4 address?",
+   "expected_answer": {
+    "value": "4 times"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "2 times",
+    "8 times",
+    "16 times",
+    "4 times"
+   ],
+   "explanation": "IPv6 addresses are 128 bits long and IPv4 addresses 32 bits, so 128 / 32 = 4 times larger.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which IPv6 address is the loopback (like 127.0.0.1 in IPv4)?",
+   "expected_answer": {
+    "value": "::1"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "::0",
+    "::1",
+    "FF::",
+    "1::"
+   ],
+   "explanation": "The IPv6 loopback address is 0:0:0:0:0:0:0:1, written ::1.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Every device on a network may have a MAC address AND an IP address. Which is TRUE?",
+   "expected_answer": {
+    "value": "The MAC address is hardware-based, while the IP address is logical and can change"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Both are assigned by the DNS",
+    "The IP address is burned into the NIC",
+    "The MAC address is always written in dotted decimal",
+    "The MAC address is hardware-based, while the IP address is logical and can change"
+   ],
+   "explanation": "A MAC is a fixed hardware address of the NIC; IPs are assigned logically and may change with networks.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-ip-address-versions",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A router has the address 192.168.1.1. Which part of this notation lets us call it IPv4?",
+   "expected_answer": {
+    "value": "It has four dot-separated decimal octets"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It has a colon",
+    "It has the number 1",
+    "It has four dot-separated decimal octets",
+    "It has hexadecimal letters"
+   ],
+   "explanation": "IPv4 is recognised by dotted-decimal octets.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does the 's' in HTTPS stand for?",
+   "expected_answer": {
+    "value": "Secure"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Server",
+    "Site",
+    "Speed",
+    "Secure"
+   ],
+   "explanation": "HTTPS is HTTP Secure; the data is encrypted.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "HTTPS is mainly used to:",
+   "expected_answer": {
+    "value": "Protect data sent between a browser and a website"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Speed up downloads",
+    "Convert domain names to IPs",
+    "Increase screen resolution",
+    "Protect data sent between a browser and a website"
+   ],
+   "explanation": "HTTPS encrypts traffic so others cannot read it easily.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these web addresses uses a secure connection?",
+   "expected_answer": {
+    "value": "https://www.example.com"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "https://www.example.com",
+    "http://www.example.com",
+    "ftp://www.example.com",
+    "www.example.com"
+   ],
+   "explanation": "Only the https:// scheme uses an encrypted connection.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Before entering a card number on a shopping site, you should check that the address starts with:",
+   "expected_answer": {
+    "value": "https://"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "http://",
+    "www.",
+    "https://",
+    "ftp://"
+   ],
+   "explanation": "HTTPS indicates the data is encrypted in transit.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which protocol is used by HTTPS to encrypt data?",
+   "expected_answer": {
+    "value": "SSL/TLS"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "DNS",
+    "SMTP",
+    "SSL/TLS",
+    "DHCP"
+   ],
+   "explanation": "HTTPS uses TLS (earlier SSL) to encrypt data between client and server.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does plain HTTP lack compared with HTTPS?",
+   "expected_answer": {
+    "value": "Encryption of the data in transit"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Hyperlinks",
+    "The ability to show images",
+    "Encryption of the data in transit",
+    "A domain name"
+   ],
+   "explanation": "HTTP sends data in readable form, so others on the network may read it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is a typical symbol shown by browsers for a secure HTTPS page?",
+   "expected_answer": {
+    "value": "A padlock icon"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A red cross",
+    "A flag",
+    "A padlock icon",
+    "A speaker icon"
+   ],
+   "explanation": "A padlock beside the address indicates a secure connection.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A website has a padlock and https. Which statement is MOST accurate?",
+   "expected_answer": {
+    "value": "Data between you and the site is encrypted, but the site could still be unsafe"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The site is guaranteed to be honest",
+    "The site cannot contain any malware",
+    "Your computer is immune to viruses",
+    "Data between you and the site is encrypted, but the site could still be unsafe"
+   ],
+   "explanation": "HTTPS protects the channel, not the site's honesty or content.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is a digital certificate used for in HTTPS?",
+   "expected_answer": {
+    "value": "To prove the identity of the website and enable encryption"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "To prove the identity of the website and enable encryption",
+    "To store your password",
+    "To speed up the Internet",
+    "To remove advertisements"
+   ],
+   "explanation": "Certificates issued by trusted authorities verify the website's identity.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Who issues digital certificates that browsers trust?",
+   "expected_answer": {
+    "value": "A Certificate Authority (CA)"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A Domain Name Server",
+    "An Internet cafe",
+    "A Certificate Authority (CA)",
+    "A browser extension"
+   ],
+   "explanation": "A CA verifies websites and signs their certificates.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which scenario most needs HTTPS?",
+   "expected_answer": {
+    "value": "Entering a password on a login page"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Reading a public notice board page",
+    "Viewing a static picture",
+    "Watching the clock on a page",
+    "Entering a password on a login page"
+   ],
+   "explanation": "Sensitive data like passwords should always travel over encrypted connections.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "On public Wi-Fi, why is HTTPS valuable?",
+   "expected_answer": {
+    "value": "It makes it hard for others on the network to read what you send"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It makes it hard for others on the network to read what you send",
+    "It makes the Wi-Fi password unnecessary",
+    "It increases Wi-Fi range",
+    "It blocks all other users"
+   ],
+   "explanation": "Encryption prevents eavesdroppers on the same network from reading page data.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is TRUE about HTTP?",
+   "expected_answer": {
+    "value": "Data is sent as plain text without encryption"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Data is always encrypted",
+    "Data is sent as plain text without encryption",
+    "It uses a padlock",
+    "It needs a digital certificate"
+   ],
+   "explanation": "HTTP does not encrypt data, unlike HTTPS.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A browser shows 'Not secure' next to a login form. What should the user do?",
+   "expected_answer": {
+    "value": "Avoid entering sensitive information on that page"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Enter the password anyway",
+    "Refresh until it says secure",
+    "Turn off the browser",
+    "Avoid entering sensitive information on that page"
+   ],
+   "explanation": "Not secure means the connection is unencrypted, so passwords could be exposed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Encryption in HTTPS means:",
+   "expected_answer": {
+    "value": "Data is converted into a coded form that only the intended parties can read"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Data is compressed to save space",
+    "Data is deleted after viewing",
+    "Data is sent to many servers",
+    "Data is converted into a coded form that only the intended parties can read"
+   ],
+   "explanation": "Encryption scrambles information using keys.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The typical default port of HTTPS is:",
+   "expected_answer": {
+    "value": "443"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "80",
+    "21",
+    "25",
+    "443"
+   ],
+   "explanation": "HTTPS uses port 443; HTTP uses 80.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The typical default port number for plain HTTP is:",
+   "expected_answer": {
+    "value": "80"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "443",
+    "25",
+    "110",
+    "80"
+   ],
+   "explanation": "HTTP normally uses port 80.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A phishing page copies a bank's design and has https and a padlock. Which statement is correct?",
+   "expected_answer": {
+    "value": "HTTPS alone does not prove a site is genuine, so check the domain name carefully"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The padlock proves the bank owns the site",
+    "HTTPS alone does not prove a site is genuine, so check the domain name carefully",
+    "Phishing pages cannot use HTTPS",
+    "Padlock means the page is safe for all passwords"
+   ],
+   "explanation": "Attackers can also get certificates, so you must still verify the web address.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which security benefit is NOT provided by HTTPS alone?",
+   "expected_answer": {
+    "value": "Protection from malware you voluntarily download from the site"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Protection from malware you voluntarily download from the site",
+    "Protection from eavesdropping on the connection",
+    "Verification of the site's identity by certificate",
+    "Protection against tampering during transfer"
+   ],
+   "explanation": "HTTPS protects the transmission, not the safety of files you download.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A student sees http://mybank-login.example. What is the BEST action?",
+   "expected_answer": {
+    "value": "Do not enter any details; the page is unencrypted and suspicious"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Enter details quickly",
+    "Share the link with friends",
+    "Ignore warning because it has 'bank'",
+    "Do not enter any details; the page is unencrypted and suspicious"
+   ],
+   "explanation": "The page lacks encryption and the name looks suspicious, so avoid entering any details.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about HTTP and HTTPS is correct?",
+   "expected_answer": {
+    "value": "HTTPS is HTTP running over an encrypted TLS connection"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "HTTPS is a different language to write web pages",
+    "HTTP is the newer secure version",
+    "HTTPS replaces the Internet Protocol",
+    "HTTPS is HTTP running over an encrypted TLS connection"
+   ],
+   "explanation": "HTTPS means the same HTTP messages are sent through TLS.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "If a website certificate is expired, the browser will usually:",
+   "expected_answer": {
+    "value": "Show a warning that the connection may not be private"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Show a warning that the connection may not be private",
+    "Delete the website",
+    "Silently switch to a different site",
+    "Remove the padlock without telling the user"
+   ],
+   "explanation": "Browsers warn users when certificates are invalid or expired.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about HTTPS is FALSE?",
+   "expected_answer": {
+    "value": "HTTPS prevents the website from collecting your data"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "HTTPS prevents the website from collecting your data",
+    "HTTPS can show a padlock",
+    "HTTPS uses certificates",
+    "HTTPS encrypts traffic"
+   ],
+   "explanation": "HTTPS only secures the connection; the website can still collect data you give it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Why can a certificate help prevent an attacker from impersonating a website?",
+   "expected_answer": {
+    "value": "A trusted CA has verified the site, so the browser can check the identity"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Certificates hide the website's IP",
+    "A trusted CA has verified the site, so the browser can check the identity",
+    "Certificates stop all viruses",
+    "Certificates make the site free"
+   ],
+   "explanation": "The browser checks the certificate signed by a trusted CA to confirm identity.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which situation shows the risk of using HTTP on a shared network?",
+   "expected_answer": {
+    "value": "Someone on the same network could read a form's text, including a password"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The page cannot display images",
+    "Someone on the same network could read a form's text, including a password",
+    "The page loads in a different language",
+    "The router gets hot"
+   ],
+   "explanation": "Unencrypted traffic can be captured by others on the same network.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A page loads over HTTPS but includes a form that submits to an http:// address. What is the concern?",
+   "expected_answer": {
+    "value": "The form data would be sent without encryption"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Nothing, since the page has a padlock",
+    "The padlock is stronger",
+    "The form will be encrypted twice",
+    "The form data would be sent without encryption"
+   ],
+   "explanation": "What matters is where the data is submitted; an http target is not encrypted.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which is the best order for checking a site before paying online?",
+   "expected_answer": {
+    "value": "Check https and padlock, verify the domain name, then enter details"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Enter details, then check https",
+    "Look only at the page colours",
+    "Check https and padlock, verify the domain name, then enter details",
+    "Check only if the site has ads"
+   ],
+   "explanation": "Verify the secure connection and site identity before sharing payment details.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-https-security",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is a good reason to prefer HTTPS sites for online banking?",
+   "expected_answer": {
+    "value": "It protects login details while they travel over the network"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It makes the bank give a higher interest",
+    "It protects login details while they travel over the network",
+    "It speeds up your computer",
+    "It removes the need for passwords"
+   ],
+   "explanation": "HTTPS encrypts the data so login details are not exposed in transit.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-network-devices",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A school wants its lab computers to share one broadband line to the Internet, with a device that also joins them to each other by Wi-Fi. Which device fits best?",
+   "expected_answer": {
+    "value": "Wireless router"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Wireless router",
+    "Repeater only",
+    "Modem only",
+    "Network interface card only"
+   ],
+   "explanation": "A wireless router joins devices into one network, shares the Internet connection and provides Wi-Fi.",
+   "content_status": "needs_review"
+  }
+ ]
+}

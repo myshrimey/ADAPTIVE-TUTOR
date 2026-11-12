@@ -63,6 +63,7 @@ Updated 2026-10-31.
 | TASK-091 | TASK-090 |
 | TASK-092 | TASK-091 |
 | TASK-093 | TASK-092 |
+| TASK-094 | TASK-093 |
 
 ## Outside dependencies (things only a person can do or decide)
 | Item | Who | Blocks |

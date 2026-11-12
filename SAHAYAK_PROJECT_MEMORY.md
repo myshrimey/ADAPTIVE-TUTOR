@@ -158,3 +158,4 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v123 (2026-11-10): French (Class X) added as pilot: 19 chapters, 71 skills, 356 AI-written needs_review questions, accent keypad, accent-aware grading. No migration. After deploy run seed.js then seed-diagnostic.js. Needs a French teacher's review.
 - v124 (2026-11-10): answer checking fixed after a student's screenshots ("5,-1", "6 or -8", "29,106" were marked wrong). core/question-engine/grading.ts, t124. No migration.
 - v125 (2026-11-11): 503 more questions in all seven subjects (needs_review). Run seed-diagnostic.js after deploying. Teacher review pending. No migration.
+- v126 (2026-11-12): 1,076 more Computer Applications questions (all 38 skills, needs_review). Run seed-diagnostic.js after deploying. No migration.

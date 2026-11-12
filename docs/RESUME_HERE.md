@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v125 (2026-11-11)
+## Latest delivery - v126 (2026-11-12)
+1,076 more Computer Applications questions, covering every one of the 38 skills (27 to 30 each), all marked needs_review for a teacher. No website change except the version number, no migration. After deploying run `node packages/db/seed-diagnostic.js` with your own settings (safe to re-run). Apply after v125: `sahayak-v126-computer-applications-delta.zip`. Not seen live; facts and code snippets were read, not independently checked.
+
+## Previous delivery - v125 (2026-11-11)
 503 more questions in all seven subjects (Hindi A 116, Hindi B 77, Social Science 120, Computer Applications 76, English 42, Science 42, Maths 30), all marked needs_review for a teacher. No website change except the version number, no migration. After deploying run `node packages/db/seed-diagnostic.js` with your own settings (safe to re-run). Apply after v124: `sahayak-v125-more-questions-delta.zip`. Not seen live; facts not independently checked beyond the maths numbers.
 
 ## Previous delivery - v124 (2026-11-10)

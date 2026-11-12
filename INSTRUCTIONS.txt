@@ -1,25 +1,26 @@
-Sahayak v125 - 503 more questions in all subjects
-==================================================
-Apply after v124. Copy these files over your project (same folders). No database migration. The website itself only changes its version number, so deploy it the way you normally do (or, if you prefer, just copy the files and run the seed command).
+Sahayak v126 - 1,076 more Computer Applications questions
+==========================================================
+Apply after v125. Copy these files over your project (same folders). No database migration. The website only changes its version number, so deploy it the way you normally do.
 
-WHAT WAS ADDED (all multiple choice, all marked "needs review", original wording)
-- Hindi Course A 116, Hindi Course B 77, Social Science 120, Computer Applications 76, English 42, Science 42, Maths 30 = 503.
-- Every skill in the thin subjects now has at least 2 new questions. Maths and Science already had 1000+, so they got a targeted top-up (thinnest skills). Maths numbers were all computed by code.
+WHAT WAS ADDED
+- 1,076 multiple-choice questions (original wording, all marked "needs review") covering all 38 Computer Applications skills: 27 to 30 new questions per skill. The subject now holds about 1,250 questions.
+- Topics: networks and devices, Internet, DNS, IP, HTTPS, Internet services, mobile technology, HTML (structure, formatting, links, images, lists, tables, forms), CSS basics, cyber ethics and safety, plagiarism and licences, e-commerce security, Boolean logic, spreadsheets, mail merge, algorithms and flowcharts.
 
 AFTER DEPLOYING (you, with your own settings - Claude never ran it):
   node packages/db/seed-diagnostic.js
-It is safe to run again; it skips questions it already has. The new questions are saved as "needs review", so a teacher can check them.
+Safe to run again; it skips questions it already has.
 
 TESTED
-- New test t125 (44 checks): real skills, 4 different options, the right answer is present and spread over all four positions, no repeats of existing questions, needs-review status. Full npm test: 97 passed, 4 known-stale (t3, t4, t42a, t42c), 0 failed. TypeScript check clean.
-- 15 of the 30 maths questions were re-worked by hand and were right.
+- New test t126 (12 checks): real skills, 4 different options, right answer present and spread over all four positions, no repeats of existing questions, needs-review status, at least 27 per skill, a spread of difficulties. Full npm test: 98 passed, 4 known-stale (t3, t4, t42a, t42c), 0 failed. TypeScript check clean.
+- Boolean truth tables and cell-reference answers were computed with code by the writers.
 
 NOT TESTED
 - Nothing was seen live. The seed command was not run on any real database.
-- Facts in Hindi, Social Science, Science, English and Computer Applications were NOT independently checked. The writers flagged some items for a teacher: see docs/CONTENT_V125.md.
+- HTML/CSS snippets and spreadsheet results were read, not run in a browser or spreadsheet. Facts were not independently checked. A teacher should review (see docs/CONTENT_V126.md for the first things to look at).
+- The difficulty mix leans to medium (446 of 1,076); only 77 are the hardest level.
 
 NOT BUILT
-- Teacher review screens or marking of questions as verified (that stays with a human).
+- Marking questions as verified (that stays with a human).
 
 NOT DEPLOYED
 - Nothing was deployed or changed on your live site or database.
