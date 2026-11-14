@@ -1,24 +1,17 @@
-Sahayak v127 - 521 more Social Science questions
-=================================================
-Apply after v126. Copy these files over your project (same folders). No database migration. The website only changes its version number, so deploy it the way you normally do.
+Sahayak v129 - profile tables read-only for the student (delta on v128)
 
-WHAT WAS ADDED
-- 521 multiple-choice questions (original wording, all marked "needs review"): 13 or more for each of the 40 on-syllabus Social Science skills across History, Geography, Political Science and Economics. The three skills skipped earlier (not on the syllabus) are still skipped. Social Science now holds about 780 questions.
+WHAT CHANGED
+- The profile page now saves details and school history with the server's own key (the student id still comes from the sign-in).
+- Migration 0065 turns the student's direct write rules on student_profile_details and student_academic_history into read-only rules.
 
-AFTER DEPLOYING (you, with your own settings - Claude never ran it):
-  node packages/db/seed-diagnostic.js
-Safe to run again; it skips questions it already has.
+ORDER (important)
+1. Deploy the v129 website first.
+2. Then run migration 0065 (npm run db:migrate).
+3. Then sign in as a student, save the profile once, and confirm it saves.
+4. /admin/deploy-check lists the new check for 0065.
+5. In the control centre press "Load from documents" to refresh the numbers.
 
-TESTED
-- New test t127 (10 checks): real skills, 4 different options, right answer present and spread over all four positions, no repeats of existing questions, needs-review status, at least 13 per on-syllabus skill, a spread of difficulties. Full npm test: 99 passed, 4 known-stale (t3, t4, t42a, t42c), 0 failed. TypeScript check clean.
-
-NOT TESTED
-- Nothing was seen live. The seed command was not run on any real database.
-- NO fact (date, name, number) was independently checked. A teacher should review. docs/CONTENT_V127.md lists the facts the writers were least sure of: for example Italy taking Rome in 1870, the 1905 Swadeshi flag, Gutenberg Bible copy numbers, the Diamond Sutra date, the Eleventh Schedule count, Women's Reservation Act status, Gratuity Act and Net Attendance Ratio wording.
-- Difficulty leans medium (243 of 521); only 29 are the hardest level.
-
-NOT BUILT
-- Marking questions as verified (that stays with a human).
-
-NOT DEPLOYED
-- Nothing was deployed or changed on your live site or database.
+TESTED: t129 (13 checks); full npm test 101 passed, 4 known-stale, 0 failed; scratch Postgres before/after (update 1 row -> 0, insert allowed -> refused, read unchanged; migration run twice).
+NOT TESTED: nothing was seen live; the profile save on the real site; a production build (only the profile route changed, one line each).
+NOT BUILT: the other 11 student-owned write rules (session_checkins, learning_goals, learning_profiles and the tutor-loop tables) - plan in docs/OWNER_WRITE_RULES_PLAN.md.
+NOT DEPLOYED: nothing was deployed.

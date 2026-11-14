@@ -1,6 +1,20 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0041 - 2026-11-14 - continue building what is left (chat)
+- Summary: v129: profile details and school history made read-only for the student (TASK-097).
+- Files: migrations/0065; api/profile/route.ts; deploy-check; tests t129 (+t95,t95b,t101,t128 edits); ROLLBACK_NOTES; DATABASE_SCHEMA
+- Database: 0065 profile_tables_read_only
+- Tests: t129, scratch Postgres before/after experiment, full npm test
+- Open: Not deployed; 0065 not run on the live database; saving a profile must be checked by hand after deploy
+
+## EX-0040 - 2026-11-14 - continue building what is left (chat)
+- Summary: v128: students_update_own removed (TASK-096).
+- Files: migrations/0064; deploy-check; tests t128 (+t95,t101,t122 edits); ROLLBACK_NOTES; DATABASE_SCHEMA; docs/OWNER_WRITE_RULES_PLAN.md
+- Database: 0064 close_student_self_edit
+- Tests: t128, scratch Postgres control experiment, full npm test
+- Open: Not deployed; 0064 not run on the live database; the 13 tutor-loop tables are still open
+
 ## EX-0039 - 2026-11-13 - founder chat request (500+ Social Science questions)
 - Summary: v127: 521 questions added (TASK-095).
 - Files: seed/cbse-class10-social-science-v127[a-d]-diagnostic.json; tests/t127.ts; deploy-check version

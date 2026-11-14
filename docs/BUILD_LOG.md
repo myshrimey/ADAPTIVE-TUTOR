@@ -869,3 +869,13 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Four helper agents wrote 13+ questions for each of 40 skills; `seed-generators/v126_finalize.py` validated and wrote `seed/cbse-class10-social-science-v127[a-d]-diagnostic.json`. Test t127 (10 checks). All needs_review. No migration; only APP_VERSION changed in code.
 - Three helper runs were cut off by usage limits and re-run.
 - NOT done: teacher review, independent fact check (list in docs/CONTENT_V127.md), any live check.
+
+## v128 (2026-11-14) - student self-edit rule on `students` closed (migration 0064)
+- Chosen as the next most critical item Claude can do alone (open since v122): of the 14 tables with a student-owned write rule, a code scan showed only `students` is written exclusively with the server key, so only its rule could be closed safely.
+- Migration 0064 drops `students_update_own`. Scratch test with a control experiment: before, a test student's update changed 1 row; after 0064 (run twice) 0 rows change, the row is still readable, the changelog row is written once; the undo block restores the rule.
+- Test t128 (17 checks, including a scan that fails if any code writes `students` with the signed-in client, with mutation checks); deploy check expects DB v128 (manual check count now 6); rollback note, schema doc, t95/t101/t122 updated.
+- Written, not done: docs/OWNER_WRITE_RULES_PLAN.md (the 13 other tables, the exact call sites and a step-by-step, supervised plan).
+- Founder's screenshot of the control centre shows stale saved numbers (9 prompts, 61 tasks): refreshed only by "Load from documents".
+
+## v129 (2026-11-14) - profile tables read-only for the student (migration 0065)
+/api/profile saves student_profile_details and student_academic_history with the server key (id from the session). 0065 replaces the two `for all` owner rules with read-only rules. Tested: t129 (13 checks), scratch Postgres before/after (update 1 row -> 0, insert allowed -> refused, read unchanged). Not deployed; nothing seen live.

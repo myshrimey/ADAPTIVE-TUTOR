@@ -1,4 +1,4 @@
-# Rollback notes for the database changes 0002 to 0063
+# Rollback notes for the database changes 0002 to 0065
 
 Written in v101 (2 Nov 2026); 0002 to 0054 added in v113 and v115 (8 Nov 2026), worked out by comparing a scratch database before and after each change (scripts/db-test). **How to read this:** every database change in Sahayak only ADDS things and is safe to run again. If you ever need to go back, these are the undo steps, newest first. They were tested on a scratch copy of the database: apply 0055-0059, run every undo block below, check the objects are gone, then apply 0055-0059 again with no error (t101).
 
@@ -9,6 +9,24 @@ Written in v101 (2 Nov 2026); 0002 to 0054 added in v113 and v115 (8 Nov 2026), 
 4. After an undo, the matching version of the website must also be redeployed, otherwise a page may look for a table that is gone. `/admin/deploy-check` shows which side is behind.
 5. These notes undo structure only: they never delete rows from students, answers, payments or accounts, and never drop those core tables. They DO drop columns and new tables that a change added, and what was saved in them is lost (each section says which).
 6. This is a plan written by Claude and tested on a copy. It is not a promise about your live database. Nothing here has been run on it.
+
+## 0065 profile_tables_read_only (v129) - profile details and school history are read-only for the student directly
+What you lose: nothing saved. Two broad rules are replaced by read-only ones; no table, column or row is touched. **Undoing it re-opens the direct write the change closed.**
+```sql
+drop policy if exists student_profile_details_select_own on student_profile_details;
+drop policy if exists student_profile_details_owner on student_profile_details;
+create policy student_profile_details_owner on student_profile_details for all to authenticated using (student_id in (select s.id from students s join users u on u.id = s.user_id where u.auth_user_id = auth.uid())) with check (student_id in (select s.id from students s join users u on u.id = s.user_id where u.auth_user_id = auth.uid()));
+drop policy if exists student_academic_history_select_own on student_academic_history;
+drop policy if exists student_academic_history_owner on student_academic_history;
+create policy student_academic_history_owner on student_academic_history for all to authenticated using (student_id in (select s.id from students s join users u on u.id = s.user_id where u.auth_user_id = auth.uid())) with check (student_id in (select s.id from students s join users u on u.id = s.user_id where u.auth_user_id = auth.uid()));
+```
+
+## 0064 close_student_self_edit (v128) - a student can no longer edit their own student record directly
+What you lose: nothing saved. This change removed one rule (`students_update_own`); no table, column or row is touched. **Undoing it re-opens the hole it closed** (a signed-in student could change any field of their own student record from the browser, including the parent-report link code), so only do it if the website is refusing a legitimate save and you cannot wait for a fix. The block below puts the old rule back exactly as 0002 wrote it.
+```sql
+drop policy if exists students_update_own on students;
+create policy students_update_own on students for update using (user_id in (select id from users where auth_user_id = auth.uid()));
+```
 
 ## 0063 close_open_write_rules (v122) - two too-open write rules closed
 What you lose: nothing saved. This change removed two rules and tightened one; no table, column or row is touched. **Undoing it re-opens the hole it closed** (any signed-in account could change any question, and could insert a payment already marked confirmed), so only do it if the website is refusing a legitimate save and you cannot wait for a fix. The block below puts the three old rules back exactly as 0008 and 0009 wrote them. Redeploy the v121 website first if you undo this, because the v122 website saves explanations with the server key and does not need these rules.

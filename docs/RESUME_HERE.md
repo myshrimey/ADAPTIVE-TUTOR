@@ -2,7 +2,13 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v127 (2026-11-13)
+## Latest delivery - v129 (2026-11-14)
+Security, second slice: the profile page now saves details and school history with the server's own key (the student id still comes from the sign-in), and migration 0065 turns the student's direct write rules on those two tables into read-only rules. Deploy the website FIRST, then run 0065, then save a profile once to check it works. 11 student-owned write rules remain (tutor-loop and goals/profile preferences); plan in docs/OWNER_WRITE_RULES_PLAN.md. Not deployed, not seen live.
+
+## Previous delivery - v128 (2026-11-14)
+Security: a signed-in student could change their own student record straight from the browser (name, grade, the parent-report link code). The website never needed that, so migration 0064 removes the rule (tested on a scratch copy: before, a test student changed their row; after, 0 rows change and reading still works). Deploy v128, then run 0064. Also written down: the plan for the 13 learning-record tables whose rules are still open (docs/OWNER_WRITE_RULES_PLAN.md); closing them needs a supervised change to the tutor engine, so it is NOT done. Your control centre screen shows the numbers saved in your database (9 prompts, 61 tasks); they update only when you press "Load from documents" after deploying. Apply after v127: `sahayak-v128-student-self-edit-delta.zip`. Not seen live.
+
+## Previous delivery - v127 (2026-11-13)
 521 more Social Science questions, 13 or more for each of the 40 on-syllabus skills, all marked needs_review for a teacher (the facts to check first are listed in docs/CONTENT_V127.md). No website change except the version number, no migration. After deploying run `node packages/db/seed-diagnostic.js` with your own settings (safe to re-run). Apply after v126: `sahayak-v127-social-science-delta.zip`. Not seen live; facts not independently checked.
 
 ## Previous delivery - v126 (2026-11-12)

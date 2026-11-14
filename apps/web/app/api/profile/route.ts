@@ -44,9 +44,9 @@ export async function POST(request: Request) {
     const clean = cleanProfileInput(details, academicHistory);
     if (!clean.ok) return NextResponse.json({ data: null, error: clean.code }, { status: 400 });
     const supabase = await createServerClient();
-    const savedDetails = await upsertStudentProfileDetails(supabase, studentId, clean.details);
+    const savedDetails = await upsertStudentProfileDetails(createServiceClient(), studentId, clean.details);
     if (Array.isArray(academicHistory)) {
-      await upsertAcademicHistory(supabase, studentId, clean.history);
+      await upsertAcademicHistory(createServiceClient(), studentId, clean.history);
     }
     const savedHistory = await listAcademicHistory(supabase, studentId);
 

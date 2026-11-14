@@ -100,6 +100,8 @@ REQ = [
 ('R75','O6','Founder request 2026-11-10 (chat): add more questions in all subjects',PC,'v125: 503 original needs_review questions over all seven subjects; t125. Needs deploy + seed-diagnostic.js + teacher review. Not seen live.'),
 ('R76','O6','Founder request 2026-11-11 (chat): add 1000+ questions covering each skill in Computer Applications',PC,'v126: 1,076 needs_review questions over all 38 skills; t126. Needs deploy + seed-diagnostic.js + teacher review. Not seen live.'),
 ('R77','O6','Founder request 2026-11-12 (chat): add 500+ questions in social science',PC,'v127: 521 needs_review questions, 13+ per on-syllabus skill; t127. Needs deploy + seed-diagnostic.js + teacher review. Not seen live.'),
+('R78','O6','Close the too-open student write rules found in the live policy list (continued)',PC,'v128: 0064 removes students_update_own; t128; plan for the other 13 tables in docs/OWNER_WRITE_RULES_PLAN.md (needs a supervised tutor-loop change). Not seen live.'),
+('R79','O6','Close the too-open student write rules found in the live policy list (profile tables)',PC,'v129: 0065 makes student_profile_details and student_academic_history read-only for the student; /api/profile saves with the server key; t129. 11 tutor-loop and goal/profile tables still open. Not seen live.'),
  ('R50','O8','Phase 0 findings (12 items) produced', CM, 'PHASE0_AUDIT.md. Awaiting founder acceptance.'),
  ('R51','O8','Create the persistent registry and control documents under repository conventions', PC, 'Markdown set created. Database-backed records are Phase 1.'),
  ('R52','O8','Present Phase 0 findings and proposed Phase 1 tasks; wait for the founder to choose', CM, 'Presented in the chat reply of 2026-10-31. Founder choice pending.'),
@@ -176,6 +178,8 @@ TASKS = [
 ('TASK-093','P6','Add more questions in all subjects (thin subjects to 2+ per skill)','O6','R75','TASK-092','M',RT,'v125: 503 questions; t125 (44 checks); teacher review pending.'),
 ('TASK-094','P6','Add 1000+ Computer Applications questions covering every skill','O6','R76','TASK-093','M',RT,'v126: 1,076 questions, 27-30 per skill; t126 (12 checks); teacher review pending.'),
 ('TASK-095','P6','Add 500+ Social Science questions','O6','R77','TASK-094','M',RT,'v127: 521 questions; t127 (10 checks); teacher review pending.'),
+('TASK-096','P6','Close students_update_own (migration 0064) and plan the other student-owned write rules','O6','R78','TASK-095','S',RT,'v128: 0064 tested on scratch with a control experiment; t128 (17 checks). Other 13 tables: plan only.'),
+('TASK-097','P6','Move profile saves to the server key and narrow two student write rules (migration 0065)','O6','R79','TASK-096','S',RT,'v129: 0065 tested on scratch with a before/after experiment; t129 (13 checks).'),
 ]
 
 reqid = {r[0] for r in REQ}
@@ -419,6 +423,8 @@ EXECUTIONS = [
 ('EX-0037','2026-11-11','founder chat request (more questions in all subjects)','v125: 503 questions added (TASK-093).','seed/*-v125-diagnostic.json (7); seed-generators/v125_finalize.py; tests/t125.ts; deploy-check version','none (seed data only)','t125, full npm test','Not deployed; seeds not run on the live database; no teacher review'),
 ('EX-0038','2026-11-12','founder chat request (1000+ Computer Applications questions)','v126: 1,076 questions added (TASK-094).','seed/cbse-class10-computer-applications-v126[a-f]-diagnostic.json; seed-generators/v126_finalize.py; tests/t126.ts; deploy-check version','none (seed data only)','t126, full npm test','Not deployed; seeds not run on the live database; no teacher review'),
 ('EX-0039','2026-11-13','founder chat request (500+ Social Science questions)','v127: 521 questions added (TASK-095).','seed/cbse-class10-social-science-v127[a-d]-diagnostic.json; tests/t127.ts; deploy-check version','none (seed data only)','t127, full npm test','Not deployed; seeds not run on the live database; no teacher review'),
+('EX-0040','2026-11-14','continue building what is left (chat)','v128: students_update_own removed (TASK-096).','migrations/0064; deploy-check; tests t128 (+t95,t101,t122 edits); ROLLBACK_NOTES; DATABASE_SCHEMA; docs/OWNER_WRITE_RULES_PLAN.md','0064 close_student_self_edit','t128, scratch Postgres control experiment, full npm test','Not deployed; 0064 not run on the live database; the 13 tutor-loop tables are still open'),
+('EX-0041','2026-11-14','continue building what is left (chat)','v129: profile details and school history made read-only for the student (TASK-097).','migrations/0065; api/profile/route.ts; deploy-check; tests t129 (+t95,t95b,t101,t128 edits); ROLLBACK_NOTES; DATABASE_SCHEMA','0065 profile_tables_read_only','t129, scratch Postgres before/after experiment, full npm test','Not deployed; 0065 not run on the live database; saving a profile must be checked by hand after deploy'),
 ]
 ALLTEXT = open(OUT + '/MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md').read().split('\n---\n', 1)[1].lstrip('\n')
 LEG = {

@@ -29,8 +29,8 @@ ok(cleanProfileInput({}, [{ classLevel: 6 }, { classLevel: 7 }, { classLevel: 8 
 ok(Object.keys(PROFILE_ERROR_TEXT).length === 6 && Object.values(PROFILE_ERROR_TEXT).every((t) => /^[A-Z]/.test(t) && !/profile_|error|invalid/i.test(t)), 'every refusal has a plain-words message');
 
 const route = R('apps/web/app/api/profile/route.ts');
-ok(route.indexOf('cleanProfileInput(') > -1 && route.indexOf('cleanProfileInput(') < route.indexOf('upsertStudentProfileDetails(supabase'), 'the route cleans BEFORE saving');
-ok(!/upsertStudentProfileDetails\(supabase, studentId, details/.test(route) && !/upsertAcademicHistory\(supabase, studentId, academicHistory/.test(route), 'the raw request values are never passed on');
+ok(route.indexOf('cleanProfileInput(') > -1 && route.indexOf('cleanProfileInput(') < route.indexOf('upsertStudentProfileDetails(createServiceClient()'), 'the route cleans BEFORE saving');
+ok(!/upsertStudentProfileDetails\(\w+(?:\(\))?, studentId, details/.test(route) && !/upsertAcademicHistory\(\w+(?:\(\))?, studentId, academicHistory/.test(route), 'the raw request values are never passed on');
 ok(/getCurrentStudentId\(\)/.test(route), 'the student still comes from the session');
 ok(/PROFILE_ERROR_TEXT/.test(R('apps/web/app/profile/page.tsx')), 'the page shows the plain-words message');
 console.log(`t119: ${n - f}/${n} passed`); if (f) process.exit(1);

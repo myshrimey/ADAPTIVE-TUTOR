@@ -19,7 +19,7 @@ ok(/system_changelog/.test(code) && /'v122'/.test(code) && /where not exists/.te
 const files = readdirSync('packages/db/migrations').filter((x) => x.endsWith('.sql')).sort();
 const reopen = files.filter((x) => +x.slice(0, 4) > 8 && /create policy\s+\w+\s+on\s+(questions|diagnostic_questions)\s+for\s+(update|all|insert|delete)/i.test(R('packages/db/migrations/' + x)));
 ok(reopen.length === 0, 'no migration after 0008 adds an edit rule on the question tables: ' + reopen.join());
-ok(files[files.length - 1] === '0063_close_open_write_rules.sql', '0063 is the newest migration');
+ok(files.includes('0063_close_open_write_rules.sql'), '0063 is present');
 
 // --- the code
 const ee = R('packages/core/explanations/ensure-explanation.ts');
@@ -37,7 +37,7 @@ const keys = [...ins.matchAll(/^\s+(\w+):/gm)].map((m) => m[1]).sort().join();
 ok(keys === ['amount', 'offer_label', 'payment_date', 'status', 'student_id', 'transaction_reference'].sort().join() && /status: 'pending'/.test(ins), 'the payment form only sends fields the stricter rule accepts: ' + keys);
 
 // --- deploy check and notes
-ok(DB_VERSION_EXPECTED === 'v122', 'deploy check expects database version v122');
+ok(/^v\d+$/.test(DB_VERSION_EXPECTED) && +DB_VERSION_EXPECTED.slice(1) >= 122, 'deploy check expects database version v122 or later');
 const mc = MANUAL_CHECKS.find((c) => c.migration === '0063');
 ok(!!mc && /pg_policies/.test(mc!.sql) && /pilot_payments_insert_own/.test(mc!.expect), 'a read-only manual check shows the three tables\' write rules');
 ok(!DEPLOY_PROBES.some((p) => p.migration === '0063'), 'no table probe (this change adds no table)');
