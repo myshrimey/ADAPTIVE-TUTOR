@@ -1,0 +1,2605 @@
+{
+ "subject_slug": "social-science",
+ "questions": [
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Napoleon's Civil Code of 1804 introduced which principle in the territories he controlled?",
+   "expected_answer": {
+    "value": "Equality of all citizens before the law"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Special courts for nobles and clergy",
+    "Restoration of feudal dues for landlords",
+    "Equality of all citizens before the law",
+    "Absolute power for hereditary monarchs"
+   ],
+   "explanation": "The Code swept away birth-based privileges, established equality before the law and secured the right to property.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In Frederic Sorrieu's 1848 print of the 'pact between nations', which figure leads the procession of peoples?",
+   "expected_answer": {
+    "value": "The Statue of Liberty"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Napoleon on horseback",
+    "The Statue of Liberty",
+    "A crowned monarch",
+    "The Pope"
+   ],
+   "explanation": "Sorrieu's dream of democratic and social republics shows peoples of many nations marching past the Statue of Liberty, who carries the torch of Enlightenment and the Charter of the Rights of Man.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "In allegories of the German nation, Germania wears a crown of oak leaves. What does the oak stand for?",
+   "expected_answer": {
+    "value": "Heroism"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Peace",
+    "Heroism",
+    "Wealth",
+    "Religious devotion"
+   ],
+   "explanation": "In the German national allegory the oak leaf stands for heroism, whereas the olive branch usually signifies peace.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which description best fits European conservatism after 1815?",
+   "expected_answer": {
+    "value": "It wanted to preserve established institutions such as monarchy, the Church and social hierarchies"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "It demanded universal adult suffrage and a republic",
+    "It wanted to abolish private property",
+    "It supported the overthrow of all monarchies",
+    "It wanted to preserve established institutions such as monarchy, the Church and social hierarchies"
+   ],
+   "explanation": "Conservatives believed in preserving traditional institutions, though many accepted modernisation that strengthened the state.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In the early nineteenth century, liberal nationalism in Europe was limited in which way?",
+   "expected_answer": {
+    "value": "Voting rights went only to property-owning men"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Voting rights went only to property-owning men",
+    "Women alone were allowed to vote",
+    "Only nobles could be tried by courts",
+    "Everyone above 18 could vote"
+   ],
+   "explanation": "Liberals wanted constitutions and representative government, but suffrage was restricted to men who owned property; women and the poor were excluded.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In 1830 the Belgians broke away from rule by which state?",
+   "expected_answer": {
+    "value": "The Kingdom of the Netherlands"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The Austrian Empire",
+    "The Russian Empire",
+    "The Kingdom of Spain",
+    "The Kingdom of the Netherlands"
+   ],
+   "explanation": "Belgium rebelled in 1830 against the Kingdom of the Netherlands, of which it had been made a part after 1815, and became independent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which treaty of 1832 recognised Greece as an independent nation?",
+   "expected_answer": {
+    "value": "The Treaty of Constantinople"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The Treaty of Vienna",
+    "The Treaty of Constantinople",
+    "The Treaty of Versailles",
+    "The Treaty of Frankfurt"
+   ],
+   "explanation": "Greece's independence struggle won sympathy across Europe and was recognised by the Treaty of Constantinople in 1832.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Who rejected the crown offered by the Frankfurt Parliament in 1848?",
+   "expected_answer": {
+    "value": "King Frederick William IV of Prussia"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "King Frederick William IV of Prussia",
+    "Emperor Napoleon III",
+    "King Victor Emmanuel II",
+    "Tsar Nicholas I"
+   ],
+   "explanation": "The liberal assembly offered the crown of a united Germany to Frederick William IV of Prussia, who refused it, and the monarchy and army then dissolved the Parliament.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What was the role of women at the Frankfurt Parliament of 1848?",
+   "expected_answer": {
+    "value": "They were admitted only as observers in the visitors' gallery"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They were elected as the majority of members",
+    "They were chosen to preside over sessions",
+    "They were admitted only as observers in the visitors' gallery",
+    "They drafted the constitution"
+   ],
+   "explanation": "Although women had taken part in the liberal movement, they were excluded from voting and sat only as observers in the gallery.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Johann Gottfried Herder claimed that the true German culture was to be found among whom?",
+   "expected_answer": {
+    "value": "The common people, in folk songs, poetry and dances"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The aristocratic courts",
+    "The French-speaking elite",
+    "The Church hierarchy",
+    "The common people, in folk songs, poetry and dances"
+   ],
+   "explanation": "Herder and other Romantics stressed folk culture and vernacular language as the real spirit of the nation, which helped build national feeling.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "After the failed Polish uprising of 1831, how did Poles keep their national identity alive under Russian rule?",
+   "expected_answer": {
+    "value": "By using the Polish language in Church gatherings and religious instruction"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "By forming a national army",
+    "By using the Polish language in Church gatherings and religious instruction",
+    "By adopting the Russian language",
+    "By electing their own parliament"
+   ],
+   "explanation": "Russia suppressed Polish; the Church used Polish for religious teaching, and language became a weapon of national resistance.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "The Balkans became a region of intense nationalist tension in the nineteenth century mainly because of what combination?",
+   "expected_answer": {
+    "value": "Decline of Ottoman control and rivalry among European powers"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Industrial growth in Ottoman cities",
+    "Strong rule of the Habsburgs there",
+    "The lack of any Slavic population",
+    "Decline of Ottoman control and rivalry among European powers"
+   ],
+   "explanation": "As the Ottoman Empire weakened, Balkan peoples sought independence while Russia, Austria and others competed for influence.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-nationalism-spread-europe",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "At the Congress of Vienna in 1815, which power received control of northern Italy?",
+   "expected_answer": {
+    "value": "Austria"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Prussia",
+    "Austria",
+    "Russia",
+    "Britain"
+   ],
+   "explanation": "The 1815 settlement gave Austria control over northern Italy (Lombardy and Venetia), and this later fuelled Italian nationalism.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Before unification in the mid-nineteenth century, into how many states was Italy divided?",
+   "expected_answer": {
+    "value": "Seven"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Three",
+    "Twelve",
+    "Twenty",
+    "Seven"
+   ],
+   "explanation": "Italy was divided into seven states, and only Sardinia-Piedmont was ruled by an Italian princely house.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Who was proclaimed king of united Italy in 1861?",
+   "expected_answer": {
+    "value": "Victor Emmanuel II"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Giuseppe Garibaldi",
+    "Count Cavour",
+    "Victor Emmanuel II",
+    "Giuseppe Mazzini"
+   ],
+   "explanation": "Victor Emmanuel II of Sardinia-Piedmont became king of the new Italian state in 1861.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who was proclaimed German Emperor in January 1871?",
+   "expected_answer": {
+    "value": "Kaiser William I of Prussia"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Otto von Bismarck",
+    "Kaiser William I of Prussia",
+    "Frederick William IV",
+    "Napoleon III"
+   ],
+   "explanation": "The King of Prussia, William I, took the title of German Emperor while Bismarck remained chancellor.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Prussia fought wars against which three countries over seven years in the process of unifying Germany?",
+   "expected_answer": {
+    "value": "Austria, Denmark and France"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Russia, Spain and Italy",
+    "Britain, Poland and Austria",
+    "Austria, Denmark and France",
+    "Belgium, Denmark and Russia"
+   ],
+   "explanation": "Bismarck's wars against Denmark, Austria and France ended with Prussian victory and the unification of Germany.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Who were the Junkers, who supported the Prussian drive for unification?",
+   "expected_answer": {
+    "value": "Large landowning aristocrats of Prussia"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Italian secret society members",
+    "Merchants of the Zollverein",
+    "French revolutionary soldiers",
+    "Large landowning aristocrats of Prussia"
+   ],
+   "explanation": "The Junkers were the Prussian landed nobility; Bismarck came from this class and relied on them and on the army.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What was Cavour's key diplomatic move in the unification of Italy?",
+   "expected_answer": {
+    "value": "A secret alliance with France that helped defeat Austria in 1859"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "A union with Prussia against France",
+    "A treaty to buy the Papal States",
+    "A march on Rome with volunteers",
+    "A secret alliance with France that helped defeat Austria in 1859"
+   ],
+   "explanation": "Cavour was no revolutionary or democrat; he skilfully allied Sardinia-Piedmont with France, whose help defeated the Austrian forces in 1859.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which feature was common to both German and Italian unification?",
+   "expected_answer": {
+    "value": "Liberal middle-class attempts of 1848 failed and the monarchy and army took the lead"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Liberal middle-class attempts of 1848 failed and the monarchy and army took the lead",
+    "Both were achieved by peaceful referendums",
+    "Both were led by a republican government",
+    "Neither involved any war"
+   ],
+   "explanation": "In both countries 1848 liberal efforts were suppressed, and unification came through state power led by a monarch and military force.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which statement about the leadership of unification is correct?",
+   "expected_answer": {
+    "value": "Prussia led in Germany and Sardinia-Piedmont led in Italy"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Austria led in Germany and Prussia led in Italy",
+    "Bavaria led in Germany and Naples led in Italy",
+    "The Papal States led both",
+    "Prussia led in Germany and Sardinia-Piedmont led in Italy"
+   ],
+   "explanation": "In each case, one strong monarchical state led the way: Prussia and Sardinia-Piedmont.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What happened after Garibaldi's Red Shirts took the Kingdom of the Two Sicilies in 1860?",
+   "expected_answer": {
+    "value": "The territories were handed over to Victor Emmanuel II"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Garibaldi crowned himself king",
+    "The territories were handed over to Victor Emmanuel II",
+    "They were returned to the Pope",
+    "They were given to Austria"
+   ],
+   "explanation": "Garibaldi gave the conquered south to the king of Sardinia-Piedmont, enabling the creation of a united Italy.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "What made it possible for Italy to take Rome in 1870?",
+   "expected_answer": {
+    "value": "French troops withdrew because of the Franco-Prussian War"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Austria gave up Rome after a treaty",
+    "French troops withdrew because of the Franco-Prussian War",
+    "The Pope handed it over",
+    "Garibaldi defeated Prussia"
+   ],
+   "explanation": "French troops had protected the Pope in Rome; once they were withdrawn in the war with Prussia, Italian forces annexed it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which war with France ended in a Prussian victory just before the proclamation of the German Empire?",
+   "expected_answer": {
+    "value": "The Franco-Prussian War"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The Crimean War",
+    "The Napoleonic Wars",
+    "The Franco-Prussian War",
+    "The Austro-Prussian War"
+   ],
+   "explanation": "Prussia's victory over France in 1870-71 was followed by the proclamation of the German Empire in 1871.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which major German-speaking power was left outside the German Empire of 1871?",
+   "expected_answer": {
+    "value": "Austria"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Austria",
+    "Bavaria",
+    "Saxony",
+    "Prussia"
+   ],
+   "explanation": "Under Prussian leadership the Empire excluded Austria, which had been defeated in the war of 1866.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-germany-italy-unification",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these was NOT an Italian?",
+   "expected_answer": {
+    "value": "Otto von Bismarck"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Count Cavour",
+    "Otto von Bismarck",
+    "Giuseppe Garibaldi",
+    "Giuseppe Mazzini"
+   ],
+   "explanation": "Bismarck was the Prussian chief minister who unified Germany; the other three were central to Italian unification.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "At which Congress session in December 1920 was the Non-Cooperation programme finally adopted?",
+   "expected_answer": {
+    "value": "Nagpur"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Lucknow",
+    "Nagpur",
+    "Lahore",
+    "Allahabad"
+   ],
+   "explanation": "After a debate at a special session in Calcutta in September 1920, the Nagpur session adopted the programme.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In his book Hind Swaraj (1909), Gandhi argued that British rule in India survived because of what?",
+   "expected_answer": {
+    "value": "The cooperation of Indians"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The strength of the British army alone",
+    "Indian industries",
+    "The cooperation of Indians",
+    "Indian princes' wealth"
+   ],
+   "explanation": "Gandhi held that colonial rule stood on Indian cooperation, so if Indians refused to cooperate, it would collapse within a year.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In which year did Mahatma Gandhi return to India from South Africa?",
+   "expected_answer": {
+    "value": "1915"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "1915",
+    "1905",
+    "1919",
+    "1921"
+   ],
+   "explanation": "He returned in January 1915 and soon began local satyagrahas.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The 1917 Champaran satyagraha was launched to help peasants against which system?",
+   "expected_answer": {
+    "value": "Oppressive indigo plantation system"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Salt tax",
+    "Mill workers' wage system",
+    "Forest laws",
+    "Oppressive indigo plantation system"
+   ],
+   "explanation": "Gandhi inspired Champaran peasants in Bihar who were forced by planters to grow indigo.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "How did Gandhi respond to the Rowlatt Act of 1919?",
+   "expected_answer": {
+    "value": "He called a nationwide hartal on 6 April"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "He launched the Dandi March",
+    "He called a nationwide hartal on 6 April",
+    "He called for armed struggle",
+    "He accepted it"
+   ],
+   "explanation": "He proposed a nationwide satyagraha against the unjust law, beginning with a hartal on 6 April 1919.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who ordered the troops to fire on the crowd at Jallianwala Bagh on 13 April 1919?",
+   "expected_answer": {
+    "value": "General Dyer"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Lord Curzon",
+    "Lord Chelmsford",
+    "General Wavell",
+    "General Dyer"
+   ],
+   "explanation": "General Dyer entered the enclosed ground and ordered firing without warning, killing hundreds.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "During Non-Cooperation, which party in Madras did NOT boycott the council elections, seeing them as a way to gain some power?",
+   "expected_answer": {
+    "value": "The Justice Party"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The Swaraj Party",
+    "The Muslim League",
+    "The Khilafat Committee",
+    "The Justice Party"
+   ],
+   "explanation": "The Justice Party, of non-Brahmans, felt council seats were a way of gaining access to power usually monopolised by Brahmans.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What happened to the import of foreign cloth between 1921 and 1922?",
+   "expected_answer": {
+    "value": "It was halved"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It doubled",
+    "It was halved",
+    "It was banned by the British",
+    "It remained the same"
+   ],
+   "explanation": "The boycott of foreign cloth reduced imports dramatically.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Who led the peasant movement in Awadh in the Non-Cooperation years?",
+   "expected_answer": {
+    "value": "Baba Ramchandra"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Alluri Sitaram Raju",
+    "Vallabhbhai Patel",
+    "Baba Ramchandra",
+    "Subhas Chandra Bose"
+   ],
+   "explanation": "Baba Ramchandra, a former indentured labourer turned sannyasi, led peasants against taluqdars and landlords.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Under which law were Assam plantation workers not allowed to leave tea gardens without permission?",
+   "expected_answer": {
+    "value": "Inland Emigration Act of 1859"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Vernacular Press Act",
+    "Rowlatt Act",
+    "Pitt's India Act",
+    "Inland Emigration Act of 1859"
+   ],
+   "explanation": "The Inland Emigration Act of 1859 bound plantation workers to the gardens; they linked Gandhi's call to the freedom to move.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Alluri Sitaram Raju in the Gudem Hills differed from Gandhi in believing what?",
+   "expected_answer": {
+    "value": "India could be liberated by the use of force"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Khadi should not be worn",
+    "Alcohol should be encouraged",
+    "India could be liberated by the use of force",
+    "Non-violence should be absolute"
+   ],
+   "explanation": "Raju admired Gandhi but believed in guerrilla warfare to free India.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Where did the violent Chauri Chaura incident of February 1922 take place?",
+   "expected_answer": {
+    "value": "Near Gorakhpur in the United Provinces"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "In Amritsar in Punjab",
+    "Near Gorakhpur in the United Provinces",
+    "In Champaran in Bihar",
+    "Near Bombay"
+   ],
+   "explanation": "A crowd set a police station on fire, killing policemen, leading Gandhi to call off the movement.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-non-cooperation-movement",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which brothers led the Khilafat movement alongside Gandhi?",
+   "expected_answer": {
+    "value": "Muhammad Ali and Shaukat Ali"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Motilal and Jawaharlal Nehru",
+    "Muhammad Ali and Shaukat Ali",
+    "Vallabhbhai and Vithalbhai Patel",
+    "Rajendra and Ramesh Prasad"
+   ],
+   "explanation": "The Ali brothers helped form the Khilafat Committee and joined Congress in the Non-Cooperation campaign.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Natesa Sastri's 'The Folklore of Southern India' is an example of what in the nationalist age?",
+   "expected_answer": {
+    "value": "Collecting folk tales to preserve a national tradition"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A law on language",
+    "A newspaper ban",
+    "Collecting folk tales to preserve a national tradition",
+    "A new tax"
+   ],
+   "explanation": "Nationalists collected folk tales and songs which they felt reflected the true spirit of the nation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "In the Swadeshi flag of Bengal in 1905, what did the eight lotuses represent?",
+   "expected_answer": {
+    "value": "The eight provinces of British India"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The eight provinces of British India",
+    "Eight religions",
+    "Eight leaders",
+    "Eight rivers"
+   ],
+   "explanation": "The flag had eight lotuses for the provinces and a crescent for Hindus and Muslims.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Who wrote the poem 'Sare Jahan Se Accha'?",
+   "expected_answer": {
+    "value": "Muhammad Iqbal"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Rabindranath Tagore",
+    "Muhammad Iqbal",
+    "Bankim Chandra Chattopadhyay",
+    "Subramania Bharati"
+   ],
+   "explanation": "Iqbal wrote the patriotic song in 1904.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which leader popularised the public celebration of Ganesh festival and Shivaji festival?",
+   "expected_answer": {
+    "value": "Bal Gangadhar Tilak"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Lala Lajpat Rai",
+    "Gopal Krishna Gokhale",
+    "Dadabhai Naoroji",
+    "Bal Gangadhar Tilak"
+   ],
+   "explanation": "Tilak turned them into public festivals to bring people together.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why did Indian writers rediscover ancient history?",
+   "expected_answer": {
+    "value": "To counter the British view that Indians were backward"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "To please the rulers",
+    "To counter the British view that Indians were backward",
+    "To hide earlier achievements",
+    "To end teaching of history"
+   ],
+   "explanation": "Nationalist historians highlighted glorious achievements of the past to restore pride.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Why were icons and symbols such as flags and images important to nationalism?",
+   "expected_answer": {
+    "value": "They made the abstract idea of the nation visible and relatable"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They made the abstract idea of the nation visible and relatable",
+    "They replaced all languages",
+    "They were required by law",
+    "They were useful only for artists"
+   ],
+   "explanation": "Images helped people identify with the nation emotionally.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why could images of Bharat Mata drawn from one religion's imagery leave some Indians feeling excluded?",
+   "expected_answer": {
+    "value": "They could seem to identify the nation with one community"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "They used foreign languages",
+    "They were banned by Congress",
+    "They could seem to identify the nation with one community",
+    "They were too expensive"
+   ],
+   "explanation": "Using symbols of one religious tradition could alienate minorities.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out among these items linked with the nationalist age in India?",
+   "expected_answer": {
+    "value": "The Rowlatt Act"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The Rowlatt Act",
+    "Vande Mataram",
+    "The Swaraj flag",
+    "Bharat Mata painting"
+   ],
+   "explanation": "The Rowlatt Act was a repressive British law; the other three were unifying nationalist symbols.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Who were the extremist trio known as 'Lal, Bal and Pal'?",
+   "expected_answer": {
+    "value": "Lala Lajpat Rai, Bal Gangadhar Tilak, Bipin Chandra Pal"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Lala Hardayal, Bhagat Singh, Bipin Pal",
+    "Lala Lajpat Rai, Gandhi, Pal",
+    "Lal Bahadur, Balraj, Pal",
+    "Lala Lajpat Rai, Bal Gangadhar Tilak, Bipin Chandra Pal"
+   ],
+   "explanation": "They were prominent nationalist leaders of the Swadeshi era.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What did the Swadeshi movement ask Indians to do?",
+   "expected_answer": {
+    "value": "Use Indian-made goods and boycott foreign goods"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Pay no taxes",
+    "Leave the cities",
+    "Use Indian-made goods and boycott foreign goods",
+    "Learn English"
+   ],
+   "explanation": "Swadeshi stressed self-reliance and boycott of British goods.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Abanindranath Tagore belonged to which artistic movement?",
+   "expected_answer": {
+    "value": "The Bengal School of Art"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The Mughal School",
+    "The Company School",
+    "The Bengal School of Art",
+    "The Bauhaus movement"
+   ],
+   "explanation": "He led the Bengal School, which sought a nationalist Indian art.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which Viceroy announced the partition of Bengal in 1905?",
+   "expected_answer": {
+    "value": "Lord Curzon"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Lord Curzon",
+    "Lord Ripon",
+    "Lord Lytton",
+    "Lord Irwin"
+   ],
+   "explanation": "The partition led to the Swadeshi movement.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-symbols-collective-belonging",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which leader declared 'Swaraj is my birthright and I shall have it'?",
+   "expected_answer": {
+    "value": "Bal Gangadhar Tilak"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Bal Gangadhar Tilak",
+    "Mahatma Gandhi",
+    "Jawaharlal Nehru",
+    "Subhas Chandra Bose"
+   ],
+   "explanation": "Tilak's slogan expressed demand for self-rule.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which religion spread from India to East Asia partly along trade routes?",
+   "expected_answer": {
+    "value": "Buddhism"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Zoroastrianism",
+    "Sikhism",
+    "Buddhism",
+    "Shinto"
+   ],
+   "explanation": "Buddhist ideas spread along trade routes to China, Korea and Japan.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which precious metal from mines like Potosi in South America financed Europe's trade with Asia?",
+   "expected_answer": {
+    "value": "Silver"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Platinum",
+    "Tin",
+    "Aluminium",
+    "Silver"
+   ],
+   "explanation": "Silver from Peru and Mexico flowed to Europe and then to Asia.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What was the legend of El Dorado about?",
+   "expected_answer": {
+    "value": "A city of gold supposedly in South America"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A city of gold supposedly in South America",
+    "A trade route to China",
+    "A disease",
+    "A new crop"
+   ],
+   "explanation": "Europeans were drawn to America by legends of El Dorado.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "According to popular accounts, which Chinese food travelled westward and may have become pasta?",
+   "expected_answer": {
+    "value": "Noodles"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Soya milk",
+    "Rice cakes",
+    "Tofu",
+    "Noodles"
+   ],
+   "explanation": "Noodles may have travelled west with traders to places like Italy.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The potato blight of the 1840s caused a terrible famine in which country?",
+   "expected_answer": {
+    "value": "Ireland"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Spain",
+    "Germany",
+    "Ireland",
+    "Greece"
+   ],
+   "explanation": "Ireland's poor depended heavily on potatoes, which came from the Americas.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why did smallpox kill so many native people in the Americas?",
+   "expected_answer": {
+    "value": "They had no immunity to the disease"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "They had no immunity to the disease",
+    "They refused treatment",
+    "It was carried only by animals",
+    "They lived at high altitude"
+   ],
+   "explanation": "Europeans carried germs to which native Americans had no resistance.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Until the sixteenth century, the continent largely unknown to the rest of the world was:",
+   "expected_answer": {
+    "value": "The Americas"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Asia",
+    "Africa",
+    "The Americas",
+    "Europe"
+   ],
+   "explanation": "The Americas were cut off from regular contact with other continents until after 1492.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who reached India by the sea route to Calicut in 1498?",
+   "expected_answer": {
+    "value": "Vasco da Gama"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Christopher Columbus",
+    "Marco Polo",
+    "Vasco da Gama",
+    "Ferdinand Magellan"
+   ],
+   "explanation": "Vasco da Gama sailed around Africa to India.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these crops was NOT native to the Americas?",
+   "expected_answer": {
+    "value": "Wheat"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Wheat",
+    "Maize",
+    "Tomato",
+    "Chilli"
+   ],
+   "explanation": "Wheat originated in the Old World, unlike the others.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about the Silk Routes is true?",
+   "expected_answer": {
+    "value": "They were a network of land and sea routes, not a single road"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They were one paved highway",
+    "They ran only within China",
+    "They were built in the twentieth century",
+    "They were a network of land and sea routes, not a single road"
+   ],
+   "explanation": "Silk Routes connected Asia, Europe and Africa through several routes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Chilli peppers reached India after contact with which region?",
+   "expected_answer": {
+    "value": "The Americas"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The Americas",
+    "China",
+    "Australia",
+    "Antarctica"
+   ],
+   "explanation": "Chillies came from the Americas through European voyages.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Along with merchants, which group helped spread Islam through long-distance trade routes?",
+   "expected_answer": {
+    "value": "Traders and preachers"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Only soldiers",
+    "Only sailors",
+    "Only artists",
+    "Traders and preachers"
+   ],
+   "explanation": "Islam spread through traders and preachers, among others.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "describe-pre-modern-global-links",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In which year did Columbus first reach the Caribbean?",
+   "expected_answer": {
+    "value": "1492"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "1392",
+    "1492",
+    "1592",
+    "1692"
+   ],
+   "explanation": "He sailed in 1492 under the Spanish crown.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "For roughly how long did the Great Depression last as a period of low production, high unemployment and falling trade?",
+   "expected_answer": {
+    "value": "From 1929 until the mid-1930s"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "From 1914 to 1918",
+    "From 1929 until the mid-1930s",
+    "From 1939 to 1945",
+    "From 1945 to 1960"
+   ],
+   "explanation": "The Great Depression began in 1929 and its worst effects lasted until about the mid-1930s.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why did the American consumer boom of the 1920s make the economy fragile?",
+   "expected_answer": {
+    "value": "Many households bought cars and appliances on credit and could not repay when incomes fell"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Americans stopped buying consumer goods",
+    "Many households bought cars and appliances on credit and could not repay when incomes fell",
+    "Factories were closed by law",
+    "Foreign goods were banned"
+   ],
+   "explanation": "A large part of the boom depended on borrowing; when the slump began, repayments failed and banks collapsed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "How did the First World War change the position of the USA in the world economy?",
+   "expected_answer": {
+    "value": "It turned from a debtor into a creditor nation"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It turned from a debtor into a creditor nation",
+    "It became poorer than Britain",
+    "It became a colony",
+    "It stopped all foreign lending"
+   ],
+   "explanation": "Before the war the USA owed money abroad; after it, the USA became an overseas lender, and its loans to Europe mattered when the Depression began.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "To protect its own economy in 1930, what did the USA do to imports?",
+   "expected_answer": {
+    "value": "It doubled import duties"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "It abolished all import duties",
+    "It allowed free trade with everyone",
+    "It doubled import duties",
+    "It banned exports of wheat"
+   ],
+   "explanation": "Higher tariffs, copied by other countries, shrank world trade further and deepened the Depression.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What happened to India's gold position during the Depression years?",
+   "expected_answer": {
+    "value": "Gold flowed out of India, making it a net exporter of gold"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "India started buying large amounts of gold",
+    "Gold prices stayed fixed",
+    "India stopped using gold ornaments",
+    "Gold flowed out of India, making it a net exporter of gold"
+   ],
+   "explanation": "Distress sales of gold by Indian peasants helped Britain's finances, as India became an exporter of gold.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why were Indian peasants who grew crops for the world market hit especially hard in the 1930s?",
+   "expected_answer": {
+    "value": "Prices of their produce collapsed while the revenue they owed stayed the same"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Their land was taken by the USA",
+    "Their crops were banned in India",
+    "Prices of their produce collapsed while the revenue they owed stayed the same",
+    "Taxes were abolished"
+   ],
+   "explanation": "The colonial government refused to cut the revenue demand, so falling prices pushed farmers into debt.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why were urban Indians with fixed incomes affected less in the Depression than farmers?",
+   "expected_answer": {
+    "value": "Prices fell, so their fixed incomes could buy more"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Prices fell, so their fixed incomes could buy more",
+    "Their salaries doubled",
+    "They did not pay taxes",
+    "They lived abroad"
+   ],
+   "explanation": "Falling prices raised the real value of fixed incomes, while rural producers suffered most.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "During the Depression, farmers tried to raise output to make up for lost income. What was the result?",
+   "expected_answer": {
+    "value": "Even more produce reached the market, pushing prices down further"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Prices rose sharply",
+    "Demand for wheat rose",
+    "Even more produce reached the market, pushing prices down further",
+    "Farmers' debts were cleared"
+   ],
+   "explanation": "The extra supply, with demand weak, lowered prices still more.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What happened to thousands of US banks in the early 1930s?",
+   "expected_answer": {
+    "value": "They collapsed or failed, and many people lost their savings"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They merged into one bank",
+    "They gave free loans",
+    "They collapsed or failed, and many people lost their savings",
+    "They moved to Europe"
+   ],
+   "explanation": "Bank failures wiped out deposits and badly cut spending and investment.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out among the effects of the Depression?",
+   "expected_answer": {
+    "value": "A rise in people's incomes"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Rising unemployment",
+    "Falling prices",
+    "A rise in people's incomes",
+    "Bank closures"
+   ],
+   "explanation": "Depression meant falling incomes, jobs and prices, not rising incomes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The Bretton Woods conference of 1944 was held to do what?",
+   "expected_answer": {
+    "value": "Design a stable post-war international economic system, setting up the IMF and World Bank"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Declare war on Germany",
+    "Divide Africa",
+    "Design a stable post-war international economic system, setting up the IMF and World Bank",
+    "Plan the League of Nations"
+   ],
+   "explanation": "Planners wanted to avoid another Depression by creating institutions for monetary stability and reconstruction.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which sequence of events best describes how the slump spread from the USA to Europe?",
+   "expected_answer": {
+    "value": "US banks stopped lending and recalled loans, weakening European economies that depended on them"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "European banks lent to the USA, which then collapsed",
+    "US banks stopped lending and recalled loans, weakening European economies that depended on them",
+    "The USA increased its imports from Europe",
+    "Europe sold more wheat to the USA"
+   ],
+   "explanation": "Many European countries relied on US loans, so the withdrawal of capital transmitted the crisis.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-great-depression",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about the cause of the Depression is most accurate?",
+   "expected_answer": {
+    "value": "It came from several linked weaknesses: farm overproduction, heavy debt and unstable lending"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It came from several linked weaknesses: farm overproduction, heavy debt and unstable lending",
+    "It was caused only by wars in Asia",
+    "It was due to a single stock-market rumour",
+    "It was planned by European governments"
+   ],
+   "explanation": "Overproduction, credit-fuelled consumption and the withdrawal of loans together triggered and spread the crisis.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In the wool trade, what did a stapler do?",
+   "expected_answer": {
+    "value": "Sorted wool according to its fibre"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Wove the cloth",
+    "Sold finished cloth abroad",
+    "Sorted wool according to its fibre",
+    "Collected taxes"
+   ],
+   "explanation": "Staplers sorted wool by fibre before it passed on to spinners, fullers and others.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What did a fuller do in the cloth-making process?",
+   "expected_answer": {
+    "value": "Gathered cloth by pleating it"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Combed raw wool",
+    "Spun the yarn",
+    "Gathered cloth by pleating it",
+    "Dyed the cotton red"
+   ],
+   "explanation": "Fullers gathered (pleated) the woven cloth as one stage before finishing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In England, which city did merchants send cloth to for finishing before export?",
+   "expected_answer": {
+    "value": "London"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Manchester",
+    "Calcutta",
+    "London",
+    "Bombay"
+   ],
+   "explanation": "Cloth was produced in the countryside but finished in London before being exported.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why did enclosures of common lands push many poor villagers to work for merchants?",
+   "expected_answer": {
+    "value": "They lost grazing and gathering rights and needed income from spinning or weaving"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Landlords ordered them to leave farming",
+    "The cities gave free land",
+    "Merchants gave them land",
+    "They lost grazing and gathering rights and needed income from spinning or weaving"
+   ],
+   "explanation": "Cottagers who lost the commons needed extra income, so they took work for merchants.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which system describes merchants giving raw material to rural households and collecting the finished goods?",
+   "expected_answer": {
+    "value": "The putting-out system"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The putting-out system",
+    "The guild system",
+    "The factory system",
+    "The plantation system"
+   ],
+   "explanation": "In this arrangement merchants supplied materials and paid for work done in households.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which statement about proto-industrialisation is correct?",
+   "expected_answer": {
+    "value": "It came before factory industry and was based on rural household production"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "It came before factory industry and was based on rural household production",
+    "It was the same as factory production",
+    "It used steam engines",
+    "It took place only in cities"
+   ],
+   "explanation": "Proto-industry was an early phase of production for distant markets and not yet factory production.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which problem did merchants face when they tried to expand production inside towns?",
+   "expected_answer": {
+    "value": "Powerful craft and trade guilds restricted new producers and fixed prices"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Towns had no population",
+    "Governments banned all trade",
+    "Powerful craft and trade guilds restricted new producers and fixed prices",
+    "No roads existed"
+   ],
+   "explanation": "Guilds controlled entry and prices, so merchants looked to the countryside.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why was labour in the countryside attractive to merchants?",
+   "expected_answer": {
+    "value": "Rural families would work for lower payment and were outside guild controls"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Rural workers were highly paid",
+    "Villagers had machines",
+    "Villagers refused to work",
+    "Rural families would work for lower payment and were outside guild controls"
+   ],
+   "explanation": "With small plots and little income, rural families accepted work for merchants at lower cost.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How did proto-industrial work fit into the lives of farming households?",
+   "expected_answer": {
+    "value": "Spinning and weaving filled the slack seasons of farming"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It replaced farming completely",
+    "Spinning and weaving filled the slack seasons of farming",
+    "It took place only at harvest",
+    "It was done in a factory"
+   ],
+   "explanation": "Households could combine farming with piece work for merchants when farm work was light.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is the odd one out among the workers in the English wool trade?",
+   "expected_answer": {
+    "value": "Gomastha"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Stapler",
+    "Fuller",
+    "Carder",
+    "Gomastha"
+   ],
+   "explanation": "Gomasthas were paid agents in India; the others belonged to English wool production.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Who built a famous cotton mill in England, a step towards factory production?",
+   "expected_answer": {
+    "value": "Richard Arkwright"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "James Watt",
+    "Richard Arkwright",
+    "Johann Gutenberg",
+    "Matthew Boulton"
+   ],
+   "explanation": "Arkwright's cotton mill brought spinning workers under one roof, unlike the scattered rural work.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "How did James Watt improve the steam engine originally made by Newcomen?",
+   "expected_answer": {
+    "value": "He improved its efficiency, making it suitable for factories and many industries"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "He invented the steam engine from scratch",
+    "He improved its efficiency, making it suitable for factories and many industries",
+    "He used it only for mines",
+    "He replaced it with electricity"
+   ],
+   "explanation": "Watt's improvements made steam power more useful and widely adopted in industry.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-proto-industrialisation",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A merchant provides wool to many villages, then collects yarn and pays by weight. What does this show?",
+   "expected_answer": {
+    "value": "Proto-industrial production for a distant market"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A guild workshop",
+    "Proto-industrial production for a distant market",
+    "A mechanised mill",
+    "A plantation"
+   ],
+   "explanation": "Merchants coordinate scattered household labour without a factory; this is the proto-industrial pattern.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What did the Calico Act of 1720 in England do?",
+   "expected_answer": {
+    "value": "Banned the import of printed cotton textiles from India into England"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Banned export of cloth from England",
+    "Helped Indian weavers",
+    "Set the price of silk",
+    "Banned the import of printed cotton textiles from India into England"
+   ],
+   "explanation": "It protected English wool and silk makers by restricting imports of printed Indian cotton such as chintz.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What was the result of the advances given to Indian weavers by the Company?",
+   "expected_answer": {
+    "value": "They were bound to deliver cloth only to the Company and lost the freedom to sell elsewhere"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They became free traders",
+    "They were bound to deliver cloth only to the Company and lost the freedom to sell elsewhere",
+    "They got higher prices from rivals",
+    "They paid no tax"
+   ],
+   "explanation": "Once weavers took advances they had to hand over cloth to the Company's agents.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "The first jute mill in India was set up in 1855 in which region?",
+   "expected_answer": {
+    "value": "Bengal"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Punjab",
+    "Madras",
+    "Gujarat",
+    "Bengal"
+   ],
+   "explanation": "Jute was grown in Bengal and the first mills were started near Calcutta.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How did the First World War help Indian industries?",
+   "expected_answer": {
+    "value": "British mills were busy with war production and Indian factories supplied military goods"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Imports from Britain doubled",
+    "All Indian factories closed",
+    "British mills were busy with war production and Indian factories supplied military goods",
+    "Taxes were cut to zero"
+   ],
+   "explanation": "Demand for jute bags, cloth, tents and other items for the army expanded Indian production.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How did the Swadeshi movement help Indian cotton mills?",
+   "expected_answer": {
+    "value": "Boycott of foreign cloth raised demand for Indian-made cloth"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Boycott of foreign cloth raised demand for Indian-made cloth",
+    "It made mills illegal",
+    "It made cotton cheaper in England",
+    "It banned handlooms"
+   ],
+   "explanation": "The call to use Indian goods increased sales of Indian mill cloth.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which trade gave some Indian merchants such as Dinshaw Petit and Jamsetji Tata capital they later invested in industry?",
+   "expected_answer": {
+    "value": "The opium trade with China"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The sugar trade with Java",
+    "The tea trade with Britain",
+    "The opium trade with China",
+    "The wool trade with Tibet"
+   ],
+   "explanation": "They had earned money in the China trade and later invested in industry.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Why did handloom weaving survive into the twentieth century despite the competition of mills?",
+   "expected_answer": {
+    "value": "Handlooms produced special varieties of cloth, such as saris and lungis, that mills could not easily copy"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The government banned mills",
+    "Mills stopped weaving cotton",
+    "Handlooms used steam power",
+    "Handlooms produced special varieties of cloth, such as saris and lungis, that mills could not easily copy"
+   ],
+   "explanation": "Weavers made fine and varied cloth for local tastes, which gave handlooms a niche.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The fly shuttle improved the handloom in what way?",
+   "expected_answer": {
+    "value": "It increased output per worker and sped up production"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "It increased output per worker and sped up production",
+    "It made weaving automatic",
+    "It changed the colour of cloth",
+    "It replaced weavers"
+   ],
+   "explanation": "By the early twentieth century weavers used fly-shuttle looms to produce more.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why did Britain turn to India for raw cotton in the 1860s?",
+   "expected_answer": {
+    "value": "The American Civil War cut off supplies of cotton from the USA"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The American Civil War cut off supplies of cotton from the USA",
+    "India's cotton was cheaper than silk",
+    "Cotton stopped growing in America",
+    "Britain banned American goods"
+   ],
+   "explanation": "With American supplies disrupted, Britain bought more raw cotton from India.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why was it hard for Indian textiles to sell in Britain in the nineteenth century?",
+   "expected_answer": {
+    "value": "Britain imposed heavy duties on Indian textile imports"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Britain imposed heavy duties on Indian textile imports",
+    "India refused to export",
+    "Indian cloth was too expensive in India",
+    "Britain had no demand"
+   ],
+   "explanation": "Import duties in Britain protected its own producers, while Indian markets stayed open.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who among these was an Indian businessman who invested in shipping, mining and indigo in the early nineteenth century?",
+   "expected_answer": {
+    "value": "Dwarkanath Tagore"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Richard Arkwright",
+    "Dwarkanath Tagore",
+    "Lord Curzon",
+    "James Hargreaves"
+   ],
+   "explanation": "Dwarkanath Tagore built a business empire in several fields, though many of his ventures collapsed in the 1840s.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out among those who set up Indian industries?",
+   "expected_answer": {
+    "value": "Richard Arkwright"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Richard Arkwright",
+    "Jamsetji Tata",
+    "Dinshaw Petit",
+    "Dwarkanath Tagore"
+   ],
+   "explanation": "Arkwright was an English cotton mill pioneer; the others were Indian entrepreneurs.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-colonial-impact-indian-industries",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A weaver in Bengal in 1790 takes an advance and is then barred from selling to other traders. What does this show about the Company's system?",
+   "expected_answer": {
+    "value": "Control over weavers' production and sales"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Control over weavers' production and sales",
+    "Free competition",
+    "Industrial growth",
+    "Tax relief"
+   ],
+   "explanation": "Advances tied weavers to the Company, letting it control supply and price.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What was a major problem with books before the invention of printing?",
+   "expected_answer": {
+    "value": "Handwritten manuscripts were expensive, slow to produce and fragile"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Books were free",
+    "Handwritten manuscripts were expensive, slow to produce and fragile",
+    "There were too many copies",
+    "They could not be read"
+   ],
+   "explanation": "Copying by hand took a long time and made books costly and scarce.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "About how many copies of the Gutenberg Bible were printed in around three years?",
+   "expected_answer": {
+    "value": "About 180"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "About 18",
+    "About 180",
+    "About 1,800",
+    "About 18,000"
+   ],
+   "explanation": "The first printed Bible took about three years and produced about 180 copies, which was fast for its time.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the oldest Japanese printed book known, dated 868?",
+   "expected_answer": {
+    "value": "The Buddhist Diamond Sutra"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The Ramayana",
+    "The Tripitaka",
+    "The Analects",
+    "The Buddhist Diamond Sutra"
+   ],
+   "explanation": "The Diamond Sutra is the oldest Japanese book in the text, containing six sheets of text and woodcut illustrations.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Catholic priests printed the first Tamil book in 1579 at which place?",
+   "expected_answer": {
+    "value": "Cochin"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Calcutta",
+    "Delhi",
+    "Surat",
+    "Cochin"
+   ],
+   "explanation": "Portuguese missionaries brought the press to Goa and printed Tamil and Konkani works.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Menocchio, a miller of sixteenth-century Italy, was punished by the Church for what?",
+   "expected_answer": {
+    "value": "Reading books and forming his own ideas about God and the world"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Printing books",
+    "Selling Bibles",
+    "Writing laws",
+    "Reading books and forming his own ideas about God and the world"
+   ],
+   "explanation": "His reading led to ideas that the Church saw as heresy, which made the authorities restrict books.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "From 1558 the Roman Catholic Church kept what?",
+   "expected_answer": {
+    "value": "An Index of Prohibited Books"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A list of free books",
+    "An Index of Prohibited Books",
+    "A printing school",
+    "A bookshop network"
+   ],
+   "explanation": "The Church tried to control the circulation of books it considered dangerous.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In England, what were chapbooks?",
+   "expected_answer": {
+    "value": "Small, cheap books sold by travelling pedlars called chapmen"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Expensive Bibles",
+    "Official laws",
+    "Small, cheap books sold by travelling pedlars called chapmen",
+    "Newspapers for nobles"
+   ],
+   "explanation": "Pocket-size books sold by chapmen reached poor readers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Mercier said the printing press was 'the most powerful engine of progress'. What did he mean?",
+   "expected_answer": {
+    "value": "Print would spread ideas and public opinion would sweep away despotism"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Printing would increase the king's power",
+    "Print would spread ideas and public opinion would sweep away despotism",
+    "Printing machines would run railways",
+    "Books would be banned"
+   ],
+   "explanation": "Mercier saw print as a force for enlightenment and the end of despotic rule.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What did Richard M. Hoe's power-driven cylindrical press allow?",
+   "expected_answer": {
+    "value": "Printing of far more pages per hour for mass production"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The printing of colour photographs",
+    "Printing of far more pages per hour for mass production",
+    "Printing on cloth only",
+    "Manual typing"
+   ],
+   "explanation": "Cylinder presses produced newspapers and books in large numbers at low cost.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Rassundari Debi wrote which famous work in Bengali, published in 1876?",
+   "expected_answer": {
+    "value": "Amar Jiban, an autobiography"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Gulamgiri",
+    "Amar Jiban, an autobiography",
+    "Sambad Kaumudi",
+    "Anandamath"
+   ],
+   "explanation": "Rassundari Debi, a woman denied formal schooling, wrote the first full-length autobiography in Bengali.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Kashibaba, a Kanpur mill worker, wrote 'Chhote Aur Bade Ke Sawal' in 1938. What was its subject?",
+   "expected_answer": {
+    "value": "The links between caste and class exploitation"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Sports",
+    "The links between caste and class exploitation",
+    "Cookery",
+    "Astrology"
+   ],
+   "explanation": "Print gave workers a voice to write about exploitation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Jyotiba Phule's 'Gulamgiri' (1871) is best known for what?",
+   "expected_answer": {
+    "value": "Writing on the injustices of the caste system"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "A new calendar",
+    "Writing on the injustices of the caste system",
+    "Poems about the sea",
+    "A tax proposal"
+   ],
+   "explanation": "Phule used print to critique caste oppression.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-revolution-impact",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who wrote the novel 'Jane Eyre', evidence of women's growing role as writers?",
+   "expected_answer": {
+    "value": "Charlotte Bronte"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Charlotte Bronte",
+    "Jane Austen",
+    "Emily Dickinson",
+    "Rassundari Debi"
+   ],
+   "explanation": "Charlotte Bronte's novel was published in 1847 and reflects women as authors and readers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "The Vernacular Press Act of 1878 was modelled on which country's press laws?",
+   "expected_answer": {
+    "value": "Ireland"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "France",
+    "Russia",
+    "Ireland",
+    "USA"
+   ],
+   "explanation": "The Act, modelled on the Irish Press Laws, let the government censor reports it considered seditious.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which journal did Mahatma Gandhi edit in English to spread his ideas in India?",
+   "expected_answer": {
+    "value": "Young India"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Young India",
+    "The Bengal Gazette",
+    "Kesari",
+    "Sambad Kaumudi"
+   ],
+   "explanation": "Gandhi used Young India to reach English readers in the national movement.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How did cheap calendars and prints help spread nationalist and religious images?",
+   "expected_answer": {
+    "value": "They reached even poor homes and carried popular images and messages"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They were available only to the rich",
+    "They were only in English",
+    "They reached even poor homes and carried popular images and messages",
+    "They were banned"
+   ],
+   "explanation": "Cheap prints and calendars, including gods' pictures, reached homes and carried messages to the public.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which two French thinkers' ideas, spread by print, questioned tradition and despotic rule before 1789?",
+   "expected_answer": {
+    "value": "Voltaire and Rousseau"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Napoleon and Louis XIV",
+    "Gutenberg and Luther",
+    "Voltaire and Rousseau",
+    "Hicky and Roy"
+   ],
+   "explanation": "Their writings circulated widely and encouraged people to question authority.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which Bengali newspaper opposed Raja Rammohan Roy's reforms and was started by orthodox Hindus?",
+   "expected_answer": {
+    "value": "Samachar Chandrika"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Samachar Chandrika",
+    "Bengal Gazette",
+    "Kesari",
+    "Young India"
+   ],
+   "explanation": "Print allowed rival groups to debate social reform in public.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "How did the British government's attitude to the press change after the revolt of 1857?",
+   "expected_answer": {
+    "value": "It grew stricter, and officials demanded that the native press be controlled"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It gave complete freedom",
+    "It owned all newspapers",
+    "It ended censorship forever",
+    "It grew stricter, and officials demanded that the native press be controlled"
+   ],
+   "explanation": "After 1857 the government became suspicious of the Indian press and moved to restrict it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out among these newspapers?",
+   "expected_answer": {
+    "value": "The Times of London"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The Times of London",
+    "Kesari",
+    "Young India",
+    "Sambad Kaumudi"
+   ],
+   "explanation": "The other three were Indian publications linked to the national movement.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How could reading the same newspaper help create a nation?",
+   "expected_answer": {
+    "value": "Distant readers felt part of one community sharing the same ideas"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It made all languages identical",
+    "It forced people to move to cities",
+    "It replaced elections",
+    "Distant readers felt part of one community sharing the same ideas"
+   ],
+   "explanation": "Print linked strangers through shared information and opinions, a basis for national feeling.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What was the aim of nationalist cartoons and caricatures in the late nineteenth century?",
+   "expected_answer": {
+    "value": "To mock colonial rule and spread nationalist ideas to a wide audience"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "To mock colonial rule and spread nationalist ideas to a wide audience",
+    "To praise British officials",
+    "To advertise soap",
+    "To give weather reports"
+   ],
+   "explanation": "Cartoons used humour to criticise the government in a form that many could grasp.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why did the government worry especially about vernacular newspapers?",
+   "expected_answer": {
+    "value": "They reached ordinary people and criticised colonial policy in their own languages"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "They were printed abroad",
+    "They reached ordinary people and criticised colonial policy in their own languages",
+    "They were illegal",
+    "They were in Latin"
+   ],
+   "explanation": "Indian-language papers had wide readership beyond the English-educated elite.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "The Indian Press Act of 1910 forced presses to do what?",
+   "expected_answer": {
+    "value": "Pay security deposits that could be forfeited for objectionable writing"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Close permanently",
+    "Pay security deposits that could be forfeited for objectionable writing",
+    "Print only in English",
+    "Share profits with the British"
+   ],
+   "explanation": "The Act empowered authorities to demand security from presses and forfeit it for objectionable content.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about the role of print in Indian nationalism is correct?",
+   "expected_answer": {
+    "value": "Newspapers and tracts spread ideas of freedom and criticised colonial rule, so the government tried to censor them"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Newspapers and tracts spread ideas of freedom and criticised colonial rule, so the government tried to censor them",
+    "Print had no effect",
+    "Print was used only by the British",
+    "Newspapers were banned from the start"
+   ],
+   "explanation": "Nationalist print fed the movement, and censorship laws followed as a result.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-print-nationalism-link",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A Marathi editorial in 1897 attacks harsh plague measures. What is the likely effect?",
+   "expected_answer": {
+    "value": "It stirs public anger and can bring prosecution for sedition"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It stirs public anger and can bring prosecution for sedition",
+    "It stops the plague",
+    "It makes the British leave immediately",
+    "It has no effect on readers"
+   ],
+   "explanation": "Strong editorials could mobilise opinion, and the government often prosecuted editors for sedition.",
+   "content_status": "needs_review"
+  }
+ ]
+}

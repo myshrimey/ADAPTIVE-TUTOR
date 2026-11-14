@@ -99,6 +99,7 @@ REQ = [
 ('R74','O6','Real student report (screenshots): correct typed maths answers were marked wrong',PC,'v124: grading accepts "or" lists, missing "x =", thousands commas; t124. Not seen live.'),
 ('R75','O6','Founder request 2026-11-10 (chat): add more questions in all subjects',PC,'v125: 503 original needs_review questions over all seven subjects; t125. Needs deploy + seed-diagnostic.js + teacher review. Not seen live.'),
 ('R76','O6','Founder request 2026-11-11 (chat): add 1000+ questions covering each skill in Computer Applications',PC,'v126: 1,076 needs_review questions over all 38 skills; t126. Needs deploy + seed-diagnostic.js + teacher review. Not seen live.'),
+('R77','O6','Founder request 2026-11-12 (chat): add 500+ questions in social science',PC,'v127: 521 needs_review questions, 13+ per on-syllabus skill; t127. Needs deploy + seed-diagnostic.js + teacher review. Not seen live.'),
  ('R50','O8','Phase 0 findings (12 items) produced', CM, 'PHASE0_AUDIT.md. Awaiting founder acceptance.'),
  ('R51','O8','Create the persistent registry and control documents under repository conventions', PC, 'Markdown set created. Database-backed records are Phase 1.'),
  ('R52','O8','Present Phase 0 findings and proposed Phase 1 tasks; wait for the founder to choose', CM, 'Presented in the chat reply of 2026-10-31. Founder choice pending.'),
@@ -174,6 +175,7 @@ TASKS = [
 ('TASK-092','P6','Fix answer checking for three forms of correct answers a student typed','O6','R74','TASK-091','S',RT,'v124: t124 (12 checks); no migration.'),
 ('TASK-093','P6','Add more questions in all subjects (thin subjects to 2+ per skill)','O6','R75','TASK-092','M',RT,'v125: 503 questions; t125 (44 checks); teacher review pending.'),
 ('TASK-094','P6','Add 1000+ Computer Applications questions covering every skill','O6','R76','TASK-093','M',RT,'v126: 1,076 questions, 27-30 per skill; t126 (12 checks); teacher review pending.'),
+('TASK-095','P6','Add 500+ Social Science questions','O6','R77','TASK-094','M',RT,'v127: 521 questions; t127 (10 checks); teacher review pending.'),
 ]
 
 reqid = {r[0] for r in REQ}
@@ -416,6 +418,7 @@ EXECUTIONS = [
 ('EX-0036','2026-11-10','founder chat (student screenshots)','v124: answer checking fixed (TASK-092).','core/question-engine/grading.ts; deploy-check; tests/t124.ts','none','t124, tsc, full npm test','Not deployed; not seen live'),
 ('EX-0037','2026-11-11','founder chat request (more questions in all subjects)','v125: 503 questions added (TASK-093).','seed/*-v125-diagnostic.json (7); seed-generators/v125_finalize.py; tests/t125.ts; deploy-check version','none (seed data only)','t125, full npm test','Not deployed; seeds not run on the live database; no teacher review'),
 ('EX-0038','2026-11-12','founder chat request (1000+ Computer Applications questions)','v126: 1,076 questions added (TASK-094).','seed/cbse-class10-computer-applications-v126[a-f]-diagnostic.json; seed-generators/v126_finalize.py; tests/t126.ts; deploy-check version','none (seed data only)','t126, full npm test','Not deployed; seeds not run on the live database; no teacher review'),
+('EX-0039','2026-11-13','founder chat request (500+ Social Science questions)','v127: 521 questions added (TASK-095).','seed/cbse-class10-social-science-v127[a-d]-diagnostic.json; tests/t127.ts; deploy-check version','none (seed data only)','t127, full npm test','Not deployed; seeds not run on the live database; no teacher review'),
 ]
 ALLTEXT = open(OUT + '/MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md').read().split('\n---\n', 1)[1].lstrip('\n')
 LEG = {

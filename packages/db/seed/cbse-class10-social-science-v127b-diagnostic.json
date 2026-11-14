@@ -1,0 +1,2605 @@
+{
+ "subject_slug": "social-science",
+ "questions": [
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which pair of resources is classified as abiotic?",
+   "expected_answer": {
+    "value": "Iron ore and water"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Iron ore and water",
+    "Fish and timber",
+    "Cattle and forests",
+    "Wheat and wild animals"
+   ],
+   "explanation": "Abiotic resources are non-living things such as minerals, metals and water, while fish, timber, cattle and crops are biotic.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Forests that are harvested no faster than they regrow are classed as:",
+   "expected_answer": {
+    "value": "Renewable resources"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Non-renewable resources",
+    "Abiotic resources",
+    "Renewable resources",
+    "Stock resources"
+   ],
+   "explanation": "Forests are living resources that regenerate, so with careful use they are renewable.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Land, houses and wells owned by a single farmer are what kind of resource by ownership?",
+   "expected_answer": {
+    "value": "Individual resource"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Community resource",
+    "National resource",
+    "Individual resource",
+    "International resource"
+   ],
+   "explanation": "Resources owned privately by persons are individual resources.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The Rajasthan and Gujarat regions have huge solar and wind energy possibilities that are not yet fully used. Such resources are called:",
+   "expected_answer": {
+    "value": "Potential resources"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Developed resources",
+    "Reserves",
+    "Community resources",
+    "Potential resources"
+   ],
+   "explanation": "Potential resources exist in a region but have not been utilised so far.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Resources that have been surveyed and whose quality and quantity are determined for use are called:",
+   "expected_answer": {
+    "value": "Developed resources"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Potential resources",
+    "Stock",
+    "Biotic resources",
+    "Developed resources"
+   ],
+   "explanation": "Developed resources have been surveyed and their quantity and quality fixed for present utilisation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Hydrogen in water could meet energy needs, but we lack the technology to use it efficiently. In terms of development status it is best described as:",
+   "expected_answer": {
+    "value": "Stock"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Reserve",
+    "Developed resource",
+    "Stock",
+    "Community resource"
+   ],
+   "explanation": "Stock is material that could satisfy needs but cannot yet be accessed for lack of technology, unlike reserves that existing technology can use.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A reserve differs from a stock in that a reserve:",
+   "expected_answer": {
+    "value": "Can be used with existing technology but its use has not yet begun"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Has already been fully exploited",
+    "Is always a biotic resource",
+    "Is owned only by individuals",
+    "Can be used with existing technology but its use has not yet begun"
+   ],
+   "explanation": "Reserves are the part of stock that present technical know-how can put to use, though they are being kept for the future.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which one is the odd one out?",
+   "expected_answer": {
+    "value": "Coal"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Solar energy",
+    "Coal",
+    "Wind energy",
+    "Flowing river water"
+   ],
+   "explanation": "Coal is non-renewable, while solar, wind and flowing water are renewable.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Pick the abiotic item from this list.",
+   "expected_answer": {
+    "value": "Silver"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Silver",
+    "Sheep",
+    "Teak",
+    "Pigeon"
+   ],
+   "explanation": "Silver is a non-living mineral, while sheep, teak and pigeons are living (biotic).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the main social danger of resources being accumulated in a few hands?",
+   "expected_answer": {
+    "value": "It divides society into rich and poor"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It makes all resources renewable",
+    "It increases the stock of minerals",
+    "It divides society into rich and poor",
+    "It reduces the need for planning"
+   ],
+   "explanation": "Concentration of resources in a few hands leads to inequality, an idea stressed in resource planning.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about the Exclusive Economic Zone (EEZ) is correct?",
+   "expected_answer": {
+    "value": "It extends up to 200 nautical miles from the coast and a country can use its resources"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It extends 12 nautical miles and is open to all nations",
+    "It covers only rivers and lakes of a country",
+    "It extends up to 200 nautical miles from the coast and a country can use its resources",
+    "It begins where international waters end"
+   ],
+   "explanation": "A nation has rights over the resources of its EEZ up to 200 nautical miles from its coastline.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which view of Mahatma Gandhi is closely linked to resource conservation?",
+   "expected_answer": {
+    "value": "The earth has enough for everyone's need but not for anyone's greed"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The earth has enough for everyone's need but not for anyone's greed",
+    "Resources should be owned only by the state",
+    "Resource use should be unlimited for growth",
+    "Only renewable resources deserve protection"
+   ],
+   "explanation": "Gandhi warned that greed of a few and not the needs of all is behind resource depletion.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-resources",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Sustainable development means:",
+   "expected_answer": {
+    "value": "Development that does not compromise the needs of future generations"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Development that uses non-renewable resources first",
+    "Development that ignores the environment for fast growth",
+    "Development limited to rural areas",
+    "Development that does not compromise the needs of future generations"
+   ],
+   "explanation": "Sustainable development balances present needs with the ability of future generations to meet theirs.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which soil is formed by cooling and weathering of lava in the Deccan Trap region?",
+   "expected_answer": {
+    "value": "Black soil"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Black soil",
+    "Alluvial soil",
+    "Laterite soil",
+    "Arid soil"
+   ],
+   "explanation": "Black soil is formed from volcanic lava rock in the Deccan plateau.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which soil develops deep cracks in the dry summer and is called self-ploughing?",
+   "expected_answer": {
+    "value": "Black soil"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Red soil",
+    "Forest soil",
+    "Black soil",
+    "Laterite soil"
+   ],
+   "explanation": "Black soil holds moisture but shrinks and cracks when dry, mixing the soil naturally.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The word 'laterite' comes from the Latin word 'later'. What does it mean?",
+   "expected_answer": {
+    "value": "Brick"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Leach",
+    "Brick",
+    "Lava",
+    "Layer"
+   ],
+   "explanation": "Laterite soil becomes hard like brick when it dries, hence the name from 'later' meaning brick.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which soil has a layer of kankar in its lower horizons, which restricts water infiltration?",
+   "expected_answer": {
+    "value": "Arid soil"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Arid soil",
+    "Alluvial soil",
+    "Black soil",
+    "Red soil"
+   ],
+   "explanation": "In arid soil the lower layers have kankar due to increasing calcium content downward, restricting infiltration.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which feature is typical of arid soils of western Rajasthan?",
+   "expected_answer": {
+    "value": "Sandy texture, saline, with little humus"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Sandy texture, saline, with little humus",
+    "Rich in humus and very moist",
+    "Deep, clayey and cracked",
+    "Dark brown and rich in leaf mould"
+   ],
+   "explanation": "Arid soils are sandy and saline with low humus because of dry climate and scanty vegetation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Intense leaching in laterite soil removes which materials from the soil?",
+   "expected_answer": {
+    "value": "Silica and lime"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Iron and aluminium",
+    "Potash and sodium",
+    "Silica and lime",
+    "Nitrogen and sulphur"
+   ],
+   "explanation": "Heavy rain washes away silica and lime, leaving iron and aluminium compounds behind.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which soil is the main base for the cultivation of wheat, rice and sugarcane in the Northern Plains?",
+   "expected_answer": {
+    "value": "Alluvial soil"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Laterite soil",
+    "Arid soil",
+    "Alluvial soil",
+    "Black soil"
+   ],
+   "explanation": "Alluvial soil is rich in potash, phosphoric acid and lime, ideal for wheat, rice and sugarcane.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The older alluvium with a higher proportion of kankar nodules is known as:",
+   "expected_answer": {
+    "value": "Bhangar"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Khadar",
+    "Regur",
+    "Bhangar",
+    "Laterite"
+   ],
+   "explanation": "Bhangar is older alluvium away from rivers and has kankar nodules.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A farmer finds red soil that looks yellow in places. Why?",
+   "expected_answer": {
+    "value": "It occurs in a hydrated form"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It is rich in kankar",
+    "It is formed from lava",
+    "It is rich in humus",
+    "It occurs in a hydrated form"
+   ],
+   "explanation": "Red soil takes a yellow colour when it occurs in a hydrated form.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which soil is lacking in phosphoric content, nitrogen and organic matter, but rich in lime and potash?",
+   "expected_answer": {
+    "value": "Black soil"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Alluvial soil",
+    "Forest soil",
+    "Black soil",
+    "Laterite soil"
+   ],
+   "explanation": "Black soil contains lime, potash, calcium and magnesium but is poor in phosphoric content and humus.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Washing away of the top layer of soil by water flowing as a sheet over a large area is called:",
+   "expected_answer": {
+    "value": "Sheet erosion"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Gully erosion",
+    "Wind erosion",
+    "Bad land erosion",
+    "Sheet erosion"
+   ],
+   "explanation": "Sheet erosion removes topsoil when water flows over a large, gently sloping area.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which soil conservation measure is best against wind erosion in dry western India?",
+   "expected_answer": {
+    "value": "Planting rows of trees as shelter belts"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Contour ploughing on slopes",
+    "Terrace farming",
+    "Building check dams for gullies",
+    "Planting rows of trees as shelter belts"
+   ],
+   "explanation": "Shelter belts of trees break the force of the wind and stabilise the soil in dry regions.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-indian-soil-types",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which pair is correctly matched?",
+   "expected_answer": {
+    "value": "Laterite soil - tea and coffee in hilly Karnataka and Kerala"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Alluvial soil - rubber only",
+    "Laterite soil - tea and coffee in hilly Karnataka and Kerala",
+    "Arid soil - jute",
+    "Black soil - tea"
+   ],
+   "explanation": "Laterite soil, with added manure and fertilisers, supports tea, coffee and cashew in southern hills.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "In the IUCN classification, a species that is no longer found in its known habitats is called:",
+   "expected_answer": {
+    "value": "Extinct"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Endangered",
+    "Vulnerable",
+    "Extinct",
+    "Rare"
+   ],
+   "explanation": "Extinct species are not found in any of their known or likely habitats.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these species is classified as extinct in India?",
+   "expected_answer": {
+    "value": "Asiatic cheetah"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Indian rhino",
+    "Lion-tailed macaque",
+    "Sangai",
+    "Asiatic cheetah"
+   ],
+   "explanation": "The Asiatic cheetah has vanished from India, while the others still survive though endangered.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement describes 'vulnerable' species?",
+   "expected_answer": {
+    "value": "Their numbers are declining and may become endangered if threats continue"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "They are on the verge of extinction",
+    "They are found only in zoos",
+    "They have small populations that are not decreasing",
+    "Their numbers are declining and may become endangered if threats continue"
+   ],
+   "explanation": "Vulnerable species are declining and likely to become endangered unless negative factors are removed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is an endangered species of India?",
+   "expected_answer": {
+    "value": "Indian wild ass"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Cattle",
+    "Indian wild ass",
+    "Rodents",
+    "Sal"
+   ],
+   "explanation": "Indian wild ass, black buck and sangai are endangered, whereas cattle, sal and rodents are normal species.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The medicinal plant Himalayan Yew, used for cancer therapy, is threatened mainly because of:",
+   "expected_answer": {
+    "value": "Over-exploitation for the drug taxol"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Flooding in dams",
+    "Competition from cash crops",
+    "Over-exploitation for the drug taxol",
+    "Grazing by cattle"
+   ],
+   "explanation": "Himalayan Yew's bark and needles were heavily harvested to make taxol, the anticancer drug.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which type of forest is regarded as the most valuable in terms of conservation, comprising over half of the forest area?",
+   "expected_answer": {
+    "value": "Reserved forest"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Protected forest",
+    "Unclassed forest",
+    "Village forest",
+    "Reserved forest"
+   ],
+   "explanation": "Reserved forests get the highest level of protection and are more than half of the total forest area.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "In which state is the Sariska Tiger Reserve, where tigers had completely disappeared in 2003?",
+   "expected_answer": {
+    "value": "Rajasthan"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Rajasthan",
+    "Madhya Pradesh",
+    "Uttarakhand",
+    "Assam"
+   ],
+   "explanation": "Sariska in Rajasthan lost all its tigers to poaching by 2003.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "The Buxa Tiger Reserve in West Bengal is threatened by:",
+   "expected_answer": {
+    "value": "Mining of dolomite"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Mining of dolomite",
+    "Rooftop harvesting",
+    "Oil spills at sea",
+    "Tea plantation fires"
+   ],
+   "explanation": "Dolomite mining in Buxa has damaged habitats, reduced butterfly species and blocked elephant migration.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Under Joint Forest Management, local communities that protect forests receive:",
+   "expected_answer": {
+    "value": "A share of benefits such as non-timber forest produce"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Ownership of timber companies",
+    "A share of benefits such as non-timber forest produce",
+    "Ban on forest entry",
+    "Rights to cut forest for farming"
+   ],
+   "explanation": "JFM involves villagers in protecting degraded forests in return for a share of the produce.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which movement in Tehri, Uttarakhand, saved indigenous seeds and showed that diverse crops can be grown without chemicals?",
+   "expected_answer": {
+    "value": "Beej Bachao Andolan"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Beej Bachao Andolan",
+    "Narmada Bachao Andolan",
+    "Bhoodan Movement",
+    "Silent Valley Movement"
+   ],
+   "explanation": "Beej Bachao Andolan in Tehri conserved traditional crop seeds and promoted crop diversity.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about poor rural communities and forest degradation is correct?",
+   "expected_answer": {
+    "value": "Women suffer more as they collect fuelwood, fodder and water over longer distances"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Women suffer more as they collect fuelwood, fodder and water over longer distances",
+    "Forest degradation affects only industries",
+    "Rural women gain time from degradation",
+    "Poor people are never dependent on forests"
+   ],
+   "explanation": "Declining forests increase the drudgery of women who gather fuelwood and water.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of the following is not a type of area set aside for conserving wildlife?",
+   "expected_answer": {
+    "value": "Special Economic Zone"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "National park",
+    "Special Economic Zone",
+    "Wildlife sanctuary",
+    "Biosphere reserve"
+   ],
+   "explanation": "National parks, sanctuaries and biosphere reserves are protected areas for conservation, but an SEZ is an industrial zone.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-forest-wildlife-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which term means the variety of plants, animals and micro-organisms in an area?",
+   "expected_answer": {
+    "value": "Biodiversity"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Biodiversity",
+    "Afforestation",
+    "Ecotourism",
+    "Deforestation"
+   ],
+   "explanation": "Biodiversity is the variety of flora and fauna in a region, and its loss threatens ecosystems.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Roughly what share of the world's total water is freshwater?",
+   "expected_answer": {
+    "value": "About 2.5 per cent"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "About 25 per cent",
+    "About 2.5 per cent",
+    "About 50 per cent",
+    "About 75 per cent"
+   ],
+   "explanation": "Most water is in the oceans, and only about 2.5 per cent is freshwater.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In western Rajasthan, rainwater is called 'palar pani' and is regarded as:",
+   "expected_answer": {
+    "value": "The purest form of natural water"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Salty water unfit for drinking",
+    "The purest form of natural water",
+    "Water meant only for irrigation",
+    "Water from underground tanks only"
+   ],
+   "explanation": "Palar pani is rainwater, considered the purest form of natural water.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In Bikaner, Phalodi and Barmer, a 'tanka' is used to:",
+   "expected_answer": {
+    "value": "Store rainwater in an underground tank for drinking"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Store rainwater in an underground tank for drinking",
+    "Divert river floods into fields",
+    "Pump groundwater to cities",
+    "Channel stream water in bamboo pipes"
+   ],
+   "explanation": "Tankas are underground tanks built in houses to store rainwater for the dry months.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Gendathur village in Mysuru district of Karnataka is known for:",
+   "expected_answer": {
+    "value": "Rooftop rainwater harvesting in about 200 households"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Bamboo drip irrigation",
+    "Khadin irrigation",
+    "Rooftop rainwater harvesting in about 200 households",
+    "Inundation channels"
+   ],
+   "explanation": "Gendathur is a model of rooftop rainwater harvesting at household level.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In which Indian state is the paradox seen where Cherrapunji and Mawsynram get very heavy rain but face drinking water shortage?",
+   "expected_answer": {
+    "value": "Meghalaya"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Rajasthan",
+    "Kerala",
+    "Meghalaya",
+    "Gujarat"
+   ],
+   "explanation": "Meghalaya gets very heavy rain, yet much of it runs off and households still face drinking water shortage.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In the flood plains of Bengal, people built inundation channels to:",
+   "expected_answer": {
+    "value": "Irrigate fields with flood water"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Irrigate fields with flood water",
+    "Store drinking water on rooftops",
+    "Recharge city wells",
+    "Generate electricity"
+   ],
+   "explanation": "Inundation channels carried river flood water to irrigate fields in the Bengal flood plains.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is a traditional water-harvesting structure of Jaisalmer, where it traps rain runoff in agricultural fields?",
+   "expected_answer": {
+    "value": "Khadin"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Khadin",
+    "Tanka",
+    "Guls",
+    "Bamboo drip"
+   ],
+   "explanation": "Khadins are embankments that trap runoff in fields in Jaisalmer area for farming.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is NOT a traditional rainwater harvesting structure?",
+   "expected_answer": {
+    "value": "Tube well"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Tube well",
+    "Johad",
+    "Khadin",
+    "Tanka"
+   ],
+   "explanation": "Johad, khadin and tanka are traditional rainwater harvesting structures, while a tube well draws groundwater by modern technology.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why has groundwater in many areas fallen sharply after the spread of irrigated cash crops?",
+   "expected_answer": {
+    "value": "Many farmers bore wells to grow water-intensive crops, pumping out more than is recharged"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Many farmers bore wells to grow water-intensive crops, pumping out more than is recharged",
+    "Rainfall has increased everywhere",
+    "Rivers carry less sediment",
+    "Dams have stopped all evaporation"
+   ],
+   "explanation": "Over-extraction through tube wells for irrigation exceeds natural recharge, so the water table falls.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is a reason for water scarcity in cities?",
+   "expected_answer": {
+    "value": "Housing societies and colonies depend on their own bore wells, reducing groundwater"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Cities get too much surface water",
+    "Urban people use no groundwater",
+    "Housing societies and colonies depend on their own bore wells, reducing groundwater",
+    "Industries use only rainwater"
+   ],
+   "explanation": "Urban housing societies drill tube wells for supply, adding to groundwater depletion.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Water scarcity in India is often due to:",
+   "expected_answer": {
+    "value": "Unequal access, over-exploitation and pollution as well as growing demand"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Only a lack of rainfall",
+    "Unequal access, over-exploitation and pollution as well as growing demand",
+    "Only dams built in rivers",
+    "Only exports of water"
+   ],
+   "explanation": "Scarcity results from overuse, uneven distribution and pollution, not just low rainfall.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Rainwater harvesting refers to:",
+   "expected_answer": {
+    "value": "Collecting and storing rainwater for later use"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Draining flood water to the sea",
+    "Making rain artificially",
+    "Drilling deep tube wells",
+    "Collecting and storing rainwater for later use"
+   ],
+   "explanation": "Rainwater harvesting captures and stores rain for use or groundwater recharge.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-water-scarcity-conservation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Ancient Sringaverapura near Allahabad was known for:",
+   "expected_answer": {
+    "value": "A sophisticated system channelling Ganga flood water"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Bamboo pipe irrigation",
+    "A sophisticated system channelling Ganga flood water",
+    "Johads",
+    "Rooftop tanks"
+   ],
+   "explanation": "Sringaverapura had a water harvesting system that channelled the flood waters of the Ganga.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which is NOT a purpose of a multipurpose river project?",
+   "expected_answer": {
+    "value": "Fuel supply for nuclear reactors"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Irrigation",
+    "Hydroelectric power",
+    "Fuel supply for nuclear reactors",
+    "Flood control"
+   ],
+   "explanation": "Multipurpose projects serve irrigation, power, flood control and water supply, not nuclear fuel supply.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Tehri Dam is built on which river?",
+   "expected_answer": {
+    "value": "Bhagirathi"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Bhagirathi",
+    "Mahanadi",
+    "Krishna",
+    "Narmada"
+   ],
+   "explanation": "Tehri Dam in Uttarakhand is on the Bhagirathi river.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Sardar Sarovar Dam is built on which river?",
+   "expected_answer": {
+    "value": "Narmada"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Kosi",
+    "Narmada",
+    "Godavari",
+    "Damodar"
+   ],
+   "explanation": "Sardar Sarovar in Gujarat is on the Narmada river.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which river is known as the 'Sorrow of Bengal' because of its floods?",
+   "expected_answer": {
+    "value": "Damodar"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Damodar",
+    "Kosi",
+    "Mahanadi",
+    "Sutlej"
+   ],
+   "explanation": "Damodar's floods caused devastation in Bengal; the Damodar Valley Corporation was set up to control it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which river is called the 'Sorrow of Bihar'?",
+   "expected_answer": {
+    "value": "Kosi"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Damodar",
+    "Kosi",
+    "Narmada",
+    "Godavari"
+   ],
+   "explanation": "The Kosi often changes course and floods Bihar badly.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The reservoir of the Bhakra Dam is named:",
+   "expected_answer": {
+    "value": "Gobind Sagar"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Gobind Sagar",
+    "Hirakud Lake",
+    "Nagarjuna Sagar",
+    "Sardar Sarovar"
+   ],
+   "explanation": "The Bhakra Dam on the Satluj creates the Gobind Sagar reservoir.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "How do dams harm aquatic life?",
+   "expected_answer": {
+    "value": "They block fish migration and change habitats"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "They add oxygen to water",
+    "They remove all silt from rivers",
+    "They block fish migration and change habitats",
+    "They always raise fish numbers"
+   ],
+   "explanation": "Dams obstruct fish movement and change water flow, damaging spawning and aquatic ecosystems.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why do displaced people often oppose big dams?",
+   "expected_answer": {
+    "value": "They lose land, homes and livelihoods without adequate rehabilitation"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "They get free electricity for life",
+    "The dams reduce migration",
+    "They lose land, homes and livelihoods without adequate rehabilitation",
+    "Dams are built in deserts"
+   ],
+   "explanation": "Reservoirs submerge villages and farmland, and the displaced often get poor compensation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is a benefit claimed for large multipurpose dams?",
+   "expected_answer": {
+    "value": "Storing monsoon water for irrigation and power in dry months"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Reducing the need for rainfall",
+    "Removing silt from reservoirs automatically",
+    "Storing monsoon water for irrigation and power in dry months",
+    "Preventing all droughts"
+   ],
+   "explanation": "Dams store water and release it to irrigate land and generate hydropower when needed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Excess irrigation from dams in some areas has caused:",
+   "expected_answer": {
+    "value": "Waterlogging and salinisation of soil"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Greater sediment in all rivers",
+    "Waterlogging and salinisation of soil",
+    "More forests in the catchment",
+    "Lower water tables everywhere"
+   ],
+   "explanation": "Over-irrigation raises the water table and brings salts to the surface, degrading land.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The river dispute between Karnataka and Tamil Nadu is over sharing of the waters of the:",
+   "expected_answer": {
+    "value": "Cauvery"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Cauvery",
+    "Narmada",
+    "Ganga",
+    "Brahmaputra"
+   ],
+   "explanation": "The Cauvery water dispute is a long-standing inter-state issue.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is a likely effect of a dam on the lower course of a river?",
+   "expected_answer": {
+    "value": "Less sediment reaches the floodplain and delta"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "More silt reaches the sea",
+    "The river turns saline",
+    "It floods every month",
+    "Less sediment reaches the floodplain and delta"
+   ],
+   "explanation": "Reservoirs trap sediments, so downstream floodplains and deltas receive less fertile silt.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-river-valley-projects",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A dam is best described as:",
+   "expected_answer": {
+    "value": "A barrier built across flowing water to regulate or store it"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A barrier built across flowing water to regulate or store it",
+    "A canal for ships",
+    "A tube well for irrigation",
+    "A tank in a field"
+   ],
+   "explanation": "A dam is a barrier across a river that regulates flow and creates a reservoir.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A farmer sows seeds in October and harvests in March. Which crop is she most likely growing?",
+   "expected_answer": {
+    "value": "Wheat"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Paddy",
+    "Cotton",
+    "Wheat",
+    "Maize"
+   ],
+   "explanation": "Wheat is a Rabi crop sown in winter and harvested in spring, unlike the Kharif crops.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Rabi crops depend on winter rain in northern states brought by:",
+   "expected_answer": {
+    "value": "Western disturbances"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Western disturbances",
+    "Retreating monsoon in Kerala",
+    "Cyclones in the Bay of Bengal",
+    "Summer monsoon"
+   ],
+   "explanation": "Winter rain from western temperate cyclones helps Rabi crops like wheat in the north.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is NOT a Kharif crop?",
+   "expected_answer": {
+    "value": "Gram"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Paddy",
+    "Groundnut",
+    "Soyabean",
+    "Gram"
+   ],
+   "explanation": "Gram is a Rabi crop, while paddy, groundnut and soyabean are sown with the monsoon.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which crop is a coarse grain grown in Karnataka with high iron and calcium?",
+   "expected_answer": {
+    "value": "Ragi"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Wheat",
+    "Rice",
+    "Maize",
+    "Ragi"
+   ],
+   "explanation": "Ragi is rich in iron and calcium and Karnataka is its leading producer.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which state is the largest producer of jowar?",
+   "expected_answer": {
+    "value": "Maharashtra"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Punjab",
+    "Maharashtra",
+    "Kerala",
+    "Assam"
+   ],
+   "explanation": "Maharashtra leads in jowar production in India.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why are pulses valuable in crop rotation?",
+   "expected_answer": {
+    "value": "Their roots fix nitrogen, restoring soil fertility"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They remove salts from soil",
+    "Their roots fix nitrogen, restoring soil fertility",
+    "They need no water",
+    "They grow only on black soil"
+   ],
+   "explanation": "Leguminous pulses fix atmospheric nitrogen in the soil, improving its fertility.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which crop requires about 210 frost-free days and black soil?",
+   "expected_answer": {
+    "value": "Cotton"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Tea",
+    "Rubber",
+    "Jute",
+    "Cotton"
+   ],
+   "explanation": "Cotton needs a long frost-free period and does well in black soil of the Deccan.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why can rice be grown in Punjab and Haryana, which receive low rainfall?",
+   "expected_answer": {
+    "value": "Canal and tube well irrigation"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Canal and tube well irrigation",
+    "Heavy monsoon rainfall",
+    "Red soils",
+    "Cool winters"
+   ],
+   "explanation": "Rice needs much water, so it is grown here with irrigation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which crop is grown largely in Kerala and requires over 200 cm rainfall and temperatures above 25 degrees C?",
+   "expected_answer": {
+    "value": "Rubber"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Rubber",
+    "Wheat",
+    "Bajra",
+    "Mustard"
+   ],
+   "explanation": "Rubber is an equatorial crop, with Kerala the leading producer.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which one is the odd one out among plantation crops?",
+   "expected_answer": {
+    "value": "Wheat"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Tea",
+    "Coffee",
+    "Rubber",
+    "Wheat"
+   ],
+   "explanation": "Tea, coffee and rubber are plantation crops grown in large estates, but wheat is a food grain.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "The Arabica variety of coffee was originally brought to India from:",
+   "expected_answer": {
+    "value": "Yemen"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Yemen",
+    "Brazil",
+    "Sri Lanka",
+    "Kenya"
+   ],
+   "explanation": "Arabica coffee originated in Yemen and was first planted in the Baba Budan Hills.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "The demand for jute has declined mainly because of:",
+   "expected_answer": {
+    "value": "Competition from synthetic fibres and substitute packing materials"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Lack of black soil",
+    "Competition from synthetic fibres and substitute packing materials",
+    "Heavy rainfall in Kerala",
+    "Ban on jute farming"
+   ],
+   "explanation": "Synthetic substitutes and other packaging reduced demand for jute products.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-major-crops-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which state is the largest producer of sugarcane?",
+   "expected_answer": {
+    "value": "Uttar Pradesh"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Kerala",
+    "Uttar Pradesh",
+    "Assam",
+    "Rajasthan"
+   ],
+   "explanation": "Uttar Pradesh is the leading producer of sugarcane in India.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who is known as the 'Father of the White Revolution' (Operation Flood) in India?",
+   "expected_answer": {
+    "value": "Verghese Kurien"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "M.S. Swaminathan",
+    "Vinoba Bhave",
+    "Verghese Kurien",
+    "Jawaharlal Nehru"
+   ],
+   "explanation": "Verghese Kurien led Operation Flood, which expanded milk production through cooperatives.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who is associated with leading the Green Revolution in Indian agriculture as a scientist?",
+   "expected_answer": {
+    "value": "M.S. Swaminathan"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Verghese Kurien",
+    "Vinoba Bhave",
+    "Sardar Patel",
+    "M.S. Swaminathan"
+   ],
+   "explanation": "M.S. Swaminathan played a leading role in introducing high-yielding varieties in India.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The Blue Revolution refers to the growth in the production of:",
+   "expected_answer": {
+    "value": "Fish"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Milk",
+    "Oilseeds",
+    "Fish",
+    "Wheat"
+   ],
+   "explanation": "The Blue Revolution is about increasing fish and aquaculture production.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Abolition of the zamindari system aimed to:",
+   "expected_answer": {
+    "value": "Remove intermediaries between the state and the cultivators"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Increase the number of landlords",
+    "Build more dams",
+    "Remove intermediaries between the state and the cultivators",
+    "Provide HYV seeds"
+   ],
+   "explanation": "Ending zamindari took away rent-collecting middlemen and gave cultivators rights to land.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Consolidation of land holdings was introduced to:",
+   "expected_answer": {
+    "value": "Join scattered small plots of a farmer into one compact holding"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Break big farms into many plots",
+    "Join scattered small plots of a farmer into one compact holding",
+    "Distribute land to industries",
+    "Ban tenancy"
+   ],
+   "explanation": "Fragmented plots are inefficient, so they are consolidated into compact units.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Land ceiling laws aimed to:",
+   "expected_answer": {
+    "value": "Limit the land one family can own so surplus can go to the landless"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Increase rent paid by tenants",
+    "Limit the land one family can own so surplus can go to the landless",
+    "Prevent land sale to the state",
+    "Remove limits on holdings"
+   ],
+   "explanation": "Ceilings cap ownership and the surplus is redistributed to landless or small farmers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which one is a technological (not institutional) reform in agriculture?",
+   "expected_answer": {
+    "value": "Use of high-yielding variety seeds"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Abolition of zamindari",
+    "Consolidation of holdings",
+    "Use of high-yielding variety seeds",
+    "Land ceiling"
+   ],
+   "explanation": "HYV seeds change the technology of farming, while the others change land ownership or structure.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which agency buys wheat and rice from farmers at the Minimum Support Price?",
+   "expected_answer": {
+    "value": "Food Corporation of India"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Reserve Bank of India",
+    "NABARD",
+    "Planning Commission",
+    "Food Corporation of India"
+   ],
+   "explanation": "The FCI procures foodgrains from farmers at government-announced support prices.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The Kisan Credit Card scheme was introduced to:",
+   "expected_answer": {
+    "value": "Give farmers timely credit for inputs at low interest"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Give free land",
+    "Give farmers timely credit for inputs at low interest",
+    "Replace the MSP",
+    "Subsidise fisheries only"
+   ],
+   "explanation": "KCC helps farmers get loans for seeds, fertilisers and other needs.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A major negative effect of the Green Revolution was:",
+   "expected_answer": {
+    "value": "Over-use of fertilisers and water, harming soil and groundwater"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Over-use of fertilisers and water, harming soil and groundwater",
+    "Fall in wheat production",
+    "Complete end of irrigation",
+    "Lower use of chemicals"
+   ],
+   "explanation": "Heavy use of chemicals and irrigation degraded soil and lowered the water table.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why was the Green Revolution undertaken in the 1960s?",
+   "expected_answer": {
+    "value": "To cut dependence on food imports after shortages"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "To cut dependence on food imports after shortages",
+    "To reduce industrial output",
+    "To end the use of fertilisers",
+    "To expand fisheries only"
+   ],
+   "explanation": "India faced food shortages and had to import grain, so higher yields were needed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Gramdan under the movement of Vinoba Bhave means:",
+   "expected_answer": {
+    "value": "A whole village's land is donated for collective ownership"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A village gets electricity",
+    "A whole village's land is donated for collective ownership",
+    "A government grant to panchayats",
+    "Land is sold to the highest bidder"
+   ],
+   "explanation": "In Gramdan villagers pool land to be held and used collectively.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-agricultural-reforms",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which regions benefited first from the Green Revolution?",
+   "expected_answer": {
+    "value": "Punjab, Haryana and western Uttar Pradesh"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Assam and Bengal",
+    "Kerala and Tamil Nadu",
+    "Punjab, Haryana and western Uttar Pradesh",
+    "Rajasthan and Gujarat"
+   ],
+   "explanation": "Irrigated wheat-growing areas of the north-west gained earliest from HYV seeds.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Manganese, mainly used in steel making, is classed as which type of mineral?",
+   "expected_answer": {
+    "value": "Ferrous metallic mineral"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Non-ferrous metallic mineral",
+    "Non-metallic mineral",
+    "Ferrous metallic mineral",
+    "Energy mineral"
+   ],
+   "explanation": "Manganese, like iron ore, nickel and cobalt, belongs to the ferrous group used in making steel.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is a non-ferrous metallic mineral?",
+   "expected_answer": {
+    "value": "Copper"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Copper",
+    "Iron ore",
+    "Manganese",
+    "Cobalt"
+   ],
+   "explanation": "Copper contains no iron, so it is non-ferrous.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which iron ore has the highest iron content, around 70 per cent?",
+   "expected_answer": {
+    "value": "Magnetite"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Magnetite",
+    "Hematite",
+    "Siderite",
+    "Limonite"
+   ],
+   "explanation": "Magnetite is the finest quality iron ore with the highest iron content.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The Bailadila range, known for high-grade iron ore, is in:",
+   "expected_answer": {
+    "value": "Chhattisgarh"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Rajasthan",
+    "Chhattisgarh",
+    "Assam",
+    "Kerala"
+   ],
+   "explanation": "Bailadila range in Bastar district of Chhattisgarh has high-quality hematite.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Khetri is a well-known mining area for which mineral?",
+   "expected_answer": {
+    "value": "Copper"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Copper",
+    "Bauxite",
+    "Coal",
+    "Mica"
+   ],
+   "explanation": "Khetri in Rajasthan is known for copper mining.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which mineral is the basic raw material of the cement industry?",
+   "expected_answer": {
+    "value": "Limestone"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Mica",
+    "Coal",
+    "Limestone",
+    "Bauxite"
+   ],
+   "explanation": "Limestone is the chief raw material for cement.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Choose the mineral that is not part of the ferrous group.",
+   "expected_answer": {
+    "value": "Bauxite"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Iron ore",
+    "Bauxite",
+    "Manganese",
+    "Cobalt"
+   ],
+   "explanation": "Bauxite is non-ferrous, but the others are ferrous minerals.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Coal and limestone are mostly found in which kind of rock?",
+   "expected_answer": {
+    "value": "Sedimentary rocks"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Igneous rocks",
+    "Metamorphic rocks",
+    "Volcanic rocks only",
+    "Sedimentary rocks"
+   ],
+   "explanation": "Coal, limestone, gypsum and salt occur in sedimentary rock strata.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Gold, silver and tin are often found as placer deposits in:",
+   "expected_answer": {
+    "value": "Alluvial deposits of sand valleys"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Alluvial deposits of sand valleys",
+    "Deep lava flows",
+    "Coal beds",
+    "Limestone caves"
+   ],
+   "explanation": "Placer deposits are minerals in sand and valley floors, not requiring ore mining.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Smaller mineral occurrences in cracks and joints are called veins, and larger ones are called:",
+   "expected_answer": {
+    "value": "Lodes"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Lodes",
+    "Placers",
+    "Strata",
+    "Alloys"
+   ],
+   "explanation": "In igneous and metamorphic rocks, small deposits are veins and large ones are lodes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why should minerals be conserved?",
+   "expected_answer": {
+    "value": "They are non-renewable and take millions of years to form"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "They are available in unlimited amounts",
+    "They renew quickly",
+    "They have no use in industry",
+    "They are non-renewable and take millions of years to form"
+   ],
+   "explanation": "Minerals are exhausted much faster than they are replenished by geological processes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The practice of 'rat-hole mining' is found in:",
+   "expected_answer": {
+    "value": "Meghalaya"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Kerala",
+    "Rajasthan",
+    "Meghalaya",
+    "Gujarat"
+   ],
+   "explanation": "Rat-hole mining uses narrow tunnels, especially for coal in Meghalaya.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-minerals-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Bauxite is mainly used to extract which metal?",
+   "expected_answer": {
+    "value": "Aluminium"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Copper",
+    "Zinc",
+    "Manganese",
+    "Aluminium"
+   ],
+   "explanation": "Bauxite is the chief ore of aluminium.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is a fossil fuel?",
+   "expected_answer": {
+    "value": "Natural gas"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Wind",
+    "Sunlight",
+    "Natural gas",
+    "Biogas"
+   ],
+   "explanation": "Natural gas formed from remains of living things over millions of years, unlike wind and sunlight.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which type of coal has the highest carbon content?",
+   "expected_answer": {
+    "value": "Anthracite"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Peat",
+    "Lignite",
+    "Anthracite",
+    "Bituminous"
+   ],
+   "explanation": "Anthracite is the highest quality coal with the most carbon.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The Neyveli power plant in Tamil Nadu uses which fuel?",
+   "expected_answer": {
+    "value": "Lignite"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Anthracite",
+    "Uranium",
+    "Natural gas",
+    "Lignite"
+   ],
+   "explanation": "Neyveli is known for lignite or brown coal.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The oldest oil producing area of India is:",
+   "expected_answer": {
+    "value": "Digboi in Assam"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Digboi in Assam",
+    "Ankleshwar in Gujarat",
+    "Mumbai High",
+    "Kochi"
+   ],
+   "explanation": "Digboi in Assam is the oldest oil-producing area.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Mumbai High is an oil field located:",
+   "expected_answer": {
+    "value": "In the Arabian Sea off the Maharashtra coast"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "In Assam's plains",
+    "In the Thar Desert",
+    "In the Arabian Sea off the Maharashtra coast",
+    "In the Ganga delta"
+   ],
+   "explanation": "Mumbai High is an offshore oil field in the sea.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which natural gas pipeline links Hazira in Gujarat, Bijaipur in Madhya Pradesh and Jagdishpur in Uttar Pradesh?",
+   "expected_answer": {
+    "value": "HBJ pipeline"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Narmada pipeline",
+    "HBJ pipeline",
+    "Golden Quadrilateral",
+    "Konkan pipeline"
+   ],
+   "explanation": "The HBJ pipeline is named after the three places it connects.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is used as compressed natural gas (CNG) in vehicles?",
+   "expected_answer": {
+    "value": "Natural gas"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Lignite",
+    "Biogas slurry",
+    "Natural gas",
+    "Thorium"
+   ],
+   "explanation": "CNG is compressed natural gas, used as a cleaner fuel for vehicles.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which device converts sunlight directly into electricity?",
+   "expected_answer": {
+    "value": "Photovoltaic cell"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Photovoltaic cell",
+    "Wind turbine",
+    "Biogas plant",
+    "Dynamo only"
+   ],
+   "explanation": "Photovoltaic technology turns sunlight into electricity.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which place is suitable for tidal energy in Gujarat?",
+   "expected_answer": {
+    "value": "Gulf of Khambhat"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Gulf of Khambhat",
+    "Rann of Kachchh centre",
+    "Deccan plateau",
+    "Thar desert"
+   ],
+   "explanation": "The Gulf of Khambhat has large tidal differences for tidal energy.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Gobar gas plants in villages produce biogas from:",
+   "expected_answer": {
+    "value": "Cattle dung and organic waste"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Coal",
+    "Uranium",
+    "Sea waves",
+    "Cattle dung and organic waste"
+   ],
+   "explanation": "Biogas is produced from the decomposition of dung and organic waste, leaving good manure.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why is hydroelectric power considered cleaner than thermal power?",
+   "expected_answer": {
+    "value": "It does not burn fuels, so it emits little carbon dioxide"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It uses more coal",
+    "It needs no water",
+    "It can only run at night",
+    "It does not burn fuels, so it emits little carbon dioxide"
+   ],
+   "explanation": "Thermal plants burn fossil fuels causing CO2 and air pollution; hydel uses flowing water.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Select the energy source that is non-conventional rather than a fossil fuel.",
+   "expected_answer": {
+    "value": "Tidal energy"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Coal",
+    "Petroleum",
+    "Natural gas",
+    "Tidal energy"
+   ],
+   "explanation": "Tidal energy is non-conventional and renewable, while the others are conventional fossil fuels.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-energy-sources",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Thorium, used for nuclear power, is found in the monazite sands of:",
+   "expected_answer": {
+    "value": "Kerala"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Rajasthan desert only",
+    "Assam only",
+    "Kerala",
+    "Punjab"
+   ],
+   "explanation": "Kerala's coastal sands contain monazite, a source of thorium.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is an agro-based industry?",
+   "expected_answer": {
+    "value": "Jute textile"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Jute textile",
+    "Cement",
+    "Aluminium smelting",
+    "Iron and steel"
+   ],
+   "explanation": "Jute is a farm product, while cement, aluminium and steel use minerals.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is a mineral-based industry?",
+   "expected_answer": {
+    "value": "Cement"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Cement",
+    "Sugar",
+    "Cotton textile",
+    "Edible oil"
+   ],
+   "explanation": "Cement uses limestone and other minerals.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Industries that supply raw materials to other industries, like iron and steel, are called:",
+   "expected_answer": {
+    "value": "Basic or key industries"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Consumer industries",
+    "Cottage industries",
+    "Basic or key industries",
+    "Agro industries"
+   ],
+   "explanation": "Their products feed other industries, hence they are basic.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Industries that produce goods directly for consumers, like sugar and toothpaste, are:",
+   "expected_answer": {
+    "value": "Consumer industries"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Basic industries",
+    "Mineral industries",
+    "Heavy industries",
+    "Consumer industries"
+   ],
+   "explanation": "Their products are bought directly by consumers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Tata Steel is an example of which sector by ownership?",
+   "expected_answer": {
+    "value": "Private sector"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Public sector",
+    "Joint sector",
+    "Cooperative sector",
+    "Private sector"
+   ],
+   "explanation": "Tata Steel is owned and run by private investors.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "BHEL is an example of which ownership sector?",
+   "expected_answer": {
+    "value": "Public sector"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Private sector",
+    "Public sector",
+    "Cooperative sector",
+    "Joint sector"
+   ],
+   "explanation": "BHEL is owned by the government.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Where was the first successful cotton mill of India set up in 1854?",
+   "expected_answer": {
+    "value": "Mumbai"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Mumbai",
+    "Kolkata",
+    "Chennai",
+    "Delhi"
+   ],
+   "explanation": "The first successful cotton textile mill came up in Mumbai.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Jute mills are concentrated along which river?",
+   "expected_answer": {
+    "value": "Hugli"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Hugli",
+    "Narmada",
+    "Godavari",
+    "Satluj"
+   ],
+   "explanation": "Jute mills are concentrated in the Hugli basin because of raw jute, cheap water transport and labour.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why has the sugar industry been shifting to Maharashtra and the south?",
+   "expected_answer": {
+    "value": "Cane has higher sucrose content and cooperatives are strong"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "There is no cane in Uttar Pradesh",
+    "Cane has higher sucrose content and cooperatives are strong",
+    "Sugar is made from minerals",
+    "Cooperatives were banned in the north"
+   ],
+   "explanation": "Sugarcane in the peninsular region has higher sucrose and a longer crushing season.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Where is the Bhilai steel plant located?",
+   "expected_answer": {
+    "value": "Chhattisgarh"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Odisha",
+    "Jharkhand",
+    "West Bengal",
+    "Chhattisgarh"
+   ],
+   "explanation": "Bhilai Steel Plant is in Chhattisgarh.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Discharge of hot water from factories into rivers causes:",
+   "expected_answer": {
+    "value": "Thermal pollution"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Noise pollution",
+    "Thermal pollution",
+    "Soil pollution",
+    "Air pollution"
+   ],
+   "explanation": "Hot effluents raise water temperature and harm aquatic life.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The Bhopal gas tragedy of 1984 was caused by the leak of:",
+   "expected_answer": {
+    "value": "Methyl isocyanate"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Sulphur dioxide",
+    "Carbon monoxide",
+    "Methyl isocyanate",
+    "Chlorine"
+   ],
+   "explanation": "Methyl isocyanate leaked from the Union Carbide plant in Bhopal.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-industries",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which measure best reduces industrial water pollution?",
+   "expected_answer": {
+    "value": "Treating effluents before discharge"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Discharging effluents at night",
+    "Increasing production",
+    "Using more hot water",
+    "Treating effluents before discharge"
+   ],
+   "explanation": "Treatment of effluents removes pollutants before they reach rivers.",
+   "content_status": "needs_review"
+  }
+ ]
+}

@@ -37,6 +37,9 @@ French (Class X) added as a pilot subject: 356 questions, all `needs_review`, wr
 ## Update v126 (2026-11-12)
 1,076 Computer Applications questions added (all 38 skills, 27 to 30 each), all `needs_review`. Computer Applications now holds about 1,250 questions. Details: docs/CONTENT_V126.md.
 
+## Update v127 (2026-11-13)
+521 Social Science questions added (13+ for each of the 40 on-syllabus skills), all `needs_review`. Details and the facts a teacher should check first: docs/CONTENT_V127.md.
+
 ## Known limitations / things a teacher should look at first
 - Hindi: the "Kanyadaan" poem question tests a general reading rather than a specific fact; Lekhan (formal letter / notice) questions are general rather than tied to a specific marking rule.
 - Computer Applications: verify the chapter list against the current official CBSE Class 10 syllabus (cbseacademic.nic.in) before calling it anything beyond pilot.

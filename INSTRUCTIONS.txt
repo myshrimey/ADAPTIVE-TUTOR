@@ -1,23 +1,21 @@
-Sahayak v126 - 1,076 more Computer Applications questions
-==========================================================
-Apply after v125. Copy these files over your project (same folders). No database migration. The website only changes its version number, so deploy it the way you normally do.
+Sahayak v127 - 521 more Social Science questions
+=================================================
+Apply after v126. Copy these files over your project (same folders). No database migration. The website only changes its version number, so deploy it the way you normally do.
 
 WHAT WAS ADDED
-- 1,076 multiple-choice questions (original wording, all marked "needs review") covering all 38 Computer Applications skills: 27 to 30 new questions per skill. The subject now holds about 1,250 questions.
-- Topics: networks and devices, Internet, DNS, IP, HTTPS, Internet services, mobile technology, HTML (structure, formatting, links, images, lists, tables, forms), CSS basics, cyber ethics and safety, plagiarism and licences, e-commerce security, Boolean logic, spreadsheets, mail merge, algorithms and flowcharts.
+- 521 multiple-choice questions (original wording, all marked "needs review"): 13 or more for each of the 40 on-syllabus Social Science skills across History, Geography, Political Science and Economics. The three skills skipped earlier (not on the syllabus) are still skipped. Social Science now holds about 780 questions.
 
 AFTER DEPLOYING (you, with your own settings - Claude never ran it):
   node packages/db/seed-diagnostic.js
 Safe to run again; it skips questions it already has.
 
 TESTED
-- New test t126 (12 checks): real skills, 4 different options, right answer present and spread over all four positions, no repeats of existing questions, needs-review status, at least 27 per skill, a spread of difficulties. Full npm test: 98 passed, 4 known-stale (t3, t4, t42a, t42c), 0 failed. TypeScript check clean.
-- Boolean truth tables and cell-reference answers were computed with code by the writers.
+- New test t127 (10 checks): real skills, 4 different options, right answer present and spread over all four positions, no repeats of existing questions, needs-review status, at least 13 per on-syllabus skill, a spread of difficulties. Full npm test: 99 passed, 4 known-stale (t3, t4, t42a, t42c), 0 failed. TypeScript check clean.
 
 NOT TESTED
 - Nothing was seen live. The seed command was not run on any real database.
-- HTML/CSS snippets and spreadsheet results were read, not run in a browser or spreadsheet. Facts were not independently checked. A teacher should review (see docs/CONTENT_V126.md for the first things to look at).
-- The difficulty mix leans to medium (446 of 1,076); only 77 are the hardest level.
+- NO fact (date, name, number) was independently checked. A teacher should review. docs/CONTENT_V127.md lists the facts the writers were least sure of: for example Italy taking Rome in 1870, the 1905 Swadeshi flag, Gutenberg Bible copy numbers, the Diamond Sutra date, the Eleventh Schedule count, Women's Reservation Act status, Gratuity Act and Net Attendance Ratio wording.
+- Difficulty leans medium (243 of 521); only 29 are the hardest level.
 
 NOT BUILT
 - Marking questions as verified (that stays with a human).

@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0039 - 2026-11-13 - founder chat request (500+ Social Science questions)
+- Summary: v127: 521 questions added (TASK-095).
+- Files: seed/cbse-class10-social-science-v127[a-d]-diagnostic.json; tests/t127.ts; deploy-check version
+- Database: none (seed data only)
+- Tests: t127, full npm test
+- Open: Not deployed; seeds not run on the live database; no teacher review
+
 ## EX-0038 - 2026-11-12 - founder chat request (1000+ Computer Applications questions)
 - Summary: v126: 1,076 questions added (TASK-094).
 - Files: seed/cbse-class10-computer-applications-v126[a-f]-diagnostic.json; seed-generators/v126_finalize.py; tests/t126.ts; deploy-check version

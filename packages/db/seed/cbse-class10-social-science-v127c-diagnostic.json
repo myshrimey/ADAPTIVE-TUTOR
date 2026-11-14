@@ -1,0 +1,2605 @@
+{
+ "subject_slug": "social-science",
+ "questions": [
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which health problem is linked to long exposure to loud noise from factories and machines?",
+   "expected_answer": {
+    "value": "Hearing loss and high blood pressure"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Night blindness and rickets",
+    "Scurvy and beriberi",
+    "Hearing loss and high blood pressure",
+    "Goitre and anaemia"
+   ],
+   "explanation": "Industrial noise is a pollutant that can damage hearing and raise stress and blood pressure.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is the main purpose of an effluent treatment plant in a factory?",
+   "expected_answer": {
+    "value": "To clean liquid waste before it is released"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "To clean liquid waste before it is released",
+    "To make the factory machines quieter",
+    "To remove dust from the factory air",
+    "To store raw materials safely"
+   ],
+   "explanation": "An effluent treatment plant removes harmful substances from liquid waste so that rivers and groundwater are not contaminated.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why does hot water released by a power plant harm fish in a river?",
+   "expected_answer": {
+    "value": "It lowers the dissolved oxygen in the water"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It lowers the dissolved oxygen in the water",
+    "It makes the water too salty",
+    "It blocks sunlight with a layer of dust",
+    "It adds sulphur dioxide to the water"
+   ],
+   "explanation": "Warm water holds less dissolved oxygen, and aquatic life suffers; this is thermal pollution.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which device sprays water or a chemical liquid through chimney gases to trap harmful gases such as sulphur dioxide?",
+   "expected_answer": {
+    "value": "Scrubber"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Thermometer",
+    "Turbine",
+    "Generator",
+    "Scrubber"
+   ],
+   "explanation": "A scrubber washes the flue gas with a liquid so that pollutant gases dissolve or react and are removed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A thermal power plant produces large amounts of fly ash. Which is the most sensible way to handle it?",
+   "expected_answer": {
+    "value": "Use it in making bricks and cement"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Dump it into the nearest river",
+    "Burn it again in an open field",
+    "Spread it on farmland in unlimited amounts",
+    "Use it in making bricks and cement"
+   ],
+   "explanation": "Fly ash is a solid waste that can be reused in construction materials, reducing land and water pollution.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which was the main worry about the Mathura oil refinery in connection with the Taj Mahal?",
+   "expected_answer": {
+    "value": "Its sulphur dioxide emissions could cause acid rain that damages the marble"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Its heat would melt the marble",
+    "Its noise would crack the dome",
+    "Its sulphur dioxide emissions could cause acid rain that damages the marble",
+    "Its wastewater would flood the Yamuna banks"
+   ],
+   "explanation": "Sulphur dioxide from the refinery forms acid rain, which can discolour and corrode marble.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The Environment (Protection) Act of India was passed in which year, soon after a major industrial gas disaster?",
+   "expected_answer": {
+    "value": "1986"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "1986",
+    "1947",
+    "1974",
+    "1999"
+   ],
+   "explanation": "The Act came in 1986, after the 1984 Bhopal gas tragedy highlighted the need for strong industrial safety and pollution laws.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which one is the odd one out among methods of reducing industrial air pollution?",
+   "expected_answer": {
+    "value": "Burning factory waste in the open"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Installing electrostatic precipitators",
+    "Fitting bag filters on chimneys",
+    "Burning factory waste in the open",
+    "Using cleaner fuel such as natural gas"
+   ],
+   "explanation": "The other three cut emissions, whereas open burning of waste adds smoke and toxic gases to the air.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Under the 'polluter pays' idea, who should bear the cost of cleaning up damage from industrial pollution?",
+   "expected_answer": {
+    "value": "The industry that caused the pollution"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Only the nearby villagers",
+    "Only the local school",
+    "The industry that caused the pollution",
+    "The farmers downstream"
+   ],
+   "explanation": "The polluter pays principle makes the party that causes the harm responsible for the cost of controlling or repairing it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Recycling and reusing water within a factory mainly helps by:",
+   "expected_answer": {
+    "value": "Reducing both water use and the volume of waste water discharged"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Increasing the noise level",
+    "Raising the temperature of rivers",
+    "Producing more fly ash",
+    "Reducing both water use and the volume of waste water discharged"
+   ],
+   "explanation": "Reuse means less fresh water drawn and less effluent released into water bodies.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about shifting a factory from coal to a cleaner fuel such as natural gas is most accurate?",
+   "expected_answer": {
+    "value": "It usually lowers emissions of sulphur dioxide and soot"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It removes all pollution from the factory",
+    "It increases acid rain",
+    "It usually lowers emissions of sulphur dioxide and soot",
+    "It has no effect on air quality"
+   ],
+   "explanation": "Natural gas burns with far less sulphur and particulate matter than coal, though it does not eliminate all pollution.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which Indian law of 1974 deals specifically with the prevention and control of water pollution?",
+   "expected_answer": {
+    "value": "Water (Prevention and Control of Pollution) Act"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Wildlife Protection Act",
+    "Forest Conservation Act",
+    "Motor Vehicles Act",
+    "Water (Prevention and Control of Pollution) Act"
+   ],
+   "explanation": "The Water Act of 1974 set up pollution control boards and rules about discharging effluents.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-industrial-pollution-control",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which body in India lays down standards and monitors pollution from industries at the national level?",
+   "expected_answer": {
+    "value": "Central Pollution Control Board"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Reserve Bank of India",
+    "Election Commission of India",
+    "Survey of India",
+    "Central Pollution Control Board"
+   ],
+   "explanation": "The Central Pollution Control Board advises on and monitors pollution control, along with state boards.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which mode of transport is the best choice for sending fresh flowers from Bengaluru to Delhi overnight?",
+   "expected_answer": {
+    "value": "Air transport"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Pipelines",
+    "Inland waterways",
+    "Air transport",
+    "Goods train on a slow route"
+   ],
+   "explanation": "Perishable goods that must arrive quickly justify the higher cost of air transport.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is a major limitation of pipelines as a mode of transport?",
+   "expected_answer": {
+    "value": "They carry only liquids and gases along a fixed route"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They are the most expensive per tonne",
+    "They carry only liquids and gases along a fixed route",
+    "They cannot work for long distances",
+    "They are affected by heavy traffic jams"
+   ],
+   "explanation": "Pipelines are cheap to run but can only move liquids or gases, and only between fixed points.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which pair of places is connected by National Waterway No. 1?",
+   "expected_answer": {
+    "value": "Prayagraj and Haldia"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Prayagraj and Haldia",
+    "Sadiya and Dhubri",
+    "Kollam and Kottapuram",
+    "Mumbai and Goa"
+   ],
+   "explanation": "National Waterway No. 1 runs along the Ganga from Prayagraj (Allahabad) to Haldia.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The North-South Corridor of the national highways connects which two places?",
+   "expected_answer": {
+    "value": "Srinagar and Kanyakumari"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Delhi and Mumbai",
+    "Srinagar and Kanyakumari",
+    "Silchar and Porbandar",
+    "Chennai and Kolkata"
+   ],
+   "explanation": "The North-South Corridor links Srinagar in the north to Kanyakumari in the south, and the East-West Corridor links Silchar and Porbandar.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which port on the Gujarat coast is a tidal port?",
+   "expected_answer": {
+    "value": "Kandla"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Kandla",
+    "Paradip",
+    "Visakhapatnam",
+    "Kochi"
+   ],
+   "explanation": "Kandla in Kutch is a tidal port, developed to ease the load on Mumbai after Partition.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out?",
+   "expected_answer": {
+    "value": "Ludhiana"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Kandla",
+    "Paradip",
+    "Kochi",
+    "Ludhiana"
+   ],
+   "explanation": "Kandla, Paradip and Kochi are major ports, whereas Ludhiana is an inland industrial city.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why is road transport usually preferred over railways for carrying goods over short distances?",
+   "expected_answer": {
+    "value": "Loading and unloading is quicker and roads give door-to-door service"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Roads are always cheaper over very long distances",
+    "Roads can carry bulky goods more cheaply than ships",
+    "Loading and unloading is quicker and roads give door-to-door service",
+    "Roads are never affected by weather"
+   ],
+   "explanation": "For short hauls, flexibility and door-to-door delivery make roads more convenient and economical.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which feature makes inland waterways attractive despite their slow speed?",
+   "expected_answer": {
+    "value": "They are fuel-efficient and eco-friendly for bulky goods"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "They reach every village",
+    "They are fuel-efficient and eco-friendly for bulky goods",
+    "They are the fastest mode of transport",
+    "They are not affected by seasons"
+   ],
+   "explanation": "Water transport uses little fuel per tonne and is cheaper and cleaner for heavy goods.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The Hazira-Vijaipur-Jagdishpur pipeline is used mainly to carry what?",
+   "expected_answer": {
+    "value": "Natural gas"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Drinking water",
+    "Wheat and rice",
+    "Natural gas",
+    "Coal"
+   ],
+   "explanation": "The HVJ pipeline carries natural gas from Hazira in Gujarat to fertiliser and power plants in the north.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which mode of transport reaches difficult terrain like the north-eastern hills and remote areas fastest?",
+   "expected_answer": {
+    "value": "Air transport"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Railways",
+    "Air transport",
+    "Waterways",
+    "Pipelines"
+   ],
+   "explanation": "Aircraft are not limited by terrain and can reach remote areas that have little road or rail access, though at high cost.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which organisation is responsible for building roads in remote border areas, such as in the Himalayas and the north-east?",
+   "expected_answer": {
+    "value": "Border Roads Organisation"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "National Highways Authority of India",
+    "Indian Railways",
+    "Airports Authority of India",
+    "Border Roads Organisation"
+   ],
+   "explanation": "The Border Roads Organisation, set up in 1960, builds strategic roads in difficult border regions.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A factory must move 5,000 tonnes of iron ore regularly to a steel plant 900 km away, with no hurry. Which mode is most suitable?",
+   "expected_answer": {
+    "value": "Railways"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Air transport",
+    "Roads with small trucks",
+    "Pipelines",
+    "Railways"
+   ],
+   "explanation": "Heavy, bulky goods over long distances are cheapest by rail; air is too costly and pipelines cannot carry solid ore.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-transport-modes",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which statement about transport modes is correct?",
+   "expected_answer": {
+    "value": "Railways are best for bulk goods over long distances, while roads give flexibility for short routes"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Air transport is cheapest for heavy goods",
+    "Pipelines can carry passengers on long routes",
+    "Waterways are the fastest mode",
+    "Railways are best for bulk goods over long distances, while roads give flexibility for short routes"
+   ],
+   "explanation": "Each mode suits different needs: rail for heavy long hauls, road for flexibility, air for speed, water and pipelines for cheap bulk.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "If a country's imports of goods are greater than its exports, it has a:",
+   "expected_answer": {
+    "value": "Trade deficit"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Trade surplus",
+    "Trade balance",
+    "Trade deficit",
+    "Trade embargo"
+   ],
+   "explanation": "A trade deficit means the value of imports exceeds that of exports.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is India's largest import by value?",
+   "expected_answer": {
+    "value": "Crude petroleum"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Crude petroleum",
+    "Tea",
+    "Cotton cloth",
+    "Rice"
+   ],
+   "explanation": "India imports most of the crude oil it needs, making petroleum its largest import item.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is a major export item of India?",
+   "expected_answer": {
+    "value": "Gems and jewellery"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Gems and jewellery",
+    "Crude petroleum",
+    "Edible oils",
+    "Fertiliser raw material"
+   ],
+   "explanation": "Gems, jewellery, engineering goods and petroleum products are major Indian exports.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The World Trade Organization, which sets rules for international trade, was established in which year?",
+   "expected_answer": {
+    "value": "1995"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "1945",
+    "1965",
+    "2005",
+    "1995"
+   ],
+   "explanation": "The WTO came into existence in 1995 and replaced GATT.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "International trade is often called an indicator of a country's economic health because:",
+   "expected_answer": {
+    "value": "It reflects how much the country produces, buys and sells with others"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It only shows the population size",
+    "It tells the number of tourists",
+    "It reflects how much the country produces, buys and sells with others",
+    "It measures rainfall in the country"
+   ],
+   "explanation": "The volume and nature of trade show the economy's strength and links with the world.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is an example of heritage tourism?",
+   "expected_answer": {
+    "value": "Visiting forts and palaces of Rajasthan"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Visiting a hospital for surgery",
+    "Visiting forts and palaces of Rajasthan",
+    "Trekking in the Himalayan snow",
+    "Attending a farm machinery fair"
+   ],
+   "explanation": "Heritage tourism is travel to see historical monuments and cultural places.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why is tourism treated as part of the tertiary sector?",
+   "expected_answer": {
+    "value": "It provides services such as hotels, guides and transport"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It produces raw materials from the land",
+    "It provides services such as hotels, guides and transport",
+    "It manufactures goods in factories",
+    "It extracts minerals"
+   ],
+   "explanation": "Tourism produces services, not primary goods or manufactured items.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is NOT a way in which trade helps countries?",
+   "expected_answer": {
+    "value": "It guarantees that every country becomes self-sufficient in all goods"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It allows access to goods the country cannot produce",
+    "It encourages specialisation in what a country makes best",
+    "It guarantees that every country becomes self-sufficient in all goods",
+    "It widens markets for producers"
+   ],
+   "explanation": "Trade creates interdependence rather than complete self-sufficiency.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out among those who earn directly from tourism?",
+   "expected_answer": {
+    "value": "A steel plant worker"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A tourist guide",
+    "A hotel owner",
+    "A houseboat operator",
+    "A steel plant worker"
+   ],
+   "explanation": "The other three serve tourists directly, whereas steel plant workers do not.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Foreign tourists spending money in India mainly helps the country by:",
+   "expected_answer": {
+    "value": "Bringing in foreign exchange"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Raising the import of crude oil",
+    "Reducing the national population",
+    "Closing down local markets",
+    "Bringing in foreign exchange"
+   ],
+   "explanation": "Tourist spending in foreign currency adds to the country's foreign exchange earnings.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "How can tourism help develop a remote hill region that has few industries?",
+   "expected_answer": {
+    "value": "By creating jobs and demand for local crafts and services"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "By turning the region into a mining zone",
+    "By closing roads to protect it",
+    "By creating jobs and demand for local crafts and services",
+    "By banning all outsiders permanently"
+   ],
+   "explanation": "Tourism gives local employment and markets for products without needing large factories.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Trade within a single country, between its states and towns, is called:",
+   "expected_answer": {
+    "value": "Domestic trade"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Foreign trade",
+    "Domestic trade",
+    "Barter between nations",
+    "Free trade zone"
+   ],
+   "explanation": "Trade inside a country's borders is domestic or internal trade.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-trade-tourism-role",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A country exports far more than it imports for many years. What is the best description?",
+   "expected_answer": {
+    "value": "It has a favourable balance of trade, though it may still depend on other factors"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It has a favourable balance of trade, though it may still depend on other factors",
+    "It has a trade deficit",
+    "It has stopped international trade",
+    "It has banned imports by law"
+   ],
+   "explanation": "Exports exceeding imports is a trade surplus, which is called a favourable balance of trade.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In Belgium, community governments elected by people of one language group are an example of power sharing among:",
+   "expected_answer": {
+    "value": "Different social groups"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Different organs of government",
+    "Different levels of government",
+    "Different social groups",
+    "Different pressure groups"
+   ],
+   "explanation": "Community governments give power to linguistic social groups regardless of where they live.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A court striking down a law passed by the legislature is an example of:",
+   "expected_answer": {
+    "value": "Horizontal power sharing with checks and balances"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Vertical power sharing",
+    "Horizontal power sharing with checks and balances",
+    "Power sharing among social groups",
+    "Power sharing among parties"
+   ],
+   "explanation": "The judiciary checking the legislature shows organs of the same level controlling each other.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A village panchayat working under a state government is an example of:",
+   "expected_answer": {
+    "value": "Vertical power sharing"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Horizontal power sharing",
+    "Vertical power sharing",
+    "Power sharing among parties",
+    "Power sharing among movements"
+   ],
+   "explanation": "Power is divided between higher and lower levels of government, which is vertical power sharing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A trade union and an industrial association being consulted by the government on a labour law shows power sharing among:",
+   "expected_answer": {
+    "value": "Pressure groups and movements"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Organs of government",
+    "Pressure groups and movements",
+    "Levels of government",
+    "Linguistic communities"
+   ],
+   "explanation": "Interest groups influence decisions, which is one form of sharing power.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of the following is the odd one out?",
+   "expected_answer": {
+    "value": "State government"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Legislature",
+    "Executive",
+    "State government",
+    "Judiciary"
+   ],
+   "explanation": "Legislature, executive and judiciary are organs of government at the same level, while a state government is a different level.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A prudential reason for power sharing is that it:",
+   "expected_answer": {
+    "value": "Reduces conflict among social groups"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Respects the dignity of the individual only",
+    "Makes the majority fully dominant",
+    "Reduces conflict among social groups",
+    "Removes the need for elections"
+   ],
+   "explanation": "Prudential reasons concern good outcomes, such as stability and fewer clashes, while moral reasons concern the value of sharing itself.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A moral reason for power sharing is that it:",
+   "expected_answer": {
+    "value": "Respects the voice of those affected by decisions"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Increases economic growth for sure",
+    "Prevents any conflict",
+    "Respects the voice of those affected by decisions",
+    "Reduces the cost of elections"
+   ],
+   "explanation": "A moral reason says sharing power is valuable in itself because people have a right to be consulted.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "The rule in Belgium that the central government must have equal numbers of Dutch- and French-speaking ministers is power sharing among:",
+   "expected_answer": {
+    "value": "Social groups"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Levels of government",
+    "Social groups",
+    "Organs of government",
+    "Competing parties"
+   ],
+   "explanation": "The rule gives each linguistic community a share in the executive.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The division of power between the Union Government and state governments in India is often called:",
+   "expected_answer": {
+    "value": "Federal division of power"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Separation of organs",
+    "Federal division of power",
+    "Coalition rule",
+    "Reserved constituency system"
+   ],
+   "explanation": "Sharing between higher and lower levels is called vertical, or federal, power sharing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Competing political parties, with the opposition able to win power, is an example of power sharing among:",
+   "expected_answer": {
+    "value": "Political parties"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Organs of government",
+    "Social groups",
+    "Local governments",
+    "Political parties"
+   ],
+   "explanation": "Competition between parties allows different groups to share or alternate power.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about horizontal power sharing is true?",
+   "expected_answer": {
+    "value": "Different organs of government exercise different powers and check each other"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Power is divided among centre, state and local levels",
+    "Different organs of government exercise different powers and check each other",
+    "Power is divided on the basis of language",
+    "Only the legislature has any power"
+   ],
+   "explanation": "Horizontal sharing is among organs at the same level, ensuring none has unlimited power.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "The Panchayat, Municipality and State government together illustrate power sharing among:",
+   "expected_answer": {
+    "value": "Different levels of government"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Different organs of government",
+    "Different social groups",
+    "Different levels of government",
+    "Different parties"
+   ],
+   "explanation": "Local, state and central bodies are levels, so this is vertical power sharing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-power-sharing-forms",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which pair of power-sharing form and example is correctly matched?",
+   "expected_answer": {
+    "value": "Vertical: Union and state governments"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Horizontal: Centre and states",
+    "Vertical: Union and state governments",
+    "Social groups: legislature and judiciary",
+    "Parties: panchayat and municipality"
+   ],
+   "explanation": "Union and state governments are different levels, which is vertical sharing; the other pairs mix up the forms.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What is the capital of Belgium?",
+   "expected_answer": {
+    "value": "Brussels"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Colombo",
+    "Amsterdam",
+    "Brussels",
+    "Paris"
+   ],
+   "explanation": "Brussels is the capital of Belgium and has a special arrangement for its government.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In Brussels, what is the arrangement for the two main language groups in the state government?",
+   "expected_answer": {
+    "value": "Both communities have equal representation"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Only the Dutch group governs",
+    "Only the French group governs",
+    "The German group holds all offices",
+    "Both communities have equal representation"
+   ],
+   "explanation": "In Brussels, although Dutch speakers are a minority, both communities have equal representation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which language group forms the largest share of Belgium's population overall?",
+   "expected_answer": {
+    "value": "Dutch-speaking"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "French-speaking",
+    "German-speaking",
+    "Dutch-speaking",
+    "English-speaking"
+   ],
+   "explanation": "About 59 per cent of Belgians speak Dutch, about 40 per cent French, and about 1 per cent German.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What do Belgium's community governments mainly handle?",
+   "expected_answer": {
+    "value": "Cultural, educational and language-related issues"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Defence and foreign policy",
+    "Cultural, educational and language-related issues",
+    "Currency and the central bank",
+    "Railways of the whole country"
+   ],
+   "explanation": "The community government is elected by one language community and looks after cultural and educational matters.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In Sri Lanka, which religion was given the foremost place under the Constitution after independence?",
+   "expected_answer": {
+    "value": "Buddhism"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Hinduism",
+    "Buddhism",
+    "Islam",
+    "Christianity"
+   ],
+   "explanation": "The state was required to protect and foster Buddhism, which added to the sense of alienation among minorities.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In which year did Sri Lanka become independent?",
+   "expected_answer": {
+    "value": "1948"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "1935",
+    "1948",
+    "1956",
+    "1971"
+   ],
+   "explanation": "Sri Lanka became independent in 1948, after which Sinhala majoritarian policies grew.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Where do Sri Lankan Tamils mainly live?",
+   "expected_answer": {
+    "value": "The north and east of Sri Lanka"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The southern coast",
+    "The central hill plantations",
+    "The capital's suburbs only",
+    "The north and east of Sri Lanka"
+   ],
+   "explanation": "Sri Lankan Tamils are concentrated in the north and east, while Indian-origin Tamils work mostly in the plantations of the hill country.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which demand did Sri Lankan Tamil leaders raise for protecting their interests?",
+   "expected_answer": {
+    "value": "Regional autonomy and recognition of Tamil as an official language"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Making Buddhism the state religion",
+    "Merging Sri Lanka with Belgium",
+    "Banning Sinhala in schools",
+    "Regional autonomy and recognition of Tamil as an official language"
+   ],
+   "explanation": "Tamils asked for recognition of their language and a degree of regional autonomy; their demands were rejected for a long time.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which was a majoritarian step taken in Sri Lanka?",
+   "expected_answer": {
+    "value": "Preferential treatment for Sinhala applicants in jobs and university places"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Preferential treatment for Sinhala applicants in jobs and university places",
+    "Equal ministers from both groups in the cabinet",
+    "Separate community governments for language groups",
+    "Equal representation in a special capital government"
+   ],
+   "explanation": "Sri Lankan policies favoured Sinhala speakers in government jobs and universities, which angered Tamils.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What did the growing distrust between Sinhala and Tamil communities in Sri Lanka eventually lead to?",
+   "expected_answer": {
+    "value": "A civil war"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A civil war",
+    "A language treaty with India",
+    "A merger of the two communities",
+    "A new capital in Brussels"
+   ],
+   "explanation": "Rising mistrust and rejected demands led to a long civil war that caused great loss of life.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out as a feature of the Belgian model?",
+   "expected_answer": {
+    "value": "The majority language is made the only official language"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The majority language is made the only official language",
+    "Many powers go to state governments",
+    "Equal ministers in the central government",
+    "Separate community governments"
+   ],
+   "explanation": "Belgium shares power across groups, while making one language the only official language is Sri Lanka's approach.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why were the Dutch-speaking people of Belgium unhappy in the years after Belgium's creation?",
+   "expected_answer": {
+    "value": "They were poorer and benefited later from economic development and education"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They were banned from holding any job",
+    "They had no right to vote",
+    "They had a separate currency",
+    "They were poorer and benefited later from economic development and education"
+   ],
+   "explanation": "The French-speaking minority was richer and more powerful earlier, which led to tension later.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-belgium-srilanka-power-sharing",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Belgium's state governments differ from many regional governments in other countries because they:",
+   "expected_answer": {
+    "value": "Are not subordinate to the central government"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Are not subordinate to the central government",
+    "Cannot make any law",
+    "Are chosen by the centre",
+    "Do not collect taxes"
+   ],
+   "explanation": "Belgium shifted many powers to regional governments that have powers of their own.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these subjects belongs to the State List in India?",
+   "expected_answer": {
+    "value": "Police"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Defence",
+    "Banking",
+    "Police",
+    "Foreign affairs"
+   ],
+   "explanation": "Police, trade, commerce, agriculture and irrigation are State List subjects.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "If a state law and a Union law clash on a Concurrent List subject, which prevails?",
+   "expected_answer": {
+    "value": "The Union law"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The state law",
+    "The one passed first",
+    "The Union law",
+    "The Supreme Court's opinion by default"
+   ],
+   "explanation": "On Concurrent List subjects the Union law prevails in a conflict.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is a Concurrent List subject?",
+   "expected_answer": {
+    "value": "Education"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Education",
+    "Defence",
+    "Currency",
+    "Foreign affairs"
+   ],
+   "explanation": "Education, forests, marriage and trade unions are on the Concurrent List.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Who has the power to legislate on subjects that are not in any of the three lists, such as computer software?",
+   "expected_answer": {
+    "value": "The Union Government"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "State Governments only",
+    "The Union Government",
+    "Panchayats",
+    "Governors"
+   ],
+   "explanation": "Residuary subjects, which are not in any list, are with the Union Government.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "How can the federal provisions of the Indian Constitution be amended?",
+   "expected_answer": {
+    "value": "By both Houses of Parliament by two-thirds majority and ratification by at least half of the state legislatures"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "By both Houses of Parliament by two-thirds majority and ratification by at least half of the state legislatures",
+    "By the President acting alone",
+    "By the Prime Minister's order",
+    "By a simple majority in Lok Sabha only"
+   ],
+   "explanation": "Federal provisions need consent of both levels, which protects state powers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which country is an example of a federation formed by independent states coming together?",
+   "expected_answer": {
+    "value": "Switzerland"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "India",
+    "Switzerland",
+    "Belgium",
+    "Spain"
+   ],
+   "explanation": "Switzerland, the USA and Australia are coming-together federations, whereas India, Spain and Belgium are holding-together.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these is a Union Territory administered directly by the central government?",
+   "expected_answer": {
+    "value": "Lakshadweep"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Kerala",
+    "Punjab",
+    "Lakshadweep",
+    "Assam"
+   ],
+   "explanation": "Lakshadweep and Chandigarh are Union Territories, too small to become full states.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In 1956 the States Reorganisation Act mainly redrew state boundaries on the basis of:",
+   "expected_answer": {
+    "value": "Language"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Religion",
+    "Language",
+    "Population size",
+    "River systems"
+   ],
+   "explanation": "Linguistic states were created to respect regional languages and cultures.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about languages in India is correct?",
+   "expected_answer": {
+    "value": "India has no single national language, and the Constitution recognises 22 scheduled languages"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Hindi is the only national language",
+    "English is the national language by law",
+    "India has no single national language, and the Constitution recognises 22 scheduled languages",
+    "Only Hindi and English are recognised"
+   ],
+   "explanation": "Hindi is the official language, but it is not imposed as a national language, and there are 22 scheduled languages.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why do separate revenue sources for each level of government matter in a federation?",
+   "expected_answer": {
+    "value": "They give each level financial autonomy"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They let the Centre control states",
+    "They give each level financial autonomy",
+    "They remove the need for taxes",
+    "They help only local bodies"
+   ],
+   "explanation": "Independent sources of revenue let each level carry out its responsibilities.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out as a feature of federalism?",
+   "expected_answer": {
+    "value": "A single government holding all powers"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A single government holding all powers",
+    "A written constitution",
+    "Two or more levels of government",
+    "Courts to settle disputes between levels"
+   ],
+   "explanation": "Federalism divides powers among levels; a single all-powerful government is unitary.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out among Union List subjects?",
+   "expected_answer": {
+    "value": "Police"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Defence",
+    "Currency",
+    "Foreign affairs",
+    "Police"
+   ],
+   "explanation": "Police is a State List subject, while the others are Union List subjects.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "list-federalism-features",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Since the 1990s, the rise of coalition governments with regional parties at the Centre has:",
+   "expected_answer": {
+    "value": "Strengthened the federal spirit by giving states more say"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Made states powerless",
+    "Ended elections in states",
+    "Ended the Concurrent List",
+    "Strengthened the federal spirit by giving states more say"
+   ],
+   "explanation": "The Centre has had to respect state demands because regional parties are partners in power.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What does decentralisation mean?",
+   "expected_answer": {
+    "value": "Taking power from the Centre and states and giving it to local governments"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Giving all power to the Centre",
+    "Giving power only to the courts",
+    "Removing elections at local level",
+    "Taking power from the Centre and states and giving it to local governments"
+   ],
+   "explanation": "Decentralisation shifts decision-making closer to people through local bodies.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which Amendment of 1992 is for urban local government?",
+   "expected_answer": {
+    "value": "74th Amendment"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "73rd Amendment",
+    "42nd Amendment",
+    "44th Amendment",
+    "74th Amendment"
+   ],
+   "explanation": "The 73rd Amendment covers rural panchayats, and the 74th covers municipalities.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is the head of a municipal corporation in a big city?",
+   "expected_answer": {
+    "value": "Mayor"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Sarpanch",
+    "Governor",
+    "Mayor",
+    "Block officer"
+   ],
+   "explanation": "A corporation's political head is the Mayor, and a municipality is headed by a chairperson.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out among bodies of local self-government?",
+   "expected_answer": {
+    "value": "Lok Sabha"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Gram Sabha",
+    "Gram Panchayat",
+    "Zilla Parishad",
+    "Lok Sabha"
+   ],
+   "explanation": "The first three are local government bodies, while Lok Sabha is part of Parliament.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the term of an elected local body after the 1992 amendments?",
+   "expected_answer": {
+    "value": "Five years"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Three years",
+    "Five years",
+    "Seven years",
+    "Ten years"
+   ],
+   "explanation": "Elections to local bodies are to be held regularly every five years.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Before the 1992 amendments, what was a major problem of local government?",
+   "expected_answer": {
+    "value": "Elections were not held regularly and bodies had few powers"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They had too much power",
+    "They were abolished",
+    "Elections were not held regularly and bodies had few powers",
+    "They controlled defence"
+   ],
+   "explanation": "Local bodies lacked constitutional status, so elections were often delayed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which place is known for its experiment in people's participation in drawing up the city budget?",
+   "expected_answer": {
+    "value": "Porto Alegre in Brazil"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Nagpur in India",
+    "Porto Alegre in Brazil",
+    "Geneva in Switzerland",
+    "Durban in South Africa"
+   ],
+   "explanation": "In Porto Alegre, residents' groups take part in deciding how the city's budget is spent.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Who are the members of a Panchayat Samiti (block level)?",
+   "expected_answer": {
+    "value": "Members elected by the panchayat members of that area"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Members elected by the panchayat members of that area",
+    "Judges of the High Court",
+    "Appointed Union ministers",
+    "Only the district collector"
+   ],
+   "explanation": "Block-level members are chosen by the members of the gram panchayats in the block.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which tier of the panchayat system covers an entire district?",
+   "expected_answer": {
+    "value": "Zilla Parishad"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Gram Panchayat",
+    "Panchayat Samiti",
+    "Zilla Parishad",
+    "Gram Sabha"
+   ],
+   "explanation": "The Zilla Parishad is the district-level body, the top tier of the panchayati raj.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about the Constitution and state governments is correct after the amendments?",
+   "expected_answer": {
+    "value": "State governments must share some powers and revenue with local bodies"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "States cannot hold local elections",
+    "Local bodies depend wholly on the Centre",
+    "State governments must share some powers and revenue with local bodies",
+    "States can end local bodies anytime"
+   ],
+   "explanation": "State Finance Commissions guide the sharing of revenues with local governments.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which state is known for starting the first panchayati raj in India in 1959, at Nagaur?",
+   "expected_answer": {
+    "value": "Rajasthan"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Kerala",
+    "Rajasthan",
+    "Gujarat",
+    "Punjab"
+   ],
+   "explanation": "Panchayati raj was first introduced in Rajasthan at Nagaur in 1959.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Why is decentralisation said to deepen democracy?",
+   "expected_answer": {
+    "value": "Many local problems are best solved locally, and it increases people's participation"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It removes the need for elections",
+    "Many local problems are best solved locally, and it increases people's participation",
+    "It transfers all power to one leader",
+    "It stops state governments from functioning"
+   ],
+   "explanation": "People know local problems best and can take part directly in solving them.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-decentralisation-india",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "The Eleventh Schedule lists subjects for panchayats. How many subjects does it list?",
+   "expected_answer": {
+    "value": "29"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "29",
+    "18",
+    "7",
+    "52"
+   ],
+   "explanation": "The 11th Schedule lists 29 subjects, and the 12th lists 18 for municipalities.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who was the first woman Prime Minister of India?",
+   "expected_answer": {
+    "value": "Indira Gandhi"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Sarojini Naidu",
+    "Pratibha Patil",
+    "Sushma Swaraj",
+    "Indira Gandhi"
+   ],
+   "explanation": "Indira Gandhi became Prime Minister in 1966.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "The Women's Reservation Act passed in 2023 provides how much reservation for women in the Lok Sabha and state assemblies?",
+   "expected_answer": {
+    "value": "One-third"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "One-half",
+    "One-third",
+    "One-fourth",
+    "One-tenth"
+   ],
+   "explanation": "The Nari Shakti Vandan Adhiniyam reserves one-third of seats for women.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which Article of the Constitution prohibits discrimination on grounds including sex?",
+   "expected_answer": {
+    "value": "Article 15"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Article 17",
+    "Article 21",
+    "Article 370",
+    "Article 15"
+   ],
+   "explanation": "Article 15 prohibits discrimination on religion, race, caste, sex or place of birth.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which Indian Act of 1961 made giving and taking dowry a punishable offence?",
+   "expected_answer": {
+    "value": "Dowry Prohibition Act"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Equal Remuneration Act",
+    "Hindu Marriage Act",
+    "Dowry Prohibition Act",
+    "Right to Education Act"
+   ],
+   "explanation": "The Dowry Prohibition Act of 1961 is the law against dowry.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is an example of a legal step against violence against women passed in 2005?",
+   "expected_answer": {
+    "value": "Protection of Women from Domestic Violence Act"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Factories Act",
+    "Forest Rights Act",
+    "Minimum Wages Act",
+    "Protection of Women from Domestic Violence Act"
+   ],
+   "explanation": "The Domestic Violence Act of 2005 protects women from abuse at home.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which region has some of the highest shares of women in public life, such as Sweden and Norway?",
+   "expected_answer": {
+    "value": "Scandinavian countries"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Scandinavian countries",
+    "South Asia",
+    "West Africa",
+    "Central America"
+   ],
+   "explanation": "Nordic countries have high shares of women in legislatures.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "What did early women's movements in Europe and the USA mainly demand?",
+   "expected_answer": {
+    "value": "The right to vote"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The right to build roads",
+    "Abolition of schools",
+    "The right to vote",
+    "Higher taxes"
+   ],
+   "explanation": "Suffrage movements demanded voting rights and also equal legal and educational opportunities.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What is one reason why women's representation in Parliament stays low in India?",
+   "expected_answer": {
+    "value": "Politics is still seen as a male sphere, and parties give fewer tickets to women"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Women are banned from contesting",
+    "Politics is still seen as a male sphere, and parties give fewer tickets to women",
+    "Women cannot vote",
+    "There are no women's organisations"
+   ],
+   "explanation": "Social attitudes and party decisions limit women's presence.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about women and voting in India is correct?",
+   "expected_answer": {
+    "value": "The gap between men and women in voter turnout has narrowed"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The gap between men and women in voter turnout has narrowed",
+    "Women are not allowed to vote",
+    "Women vote only in local elections",
+    "Women voters are fewer in every state"
+   ],
+   "explanation": "Women's participation in voting has grown, though representation remains low.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What is a likely effect of reserving seats for women in local bodies?",
+   "expected_answer": {
+    "value": "Women gain decision-making experience and attention to their issues"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "All local bodies are closed",
+    "Men cannot contest elections",
+    "Women lose the right to vote",
+    "Women gain decision-making experience and attention to their issues"
+   ],
+   "explanation": "Reservation gives women a role in governance and brings their concerns forward.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out among conditions that limit women's political role?",
+   "expected_answer": {
+    "value": "Equal pay and safe workplaces"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Heavy burden of housework",
+    "Equal pay and safe workplaces",
+    "Lower literacy rates",
+    "Social attitudes about gender roles"
+   ],
+   "explanation": "The other three hold women back, whereas equal pay and safe workplaces support participation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which practice contributes to the falling child sex ratio in some regions?",
+   "expected_answer": {
+    "value": "Sex-selective abortion"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Mid-day meals",
+    "Immunisation drives",
+    "Free primary schooling",
+    "Sex-selective abortion"
+   ],
+   "explanation": "Preference for sons leads to sex-selective abortion, which is illegal.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-gender-political-participation",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Why do many argue that special measures are needed to raise women's representation?",
+   "expected_answer": {
+    "value": "Social inequality and party practices have kept women underrepresented for a long time"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Women are not interested in voting",
+    "The law bans women from politics",
+    "Social inequality and party practices have kept women underrepresented for a long time",
+    "Women have never held any office"
+   ],
+   "explanation": "Without special measures, existing patterns of inequality tend to continue.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Who founded the Satyashodhak Samaj in 1873 to fight caste inequality?",
+   "expected_answer": {
+    "value": "Jotiba Phule"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Jotiba Phule",
+    "Raja Ram Mohan Roy",
+    "Bal Gangadhar Tilak",
+    "Subhas Chandra Bose"
+   ],
+   "explanation": "Jotiba Phule founded the Satyashodhak Samaj to challenge caste discrimination.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What percentage of seats in central government jobs was reserved for OBCs after the Mandal Commission?",
+   "expected_answer": {
+    "value": "27 per cent"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "10 per cent",
+    "50 per cent",
+    "27 per cent",
+    "33 per cent"
+   ],
+   "explanation": "Central government jobs reserved 27 per cent for OBCs.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Who chaired the Drafting Committee of the Constitution and fought against untouchability?",
+   "expected_answer": {
+    "value": "B. R. Ambedkar"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "B. R. Ambedkar",
+    "Jawaharlal Nehru",
+    "Sardar Patel",
+    "Maulana Azad"
+   ],
+   "explanation": "Ambedkar led the Drafting Committee and was a leading voice against caste discrimination.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is the main meaning of 'caste hierarchy'?",
+   "expected_answer": {
+    "value": "The ranking of castes from higher to lower in social order"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The ranking of castes from higher to lower in social order",
+    "A list of voters by religion",
+    "A type of election symbol",
+    "A law on land ownership"
+   ],
+   "explanation": "Caste hierarchy ranks groups as higher or lower, which causes inequality.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which change tends to weaken caste hierarchy?",
+   "expected_answer": {
+    "value": "Urbanisation and growth of literacy and occupational mobility"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Banning schools",
+    "Limiting migration",
+    "Reducing wages",
+    "Urbanisation and growth of literacy and occupational mobility"
+   ],
+   "explanation": "As people move to cities and change jobs, strict caste divisions loosen.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is a negative effect of heavy emphasis on caste in politics?",
+   "expected_answer": {
+    "value": "It can divert attention from issues like poverty and development"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It can divert attention from issues like poverty and development",
+    "It ends all caste discrimination",
+    "It always ensures fair elections",
+    "It removes the need for parties"
+   ],
+   "explanation": "Caste politics can take focus away from real issues and cause tension.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is a positive effect of caste politics for disadvantaged groups?",
+   "expected_answer": {
+    "value": "It gives them a chance to demand a share in power and decision-making"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It forces them to stay in one occupation",
+    "It removes their right to vote",
+    "It gives them a chance to demand a share in power and decision-making",
+    "It makes them lose seats"
+   ],
+   "explanation": "Caste mobilisation has helped Dalits and OBCs gain representation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which fact shows that caste is not the only factor in Indian elections?",
+   "expected_answer": {
+    "value": "Ruling parties and MPs often lose elections"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Every constituency has a clear caste majority",
+    "Voters ignore party performance",
+    "Candidates never campaign",
+    "Ruling parties and MPs often lose elections"
+   ],
+   "explanation": "If caste alone decided results, sitting governments would not lose so often.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "When parties choose candidates, they often:",
+   "expected_answer": {
+    "value": "Consider the caste composition of the constituency"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Ignore all voter groups",
+    "Consider the caste composition of the constituency",
+    "Choose only by age",
+    "Choose by exam results"
+   ],
+   "explanation": "Parties take caste into account to win support, though they also consider other factors.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about caste and voting is most accurate?",
+   "expected_answer": {
+    "value": "Voters have more than one social identity and other factors also matter"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "All voters of a caste vote together",
+    "No voter cares about caste",
+    "Voters have more than one social identity and other factors also matter",
+    "Caste decides every result"
+   ],
+   "explanation": "Voters weigh performance, leaders and issues as well as caste.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out among movements against caste discrimination?",
+   "expected_answer": {
+    "value": "Sati abolition campaign"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Satyashodhak Samaj",
+    "Mahad Satyagraha",
+    "Self-Respect movement",
+    "Sati abolition campaign"
+   ],
+   "explanation": "The other three are movements against caste discrimination.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Reserving seats for SC and ST in the Lok Sabha is intended to:",
+   "expected_answer": {
+    "value": "Ensure representation of historically disadvantaged groups"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Create a caste-based state",
+    "Stop general candidates from contesting anywhere",
+    "Make caste hierarchy permanent",
+    "Ensure representation of historically disadvantaged groups"
+   ],
+   "explanation": "Reserved constituencies ensure these groups have a voice in legislatures.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-caste-politics-link",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Why is a political party that appeals to only one caste usually unable to win in most constituencies?",
+   "expected_answer": {
+    "value": "No single caste is a majority in most constituencies"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Caste voters never vote",
+    "Courts ban such parties",
+    "No single caste is a majority in most constituencies",
+    "Only parties with no caste can contest"
+   ],
+   "explanation": "In most constituencies several castes live together, so parties need broad support.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In which year was the Indian National Congress founded?",
+   "expected_answer": {
+    "value": "1885"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "1857",
+    "1885",
+    "1920",
+    "1947"
+   ],
+   "explanation": "The Indian National Congress was founded in 1885.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which country has effectively a one-party system?",
+   "expected_answer": {
+    "value": "China"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "India",
+    "USA",
+    "Britain",
+    "China"
+   ],
+   "explanation": "China allows only the Communist Party to rule effectively.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "India has what type of party system?",
+   "expected_answer": {
+    "value": "Multi-party system"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "One-party system",
+    "Two-party system",
+    "No-party system",
+    "Multi-party system"
+   ],
+   "explanation": "India has many parties competing for power.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The USA is usually described as having which kind of party system?",
+   "expected_answer": {
+    "value": "Two-party system"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "One-party system",
+    "Multi-party system",
+    "Two-party system",
+    "No-party system"
+   ],
+   "explanation": "The Democratic and Republican parties dominate US politics.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Who allots election symbols to political parties in India?",
+   "expected_answer": {
+    "value": "Election Commission"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Supreme Court",
+    "President",
+    "Election Commission",
+    "Lok Sabha Speaker"
+   ],
+   "explanation": "The Election Commission recognises parties and allots symbols.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What is a coalition government?",
+   "expected_answer": {
+    "value": "A government formed by an alliance of several parties"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A government with one party",
+    "A government without elections",
+    "A government formed by the army",
+    "A government formed by an alliance of several parties"
+   ],
+   "explanation": "When no party has a majority, parties form an alliance.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is a challenge faced by political parties?",
+   "expected_answer": {
+    "value": "Lack of internal democracy"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Lack of internal democracy",
+    "Too many free elections",
+    "Too much public discussion",
+    "Equal tickets for everyone"
+   ],
+   "explanation": "Many parties concentrate power in a few leaders.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What is meant by dynastic succession in parties?",
+   "expected_answer": {
+    "value": "Top posts passing to family members"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Parties choosing leaders by exams",
+    "Elections inside parties every year",
+    "Leaders chosen by a court",
+    "Top posts passing to family members"
+   ],
+   "explanation": "Parties facing this challenge give priority to relatives of leaders.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which party was founded by Kanshi Ram in 1984?",
+   "expected_answer": {
+    "value": "Bahujan Samaj Party"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Bharatiya Janata Party",
+    "Bahujan Samaj Party",
+    "Communist Party of India",
+    "Indian National Congress"
+   ],
+   "explanation": "Kanshi Ram founded the BSP in 1984.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which reform makes candidates disclose their property and criminal cases?",
+   "expected_answer": {
+    "value": "Order of the Supreme Court and Election Commission"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Tax laws",
+    "Land reforms",
+    "Order of the Supreme Court and Election Commission",
+    "Reservation policy"
+   ],
+   "explanation": "Disclosure through affidavits helps voters make informed choices.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out as a function of a political party?",
+   "expected_answer": {
+    "value": "Conducting elections"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Contesting elections",
+    "Forming governments",
+    "Conducting elections",
+    "Playing the role of opposition"
+   ],
+   "explanation": "Elections are conducted by the Election Commission.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "What does a party do when it connects people with government welfare schemes?",
+   "expected_answer": {
+    "value": "Provides access to government machinery"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Writes the Constitution",
+    "Appoints judges",
+    "Prints currency",
+    "Provides access to government machinery"
+   ],
+   "explanation": "Parties help people reach schemes and officials.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-political-party-functions",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Why is a party that has lost an election still important?",
+   "expected_answer": {
+    "value": "It questions government actions and represents voters"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It runs the government",
+    "It questions government actions and represents voters",
+    "It frames law alone",
+    "It chooses the President"
+   ],
+   "explanation": "The opposition holds the government accountable.",
+   "content_status": "needs_review"
+  }
+ ]
+}

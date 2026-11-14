@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v126 (2026-11-12)
+## Latest delivery - v127 (2026-11-13)
+521 more Social Science questions, 13 or more for each of the 40 on-syllabus skills, all marked needs_review for a teacher (the facts to check first are listed in docs/CONTENT_V127.md). No website change except the version number, no migration. After deploying run `node packages/db/seed-diagnostic.js` with your own settings (safe to re-run). Apply after v126: `sahayak-v127-social-science-delta.zip`. Not seen live; facts not independently checked.
+
+## Previous delivery - v126 (2026-11-12)
 1,076 more Computer Applications questions, covering every one of the 38 skills (27 to 30 each), all marked needs_review for a teacher. No website change except the version number, no migration. After deploying run `node packages/db/seed-diagnostic.js` with your own settings (safe to re-run). Apply after v125: `sahayak-v126-computer-applications-delta.zip`. Not seen live; facts and code snippets were read, not independently checked.
 
 ## Previous delivery - v125 (2026-11-11)

@@ -1,0 +1,2625 @@
+{
+ "subject_slug": "social-science",
+ "questions": [
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A country lets only one party contest and form the government. Which party system is this?",
+   "expected_answer": {
+    "value": "One-party system"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "One-party system",
+    "Two-party system",
+    "Multi-party system",
+    "Coalition system"
+   ],
+   "explanation": "When only a single party is permitted to hold power, the system is a one-party system.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "In a two-party system, which statement is accurate?",
+   "expected_answer": {
+    "value": "Other parties may exist, but only two have a realistic chance of winning power"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Law forbids any third party from contesting",
+    "Every election produces a coalition government",
+    "Other parties may exist, but only two have a realistic chance of winning power",
+    "Only one party contests in each constituency"
+   ],
+   "explanation": "A two-party system does not ban other parties; in practice just two of them can win enough seats to govern.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The United Kingdom's two-party pattern means the party with the second-largest number of seats usually does what?",
+   "expected_answer": {
+    "value": "Serves as the Opposition in Parliament"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Serves as the Opposition in Parliament",
+    "Joins the government as a junior partner",
+    "Is dissolved until the next election",
+    "Appoints the Prime Minister"
+   ],
+   "explanation": "The second-largest party typically forms the Opposition, ready to replace the government at the next election.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of the following is NOT a feature of India's party system?",
+   "expected_answer": {
+    "value": "Only two parties ever win seats in the Lok Sabha"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Many national and regional parties compete",
+    "Only two parties ever win seats in the Lok Sabha",
+    "Coalition governments have been formed at the Centre",
+    "Regional parties play a significant role"
+   ],
+   "explanation": "India has a multi-party system with many parties winning seats, so the claim that only two ever win is false.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why is a multi-party system considered suitable for India?",
+   "expected_answer": {
+    "value": "Its social and regional diversity cannot be accommodated by two or three parties"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Its social and regional diversity cannot be accommodated by two or three parties",
+    "The Constitution bans single-party rule only in cities",
+    "Elections are held only for regional bodies",
+    "Voters are not allowed to choose between parties"
+   ],
+   "explanation": "India's wide social and geographical diversity gives rise to many parties representing different interests.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is a likely drawback of a multi-party system?",
+   "expected_answer": {
+    "value": "Governments may depend on coalitions and can be unstable"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Voters get almost no choice of parties",
+    "One party always rules permanently",
+    "Governments may depend on coalitions and can be unstable",
+    "Opposition parties cannot exist"
+   ],
+   "explanation": "When no party has a majority, coalitions are needed and these can be fragile, although voters get more choice.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In which period after independence did one party, the Indian National Congress, dominate national politics?",
+   "expected_answer": {
+    "value": "The first few decades after independence"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Only the years after 2014",
+    "The first few decades after independence",
+    "Only during the years 1857 to 1947",
+    "It never held a majority at the Centre"
+   ],
+   "explanation": "Congress dominated Indian national politics in the early decades, even though India was always a multi-party system.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "After an election no single party wins a majority, so several parties agree to govern together. This arrangement is called what?",
+   "expected_answer": {
+    "value": "A coalition government"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A one-party government",
+    "A coalition government",
+    "A caretaker constitution",
+    "A presidential veto"
+   ],
+   "explanation": "Parties joining hands after an election to form a government is a coalition government.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which feature best shows that a system is multi-party rather than one-party?",
+   "expected_answer": {
+    "value": "Several parties have a chance to come to power, alone or in alliance"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Only the ruling party can field candidates",
+    "The same party has ruled without a break",
+    "Several parties have a chance to come to power, alone or in alliance",
+    "Elections are held but only one name appears"
+   ],
+   "explanation": "A multi-party system gives many parties a real chance of power, separately or through alliances.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why is a one-party system widely seen as a poor fit for democracy?",
+   "expected_answer": {
+    "value": "It removes free competition and a choice for voters"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It always collapses within a year",
+    "It requires more elections than other systems",
+    "It removes free competition and a choice for voters",
+    "It forbids the government from collecting taxes"
+   ],
+   "explanation": "Without competing parties, voters cannot choose or change governments, which weakens democracy.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "The NDA and UPA in India are examples of what?",
+   "expected_answer": {
+    "value": "Alliances or fronts of several parties"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Single parties with one symbol",
+    "Alliances or fronts of several parties",
+    "Constitutional bodies appointed by the President",
+    "Regional governments with separate armies"
+   ],
+   "explanation": "They are coalitions of parties that join together to contest elections or form governments.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A country has eight registered parties, but over many elections only two ever win enough seats to govern, alternating in power. How should its system be classified in practice?",
+   "expected_answer": {
+    "value": "Two-party system"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Multi-party system",
+    "Two-party system",
+    "One-party system",
+    "Non-party system"
+   ],
+   "explanation": "Classification depends on how many parties effectively compete for power, not how many are registered.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-party-systems",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which statement about party systems is true?",
+   "expected_answer": {
+    "value": "The party system a country has depends on social divisions, history and electoral rules, not just its choice"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "The party system a country has depends on social divisions, history and electoral rules, not just its choice",
+    "Every democracy must have exactly two parties",
+    "Party systems are fixed by the United Nations",
+    "One-party systems appear only where elections are free"
+   ],
+   "explanation": "Party systems emerge from social, historical and institutional conditions; there is no single model all countries must follow.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A government that responds to the needs and demands of its citizens is described as having which expected outcome?",
+   "expected_answer": {
+    "value": "Responsiveness"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Hereditary rule",
+    "Totalitarianism",
+    "Responsiveness",
+    "Rapid industrialisation"
+   ],
+   "explanation": "A government that listens and acts on the demands of its people is responsive.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Citizens can examine the process of decision-making, including how and why a decision was taken. Which feature of democracy is this?",
+   "expected_answer": {
+    "value": "Transparency"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Dictatorship",
+    "Federation",
+    "Transparency",
+    "Secularism"
+   ],
+   "explanation": "Transparency means decisions and procedures are open for citizens to scrutinise.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which Nobel-winning economist observed that no famine has taken place in an independent democratic country with a free press?",
+   "expected_answer": {
+    "value": "Amartya Sen"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Abhijit Banerjee",
+    "Amartya Sen",
+    "Raghuram Rajan",
+    "Manmohan Singh"
+   ],
+   "explanation": "Amartya Sen argued that democratic accountability and a free press push governments to prevent famine.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why is it wrong to judge democracy only by economic growth?",
+   "expected_answer": {
+    "value": "Democracy aims at many outcomes such as freedom, dignity and accountability beyond income"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Democracy aims at many outcomes such as freedom, dignity and accountability beyond income",
+    "Democracies never grow economically",
+    "Growth data is not available for democracies",
+    "Growth is illegal in a democracy"
+   ],
+   "explanation": "Democracy is valued for political and social outcomes too, so growth alone is an incomplete test.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of the following is NOT something democracy guarantees?",
+   "expected_answer": {
+    "value": "Equal incomes for all citizens"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Equal incomes for all citizens",
+    "Equal political rights for all adults",
+    "A government that can be voted out",
+    "The right to criticise the government"
+   ],
+   "explanation": "Democracy provides political equality but does not by itself remove economic inequality.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about democracy and inequality is correct?",
+   "expected_answer": {
+    "value": "Democracies often still have large economic inequalities between rich and poor"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Democracy has eliminated income gaps everywhere",
+    "Dictatorships always have lower inequality",
+    "Inequality exists only in non-democracies",
+    "Democracies often still have large economic inequalities between rich and poor"
+   ],
+   "explanation": "Political equality does not automatically mean economic equality; gaps persist in many democracies.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A democratic decision often takes longer because of discussion and consultation. How is this best judged?",
+   "expected_answer": {
+    "value": "A cost, but decisions are more likely to be accepted and less likely to be reckless"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "A cost, but decisions are more likely to be accepted and less likely to be reckless",
+    "Proof that democracy cannot work",
+    "A reason to end elections",
+    "Irrelevant to the quality of decisions"
+   ],
+   "explanation": "Consultation can slow decisions, yet it usually produces decisions with wider acceptance and better scrutiny.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How does a democracy help handle social differences such as language or religion?",
+   "expected_answer": {
+    "value": "By providing peaceful ways to accommodate different groups, such as power sharing"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "By providing peaceful ways to accommodate different groups, such as power sharing",
+    "By forcing everyone to follow one culture",
+    "By banning the discussion of differences",
+    "By abolishing elections between groups"
+   ],
+   "explanation": "Democracies reduce the risk of violent conflict by giving groups a way to share power and voice demands.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out among the expected outcomes of democracy?",
+   "expected_answer": {
+    "value": "Guaranteed fastest economic growth in the world"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Accountable government",
+    "Dignity and freedom of citizens",
+    "Accommodation of social diversity",
+    "Guaranteed fastest economic growth in the world"
+   ],
+   "explanation": "Democracy is expected to deliver accountability, dignity and diversity, but does not guarantee the fastest growth.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A student says democracy has failed because her village still has poor roads. Which reply best fits the idea of democratic outcomes?",
+   "expected_answer": {
+    "value": "Democracy lets citizens demand and vote on better roads, but does not automatically supply them"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Roads are never a democratic issue",
+    "Dictators always build better roads",
+    "Democracy lets citizens demand and vote on better roads, but does not automatically supply them",
+    "Democracy forbids spending on roads"
+   ],
+   "explanation": "Democracy gives citizens tools to press for change; results depend on how those tools are used.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why do democratic governments tend to correct their mistakes more easily than dictatorships?",
+   "expected_answer": {
+    "value": "Elections, a free press and an opposition allow errors to be pointed out and leaders replaced"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Leaders in democracies never make mistakes",
+    "Courts are banned from judging them",
+    "Citizens are not told about mistakes",
+    "Elections, a free press and an opposition allow errors to be pointed out and leaders replaced"
+   ],
+   "explanation": "Open debate and the possibility of voting leaders out make correction possible.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which democratic idea is shown when every adult citizen has one vote of equal value?",
+   "expected_answer": {
+    "value": "Political equality"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Economic equality",
+    "Social hierarchy",
+    "Judicial review",
+    "Political equality"
+   ],
+   "explanation": "One person, one vote gives every adult equal political voice, regardless of wealth or status.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-democracy-outcomes",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A study finds that dictatorships had slightly higher growth rates than democracies on average, but with a small gap. What is the sensible conclusion?",
+   "expected_answer": {
+    "value": "The gap is small, so it does not outweigh democracy's other benefits"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The gap is small, so it does not outweigh democracy's other benefits",
+    "Democracy should be replaced immediately",
+    "Growth is the only measure of a political system",
+    "The study proves democracies cause poverty"
+   ],
+   "explanation": "A small growth difference is not enough to reject democracy, which is valued for many other outcomes.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "What does life expectancy at birth measure?",
+   "expected_answer": {
+    "value": "The average number of years a newborn is expected to live"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "The average number of years a newborn is expected to live",
+    "The age at which people retire",
+    "The number of doctors per person",
+    "The share of old people in a country"
+   ],
+   "explanation": "Life expectancy is the average expected length of life at birth.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Net Attendance Ratio, used in comparing states, counts which group?",
+   "expected_answer": {
+    "value": "Children aged 14 to 15 attending school as a percentage of all children of that age"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Adults who can read",
+    "Teachers per school",
+    "Children aged 14 to 15 attending school as a percentage of all children of that age",
+    "Schools per village"
+   ],
+   "explanation": "Net Attendance Ratio shows what share of children of the stated age group attend school.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Body Mass Index (BMI) is used mainly to judge what?",
+   "expected_answer": {
+    "value": "Nutritional status of adults"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Income of households",
+    "Nutritional status of adults",
+    "Years of schooling",
+    "Quality of drinking water"
+   ],
+   "explanation": "BMI relates weight to height and indicates whether a person is undernourished or overweight.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Kerala has a lower per capita income than Haryana but a lower infant mortality rate. What does this show?",
+   "expected_answer": {
+    "value": "Income alone does not capture health and other development outcomes"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Kerala is richer than Haryana",
+    "Income alone does not capture health and other development outcomes",
+    "Infant mortality depends only on income",
+    "Haryana has better health in every way"
+   ],
+   "explanation": "Public health facilities in Kerala give better results than income alone would suggest.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Two countries each have an average income of Rs 5,000 per month. In A everyone earns about the same; in B a few earn a great deal and most earn little. Which statement is right?",
+   "expected_answer": {
+    "value": "A is better placed for most people, as the average hides B's inequality"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Both are equally developed",
+    "A is better placed for most people, as the average hides B's inequality",
+    "B is better because of its rich",
+    "Average income shows no difference in either"
+   ],
+   "explanation": "Averages ignore how income is distributed, so equal averages can hide very different lives.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these indicators measures income rather than health or education?",
+   "expected_answer": {
+    "value": "Per capita income"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Infant mortality rate",
+    "Literacy rate",
+    "Life expectancy",
+    "Per capita income"
+   ],
+   "explanation": "The other three are non-income indicators, while per capita income measures money.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "In Tamil Nadu, the mid-day meal scheme is credited with doing what?",
+   "expected_answer": {
+    "value": "Raising school attendance, especially among poorer children"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Reducing the need for teachers",
+    "Raising the price of grain",
+    "Raising school attendance, especially among poorer children",
+    "Closing government schools"
+   ],
+   "explanation": "Providing free meals at school gave families a reason to send children, improving attendance.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A country's total income is Rs 12,00,000 and its population is 400. What is its per capita income?",
+   "expected_answer": {
+    "value": "Rs 3,000"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Rs 3,000",
+    "Rs 480",
+    "Rs 30,000",
+    "Rs 12,00,400"
+   ],
+   "explanation": "Per capita income equals total income divided by population: 1,200,000 divided by 400 is 3,000.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why might two people have different development goals?",
+   "expected_answer": {
+    "value": "Their aspirations and circumstances differ, and what helps one may harm another"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Development has only one fixed goal",
+    "Governments set every person's goals",
+    "Their aspirations and circumstances differ, and what helps one may harm another",
+    "Goals depend only on age"
+   ],
+   "explanation": "A landless labourer and a rich farmer may want different, even conflicting, things from development.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which of these is a non-material goal people value in development?",
+   "expected_answer": {
+    "value": "Security, respect and freedom"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A larger bank balance",
+    "More machinery",
+    "Security, respect and freedom",
+    "A bigger house"
+   ],
+   "explanation": "People seek non-material things such as equal treatment, freedom and security alongside income.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "In comparing countries, the literacy rate usually refers to the proportion of literate people in which group?",
+   "expected_answer": {
+    "value": "The population aged 7 years and above"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Children below 5 years",
+    "The population aged 7 years and above",
+    "Only adult men",
+    "Only people with a college degree"
+   ],
+   "explanation": "The standard literacy rate counts literate persons among the population aged seven and above.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about the World Bank's classification of countries is correct?",
+   "expected_answer": {
+    "value": "It mainly uses per capita income to class countries as low, middle or high income"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "It mainly uses per capita income to class countries as low, middle or high income",
+    "It uses only literacy rates",
+    "It ranks by population size",
+    "It depends on the number of schools"
+   ],
+   "explanation": "The World Bank's grouping rests mainly on average income, which is why other indicators are needed too.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "compare-development-indicators",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Why is infant mortality rate often a better guide to health than average income?",
+   "expected_answer": {
+    "value": "It directly measures survival of babies and reflects health care, nutrition and sanitation"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It measures how rich the rich are",
+    "It directly measures survival of babies and reflects health care, nutrition and sanitation",
+    "It counts only adult deaths",
+    "It is unaffected by public facilities"
+   ],
+   "explanation": "IMR reflects living conditions and health services directly, while income may hide them.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which energy source can be replenished naturally and so does not run out with use?",
+   "expected_answer": {
+    "value": "Solar energy"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Coal",
+    "Petroleum",
+    "Natural gas",
+    "Solar energy"
+   ],
+   "explanation": "Sunlight is continually replenished, while coal, petroleum and gas take millions of years to form.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which gas is mainly responsible for the enhanced greenhouse effect caused by burning fossil fuels?",
+   "expected_answer": {
+    "value": "Carbon dioxide"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Carbon dioxide",
+    "Oxygen",
+    "Nitrogen",
+    "Helium"
+   ],
+   "explanation": "Burning fossil fuels releases carbon dioxide, which traps heat and drives global warming.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "The 1992 Earth Summit, which promoted sustainable development, was held in which city?",
+   "expected_answer": {
+    "value": "Rio de Janeiro"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Rio de Janeiro",
+    "Kyoto",
+    "Paris",
+    "Nairobi"
+   ],
+   "explanation": "The UN Conference on Environment and Development took place in Rio de Janeiro, Brazil in 1992.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How many Sustainable Development Goals did the UN adopt in 2015 to be achieved by 2030?",
+   "expected_answer": {
+    "value": "17"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "8",
+    "10",
+    "17",
+    "25"
+   ],
+   "explanation": "The 2015 UN agenda set 17 Sustainable Development Goals with a 2030 target.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out among these practices?",
+   "expected_answer": {
+    "value": "Burning plastic waste in the open"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Planting trees",
+    "Harvesting rainwater",
+    "Burning plastic waste in the open",
+    "Using solar water heaters"
+   ],
+   "explanation": "Burning plastic pollutes air, while the other practices conserve resources or use renewable energy.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A factory raises output by dumping untreated waste into a river. Why does this fail the test of sustainable development?",
+   "expected_answer": {
+    "value": "It harms water and people who depend on it now and in future"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It reduces the factory's profits at once",
+    "It harms water and people who depend on it now and in future",
+    "It increases the number of rivers",
+    "It violates the law of demand"
+   ],
+   "explanation": "Sustainability requires that growth does not damage the environment future generations will need.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A village replaces flood irrigation with drip irrigation. Why is this more sustainable?",
+   "expected_answer": {
+    "value": "It uses less water, so groundwater is conserved for the future"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It makes the water more expensive",
+    "It stops crops from growing",
+    "It uses less water, so groundwater is conserved for the future",
+    "It increases evaporation"
+   ],
+   "explanation": "Drip irrigation delivers water to roots and wastes far less of it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why is rainwater harvesting regarded as a sustainable practice?",
+   "expected_answer": {
+    "value": "It recharges groundwater and reduces pressure on existing water sources"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It consumes fossil fuels",
+    "It recharges groundwater and reduces pressure on existing water sources",
+    "It destroys soil",
+    "It increases the use of non-renewable resources"
+   ],
+   "explanation": "Capturing rain adds to water stocks without depleting them.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which institution's 1987 report 'Our Common Future' popularised the idea of sustainable development?",
+   "expected_answer": {
+    "value": "The Brundtland Commission"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The Brundtland Commission",
+    "The Planning Commission of India",
+    "The WTO",
+    "The Finance Commission"
+   ],
+   "explanation": "The World Commission on Environment and Development, led by Gro Harlem Brundtland, produced the report.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "The Paris Agreement of 2015 mainly aims at what?",
+   "expected_answer": {
+    "value": "Limiting global warming by reducing greenhouse gas emissions"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Setting tariffs on goods",
+    "Dividing river waters among states",
+    "Fixing exchange rates",
+    "Limiting global warming by reducing greenhouse gas emissions"
+   ],
+   "explanation": "The agreement commits countries to reduce emissions to limit temperature rise.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why is relying on per capita income growth alone not enough for sustainable development?",
+   "expected_answer": {
+    "value": "Growth based on overusing finite resources may leave future generations worse off"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Growth based on overusing finite resources may leave future generations worse off",
+    "Income growth is always harmful",
+    "Income cannot be measured",
+    "Resources are infinite"
+   ],
+   "explanation": "Sustainability looks at long-term resource stocks and the environment, not just current income.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement about deforestation is correct?",
+   "expected_answer": {
+    "value": "It reduces forests that absorb carbon dioxide and shelter wildlife"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It reduces forests that absorb carbon dioxide and shelter wildlife",
+    "It increases rainfall everywhere",
+    "It has no effect on soil",
+    "It makes resources renewable forever"
+   ],
+   "explanation": "Cutting forests removes carbon sinks, damages habitat and often erodes soil.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-sustainable-development",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A town doubles its use of private cars while public transport is neglected. Which sustainability concern follows most directly?",
+   "expected_answer": {
+    "value": "Higher fuel use and air pollution"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Higher fuel use and air pollution",
+    "Lower carbon emissions",
+    "More forest cover",
+    "Greater use of renewable energy"
+   ],
+   "explanation": "More cars burn more fossil fuel, adding to pollution and emissions.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is a tertiary sector activity?",
+   "expected_answer": {
+    "value": "Banking"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Fishing",
+    "Weaving cloth",
+    "Banking",
+    "Growing paddy"
+   ],
+   "explanation": "Banking produces a service rather than a good, so it is tertiary.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Cotton is grown by a farmer and then spun into yarn in a mill. Which sector does the spinning belong to?",
+   "expected_answer": {
+    "value": "Secondary sector"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Primary sector",
+    "Tertiary sector",
+    "Public sector",
+    "Secondary sector"
+   ],
+   "explanation": "Turning a natural product into yarn is manufacturing, which is the secondary sector.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Sugarcane is crushed in a factory to make sugar. Why is this secondary?",
+   "expected_answer": {
+    "value": "A natural product is changed into another form through manufacturing"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It involves no processing",
+    "A natural product is changed into another form through manufacturing",
+    "It is a service",
+    "It occurs only in towns"
+   ],
+   "explanation": "The secondary sector processes primary products into manufactured goods.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Three of these workers provide services. Which one works in the primary sector?",
+   "expected_answer": {
+    "value": "Farmer"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Doctor",
+    "Teacher",
+    "Truck driver",
+    "Farmer"
+   ],
+   "explanation": "A farmer works in the primary sector; the other three provide services (tertiary).",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why is the tertiary sector called the service sector?",
+   "expected_answer": {
+    "value": "It produces services that support primary and secondary activities"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "It produces only raw materials",
+    "It owns all factories",
+    "It has no workers",
+    "It produces services that support primary and secondary activities"
+   ],
+   "explanation": "Transport, trade and banking help the other sectors function though they produce no goods themselves.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Wheat flour bought by a biscuit maker is used to make biscuits. How is this flour treated when calculating GDP?",
+   "expected_answer": {
+    "value": "It is an intermediate good and is not counted separately"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It is counted again at every stage",
+    "It is ignored completely, including the biscuits",
+    "It is a service",
+    "It is an intermediate good and is not counted separately"
+   ],
+   "explanation": "Only final goods are counted to avoid double counting; the flour's value is included in the biscuit's price.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A tailor stitches shirts in her home workshop from cloth she buys. Which sector is she in?",
+   "expected_answer": {
+    "value": "Secondary sector"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Secondary sector",
+    "Primary sector",
+    "Tertiary sector",
+    "Public sector"
+   ],
+   "explanation": "Making shirts from cloth is manufacturing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which sector employs the largest share of workers in India even though it contributes a smaller share of GDP?",
+   "expected_answer": {
+    "value": "Primary sector"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Tertiary sector",
+    "Secondary sector",
+    "Quaternary sector",
+    "Primary sector"
+   ],
+   "explanation": "Agriculture still employs about half of India's workers but contributes less to GDP.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Five members of a family with a small plot all work on the farm, but three would be enough to produce the same output. What is this called?",
+   "expected_answer": {
+    "value": "Disguised unemployment"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Full employment",
+    "Disguised unemployment",
+    "Voluntary retirement",
+    "Seasonal growth"
+   ],
+   "explanation": "When more people work than needed, so some could leave without reducing output, it is disguised unemployment.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which statement describes the changes in developed countries over time?",
+   "expected_answer": {
+    "value": "Importance shifted from the primary to the secondary and then to the tertiary sector"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Primary sector grew the most throughout",
+    "Tertiary sector disappeared",
+    "Importance shifted from the primary to the secondary and then to the tertiary sector",
+    "Only secondary sector ever existed"
+   ],
+   "explanation": "As economies developed, the greatest share of output moved from agriculture to industry and then to services.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A telephone call centre handling customer queries belongs to which sector?",
+   "expected_answer": {
+    "value": "Tertiary sector"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Tertiary sector",
+    "Primary sector",
+    "Secondary sector",
+    "None of these"
+   ],
+   "explanation": "A call centre produces a service.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which body in India collects and publishes GDP estimates?",
+   "expected_answer": {
+    "value": "Ministry of Statistics and Programme Implementation"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Election Commission",
+    "Ministry of Statistics and Programme Implementation",
+    "Ministry of Defence",
+    "Supreme Court"
+   ],
+   "explanation": "The central government's statistics ministry estimates GDP.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "classify-economic-sectors",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Indian Railways is owned and run by the government. In which classification does this place it?",
+   "expected_answer": {
+    "value": "Public sector"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Private sector",
+    "Primary sector",
+    "Public sector",
+    "Informal sector"
+   ],
+   "explanation": "Classification by ownership puts government-owned enterprises in the public sector.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which of these is part of the organised sector?",
+   "expected_answer": {
+    "value": "A worker in a registered factory covered by a provident fund"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "A street vendor selling vegetables",
+    "A worker in a registered factory covered by a provident fund",
+    "A casual construction labourer",
+    "A domestic worker paid daily"
+   ],
+   "explanation": "Registered enterprises that follow labour laws and provide benefits are organised.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which of these jobs belongs to the unorganised sector?",
+   "expected_answer": {
+    "value": "A casual labourer in a small construction site"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "A casual labourer in a small construction site",
+    "A government clerk",
+    "A bank manager",
+    "A permanent factory employee"
+   ],
+   "explanation": "Casual, irregular work without formal terms is unorganised.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is typical of unorganised-sector employment?",
+   "expected_answer": {
+    "value": "Jobs that are not secure and offer no paid leave"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Paid holidays and medical allowances",
+    "Regular pay rises",
+    "Jobs that are not secure and offer no paid leave",
+    "Pension on retirement"
+   ],
+   "explanation": "Insecure jobs with few or no benefits are a feature of the unorganised sector.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is NOT a feature of organised-sector employment?",
+   "expected_answer": {
+    "value": "Daily wages with no paid leave"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Daily wages with no paid leave",
+    "Provident fund",
+    "Paid holidays",
+    "Medical benefits"
+   ],
+   "explanation": "The other three are benefits of the organised sector, whereas no leave belongs to unorganised work.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A big registered private company has formal contracts and a provident fund. Which statement is correct?",
+   "expected_answer": {
+    "value": "It is in the organised sector although it is privately owned"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It is unorganised because it is private",
+    "Only government firms can be organised",
+    "It must be a public enterprise",
+    "It is in the organised sector although it is privately owned"
+   ],
+   "explanation": "Organised does not mean government owned; registration and rule-following define it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which law sets a floor on the wages employers must pay?",
+   "expected_answer": {
+    "value": "The Minimum Wages Act"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The Companies Act",
+    "The Minimum Wages Act",
+    "The Motor Vehicles Act",
+    "The Right to Education Act"
+   ],
+   "explanation": "Minimum wage laws protect workers by fixing the lowest wage allowed.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which statement about the unorganised sector is correct?",
+   "expected_answer": {
+    "value": "It employs the large majority of India's workers"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "It employs the large majority of India's workers",
+    "It employs only a few workers",
+    "It consists only of large firms",
+    "It is fully regulated by labour law"
+   ],
+   "explanation": "The vast majority of Indian workers are in the unorganised sector.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why do many people prefer organised-sector jobs?",
+   "expected_answer": {
+    "value": "They offer job security and benefits"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They have no fixed hours",
+    "They pay nothing",
+    "They have no rules",
+    "They offer job security and benefits"
+   ],
+   "explanation": "Security and benefits make the organised sector more attractive.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why are workers in small shops often treated as unorganised-sector workers?",
+   "expected_answer": {
+    "value": "They are not covered by formal contracts or full labour protections"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "They are all government employees",
+    "They are part of the public sector",
+    "They earn the highest wages",
+    "They are not covered by formal contracts or full labour protections"
+   ],
+   "explanation": "Small units are scattered and mostly outside government rules, leaving workers unprotected.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A seasonal agricultural labourer may be out of work for part of the year. What does this show?",
+   "expected_answer": {
+    "value": "The insecurity of unorganised work"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "The insecurity of unorganised work",
+    "The benefits of organised work",
+    "Full employment",
+    "A pension scheme"
+   ],
+   "explanation": "Seasonal and irregular work is typical of the unorganised sector.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which Act provides organised-sector workers a lump-sum payment on leaving long service?",
+   "expected_answer": {
+    "value": "The Payment of Gratuity Act"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The Payment of Gratuity Act",
+    "The Right to Information Act",
+    "The Consumer Protection Act",
+    "The Land Ceiling Act"
+   ],
+   "explanation": "Gratuity is a benefit organised-sector workers are legally entitled to after long service.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why does the government need to protect workers in the unorganised sector?",
+   "expected_answer": {
+    "value": "They often face low wages, long hours and no security"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "They are already well protected",
+    "They often face low wages, long hours and no security",
+    "They earn more than organised workers",
+    "They have strong unions everywhere"
+   ],
+   "explanation": "Without protection, unorganised workers can be exploited.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "distinguish-organised-unorganised-sector",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which feature best identifies the organised sector?",
+   "expected_answer": {
+    "value": "Regular terms of employment and assured work"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Regular terms of employment and assured work",
+    "Irregular and low-paid jobs",
+    "No registration and no rules",
+    "Work that can end any time without notice"
+   ],
+   "explanation": "Assured, regular terms of employment define the organised sector.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Exchanging rice directly for fish without using money is an example of what?",
+   "expected_answer": {
+    "value": "Barter"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Credit",
+    "Barter",
+    "Taxation",
+    "Legal tender"
+   ],
+   "explanation": "Direct exchange of goods for goods is barter.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A shoemaker wants wheat but the farmer wants cloth, not shoes. What would solve this problem?",
+   "expected_answer": {
+    "value": "A common medium of exchange such as money"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Making more shoes",
+    "Waiting for the farmer's harvest",
+    "Banning trade",
+    "A common medium of exchange such as money"
+   ],
+   "explanation": "Money lets the shoemaker sell shoes to anyone and then buy wheat.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which function of money is shown when prices of shirts, books and rice are all quoted in rupees?",
+   "expected_answer": {
+    "value": "Unit of account"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Store of value",
+    "Deferred payment",
+    "Unit of account",
+    "Barter"
+   ],
+   "explanation": "Money gives a common measure of value for different goods.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which function of money is shown when a person saves rupees to use next year?",
+   "expected_answer": {
+    "value": "Store of value"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Store of value",
+    "Medium of exchange",
+    "Unit of account",
+    "Barter"
+   ],
+   "explanation": "Money keeps its purchasing power, so it can be saved for later.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A farmer takes a loan now and agrees to repay later in rupees. Which function of money is this?",
+   "expected_answer": {
+    "value": "Standard of deferred payment"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Barter",
+    "Standard of deferred payment",
+    "Unit of account",
+    "Direct exchange"
+   ],
+   "explanation": "Money allows debts to be recorded and repaid at a future date.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why are modern rupee notes accepted although the paper has little value of its own?",
+   "expected_answer": {
+    "value": "The government authorises them and people trust them as payment"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Because they are made of gold",
+    "The government authorises them and people trust them as payment",
+    "Because they can be eaten",
+    "Because they are made of silver"
+   ],
+   "explanation": "Currency has value because of legal authority and trust, not the material it is made of.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Money deposited in a bank account that can be withdrawn whenever the holder asks is called what?",
+   "expected_answer": {
+    "value": "Demand deposit"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Collateral",
+    "Barter",
+    "Tariff",
+    "Demand deposit"
+   ],
+   "explanation": "Because it can be withdrawn on demand, it is called a demand deposit.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A cheque is best described as what?",
+   "expected_answer": {
+    "value": "A written order to the bank to pay money from the account"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A coin accepted by law",
+    "A written order to the bank to pay money from the account",
+    "A type of tax",
+    "A form of barter"
+   ],
+   "explanation": "The cheque tells the bank to transfer deposit money; the deposit is what counts as money.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out among forms of modern money?",
+   "expected_answer": {
+    "value": "Cattle"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Currency notes",
+    "Coins",
+    "Demand deposits",
+    "Cattle"
+   ],
+   "explanation": "Cattle were used in older barter economies; the others are modern forms of money.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "When you pay with UPI, what is mainly transferred?",
+   "expected_answer": {
+    "value": "Money in bank deposits"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Physical gold",
+    "Money in bank deposits",
+    "Cattle",
+    "Land"
+   ],
+   "explanation": "Digital payments move deposit balances between accounts.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Before money, a person who wanted to sell shoes had to find a buyer who needed shoes and also had something he wanted. Why is this a problem for trade?",
+   "expected_answer": {
+    "value": "Exchange became slow and difficult"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "It created too much money",
+    "It increased taxes",
+    "Exchange became slow and difficult",
+    "It made all goods equal in value"
+   ],
+   "explanation": "Barter requires coincidence of wants, so trade is hard and inefficient.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which problem could a barter economy face when it has no common measure of value?",
+   "expected_answer": {
+    "value": "Difficulty comparing how much of one good equals another"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Too many banks",
+    "Difficulty comparing how much of one good equals another",
+    "Excess currency",
+    "No need to trade"
+   ],
+   "explanation": "Without a unit of account, each pair of goods needs its own exchange rate.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Why is it hard to use perishable goods like vegetables as a store of value in barter?",
+   "expected_answer": {
+    "value": "They spoil before they can be exchanged later"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "They are legally banned",
+    "They spoil before they can be exchanged later",
+    "They have no uses",
+    "They are too valuable"
+   ],
+   "explanation": "Money does not spoil, so it can hold value over time.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-money-barter-solution",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which authority regulates the supply of money in India's banking system?",
+   "expected_answer": {
+    "value": "The Reserve Bank of India"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "The Election Commission",
+    "The Reserve Bank of India",
+    "The NITI Aayog",
+    "The Supreme Court"
+   ],
+   "explanation": "The RBI, the central bank, regulates money and credit.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A person borrows Rs 5,000 at 8 percent simple annual interest. How much interest is due after one year?",
+   "expected_answer": {
+    "value": "Rs 400"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Rs 40",
+    "Rs 4,000",
+    "Rs 5,400",
+    "Rs 400"
+   ],
+   "explanation": "Interest is 8 percent of 5,000, which is 400.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "A person borrows Rs 10,000 at 7 percent simple annual interest. How much will be repaid after one year?",
+   "expected_answer": {
+    "value": "Rs 10,700"
+   },
+   "misconception_tags": [
+    "PROCEDURAL_ERROR"
+   ],
+   "options": [
+    "Rs 700",
+    "Rs 7,000",
+    "Rs 10,700",
+    "Rs 17,000"
+   ],
+   "explanation": "Interest of 700 is added to the principal of 10,000.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which is NOT part of the terms of credit?",
+   "expected_answer": {
+    "value": "The number of schools in the borrower's village"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Interest rate",
+    "The number of schools in the borrower's village",
+    "Collateral",
+    "Mode of repayment"
+   ],
+   "explanation": "Terms of credit are the conditions of a loan, such as interest, collateral, documentation and repayment.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which of these is a formal source of credit?",
+   "expected_answer": {
+    "value": "A commercial bank"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "A local moneylender",
+    "A commercial bank",
+    "A landlord",
+    "A trader"
+   ],
+   "explanation": "Banks and cooperatives are formal sources supervised by the RBI.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which is an informal source of credit?",
+   "expected_answer": {
+    "value": "A local moneylender"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "A local moneylender",
+    "A cooperative society",
+    "A public sector bank",
+    "The Reserve Bank"
+   ],
+   "explanation": "Moneylenders are unregulated, informal lenders.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why do informal lenders often charge higher interest than banks?",
+   "expected_answer": {
+    "value": "They are not supervised by the RBI"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "They are always government-owned",
+    "Banks never charge interest",
+    "They are not supervised by the RBI",
+    "The law forces them to"
+   ],
+   "explanation": "Absence of regulation lets informal lenders set high rates.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which group of people usually depends more on informal credit?",
+   "expected_answer": {
+    "value": "Poor households"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Large corporations",
+    "Multinational companies",
+    "Poor households",
+    "Public sector banks"
+   ],
+   "explanation": "Poorer households often lack access to formal credit and turn to informal sources.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why do banks keep only a small part of deposits as cash?",
+   "expected_answer": {
+    "value": "On any day only a small fraction of depositors withdraw money"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Banks cannot hold cash",
+    "Depositors never ask for cash",
+    "Cash has no value",
+    "On any day only a small fraction of depositors withdraw money"
+   ],
+   "explanation": "Banks lend out most deposits and keep only enough cash to meet likely withdrawals.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How do banks make their main income?",
+   "expected_answer": {
+    "value": "They charge a higher interest on loans than they pay on deposits"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They charge a higher interest on loans than they pay on deposits",
+    "By printing currency",
+    "By charging no interest",
+    "By selling government land"
+   ],
+   "explanation": "The difference between lending and deposit rates earns banks income.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "A farmer borrows for seeds, the crop fails, and he cannot repay and loses land. What is this situation called?",
+   "expected_answer": {
+    "value": "A debt trap"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A mixed economy",
+    "Collateral relief",
+    "A debt trap",
+    "Credit rationing"
+   ],
+   "explanation": "When borrowing cannot be repaid and worsens the borrower's position, it is a debt trap.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which person won the Nobel Peace Prize in 2006 for pioneering small loans through Grameen Bank?",
+   "expected_answer": {
+    "value": "Muhammad Yunus"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Amartya Sen",
+    "Mother Teresa",
+    "Kailash Satyarthi",
+    "Muhammad Yunus"
+   ],
+   "explanation": "Yunus founded Bangladesh's Grameen Bank and was honoured for microcredit.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "In a Self-Help Group, how is credit usually arranged?",
+   "expected_answer": {
+    "value": "Members pool savings and lend small amounts to each other"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "A bank prints money for the group",
+    "Members pool savings and lend small amounts to each other",
+    "The government repays all loans",
+    "A moneylender sets the rates"
+   ],
+   "explanation": "SHGs let members pool savings and provide small loans to each other, often with support from banks.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "identify-terms-of-credit",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Credit refers to an arrangement in which the lender does what?",
+   "expected_answer": {
+    "value": "Supplies money or goods now in return for a promise to repay later"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Gives money with no condition",
+    "Takes goods and gives nothing",
+    "Pays the borrower interest",
+    "Supplies money or goods now in return for a promise to repay later"
+   ],
+   "explanation": "Credit means getting something now and paying later, usually with interest.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "A limit on the number of goods that can be imported into a country is called what?",
+   "expected_answer": {
+    "value": "A quota"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A tariff",
+    "A subsidy",
+    "A dividend",
+    "A quota"
+   ],
+   "explanation": "A quota restricts quantity, while a tariff is a tax on imports.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Reducing government restrictions on foreign trade and investment is called what?",
+   "expected_answer": {
+    "value": "Liberalisation"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Liberalisation",
+    "Nationalisation",
+    "Taxation",
+    "Rationing"
+   ],
+   "explanation": "Removing barriers to trade is liberalisation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Which factor best explains why MNCs set up factories in countries like India?",
+   "expected_answer": {
+    "value": "Low-cost labour and access to a large market"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "High import duties abroad",
+    "Low-cost labour and access to a large market",
+    "Lack of any rules",
+    "A ban on foreign companies"
+   ],
+   "explanation": "MNCs seek low costs and nearby markets.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Ford Motors set up a large plant near which Indian city?",
+   "expected_answer": {
+    "value": "Chennai"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Kolkata",
+    "Jaipur",
+    "Kanpur",
+    "Chennai"
+   ],
+   "explanation": "Ford's plant near Chennai is a textbook example of an MNC investing in India.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A UK magazine's articles are typed and edited in India. What is this practice called?",
+   "expected_answer": {
+    "value": "Outsourcing"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Nationalisation",
+    "Import substitution",
+    "Rationing",
+    "Outsourcing"
+   ],
+   "explanation": "Giving work to firms in other countries is outsourcing.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "A foreign company and an Indian firm agree to produce goods together. This arrangement is called what?",
+   "expected_answer": {
+    "value": "A joint venture"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "A monopoly",
+    "A tariff",
+    "A subsidy",
+    "A joint venture"
+   ],
+   "explanation": "A joint venture is a partnership between firms, often a foreign MNC and a local company.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which was a major reason for the policy shift of 1991 in India?",
+   "expected_answer": {
+    "value": "To open the economy to foreign trade and investment"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "To stop all imports",
+    "To open the economy to foreign trade and investment",
+    "To end all private firms",
+    "To close the stock market"
+   ],
+   "explanation": "India liberalised to integrate with the world economy.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Before 1991, why did India impose restrictions on foreign trade?",
+   "expected_answer": {
+    "value": "To protect domestic producers from competition"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "To increase imports",
+    "To invite MNCs",
+    "To abolish exports",
+    "To protect domestic producers from competition"
+   ],
+   "explanation": "The earlier policy shielded Indian producers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How did containers help globalisation?",
+   "expected_answer": {
+    "value": "They made transporting goods over long distances cheaper and easier"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "They stopped ships from sailing",
+    "They replaced aeroplanes",
+    "They made transporting goods over long distances cheaper and easier",
+    "They raised transport costs"
+   ],
+   "explanation": "Containers allowed large cargo to be moved cheaply by sea, rail and road.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is the odd one out among the ways countries are linked in globalisation?",
+   "expected_answer": {
+    "value": "Raising import tariffs on all goods"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Raising import tariffs on all goods",
+    "Foreign trade",
+    "Foreign investment",
+    "Production by MNCs in many countries"
+   ],
+   "explanation": "Higher tariffs reduce integration, while the others increase it.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which facility is typically offered to firms in a Special Economic Zone?",
+   "expected_answer": {
+    "value": "Tax holidays and good infrastructure"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Tax holidays and good infrastructure",
+    "Higher import duties",
+    "Closed markets",
+    "No electricity"
+   ],
+   "explanation": "SEZs attract investors with tax concessions and facilities.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Why does foreign trade offer producers an opportunity?",
+   "expected_answer": {
+    "value": "They can reach markets beyond their own country"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Prices must rise",
+    "Consumers have less choice",
+    "It stops competition",
+    "They can reach markets beyond their own country"
+   ],
+   "explanation": "Trade gives producers access to buyers in other countries.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "explain-globalisation-factors",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "Which statement about WTO rules is a common criticism?",
+   "expected_answer": {
+    "value": "Developed countries have kept their own trade barriers while asking others to remove theirs"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "WTO bans all trade",
+    "Developed countries have kept their own trade barriers while asking others to remove theirs",
+    "WTO fixes domestic prices",
+    "Developing countries set all rules"
+   ],
+   "explanation": "Critics say rules are unfair because rich nations retain barriers such as farm subsidies.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 1,
+   "question_type": "mcq",
+   "prompt": "Which kind of Indian industry has benefited from globalisation through service exports?",
+   "expected_answer": {
+    "value": "Information technology"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Handloom weaving",
+    "Basic subsistence farming",
+    "Local blacksmithing",
+    "Information technology"
+   ],
+   "explanation": "IT and related services have grown through global demand.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Sundaram Fasteners, which makes nuts and bolts, is known for supplying which MNC?",
+   "expected_answer": {
+    "value": "General Motors"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Coca-Cola",
+    "General Motors",
+    "Nestle",
+    "Sony"
+   ],
+   "explanation": "Sundaram Fasteners exports auto components and supplies General Motors.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 2,
+   "question_type": "mcq",
+   "prompt": "Competition from imports hurt which type of Indian industry?",
+   "expected_answer": {
+    "value": "Small producers of toys, tyres and plastics"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Software service exporters",
+    "Small producers of toys, tyres and plastics",
+    "Call centres",
+    "Large auto component exporters"
+   ],
+   "explanation": "Many small producers of such goods lost ground to cheaper imports.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Which group gained least from globalisation?",
+   "expected_answer": {
+    "value": "Small producers and workers with low skills"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Well-educated, skilled workers",
+    "Small producers and workers with low skills",
+    "Large firms with capital",
+    "Consumers able to buy new goods"
+   ],
+   "explanation": "Those without capital, skills or technology found it hard to compete.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why do small producers often find it hard to compete with MNCs?",
+   "expected_answer": {
+    "value": "They lack the capital, technology and scale of large firms"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "They lack the capital, technology and scale of large firms",
+    "MNCs are barred from India",
+    "Small producers have unlimited funds",
+    "Imports are always more expensive"
+   ],
+   "explanation": "Limited resources make it hard for small firms to match MNC cost and quality.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "What does the term 'fair globalisation' aim at?",
+   "expected_answer": {
+    "value": "Opportunities and benefits for all, not just a few"
+   },
+   "misconception_tags": [
+    "TERMINOLOGY_CONFUSION"
+   ],
+   "options": [
+    "Higher tariffs for all",
+    "Ending trade",
+    "Opportunities and benefits for all, not just a few",
+    "Closing MNCs"
+   ],
+   "explanation": "It means a globalisation that is more inclusive.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why are suppliers to MNCs often under pressure to cut worker wages?",
+   "expected_answer": {
+    "value": "MNCs demand low prices and quick delivery"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "MNCs demand low prices and quick delivery",
+    "MNCs reject all suppliers",
+    "Labour laws require low wages",
+    "Prices never matter"
+   ],
+   "explanation": "Cost pressure from large buyers often passes on to workers.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "How can a small Indian producer respond to competition from imports?",
+   "expected_answer": {
+    "value": "Improve quality and upgrade technology"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Refuse to produce",
+    "Stop selling",
+    "Ignore competitors",
+    "Improve quality and upgrade technology"
+   ],
+   "explanation": "Better quality and technology help small producers stay competitive.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 3,
+   "question_type": "mcq",
+   "prompt": "Why is India attractive for call centres run by foreign firms?",
+   "expected_answer": {
+    "value": "It has many English-speaking, skilled workers with lower wages"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "It has no skilled workers",
+    "Wages are the highest in the world",
+    "English is banned",
+    "It has many English-speaking, skilled workers with lower wages"
+   ],
+   "explanation": "Skilled but lower-cost labour attracts such services.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which step would help make globalisation fairer for workers?",
+   "expected_answer": {
+    "value": "Enforcing labour laws so workers get fair wages"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "Enforcing labour laws so workers get fair wages",
+    "Removing all labour laws",
+    "Banning unions",
+    "Lowering minimum wages"
+   ],
+   "explanation": "Fair treatment of workers is an important part of fair globalisation.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is an effect of globalisation on Indian consumers?",
+   "expected_answer": {
+    "value": "Wider choice of goods and often better quality"
+   },
+   "misconception_tags": [
+    "CONCEPT_CONFUSION"
+   ],
+   "options": [
+    "Fewer products",
+    "Always higher prices",
+    "Fewer brands",
+    "Wider choice of goods and often better quality"
+   ],
+   "explanation": "Competition and imports gave consumers more choice.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 4,
+   "question_type": "mcq",
+   "prompt": "Which is a way some large Indian companies have competed globally?",
+   "expected_answer": {
+    "value": "Buying foreign companies and setting up production abroad"
+   },
+   "misconception_tags": [
+    "PREREQUISITE_GAP"
+   ],
+   "options": [
+    "Buying foreign companies and setting up production abroad",
+    "Closing all exports",
+    "Avoiding technology",
+    "Stopping production"
+   ],
+   "explanation": "Firms like Tata Motors expanded by acquiring overseas companies.",
+   "content_status": "needs_review"
+  },
+  {
+   "skill_slug": "evaluate-globalisation-impact-india",
+   "difficulty": 5,
+   "question_type": "mcq",
+   "prompt": "A student says globalisation harmed all Indian workers equally. What is the best reply?",
+   "expected_answer": {
+    "value": "Effects differ: skilled workers often gained while many low-skilled workers faced insecure jobs"
+   },
+   "misconception_tags": [
+    "INCOMPLETE_REASONING"
+   ],
+   "options": [
+    "She is right, all lost equally",
+    "All workers gained equally",
+    "Effects differ: skilled workers often gained while many low-skilled workers faced insecure jobs",
+    "Globalisation affected nobody"
+   ],
+   "explanation": "Impact varied by skills, sector and capital, so a single claim about all workers is wrong.",
+   "content_status": "needs_review"
+  }
+ ]
+}

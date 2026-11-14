@@ -201,3 +201,4 @@ Read `docs/RESUME_HERE.md` — it always holds the exact next three tasks, curre
 - v124 (2026-11-10): gradeAnswer accepts "or/and/;" lists, a missing or repeated "x =", and thousands commas for single-number answers (t124). Do not remove these: a real student was marked wrong without them.
 - v125 (2026-11-11): 503 more needs_review questions in all subjects (seed/*-v125-diagnostic.json, built through seed-generators/v125_finalize.py, t125). Never mark them verified without a teacher.
 - v126 (2026-11-12): 1,076 more Computer Applications needs_review questions (seed/computer-applications-v126[a-f]-diagnostic.json, v126_finalize.py, t126). Skill slugs and prompts must stay unique per subject.
+- v127 (2026-11-13): 521 more Social Science needs_review questions (seed/social-science-v127[a-d]-diagnostic.json, t127). Facts unverified; teacher list in docs/CONTENT_V127.md.

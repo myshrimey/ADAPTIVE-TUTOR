@@ -863,3 +863,9 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 - Several helper runs were cut off by a usage limit and re-run (hours of delay, nothing lost).
 - All needs_review. No migration; only APP_VERSION changed in code.
 - NOT done: teacher review, running HTML/CSS in a browser, any live check.
+
+## v127 (2026-11-13) - 521 Social Science questions
+- Founder request: "Add 500+ questions in social science".
+- Four helper agents wrote 13+ questions for each of 40 skills; `seed-generators/v126_finalize.py` validated and wrote `seed/cbse-class10-social-science-v127[a-d]-diagnostic.json`. Test t127 (10 checks). All needs_review. No migration; only APP_VERSION changed in code.
+- Three helper runs were cut off by usage limits and re-run.
+- NOT done: teacher review, independent fact check (list in docs/CONTENT_V127.md), any live check.
