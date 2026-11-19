@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
+import { createServerClient, createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { startDiagnostic, registerSubject, assertAccess, assertSubjectAllowed, publicError } from '@adaptive-tutor/core';
 import { aiForStudent } from '@/lib/ai';
 import { kickBankGrowth } from '@/lib/bank-growth';
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
     // registered subject — so a later /learn session follows the subject they
     // just tested. Not-yet-available subjects are rejected here.
     await assertSubjectAllowed(supabase, studentId, [subjectId as string], access.subjectLimit);
-    await registerSubject(supabase, studentId, subjectId as string, { activate: true });
+    await registerSubject(createServiceClient(), studentId, subjectId as string, { activate: true });
 
     const { attemptId, firstQuestion, resumed, answeredCount, total } = await startDiagnostic(supabase, studentId, subjectId as string, await aiForStudent(studentId));
     if (!resumed) kickBankGrowth(subjectId);

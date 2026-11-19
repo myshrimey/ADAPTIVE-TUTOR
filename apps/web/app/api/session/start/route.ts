@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
+import { createServerClient, createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { assertAccess, loadLearnerState, resolveCurrentObjective, runOrchestratorTurn, logEvent, recordCheckin, publicError } from '@adaptive-tutor/core';
 import { aiForStudent } from '@/lib/ai';
 import { kickBankGrowth } from '@/lib/bank-growth';
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
     let recoveryMode = false;
     if (body.checkin && typeof body.checkin === 'object') {
       try {
-        const result = await recordCheckin(supabase, studentId, session.id, objective.skillId, body.checkin);
+        const result = await recordCheckin(createServiceClient(), studentId, session.id, objective.skillId, body.checkin);
         recoveryMode = result.recoveryMode;
       } catch (checkinErr) {
         console.error('session/start: check-in not saved', checkinErr);

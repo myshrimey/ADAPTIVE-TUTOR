@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v129 (2026-11-14)
+## Latest delivery - v130 (2026-11-14)
+Security, third slice: choosing a subject, the pre-lesson check-in and the end-of-lesson confidence now save with the server's own key (the student id still comes from the sign-in, and the confidence update is filtered by it). Migration 0066 turns the student's direct write rules on learning_profiles, learning_goals and session_checkins into read-only rules. Deploy the website FIRST, then run 0066, then pick a subject and start a lesson with a check-in once. 8 student-owned write rules remain, all in the tutor loop (plan: docs/OWNER_WRITE_RULES_PLAN.md; needs your supervision). Not deployed, not seen live.
+
+## Previous delivery - v129 (2026-11-14)
 Security, second slice: the profile page now saves details and school history with the server's own key (the student id still comes from the sign-in), and migration 0065 turns the student's direct write rules on those two tables into read-only rules. Deploy the website FIRST, then run 0065, then save a profile once to check it works. 11 student-owned write rules remain (tutor-loop and goals/profile preferences); plan in docs/OWNER_WRITE_RULES_PLAN.md. Not deployed, not seen live.
 
 ## Previous delivery - v128 (2026-11-14)

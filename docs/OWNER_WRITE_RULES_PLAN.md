@@ -38,3 +38,7 @@ Whether to do this now or after the first real families have used the app for so
 
 ## Progress (v129)
 Done: student_profile_details and student_academic_history (migration 0065, /api/profile uses the server key). Remaining: session_checkins, learning_goals, learning_profiles, then the tutor-loop tables.
+
+
+## Progress (v130)
+Done: learning_profiles, learning_goals, session_checkins (migration 0066). savePreferenceEvidence has no caller; if used it must get the server key. Remaining 8, all tutor loop: diagnostic_answers, diagnostic_attempts, learning_sessions, mastery_states, messages, misconceptions, question_attempts, and the learning_events check. Needs a supervised trial.

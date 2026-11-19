@@ -952,6 +952,16 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R80",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R80",
+   "text": "Close the too-open student write rules found in the live policy list (learning profile, goals, check-ins)",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v130: 0066 makes learning_profiles, learning_goals and session_checkins read-only for the student; subject registration, check-ins use the server key; t130. 8 tutor-loop tables still open. Not seen live.",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -2872,6 +2882,21 @@ export const REGISTRY = {
    "note": "v129: 0065 tested on scratch with a before/after experiment; t129 (13 checks).",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-098",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Move subject registration and check-in saves to the server key and narrow three student write rules (migration 0066)",
+   "objective_code": "O6",
+   "requirements": "R80",
+   "depends_on": "TASK-097",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v130: 0066 tested on scratch with a before/after experiment (goals row not present in scratch); t130 (20 checks).",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -3446,6 +3471,16 @@ export const REGISTRY = {
    "db_changes": "0065 profile_tables_read_only",
    "tests": "t129, scratch Postgres before/after experiment, full npm test",
    "open_problems": "Not deployed; 0065 not run on the live database; saving a profile must be checked by hand after deploy"
+  },
+  {
+   "id": "EX-0042",
+   "executed_on": "2026-11-14",
+   "prompt_id": "continue building what is left (chat)",
+   "summary": "v130: learning profile, subject goals and check-ins made read-only for the student (TASK-098).",
+   "files": "migrations/0066; subject/checkin routes; deploy-check; tests t130 (+t95,t95b,t101,t128 edits); ROLLBACK_NOTES; DATABASE_SCHEMA",
+   "db_changes": "0066 learning_tables_read_only",
+   "tests": "t130, tsc, scratch Postgres before/after experiment, full npm test",
+   "open_problems": "Not deployed; 0066 not run on the live database; picking a subject and starting a lesson with a check-in must be tried by hand after deploy"
   }
  ]
 } as unknown as ControlRegistry;

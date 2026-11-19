@@ -162,3 +162,4 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v127 (2026-11-13): 521 more Social Science questions (13+ per on-syllabus skill, needs_review). Run seed-diagnostic.js after deploying. No migration.
 - v128 (2026-11-14): migration 0064 closes students_update_own (current migration 0064). 13 other student-owned write rules still open (plan docs/OWNER_WRITE_RULES_PLAN.md).
 - v129 (2026-11-14): migration 0065 profile tables read-only for the student (current migration 0065). 11 other student-owned write rules still open.
+- v130 (2026-11-14): migration 0066 learning tables read-only for the student (current migration 0066). 8 tutor-loop write rules still open.

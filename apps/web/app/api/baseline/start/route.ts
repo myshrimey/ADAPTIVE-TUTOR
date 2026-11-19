@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     const subjectId = typeof body.subjectId === 'string' ? body.subjectId : null;
     if (!subjectId) return NextResponse.json({ data: null, error: 'missing_subject' }, { status: 400 });
     await assertSubjectAllowed(supabase, studentId, [subjectId], access.subjectLimit);
-    await registerSubject(supabase, studentId, subjectId, { activate: true });
+    await registerSubject(createServiceClient(), studentId, subjectId, { activate: true });
     const service = createServiceClient();
     let languageMismatch = false;
     try { const l = await languagesForStudent(service, studentId, null); languageMismatch = (l as any).question && (l as any).question !== 'en'; } catch { /* default: no mismatch */ }

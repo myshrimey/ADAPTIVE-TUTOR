@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0042 - 2026-11-14 - continue building what is left (chat)
+- Summary: v130: learning profile, subject goals and check-ins made read-only for the student (TASK-098).
+- Files: migrations/0066; subject/checkin routes; deploy-check; tests t130 (+t95,t95b,t101,t128 edits); ROLLBACK_NOTES; DATABASE_SCHEMA
+- Database: 0066 learning_tables_read_only
+- Tests: t130, tsc, scratch Postgres before/after experiment, full npm test
+- Open: Not deployed; 0066 not run on the live database; picking a subject and starting a lesson with a check-in must be tried by hand after deploy
+
 ## EX-0041 - 2026-11-14 - continue building what is left (chat)
 - Summary: v129: profile details and school history made read-only for the student (TASK-097).
 - Files: migrations/0065; api/profile/route.ts; deploy-check; tests t129 (+t95,t95b,t101,t128 edits); ROLLBACK_NOTES; DATABASE_SCHEMA

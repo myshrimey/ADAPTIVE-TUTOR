@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
+import { createServerClient, createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { loadSubjectCatalogue, registerSubject, assertAccess, assertSubjectAllowed, publicError } from '@adaptive-tutor/core';
 
 // GET  -> the subject catalogue with readiness status + which ones this student registered.
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     const supabase = await createServerClient();
     const access = await assertAccess(supabase, studentId);
     await assertSubjectAllowed(supabase, studentId, [body.subjectId], access.subjectLimit);
-    await registerSubject(supabase, studentId, body.subjectId, { activate: body.action === 'activate' });
+    await registerSubject(createServiceClient(), studentId, body.subjectId, { activate: body.action === 'activate' });
     const subjects = await loadSubjectCatalogue(supabase, studentId);
     return NextResponse.json({ data: { subjects }, error: null });
   } catch (err: any) {

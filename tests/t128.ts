@@ -39,7 +39,7 @@ ok(userWrites("const service = createServiceClient();\nawait service.from('stude
 ok(userWrites("const { data } = await supabase.from('students').select('id').eq('user_id', u);").length === 0, 'scan ignores reads');
 
 // --- deploy check and notes
-ok(['v128','v129'].includes(DB_VERSION_EXPECTED), 'deploy check expects database version v128');
+ok(['v128','v129','v130'].includes(DB_VERSION_EXPECTED), 'deploy check expects database version v128');
 const mc = MANUAL_CHECKS.find((c) => c.migration === '0064');
 ok(!!mc && /pg_policies/.test(mc!.sql) && /students_select_own/.test(mc!.expect), 'a read-only manual check shows the one rule left on students');
 ok(!DEPLOY_PROBES.some((p) => p.migration === '0064'), 'no table probe (no new table)');

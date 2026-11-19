@@ -1,7 +1,7 @@
 # Master Objective Tracker
 Updated 2026-10-31. Only SAH-PROMPT-0009 is tracked at requirement level. Status words are the 14 allowed ones. "Founder acceptance" is separate from technical status and is empty for everything (the founder has not accepted anything under this system yet).
 
-Counts for SAH-PROMPT-0009: 79 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 52, READY FOR TESTING: 8.
+Counts for SAH-PROMPT-0009: 80 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 53, READY FOR TESTING: 8.
 
 ## SAH-PROMPT-0009 / O1: Persistent registry and execution control (Parts 1-3, 11, 12)
 Requirements 11; PARTIALLY COMPLETED 11
@@ -74,7 +74,7 @@ Requirements 4; NOT STARTED 2, PARTIALLY COMPLETED 2
 | R40 | Flag Indian privacy / legal questions for professional review instead of claiming compliance | PARTIALLY COMPLETED | pending | Flagged in PHASE0_AUDIT.md section 10; review itself not done. |
 
 ## SAH-PROMPT-0009 / O6: Database and architecture rules (Part 8)
-Requirements 30; COMPLETED 2, PARTIALLY COMPLETED 27, READY FOR TESTING 1
+Requirements 31; COMPLETED 2, PARTIALLY COMPLETED 28, READY FOR TESTING 1
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
@@ -108,6 +108,7 @@ Requirements 30; COMPLETED 2, PARTIALLY COMPLETED 27, READY FOR TESTING 1
 | R77 | Founder request 2026-11-12 (chat): add 500+ questions in social science | PARTIALLY COMPLETED | pending | v127: 521 needs_review questions, 13+ per on-syllabus skill; t127. Needs deploy + seed-diagnostic.js + teacher review. Not seen live. |
 | R78 | Close the too-open student write rules found in the live policy list (continued) | PARTIALLY COMPLETED | pending | v128: 0064 removes students_update_own; t128; plan for the other 13 tables in docs/OWNER_WRITE_RULES_PLAN.md (needs a supervised tutor-loop change). Not seen live. |
 | R79 | Close the too-open student write rules found in the live policy list (profile tables) | PARTIALLY COMPLETED | pending | v129: 0065 makes student_profile_details and student_academic_history read-only for the student; /api/profile saves with the server key; t129. 11 tutor-loop and goal/profile tables still open. Not seen live. |
+| R80 | Close the too-open student write rules found in the live policy list (learning profile, goals, check-ins) | PARTIALLY COMPLETED | pending | v130: 0066 makes learning_profiles, learning_goals and session_checkins read-only for the student; subject registration, check-ins use the server key; t130. 8 tutor-loop tables still open. Not seen live. |
 
 ## SAH-PROMPT-0009 / O7: Testing and acceptance (Part 9)
 Requirements 6; NOT STARTED 4, PARTIALLY COMPLETED 2

@@ -879,3 +879,9 @@ Founder asked for a tidy admin menu with categories, and to execute the "Learnin
 
 ## v129 (2026-11-14) - profile tables read-only for the student (migration 0065)
 /api/profile saves student_profile_details and student_academic_history with the server key (id from the session). 0065 replaces the two `for all` owner rules with read-only rules. Tested: t129 (13 checks), scratch Postgres before/after (update 1 row -> 0, insert allowed -> refused, read unchanged). Not deployed; nothing seen live.
+
+## v130 (2026-11-14) - learning profile, goals, check-ins read-only for the student (migration 0066)
+registerSubject (4 routes), recordCheckin and recordConfidenceAfter now get the server key; recordConfidenceAfter takes the student id and filters by it. 0066 replaces three `for all` owner rules with read-only rules. Tested: tsc clean, t130 (20 checks), scratch Postgres before/after (profile and check-in updates 1 row -> 0, check-in insert refused; goals table had no row in scratch). Not deployed; nothing seen live.
+
+## v130 check (2026-11-14) - production build re-run
+A full `next build` (fonts stubbed, mock database address) succeeded on the v130 code, covering the v124-v130 website changes; layout.tsx restored and checked. This proves the code compiles and builds, not that it works live.

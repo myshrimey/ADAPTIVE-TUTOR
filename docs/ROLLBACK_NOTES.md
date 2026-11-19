@@ -1,4 +1,4 @@
-# Rollback notes for the database changes 0002 to 0065
+# Rollback notes for the database changes 0002 to 0066
 
 Written in v101 (2 Nov 2026); 0002 to 0054 added in v113 and v115 (8 Nov 2026), worked out by comparing a scratch database before and after each change (scripts/db-test). **How to read this:** every database change in Sahayak only ADDS things and is safe to run again. If you ever need to go back, these are the undo steps, newest first. They were tested on a scratch copy of the database: apply 0055-0059, run every undo block below, check the objects are gone, then apply 0055-0059 again with no error (t101).
 
@@ -9,6 +9,20 @@ Written in v101 (2 Nov 2026); 0002 to 0054 added in v113 and v115 (8 Nov 2026), 
 4. After an undo, the matching version of the website must also be redeployed, otherwise a page may look for a table that is gone. `/admin/deploy-check` shows which side is behind.
 5. These notes undo structure only: they never delete rows from students, answers, payments or accounts, and never drop those core tables. They DO drop columns and new tables that a change added, and what was saved in them is lost (each section says which).
 6. This is a plan written by Claude and tested on a copy. It is not a promise about your live database. Nothing here has been run on it.
+
+## 0066 learning_tables_read_only (v130) - learning profile, subject goals and check-ins are read-only for the student directly
+What you lose: nothing saved. Three broad rules are replaced by read-only ones; no table, column or row is touched. **Undoing it re-opens the direct write the change closed.**
+```sql
+drop policy if exists learning_profiles_select_own on learning_profiles;
+drop policy if exists learning_profiles_owner on learning_profiles;
+create policy learning_profiles_owner on learning_profiles for all using (student_id in (select s.id from students s join users u on u.id = s.user_id where u.auth_user_id = auth.uid())) with check (student_id in (select s.id from students s join users u on u.id = s.user_id where u.auth_user_id = auth.uid()));
+drop policy if exists learning_goals_select_own on learning_goals;
+drop policy if exists learning_goals_owner on learning_goals;
+create policy learning_goals_owner on learning_goals for all using (student_id in (select s.id from students s join users u on u.id = s.user_id where u.auth_user_id = auth.uid())) with check (student_id in (select s.id from students s join users u on u.id = s.user_id where u.auth_user_id = auth.uid()));
+drop policy if exists session_checkins_select_own on session_checkins;
+drop policy if exists session_checkins_owner on session_checkins;
+create policy session_checkins_owner on session_checkins for all using (student_id in (select s.id from students s join users u on u.id = s.user_id where u.auth_user_id = auth.uid())) with check (student_id in (select s.id from students s join users u on u.id = s.user_id where u.auth_user_id = auth.uid()));
+```
 
 ## 0065 profile_tables_read_only (v129) - profile details and school history are read-only for the student directly
 What you lose: nothing saved. Two broad rules are replaced by read-only ones; no table, column or row is touched. **Undoing it re-opens the direct write the change closed.**

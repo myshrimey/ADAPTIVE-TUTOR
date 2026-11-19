@@ -2,9 +2,9 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 
 // v95: "did my deployment take?" Read only. Probes ask the database whether a table or column exists (a SELECT of zero rows).
 // Nothing is changed, no value of any setting is ever read out: environment settings are reported as present / missing only.
-export const APP_VERSION = 'v129';
+export const APP_VERSION = 'v130';
 /** The newest version that changed the database (it writes a system_changelog row). Versions after it need no migration. Test t95 checks this against the migration files. */
-export const DB_VERSION_EXPECTED = 'v129';
+export const DB_VERSION_EXPECTED = 'v130';
 export interface DeployProbe { migration: string; version: string; what: string; table: string; column?: string }
 export const DEPLOY_PROBES: readonly DeployProbe[] = [
   { migration: '0046', version: 'v72', what: 'Social growth tables', table: 'social_campaigns' },
@@ -30,6 +30,7 @@ export const MANUAL_CHECKS: readonly { migration: string; what: string; sql: str
   { migration: '0063', what: 'Only one write rule is left on questions, diagnostic questions and payment claims', sql: "select tablename, policyname, cmd from pg_policies where schemaname = 'public' and tablename in ('questions', 'diagnostic_questions', 'pilot_payments') and cmd <> 'SELECT';", expect: 'one row: pilot_payments, pilot_payments_insert_own (no row for questions or diagnostic_questions)' },
   { migration: '0064', what: 'A student can only read, not edit, their own student record', sql: "select policyname, cmd from pg_policies where schemaname = 'public' and tablename = 'students';", expect: 'one row: students_select_own, SELECT (no update rule)' },
   { migration: '0065', what: 'Profile details and school history can be read, not written, by the student directly', sql: "select tablename, policyname, cmd from pg_policies where schemaname = 'public' and tablename in ('student_profile_details', 'student_academic_history');", expect: 'two rows, both SELECT: student_profile_details_select_own, student_academic_history_select_own' },
+  { migration: '0066', what: 'Learning profile, subject goals and check-ins can be read, not written, by the student directly', sql: "select tablename, policyname, cmd from pg_policies where schemaname = 'public' and tablename in ('learning_profiles', 'learning_goals', 'session_checkins');", expect: 'three rows, all SELECT: learning_profiles_select_own, learning_goals_select_own, session_checkins_select_own' },
   { migration: 'all', what: 'Every table has row-level security on', sql: "select count(*) as tables_without_rls from pg_tables where schemaname = 'public' and not rowsecurity;", expect: '0' },
 ];
 export const ENV_CHECKS: readonly { name: string; why: string; required: boolean }[] = [

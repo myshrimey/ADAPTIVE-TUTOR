@@ -86,14 +86,15 @@ export async function recordCheckin(
   return { recoveryMode };
 }
 
-/** Stores the end-of-session confidence. RLS limits this to the caller's own check-in row. */
-export async function recordConfidenceAfter(supabase: SupabaseClient, sessionId: string, confidenceAfter: number): Promise<void> {
+/** Stores the end-of-session confidence. Called with the server key, so it is limited here to the caller's own check-in row (studentId must come from the session). */
+export async function recordConfidenceAfter(supabase: SupabaseClient, studentId: string, sessionId: string, confidenceAfter: number): Promise<void> {
   const value = clampConfidence(confidenceAfter);
   if (value === null) throw new Error('invalid_confidence');
   const { error } = await supabase
     .from('session_checkins')
     .update({ confidence_after: value, completed_at: new Date().toISOString() })
-    .eq('session_id', sessionId);
+    .eq('session_id', sessionId)
+    .eq('student_id', studentId);
   if (error) throw error;
 }
 
