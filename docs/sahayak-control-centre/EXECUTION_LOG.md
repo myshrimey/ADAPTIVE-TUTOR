@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0046 - 2026-11-15 - founder: Groq key deployed; do the timeout step (chat)
+- Summary: v134: faster failover to the backup AI provider (TASK-102).
+- Files: core/ai-provider/gemini.provider.ts; groq.provider.ts; tests/t134.ts
+- Database: none (no migration)
+- Tests: tsc, t134, full npm test
+- Open: Not deployed; not measured live; depends on the Groq key being set on the live site
+
 ## EX-0045 - 2026-11-14 - founder: app is slow; do fix 3 (chat)
 - Summary: v133: parallel reads in loadLearnerState and the orchestrator pre-turn (TASK-101).
 - Files: core/learner-model/learner-state.service.ts; core/orchestrator/tutor.orchestrator.ts; tests/t133.ts

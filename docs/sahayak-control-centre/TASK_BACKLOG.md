@@ -1,7 +1,7 @@
 # Task Backlog
-Updated 2026-10-31. 76 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
+Updated 2026-10-31. 77 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
 
-Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 53.
+Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 54.
 
 Changing a priority here does NOT start work. Work starts only when the founder says so in the chat.
 
@@ -83,3 +83,4 @@ Changing a priority here does NOT start work. Work starts only when the founder 
 | TASK-099 | P6 | Write the supervised trial plan for the tutor-loop write rules and pin the remaining write sites (t131) | O6 | R81 | TASK-098 | S | READY FOR TESTING | none yet |
 | TASK-100 | P6 | Tutor-loop step 1: move misconception saves to the server key (code only, no migration) | O6 | R82 | TASK-099 | S | READY FOR TESTING | none yet |
 | TASK-101 | P6 | Speed: run independent lesson-turn reads together (no behaviour change) | O6 | R83 | TASK-100 | S | READY FOR TESTING | none yet |
+| TASK-102 | P6 | Speed: faster failover from Gemini to Groq for chat calls (no database change) | O6 | R84 | TASK-101 | S | READY FOR TESTING | none yet |

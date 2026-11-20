@@ -14,7 +14,8 @@ const endpointFor = (model: string) => `https://generativelanguage.googleapis.co
 // they waited. This bounds it to something a person will actually wait out,
 // and turns the failure into real JSON the UI can show instead of a
 // platform-level timeout response.
-const REQUEST_TIMEOUT_MS = 20_000;
+// v134: a chat turn that has not answered in 10 s is treated as stuck so the next provider (Groq) takes over; it was 20 s, which made students wait that long before any backup was tried.
+const REQUEST_TIMEOUT_MS = 10_000;
 const IMAGE_REQUEST_TIMEOUT_MS = 60_000; // reading several photos takes longer than a chat turn
 
 // Google's own "high demand" response for this model (503 UNAVAILABLE) is a
@@ -53,7 +54,8 @@ export class GeminiProvider implements AIProvider {
       } catch (err: any) {
         lastError = err;
         const retryableStatus = Number(/^gemini_request_failed: (\d+)/.exec(err?.message ?? '')?.[1]);
-        const canRetry = attempt < MAX_ATTEMPTS && RETRYABLE_STATUS.has(retryableStatus);
+        // v134: text-only chat calls do not retry the same overloaded model; they fall straight through to the next provider. Photo reading still retries once.
+        const canRetry = attempt < MAX_ATTEMPTS && RETRYABLE_STATUS.has(retryableStatus) && !!params.images?.length;
         if (!canRetry) throw err;
         await sleep(RETRY_DELAY_MS);
       }

@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v133 (2026-11-14)
+## Latest delivery - v134 (2026-11-15)
+Speed, step 2. Your usage log showed Gemini answering slowly or timing out at 20 s with no backup. With the Groq key now set, a stuck Gemini chat call is given up after 10 s (was 20 s) and Groq takes over; text calls no longer retry the same overloaded Gemini model first. Photo reading is unchanged (still 60 s, still retries once). No database change. **After deploying:** use a lesson normally; check /admin/ai-requests (or ai usage) the next day: you should see Groq rows with latency of about 1 to 3 s next to the Gemini ones. Not built: streaming.
+
+## Previous delivery - v133 (2026-11-14)
 Speed. Families said the app is slow. Set the Vercel function region to Singapore (done by you; the database is in Singapore). In code: the lesson turn used to make about 14 database reads one after another; the independent ones now run together (learner state: 7 reads at once; tutor turn: 6 more at once). Same data, same order of writes. No database change. **After deploying:** start a lesson and answer a question; it should feel quicker and behave the same. Not built yet: streaming the tutor's reply word by word, and a faster AI model for short replies (cost/quality decision for you). The Supabase advisor also lists 94 foreign keys without an index and 63 row rules that re-check the sign-in per row; I did not change those (they touch security rules and give small gains at this size).
 
 ## Previous delivery - v132 (2026-11-14)

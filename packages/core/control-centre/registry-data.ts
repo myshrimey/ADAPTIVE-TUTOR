@@ -992,6 +992,16 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R84",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R84",
+   "text": "Speed: stuck AI calls fall over to the backup provider in 10 s instead of 20 s (founder deployed a Groq key)",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v134: Gemini chat timeout 10 s, no same-model retry for text calls, Groq timeout 12 s; t134. Streaming not built. Not measured live.",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -2972,6 +2982,21 @@ export const REGISTRY = {
    "note": "v133: t133 (18 checks); speed gain not measured live.",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-102",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Speed: faster failover from Gemini to Groq for chat calls (no database change)",
+   "objective_code": "O6",
+   "requirements": "R84",
+   "depends_on": "TASK-101",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v134: t134 (6 checks); speed gain not measured live.",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -3586,6 +3611,16 @@ export const REGISTRY = {
    "db_changes": "none (no migration)",
    "tests": "tsc, t133, full npm test",
    "open_problems": "Not deployed; speed gain not measured; streaming and model choice not built"
+  },
+  {
+   "id": "EX-0046",
+   "executed_on": "2026-11-15",
+   "prompt_id": "founder: Groq key deployed; do the timeout step (chat)",
+   "summary": "v134: faster failover to the backup AI provider (TASK-102).",
+   "files": "core/ai-provider/gemini.provider.ts; groq.provider.ts; tests/t134.ts",
+   "db_changes": "none (no migration)",
+   "tests": "tsc, t134, full npm test",
+   "open_problems": "Not deployed; not measured live; depends on the Groq key being set on the live site"
   }
  ]
 } as unknown as ControlRegistry;

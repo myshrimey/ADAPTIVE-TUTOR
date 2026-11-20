@@ -9,7 +9,7 @@ import type { AIProvider, AICompletionParams, AICompletionResult } from './ai-pr
 const GROQ_MODEL = 'llama-3.3-70b-versatile';
 const GROQ_ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
 
-const REQUEST_TIMEOUT_MS = 20_000;
+const REQUEST_TIMEOUT_MS = 12_000; // v134: Groq normally answers in about a second; 12 s is already a stuck call
 
 export class GroqProvider implements AIProvider {
   constructor(private apiKey: string = process.env.GROQ_API_KEY!, private model: string = GROQ_MODEL) {

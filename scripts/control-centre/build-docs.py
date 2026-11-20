@@ -106,6 +106,7 @@ REQ = [
 ('R81','O6','Close the too-open student write rules found in the live policy list (tutor-loop trial plan)',PC,'v131: written trial plan docs/TUTOR_LOOP_TRIAL.md; t131 pins the 18 remaining signed-in write sites so none can be added. No code or database change. Not seen live.'),
 ('R82','O6','Close the too-open student write rules found in the live policy list (misconceptions: code step)',PC,'v132: misconception saves use the server key (filtered by student id); the database rule is NOT yet narrowed - the founder trial in docs/TUTOR_LOOP_TRIAL.md comes first. t131 pin 16. Not seen live.'),
 ('R83','O6','Speed: lesson turn reads its independent data together (founder report: students and parents say the app is slow)',PC,'v133: learner-state and orchestrator reads run in parallel; t133. Streaming replies and AI model choice not built. Not measured live.'),
+('R84','O6','Speed: stuck AI calls fall over to the backup provider in 10 s instead of 20 s (founder deployed a Groq key)',PC,'v134: Gemini chat timeout 10 s, no same-model retry for text calls, Groq timeout 12 s; t134. Streaming not built. Not measured live.'),
  ('R50','O8','Phase 0 findings (12 items) produced', CM, 'PHASE0_AUDIT.md. Awaiting founder acceptance.'),
  ('R51','O8','Create the persistent registry and control documents under repository conventions', PC, 'Markdown set created. Database-backed records are Phase 1.'),
  ('R52','O8','Present Phase 0 findings and proposed Phase 1 tasks; wait for the founder to choose', CM, 'Presented in the chat reply of 2026-10-31. Founder choice pending.'),
@@ -188,6 +189,7 @@ TASKS = [
 ('TASK-099','P6','Write the supervised trial plan for the tutor-loop write rules and pin the remaining write sites (t131)','O6','R81','TASK-098','S',RT,'v131: plan only; t131 (11 checks).'),
 ('TASK-100','P6','Tutor-loop step 1: move misconception saves to the server key (code only, no migration)','O6','R82','TASK-099','S',RT,'v132: t131 (13 checks); migration deliberately withheld until the founder trial.'),
 ('TASK-101','P6','Speed: run independent lesson-turn reads together (no behaviour change)','O6','R83','TASK-100','S',RT,'v133: t133 (18 checks); speed gain not measured live.'),
+('TASK-102','P6','Speed: faster failover from Gemini to Groq for chat calls (no database change)','O6','R84','TASK-101','S',RT,'v134: t134 (6 checks); speed gain not measured live.'),
 ]
 
 reqid = {r[0] for r in REQ}
@@ -437,6 +439,7 @@ EXECUTIONS = [
 ('EX-0043','2026-11-14','continue building what is left (chat)','v131: trial plan and write-site ratchet for the 7 tutor-loop tables (TASK-099).','docs/TUTOR_LOOP_TRIAL.md; tests/t131.ts; deploy-check version','none (no migration)','t131, full npm test','Not deployed; tutor-loop code and rules unchanged; needs founder-supervised trial'),
 ('EX-0044','2026-11-14','continue building what is left (chat)','v132: misconception saves moved to the server key (TASK-100).','core/misconceptions/taxonomy.ts; tests/t131.ts; deploy-check version','none (no migration)','tsc, t131, full npm test','Not deployed; tutor turn with a wrong answer must be tried by hand; database rule not narrowed'),
 ('EX-0045','2026-11-14','founder: app is slow; do fix 3 (chat)','v133: parallel reads in loadLearnerState and the orchestrator pre-turn (TASK-101).','core/learner-model/learner-state.service.ts; core/orchestrator/tutor.orchestrator.ts; tests/t133.ts','none (no migration)','tsc, t133, full npm test','Not deployed; speed gain not measured; streaming and model choice not built'),
+('EX-0046','2026-11-15','founder: Groq key deployed; do the timeout step (chat)','v134: faster failover to the backup AI provider (TASK-102).','core/ai-provider/gemini.provider.ts; groq.provider.ts; tests/t134.ts','none (no migration)','tsc, t134, full npm test','Not deployed; not measured live; depends on the Groq key being set on the live site'),
 ]
 ALLTEXT = open(OUT + '/MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md').read().split('\n---\n', 1)[1].lstrip('\n')
 LEG = {

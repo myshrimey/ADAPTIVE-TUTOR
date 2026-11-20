@@ -166,3 +166,4 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v131 (2026-11-14): tutor-loop trial plan + write-site ratchet (no migration; current migration still 0066).
 - v132 (2026-11-14): tutor-loop step 1 code (misconceptions via server key); no migration (current 0066); trial pending.
 - v133 (2026-11-14): speed: Vercel region Singapore (founder), parallel reads in lesson turn; no migration (current 0066).
+- v134 (2026-11-15): speed: faster failover Gemini -> Groq (timeouts 10 s/12 s); no migration (current 0066).

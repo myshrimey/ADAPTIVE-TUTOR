@@ -894,3 +894,6 @@ recordMisconception writes with getServiceClient() (same SUPABASE_URL/service ke
 
 ## v133 (2026-11-14) - speed: parallel reads in the lesson turn
 loadLearnerState (7 reads) and runOrchestratorTurn pre-turn reads (6) now run with Promise.all. Reads only; writes unchanged and still after. t133 (18 checks). Supabase performance advisor read: 94 unindexed FKs, 63 auth_rls_initplan, 68 unused indexes, 1 duplicate index, student_links multiple policies - none changed. Region of the Vercel functions set to Singapore by the founder. Not measured live.
+
+## v134 (2026-11-15) - speed: faster failover to the backup AI provider
+Founder deployed GROQ_API_KEY. Gemini chat timeout 20 s -> 10 s; text calls no longer retry the same model on 503/429 (fall to the next provider); Groq timeout 20 s -> 12 s. Evidence: ai_usage showed Gemini tutor replies about 6 s when OK and many 20 s timeouts / 503 'overloaded', no backup. t134. Not measured live.

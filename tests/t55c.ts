@@ -21,9 +21,9 @@ process.env.GEMINI_API_KEY='SECRET_GEM_KEY'; process.env.GROQ_API_KEY='SECRET_GR
   resetGatewayState();
   const ai=createAIProvider({tier:'paid',service,studentId:'s1',onAttempt:recordAIAttempt(service,'s1','paid')});
   const r=await ai.complete({systemPrompt:'sys',userMessage:'what is 2+2? mail me x@y.com',feature:'tutor'});
-  t('real adapters: gemini 429 -> groq 503 -> deepseek (generic adapter) answers',r.text==='FINAL: 4'&&calls.length===4);
-  t('gemini key in URL only (server side), groq/deepseek bearer',calls[0].url.includes('key=SECRET_GEM_KEY')&&calls[2].headers.Authorization==='Bearer SECRET_GROQ_KEY'&&calls[3].headers.Authorization==='Bearer SECRET_DS_KEY'&&calls[3].url==='https://api.example.test/v1/chat/completions');
-  t('generic adapter body shape',calls[3].body.model==='ds-chat'&&calls[3].body.messages[1].role==='user'&&!/x@y\.com/.test(JSON.stringify(calls[3].body)));
+  t('real adapters: gemini 429 -> groq 503 -> deepseek (generic adapter) answers',r.text==='FINAL: 4'&&calls.length===3);
+  t('gemini key in URL only (server side), groq/deepseek bearer',calls[0].url.includes('key=SECRET_GEM_KEY')&&calls[1].headers.Authorization==='Bearer SECRET_GROQ_KEY'&&calls[2].headers.Authorization==='Bearer SECRET_DS_KEY'&&calls[2].url==='https://api.example.test/v1/chat/completions');
+  t('generic adapter body shape',calls[2].body.model==='ds-chat'&&calls[2].body.messages[1].role==='user'&&!/x@y\.com/.test(JSON.stringify(calls[2].body)));
   const log=DB.ai_usage; t('3 usage rows logged',log.length===3&&log[0].provider==='gemini'&&log[0].status_code===429&&log[1].status_code===503&&log[2].provider==='deepseek'&&log[2].ok);
   t('no key or message text in usage log',!JSON.stringify(log).match(/SECRET_|what is 2\+2|x@y/));
   t('free route cost 0 but estimate recorded',log[2].cost_inr===0&&log[2].cost_est_inr>0&&log[2].free_quota_used===true&&log[2].model==='ds-chat'&&log[2].task==='tutor'&&log[2].task_tier===2);

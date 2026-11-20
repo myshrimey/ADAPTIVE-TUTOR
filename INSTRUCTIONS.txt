@@ -1,17 +1,19 @@
-Sahayak v133 - speed: lesson turn reads its data together (delta on v132)
+Sahayak v134 - speed step 2: faster failover to the backup AI provider (delta on v133)
+
+WHY
+Your own AI usage log showed Gemini tutor replies taking about 6 s when they worked, and many calls waiting the full 20 s and then failing (timeouts, 503 "model overloaded"), with no backup. You have now set the Groq key.
 
 WHAT CHANGED
-- Before, a lesson turn made about 14 database reads one after another. The independent ones now run together (7 for the learner state, 6 more for the tutor turn). Same data, same behaviour, writes unchanged. No database change.
-- You already set the Vercel function region to Singapore (next to the database).
+- A Gemini chat call that has not answered in 10 s (was 20 s) is given up and Groq takes over.
+- Text calls no longer retry the same overloaded Gemini model first; they go straight to the next provider. Photo reading is unchanged (60 s, one retry).
+- Groq's own wait limit is 12 s (was 20 s).
+- No database change.
 
-AFTER DEPLOYING (3 minutes)
-Start a lesson, answer one question, send one tutor message. It should feel quicker and behave exactly as before. If anything behaves differently, send me what you saw.
+AFTER DEPLOYING
+1. Use a lesson normally (answer a few questions).
+2. Next day open /admin/ai-requests: you should see rows for provider groq with latency of about 1 to 3 s next to the gemini rows. Send me the picture if it still feels slow.
 
-NOT BUILT
-- Streaming the tutor's reply word by word (the biggest "feels fast" gain; a larger change in the tutor turn, needs your supervision).
-- A faster AI model for short replies (cost and quality decision for you).
-- Database indexes and row-rule rewrites listed by Supabase's advisor (small gains at this size and they touch security rules).
-
-TESTED: tsc clean; t133 (18 checks); full npm test 104 passed, 4 known-stale, 0 failed.
-NOT TESTED: the real speed gain (nothing measured live); behaviour on the live site.
+TESTED: tsc clean; t134 (6 checks); t55c updated (Gemini no longer retried, 3 calls not 4); full npm test 105 passed, 4 known-stale, 0 failed.
+NOT TESTED: nothing seen live; the real speed gain; Groq's answer quality for tutor turns (Groq uses a Llama model, so read a few replies).
+NOT BUILT: streaming the reply word by word.
 NOT DEPLOYED: nothing was deployed.
