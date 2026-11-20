@@ -18,14 +18,14 @@ import { loadCurriculum } from '../curriculum/curriculum.service';
  * service client when the orchestrator is running server-side on their behalf.
  */
 export async function loadLearnerState(supabase: SupabaseClient, studentId: string): Promise<LearnerState> {
-  const { data: student, error: studentErr } = await supabase
+  // v133: these seven reads do not depend on each other, so they run together (one round trip instead of seven; same results).
+  const [studentRes, goalRes, profileRes, masteryRes, misconceptionRes, attemptsRes, sessionsRes] = await Promise.all([
+    supabase
     .from('students')
     .select('id, display_name, grade')
     .eq('id', studentId)
-    .single();
-  if (studentErr || !student) throw new Error(`student_not_found: ${studentId}`);
-
-  const { data: goal } = await supabase
+    .single(),
+    supabase
     .from('learning_goals')
     .select('curriculum_id, subject_id, target_date')
     .eq('student_id', studentId)
@@ -33,18 +33,46 @@ export async function loadLearnerState(supabase: SupabaseClient, studentId: stri
     .order('activated_at', { ascending: false })
     .order('created_at', { ascending: false })
     .limit(1)
-    .maybeSingle();
-
-  const { data: profile } = await supabase
+    .maybeSingle(),
+    supabase
     .from('learning_profiles')
     .select('preference_evidence')
     .eq('student_id', studentId)
-    .maybeSingle();
-
-  const { data: masteryRows } = await supabase
+    .maybeSingle(),
+    supabase
     .from('mastery_states')
     .select('skill_id, score, band, component_scores')
-    .eq('student_id', studentId);
+    .eq('student_id', studentId),
+    supabase
+    .from('misconceptions')
+    .select('tag, skill_id, confidence, resolved')
+    .eq('student_id', studentId)
+    .order('last_seen_at', { ascending: false })
+    .limit(20),
+    supabase
+    .from('question_attempts')
+    .select('is_correct, hints_used, questions(skill_id, difficulty)')
+    .eq('student_id', studentId)
+    .order('created_at', { ascending: false })
+    .limit(10),
+    supabase
+    .from('learning_sessions')
+    .select('id, skill_id, started_at, starting_mastery, ending_mastery')
+    .eq('student_id', studentId)
+    .order('started_at', { ascending: false })
+    .limit(5),
+  ]);
+  const { data: student, error: studentErr } = studentRes;
+  const { data: goal } = goalRes;
+  const { data: profile } = profileRes;
+  const { data: masteryRows } = masteryRes;
+  const { data: misconceptionRows } = misconceptionRes;
+  const { data: recentAttempts } = attemptsRes;
+  const { data: sessionRows } = sessionsRes;
+  if (studentErr || !student) throw new Error(`student_not_found: ${studentId}`);
+
+
+
 
   const masteryBySkill: Record<string, SkillMastery> = {};
   for (const row of masteryRows ?? []) {
@@ -62,12 +90,6 @@ export async function loadLearnerState(supabase: SupabaseClient, studentId: stri
     };
   }
 
-  const { data: misconceptionRows } = await supabase
-    .from('misconceptions')
-    .select('tag, skill_id, confidence, resolved')
-    .eq('student_id', studentId)
-    .order('last_seen_at', { ascending: false })
-    .limit(20);
 
   const misconceptions: DetectedMisconception[] = (misconceptionRows ?? []).map((r) => ({
     tag: r.tag,
@@ -76,12 +98,6 @@ export async function loadLearnerState(supabase: SupabaseClient, studentId: stri
     resolved: r.resolved,
   }));
 
-  const { data: recentAttempts } = await supabase
-    .from('question_attempts')
-    .select('is_correct, hints_used, questions(skill_id, difficulty)')
-    .eq('student_id', studentId)
-    .order('created_at', { ascending: false })
-    .limit(10);
 
   const last10Attempts = (recentAttempts ?? []).map((a: any) => ({
     correct: a.is_correct,
@@ -92,12 +108,6 @@ export async function loadLearnerState(supabase: SupabaseClient, studentId: stri
     ? last10Attempts.filter((a) => a.correct).length / last10Attempts.length
     : 0;
 
-  const { data: sessionRows } = await supabase
-    .from('learning_sessions')
-    .select('id, skill_id, started_at, starting_mastery, ending_mastery')
-    .eq('student_id', studentId)
-    .order('started_at', { ascending: false })
-    .limit(5);
 
   const sessionHistory = (sessionRows ?? []).map((s) => ({
     sessionId: s.id,

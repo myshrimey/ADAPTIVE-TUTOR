@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v132 (2026-11-14)
+## Latest delivery - v133 (2026-11-14)
+Speed. Families said the app is slow. Set the Vercel function region to Singapore (done by you; the database is in Singapore). In code: the lesson turn used to make about 14 database reads one after another; the independent ones now run together (learner state: 7 reads at once; tutor turn: 6 more at once). Same data, same order of writes. No database change. **After deploying:** start a lesson and answer a question; it should feel quicker and behave the same. Not built yet: streaming the tutor's reply word by word, and a faster AI model for short replies (cost/quality decision for you). The Supabase advisor also lists 94 foreign keys without an index and 63 row rules that re-check the sign-in per row; I did not change those (they touch security rules and give small gains at this size).
+
+## Previous delivery - v132 (2026-11-14)
 Step 1 of docs/TUTOR_LOOP_TRIAL.md, code only: when a student gives a wrong answer and the tutor records a misconception, it is now saved with the server's own key (filtered by the student id). No database change: the student's broad write rule on that table is still open, so nothing can break at the database. **Your trial after deploying:** sign in as a test student, start a lesson, answer one question wrongly on purpose, and check the lesson continues normally. In Supabase (read only): `select tag, confidence from misconceptions where student_id = '<test student id>' order by last_seen_at desc limit 3;` should show a new or updated row. Tell me the result; if it saved, I will send the migration that makes that table read-only.
 
 ## Previous delivery - v131 (2026-11-14)

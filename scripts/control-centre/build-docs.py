@@ -105,6 +105,7 @@ REQ = [
 ('R80','O6','Close the too-open student write rules found in the live policy list (learning profile, goals, check-ins)',PC,'v130: 0066 makes learning_profiles, learning_goals and session_checkins read-only for the student; subject registration, check-ins use the server key; t130. 8 tutor-loop tables still open. Not seen live.'),
 ('R81','O6','Close the too-open student write rules found in the live policy list (tutor-loop trial plan)',PC,'v131: written trial plan docs/TUTOR_LOOP_TRIAL.md; t131 pins the 18 remaining signed-in write sites so none can be added. No code or database change. Not seen live.'),
 ('R82','O6','Close the too-open student write rules found in the live policy list (misconceptions: code step)',PC,'v132: misconception saves use the server key (filtered by student id); the database rule is NOT yet narrowed - the founder trial in docs/TUTOR_LOOP_TRIAL.md comes first. t131 pin 16. Not seen live.'),
+('R83','O6','Speed: lesson turn reads its independent data together (founder report: students and parents say the app is slow)',PC,'v133: learner-state and orchestrator reads run in parallel; t133. Streaming replies and AI model choice not built. Not measured live.'),
  ('R50','O8','Phase 0 findings (12 items) produced', CM, 'PHASE0_AUDIT.md. Awaiting founder acceptance.'),
  ('R51','O8','Create the persistent registry and control documents under repository conventions', PC, 'Markdown set created. Database-backed records are Phase 1.'),
  ('R52','O8','Present Phase 0 findings and proposed Phase 1 tasks; wait for the founder to choose', CM, 'Presented in the chat reply of 2026-10-31. Founder choice pending.'),
@@ -186,6 +187,7 @@ TASKS = [
 ('TASK-098','P6','Move subject registration and check-in saves to the server key and narrow three student write rules (migration 0066)','O6','R80','TASK-097','S',RT,'v130: 0066 tested on scratch with a before/after experiment (goals row not present in scratch); t130 (20 checks).'),
 ('TASK-099','P6','Write the supervised trial plan for the tutor-loop write rules and pin the remaining write sites (t131)','O6','R81','TASK-098','S',RT,'v131: plan only; t131 (11 checks).'),
 ('TASK-100','P6','Tutor-loop step 1: move misconception saves to the server key (code only, no migration)','O6','R82','TASK-099','S',RT,'v132: t131 (13 checks); migration deliberately withheld until the founder trial.'),
+('TASK-101','P6','Speed: run independent lesson-turn reads together (no behaviour change)','O6','R83','TASK-100','S',RT,'v133: t133 (18 checks); speed gain not measured live.'),
 ]
 
 reqid = {r[0] for r in REQ}
@@ -434,6 +436,7 @@ EXECUTIONS = [
 ('EX-0042','2026-11-14','continue building what is left (chat)','v130: learning profile, subject goals and check-ins made read-only for the student (TASK-098).','migrations/0066; subject/checkin routes; deploy-check; tests t130 (+t95,t95b,t101,t128 edits); ROLLBACK_NOTES; DATABASE_SCHEMA','0066 learning_tables_read_only','t130, tsc, scratch Postgres before/after experiment, full npm test','Not deployed; 0066 not run on the live database; picking a subject and starting a lesson with a check-in must be tried by hand after deploy'),
 ('EX-0043','2026-11-14','continue building what is left (chat)','v131: trial plan and write-site ratchet for the 7 tutor-loop tables (TASK-099).','docs/TUTOR_LOOP_TRIAL.md; tests/t131.ts; deploy-check version','none (no migration)','t131, full npm test','Not deployed; tutor-loop code and rules unchanged; needs founder-supervised trial'),
 ('EX-0044','2026-11-14','continue building what is left (chat)','v132: misconception saves moved to the server key (TASK-100).','core/misconceptions/taxonomy.ts; tests/t131.ts; deploy-check version','none (no migration)','tsc, t131, full npm test','Not deployed; tutor turn with a wrong answer must be tried by hand; database rule not narrowed'),
+('EX-0045','2026-11-14','founder: app is slow; do fix 3 (chat)','v133: parallel reads in loadLearnerState and the orchestrator pre-turn (TASK-101).','core/learner-model/learner-state.service.ts; core/orchestrator/tutor.orchestrator.ts; tests/t133.ts','none (no migration)','tsc, t133, full npm test','Not deployed; speed gain not measured; streaming and model choice not built'),
 ]
 ALLTEXT = open(OUT + '/MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md').read().split('\n---\n', 1)[1].lstrip('\n')
 LEG = {

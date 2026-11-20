@@ -54,7 +54,15 @@ export async function runOrchestratorTurn(
   input: OrchestratorTurnInput,
   aiProvider: AIProvider = createDefaultAIProvider()
 ): Promise<OrchestratorTurnResult> {
-  const state = await loadLearnerState(supabase, input.studentId);
+  // v133: the reads below do not depend on each other, so they run together (one round trip instead of seven; same results).
+  const [state, sessionRes, checkin, attemptsRes, eventsRes, messagesRes] = await Promise.all([
+    loadLearnerState(supabase, input.studentId),
+    supabase.from('learning_sessions').select('skill_id').eq('id', input.sessionId).single(),
+    getSessionCheckin(supabase, input.sessionId),
+    supabase.from('question_attempts').select('is_correct, hints_used').eq('session_id', input.sessionId).order('created_at', { ascending: true }),
+    supabase.from('recovery_events').select('trigger, details').eq('session_id', input.sessionId),
+    supabase.from('messages').select('role, content').eq('session_id', input.sessionId).order('created_at', { ascending: false }).limit(RECENT_MESSAGE_WINDOW * 2),
+  ]);
 
   // The objective is whatever skill this session was created for — fixed for
   // the session's lifetime, not re-derived from learner state on every turn.
@@ -65,7 +73,7 @@ export async function runOrchestratorTurn(
   // corrupting the session summary. resolveCurrentObjective() is for
   // /session/start to pick a skill for a NEW session, not for turns within
   // an existing one.
-  const { data: sessionRow, error: sessionErr } = await supabase.from('learning_sessions').select('skill_id').eq('id', input.sessionId).single();
+  const { data: sessionRow, error: sessionErr } = sessionRes;
   if (sessionErr || !sessionRow) throw sessionErr ?? new Error('session_not_found');
   const objective = { skillId: sessionRow.skill_id };
 
@@ -125,16 +133,11 @@ export async function runOrchestratorTurn(
   // (time available, goal) sets how long it runs; a hard day (check-in) or a run of misses
   // (performance) makes the next few questions one step easier. None of this touches stored
   // mastery: it only changes what is asked and how long today's session is.
-  const checkin = await getSessionCheckin(supabase, input.sessionId);
-  const { data: sessionAttempts } = await supabase
-    .from('question_attempts')
-    .select('is_correct, hints_used')
-    .eq('session_id', input.sessionId)
-    .order('created_at', { ascending: true });
+  const { data: sessionAttempts } = attemptsRes;
   const attemptsDone = (sessionAttempts ?? []).length;
   const history = (sessionAttempts ?? []).map((a: any) => ({ correct: !!a.is_correct, hints: a.hints_used ?? 0 }));
 
-  const { data: events } = await supabase.from('recovery_events').select('trigger, details').eq('session_id', input.sessionId);
+  const { data: events } = eventsRes;
   let selfEvent = (events ?? []).find((e: any) => e.trigger === 'self_report');
   let perfEvent = (events ?? []).find((e: any) => e.trigger === 'performance');
   if (checkin?.recoveryMode && !selfEvent) {
@@ -159,12 +162,7 @@ export async function runOrchestratorTurn(
   // Maths (Basic): same syllabus, easier questions — never above difficulty 3.
   if (/\(Basic\)/i.test(subjectName)) difficulty = Math.min(3, difficulty);
 
-  const { data: recentMessages } = await supabase
-    .from('messages')
-    .select('role, content')
-    .eq('session_id', input.sessionId)
-    .order('created_at', { ascending: false })
-    .limit(RECENT_MESSAGE_WINDOW * 2);
+  const { data: recentMessages } = messagesRes;
   const lastMessages = (recentMessages ?? [])
     .slice(0, RECENT_MESSAGE_WINDOW)
     .reverse()

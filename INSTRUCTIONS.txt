@@ -1,15 +1,17 @@
-Sahayak v132 - tutor-loop step 1 (code only): misconception saves use the server key (delta on v131)
+Sahayak v133 - speed: lesson turn reads its data together (delta on v132)
 
 WHAT CHANGED
-- When a student answers wrongly and the tutor records a misconception, it is saved with the server's own key, filtered by the student id. Nothing else in the lesson changed.
-- NO database change. The student's broad write rule on that table stays open, so nothing can break at the database.
+- Before, a lesson turn made about 14 database reads one after another. The independent ones now run together (7 for the learner state, 6 more for the tutor turn). Same data, same behaviour, writes unchanged. No database change.
+- You already set the Vercel function region to Singapore (next to the database).
 
-YOUR TRIAL AFTER DEPLOYING (about 5 minutes, test student)
-1. Start a lesson, answer one question wrongly on purpose. The lesson must continue normally.
-2. In Supabase SQL editor (read only): select tag, confidence from misconceptions where student_id = '<test student id>' order by last_seen_at desc limit 3;  A new or updated row should appear.
-3. Tell me the result. If it saved, I send the migration that makes that table read-only. If the lesson broke or nothing saved, send me the error text and do NOT go further.
+AFTER DEPLOYING (3 minutes)
+Start a lesson, answer one question, send one tutor message. It should feel quicker and behave exactly as before. If anything behaves differently, send me what you saw.
 
-TESTED: tsc clean; t131 (13 checks); full npm test 103 passed, 4 known-stale, 0 failed.
-NOT TESTED: nothing seen live; the server key path in a real lesson.
-NOT BUILT: the migration for this table and the other 6 tutor-loop tables (docs/TUTOR_LOOP_TRIAL.md).
+NOT BUILT
+- Streaming the tutor's reply word by word (the biggest "feels fast" gain; a larger change in the tutor turn, needs your supervision).
+- A faster AI model for short replies (cost and quality decision for you).
+- Database indexes and row-rule rewrites listed by Supabase's advisor (small gains at this size and they touch security rules).
+
+TESTED: tsc clean; t133 (18 checks); full npm test 104 passed, 4 known-stale, 0 failed.
+NOT TESTED: the real speed gain (nothing measured live); behaviour on the live site.
 NOT DEPLOYED: nothing was deployed.

@@ -1,7 +1,7 @@
 # Master Objective Tracker
 Updated 2026-10-31. Only SAH-PROMPT-0009 is tracked at requirement level. Status words are the 14 allowed ones. "Founder acceptance" is separate from technical status and is empty for everything (the founder has not accepted anything under this system yet).
 
-Counts for SAH-PROMPT-0009: 82 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 55, READY FOR TESTING: 8.
+Counts for SAH-PROMPT-0009: 83 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 56, READY FOR TESTING: 8.
 
 ## SAH-PROMPT-0009 / O1: Persistent registry and execution control (Parts 1-3, 11, 12)
 Requirements 11; PARTIALLY COMPLETED 11
@@ -74,7 +74,7 @@ Requirements 4; NOT STARTED 2, PARTIALLY COMPLETED 2
 | R40 | Flag Indian privacy / legal questions for professional review instead of claiming compliance | PARTIALLY COMPLETED | pending | Flagged in PHASE0_AUDIT.md section 10; review itself not done. |
 
 ## SAH-PROMPT-0009 / O6: Database and architecture rules (Part 8)
-Requirements 33; COMPLETED 2, PARTIALLY COMPLETED 30, READY FOR TESTING 1
+Requirements 34; COMPLETED 2, PARTIALLY COMPLETED 31, READY FOR TESTING 1
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
@@ -111,6 +111,7 @@ Requirements 33; COMPLETED 2, PARTIALLY COMPLETED 30, READY FOR TESTING 1
 | R80 | Close the too-open student write rules found in the live policy list (learning profile, goals, check-ins) | PARTIALLY COMPLETED | pending | v130: 0066 makes learning_profiles, learning_goals and session_checkins read-only for the student; subject registration, check-ins use the server key; t130. 8 tutor-loop tables still open. Not seen live. |
 | R81 | Close the too-open student write rules found in the live policy list (tutor-loop trial plan) | PARTIALLY COMPLETED | pending | v131: written trial plan docs/TUTOR_LOOP_TRIAL.md; t131 pins the 18 remaining signed-in write sites so none can be added. No code or database change. Not seen live. |
 | R82 | Close the too-open student write rules found in the live policy list (misconceptions: code step) | PARTIALLY COMPLETED | pending | v132: misconception saves use the server key (filtered by student id); the database rule is NOT yet narrowed - the founder trial in docs/TUTOR_LOOP_TRIAL.md comes first. t131 pin 16. Not seen live. |
+| R83 | Speed: lesson turn reads its independent data together (founder report: students and parents say the app is slow) | PARTIALLY COMPLETED | pending | v133: learner-state and orchestrator reads run in parallel; t133. Streaming replies and AI model choice not built. Not measured live. |
 
 ## SAH-PROMPT-0009 / O7: Testing and acceptance (Part 9)
 Requirements 6; NOT STARTED 4, PARTIALLY COMPLETED 2

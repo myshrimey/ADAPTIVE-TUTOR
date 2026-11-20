@@ -891,3 +891,6 @@ No migration, no behaviour change. docs/TUTOR_LOOP_TRIAL.md; tests/t131.ts (11 c
 
 ## v132 (2026-11-14) - tutor-loop step 1 (code): misconception saves use the server key
 recordMisconception writes with getServiceClient() (same SUPABASE_URL/service key the website's own server client uses) and the update also filters by student_id. No migration. t131 pin for misconceptions 2 -> 0 (total 16). Not deployed; trial pending.
+
+## v133 (2026-11-14) - speed: parallel reads in the lesson turn
+loadLearnerState (7 reads) and runOrchestratorTurn pre-turn reads (6) now run with Promise.all. Reads only; writes unchanged and still after. t133 (18 checks). Supabase performance advisor read: 94 unindexed FKs, 63 auth_rls_initplan, 68 unused indexes, 1 duplicate index, student_links multiple policies - none changed. Region of the Vercel functions set to Singapore by the founder. Not measured live.

@@ -982,6 +982,16 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R83",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R83",
+   "text": "Speed: lesson turn reads its independent data together (founder report: students and parents say the app is slow)",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v133: learner-state and orchestrator reads run in parallel; t133. Streaming replies and AI model choice not built. Not measured live.",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -2947,6 +2957,21 @@ export const REGISTRY = {
    "note": "v132: t131 (13 checks); migration deliberately withheld until the founder trial.",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-101",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Speed: run independent lesson-turn reads together (no behaviour change)",
+   "objective_code": "O6",
+   "requirements": "R83",
+   "depends_on": "TASK-100",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v133: t133 (18 checks); speed gain not measured live.",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -3551,6 +3576,16 @@ export const REGISTRY = {
    "db_changes": "none (no migration)",
    "tests": "tsc, t131, full npm test",
    "open_problems": "Not deployed; tutor turn with a wrong answer must be tried by hand; database rule not narrowed"
+  },
+  {
+   "id": "EX-0045",
+   "executed_on": "2026-11-14",
+   "prompt_id": "founder: app is slow; do fix 3 (chat)",
+   "summary": "v133: parallel reads in loadLearnerState and the orchestrator pre-turn (TASK-101).",
+   "files": "core/learner-model/learner-state.service.ts; core/orchestrator/tutor.orchestrator.ts; tests/t133.ts",
+   "db_changes": "none (no migration)",
+   "tests": "tsc, t133, full npm test",
+   "open_problems": "Not deployed; speed gain not measured; streaming and model choice not built"
   }
  ]
 } as unknown as ControlRegistry;

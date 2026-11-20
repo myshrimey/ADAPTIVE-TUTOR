@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0045 - 2026-11-14 - founder: app is slow; do fix 3 (chat)
+- Summary: v133: parallel reads in loadLearnerState and the orchestrator pre-turn (TASK-101).
+- Files: core/learner-model/learner-state.service.ts; core/orchestrator/tutor.orchestrator.ts; tests/t133.ts
+- Database: none (no migration)
+- Tests: tsc, t133, full npm test
+- Open: Not deployed; speed gain not measured; streaming and model choice not built
+
 ## EX-0044 - 2026-11-14 - continue building what is left (chat)
 - Summary: v132: misconception saves moved to the server key (TASK-100).
 - Files: core/misconceptions/taxonomy.ts; tests/t131.ts; deploy-check version
