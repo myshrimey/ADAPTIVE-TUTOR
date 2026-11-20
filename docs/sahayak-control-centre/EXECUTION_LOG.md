@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0043 - 2026-11-14 - continue building what is left (chat)
+- Summary: v131: trial plan and write-site ratchet for the 7 tutor-loop tables (TASK-099).
+- Files: docs/TUTOR_LOOP_TRIAL.md; tests/t131.ts; deploy-check version
+- Database: none (no migration)
+- Tests: t131, full npm test
+- Open: Not deployed; tutor-loop code and rules unchanged; needs founder-supervised trial
+
 ## EX-0042 - 2026-11-14 - continue building what is left (chat)
 - Summary: v130: learning profile, subject goals and check-ins made read-only for the student (TASK-098).
 - Files: migrations/0066; subject/checkin routes; deploy-check; tests t130 (+t95,t95b,t101,t128 edits); ROLLBACK_NOTES; DATABASE_SCHEMA

@@ -86,7 +86,7 @@ alter table learning_sessions add column if not exists active_question_posed_at 
 alter table mock_exams add column if not exists kind text not null default 'full_mock';
 alter table mock_exams add column if not exists chapter_id uuid references chapters(id);
 alter table mock_exams drop constraint if exists mock_exams_kind_check;
-alter table mock_exams add constraint mock_exams_kind_check check (kind in ('full_mock','subject_check','chapter_check','board_style'));
+alter table mock_exams add constraint mock_exams_kind_check check (kind in ('full_mock','subject_check','chapter_check','board_style','blueprint')); -- v135: includes the kind added in 0023, so re-running this file never fails on an existing blueprint paper
 -- score/total on a board-style paper are MARKS; elsewhere they are question counts (1 mark each).
 
 alter table diagnostic_attempts add column if not exists chapter_id uuid references chapters(id);

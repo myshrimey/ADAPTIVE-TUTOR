@@ -885,3 +885,6 @@ registerSubject (4 routes), recordCheckin and recordConfidenceAfter now get the 
 
 ## v130 check (2026-11-14) - production build re-run
 A full `next build` (fonts stubbed, mock database address) succeeded on the v130 code, covering the v124-v130 website changes; layout.tsx restored and checked. This proves the code compiles and builds, not that it works live.
+
+## v131 (2026-11-14) - tutor-loop trial plan and write-site ratchet
+No migration, no behaviour change. docs/TUTOR_LOOP_TRIAL.md; tests/t131.ts (11 checks) pins 18 signed-in write sites on 7 tutor-loop tables. Not deployed.

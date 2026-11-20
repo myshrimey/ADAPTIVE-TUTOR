@@ -7,7 +7,7 @@
 
 -- 1. Teacher role -------------------------------------------------------------
 alter table users drop constraint if exists users_role_check;
-alter table users add constraint users_role_check check (role in ('student','parent','admin','teacher'));
+alter table users add constraint users_role_check check (role in ('student','parent','admin','teacher','tutor','centre')); -- v135: includes the roles added in 0025, so re-running this file never fails on an existing tutor/centre account
 
 -- 2. Students created by the founder must complete their profile on first login.
 alter table students add column if not exists must_complete_profile boolean not null default false;

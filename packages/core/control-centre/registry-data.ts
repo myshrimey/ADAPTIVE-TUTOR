@@ -962,6 +962,16 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R81",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R81",
+   "text": "Close the too-open student write rules found in the live policy list (tutor-loop trial plan)",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v131: written trial plan docs/TUTOR_LOOP_TRIAL.md; t131 pins the 18 remaining signed-in write sites so none can be added. No code or database change. Not seen live.",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -2897,6 +2907,21 @@ export const REGISTRY = {
    "note": "v130: 0066 tested on scratch with a before/after experiment (goals row not present in scratch); t130 (20 checks).",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-099",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Write the supervised trial plan for the tutor-loop write rules and pin the remaining write sites (t131)",
+   "objective_code": "O6",
+   "requirements": "R81",
+   "depends_on": "TASK-098",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v131: plan only; t131 (11 checks).",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -3481,6 +3506,16 @@ export const REGISTRY = {
    "db_changes": "0066 learning_tables_read_only",
    "tests": "t130, tsc, scratch Postgres before/after experiment, full npm test",
    "open_problems": "Not deployed; 0066 not run on the live database; picking a subject and starting a lesson with a check-in must be tried by hand after deploy"
+  },
+  {
+   "id": "EX-0043",
+   "executed_on": "2026-11-14",
+   "prompt_id": "continue building what is left (chat)",
+   "summary": "v131: trial plan and write-site ratchet for the 7 tutor-loop tables (TASK-099).",
+   "files": "docs/TUTOR_LOOP_TRIAL.md; tests/t131.ts; deploy-check version",
+   "db_changes": "none (no migration)",
+   "tests": "t131, full npm test",
+   "open_problems": "Not deployed; tutor-loop code and rules unchanged; needs founder-supervised trial"
   }
  ]
 } as unknown as ControlRegistry;

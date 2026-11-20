@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v130 (2026-11-14)
+## Latest delivery - v131 (2026-11-14)
+No website or database change except the version number. Wrote docs/TUTOR_LOOP_TRIAL.md: the supervised, one-table-at-a-time plan (with a 10-minute test you do on a test student) for the last 7 tutor-loop tables whose broad student write rules are still open, and a test (t131) that stops any new signed-in write to them from being added. Nothing in the lesson code was touched. Tell me when you want to start step 1 (misconceptions).
+
+## Previous delivery - v130 (2026-11-14)
 Security, third slice: choosing a subject, the pre-lesson check-in and the end-of-lesson confidence now save with the server's own key (the student id still comes from the sign-in, and the confidence update is filtered by it). Migration 0066 turns the student's direct write rules on learning_profiles, learning_goals and session_checkins into read-only rules. Deploy the website FIRST, then run 0066, then pick a subject and start a lesson with a check-in once. 8 student-owned write rules remain, all in the tutor loop (plan: docs/OWNER_WRITE_RULES_PLAN.md; needs your supervision). Not deployed, not seen live.
 
 ## Previous delivery - v129 (2026-11-14)

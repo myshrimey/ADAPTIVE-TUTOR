@@ -1,16 +1,11 @@
-Sahayak v130 - learning profile, subject goals and check-ins read-only for the student (delta on v129)
+Sahayak v131 - tutor-loop trial plan and write-site ratchet (delta on v130)
 
 WHAT CHANGED
-- Choosing a subject, the pre-lesson check-in and the end-of-lesson confidence now save with the server's own key. The student id still comes from the sign-in; the confidence update is also filtered by it.
-- Migration 0066 turns the student's direct write rules on learning_profiles, learning_goals and session_checkins into read-only rules.
+- docs/TUTOR_LOOP_TRIAL.md: the plan for moving the last 7 tutor-loop tables' writes to the server key, one table at a time, with a 10-minute test you do on a test student after each step.
+- tests/t131.ts: stops any new signed-in write to those 7 tables from being added (18 exist today).
+- Version number only in the website. No database change. Deploy v130 steps still apply (website first, then 0065 and 0066).
 
-ORDER (important)
-1. Deploy the v130 website first (after v129 if not yet deployed).
-2. Then run migrations (npm run db:migrate): 0065 then 0066.
-3. Then sign in as a student, pick a subject, start a lesson with the check-in, and finish it with the confidence question. All should save.
-4. /admin/deploy-check lists the new check for 0066. Press "Load from documents" in the control centre to refresh its numbers.
-
-TESTED: tsc clean; t130 (20 checks); full npm test 102 passed, 4 known-stale, 0 failed; scratch Postgres before/after (profile and check-in updates 1 row -> 0, check-in insert refused, reads unchanged, migration run twice).
-NOT TESTED: nothing seen live; the learning_goals table had no row in the scratch test (same rule shape as the other two); (a production build WAS run on the v130 code and succeeded; it proves the code builds, not that it works live).
-NOT BUILT: the 8 tutor-loop write rules (diagnostic_answers, diagnostic_attempts, learning_sessions, mastery_states, messages, misconceptions, question_attempts, plus a learning_events check) - plan in docs/OWNER_WRITE_RULES_PLAN.md; they need your supervision.
+TESTED: tsc clean; t131 (11 checks); full npm test 103 passed, 4 known-stale, 0 failed.
+NOT TESTED: nothing seen live.
+NOT BUILT: the moves themselves and the narrowing migrations for those 7 tables; they need you to watch.
 NOT DEPLOYED: nothing was deployed.
