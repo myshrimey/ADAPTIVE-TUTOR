@@ -1,7 +1,7 @@
 # Task Backlog
-Updated 2026-10-31. 74 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
+Updated 2026-10-31. 75 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
 
-Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 51.
+Tasks by status: BLOCKED 1, COMPLETED 6, NOT STARTED 11, PARTIALLY COMPLETED 5, READY FOR TESTING 52.
 
 Changing a priority here does NOT start work. Work starts only when the founder says so in the chat.
 
@@ -81,3 +81,4 @@ Changing a priority here does NOT start work. Work starts only when the founder 
 | TASK-097 | P6 | Move profile saves to the server key and narrow two student write rules (migration 0065) | O6 | R79 | TASK-096 | S | READY FOR TESTING | none yet |
 | TASK-098 | P6 | Move subject registration and check-in saves to the server key and narrow three student write rules (migration 0066) | O6 | R80 | TASK-097 | S | READY FOR TESTING | none yet |
 | TASK-099 | P6 | Write the supervised trial plan for the tutor-loop write rules and pin the remaining write sites (t131) | O6 | R81 | TASK-098 | S | READY FOR TESTING | none yet |
+| TASK-100 | P6 | Tutor-loop step 1: move misconception saves to the server key (code only, no migration) | O6 | R82 | TASK-099 | S | READY FOR TESTING | none yet |

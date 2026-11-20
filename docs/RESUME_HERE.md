@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v131 (2026-11-14)
+## Latest delivery - v132 (2026-11-14)
+Step 1 of docs/TUTOR_LOOP_TRIAL.md, code only: when a student gives a wrong answer and the tutor records a misconception, it is now saved with the server's own key (filtered by the student id). No database change: the student's broad write rule on that table is still open, so nothing can break at the database. **Your trial after deploying:** sign in as a test student, start a lesson, answer one question wrongly on purpose, and check the lesson continues normally. In Supabase (read only): `select tag, confidence from misconceptions where student_id = '<test student id>' order by last_seen_at desc limit 3;` should show a new or updated row. Tell me the result; if it saved, I will send the migration that makes that table read-only.
+
+## Previous delivery - v131 (2026-11-14)
 No website or database change except the version number. Wrote docs/TUTOR_LOOP_TRIAL.md: the supervised, one-table-at-a-time plan (with a 10-minute test you do on a test student) for the last 7 tutor-loop tables whose broad student write rules are still open, and a test (t131) that stops any new signed-in write to them from being added. Nothing in the lesson code was touched. Tell me when you want to start step 1 (misconceptions).
 
 ## Previous delivery - v130 (2026-11-14)

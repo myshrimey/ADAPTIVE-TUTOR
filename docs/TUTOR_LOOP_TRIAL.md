@@ -25,3 +25,6 @@ mastery_states 2, learning_sessions 5, messages 4, diagnostic_attempts 3, miscon
 
 ## What I will not do
 Run the narrowing migration for a table before you have done the trial for the code step.
+
+## Progress
+v132: step 1 code done (misconceptions). Waiting for your trial result before the migration.

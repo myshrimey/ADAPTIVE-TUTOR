@@ -1,8 +1,8 @@
-// t131: ratchet for the tutor-loop tables that still allow direct student writes (v131). The count of signed-in-client write sites may only go DOWN.
+// t131: ratchet for the tutor-loop tables that still allow direct student writes (v131, updated v132). The count of signed-in-client write sites may only go DOWN.
 import { readFileSync, readdirSync } from 'fs';
 let n = 0, f = 0; const ok = (c: any, m: string) => { n++; if (!c) { f++; console.log('FAIL', m); } };
 const R = (p: string) => readFileSync(p, 'utf8');
-const PINNED: Record<string, number> = { diagnostic_answers: 1, diagnostic_attempts: 3, learning_sessions: 5, mastery_states: 2, messages: 4, misconceptions: 2, question_attempts: 1 };
+const PINNED: Record<string, number> = { diagnostic_answers: 1, diagnostic_attempts: 3, learning_sessions: 5, mastery_states: 2, messages: 4, misconceptions: 0, question_attempts: 1 };
 export function sites(src: string): Record<string, number> {
   const out: Record<string, number> = {};
   for (const m of src.matchAll(new RegExp(`([\\w.()]+?)\\s*\\.from\\('(${Object.keys(PINNED).join('|')})'\\)`, 'g'))) {
@@ -20,7 +20,11 @@ for (const [t, max] of Object.entries(PINNED)) {
   const c = total[t] || 0;
   ok(c <= max, `${t}: ${c} signed-in write sites, pinned maximum ${max} (a new one must not be added; if you removed one, lower the pin)`);
 }
-ok(Object.values(total).reduce((a, b) => a + b, 0) <= 18, 'total signed-in write sites on the 7 tutor-loop tables is at most 18');
+ok(Object.values(total).reduce((a, b) => a + b, 0) <= 16, 'total signed-in write sites on the 7 tutor-loop tables is at most 16');
+// v132 step 1: misconceptions are written with the server key and filtered by student id
+const tax = R('packages/core/misconceptions/taxonomy.ts');
+ok(/const serviceWriter = getServiceClient\(\);/.test(tax) && /serviceWriter\s*\.from\('misconceptions'\)\s*\.update\([\s\S]*?\.eq\('id', existing\.id\)\s*\.eq\('student_id', studentId\)/.test(tax), 'misconception update uses the server key and filters by student id');
+ok(/serviceWriter\s*\.from\('misconceptions'\)\s*\.insert\(\{ student_id: studentId/.test(tax), 'misconception insert uses the server key');
 // the scan itself works
 ok(sites("await supabase.from('messages').insert({ a: 1 });").messages === 1, 'scan flags a signed-in insert');
 ok(Object.keys(sites("await service.from('messages').insert({ a: 1 });")).length === 0, 'scan ignores a server-key insert');

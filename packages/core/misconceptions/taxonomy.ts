@@ -1,6 +1,7 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { AIProvider } from '../ai-provider/ai-provider.interface';
 import type { MisconceptionTag } from '../learner-model/types';
+import { getServiceClient } from '../db/service-client';
 
 // Fixed taxonomy. Confidence-scored, never shown to the student as a label —
 // only used internally to select a REMEDIATION strategy. See docs/architecture.md §9.
@@ -131,15 +132,18 @@ export async function recordMisconception(
     .eq('resolved', false)
     .maybeSingle();
 
+  // v131: written with the server key (studentId comes from the session); the student's own write rule on this table is being closed (docs/TUTOR_LOOP_TRIAL.md step 1).
+  const serviceWriter = getServiceClient();
   if (existing) {
-    await supabase
+    await serviceWriter
       .from('misconceptions')
       .update({ confidence: Math.max(existing.confidence, confidence), last_seen_at: new Date().toISOString() })
-      .eq('id', existing.id);
+      .eq('id', existing.id)
+      .eq('student_id', studentId);
     return existing.id;
   }
 
-  const { data: inserted, error } = await supabase
+  const { data: inserted, error } = await serviceWriter
     .from('misconceptions')
     .insert({ student_id: studentId, skill_id: skillId, tag, confidence, resolved: false })
     .select()

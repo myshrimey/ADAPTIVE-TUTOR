@@ -164,3 +164,4 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v129 (2026-11-14): migration 0065 profile tables read-only for the student (current migration 0065). 11 other student-owned write rules still open.
 - v130 (2026-11-14): migration 0066 learning tables read-only for the student (current migration 0066). 8 tutor-loop write rules still open.
 - v131 (2026-11-14): tutor-loop trial plan + write-site ratchet (no migration; current migration still 0066).
+- v132 (2026-11-14): tutor-loop step 1 code (misconceptions via server key); no migration (current 0066); trial pending.

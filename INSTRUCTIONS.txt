@@ -1,11 +1,15 @@
-Sahayak v131 - tutor-loop trial plan and write-site ratchet (delta on v130)
+Sahayak v132 - tutor-loop step 1 (code only): misconception saves use the server key (delta on v131)
 
 WHAT CHANGED
-- docs/TUTOR_LOOP_TRIAL.md: the plan for moving the last 7 tutor-loop tables' writes to the server key, one table at a time, with a 10-minute test you do on a test student after each step.
-- tests/t131.ts: stops any new signed-in write to those 7 tables from being added (18 exist today).
-- Version number only in the website. No database change. Deploy v130 steps still apply (website first, then 0065 and 0066).
+- When a student answers wrongly and the tutor records a misconception, it is saved with the server's own key, filtered by the student id. Nothing else in the lesson changed.
+- NO database change. The student's broad write rule on that table stays open, so nothing can break at the database.
 
-TESTED: tsc clean; t131 (11 checks); full npm test 103 passed, 4 known-stale, 0 failed.
-NOT TESTED: nothing seen live.
-NOT BUILT: the moves themselves and the narrowing migrations for those 7 tables; they need you to watch.
+YOUR TRIAL AFTER DEPLOYING (about 5 minutes, test student)
+1. Start a lesson, answer one question wrongly on purpose. The lesson must continue normally.
+2. In Supabase SQL editor (read only): select tag, confidence from misconceptions where student_id = '<test student id>' order by last_seen_at desc limit 3;  A new or updated row should appear.
+3. Tell me the result. If it saved, I send the migration that makes that table read-only. If the lesson broke or nothing saved, send me the error text and do NOT go further.
+
+TESTED: tsc clean; t131 (13 checks); full npm test 103 passed, 4 known-stale, 0 failed.
+NOT TESTED: nothing seen live; the server key path in a real lesson.
+NOT BUILT: the migration for this table and the other 6 tutor-loop tables (docs/TUTOR_LOOP_TRIAL.md).
 NOT DEPLOYED: nothing was deployed.
