@@ -167,3 +167,5 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v132 (2026-11-14): tutor-loop step 1 code (misconceptions via server key); no migration (current 0066); trial pending.
 - v133 (2026-11-14): speed: Vercel region Singapore (founder), parallel reads in lesson turn; no migration (current 0066).
 - v134 (2026-11-15): speed: faster failover Gemini -> Groq (timeouts 10 s/12 s); no migration (current 0066).
+- v135 (2026-11-19): fixed db:migrate failure at 0016 (users_role_check) and 0018; no new migration (current 0066).
+- v136 (2026-11-21): Contact book at /admin/contacts is Super Admin only and shows full contact details, so every view/edit is audited (fields only, never values). Contact phone/WhatsApp live in user_contacts (server key only, no policies); parent WhatsApp lives in student_profile_details.parent_whatsapp. Email edits go to Auth first, then users, with revert. t136.

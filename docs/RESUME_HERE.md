@@ -2,7 +2,13 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v134 (2026-11-15)
+## Latest delivery - v136 (2026-11-21) - CONTACT BOOK
+New page /admin/contacts (Super Admin only): every account with its full email, a phone, a WhatsApp number and a note, editable in the row. Changing an email also changes the sign-in email (Supabase Auth first, then our table; undone if the second step fails). Opening the page and every edit are written to the Audit log (field names only, never the numbers). The family Profile page has a new "Parent WhatsApp number" field. Parent details entered by families show in the book read-only. Migration 0067 adds the column and the server-only table user_contacts. Order: deploy website, then `npm run db:migrate`. Not built: delete of accounts, bulk import, sending WhatsApp messages.
+
+## Previous delivery - v135 (2026-11-19) - FIX FOR A FAILED MIGRATION
+`npm run db:migrate` stopped at 0016 with "users_role_check is violated by some row". Cause: every migration re-runs from the start; 0016 narrowed the allowed account roles to four, and 0025 widened them again, so as soon as one tutor or centre account existed, 0016 failed. Same trap in 0018 (blueprint papers). Fixed by letting the early files allow the later values. Copy these files over your project, then run `npm run db:migrate` again; it should get past 0016 and on to 0066. Nothing was lost: the failed run changed nothing past 0015's work (each file runs in its own step).
+
+## Previous delivery - v134 (2026-11-15)
 Speed, step 2. Your usage log showed Gemini answering slowly or timing out at 20 s with no backup. With the Groq key now set, a stuck Gemini chat call is given up after 10 s (was 20 s) and Groq takes over; text calls no longer retry the same overloaded Gemini model first. Photo reading is unchanged (still 60 s, still retries once). No database change. **After deploying:** use a lesson normally; check /admin/ai-requests (or ai usage) the next day: you should see Groq rows with latency of about 1 to 3 s next to the Gemini ones. Not built: streaming.
 
 ## Previous delivery - v133 (2026-11-14)

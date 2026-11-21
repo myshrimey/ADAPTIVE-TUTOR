@@ -897,3 +897,11 @@ loadLearnerState (7 reads) and runOrchestratorTurn pre-turn reads (6) now run wi
 
 ## v134 (2026-11-15) - speed: faster failover to the backup AI provider
 Founder deployed GROQ_API_KEY. Gemini chat timeout 20 s -> 10 s; text calls no longer retry the same model on 503/429 (fall to the next provider); Groq timeout 20 s -> 12 s. Evidence: ai_usage showed Gemini tutor replies about 6 s when OK and many 20 s timeouts / 503 'overloaded', no backup. t134. Not measured live.
+
+## v135 (2026-11-19) - migration re-run fix
+Founder's db:migrate failed at 0016: users_role_check (0016 allowed 4 roles, 0025 allows 6) violated by an existing tutor/centre account. Also fixed mock_exams_kind_check in 0018 (blueprint). t135 compares every repeated check constraint. Reproduced on scratch; chain run twice with tutor/centre/parent rows: OK. Not run live.
+
+Note (v135): tests/t53.ts uses Math.random (25% of generated questions are marked bad) and can fail about once in a few full runs; it passes on re-run. It is the flaky test seen once in v123.
+
+## v136 (2026-11-21) - Contact book
+Founder asked how to see/edit registered emails, phones and WhatsApp numbers and chose to build a Contact book. Added migration 0067 (student_profile_details.parent_whatsapp; server-only table user_contacts), packages/core/contacts (logic, store), /api/admin/contacts (PATCH, Super Admin), /admin/contacts page with row editor, menu entry, and a WhatsApp field on /profile (reuses error code profile_parent_phone_invalid; profile still saves before 0067 by retrying without the column). Email change: Auth first, then users, revert Auth if users fails. Audit: contact.view and contact.edit, fields only. t136 (20 checks); t95, t95b, t101, t128 pins updated. Scratch: whole chain twice with a user row, column added, table has RLS on and no policies, cascade delete works. tsc clean. Not production-built, not tried against real Supabase Auth.

@@ -19,6 +19,7 @@ export const ADMIN_MENU: AdminGroup[] = [
     items: [
       { href: '/admin/students', label: 'Students and plans', note: 'Create students, give or remove access' },
       { href: '/admin/accounts', label: 'Account directory', note: 'Read-only list and snapshot of every account (masked)', keywords: 'users accounts lookup inspect' },
+      { href: '/admin/contacts', label: 'Contact book', note: 'Full email, phone, WhatsApp of every account; edit', keywords: 'whatsapp phone email contact mobile number change' },
       { href: '/admin/diagnostic-engine', label: 'Adaptive diagnostic engine', note: 'Baseline, stopping rules, learning path' },
       { href: '/admin/challenge-tier', label: 'Challenge zone', note: 'Olympiad-style questions and badges', keywords: 'stretch olympiad' },
       { href: '/admin/engagement', label: 'Student engagement', note: 'Streaks, missions, badges in use' },

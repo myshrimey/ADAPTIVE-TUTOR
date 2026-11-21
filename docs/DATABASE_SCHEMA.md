@@ -734,5 +734,8 @@ No table or column changes. Removes the rule `students_update_own` from 0002, wh
 ## 0065 profile_tables_read_only (v129)
 No table or column changes. Replaces the `for all` rules `student_profile_details_owner` and `student_academic_history_owner` (0007) with read-only rules `student_profile_details_select_own` and `student_academic_history_select_own`. A signed-in account can still read its own rows; writes happen only through the server key in `/api/profile` after the student id is taken from the session. Re-runnable.
 
+## 0067 contact_book (v136)
+Adds `student_profile_details.parent_whatsapp` (text, optional) and the table `user_contacts` (`user_id` primary key to `users` with delete-cascade, `phone`, `whatsapp`, `note`, `updated_by`, `updated_at`). Row rules are on with no policies, so only the server key (the Super Admin Contact book) can read or write it. Login email stays in Supabase Auth and `users.email`; parent contact from the Profile page stays in `student_profile_details`.
+
 ## 0066 learning_tables_read_only (v130)
 No table or column changes. Replaces the `for all` rules `learning_profiles_owner`, `learning_goals_owner` (0002) and `session_checkins_owner` (0013) with read-only rules `*_select_own`. Writes happen only through the server key (registerSubject, recordCheckin, recordConfidenceAfter, onboarding, language store). Re-runnable.

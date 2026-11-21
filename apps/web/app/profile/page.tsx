@@ -69,6 +69,7 @@ export default function ProfilePage() {
   const [parentOccupation, setParentOccupation] = useState('');
   const [parentEmail, setParentEmail] = useState('');
   const [parentPhone, setParentPhone] = useState('');
+  const [parentWhatsapp, setParentWhatsapp] = useState('');
   const [siblingsCount, setSiblingsCount] = useState('');
   const [address, setAddress] = useState('');
   const [howHeardAboutUs, setHowHeardAboutUs] = useState('');
@@ -96,6 +97,7 @@ export default function ProfilePage() {
           setParentOccupation(details.parentOccupation ?? '');
           setParentEmail(details.parentEmail ?? '');
           setParentPhone(details.parentPhone ?? '');
+          setParentWhatsapp(details.parentWhatsapp ?? '');
           setSiblingsCount(details.siblingsCount != null ? String(details.siblingsCount) : '');
           setAddress(details.address ?? '');
           setHowHeardAboutUs(details.howHeardAboutUs ?? '');
@@ -150,6 +152,7 @@ export default function ProfilePage() {
             parentOccupation: parentOccupation.trim() || null,
             parentEmail: parentEmail.trim() || null,
             parentPhone: parentPhone.trim() || null,
+            parentWhatsapp: parentWhatsapp.trim() || null,
             siblingsCount: siblingsCount.trim() ? Number(siblingsCount) : null,
             address: address.trim() || null,
             howHeardAboutUs: howHeardAboutUs.trim() || null,
@@ -257,6 +260,10 @@ export default function ProfilePage() {
               <div className="field" style={{ flex: 1, minWidth: '160px' }}>
                 <label className="field__label" htmlFor="parentPhone">Parent phone</label>
                 <input id="parentPhone" className="field__input" type="tel" value={parentPhone} onChange={(e) => setParentPhone(e.target.value)} />
+              </div>
+              <div className="field" style={{ flex: 1, minWidth: '160px' }}>
+                <label className="field__label" htmlFor="parentWhatsapp">Parent WhatsApp number</label>
+                <input id="parentWhatsapp" className="field__input" type="tel" value={parentWhatsapp} onChange={(e) => setParentWhatsapp(e.target.value)} />
               </div>
               <div className="field" style={{ width: '140px' }}>
                 <label className="field__label" htmlFor="siblingsCount">Siblings</label>

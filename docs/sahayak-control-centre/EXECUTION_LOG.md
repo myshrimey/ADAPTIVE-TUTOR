@@ -1,6 +1,20 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0048 - 2026-11-21 - founder: yes, build contact book with whatsapp field (chat)
+- Summary: v136: Contact book (TASK-104).
+- Files: migrations/0067; packages/core/contacts; api/admin/contacts; admin/contacts; profile
+- Database: 0067 contact_book (new column, new server-only table)
+- Tests: scratch before/after, whole chain twice, t136, tsc, full npm test
+- Open: Not run on the live database; not tried against real Supabase Auth; founder must deploy, run db:migrate and try one edit
+
+## EX-0047 - 2026-11-19 - founder: npm run db:migrate failed at 0016 (chat)
+- Summary: v135: migration re-run fix (TASK-103).
+- Files: migrations/0016, 0018; tests/t135.ts
+- Database: 0016 and 0018 edited (no new migration)
+- Tests: scratch reproduction, whole chain twice with tutor/centre/parent rows, t135, full npm test
+- Open: Not run on the live database; founder must re-run db:migrate after copying these files
+
 ## EX-0046 - 2026-11-15 - founder: Groq key deployed; do the timeout step (chat)
 - Summary: v134: faster failover to the backup AI provider (TASK-102).
 - Files: core/ai-provider/gemini.provider.ts; groq.provider.ts; tests/t134.ts

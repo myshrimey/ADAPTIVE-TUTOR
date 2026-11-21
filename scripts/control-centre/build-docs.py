@@ -107,6 +107,8 @@ REQ = [
 ('R82','O6','Close the too-open student write rules found in the live policy list (misconceptions: code step)',PC,'v132: misconception saves use the server key (filtered by student id); the database rule is NOT yet narrowed - the founder trial in docs/TUTOR_LOOP_TRIAL.md comes first. t131 pin 16. Not seen live.'),
 ('R83','O6','Speed: lesson turn reads its independent data together (founder report: students and parents say the app is slow)',PC,'v133: learner-state and orchestrator reads run in parallel; t133. Streaming replies and AI model choice not built. Not measured live.'),
 ('R84','O6','Speed: stuck AI calls fall over to the backup provider in 10 s instead of 20 s (founder deployed a Groq key)',PC,'v134: Gemini chat timeout 10 s, no same-model retry for text calls, Groq timeout 12 s; t134. Streaming not built. Not measured live.'),
+('R85','O6','Migrations must re-run safely once real accounts exist (founder hit a failure at 0016 on 2026-11-19)',PC,'v135: 0016 and 0018 constraint lists now include the later roles/kinds; t135 guards every repeated constraint; whole chain run twice on scratch with tutor/centre/parent rows. Not run on the live database.'),
+('R86','O6','Founder can see and correct how to reach every account (email, phone, WhatsApp) without the Supabase dashboard',PC,'v136: /admin/contacts, Super Admin only, audited; WhatsApp field on Profile; migration 0067; t136.'),
  ('R50','O8','Phase 0 findings (12 items) produced', CM, 'PHASE0_AUDIT.md. Awaiting founder acceptance.'),
  ('R51','O8','Create the persistent registry and control documents under repository conventions', PC, 'Markdown set created. Database-backed records are Phase 1.'),
  ('R52','O8','Present Phase 0 findings and proposed Phase 1 tasks; wait for the founder to choose', CM, 'Presented in the chat reply of 2026-10-31. Founder choice pending.'),
@@ -190,6 +192,8 @@ TASKS = [
 ('TASK-100','P6','Tutor-loop step 1: move misconception saves to the server key (code only, no migration)','O6','R82','TASK-099','S',RT,'v132: t131 (13 checks); migration deliberately withheld until the founder trial.'),
 ('TASK-101','P6','Speed: run independent lesson-turn reads together (no behaviour change)','O6','R83','TASK-100','S',RT,'v133: t133 (18 checks); speed gain not measured live.'),
 ('TASK-102','P6','Speed: faster failover from Gemini to Groq for chat calls (no database change)','O6','R84','TASK-101','S',RT,'v134: t134 (6 checks); speed gain not measured live.'),
+('TASK-103','P6','Fix the migration re-run failure at 0016 (users_role_check) and guard against the same pattern','O6','R85','TASK-102','S',RT,'v135: reproduced on scratch (old line fails, fixed line passes); t135 (10 checks); chain run twice OK.'),
+('TASK-104','P6','Build the Contact book with a WhatsApp field','O6','R86','TASK-103','S',RT,'v136: migration 0067, core/contacts, API, page, profile field; t136 (20 checks); scratch chain twice OK.'),
 ]
 
 reqid = {r[0] for r in REQ}
@@ -440,6 +444,8 @@ EXECUTIONS = [
 ('EX-0044','2026-11-14','continue building what is left (chat)','v132: misconception saves moved to the server key (TASK-100).','core/misconceptions/taxonomy.ts; tests/t131.ts; deploy-check version','none (no migration)','tsc, t131, full npm test','Not deployed; tutor turn with a wrong answer must be tried by hand; database rule not narrowed'),
 ('EX-0045','2026-11-14','founder: app is slow; do fix 3 (chat)','v133: parallel reads in loadLearnerState and the orchestrator pre-turn (TASK-101).','core/learner-model/learner-state.service.ts; core/orchestrator/tutor.orchestrator.ts; tests/t133.ts','none (no migration)','tsc, t133, full npm test','Not deployed; speed gain not measured; streaming and model choice not built'),
 ('EX-0046','2026-11-15','founder: Groq key deployed; do the timeout step (chat)','v134: faster failover to the backup AI provider (TASK-102).','core/ai-provider/gemini.provider.ts; groq.provider.ts; tests/t134.ts','none (no migration)','tsc, t134, full npm test','Not deployed; not measured live; depends on the Groq key being set on the live site'),
+('EX-0047','2026-11-19','founder: npm run db:migrate failed at 0016 (chat)','v135: migration re-run fix (TASK-103).','migrations/0016, 0018; tests/t135.ts','0016 and 0018 edited (no new migration)','scratch reproduction, whole chain twice with tutor/centre/parent rows, t135, full npm test','Not run on the live database; founder must re-run db:migrate after copying these files'),
+('EX-0048','2026-11-21','founder: yes, build contact book with whatsapp field (chat)','v136: Contact book (TASK-104).','migrations/0067; packages/core/contacts; api/admin/contacts; admin/contacts; profile','0067 contact_book (new column, new server-only table)','scratch before/after, whole chain twice, t136, tsc, full npm test','Not run on the live database; not tried against real Supabase Auth; founder must deploy, run db:migrate and try one edit'),
 ]
 ALLTEXT = open(OUT + '/MASTER_PROMPT_ARCHIVE/SAH-PROMPT-0009.md').read().split('\n---\n', 1)[1].lstrip('\n')
 LEG = {

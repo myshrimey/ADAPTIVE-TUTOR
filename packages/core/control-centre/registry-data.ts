@@ -1002,6 +1002,26 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R85",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R85",
+   "text": "Migrations must re-run safely once real accounts exist (founder hit a failure at 0016 on 2026-11-19)",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v135: 0016 and 0018 constraint lists now include the later roles/kinds; t135 guards every repeated constraint; whole chain run twice on scratch with tutor/centre/parent rows. Not run on the live database.",
+   "founder_acceptance": "pending"
+  },
+  {
+   "id": "SAH-PROMPT-0009/R86",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R86",
+   "text": "Founder can see and correct how to reach every account (email, phone, WhatsApp) without the Supabase dashboard",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v136: /admin/contacts, Super Admin only, audited; WhatsApp field on Profile; migration 0067; t136.",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -2997,6 +3017,36 @@ export const REGISTRY = {
    "note": "v134: t134 (6 checks); speed gain not measured live.",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-103",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Fix the migration re-run failure at 0016 (users_role_check) and guard against the same pattern",
+   "objective_code": "O6",
+   "requirements": "R85",
+   "depends_on": "TASK-102",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v135: reproduced on scratch (old line fails, fixed line passes); t135 (10 checks); chain run twice OK.",
+   "founder_next": false,
+   "founder_rank": null
+  },
+  {
+   "id": "TASK-104",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Build the Contact book with a WhatsApp field",
+   "objective_code": "O6",
+   "requirements": "R86",
+   "depends_on": "TASK-103",
+   "size": "S",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v136: migration 0067, core/contacts, API, page, profile field; t136 (20 checks); scratch chain twice OK.",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -3621,6 +3671,26 @@ export const REGISTRY = {
    "db_changes": "none (no migration)",
    "tests": "tsc, t134, full npm test",
    "open_problems": "Not deployed; not measured live; depends on the Groq key being set on the live site"
+  },
+  {
+   "id": "EX-0047",
+   "executed_on": "2026-11-19",
+   "prompt_id": "founder: npm run db:migrate failed at 0016 (chat)",
+   "summary": "v135: migration re-run fix (TASK-103).",
+   "files": "migrations/0016, 0018; tests/t135.ts",
+   "db_changes": "0016 and 0018 edited (no new migration)",
+   "tests": "scratch reproduction, whole chain twice with tutor/centre/parent rows, t135, full npm test",
+   "open_problems": "Not run on the live database; founder must re-run db:migrate after copying these files"
+  },
+  {
+   "id": "EX-0048",
+   "executed_on": "2026-11-21",
+   "prompt_id": "founder: yes, build contact book with whatsapp field (chat)",
+   "summary": "v136: Contact book (TASK-104).",
+   "files": "migrations/0067; packages/core/contacts; api/admin/contacts; admin/contacts; profile",
+   "db_changes": "0067 contact_book (new column, new server-only table)",
+   "tests": "scratch before/after, whole chain twice, t136, tsc, full npm test",
+   "open_problems": "Not run on the live database; not tried against real Supabase Auth; founder must deploy, run db:migrate and try one edit"
   }
  ]
 } as unknown as ControlRegistry;

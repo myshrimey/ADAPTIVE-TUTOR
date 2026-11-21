@@ -19,6 +19,7 @@ export interface StudentProfileDetails {
   parentOccupation: string | null;
   parentEmail: string | null;
   parentPhone: string | null;
+  parentWhatsapp: string | null;
   siblingsCount: number | null;
   address: string | null;
   howHeardAboutUs: string | null;
@@ -44,6 +45,7 @@ function mapDetails(studentId: string, r: any): StudentProfileDetails {
     parentOccupation: r?.parent_occupation ?? null,
     parentEmail: r?.parent_email ?? null,
     parentPhone: r?.parent_phone ?? null,
+    parentWhatsapp: r?.parent_whatsapp ?? null,
     siblingsCount: r?.siblings_count ?? null,
     address: r?.address ?? null,
     howHeardAboutUs: r?.how_heard_about_us ?? null,
@@ -66,7 +68,7 @@ export async function upsertStudentProfileDetails(
   studentId: string,
   fields: Partial<Omit<StudentProfileDetails, 'studentId' | 'updatedAt'>>
 ): Promise<StudentProfileDetails> {
-  const row = {
+  const row: Record<string, any> = {
     student_id: studentId,
     school_name: fields.schoolName ?? null,
     school_board: fields.schoolBoard ?? null,
@@ -77,16 +79,22 @@ export async function upsertStudentProfileDetails(
     parent_occupation: fields.parentOccupation ?? null,
     parent_email: fields.parentEmail ?? null,
     parent_phone: fields.parentPhone ?? null,
+    parent_whatsapp: fields.parentWhatsapp ?? null,
     siblings_count: fields.siblingsCount ?? null,
     address: fields.address ?? null,
     how_heard_about_us: fields.howHeardAboutUs ?? null,
     updated_at: new Date().toISOString(),
   };
-  const { data, error } = await supabase
+  let { data, error } = await supabase
     .from('student_profile_details')
     .upsert(row, { onConflict: 'student_id' })
     .select('*')
     .single();
+  if (error && /parent_whatsapp/.test(String(error.message ?? ''))) {
+    // Website deployed before migration 0067: save everything else rather than fail.
+    delete row.parent_whatsapp;
+    ({ data, error } = await supabase.from('student_profile_details').upsert(row, { onConflict: 'student_id' }).select('*').single());
+  }
   if (error || !data) throw error ?? new Error('profile_upsert_failed');
   return mapDetails(studentId, data);
 }
