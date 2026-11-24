@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v138 (2026-11-22) - ACTIVITY LOG AND ACCOUNT TIMELINE
+## Latest delivery - v139 (2026-11-22) - ACTIVITY ANALYTICS
+New page /admin/activity (Super Admin, in the menu as "Activity analytics"): sign-ins, different people, failed attempts, wrong-portal and sign-outs with a daily bar strip; coming-back rate; new accounts by role; lessons started, completed, abandoned and finish rate; AI reliability per provider (calls, failures, typical and slow-1-in-20 speed, plain failure reasons). 7, 30 or 90 days. Counts only. Any panel without enough data says why instead of showing zero. No database change: deploy the website only. Sign-in panels fill up only after v138's migration 0068 has run and people have signed in. Not built: per-feature adoption, a second funnel (the existing /admin/funnel stays).
+
+## Previous delivery - v138 (2026-11-22) - ACTIVITY LOG AND ACCOUNT TIMELINE
 You said to set the lawyer review aside for now, so the activity-tracking tasks it was holding back are built (decision FD-16 records this; the review is deferred, not done, and I do not claim legal compliance). New server-only table activity_events (migration 0068) records sign-in, failed sign-in (count only, the name typed is never kept), wrong-portal sign-in, sign-out, profile saved, payment request and report viewed. Only listed event names, no message text, answers, contact or device details. New page: /admin/accounts, open an account, then "Open the activity timeline" (date, category and event filters; opening it is audited). Retention: about 13 months (interim), in the dry-run report and purge script. Order: deploy website, then `npm run db:migrate`. Not built: plan changed / permission denied / AI failure / upload failed events, analytics dashboard, View Account As.
 
 ## Previous delivery - v137 (2026-11-22) - REPLY STREAMING

@@ -1,7 +1,7 @@
 # Master Objective Tracker
 Updated 2026-10-31. Only SAH-PROMPT-0009 is tracked at requirement level. Status words are the 14 allowed ones. "Founder acceptance" is separate from technical status and is empty for everything (the founder has not accepted anything under this system yet).
 
-Counts for SAH-PROMPT-0009: 87 requirements. COMPLETED: 4, NOT STARTED: 11, PARTIALLY COMPLETED: 62, READY FOR TESTING: 10.
+Counts for SAH-PROMPT-0009: 87 requirements. COMPLETED: 4, NOT STARTED: 10, PARTIALLY COMPLETED: 63, READY FOR TESTING: 10.
 
 ## SAH-PROMPT-0009 / O1: Persistent registry and execution control (Parts 1-3, 11, 12)
 Requirements 11; PARTIALLY COMPLETED 11
@@ -51,14 +51,14 @@ Requirements 8; NOT STARTED 4, PARTIALLY COMPLETED 4
 | R29 | Inspect mobile and desktop presentation | NOT STARTED | pending |  |
 
 ## SAH-PROMPT-0009 / O4: Account Activity Intelligence and tamper-resistant audit trail (Part 6)
-Requirements 7; NOT STARTED 1, PARTIALLY COMPLETED 4, READY FOR TESTING 2
+Requirements 7; PARTIALLY COMPLETED 5, READY FOR TESTING 2
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
 | R30 | Central activity events structure with indexes, access rules and retention | READY FOR TESTING | pending | v138: activity_events (0068), server-only, indexed, retention rule; not applied live until the founder runs it. |
 | R31 | Record meaningful events: account, learning, assessment, engagement, technical, payments | PARTIALLY COMPLETED | pending | v138: account, payment and report events recorded centrally; learning/engagement stay in their own tables; technical events (AI failure, upload) reserved but not yet wired. |
 | R32 | Per-account timeline with filters (date, event type, feature) | READY FOR TESTING | pending | v138: /admin/accounts/[id]/timeline. |
-| R33 | Analytics dashboard from real data; unavailable metrics marked with what is needed | NOT STARTED | pending |  |
+| R33 | Analytics dashboard from real data; unavailable metrics marked with what is needed | PARTIALLY COMPLETED | pending | v139: /admin/activity. Per-feature adoption not built (events not recorded yet). |
 | R34 | Tamper-resistant admin audit trail (login, inspection, impersonation, plan, payment, export, sensitive access, config) | PARTIALLY COMPLETED | pending | v91: migration 0057 adds target account, reason, outcome and blocks edit, delete and truncate (tested on scratch Postgres, not applied live); 14 more sensitive admin actions are now recorded. Still not recorded: login, failed login, "opened an account" (no such screen yet), retention rule (interim periods FD-13; professional review D7). |
 | R35 | Retention and deletion policy | PARTIALLY COMPLETED | pending | v94: interim periods decided (FD-13), a dry-run report at /admin/retention and an owner-only purge script (scripts/retention/purge-older-than.sql). Nothing is deleted automatically. Not legal advice; needs the D7 review before real use. |
 | R36 | Data minimisation for students/minors; no covert surveillance | PARTIALLY COMPLETED | pending | v138: minimal events only (names, times, results; whitelisted meta; no text, answers, contact or device details). Legal review deferred by the founder (FD-16); not a compliance claim. |

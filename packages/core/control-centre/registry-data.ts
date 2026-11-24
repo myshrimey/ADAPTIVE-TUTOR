@@ -517,8 +517,8 @@ export const REGISTRY = {
    "objective_code": "O4",
    "code": "R33",
    "text": "Analytics dashboard from real data; unavailable metrics marked with what is needed",
-   "status": "NOT STARTED",
-   "note": "",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v139: /admin/activity. Per-feature adoption not built (events not recorded yet).",
    "founder_acceptance": "pending"
   },
   {
@@ -2347,9 +2347,9 @@ export const REGISTRY = {
    "requirements": "R33",
    "depends_on": "TASK-041",
    "size": "M",
-   "status": "NOT STARTED",
+   "status": "READY FOR TESTING",
    "verification": "not yet",
-   "note": "",
+   "note": "v139: /admin/activity: sign-ins, distinct people, failed attempts, new accounts by role, lessons started/completed/abandoned, each with an \"unavailable because\" label.",
    "founder_next": false,
    "founder_rank": null
   },
@@ -2362,9 +2362,9 @@ export const REGISTRY = {
    "requirements": "R33",
    "depends_on": "TASK-050",
    "size": "M",
-   "status": "NOT STARTED",
+   "status": "PARTIALLY COMPLETED",
    "verification": "not yet",
-   "note": "",
+   "note": "v139: coming-back rate (needs one full earlier window of sign-in history, otherwise says so). Not built: a full visitor-to-paid funnel here (the existing /admin/funnel covers that) and per-feature adoption, which needs events that are not recorded yet.",
    "founder_next": false,
    "founder_rank": null
   },
@@ -2377,9 +2377,9 @@ export const REGISTRY = {
    "requirements": "R33,R31",
    "depends_on": "TASK-043",
    "size": "M",
-   "status": "NOT STARTED",
+   "status": "READY FOR TESTING",
    "verification": "not yet",
-   "note": "",
+   "note": "v139: AI reliability panel: calls, failures, fail %, typical and slow-1-in-20 speed per provider, failure reasons in plain classes. Login failures are in the sign-ins panel.",
    "founder_next": false,
    "founder_rank": null
   },
@@ -3746,6 +3746,16 @@ export const REGISTRY = {
    "db_changes": "0068 activity_events (new server-only table)",
    "tests": "scratch before/after and whole chain twice, t138, tsc, full npm test",
    "open_problems": "Not run on the live database; plan_changed, permission_denied, ai_failure, upload_failed not wired; no analytics page yet (TASK-050 to 052)"
+  },
+  {
+   "id": "EX-0051",
+   "executed_on": "2026-11-22",
+   "prompt_id": "founder: continue building the app from previous prompt (chat)",
+   "summary": "v139: activity analytics page (TASK-050 to TASK-052).",
+   "files": "packages/core/activity/analytics.ts; admin/activity; admin menu",
+   "db_changes": "none",
+   "tests": "t139, tsc, full npm test",
+   "open_problems": "Not run on live data; feature adoption and a full funnel here not built"
   }
  ]
 } as unknown as ControlRegistry;

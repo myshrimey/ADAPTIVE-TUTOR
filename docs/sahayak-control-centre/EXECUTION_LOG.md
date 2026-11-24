@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0051 - 2026-11-22 - founder: continue building the app from previous prompt (chat)
+- Summary: v139: activity analytics page (TASK-050 to TASK-052).
+- Files: packages/core/activity/analytics.ts; admin/activity; admin menu
+- Database: none
+- Tests: t139, tsc, full npm test
+- Open: Not run on live data; feature adoption and a full funnel here not built
+
 ## EX-0050 - 2026-11-22 - founder: ignore the lawyers review for the time being and continue (chat)
 - Summary: v138: activity log (TASK-041 to TASK-044 in part); FD-16 records the deferral.
 - Files: migrations/0068; packages/core/activity; login, profile, purchase, report routes; sign-out buttons; admin/accounts/[id]/timeline; retention

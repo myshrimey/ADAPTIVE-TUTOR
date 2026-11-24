@@ -12,6 +12,7 @@ export const ADMIN_MENU: AdminGroup[] = [
       { href: '/admin/traffic', label: 'Website traffic', note: 'Visitors, pages, sources', keywords: 'analytics visitors google views' },
       { href: '/admin/funnel', label: 'Funnel', note: 'Visitor to paid, step by step', keywords: 'conversion' },
       { href: '/admin/metrics', label: 'Metrics and exports', note: 'Activity, retention, CSV downloads' },
+      { href: '/admin/activity', label: 'Activity analytics', note: 'Sign-ins, coming back, lessons, AI failures (counts only)', keywords: 'analytics sign in active users errors ai failure latency retention' },
     ],
   },
   {

@@ -214,3 +214,4 @@ Read `docs/RESUME_HERE.md` — it always holds the exact next three tasks, curre
 - 2026-11-21: founder confirmed all versions up to v136 are deployed (website and database).
 - v137 (2026-11-22): tutor replies stream (?stream=1 on /api/session/message and /answer, NDJSON). Streaming is a provider wrapper, never inside the orchestrator; only feature 'tutor' streams; nothing is saved until the full reply returns; a provider failing after text was sent triggers onRestart. t137.
 - v138 (2026-11-22): founder deferred the lawyer review (FD-16); activity_events is a minimal, server-only, event-names-only log (t138 enforces: no text, answers, contact or device details). New event names must be added to ACTIVITY_TYPES deliberately. Do not claim legal compliance.
+- v139 (2026-11-22): /admin/activity analytics (counts only; each panel says why when unavailable; AI error text grouped, never raw). Helper is percentOf, not pct (clashes with founder/scoring). t139.
