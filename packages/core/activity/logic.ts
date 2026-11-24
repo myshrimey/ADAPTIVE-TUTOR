@@ -9,6 +9,7 @@ export const ACTIVITY_TYPES = {
   profile_saved: 'account', plan_changed: 'account',
   payment_claim_submitted: 'payment',
   report_viewed: 'assessment', report_generated: 'assessment',
+  feature_started: 'engagement', // v148: which part of the app a student started; the feature name is one of ADOPTION_FEATURES below, nothing else
   permission_denied: 'technical', ai_failure: 'technical', upload_failed: 'technical',
 } as const satisfies Record<string, ActivityCategory>;
 export type ActivityType = keyof typeof ACTIVITY_TYPES;
@@ -42,8 +43,13 @@ export function cleanTimelineFilter(sp: Record<string, string | string[] | undef
   };
 }
 
+/** The ONLY feature names feature_started accepts (stored in the entity field). Add one here deliberately (and in t148). */
+export const ADOPTION_FEATURES = { lesson: 'Lessons', diagnostic: 'Diagnostic', adaptive_check: 'Adaptive check', mock: 'Mock exams', challenge_zone: 'Challenge zone', revision: 'Revision' } as const;
+export type AdoptionFeature = keyof typeof ADOPTION_FEATURES;
+export const isAdoptionFeature = (v: unknown): v is AdoptionFeature => typeof v === 'string' && Object.prototype.hasOwnProperty.call(ADOPTION_FEATURES, v);
+
 export const ACTIVITY_LABEL: Record<ActivityType, string> = {
   login: 'Signed in', login_failed: 'Failed sign-in attempt', login_wrong_portal: 'Signed in on the wrong portal', logout: 'Signed out',
   profile_saved: 'Profile saved', plan_changed: 'Plan changed', payment_claim_submitted: 'Payment request submitted',
-  report_viewed: 'Report viewed', report_generated: 'Report generated', permission_denied: 'Permission denied', ai_failure: 'AI request failed', upload_failed: 'Upload failed',
+  report_viewed: 'Report viewed', report_generated: 'Report generated', feature_started: 'Started a feature', permission_denied: 'Permission denied', ai_failure: 'AI request failed', upload_failed: 'Upload failed',
 };

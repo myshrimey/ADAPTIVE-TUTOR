@@ -53,6 +53,13 @@ export default async function Page({ searchParams }: { searchParams?: Promise<Re
         <h2 style={{ fontSize: 'var(--step-1)', marginTop: 20 }}>Lessons</h2>
         {r.lessons.available && r.lessons.data ? <div className="stat-tile-row"><Tile value={r.lessons.data.started} label="lessons started" /><Tile value={r.lessons.data.completed} label="completed" /><Tile value={r.lessons.data.abandoned} label="abandoned" /><Tile value={pc(r.lessons.data.completionPct)} label="finished of those that ended" /><Tile value={r.lessons.data.distinctStudents} label="different students" /></div> : <Unavailable s={r.lessons} />}
 
+        <h2 style={{ fontSize: 'var(--step-1)', marginTop: 20 }}>Feature use</h2>
+        {r.features.available && r.features.data ? <>
+          <p>{r.features.data.students} students started at least one feature. Counts are starts, not minutes. {r.features.data.logStartedOn ? `Recorded since ${r.features.data.logStartedOn}; earlier use is not counted.` : 'Nothing has been recorded yet.'}</p>
+          <table style={{ borderCollapse: 'collapse', fontSize: '0.88rem' }}><thead><tr style={{ textAlign: 'left' }}>{['Feature', 'Starts', 'Students'].map((h) => <th key={h} style={{ paddingRight: 12 }}>{h}</th>)}</tr></thead>
+            <tbody>{r.features.data.rows.map((f) => <tr key={f.feature}><td style={{ paddingRight: 12 }}>{f.label}</td><td style={{ paddingRight: 12 }}>{f.uses}</td><td>{f.people}</td></tr>)}</tbody></table>
+        </> : <Unavailable s={r.features} />}
+
         <h2 style={{ fontSize: 'var(--step-1)', marginTop: 20 }}>AI reliability</h2>
         {r.ai.available && r.ai.data ? <>
           <p>{r.ai.data.total} AI calls, {r.ai.data.failed} failed.{r.ai.data.truncated ? ' (Latest 20,000 only.)' : ''} Speed is for calls that worked.</p>

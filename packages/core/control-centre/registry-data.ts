@@ -447,8 +447,8 @@ export const REGISTRY = {
    "objective_code": "O3",
    "code": "R26",
    "text": "Separately authorised test mode with explicit confirmation and recorded reason; prefer test accounts",
-   "status": "NOT STARTED",
-   "note": "",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v143: dedicated test accounts can be marked (with a recorded reason) and are left out of the activity numbers. Test MODE with writes is not built.",
    "founder_acceptance": "pending"
   },
   {
@@ -518,7 +518,7 @@ export const REGISTRY = {
    "code": "R33",
    "text": "Analytics dashboard from real data; unavailable metrics marked with what is needed",
    "status": "PARTIALLY COMPLETED",
-   "note": "v139: /admin/activity. Per-feature adoption not built (events not recorded yet).",
+   "note": "v139: /admin/activity. v148: per-feature adoption panel for six features (starts, not time spent; counts begin at deployment). Not run live.",
    "founder_acceptance": "pending"
   },
   {
@@ -577,8 +577,8 @@ export const REGISTRY = {
    "objective_code": "O5",
    "code": "R39",
    "text": "No leakage across accounts, parents, tutors or centres",
-   "status": "NOT STARTED",
-   "note": "",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v147: code-level checks exist (t97 every non-admin route names its caller, t98, t131 write pins, t140 view code has no write path or request-supplied id). Live checks written (v142 API, v145 pages) but not run; another-family check needs two test logins and is not built.",
    "founder_acceptance": "pending"
   },
   {
@@ -627,8 +627,8 @@ export const REGISTRY = {
    "objective_code": "O7",
    "code": "R44",
    "text": "Test the registry (persistence across resets, no overwrite, priorities kept)",
-   "status": "NOT STARTED",
-   "note": "",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v147 (evidence found, not new work): t90 checks a re-import keeps the founder priority and acceptance, the importer never names a founder column, and shipped data holds no founder choices. Not tried against the live database (persistence across a real reset).",
    "founder_acceptance": "pending"
   },
   {
@@ -637,8 +637,8 @@ export const REGISTRY = {
    "objective_code": "O7",
    "code": "R45",
    "text": "Test the Control Centre screens",
-   "status": "NOT STARTED",
-   "note": "",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v147 (evidence found, not new work): t90b and t93b render every Control Centre page to HTML with the shipped registry; t93 checks the checklists name only real pages. v146 extended the manual checklists. Not tried in a browser on the live site.",
    "founder_acceptance": "pending"
   },
   {
@@ -647,8 +647,8 @@ export const REGISTRY = {
    "objective_code": "O7",
    "code": "R46",
    "text": "Test the Observatory (role limits, read-only, logging, cross-account blocked)",
-   "status": "NOT STARTED",
-   "note": "",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v147 (evidence found, not new work): t91 (access scan, audit), t92 and t92b (directory read-only, masked, audited), t140 (View As: signed ticket, read only, reason, rate limit). Live cross-account blocking is the founder-run page and API checks (v142, v145), not yet run.",
    "founder_acceptance": "pending"
   },
   {
@@ -657,8 +657,8 @@ export const REGISTRY = {
    "objective_code": "O7",
    "code": "R47",
    "text": "Test Activity Intelligence (events, timelines, filters, real-data analytics, audit protection, retention)",
-   "status": "NOT STARTED",
-   "note": "",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v147 (evidence found, not new work): t138 (events, timeline, retention rule), t139 (analytics: real counts, unavailable labels), t141 (event wiring), t94 (retention dry run, purge script), t143 (test accounts left out). Not tried on live data; migration 0068 not run live.",
    "founder_acceptance": "pending"
   },
   {
@@ -668,7 +668,7 @@ export const REGISTRY = {
    "code": "R48",
    "text": "Test direct API access, unauthorised users, expired sessions, role boundaries, other-account access",
    "status": "PARTIALLY COMPLETED",
-   "note": "Tests are now inside the repository (npm test, 62 files). Direct-API tests for no-login, wrong role and other-account cases are still not written.",
+   "note": "Tests are now inside the repository (npm test, 62 files). v142: script written for no-login, forged session and wrong role; other-account case still not built. Not yet run live.",
    "founder_acceptance": "pending"
   },
   {
@@ -2227,9 +2227,9 @@ export const REGISTRY = {
    "requirements": "R26",
    "depends_on": "TASK-036",
    "size": "L",
-   "status": "NOT STARTED",
+   "status": "PARTIALLY COMPLETED",
    "verification": "not yet",
-   "note": "",
+   "note": "v143: mark/unmark a student account as TEST (Super Admin, reason, audited, migration 0069); excluded from /admin/activity. Not built: a separate test mode that allows writes. Not run live.",
    "founder_next": false,
    "founder_rank": null
   },
@@ -2244,7 +2244,7 @@ export const REGISTRY = {
    "size": "M",
    "status": "PARTIALLY COMPLETED",
    "verification": "not yet",
-   "note": "v93: checklists exist for all six account types, grounded in real pages (t93). v100: the founder can record Worked / Did not work / Could not try for every item (migration 0059, t100, t100b). Missing: test accounts for tutor/centre/teacher, and checks for View As (not built).",
+   "note": "v93: checklists exist for all six account types, grounded in real pages (t93). v100: the founder can record Worked / Did not work / Could not try for every item (migration 0059, t100, t100b). v146: seven checks added from the features built since (View As, test accounts, contact book, activity timeline and numbers, live check scripts, tutor reply streaming); 15 student, 5 parent, 5 tutor, 5 centre, 4 teacher and 13 admin items. Still missing: real test accounts for tutor, centre and teacher (the founder makes them).",
    "founder_next": false,
    "founder_rank": null
   },
@@ -2317,9 +2317,9 @@ export const REGISTRY = {
    "requirements": "R31,R36",
    "depends_on": "TASK-042",
    "size": "L",
-   "status": "PARTIALLY COMPLETED",
+   "status": "READY FOR TESTING",
    "verification": "not yet",
-   "note": "v138: sign-in, failed sign-in, wrong portal, sign-out, profile saved, payment request, report viewed recorded. Still not recorded: plan changed, permission denied, AI failure, upload failed (names reserved).",
+   "note": "v138: sign-in, failed sign-in, wrong portal, sign-out, profile saved, payment request, report viewed. v141: plan changed (payment or admin), permission denied (signed-in people only, no identity), AI failure (feature name only), upload failed (short reason only). Learning events stay in learning_events by design.",
    "founder_next": false,
    "founder_rank": null
   },
@@ -2364,7 +2364,7 @@ export const REGISTRY = {
    "size": "M",
    "status": "PARTIALLY COMPLETED",
    "verification": "not yet",
-   "note": "v139: coming-back rate (needs one full earlier window of sign-in history, otherwise says so). Not built: a full visitor-to-paid funnel here (the existing /admin/funnel covers that) and per-feature adoption, which needs events that are not recorded yet.",
+   "note": "v148: per-feature adoption: six start points (lessons, diagnostic, adaptive check, mock, challenge zone, revision) record the feature name only (event feature_started, no migration); /admin/activity has a Feature use panel (starts and distinct students, test accounts left out, says it counts starts not minutes and since when). Counting begins when v148 is deployed. v139: coming-back rate (needs one full earlier window of sign-in history, otherwise says so). Not built: a full visitor-to-paid funnel here (the existing /admin/funnel covers that).",
    "founder_next": false,
    "founder_rank": null
   },
@@ -2392,9 +2392,9 @@ export const REGISTRY = {
    "requirements": "R46,R48",
    "depends_on": "TASK-015",
    "size": "L",
-   "status": "PARTIALLY COMPLETED",
+   "status": "READY FOR TESTING",
    "verification": "not yet",
-   "note": "v91: t91 static scan of every admin API route and page (server-side gate, gate before body, no secret in browser files). Calls to the running site (no login, wrong role, expired session, other account) are NOT done.",
+   "note": "v142: scripts/live-checks/api-boundaries.mjs calls every API route on the running site: signed out, forged/expired session, and (with a TEST student cookie) wrong role. Tested end to end against a stand-in site with planted holes (t142). NOT yet run on your live site; the other-account case needs two test logins and is not built.",
    "founder_next": false,
    "founder_rank": null
   },
@@ -2422,9 +2422,9 @@ export const REGISTRY = {
    "requirements": "R45,R46,R47",
    "depends_on": "TASK-038,TASK-035",
    "size": "L",
-   "status": "NOT STARTED",
+   "status": "PARTIALLY COMPLETED",
    "verification": "not yet",
-   "note": "",
+   "note": "v145: scripts/live-checks/journeys.mjs opens every page (168) for a visitor and, with TEST-account cookies, for each of the six account types, and checks each is refused on the others (t145, tested against a stand-in site with planted holes). NOT yet run on the live site. It is page level, not a clicked workflow (sign-up, lesson, payment, upload stay manual: LIVE_JOURNEY_CHECKLIST.md).",
    "founder_next": false,
    "founder_rank": null
   },
@@ -3766,6 +3766,96 @@ export const REGISTRY = {
    "db_changes": "none",
    "tests": "t140, t94, t67, tsc, full npm test",
    "open_problems": "Not run live; mobile layout (R29) not checked; test mode (TASK-037) not built; families are not told that staff can view (D7 deferred)"
+  },
+  {
+   "id": "EX-0053",
+   "executed_on": "2026-11-22",
+   "prompt_id": "founder: continue building the app from previous prompt (chat)",
+   "summary": "v141: the four reserved activity events wired (TASK-042).",
+   "files": "commerce.service; admin students/[id]; lib/admin.ts; lib/ai.ts; mock sheets route",
+   "db_changes": "none",
+   "tests": "t141, tsc, full npm test",
+   "open_problems": "Not run live; payment-related events appear only after v138 migration 0068 is applied"
+  },
+  {
+   "id": "EX-0054",
+   "executed_on": "2026-11-22",
+   "prompt_id": "founder: continue building the app from previous prompt (chat)",
+   "summary": "v142: live API boundary check script (TASK-060).",
+   "files": "scripts/live-checks; docs/LIVE_API_CHECKS.md",
+   "db_changes": "none",
+   "tests": "t142 incl. end-to-end run against a stand-in site with planted holes, full npm test",
+   "open_problems": "Not run on the live site; other-account tier not built"
+  },
+  {
+   "id": "EX-0055",
+   "executed_on": "2026-11-23",
+   "prompt_id": "founder: continue building the app from previous prompt (chat)",
+   "summary": "v143: test accounts (first half of TASK-037, R26).",
+   "files": "packages/core/test-accounts; migration 0069; api/admin/test-accounts; accounts/[id] TestMark; activity analytics",
+   "db_changes": "0069 test_accounts (server-only)",
+   "tests": "t143, migration chain twice on scratch Postgres with undo, full npm test, tsc",
+   "open_problems": "Not run live; test mode with writes not built; the mark is not shown in the account directory list"
+  },
+  {
+   "id": "EX-0056",
+   "executed_on": "2026-11-23",
+   "prompt_id": "founder: continue building the app from previous prompt (chat)",
+   "summary": "v144: the TEST label on the account list page (left over from v143).",
+   "files": "apps/web/app/admin/accounts/page.tsx",
+   "db_changes": "none",
+   "tests": "t144, tsc, full npm test",
+   "open_problems": "Not run live"
+  },
+  {
+   "id": "EX-0057",
+   "executed_on": "2026-11-23",
+   "prompt_id": "founder: continue building the app from the screenshot (Resume report; TASK-062 was the last not-started task)",
+   "summary": "v145: live page-journey check for the six account types (TASK-062).",
+   "files": "scripts/live-checks/journeys.mjs, journeys-lib.mjs; docs/LIVE_PAGE_JOURNEYS.md",
+   "db_changes": "none",
+   "tests": "t145 (19 checks) incl. end-to-end run against a stand-in site with planted holes, tsc, full npm test",
+   "open_problems": "Not run on the live site; page level only (no clicked workflow); other-family data check not built"
+  },
+  {
+   "id": "EX-0058",
+   "executed_on": "2026-11-23",
+   "prompt_id": "founder: continue building and completing everything on the screenshot (Resume report)",
+   "summary": "v146: Testing page checklists extended for the features built in v136 to v145 (TASK-038).",
+   "files": "packages/core/control-centre/qa.ts; tests/t100b.ts counts",
+   "db_changes": "none",
+   "tests": "t93, t100, t100b, tsc, full npm test",
+   "open_problems": "Founder must still make test tutor, centre and teacher accounts; nothing run live"
+  },
+  {
+   "id": "EX-0059",
+   "executed_on": "2026-11-23",
+   "prompt_id": "founder: continue building and completing everything on the screenshot (Resume report)",
+   "summary": "v147: records on the Resume report the test evidence that already existed for R39, R44, R45, R46 and R47 (they still said not started).",
+   "files": "scripts/control-centre/build-docs.py only",
+   "db_changes": "none",
+   "tests": "build-docs, t90, t93, t94, full npm test",
+   "open_problems": "Nothing new built or run live; R29 (phone layout) and R38 (rule) unchanged"
+  },
+  {
+   "id": "EX-0060",
+   "executed_on": "2026-11-23",
+   "prompt_id": "founder chose: per-feature adoption analytics (asked in chat)",
+   "summary": "v148: feature adoption (TASK-051, R33).",
+   "files": "packages/core/activity/{logic,store,analytics}.ts; six start routes; /admin/activity Feature use panel",
+   "db_changes": "none (reuses 0068)",
+   "tests": "t148 (20 checks), tsc, full npm test",
+   "open_problems": "Counts begin at deployment; starts not time spent; six features only; not run live"
+  },
+  {
+   "id": "EX-0061",
+   "executed_on": "2026-11-24",
+   "prompt_id": "founder: pasted the Vercel build log (Failed to compile: node:crypto, via view-as/logic.ts)",
+   "summary": "v149: fix for the Vercel build failure of v140 to v148; guard test; rule to run a real next build before every delivery.",
+   "files": "packages/core/view-as/logic.ts; apps/web/lib/view-as.ts; tests/t149.ts; CLAUDE.md",
+   "db_changes": "none",
+   "tests": "real `next build` completed (fonts stubbed locally, layout restored), t149, t140, full npm test",
+   "open_problems": "Founder must redeploy; v140 to v148 could not have built on Vercel; earlier checks (tsc, npm test) do not run the bundler"
   }
  ]
 } as unknown as ControlRegistry;

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { startDiagnostic, registerSubject, assertAccess, assertSubjectAllowed, publicError } from '@adaptive-tutor/core';
+import { startDiagnostic, registerSubject, assertAccess, assertSubjectAllowed, publicError, recordFeatureUse } from '@adaptive-tutor/core';
 import { aiForStudent } from '@/lib/ai';
 import { kickBankGrowth } from '@/lib/bank-growth';
 
@@ -54,6 +54,7 @@ export async function POST(request: Request) {
 
     const { attemptId, firstQuestion, resumed, answeredCount, total } = await startDiagnostic(supabase, studentId, subjectId as string, await aiForStudent(studentId));
     if (!resumed) kickBankGrowth(subjectId);
+    await recordFeatureUse(createServiceClient(), studentId, 'diagnostic'); // v148: feature name only
     return NextResponse.json({ data: { attemptId, question: firstQuestion, resumed, answeredCount, total }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });

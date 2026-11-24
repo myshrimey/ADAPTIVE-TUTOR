@@ -1,7 +1,8 @@
 import { createServiceClient } from '@/lib/supabase-server';
 import { adminPageGate, AdminNav } from '@/lib/admin-page';
-import { loadSnapshot, KIND_LABEL } from '@adaptive-tutor/core';
+import { loadSnapshot, KIND_LABEL, isTestAccount } from '@adaptive-tutor/core';
 import ViewAsStart from './ViewAsStart';
+import TestMark from './TestMark';
 
 export const dynamic = 'force-dynamic';
 const when = (iso: string | null) => (iso ? iso.slice(0, 16).replace('T', ' ') : 'Never recorded');
@@ -11,14 +12,16 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   const g = await adminPageGate();
   if ('gate' in g) return g.gate;
   const { id } = await params;
-  const s = await loadSnapshot(createServiceClient(), id, g.email);
+  const svc = createServiceClient();
+  const s = await loadSnapshot(svc, id, g.email);
+  const isTest = s.found && s.kind === 'student' ? await isTestAccount(svc, id) : false;
   return (
     <main className="page"><div className="shell">
       <div style={{ paddingTop: 'var(--space-3)' }}>
         <p><a href="/admin/accounts">← Account directory</a></p>
         <AdminNav />
         {!s.found ? <><h1 style={{ fontSize: 'var(--step-2)' }}>Account not found</h1><p>No account has that id.</p></> : <>
-        <h1 style={{ fontSize: 'var(--step-2)' }}>Account {s.shortId} · {s.kind ? KIND_LABEL[s.kind] : ''}</h1>
+        <h1 style={{ fontSize: 'var(--step-2)' }}>Account {s.shortId} · {s.kind ? KIND_LABEL[s.kind] : ''}{isTest ? ' · TEST ACCOUNT' : ''}</h1>
         <p style={{ color: 'var(--slate)' }}>Read only and masked. This view was recorded in the Audit log. It is a summary from existing records, not the account&apos;s own screens: &quot;view as this account&quot; is not built (and will never sign you in as someone else).</p>
         <table className="data-table"><tbody>
           <tr><th align="left">Initials</th><td>{s.initials || '-'}</td></tr>
@@ -35,6 +38,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
           </>}
           <tr><th align="left">Registered devices</th><td>{s.devices}</td></tr>
         </tbody></table>
+        {s.kind === 'student' && <TestMark userId={id} marked={isTest} />}
         {s.kind === 'student' && <ViewAsStart userId={id} />}
         <p><a href={`/admin/accounts/${id}/timeline`}>Open the activity timeline (sign-ins, profile, payments, reports)</a></p>
         <h2 style={{ fontSize: 'var(--step-1)', marginTop: 20 }}>Links</h2>

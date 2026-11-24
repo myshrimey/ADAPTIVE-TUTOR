@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { requireAdmin, generatePassword } from '@/lib/admin';
-import { ACCESS_PLAN_CODES, validateAccessUntil, writeAudit, type AccessPlanCode } from '@adaptive-tutor/core';
+import { ACCESS_PLAN_CODES, validateAccessUntil, writeAudit, recordActivityForStudent, type AccessPlanCode } from '@adaptive-tutor/core';
 
 // Admin-only: change a student's plan / subject limit / end date, or set a new password.
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -40,6 +40,7 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
     );
     if (error) throw error;
     await writeAudit(service, { actorEmail: admin.email, actorRole: 'super_admin', action: 'student.plan_change', entity: 'student_access', entityId: id, targetAccount: id, outcome: 'success', detail: { plan: planCode, subjectLimit, accessUntil } });
+    await recordActivityForStudent(service, id, { type: 'plan_changed', entity: 'plan', meta: { via: 'admin', plan: planCode } }); // v141
     return NextResponse.json({ data: { ok: true }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: err.message ?? 'unknown_error' }, { status: err.message === 'not_authorized' ? 403 : 400 });

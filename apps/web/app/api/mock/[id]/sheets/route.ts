@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { createHash } from 'crypto';
-import { decideImageQuality, getHandwritingConsent, listSheets, loadPaperExam, saveSheet, deleteSheet, loadSettings, pagesAllowedForExam, publicError } from '@adaptive-tutor/core';
+import { decideImageQuality, getHandwritingConsent, listSheets, loadPaperExam, saveSheet, deleteSheet, loadSettings, pagesAllowedForExam, publicError, recordActivityForStudent } from '@adaptive-tutor/core';
 import { measureImage, sniffImageType } from '@/lib/image-quality';
 
 export const runtime = 'nodejs';
@@ -36,13 +36,14 @@ export async function POST(request: Request, ctx: { params: Promise<{ id: string
     const pageNo = Number(form.get('page'));
     if (!(file instanceof File)) return NextResponse.json({ data: null, error: 'missing_file' }, { status: 400 });
     if (!(pageNo >= 1 && pageNo <= maxPages)) return NextResponse.json({ data: null, error: `This examination allows up to ${maxPages} answer-sheet images.` }, { status: 400 });
-    if (file.size > settings.handwritten.max_upload_mb * 1024 * 1024) return NextResponse.json({ data: null, error: 'file_too_big' }, { status: 413 });
+    const failed = (reason: string) => recordActivityForStudent(service, studentId, { type: 'upload_failed', status: 'failed', entity: 'answer_sheet', meta: { reason } }); // v141: a short reason only, never the photo
+    if (file.size > settings.handwritten.max_upload_mb * 1024 * 1024) { await failed('too_big'); return NextResponse.json({ data: null, error: 'file_too_big' }, { status: 413 }); }
     const buf = Buffer.from(await file.arrayBuffer());
-    if (!sniffImageType(buf)) return NextResponse.json({ data: null, error: 'not_an_image' }, { status: 400 });
+    if (!sniffImageType(buf)) { await failed('not_an_image'); return NextResponse.json({ data: null, error: 'not_an_image' }, { status: 400 }); }
 
     const { metrics, jpeg } = await measureImage(buf);
     const decision = decideImageQuality(metrics);
-    if (!decision.ok) return NextResponse.json({ data: { accepted: false, reasons: decision.reasons, message: decision.message }, error: null });
+    if (!decision.ok) { await failed('quality'); return NextResponse.json({ data: { accepted: false, reasons: decision.reasons, message: decision.message }, error: null }); }
     // Exact duplicate photo on another page? (stops an accidental double upload being paid for twice)
     const hash = createHash('sha1').update(jpeg).digest('hex');
     const { data: others } = await service.from('answer_sheets').select('page_no, quality').eq('student_id', studentId).eq('mock_exam_id', id).neq('page_no', pageNo);

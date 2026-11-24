@@ -1,4 +1,4 @@
-import { createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
+import { createHmac, randomBytes, timingSafeEqual } from 'crypto';
 
 // v140: "View Account As" tickets (design: docs/sahayak-control-centre/VIEW_AS_DESIGN.md, TASK-035). The admin keeps their OWN session;
 // a ticket only says "this admin may look at this one account's read-only pages until this time". It is never a login as the account.

@@ -1,4 +1,4 @@
-import { createHash } from 'node:crypto';
+import { createHash } from 'crypto';
 
 // v140: the signing secret is DERIVED from the server key that is already a secret (no new setting to forget, nothing in the browser).
 export function viewAsSecret(): string {

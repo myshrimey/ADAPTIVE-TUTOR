@@ -1,7 +1,7 @@
 # Master Objective Tracker
 Updated 2026-10-31. Only SAH-PROMPT-0009 is tracked at requirement level. Status words are the 14 allowed ones. "Founder acceptance" is separate from technical status and is empty for everything (the founder has not accepted anything under this system yet).
 
-Counts for SAH-PROMPT-0009: 87 requirements. COMPLETED: 4, NOT STARTED: 8, PARTIALLY COMPLETED: 63, READY FOR TESTING: 12.
+Counts for SAH-PROMPT-0009: 87 requirements. COMPLETED: 4, NOT STARTED: 2, PARTIALLY COMPLETED: 69, READY FOR TESTING: 12.
 
 ## SAH-PROMPT-0009 / O1: Persistent registry and execution control (Parts 1-3, 11, 12)
 Requirements 11; PARTIALLY COMPLETED 11
@@ -37,7 +37,7 @@ Requirements 10; PARTIALLY COMPLETED 3, READY FOR TESTING 7
 | R21 | Reuse existing admin components; no duplicate dashboards | PARTIALLY COMPLETED | pending | Reuses AdminNav, adminPageGate and the existing layout; the existing roadmap/tasks pages are untouched. |
 
 ## SAH-PROMPT-0009 / O3: Admin Account Observatory: directory, view-account-as-admin, test checklists (Part 5)
-Requirements 8; NOT STARTED 2, PARTIALLY COMPLETED 4, READY FOR TESTING 2
+Requirements 8; NOT STARTED 1, PARTIALLY COMPLETED 5, READY FOR TESTING 2
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
@@ -45,7 +45,7 @@ Requirements 8; NOT STARTED 2, PARTIALLY COMPLETED 4, READY FOR TESTING 2
 | R23 | Mask sensitive data; never show passwords, tokens or keys | PARTIALLY COMPLETED | pending | v92: directory and snapshot show masked email and initials only; never passwords, tokens, keys, answers, IP addresses or browser strings (t92, t92b). Applies to the new screens only. |
 | R24 | VIEW ACCOUNT AS ADMIN: server-authorised, banner, exit button, short expiry, per-action checks, audit, no credentials | READY FOR TESTING | pending | Nothing like it exists today (searched code). Approach decided (FD-12): read only, never a login session as another person. Design and threat model written (VIEW_AS_DESIGN.md). Not built: needs the founder's explicit go and the D7 review. |
 | R25 | Read-only by default: block changes, payments, messages, plan changes, submissions while inspecting | READY FOR TESTING | pending | v140: the view pages contain no write path (t140); the admin session is not the student, so real write routes act only for the admin own account. |
-| R26 | Separately authorised test mode with explicit confirmation and recorded reason; prefer test accounts | NOT STARTED | pending |  |
+| R26 | Separately authorised test mode with explicit confirmation and recorded reason; prefer test accounts | PARTIALLY COMPLETED | pending | v143: dedicated test accounts can be marked (with a recorded reason) and are left out of the activity numbers. Test MODE with writes is not built. |
 | R27 | No admin-to-admin impersonation and no privilege increase through this feature | PARTIALLY COMPLETED | pending | v92: the new screens are read only and never create a session as another person (t92 checks the code). Admin-to-admin and privilege rules still to be built with View As. |
 | R28 | Test checklist for every account type (student, parent, tutor, centre, teacher), based only on features that exist | PARTIALLY COMPLETED | pending | v93: six checklists (student, parent, tutor, centre, teacher, founder) of 43 checks; a test proves every page they name exists. They are instructions for a person with TEST accounts; no results are recorded; no centre, tutor or teacher test accounts exist yet. |
 | R29 | Inspect mobile and desktop presentation | NOT STARTED | pending |  |
@@ -58,19 +58,19 @@ Requirements 7; PARTIALLY COMPLETED 5, READY FOR TESTING 2
 | R30 | Central activity events structure with indexes, access rules and retention | READY FOR TESTING | pending | v138: activity_events (0068), server-only, indexed, retention rule; not applied live until the founder runs it. |
 | R31 | Record meaningful events: account, learning, assessment, engagement, technical, payments | PARTIALLY COMPLETED | pending | v138: account, payment and report events recorded centrally; learning/engagement stay in their own tables; technical events (AI failure, upload) reserved but not yet wired. |
 | R32 | Per-account timeline with filters (date, event type, feature) | READY FOR TESTING | pending | v138: /admin/accounts/[id]/timeline. |
-| R33 | Analytics dashboard from real data; unavailable metrics marked with what is needed | PARTIALLY COMPLETED | pending | v139: /admin/activity. Per-feature adoption not built (events not recorded yet). |
+| R33 | Analytics dashboard from real data; unavailable metrics marked with what is needed | PARTIALLY COMPLETED | pending | v139: /admin/activity. v148: per-feature adoption panel for six features (starts, not time spent; counts begin at deployment). Not run live. |
 | R34 | Tamper-resistant admin audit trail (login, inspection, impersonation, plan, payment, export, sensitive access, config) | PARTIALLY COMPLETED | pending | v91: migration 0057 adds target account, reason, outcome and blocks edit, delete and truncate (tested on scratch Postgres, not applied live); 14 more sensitive admin actions are now recorded. Still not recorded: login, failed login, "opened an account" (no such screen yet), retention rule (interim periods FD-13; professional review D7). |
 | R35 | Retention and deletion policy | PARTIALLY COMPLETED | pending | v94: interim periods decided (FD-13), a dry-run report at /admin/retention and an owner-only purge script (scripts/retention/purge-older-than.sql). Nothing is deleted automatically. Not legal advice; needs the D7 review before real use. |
 | R36 | Data minimisation for students/minors; no covert surveillance | PARTIALLY COMPLETED | pending | v138: minimal events only (names, times, results; whitelisted meta; no text, answers, contact or device details). Legal review deferred by the founder (FD-16); not a compliance claim. |
 
 ## SAH-PROMPT-0009 / O5: Security and privacy, including minors and India (Part 7)
-Requirements 4; NOT STARTED 2, PARTIALLY COMPLETED 2
+Requirements 4; NOT STARTED 1, PARTIALLY COMPLETED 3
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
 | R37 | All access control enforced on the server; never rely on hidden buttons | PARTIALLY COMPLETED | pending | v91: test t91 scans all admin API routes and pages for a server-side gate (all pass; two documented exceptions). It reads the code; it does not call the running site. |
 | R38 | No secrets in the browser; no universal admin password or backdoor; do not weaken RLS | NOT STARTED | pending | Rule. Checked on every task. |
-| R39 | No leakage across accounts, parents, tutors or centres | NOT STARTED | pending |  |
+| R39 | No leakage across accounts, parents, tutors or centres | PARTIALLY COMPLETED | pending | v147: code-level checks exist (t97 every non-admin route names its caller, t98, t131 write pins, t140 view code has no write path or request-supplied id). Live checks written (v142 API, v145 pages) but not run; another-family check needs two test logins and is not built. |
 | R40 | Flag Indian privacy / legal questions for professional review instead of claiming compliance | PARTIALLY COMPLETED | pending | Flagged in PHASE0_AUDIT.md section 10; review itself not done. |
 
 ## SAH-PROMPT-0009 / O6: Database and architecture rules (Part 8)
@@ -118,15 +118,15 @@ Requirements 38; COMPLETED 2, PARTIALLY COMPLETED 35, READY FOR TESTING 1
 | R87 | Tutor replies appear as they are written so lessons feel fast (families said the app is slow) | PARTIALLY COMPLETED | pending | v137: streaming for Groq, Gemini and OpenAI-style providers; t137; not yet tried on the live site. |
 
 ## SAH-PROMPT-0009 / O7: Testing and acceptance (Part 9)
-Requirements 6; NOT STARTED 4, PARTIALLY COMPLETED 2
+Requirements 6; PARTIALLY COMPLETED 6
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
-| R44 | Test the registry (persistence across resets, no overwrite, priorities kept) | NOT STARTED | pending |  |
-| R45 | Test the Control Centre screens | NOT STARTED | pending |  |
-| R46 | Test the Observatory (role limits, read-only, logging, cross-account blocked) | NOT STARTED | pending |  |
-| R47 | Test Activity Intelligence (events, timelines, filters, real-data analytics, audit protection, retention) | NOT STARTED | pending |  |
-| R48 | Test direct API access, unauthorised users, expired sessions, role boundaries, other-account access | PARTIALLY COMPLETED | pending | Tests are now inside the repository (npm test, 62 files). Direct-API tests for no-login, wrong role and other-account cases are still not written. |
+| R44 | Test the registry (persistence across resets, no overwrite, priorities kept) | PARTIALLY COMPLETED | pending | v147 (evidence found, not new work): t90 checks a re-import keeps the founder priority and acceptance, the importer never names a founder column, and shipped data holds no founder choices. Not tried against the live database (persistence across a real reset). |
+| R45 | Test the Control Centre screens | PARTIALLY COMPLETED | pending | v147 (evidence found, not new work): t90b and t93b render every Control Centre page to HTML with the shipped registry; t93 checks the checklists name only real pages. v146 extended the manual checklists. Not tried in a browser on the live site. |
+| R46 | Test the Observatory (role limits, read-only, logging, cross-account blocked) | PARTIALLY COMPLETED | pending | v147 (evidence found, not new work): t91 (access scan, audit), t92 and t92b (directory read-only, masked, audited), t140 (View As: signed ticket, read only, reason, rate limit). Live cross-account blocking is the founder-run page and API checks (v142, v145), not yet run. |
+| R47 | Test Activity Intelligence (events, timelines, filters, real-data analytics, audit protection, retention) | PARTIALLY COMPLETED | pending | v147 (evidence found, not new work): t138 (events, timeline, retention rule), t139 (analytics: real counts, unavailable labels), t141 (event wiring), t94 (retention dry run, purge script), t143 (test accounts left out). Not tried on live data; migration 0068 not run live. |
+| R48 | Test direct API access, unauthorised users, expired sessions, role boundaries, other-account access | PARTIALLY COMPLETED | pending | Tests are now inside the repository (npm test, 62 files). v142: script written for no-login, forged session and wrong role; other-account case still not built. Not yet run live. |
 | R49 | Report test results separately from implementation status | PARTIALLY COMPLETED | pending | Separate TESTED / NOT TESTED sections used in INSTRUCTIONS.txt and the trackers. |
 
 ## SAH-PROMPT-0009 / O8: Phase 0 first action: audit, persistent documents, present findings (Part 10, First Action)

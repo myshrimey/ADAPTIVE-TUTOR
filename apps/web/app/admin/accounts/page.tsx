@@ -1,6 +1,6 @@
 import { createServiceClient } from '@/lib/supabase-server';
 import { adminPageGate, AdminNav } from '@/lib/admin-page';
-import { loadDirectory, cleanFilter, auditDirectoryView, countBy, ACCOUNT_KINDS, KIND_LABEL } from '@adaptive-tutor/core';
+import { loadDirectory, cleanFilter, auditDirectoryView, countBy, ACCOUNT_KINDS, KIND_LABEL, listTestAccountIds } from '@adaptive-tutor/core';
 
 export const dynamic = 'force-dynamic';
 const day = (iso: string | null) => (iso ? iso.slice(0, 10) : 'Never recorded');
@@ -13,6 +13,7 @@ export default async function Page({ searchParams }: { searchParams?: Promise<Re
   const service = createServiceClient();
   const dir = await loadDirectory(service, f);
   await auditDirectoryView(service, g.email, f, dir.shown);
+  const testIds = await listTestAccountIds(service); // v144: label only
   const byKind = countBy(dir.rows, (r) => r.kind);
   const box = { padding: '4px 8px', marginRight: 8, marginBottom: 6 } as const;
   return (
@@ -37,7 +38,7 @@ export default async function Page({ searchParams }: { searchParams?: Promise<Re
       <table style={{ borderCollapse: 'collapse', fontSize: '0.88rem' }}>
         <thead><tr style={{ textAlign: 'left' }}>{['Account', 'Type', 'Initials', 'Email (masked)', 'Plan', 'Status', 'Registered', 'Last learning activity', 'First source'].map((h) => <th key={h} style={{ paddingRight: 12 }}>{h}</th>)}</tr></thead>
         <tbody>{dir.rows.map((r) => <tr key={r.id} style={{ verticalAlign: 'top' }}>
-          <td style={{ paddingRight: 12 }}><a href={`/admin/accounts/${r.id}`}>{r.shortId}</a></td><td style={{ paddingRight: 12 }}>{KIND_LABEL[r.kind]}</td><td style={{ paddingRight: 12 }}>{r.initials}</td><td style={{ paddingRight: 12 }}>{r.maskedEmail}</td><td style={{ paddingRight: 12 }}>{r.plan ?? ''}</td><td style={{ paddingRight: 12 }}>{r.status.replace('_', ' ')}</td><td style={{ paddingRight: 12 }}>{day(r.registered)}</td><td style={{ paddingRight: 12 }}>{day(r.lastActivity)}</td><td>{r.source ?? ''}</td></tr>)}
+          <td style={{ paddingRight: 12 }}><a href={`/admin/accounts/${r.id}`}>{r.shortId}</a>{testIds.has(r.id) ? ' · TEST' : ''}</td><td style={{ paddingRight: 12 }}>{KIND_LABEL[r.kind]}</td><td style={{ paddingRight: 12 }}>{r.initials}</td><td style={{ paddingRight: 12 }}>{r.maskedEmail}</td><td style={{ paddingRight: 12 }}>{r.plan ?? ''}</td><td style={{ paddingRight: 12 }}>{r.status.replace('_', ' ')}</td><td style={{ paddingRight: 12 }}>{day(r.registered)}</td><td style={{ paddingRight: 12 }}>{day(r.lastActivity)}</td><td>{r.source ?? ''}</td></tr>)}
           {!dir.rows.length && <tr><td colSpan={9}>No accounts match.</td></tr>}</tbody>
       </table>
     </div></main>

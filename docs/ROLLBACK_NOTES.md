@@ -1,4 +1,4 @@
-# Rollback notes for the database changes 0002 to 0068
+# Rollback notes for the database changes 0002 to 0069
 
 Written in v101 (2 Nov 2026); 0002 to 0054 added in v113 and v115 (8 Nov 2026), worked out by comparing a scratch database before and after each change (scripts/db-test). **How to read this:** every database change in Sahayak only ADDS things and is safe to run again. If you ever need to go back, these are the undo steps, newest first. They were tested on a scratch copy of the database: apply 0055-0059, run every undo block below, check the objects are gone, then apply 0055-0059 again with no error (t101).
 
@@ -9,6 +9,13 @@ Written in v101 (2 Nov 2026); 0002 to 0054 added in v113 and v115 (8 Nov 2026), 
 4. After an undo, the matching version of the website must also be redeployed, otherwise a page may look for a table that is gone. `/admin/deploy-check` shows which side is behind.
 5. These notes undo structure only: they never delete rows from students, answers, payments or accounts, and never drop those core tables. They DO drop columns and new tables that a change added, and what was saved in them is lost (each section says which).
 6. This is a plan written by Claude and tested on a copy. It is not a promise about your live database. Nothing here has been run on it.
+
+## 0069 test_accounts (v143) - the test-account marks
+What you lose: **every test-account mark** (which accounts were labelled as test). Back up first. No account, answer or payment is touched; the accounts simply count in the activity numbers again.
+```sql
+drop table if exists test_accounts;
+```
+Redeploy the website before v143 afterwards (the activity numbers and the account page read the marks and carry on without them when the table is missing).
 
 ## 0068 activity_events (v138) - the central activity log
 What you lose: **every recorded sign-in, sign-out, profile, payment-request and report event** (this is the whole log). Back up first. No account, answer or payment is touched.

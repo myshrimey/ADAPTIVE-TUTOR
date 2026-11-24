@@ -1,5 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
-import { ACTIVITY_TYPES, cleanMeta, isActivityType, type ActivityStatus, type ActivityType, type TimelineFilter } from './logic';
+import { ACTIVITY_TYPES, cleanMeta, isActivityType, isAdoptionFeature, type AdoptionFeature, type ActivityStatus, type ActivityType, type TimelineFilter } from './logic';
 
 // v138: SERVER ONLY (server-key client). recordActivity never throws and never blocks a product flow.
 const missing = (err: any) => !!err && (err.code === '42P01' || err.code === 'PGRST205' || /does not exist|schema cache/i.test(String(err.message ?? '')));
@@ -24,6 +24,12 @@ export async function recordActivityForStudent(service: SupabaseClient, studentI
     const { data } = await service.from('students').select('user_id').eq('id', studentId).maybeSingle();
     return recordActivity(service, { ...ev, userId: (data as any)?.user_id ?? null });
   } catch { return false; }
+}
+
+/** v148: a student started a part of the app. Feature name only; never fails a request. */
+export async function recordFeatureUse(service: SupabaseClient, studentId: string, feature: AdoptionFeature): Promise<boolean> {
+  if (!isAdoptionFeature(feature)) return false;
+  return recordActivityForStudent(service, studentId, { type: 'feature_started', role: 'student', entity: feature });
 }
 
 export interface TimelineRow { id: string; at: string; category: string; type: string; status: string; entity: string | null; meta: Record<string, unknown> }

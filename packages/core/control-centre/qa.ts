@@ -27,6 +27,7 @@ export const QA_CHECKLISTS: Record<QaKind, QaItem[]> = {
     { id: 'QA-ST-11', area: 'My data', check: 'Download your data; request deletion and see it appear for the founder.', route: '/my-data' },
     { id: 'QA-ST-12', area: 'Feedback', check: 'Report a question; it appears under your reports with a plain status.', route: '/my-feedback' },
     { id: 'QA-ST-13', area: 'Plans page', check: 'Prices come from the database and every price card says "Terms & Conditions Apply.".', route: '/plans' },
+    { id: 'QA-ST-15', area: 'Tutor reply', check: 'Ask the tutor a question: the reply appears word by word; if it stalls or the connection drops, the normal reply still arrives. Nothing odd stays on screen after a restart.', route: '/learn', needs: 'a lesson in progress' },
     { id: 'QA-ST-14', area: 'Devices', check: 'A third device is refused with the device-limit page (admins are exempt).', route: '/device-limit' },
   ],
   parent: [
@@ -64,6 +65,12 @@ export const QA_CHECKLISTS: Record<QaKind, QaItem[]> = {
     { id: 'QA-AD-05', area: 'Team limits', check: 'A team member sees only pages for their permissions; money, settings and team pages stay Super Admin only.', route: '/admin/team' },
     { id: 'QA-AD-06', area: 'Control centre', check: 'Load from documents keeps your priority and acceptance choices.', route: '/admin/control' },
     { id: 'QA-AD-07', area: 'Data requests', check: 'A deletion request removes only that family\'s data; admin and teacher accounts are protected.', route: '/admin/data-requests', needs: 'a TEST deletion request' },
+    { id: 'QA-AD-08', area: 'Contact book', check: 'Change a test account\'s phone and WhatsApp; the Audit log shows the field names changed, never the values. An email change that fails leaves the old email working.', route: '/admin/contacts', needs: 'a TEST account' },
+    { id: 'QA-AD-09', area: 'Activity timeline', check: 'Sign a test student in, out and save the profile; open the account\'s timeline: the events appear with no message text, answers, contact or device details.', route: '/admin/accounts', needs: 'a TEST student; migration 0068' },
+    { id: 'QA-AD-10', area: 'Activity numbers', check: 'The activity page shows sign-ins, coming back, new accounts, lessons and AI reliability; a panel that cannot be filled says why.', route: '/admin/activity' },
+    { id: 'QA-AD-11', area: 'View as a student', check: 'Open a TEST student with a reason: three read-only pages, a red banner, no names or answers, Exit works, it ends after 15 minutes, and every step is in the Audit log.', route: '/admin/accounts', needs: 'a TEST student' },
+    { id: 'QA-AD-12', area: 'Test accounts', check: 'Mark a TEST student as a test account with a reason: the title and the list say TEST, the activity numbers drop it, and sign-in still works as before. Remove the mark and it counts again.', route: '/admin/accounts', needs: 'a TEST student; migration 0069' },
+    { id: 'QA-AD-13', area: 'Live checks', check: 'Run the API check and the page check from your computer (docs/LIVE_API_CHECKS.md, docs/LIVE_PAGE_JOURNEYS.md): no FAIL, and every REVIEW explained.', route: '/admin/deploy-check', needs: 'Node on your computer' },
   ],
 };
 export function qaText(kind: QaKind): string {

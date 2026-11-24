@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { loadReviewPlan, reviewStep, loadSettings, recordCalibration, publicError } from '@adaptive-tutor/core';
+import { loadReviewPlan, reviewStep, loadSettings, recordCalibration, publicError, recordFeatureUse } from '@adaptive-tutor/core';
 
 export const maxDuration = 30;
 const UUID = /^[0-9a-f-]{36}$/i;
@@ -12,6 +12,7 @@ export async function GET() {
     const service = createServiceClient();
     const s = await loadSettings(service);
     const plan = await loadReviewPlan(service, studentId, s.boards.board1_date ?? null);
+    await recordFeatureUse(createServiceClient(), studentId, 'revision'); // v148: feature name only
     return NextResponse.json({ data: plan, error: null });
   } catch (err: any) { return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 }); }
 }

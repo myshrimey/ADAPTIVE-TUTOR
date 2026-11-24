@@ -1,5 +1,5 @@
 import { createServerClient, createServiceClient } from '@/lib/supabase-server';
-import { can, teamMemberByEmail, type Permission } from '@adaptive-tutor/core';
+import { can, teamMemberByEmail, recordActivity, type Permission } from '@adaptive-tutor/core';
 
 // The single admin gate for the new v36 admin routes (same ADMIN_EMAILS rule as
 // /admin/payments and /admin/feedback): the caller's own authenticated email must be
@@ -26,7 +26,14 @@ export async function getAdminUser(perm?: Permission): Promise<{ id: string; ema
 
 export async function requireAdmin(perm?: Permission): Promise<{ id: string; email: string; superAdmin: boolean }> {
   const admin = await getAdminUser(perm);
-  if (!admin) throw new Error('not_authorized');
+  if (!admin) {
+    // v141: a SIGNED-IN person who is not allowed is counted (no name kept). Visitors who are not signed in are not counted, so a bot cannot fill the log.
+    try {
+      const { data: { user } } = await (await createServerClient()).auth.getUser();
+      if (user) await recordActivity(createServiceClient(), { userId: null, type: 'permission_denied', status: 'denied', meta: { area: 'admin' } });
+    } catch { /* never changes the refusal */ }
+    throw new Error('not_authorized');
+  }
   return admin;
 }
 

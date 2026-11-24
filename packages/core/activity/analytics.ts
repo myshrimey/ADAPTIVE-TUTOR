@@ -1,4 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { ADOPTION_FEATURES, isAdoptionFeature } from './logic';
+import { listTestAccountIds } from '../test-accounts/store';
 
 // v139: activity analytics from the real tables. Counts only (no names, no text). Every section says plainly when it is unavailable and why.
 const DAY = 86400000;
@@ -44,6 +46,7 @@ export interface ActivityReport {
   returning: Section<{ lastWeekUsers: number; cameBack: number; ratePct: number | null }>;
   registrations: Section<{ perDay: number[]; total: number; byRole: Record<string, number> }>;
   lessons: Section<{ started: number; completed: number; abandoned: number; stillActive: number; completionPct: number | null; distinctStudents: number }>;
+  features: Section<{ rows: { feature: string; label: string; uses: number; people: number }[]; students: number; logStartedOn: string | null }>;
   ai: Section<{ providers: { provider: string; calls: number; failed: number; failPct: number | null; p50: number | null; p95: number | null }[]; errorClasses: { label: string; count: number }[]; total: number; failed: number; truncated: boolean }>;
 }
 
@@ -51,14 +54,15 @@ const CAP = 20000;
 export async function loadActivityAnalytics(service: SupabaseClient, windowDays: number, now: Date = new Date()): Promise<ActivityReport> {
   const days = lastDays(now, windowDays);
   const since = new Date(now.getTime() - windowDays * DAY).toISOString();
-  const rep: ActivityReport = { days, windowDays, generatedAt: now.toISOString(), signins: unavailable(''), returning: unavailable(''), registrations: unavailable(''), lessons: unavailable(''), ai: unavailable('') };
+  const testUsers = await listTestAccountIds(service); // v143: marked test accounts are left out of every count below
+  const rep: ActivityReport = { days, windowDays, generatedAt: now.toISOString(), signins: unavailable(''), returning: unavailable(''), registrations: unavailable(''), lessons: unavailable(''), features: unavailable(''), ai: unavailable('') };
 
   // sign-ins (from the activity log, 0068)
   try {
     const { data, error } = await service.from('activity_events').select('user_id, event_type, occurred_at').in('event_type', ['login', 'login_failed', 'login_wrong_portal', 'logout']).gte('occurred_at', new Date(now.getTime() - 2 * windowDays * DAY).toISOString()).order('occurred_at', { ascending: false }).limit(CAP);
     if (error) rep.signins = unavailable(missing(error) ? 'The activity log is not set up yet (run migration 0068).' : 'Could not read the activity log.');
     else {
-      const all: any[] = data ?? [];
+      const all: any[] = ((data as any[]) ?? []).filter((r) => !(r.user_id && testUsers.has(String(r.user_id))));
       const rows = all.filter((r) => r.occurred_at >= since);
       const logins = rows.filter((r) => r.event_type === 'login');
       const { data: first } = await service.from('activity_events').select('occurred_at').order('occurred_at', { ascending: true }).limit(1);
@@ -75,16 +79,28 @@ export async function loadActivityAnalytics(service: SupabaseClient, windowDays:
 
   // registrations
   try {
-    const { data, error } = await service.from('users').select('role, created_at').gte('created_at', since).limit(CAP);
+    const { data, error } = await service.from('users').select('id, role, created_at').gte('created_at', since).limit(CAP);
     if (error) rep.registrations = unavailable('Could not read accounts.');
-    else { const rows: any[] = data ?? []; const byRole: Record<string, number> = {}; for (const r of rows) byRole[r.role] = (byRole[r.role] ?? 0) + 1; rep.registrations = { available: true, data: { perDay: perDay(rows.map((r) => ({ at: r.created_at })), days), total: rows.length, byRole } }; }
+    else { const rows: any[] = ((data as any[]) ?? []).filter((r) => !testUsers.has(String(r.id))); const byRole: Record<string, number> = {}; for (const r of rows) byRole[r.role] = (byRole[r.role] ?? 0) + 1; rep.registrations = { available: true, data: { perDay: perDay(rows.map((r) => ({ at: r.created_at })), days), total: rows.length, byRole } }; }
   } catch { rep.registrations = unavailable('Could not read accounts.'); }
+
+  // feature use (v148): which parts of the app students started, from the activity log; the log only begins when v148 is deployed
+  try {
+    const { data, error } = await service.from('activity_events').select('user_id, entity, occurred_at').eq('event_type', 'feature_started').gte('occurred_at', since).limit(CAP);
+    if (error) rep.features = unavailable(missing(error) ? 'The activity log is not set up yet (run migration 0068).' : 'Could not read the activity log.');
+    else {
+      const rows: any[] = ((data as any[]) ?? []).filter((r) => isAdoptionFeature(r.entity) && !(r.user_id && testUsers.has(String(r.user_id))));
+      const { data: first } = await service.from('activity_events').select('occurred_at').eq('event_type', 'feature_started').order('occurred_at', { ascending: true }).limit(1);
+      const out = (Object.keys(ADOPTION_FEATURES) as (keyof typeof ADOPTION_FEATURES)[]).map((f) => { const mine = rows.filter((r) => r.entity === f); return { feature: f, label: ADOPTION_FEATURES[f], uses: mine.length, people: new Set(mine.map((r) => r.user_id).filter(Boolean)).size }; });
+      rep.features = { available: true, data: { rows: out, students: new Set(rows.map((r) => r.user_id).filter(Boolean)).size, logStartedOn: ((first as any)?.[0]?.occurred_at as string | undefined)?.slice(0, 10) ?? null } };
+    }
+  } catch { rep.features = unavailable('Could not read the activity log.'); }
 
   // lessons
   try {
     const { data, error } = await service.from('learning_sessions').select('student_id, status, started_at').gte('started_at', since).limit(CAP);
     if (error) rep.lessons = unavailable('Could not read lessons.');
-    else { const rows: any[] = data ?? []; const c = (s: string) => rows.filter((r) => r.status === s).length; const done = c('completed'), ab = c('abandoned'); rep.lessons = { available: true, data: { started: rows.length, completed: done, abandoned: ab, stillActive: c('active'), completionPct: percentOf(done, done + ab), distinctStudents: new Set(rows.map((r) => r.student_id)).size } }; }
+    else { const testStudents = testUsers.size ? new Set((((await service.from('students').select('id').in('user_id', [...testUsers])).data as any[]) ?? []).map((r) => String(r.id))) : new Set<string>(); const rows: any[] = ((data as any[]) ?? []).filter((r) => !testStudents.has(String(r.student_id))); const c = (s: string) => rows.filter((r) => r.status === s).length; const done = c('completed'), ab = c('abandoned'); rep.lessons = { available: true, data: { started: rows.length, completed: done, abandoned: ab, stillActive: c('active'), completionPct: percentOf(done, done + ab), distinctStudents: new Set(rows.map((r) => r.student_id)).size } }; }
   } catch { rep.lessons = unavailable('Could not read lessons.'); }
 
   // AI reliability

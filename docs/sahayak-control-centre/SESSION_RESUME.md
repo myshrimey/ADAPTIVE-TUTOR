@@ -5,9 +5,9 @@ Read this first at the start of any new conversation. Then read CURRENT_PRIORITY
 - Registered master prompts: 9 (0001 to 0008 headline level only; 0009 full level)
 - Objectives tracked at requirement level: 8 (all in SAH-PROMPT-0009)
 - Requirements tracked at requirement level: 87
-- Completed: 4; ready for testing: 12; partially completed: 63; in progress: 0; not started: 8; blocked: 0; accepted by founder: 0
+- Completed: 4; ready for testing: 12; partially completed: 69; in progress: 0; not started: 2; blocked: 0; accepted by founder: 0
 - Legacy roadmap rows (SAH-PROMPT-0003): 26 rows: ready for testing 10, partially completed 13, not started 2, blocked 1
-- Tasks: 80 (COMPLETED 6, DEFERRED 1, NOT STARTED 2, PARTIALLY COMPLETED 7, READY FOR TESTING 64)
+- Tasks: 80 (COMPLETED 6, DEFERRED 1, PARTIALLY COMPLETED 7, READY FOR TESTING 66)
 - Founder-selected priority: FD-10 (Claude orders by criticality); the founder may overrule
 - Last completed task: TASK-015 (tests in the repository)
 - Next unfinished task: TASK-021 (resume report from the tables); the founder can pick another

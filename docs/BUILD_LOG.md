@@ -919,3 +919,30 @@ Founder: continue building from the previous prompt. Added packages/core/activit
 
 ## v140 (2026-11-22) - View Account As Admin (read only)
 Founder: continue building from the previous prompt (lawyer review deferred, FD-16). Built VIEW_AS_DESIGN step 2: packages/core/view-as (HMAC-signed ticket: one target, bound to the admin email, exactly 15 minutes, verified on every request; cleanReason; rate limit 20/hour from audit_logs; read-only loaders; student name dropped), apps/web/lib/view-as.ts (secret derived from the server key), POST /api/admin/view-as (reason, limit, student check, audit start), /admin/view-as/[ticket]/[group] read-only pages with banner and Exit, GET /admin/view-as/end (audit end, always works), ViewAsStart box on the account page. Deliberate widening of design control 2: one ticket covers the three read-only pages of one account. t140 (29 checks) incl. static scan of the view folder (no write, form, fetch, client code) and a ratchet that no student route takes an id from the request; t94 and t67 updated. No migration. Not run live.
+
+## v141 (2026-11-22) - Activity log: last four events
+Wired plan_changed (commerce activation, admin plan change), permission_denied (requireAdmin: only when a user is signed in; no identity), ai_failure (aiForStudent wrapper: only all-providers-failed errors; feature name only), upload_failed (mock sheets route: too_big, not_an_image, quality). t141 (8 checks) static scan plus meta filter check; caught that meta key 'reason' is dropped by cleanMeta (FORBIDDEN_KEY) so the upload label is 'kind'. No migration.
+
+## v142 (2026-11-22) - Live API boundary check
+TASK-060. scripts/live-checks/lib.mjs (route discovery from the repo, judge, public and role-only lists) and api-boundaries.mjs (3 tiers: signed out, forged session, optional student cookie vs admin/teacher/centre/portal). Safe by construction: GET reads, other methods get invalid body. t142 (18 checks) includes an end-to-end run against a local stand-in site with planted holes (admin route leaking, student reading teacher route, server error, private-looking route answering). Found while testing: /api/me must FAIL when it shows a person to a signed-out caller (public-route shortcut had hidden that); the test server must not be blocked by spawnSync. No app change. Not run on the live site.
+
+## v143 (2026-11-23) - Test accounts
+TASK-037 first half / R26. Migration 0069 test_accounts (server-only: row rules on, no policy; cascade with the account). packages/core/test-accounts (logic, store; every read fails soft when the table is missing). POST /api/admin/test-accounts (Super Admin only, reason 8-200, audited both ways, students only). TestMark button and TEST ACCOUNT label on the account page. loadActivityAnalytics drops marked users from sign-ins, registrations and lessons (lessons go through students.user_id). Deploy-check probe, DB_VERSION_EXPECTED v143, rollback block, schema doc, t143 (18 checks; includes that sign-in and the admin gate never read the mark). Migration chain run twice on scratch Postgres with a mark in between; cascade and undo checked. Test mode with writes not built.
+
+## v144 (2026-11-23) - TEST label on the account list
+Small follow-up to v143: accounts/page.tsx reads listTestAccountIds after the Super Admin gate and shows TEST beside marked accounts. The directory query is untouched (t144 checks). No migration.
+
+## v145 (2026-11-23) - Live page journeys
+TASK-062. scripts/live-checks/journeys-lib.mjs (page discovery from apps/web/app, classification into admin/student/parent/tutor/centre/teacher/public, judgePage, pagesFor) and journeys.mjs (visitor, forged session, optional cookie per account type; GET only). A site header always carries a sign-in link, so a private page counts as refusing only on a redirect, 401/403/404, or a sign-in HEADING. A made-up id on a public dynamic page may 404. t145 (19 checks) runs against a stand-in site with planted holes. No app change.
+
+## v146 (2026-11-23) - Testing checklists extended
+TASK-038. qa.ts: QA-ST-15 (tutor reply streaming) and QA-AD-08 to QA-AD-13 (contact book, activity timeline, activity numbers, View As, test accounts, live checks). Routes are existing pages (t93 checks). t100b pinned the student list at 14; now 15. No app change.
+
+## v147 (2026-11-23) - Resume report corrected
+R39, R44, R45, R46, R47 were NS in the registry although tests exist; set to PC with the test names and what is not done (live runs, other-family check). Registry only; no app change.
+
+## v148 (2026-11-23) - Feature adoption
+TASK-051 / R33, chosen by the founder. New event feature_started (category engagement) with a closed ADOPTION_FEATURES list (not FEATURES: that name already exists in commerce/entitlements). recordFeatureUse(service, studentId, feature) via recordActivityForStudent; literal feature names at six start routes (session/start, diagnostic/start, baseline/start, mock/start both paths, stretch/overview, review GET). No migration (event_type has no check). Analytics section features: test accounts left out; unknown names ignored. t148 (20 checks).
+
+## v149 (2026-11-24) - Vercel build fix
+Founder pasted a failing Vercel build: UnhandledSchemeError node:crypto, import trace packages/core/view-as/logic.ts <- view-as/index.ts <- core/index.ts <- components/FeedbackWidget.tsx. v140 used 'node:crypto' in core (the barrel is reachable from client components). Changed to 'crypto' in view-as/logic.ts and (for consistency) lib/view-as.ts. Verified with a real `next build` (next/font stubbed because the sandbox blocks Google Fonts; layout.tsx restored and compared byte for byte). t149 guards core against node: and server-only imports (crypto and zlib are allowed; both build). Lesson: tsc and npm test never run webpack, so v140-v148 shipped unbuildable; a real build is now mandatory.

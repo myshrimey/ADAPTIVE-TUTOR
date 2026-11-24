@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { startBaseline, assertAccess, assertSubjectAllowed, registerSubject, languagesForStudent, publicError } from '@adaptive-tutor/core';
+import { startBaseline, assertAccess, assertSubjectAllowed, registerSubject, languagesForStudent, publicError, recordFeatureUse } from '@adaptive-tutor/core';
 import { kickBankGrowth } from '@/lib/bank-growth';
 
 export const maxDuration = 60;
@@ -21,6 +21,7 @@ export async function POST(request: Request) {
     try { const l = await languagesForStudent(service, studentId, null); languageMismatch = (l as any).question && (l as any).question !== 'en'; } catch { /* default: no mismatch */ }
     const r = await startBaseline(service, studentId, subjectId, { mini: body.mini === true, languageMismatch });
     kickBankGrowth(subjectId); // every session owes its subject new questions (at least 10)
+    await recordFeatureUse(createServiceClient(), studentId, 'adaptive_check'); // v148: feature name only
     return NextResponse.json({ data: r, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });

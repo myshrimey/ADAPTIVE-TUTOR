@@ -1,5 +1,5 @@
 import type { AIProvider } from '@adaptive-tutor/core';
-import { createAIProvider, getAccess, aiTierForPlan, tutorRepliesPerDay, assertTutorAllowance, recordAIAttempt, loadSettings } from '@adaptive-tutor/core';
+import { createAIProvider, recordActivityForStudent, getAccess, aiTierForPlan, tutorRepliesPerDay, assertTutorAllowance, recordAIAttempt, loadSettings } from '@adaptive-tutor/core';
 import { createServiceClient } from '@/lib/supabase-server';
 
 /**
@@ -26,5 +26,18 @@ export async function aiForStudent(studentId: string, options: { tutor?: boolean
     } catch { /* keep fallback */ }
     await assertTutorAllowance(service, studentId, limit);
   }
-  return createAIProvider({ tier, service, studentId, onAttempt: recordAIAttempt(service, studentId, tier) });
+  const inner = createAIProvider({ tier, service, studentId, onAttempt: recordAIAttempt(service, studentId, tier) });
+  // v141: when EVERY provider fails for this student's request, the timeline gets one "AI request failed" event (feature name only; never the text).
+  return {
+    supportsImages: inner.supportsImages,
+    complete: async (params) => {
+      try { return await inner.complete(params); }
+      catch (err: any) {
+        if (/^(all_ai_providers_unavailable|no_ai_providers_configured|no_vision_provider)/.test(String(err?.message ?? ''))) {
+          await recordActivityForStudent(service, studentId, { type: 'ai_failure', status: 'failed', meta: { feature: String(params.feature ?? 'unknown').slice(0, 30) } });
+        }
+        throw err;
+      }
+    },
+  };
 }

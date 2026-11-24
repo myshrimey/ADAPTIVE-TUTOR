@@ -1,7 +1,7 @@
 # Task Backlog
 Updated 2026-10-31. 80 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
 
-Tasks by status: COMPLETED 6, DEFERRED 1, NOT STARTED 2, PARTIALLY COMPLETED 7, READY FOR TESTING 64.
+Tasks by status: COMPLETED 6, DEFERRED 1, PARTIALLY COMPLETED 7, READY FOR TESTING 66.
 
 Changing a priority here does NOT start work. Work starts only when the founder says so in the chat.
 
@@ -30,20 +30,20 @@ Changing a priority here does NOT start work. Work starts only when the founder 
 | TASK-034 | P3 | Design study and threat model for View Account As Admin; choose approach | O3 | R24, R27 | - | M | READY FOR TESTING | none yet |
 | TASK-035 | P3 | Build View Account As Admin, read only, for the chosen pages (banner, exit, expiry) | O3 | R24, R25, R29 | TASK-034,TASK-032 | XL | READY FOR TESTING | none yet |
 | TASK-036 | P3 | Read-only enforcement for all write APIs while inspecting | O3 | R25, R39 | TASK-035 | L | READY FOR TESTING | none yet |
-| TASK-037 | P3 | Test mode with recorded reason, and dedicated test accounts | O3 | R26 | TASK-036 | L | NOT STARTED | none yet |
+| TASK-037 | P3 | Test mode with recorded reason, and dedicated test accounts | O3 | R26 | TASK-036 | L | PARTIALLY COMPLETED | none yet |
 | TASK-038 | P3 | Test checklists for each account type, from features that really exist | O3 | R28 | TASK-030 | M | PARTIALLY COMPLETED | none yet |
 | TASK-039 | P3 | Retention dry-run report and owner-only purge script (interim periods) | O4 | R35 | TASK-032 | S | READY FOR TESTING | none yet |
 | TASK-040 | P4 | Legal and privacy review of activity tracking for minors (founder with a professional) | O5 | R36, R40 | - | M | DEFERRED | none yet |
 | TASK-041 | P4 | Add central activity_events table with indexes, server-only access and retention | O4 | R30, R35 | - | M | READY FOR TESTING | none yet |
 | TASK-042 | P4 | recordActivity helper (never breaks the product) and link existing event writers | O4 | R30, R31 | TASK-041 | M | READY FOR TESTING | none yet |
-| TASK-043 | P4 | Record missing events: login/logout, profile, plan, payment steps, report generated/viewed, permission denied, upload and AI failures | O4 | R31, R36 | TASK-042 | L | PARTIALLY COMPLETED | none yet |
+| TASK-043 | P4 | Record missing events: login/logout, profile, plan, payment steps, report generated/viewed, permission denied, upload and AI failures | O4 | R31, R36 | TASK-042 | L | READY FOR TESTING | none yet |
 | TASK-044 | P4 | Account timeline page with filters | O4 | R32 | TASK-041 | M | READY FOR TESTING | none yet |
 | TASK-050 | P5 | Metrics from existing tables: active users, registrations, completions, with "unavailable" labels | O4 | R33 | TASK-041 | M | READY FOR TESTING | none yet |
 | TASK-051 | P5 | Funnel, retention and feature adoption views | O4 | R33 | TASK-050 | M | PARTIALLY COMPLETED | none yet |
 | TASK-052 | P5 | Error-rate and AI failure panels | O4 | R33, R31 | TASK-043 | M | READY FOR TESTING | none yet |
-| TASK-060 | P6 | Direct-API tests: no login, wrong role, expired session, another account | O7 | R46, R48 | TASK-015 | L | PARTIALLY COMPLETED | none yet |
+| TASK-060 | P6 | Direct-API tests: no login, wrong role, expired session, another account | O7 | R46, R48 | TASK-015 | L | READY FOR TESTING | none yet |
 | TASK-061 | P6 | Audit protection and retention tests | O7 | R47, R35 | TASK-032,TASK-041 | M | PARTIALLY COMPLETED | none yet |
-| TASK-062 | P6 | End-to-end workflow checks for each account type | O7 | R45, R46, R47 | TASK-038,TASK-035 | L | NOT STARTED | none yet |
+| TASK-062 | P6 | End-to-end workflow checks for each account type | O7 | R45, R46, R47 | TASK-038,TASK-035 | L | PARTIALLY COMPLETED | none yet |
 | TASK-063 | P6 | Deployment pre-flight: whole migration chain test and a Deployment check page | O7 | R10, R44, R48 | TASK-015 | S | READY FOR TESTING | none yet |
 | TASK-064 | P6 | Sign-in brute-force protection (limit on wrong passwords, admin form included) | O7 | R48 | TASK-015 | S | READY FOR TESTING | none yet |
 | TASK-065 | P6 | Public-route gate scan: every non-admin API route names its caller or is on a written public list; harden teacher sign-up | O7 | R48 | TASK-015 | S | READY FOR TESTING | none yet |

@@ -6,6 +6,9 @@ Claude cannot sign in to your live site, so nothing below has been seen working 
 `node scripts/smoke/smoke-test.mjs https://YOUR-SITE`
 It opens the public pages, checks that admin pages and private APIs refuse a signed-out visitor, that the free check shows no answers, that sign-in/sign-up/forgot-password refuse bad requests, and that the safety headers are present. Expect "0 failed". It creates no account and sends no email. If anything fails, stop and send Claude the output.
 
+## Step 0b - page journeys (v145, optional second round with test cookies)
+`node scripts/live-checks/journeys.mjs https://YOUR-SITE` opens every page for a visitor; with `--cookie role="..."` for TEST accounts it also checks each account type opens its own pages and is refused on the others. Guide: docs/LIVE_PAGE_JOURNEYS.md. Also `node scripts/live-checks/api-boundaries.mjs https://YOUR-SITE` for every API route (docs/LIVE_API_CHECKS.md).
+
 ## Step 1 - after deploying: /admin/deploy-check
 - Website version and database version both say the newest (v112 / 0061), nothing "NOT applied".
 

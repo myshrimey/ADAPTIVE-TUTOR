@@ -1,4 +1,5 @@
 import { applyHeldBonusDays } from '../referral/referral';
+import { recordActivityForStudent } from '../activity/store';
 import type { SupabaseClient } from '@supabase/supabase-js';
 
 // The commercial layer (v54). Prices, offers, limits and credits live in the database (migration 0029) and are edited at
@@ -247,6 +248,7 @@ export async function verifyAndActivate(service: SupabaseClient, paymentId: stri
       await ensureMonthlyCredits(service, sid);
       await applyHeldBonusDays(service, sid).catch(() => 0); // v60: referral bonus days waiting for a paid plan
       await recordCommerceEvent(service, 'plan_activated', { studentId: sid, productCode: product.code, amount: Math.round(Number(p.amount)) });
+      await recordActivityForStudent(service, sid, { type: 'plan_changed', entity: 'plan', meta: { via: 'payment', product: product.code } }); // v141
     }
     if (p.offer_code) {
       const { data: o } = await service.from('commerce_offers').select('used').eq('code', p.offer_code).maybeSingle();

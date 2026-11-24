@@ -1,6 +1,69 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0061 - 2026-11-24 - founder: pasted the Vercel build log (Failed to compile: node:crypto, via view-as/logic.ts)
+- Summary: v149: fix for the Vercel build failure of v140 to v148; guard test; rule to run a real next build before every delivery.
+- Files: packages/core/view-as/logic.ts; apps/web/lib/view-as.ts; tests/t149.ts; CLAUDE.md
+- Database: none
+- Tests: real `next build` completed (fonts stubbed locally, layout restored), t149, t140, full npm test
+- Open: Founder must redeploy; v140 to v148 could not have built on Vercel; earlier checks (tsc, npm test) do not run the bundler
+
+## EX-0060 - 2026-11-23 - founder chose: per-feature adoption analytics (asked in chat)
+- Summary: v148: feature adoption (TASK-051, R33).
+- Files: packages/core/activity/{logic,store,analytics}.ts; six start routes; /admin/activity Feature use panel
+- Database: none (reuses 0068)
+- Tests: t148 (20 checks), tsc, full npm test
+- Open: Counts begin at deployment; starts not time spent; six features only; not run live
+
+## EX-0059 - 2026-11-23 - founder: continue building and completing everything on the screenshot (Resume report)
+- Summary: v147: records on the Resume report the test evidence that already existed for R39, R44, R45, R46 and R47 (they still said not started).
+- Files: scripts/control-centre/build-docs.py only
+- Database: none
+- Tests: build-docs, t90, t93, t94, full npm test
+- Open: Nothing new built or run live; R29 (phone layout) and R38 (rule) unchanged
+
+## EX-0058 - 2026-11-23 - founder: continue building and completing everything on the screenshot (Resume report)
+- Summary: v146: Testing page checklists extended for the features built in v136 to v145 (TASK-038).
+- Files: packages/core/control-centre/qa.ts; tests/t100b.ts counts
+- Database: none
+- Tests: t93, t100, t100b, tsc, full npm test
+- Open: Founder must still make test tutor, centre and teacher accounts; nothing run live
+
+## EX-0057 - 2026-11-23 - founder: continue building the app from the screenshot (Resume report; TASK-062 was the last not-started task)
+- Summary: v145: live page-journey check for the six account types (TASK-062).
+- Files: scripts/live-checks/journeys.mjs, journeys-lib.mjs; docs/LIVE_PAGE_JOURNEYS.md
+- Database: none
+- Tests: t145 (19 checks) incl. end-to-end run against a stand-in site with planted holes, tsc, full npm test
+- Open: Not run on the live site; page level only (no clicked workflow); other-family data check not built
+
+## EX-0056 - 2026-11-23 - founder: continue building the app from previous prompt (chat)
+- Summary: v144: the TEST label on the account list page (left over from v143).
+- Files: apps/web/app/admin/accounts/page.tsx
+- Database: none
+- Tests: t144, tsc, full npm test
+- Open: Not run live
+
+## EX-0055 - 2026-11-23 - founder: continue building the app from previous prompt (chat)
+- Summary: v143: test accounts (first half of TASK-037, R26).
+- Files: packages/core/test-accounts; migration 0069; api/admin/test-accounts; accounts/[id] TestMark; activity analytics
+- Database: 0069 test_accounts (server-only)
+- Tests: t143, migration chain twice on scratch Postgres with undo, full npm test, tsc
+- Open: Not run live; test mode with writes not built; the mark is not shown in the account directory list
+
+## EX-0054 - 2026-11-22 - founder: continue building the app from previous prompt (chat)
+- Summary: v142: live API boundary check script (TASK-060).
+- Files: scripts/live-checks; docs/LIVE_API_CHECKS.md
+- Database: none
+- Tests: t142 incl. end-to-end run against a stand-in site with planted holes, full npm test
+- Open: Not run on the live site; other-account tier not built
+
+## EX-0053 - 2026-11-22 - founder: continue building the app from previous prompt (chat)
+- Summary: v141: the four reserved activity events wired (TASK-042).
+- Files: commerce.service; admin students/[id]; lib/admin.ts; lib/ai.ts; mock sheets route
+- Database: none
+- Tests: t141, tsc, full npm test
+- Open: Not run live; payment-related events appear only after v138 migration 0068 is applied
+
 ## EX-0052 - 2026-11-22 - founder: continue building the app from previous prompt (chat); View As was the next gated task after the lawyer-review deferral (FD-16)
 - Summary: v140: View Account As Admin, read only (TASK-035, TASK-036).
 - Files: packages/core/view-as; api/admin/view-as; admin/view-as pages and end route; accounts/[id] ViewAsStart; VIEW_AS_DESIGN.md section 8

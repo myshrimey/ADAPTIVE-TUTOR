@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { assertAccess, loadLearnerState, resolveCurrentObjective, runOrchestratorTurn, logEvent, recordCheckin, publicError } from '@adaptive-tutor/core';
+import { assertAccess, loadLearnerState, resolveCurrentObjective, runOrchestratorTurn, logEvent, recordCheckin, publicError, recordFeatureUse } from '@adaptive-tutor/core';
 import { aiForStudent } from '@/lib/ai';
 import { kickBankGrowth } from '@/lib/bank-growth';
 
@@ -88,6 +88,7 @@ export async function POST(request: Request) {
     // Opening turn: no student message yet, just the tutor's first move for this objective.
     const turn = await runOrchestratorTurn(supabase, { studentId, sessionId: session.id }, ai);
 
+    await recordFeatureUse(createServiceClient(), studentId, 'lesson'); // v148: feature name only
     return NextResponse.json({ data: { sessionId: session.id, skillId: objective.skillId, context, turn, recoveryMode }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });
