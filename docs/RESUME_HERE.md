@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v137 (2026-11-22) - REPLY STREAMING
+## Latest delivery - v138 (2026-11-22) - ACTIVITY LOG AND ACCOUNT TIMELINE
+You said to set the lawyer review aside for now, so the activity-tracking tasks it was holding back are built (decision FD-16 records this; the review is deferred, not done, and I do not claim legal compliance). New server-only table activity_events (migration 0068) records sign-in, failed sign-in (count only, the name typed is never kept), wrong-portal sign-in, sign-out, profile saved, payment request and report viewed. Only listed event names, no message text, answers, contact or device details. New page: /admin/accounts, open an account, then "Open the activity timeline" (date, category and event filters; opening it is audited). Retention: about 13 months (interim), in the dry-run report and purge script. Order: deploy website, then `npm run db:migrate`. Not built: plan changed / permission denied / AI failure / upload failed events, analytics dashboard, View Account As.
+
+## Previous delivery - v137 (2026-11-22) - REPLY STREAMING
 The tutor's reply now appears word by word on the lesson screen instead of after a long wait. Groq, Gemini and generic OpenAI-style providers stream; marking and scoring calls do not. Nothing is saved until the full reply has arrived. If a provider fails part-way, the partial text is cleared and the next provider starts over. If streaming is unavailable the screen uses the normal reply. No database change. Deploy the website only, then try one lesson message. Not tried live (see INSTRUCTIONS). Hints, quiz and the first message of a session are not streamed yet.
 Tracker note: every not-started task (View Account As, activity tracking, analytics) waits on decision D7 (lawyer review) or your explicit go; 56 tasks are READY FOR TESTING and count as done only after you accept them.
 

@@ -34,6 +34,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
           </>}
           <tr><th align="left">Registered devices</th><td>{s.devices}</td></tr>
         </tbody></table>
+        <p><a href={`/admin/accounts/${id}/timeline`}>Open the activity timeline (sign-ins, profile, payments, reports)</a></p>
         <h2 style={{ fontSize: 'var(--step-1)', marginTop: 20 }}>Links</h2>
         {s.links.length ? <ul>{s.links.map((l, i) => <li key={i}>{l.who} {l.shortId}{l.initials ? ` (${l.initials})` : ''} · {l.type} · {l.status}</li>)}</ul> : <p>No links.</p>}
         {s.payments.length > 0 && <><h2 style={{ fontSize: 'var(--step-1)', marginTop: 20 }}>Payment claims</h2><ul>{s.payments.map((p, i) => <li key={i}>{when(p.at)} · {p.status} · INR {p.amount}</li>)}</ul></>}

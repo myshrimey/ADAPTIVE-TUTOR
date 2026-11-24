@@ -4,7 +4,7 @@ import {
   getStudentProfileDetails,
   upsertStudentProfileDetails,
   listAcademicHistory,
-  upsertAcademicHistory, cleanProfileInput, publicError } from '@adaptive-tutor/core';
+  upsertAcademicHistory, cleanProfileInput, publicError, recordActivityForStudent } from '@adaptive-tutor/core';
 
 // A student can only ever read/write their own profile — getCurrentStudentId()
 // resolves the row from the signed-in session, and RLS (migration
@@ -53,6 +53,7 @@ export async function POST(request: Request) {
     // First-login step done (id derived from the session above, never from the request).
     await createServiceClient().from('students').update({ must_complete_profile: false }).eq('id', studentId);
 
+    await recordActivityForStudent(createServiceClient(), studentId, { type: 'profile_saved', role: 'student' });
     return NextResponse.json({ data: { details: savedDetails, academicHistory: savedHistory }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: publicError(err) }, { status: 400 });

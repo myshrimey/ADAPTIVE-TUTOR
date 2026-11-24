@@ -1,26 +1,28 @@
-Sahayak v137 - Reply streaming (delta on top of v136)
+Sahayak v138 - Activity log and account timeline (delta on top of v137)
 
 WHAT CHANGED
-- The tutor's reply now appears word by word on the lesson screen instead of all at once after a wait. Families said the app felt slow; this is the biggest "feels fast" fix.
-- Works with Groq, Gemini and any OpenAI-style provider in your AI registry. Marking answers, reading photos and every JSON call are NOT streamed.
-- Nothing is saved until the whole reply has arrived, exactly as before.
-- If a provider fails part-way, the half-written reply disappears and the next provider writes it from the start.
-- If streaming is unavailable for any reason, the screen falls back to the normal reply.
-- No database change.
+- You said to set the lawyer review aside for now. It is recorded as decision FD-16: the review is DEFERRED, not done, and nothing here claims legal compliance. It stays advisable before relying on tracking of children.
+- New server-only table activity_events (migration 0068). It records: signed in, failed sign-in (a count only; the name typed is never kept), signed in on the wrong portal, signed out, profile saved, payment request submitted, report viewed.
+- It keeps events only (what happened, when, the result, a few short labels). Never message text, answers, contact details or device details. A test enforces this.
+- Deleting an account deletes its events.
+- New page: /admin/accounts, open an account, then "Open the activity timeline". Filters: dates, category, event. Super Admin only. Opening it is written to the Audit log.
+- Data retention: the log is in /admin/retention (about 13 months, interim) and in the purge script.
 
 ORDER
-1. Copy the files over your project and deploy the website. No migration.
-2. Open a lesson, send a message and an answer. Check: words appear as they are written; the finished reply matches what you see after reloading the lesson; the next question appears after the reply.
-3. Check /admin/ai-requests: the tutor calls should show provider and latency as before.
+1. Copy the files over your project and deploy the website.
+2. Run npm run db:migrate (0068 is new).
+3. Sign in and out as a test student, save the profile, then open that account's timeline. You should see those events.
+4. /admin/deploy-check has a new 0068 check (expect 1, 0, true).
+Before 0068 runs, the website works as normal; events are simply not kept.
 
 TESTED
-t137 (19 checks: split lines, Groq, Gemini, generic adapter, failover restart, tutor-only streaming, error lines, routes, lesson screen), full test suite (108 pass, 4 known-stale, 0 fail), type check.
+t138 (21 checks), full test suite (109 pass, 4 known-stale, 0 fail), type check, migration 0068 on a scratch database (whole chain twice: table exists, row rules on, no policies, bad category refused, deleting the account removes its events).
 
 NOT TESTED
-Not run on a live site or in a browser: especially that Vercel passes the stream through unbuffered and that sign-in is still read inside the streaming reply. If words arrive all at once, or a lesson message errors, tell me; the normal reply path is untouched and I can switch streaming off with one line.
+Not run on your live site or database; no browser check of the timeline page or of the sign-out beacon.
 
 NOT BUILT
-Streaming for hints, the first message of a session, quizzes and parent/teacher screens.
+Events for plan changed, permission denied, AI failure and upload failed (names reserved, not wired); the analytics dashboard (TASK-050 to 052); View Account As (TASK-035 to 037). Nothing is filled in for the time before this log existed.
 
 NOT DEPLOYED
-Nothing has been deployed.
+Nothing has been deployed or run on your live database.

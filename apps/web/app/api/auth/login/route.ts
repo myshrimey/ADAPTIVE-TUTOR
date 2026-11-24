@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient } from '@/lib/supabase-server';
-import { normaliseUsername, placeholderEmail } from '@adaptive-tutor/core';
+import { normaliseUsername, placeholderEmail, recordActivity } from '@adaptive-tutor/core';
 import { checkLoginAllowed, recordLoginFailure, clearLoginFailures } from '@/lib/login-throttle';
 
 // Sign in with a USERNAME or an email. The username is turned into the login address on the server only,
@@ -31,6 +31,7 @@ export async function POST(request: Request) {
     const { error } = await supabase.auth.signInWithPassword({ email: loginEmail, password });
     if (error) {
       await recordLoginFailure(throttle, identifier, request); // only the WRONG attempt, as hashes
+      await recordActivity(throttle, { userId: null, type: 'login_failed', status: 'failed' }); // v138: a count only; the name typed is never kept
       return NextResponse.json({ data: null, error: 'invalid_login' }, { status: 401 });
     }
     await clearLoginFailures(throttle, identifier);
@@ -40,14 +41,16 @@ export async function POST(request: Request) {
     const portal = typeof body.portal === 'string' ? body.portal : null;
     const { data: authData } = await supabase.auth.getUser();
     const service2 = createServiceClient();
-    const { data: row } = await service2.from('users').select('role').eq('auth_user_id', authData.user?.id ?? '').maybeSingle();
+    const { data: row } = await service2.from('users').select('id, role').eq('auth_user_id', authData.user?.id ?? '').maybeSingle();
     const role = row?.role ?? 'none';
     const adminList = (process.env.ADMIN_EMAILS ?? '').split(',').map((e) => e.trim().toLowerCase()).filter(Boolean);
     const isAdmin = !!authData.user?.email && adminList.includes(authData.user.email.toLowerCase());
     if (portal && !isAdmin && role !== portal) {
       await supabase.auth.signOut();
+      await recordActivity(service2, { userId: row?.id ?? null, type: 'login_wrong_portal', role, status: 'denied', meta: { portal } });
       return NextResponse.json({ data: { role }, error: 'wrong_portal' }, { status: 403 });
     }
+    await recordActivity(service2, { userId: row?.id ?? null, type: 'login', role });
     return NextResponse.json({ data: { ok: true, role }, error: null });
   } catch (err: any) {
     return NextResponse.json({ data: null, error: 'login_failed' }, { status: 500 });

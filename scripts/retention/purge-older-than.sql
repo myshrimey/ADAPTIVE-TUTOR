@@ -20,5 +20,6 @@ delete from public.signup_log          where created_at < now() - interval '395 
 delete from public.engagement_events   where created_at < now() - interval '395 days';
 delete from public.account_devices     where last_seen  < now() - interval '395 days';
 delete from public.acquisition_touches where at         < now() - interval '395 days';
+delete from public.activity_events     where occurred_at < now() - interval '395 days';
 
 commit;  -- change to: rollback;   if you only wanted to see that it runs

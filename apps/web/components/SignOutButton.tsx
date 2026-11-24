@@ -10,6 +10,7 @@ export function SignOutButton({ label = 'Sign out' }: { label?: string }) {
   const router = useRouter();
 
   async function handleSignOut() {
+    await fetch('/api/activity/logout', { method: 'POST' }).catch(() => {}); // v138: record the sign-out (best effort)
     const supabase = createClient();
     await supabase.auth.signOut();
     router.push('/');

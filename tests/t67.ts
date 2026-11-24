@@ -8,7 +8,7 @@ const dirs: string[] = [];
 const walk = (d: string, base: string) => { for (const e of readdirSync(d, { withFileTypes: true })) { if (e.isDirectory()) walk(d + '/' + e.name, base + '/' + e.name); else if (e.name === 'page.tsx') dirs.push(base); } };
 walk('apps/web/app/admin', '/admin');
 const hrefs = ADMIN_MENU.flatMap((g) => g.items.map((i) => i.href.split('?')[0]));
-const skip = new Set(['/admin', '/admin/ai-requests/[id]', '/admin/invitations/[id]', '/admin/curriculum/[id]', '/admin/control/prompts/[id]', '/admin/accounts/[id]']);
+const skip = new Set(['/admin', '/admin/ai-requests/[id]', '/admin/invitations/[id]', '/admin/curriculum/[id]', '/admin/control/prompts/[id]', '/admin/accounts/[id]', '/admin/accounts/[id]/timeline']);
 for (const d of dirs) if (!skip.has(d)) ok(hrefs.includes(d), 'page missing from menu: ' + d);
 for (const h of new Set(hrefs)) ok(dirs.includes(h), 'menu link has no page: ' + h);
 const all = ADMIN_MENU.flatMap((g) => g.items.map((i) => i.href));

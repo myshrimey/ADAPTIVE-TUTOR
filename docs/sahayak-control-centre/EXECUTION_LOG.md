@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0050 - 2026-11-22 - founder: ignore the lawyers review for the time being and continue (chat)
+- Summary: v138: activity log (TASK-041 to TASK-044 in part); FD-16 records the deferral.
+- Files: migrations/0068; packages/core/activity; login, profile, purchase, report routes; sign-out buttons; admin/accounts/[id]/timeline; retention
+- Database: 0068 activity_events (new server-only table)
+- Tests: scratch before/after and whole chain twice, t138, tsc, full npm test
+- Open: Not run on the live database; plan_changed, permission_denied, ai_failure, upload_failed not wired; no analytics page yet (TASK-050 to 052)
+
 ## EX-0049 - 2026-11-22 - founder: continue building, complete tasks and gaps (chat); chose reply streaming
 - Summary: v137: reply streaming (TASK-105).
 - Files: ai-provider/*, ai-gateway/*, api/session/message+answer, learn page, lib/stream-turn.ts

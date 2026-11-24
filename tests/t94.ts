@@ -21,11 +21,11 @@ const NOW = new Date('2026-11-01T00:00:00Z');
   const t34 = REGISTRY.tasks.find((t) => t.id === 'TASK-034')!, t35 = REGISTRY.tasks.find((t) => t.id === 'TASK-035')!, t39 = REGISTRY.tasks.find((t) => t.id === 'TASK-039')!;
   ok(t34.status === 'READY FOR TESTING' && t35.status === 'NOT STARTED', 'design study done; View As itself NOT started');
   ok(t39.status === 'READY FOR TESTING', 'retention report task recorded');
-  ok(REGISTRY.tasks.find((t) => t.id === 'TASK-040')!.status === 'BLOCKED' && REGISTRY.tasks.find((t) => t.id === 'TASK-041')!.status === 'NOT STARTED', 'legal review still blocks activity events');
+  ok(REGISTRY.tasks.find((t) => t.id === 'TASK-040')!.status === 'DEFERRED' && REGISTRY.tasks.find((t) => t.id === 'TASK-041')!.status === 'READY FOR TESTING', 'legal review deferred by the founder (FD-16); activity log built (v138)');
   ok(REGISTRY.requirements.find((r) => r.code === 'R35')!.status === 'PARTIALLY COMPLETED', 'retention requirement is only partly done');
 
   // ---- retention rules
-  ok(RETENTION_RULES.length === 7 && new Set(RETENTION_RULES.map((r) => r.table)).size === 7, 'seven rules, one per table');
+  ok(RETENTION_RULES.length === 8 && new Set(RETENTION_RULES.map((r) => r.table)).size === 8, 'eight rules, one per table');
   ok(RETENTION_RULES.find((r) => r.table === 'audit_logs')!.days === 1095 && RETENTION_RULES.filter((r) => r.table !== 'audit_logs').every((r) => r.days === 395), 'interim periods: audit 3 years, others about 13 months');
   const banned = ['learning_events', 'mastery_states', 'test_reports', 'written_attempts', 'pilot_payments', 'commerce_events', 'mock_credit_ledger', 'users', 'students', 'student_access', 'questions', 'data_requests'];
   ok(RETENTION_RULES.every((r) => !banned.includes(r.table)), 'no learning, payment, consent or account table is in the rules');
@@ -37,7 +37,7 @@ const NOW = new Date('2026-11-01T00:00:00Z');
   const T: Record<string, any[]> = {
     audit_logs: [{ at: days(2000) }, { at: days(10) }], page_views: [{ at: days(500) }, { at: days(500) }, { at: days(1) }], ai_usage: [{ created_at: days(1) }],
     signup_log: [], engagement_events: [{ created_at: days(400) }], account_devices: [{ last_seen: days(396) }, { last_seen: days(394) }], acquisition_touches: [{ at: days(30) }],
-    learning_events: [{ created_at: days(900) }],
+    learning_events: [{ created_at: days(900) }], activity_events: [{ occurred_at: days(10) }],
   };
   const before = JSON.stringify(T);
   const rep = await loadRetentionReport(fakeDb(T) as any, NOW);
@@ -63,7 +63,7 @@ const NOW = new Date('2026-11-01T00:00:00Z');
   const sql = R('scripts/retention/purge-older-than.sql'); const code = sql.replace(/--.*$/gm, '');
   ok(existsSync('scripts/retention/purge-older-than.sql') && /^\s*begin;/m.test(code) && /commit;/.test(code), 'purge script is one transaction');
   const dels = [...code.matchAll(/delete from public\.(\w+)\s+where\s+(\w+)\s*<\s*now\(\)\s*-\s*interval '(\d+) days'/g)];
-  ok(dels.length === 7, 'seven deletes, each with a where clause and an age limit');
+  ok(dels.length === 8, 'eight deletes, each with a where clause and an age limit');
   ok(!/delete from [\w.]+\s*;/i.test(code) && !/truncate|drop /i.test(code), 'no unconditional delete, truncate or drop');
   for (const rule of RETENTION_RULES) ok(dels.some((d) => d[1] === rule.table && d[2] === rule.column && Number(d[3]) === rule.days), `script matches the rule for ${rule.table}`);
   ok(dels.every((d) => !banned.includes(d[1])), 'script never touches excluded tables');

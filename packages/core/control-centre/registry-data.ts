@@ -487,8 +487,8 @@ export const REGISTRY = {
    "objective_code": "O4",
    "code": "R30",
    "text": "Central activity events structure with indexes, access rules and retention",
-   "status": "NOT STARTED",
-   "note": "No central table exists (PHASE0_AUDIT.md section 5).",
+   "status": "READY FOR TESTING",
+   "note": "v138: activity_events (0068), server-only, indexed, retention rule; not applied live until the founder runs it.",
    "founder_acceptance": "pending"
   },
   {
@@ -497,8 +497,8 @@ export const REGISTRY = {
    "objective_code": "O4",
    "code": "R31",
    "text": "Record meaningful events: account, learning, assessment, engagement, technical, payments",
-   "status": "NOT STARTED",
-   "note": "Parts exist in 8 separate tables; many listed events are not recorded anywhere.",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v138: account, payment and report events recorded centrally; learning/engagement stay in their own tables; technical events (AI failure, upload) reserved but not yet wired.",
    "founder_acceptance": "pending"
   },
   {
@@ -507,8 +507,8 @@ export const REGISTRY = {
    "objective_code": "O4",
    "code": "R32",
    "text": "Per-account timeline with filters (date, event type, feature)",
-   "status": "NOT STARTED",
-   "note": "",
+   "status": "READY FOR TESTING",
+   "note": "v138: /admin/accounts/[id]/timeline.",
    "founder_acceptance": "pending"
   },
   {
@@ -547,8 +547,8 @@ export const REGISTRY = {
    "objective_code": "O4",
    "code": "R36",
    "text": "Data minimisation for students/minors; no covert surveillance",
-   "status": "NOT STARTED",
-   "note": "Blocked by legal review (TASK-040).",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v138: minimal events only (names, times, results; whitelisted meta; no text, answers, contact or device details). Legal review deferred by the founder (FD-16); not a compliance claim.",
    "founder_acceptance": "pending"
   },
   {
@@ -2272,9 +2272,9 @@ export const REGISTRY = {
    "requirements": "R36,R40",
    "depends_on": "-",
    "size": "M",
-   "status": "BLOCKED",
+   "status": "DEFERRED",
    "verification": "not yet",
-   "note": "Blocks TASK-041 onward. Needs a person, not code.",
+   "note": "2026-11-22: the founder chose to proceed without the review for now (FD-16). The review is still advisable before relying on activity tracking of children; Claude does not claim compliance.",
    "founder_next": false,
    "founder_rank": null
   },
@@ -2285,11 +2285,11 @@ export const REGISTRY = {
    "title": "Add central activity_events table with indexes, server-only access and retention",
    "objective_code": "O4",
    "requirements": "R30,R35",
-   "depends_on": "TASK-040",
+   "depends_on": "-",
    "size": "M",
-   "status": "NOT STARTED",
+   "status": "READY FOR TESTING",
    "verification": "not yet",
-   "note": "Interim retention periods exist (FD-13); this table still waits for the legal review.",
+   "note": "v138: migration 0068 activity_events (server-only, indexed by account+time and type+time, deletes with the account), retention rule and purge line (about 13 months, interim). Scratch before/after tested; NOT applied live.",
    "founder_next": false,
    "founder_rank": null
   },
@@ -2302,9 +2302,9 @@ export const REGISTRY = {
    "requirements": "R30,R31",
    "depends_on": "TASK-041",
    "size": "M",
-   "status": "NOT STARTED",
+   "status": "READY FOR TESTING",
    "verification": "not yet",
-   "note": "",
+   "note": "v138: recordActivity / recordActivityForStudent never throw; only listed event names, minimal meta (t138). Existing learning/engagement writers were NOT rewired: the learning record stays in learning_events.",
    "founder_next": false,
    "founder_rank": null
   },
@@ -2317,9 +2317,9 @@ export const REGISTRY = {
    "requirements": "R31,R36",
    "depends_on": "TASK-042",
    "size": "L",
-   "status": "NOT STARTED",
+   "status": "PARTIALLY COMPLETED",
    "verification": "not yet",
-   "note": "",
+   "note": "v138: sign-in, failed sign-in, wrong portal, sign-out, profile saved, payment request, report viewed recorded. Still not recorded: plan changed, permission denied, AI failure, upload failed (names reserved).",
    "founder_next": false,
    "founder_rank": null
   },
@@ -2332,9 +2332,9 @@ export const REGISTRY = {
    "requirements": "R32",
    "depends_on": "TASK-041",
    "size": "M",
-   "status": "NOT STARTED",
+   "status": "READY FOR TESTING",
    "verification": "not yet",
-   "note": "",
+   "note": "v138: /admin/accounts/[id]/timeline with date, category and event filters; opening it is audited.",
    "founder_next": false,
    "founder_rank": null
   },
@@ -3206,6 +3206,16 @@ export const REGISTRY = {
    "recommendation": null
   },
   {
+   "id": "FD-16",
+   "kind": "made",
+   "decided_on": "2026-11-22",
+   "decision": "D7 deferred: the founder said to ignore the lawyer review for the time being and continue. Claude proceeds with the activity log and later tasks that D7 gated, keeps them minimal (no text, answers, contact or device details), and does NOT claim legal compliance. The review remains advisable before relying on tracking of children or on View As",
+   "source": "chat 2026-11-22 05:39 IST",
+   "affects": "TASK-040, TASK-041, TASK-035, retention",
+   "status": "Active",
+   "recommendation": null
+  },
+  {
    "id": "FD-14",
    "kind": "made",
    "decided_on": "2026-11-01",
@@ -3229,7 +3239,7 @@ export const REGISTRY = {
    "id": "D7",
    "kind": "waiting",
    "decided_on": null,
-   "decision": "Who is the professional (lawyer who knows India's Digital Personal Data Protection Act 2023) who reviews children's activity tracking, retention periods and \"staff may view an account\" before TASK-041 and any View As build?",
+   "decision": "(Deferred by the founder on 2026-11-22, see FD-16; still open.) Who is the professional (lawyer who knows India's Digital Personal Data Protection Act 2023) who reviews children's activity tracking, retention periods and \"staff may view an account\" before TASK-041 and any View As build?",
    "source": "SAH-PROMPT-0009 Phase 0",
    "affects": "TASK-040, TASK-041, TASK-035, interim retention (D3)",
    "status": "Waiting for founder",
@@ -3726,6 +3736,16 @@ export const REGISTRY = {
    "db_changes": "none",
    "tests": "t137, tsc, full npm test",
    "open_problems": "Not run on the live site; hints, quiz and first lesson message not streamed"
+  },
+  {
+   "id": "EX-0050",
+   "executed_on": "2026-11-22",
+   "prompt_id": "founder: ignore the lawyers review for the time being and continue (chat)",
+   "summary": "v138: activity log (TASK-041 to TASK-044 in part); FD-16 records the deferral.",
+   "files": "migrations/0068; packages/core/activity; login, profile, purchase, report routes; sign-out buttons; admin/accounts/[id]/timeline; retention",
+   "db_changes": "0068 activity_events (new server-only table)",
+   "tests": "scratch before/after and whole chain twice, t138, tsc, full npm test",
+   "open_problems": "Not run on the live database; plan_changed, permission_denied, ai_failure, upload_failed not wired; no analytics page yet (TASK-050 to 052)"
   }
  ]
 } as unknown as ControlRegistry;

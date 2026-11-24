@@ -734,6 +734,9 @@ No table or column changes. Removes the rule `students_update_own` from 0002, wh
 ## 0065 profile_tables_read_only (v129)
 No table or column changes. Replaces the `for all` rules `student_profile_details_owner` and `student_academic_history_owner` (0007) with read-only rules `student_profile_details_select_own` and `student_academic_history_select_own`. A signed-in account can still read its own rows; writes happen only through the server key in `/api/profile` after the student id is taken from the session. Re-runnable.
 
+## 0068 activity_events (v138)
+New server-only table `activity_events` (`id`, `occurred_at`, `user_id` to `users` with delete-cascade, `actor_role`, `category` (account, learning, assessment, engagement, technical, payment, admin), `event_type`, `entity`, `entity_id`, `status` (ok, failed, denied), `meta` json of short safe labels, `correlation_id`). Indexes on account+time, type+time and time. Row rules on, no policies. Holds events only: never message text, answers, contact or device details. Retention: about 13 months (interim, FD-13/FD-16), dry run at /admin/retention.
+
 ## 0067 contact_book (v136)
 Adds `student_profile_details.parent_whatsapp` (text, optional) and the table `user_contacts` (`user_id` primary key to `users` with delete-cascade, `phone`, `whatsapp`, `note`, `updated_by`, `updated_at`). Row rules are on with no policies, so only the server key (the Super Admin Contact book) can read or write it. Login email stays in Supabase Auth and `users.email`; parent contact from the Profile page stays in `student_profile_details`.
 

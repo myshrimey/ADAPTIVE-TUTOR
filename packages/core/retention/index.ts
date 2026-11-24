@@ -6,6 +6,7 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 export interface RetentionRule { table: string; column: string; label: string; days: number; kind: 'audit' | 'activity' | 'usage'; note: string }
 export const RETENTION_RULES: readonly RetentionRule[] = [
   { table: 'audit_logs', column: 'at', label: 'Admin audit trail', days: 1095, kind: 'audit', note: 'About 3 years. Append-only: only the database owner can purge, with the script in scripts/retention/.' },
+  { table: 'activity_events', column: 'occurred_at', label: 'Account activity log', days: 395, kind: 'activity', note: 'About 13 months (interim, FD-13 and FD-16). Events only: no message text, answers or contact details.' },
   { table: 'page_views', column: 'at', label: 'Website visits (anonymous)', days: 395, kind: 'activity', note: 'About 13 months. No names, no IP addresses.' },
   { table: 'ai_usage', column: 'created_at', label: 'AI call log (no text)', days: 395, kind: 'usage', note: 'About 13 months. Keep longer only if the accountant needs cost history.' },
   { table: 'signup_log', column: 'created_at', label: 'Sign-up log', days: 395, kind: 'activity', note: 'About 13 months.' },

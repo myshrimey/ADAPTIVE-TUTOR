@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServerClient, createServiceClient, getCurrentStudentId } from '@/lib/supabase-server';
-import { createPurchaseRequest } from '@adaptive-tutor/core';
+import { createPurchaseRequest, recordActivityForStudent } from '@adaptive-tutor/core';
 import { getPortalUser, isLinked } from '@/lib/portal';
 
 // A signed-in student (or the family using the student's account) submits a purchase request after paying by UPI/QR.
@@ -25,6 +25,7 @@ export async function POST(request: Request) {
       coupon: typeof b.coupon === 'string' ? b.coupon.slice(0, 40) : null, quantity: Number(b.quantity) || 1,
       paymentDate: String(b.paymentDate ?? ''), reference: typeof b.reference === 'string' ? b.reference : null, paidByUserId: paidBy,
     });
+    await recordActivityForStudent(createServiceClient(), studentId, { type: 'payment_claim_submitted', entity: 'payment', entityId: out.paymentId, meta: { by_parent: !!paidBy } });
     return NextResponse.json({ data: { paymentId: out.paymentId, amount: out.quote.finalInr }, error: null });
   } catch (err: any) {
     const code = String(err?.message ?? 'purchase_failed');
