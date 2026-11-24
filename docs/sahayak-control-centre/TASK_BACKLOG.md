@@ -1,7 +1,7 @@
 # Task Backlog
 Updated 2026-10-31. 80 tasks for SAH-PROMPT-0009. Effort sizes are rough guesses, not hours: S small, M medium, L large, XL very large. "Actual effort" is not tracked yet. Last updated for every row: 2026-10-31.
 
-Tasks by status: COMPLETED 6, DEFERRED 1, NOT STARTED 4, PARTIALLY COMPLETED 7, READY FOR TESTING 62.
+Tasks by status: COMPLETED 6, DEFERRED 1, NOT STARTED 2, PARTIALLY COMPLETED 7, READY FOR TESTING 64.
 
 Changing a priority here does NOT start work. Work starts only when the founder says so in the chat.
 
@@ -28,8 +28,8 @@ Changing a priority here does NOT start work. Work starts only when the founder 
 | TASK-032 | P3 | Upgrade audit_logs: target account, reason, outcome, request ID; block edit and delete | O4 | R34, R35 | - | M | READY FOR TESTING | none yet |
 | TASK-033 | P3 | Log every account the admin opens (audit event) | O4 | R34 | TASK-032,TASK-031 | S | READY FOR TESTING | none yet |
 | TASK-034 | P3 | Design study and threat model for View Account As Admin; choose approach | O3 | R24, R27 | - | M | READY FOR TESTING | none yet |
-| TASK-035 | P3 | Build View Account As Admin, read only, for the chosen pages (banner, exit, expiry) | O3 | R24, R25, R29 | TASK-034,TASK-032 | XL | NOT STARTED | none yet |
-| TASK-036 | P3 | Read-only enforcement for all write APIs while inspecting | O3 | R25, R39 | TASK-035 | L | NOT STARTED | none yet |
+| TASK-035 | P3 | Build View Account As Admin, read only, for the chosen pages (banner, exit, expiry) | O3 | R24, R25, R29 | TASK-034,TASK-032 | XL | READY FOR TESTING | none yet |
+| TASK-036 | P3 | Read-only enforcement for all write APIs while inspecting | O3 | R25, R39 | TASK-035 | L | READY FOR TESTING | none yet |
 | TASK-037 | P3 | Test mode with recorded reason, and dedicated test accounts | O3 | R26 | TASK-036 | L | NOT STARTED | none yet |
 | TASK-038 | P3 | Test checklists for each account type, from features that really exist | O3 | R28 | TASK-030 | M | PARTIALLY COMPLETED | none yet |
 | TASK-039 | P3 | Retention dry-run report and owner-only purge script (interim periods) | O4 | R35 | TASK-032 | S | READY FOR TESTING | none yet |

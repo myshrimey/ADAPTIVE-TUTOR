@@ -158,6 +158,7 @@ export * from './control-centre';
 export * from './accounts';
 export * from './contacts';
 export * from './activity';
+export * from './view-as';
 export * from './retention';
 export * from './deploy-check';
 export * from './feedback-attachments';

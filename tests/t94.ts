@@ -19,7 +19,7 @@ const NOW = new Date('2026-11-01T00:00:00Z');
   ok(!/compl(y|iant|iance)\b.*guarantee|is compliant|we comply/i.test(JSON.stringify(REGISTRY.decisions)), 'no compliance claim in any decision');
   ok(REGISTRY.tasks.every((t) => !/Decision D[1-6]\b/.test(t.depends_on)), 'no task still waits for a decided decision');
   const t34 = REGISTRY.tasks.find((t) => t.id === 'TASK-034')!, t35 = REGISTRY.tasks.find((t) => t.id === 'TASK-035')!, t39 = REGISTRY.tasks.find((t) => t.id === 'TASK-039')!;
-  ok(t34.status === 'READY FOR TESTING' && t35.status === 'NOT STARTED', 'design study done; View As itself NOT started');
+  ok(t34.status === 'READY FOR TESTING' && t35.status === 'READY FOR TESTING', 'design study done; View As built in v140 (ready for founder testing)');
   ok(t39.status === 'READY FOR TESTING', 'retention report task recorded');
   ok(REGISTRY.tasks.find((t) => t.id === 'TASK-040')!.status === 'DEFERRED' && REGISTRY.tasks.find((t) => t.id === 'TASK-041')!.status === 'READY FOR TESTING', 'legal review deferred by the founder (FD-16); activity log built (v138)');
   ok(REGISTRY.requirements.find((r) => r.code === 'R35')!.status === 'PARTIALLY COMPLETED', 'retention requirement is only partly done');
@@ -77,7 +77,7 @@ const NOW = new Date('2026-11-01T00:00:00Z');
   ok(/DESIGN ONLY/.test(d) && /never a login session as another person/i.test(d) && /Rejected/.test(d), 'design says: design only, no impersonation');
   ok(/15 minutes/.test(d) && /read only/i.test(d) && /reason/i.test(d) && /static test/i.test(d) && /Threats/.test(d), 'design has expiry, read-only, reason, tests and a threat table');
   ok(!/\b(is|are) (built|implemented|done)\b/i.test(d.replace(/Step 1 \(built in v92\)/, '').replace(/NOT built/g, '').replace(/Nothing in this file is built/g, '').replace(/before step 2 is built/g, '')), 'design does not claim View As exists');
-  ok(!existsSync('apps/web/app/admin/view-as') && !existsSync('packages/core/view-as'), 'no View As code exists');
+  ok(existsSync('apps/web/app/admin/view-as') && existsSync('packages/core/view-as') && /Status update \(v140/.test(d), 'View As step 2 exists (v140) and the design file records it (it stays read-only: see t140)');
   ok(!/signInWith|setSession|generateLink|createSession|impersonat/i.test(R('packages/core/accounts/store.ts')), 'still no session creation anywhere in the accounts code');
 
   console.log(`t94: ${n - f}/${n} passed`); process.exit(f ? 1 : 0);

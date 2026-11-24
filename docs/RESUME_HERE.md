@@ -2,7 +2,10 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v139 (2026-11-22) - ACTIVITY ANALYTICS
+## Latest delivery - v140 (2026-11-22) - VIEW ACCOUNT AS ADMIN (READ ONLY)
+On /admin/accounts, open a student account: a new box "View as this student" asks for a reason (8 to 200 characters) and opens a read-only, 15-minute view with a red banner and an Exit link. You stay signed in as yourself; it is never a login as the child. Three pages: dashboard (grade, plan, subjects, latest lessons), progress by subject, report and tests. No name, contact details, messages or answers. Every start (with your reason), every page and the exit are in the Audit log; at most 20 starts an hour; students only; Super Admin only. No database change: deploy the website only. Not tried live. Not built: test mode with writes (TASK-037), mobile layout check, telling families that staff can view (decision D7 is deferred).
+
+## Previous delivery - v139 (2026-11-22) - ACTIVITY ANALYTICS
 New page /admin/activity (Super Admin, in the menu as "Activity analytics"): sign-ins, different people, failed attempts, wrong-portal and sign-outs with a daily bar strip; coming-back rate; new accounts by role; lessons started, completed, abandoned and finish rate; AI reliability per provider (calls, failures, typical and slow-1-in-20 speed, plain failure reasons). 7, 30 or 90 days. Counts only. Any panel without enough data says why instead of showing zero. No database change: deploy the website only. Sign-in panels fill up only after v138's migration 0068 has run and people have signed in. Not built: per-feature adoption, a second funnel (the existing /admin/funnel stays).
 
 ## Previous delivery - v138 (2026-11-22) - ACTIVITY LOG AND ACCOUNT TIMELINE

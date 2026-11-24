@@ -1,28 +1,29 @@
-Sahayak v139 - Activity analytics (delta on top of v138)
+Sahayak v140 - View Account As Admin, read only (delta on top of v139)
 
 WHAT CHANGED
-- New page /admin/activity, in the admin menu as "Activity analytics" (Super Admin only). Choose 7, 30 or 90 days.
-- Sign-ins: count, different people, failed attempts, wrong-portal, sign-outs, with a daily bar strip.
-- Coming back: of the people who signed in before this window, how many signed in again.
-- New accounts by role, with a daily strip.
-- Lessons: started, completed, abandoned, finish rate (lessons still open are not counted as failures), different students.
-- AI reliability per provider: calls, failures, fail %, typical speed and slow-1-in-20 speed (from calls that worked), and why calls failed in plain groups (too slow, overloaded, rate limit, key problem...). Raw error text is never shown.
-- Counts only: no names, messages or answers. A panel without enough data says why instead of showing zero.
+- On /admin/accounts, open a STUDENT account: a new box "View as this student". Type a reason (8 to 200 characters) and press Start view.
+- You get a read-only view for 15 minutes with a red banner ("Viewing account xxxx as admin. Read only.") and an Exit link. You stay signed in as yourself. It is never a login as the child and nothing can be changed from it.
+- Three pages: Dashboard (grade, plan, subjects, latest lessons), Progress by subject, Report and tests. No name, contact details, messages or answers are shown.
+- Every start (with your reason), every page opened and the exit are written to the Audit log (/admin/audit-log). At most 20 starts an hour. Super Admin only. Students only (parents, tutors and centres are not viewable).
+- The ticket is signed with a key derived from your existing server key (no new setting), is tied to your sign-in and to that one account, and cannot be extended.
+- One small change from the saved design: one ticket covers the three read-only pages of that one account (otherwise every page switch would need a new reason).
+- The lawyer review is deferred (decision FD-16). Whether families must be told that staff can view is still open (D7).
 - No database change.
 
 ORDER
 1. Copy the files over your project and deploy the website. No migration.
-2. Open /admin/activity. The Sign-ins and Coming back panels need v138's migration 0068 and some days of sign-ins; until then they say so. Lessons, accounts and AI panels work from existing data now.
-3. Check the AI panel: Groq should now show calls with its own speed next to Gemini's failures.
+2. Open a test student's account, start a view with a reason, click through the three pages, press Exit.
+3. Open /admin/audit-log and look for account.view_as_start (with your reason), account.view_as_page and account.view_as_end.
+4. Wait 15 minutes (or use an old link): the page should say the ticket expired.
 
 TESTED
-t139 (18 checks, including honest "unavailable" labels and no personal data on the page), full test suite (110 pass, 4 known-stale, 0 fail), type check.
+t140 (29 checks: ticket signing, tampering, expiry, wrong admin, reason, limit, no write path anywhere in the view code, banner, audit, no personal fields, student routes never take an id from the request), t94 and t67 updated, full test suite (111 pass, 4 known-stale, 0 fail), type check.
 
 NOT TESTED
-Not run on your live data or in a browser. Read limit is 20,000 events per panel (the page says when it is hit).
+Not run on your live site or in a browser; the mobile layout of the view is not checked. No live calls to the running site (the "direct API tests", TASK-060).
 
 NOT BUILT
-Per-feature adoption (needs events not recorded yet), a second funnel here (the existing /admin/funnel stays), View Account As.
+Test mode with writes and dedicated test accounts (TASK-037), viewing parents/tutors/centres, telling families that staff may view an account.
 
 NOT DEPLOYED
 Nothing has been deployed.

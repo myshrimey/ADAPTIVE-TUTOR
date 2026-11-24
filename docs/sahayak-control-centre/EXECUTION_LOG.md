@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0052 - 2026-11-22 - founder: continue building the app from previous prompt (chat); View As was the next gated task after the lawyer-review deferral (FD-16)
+- Summary: v140: View Account As Admin, read only (TASK-035, TASK-036).
+- Files: packages/core/view-as; api/admin/view-as; admin/view-as pages and end route; accounts/[id] ViewAsStart; VIEW_AS_DESIGN.md section 8
+- Database: none
+- Tests: t140, t94, t67, tsc, full npm test
+- Open: Not run live; mobile layout (R29) not checked; test mode (TASK-037) not built; families are not told that staff can view (D7 deferred)
+
 ## EX-0051 - 2026-11-22 - founder: continue building the app from previous prompt (chat)
 - Summary: v139: activity analytics page (TASK-050 to TASK-052).
 - Files: packages/core/activity/analytics.ts; admin/activity; admin menu

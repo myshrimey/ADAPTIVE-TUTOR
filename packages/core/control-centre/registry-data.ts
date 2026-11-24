@@ -427,7 +427,7 @@ export const REGISTRY = {
    "objective_code": "O3",
    "code": "R24",
    "text": "VIEW ACCOUNT AS ADMIN: server-authorised, banner, exit button, short expiry, per-action checks, audit, no credentials",
-   "status": "NOT STARTED",
+   "status": "READY FOR TESTING",
    "note": "Nothing like it exists today (searched code). Approach decided (FD-12): read only, never a login session as another person. Design and threat model written (VIEW_AS_DESIGN.md). Not built: needs the founder's explicit go and the D7 review.",
    "founder_acceptance": "pending"
   },
@@ -437,8 +437,8 @@ export const REGISTRY = {
    "objective_code": "O3",
    "code": "R25",
    "text": "Read-only by default: block changes, payments, messages, plan changes, submissions while inspecting",
-   "status": "NOT STARTED",
-   "note": "",
+   "status": "READY FOR TESTING",
+   "note": "v140: the view pages contain no write path (t140); the admin session is not the student, so real write routes act only for the admin own account.",
    "founder_acceptance": "pending"
   },
   {
@@ -2197,9 +2197,9 @@ export const REGISTRY = {
    "requirements": "R24,R25,R29",
    "depends_on": "TASK-034,TASK-032",
    "size": "XL",
-   "status": "NOT STARTED",
+   "status": "READY FOR TESTING",
    "verification": "not yet",
-   "note": "",
+   "note": "v140: \"View as this student\" on /admin/accounts/[id] (reason required); signed 15-minute ticket bound to the admin and one account; three read-only pages (dashboard, progress, report) with banner and Exit; start, each page and end audited; 20 starts an hour; students only. Not tried live; mobile layout not checked (R29).",
    "founder_next": false,
    "founder_rank": null
   },
@@ -2212,9 +2212,9 @@ export const REGISTRY = {
    "requirements": "R25,R39",
    "depends_on": "TASK-035",
    "size": "L",
-   "status": "NOT STARTED",
+   "status": "READY FOR TESTING",
    "verification": "not yet",
-   "note": "",
+   "note": "v140: read-only by construction (t140 scans the view code for any write path, form, fetch or client code); student write routes always use the signed-in session, never an id from the request (t140 ratchet). Live call tests against the running site are NOT done (TASK-060).",
    "founder_next": false,
    "founder_rank": null
   },
@@ -3756,6 +3756,16 @@ export const REGISTRY = {
    "db_changes": "none",
    "tests": "t139, tsc, full npm test",
    "open_problems": "Not run on live data; feature adoption and a full funnel here not built"
+  },
+  {
+   "id": "EX-0052",
+   "executed_on": "2026-11-22",
+   "prompt_id": "founder: continue building the app from previous prompt (chat); View As was the next gated task after the lawyer-review deferral (FD-16)",
+   "summary": "v140: View Account As Admin, read only (TASK-035, TASK-036).",
+   "files": "packages/core/view-as; api/admin/view-as; admin/view-as pages and end route; accounts/[id] ViewAsStart; VIEW_AS_DESIGN.md section 8",
+   "db_changes": "none",
+   "tests": "t140, t94, t67, tsc, full npm test",
+   "open_problems": "Not run live; mobile layout (R29) not checked; test mode (TASK-037) not built; families are not told that staff can view (D7 deferred)"
   }
  ]
 } as unknown as ControlRegistry;

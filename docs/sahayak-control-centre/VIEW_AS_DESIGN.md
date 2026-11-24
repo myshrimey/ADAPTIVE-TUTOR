@@ -50,3 +50,6 @@ Size XL in the backlog (TASK-035). Roughly: ticket module and tests (S), read-on
 1. Must families be told that staff may view their account? (D7)
 2. Which pages matter most? Recommendation: student dashboard, progress, reports. Everything else stays as the masked snapshot.
 3. Should a team member (not the founder) ever use it? Recommendation: no.
+
+## 8. Status update (v140, 2026-11-22)
+The founder said to set the lawyer review aside and continue (FD-16), so step 2 was built in v140 as designed: /admin/accounts/[id] has a "View as this student" box (reason required); a signed 15-minute ticket bound to the admin's own session email and one target; three read-only pages (dashboard, progress, report) with a banner and Exit; every start, page and end in the Audit log; at most 20 starts an hour; students only; no name, contact details, messages or answers. One deliberate small widening of section 4 control 2: the ticket covers the three read-only pages of that one account rather than a single page group, because switching pages would otherwise need a new reason every time. Tests: t140. Still open: whether families must be told (D7, deferred), and test mode (TASK-037).

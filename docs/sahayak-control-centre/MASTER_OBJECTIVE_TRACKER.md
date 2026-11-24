@@ -1,7 +1,7 @@
 # Master Objective Tracker
 Updated 2026-10-31. Only SAH-PROMPT-0009 is tracked at requirement level. Status words are the 14 allowed ones. "Founder acceptance" is separate from technical status and is empty for everything (the founder has not accepted anything under this system yet).
 
-Counts for SAH-PROMPT-0009: 87 requirements. COMPLETED: 4, NOT STARTED: 10, PARTIALLY COMPLETED: 63, READY FOR TESTING: 10.
+Counts for SAH-PROMPT-0009: 87 requirements. COMPLETED: 4, NOT STARTED: 8, PARTIALLY COMPLETED: 63, READY FOR TESTING: 12.
 
 ## SAH-PROMPT-0009 / O1: Persistent registry and execution control (Parts 1-3, 11, 12)
 Requirements 11; PARTIALLY COMPLETED 11
@@ -37,14 +37,14 @@ Requirements 10; PARTIALLY COMPLETED 3, READY FOR TESTING 7
 | R21 | Reuse existing admin components; no duplicate dashboards | PARTIALLY COMPLETED | pending | Reuses AdminNav, adminPageGate and the existing layout; the existing roadmap/tasks pages are untouched. |
 
 ## SAH-PROMPT-0009 / O3: Admin Account Observatory: directory, view-account-as-admin, test checklists (Part 5)
-Requirements 8; NOT STARTED 4, PARTIALLY COMPLETED 4
+Requirements 8; NOT STARTED 2, PARTIALLY COMPLETED 4, READY FOR TESTING 2
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
 | R22 | Account directory with the listed fields and filters | PARTIALLY COMPLETED | pending | v92: /admin/accounts lists type, short id, initials, masked email, plan, status, registration date, last learning activity and first source, with filters for type, plan, status, registration dates, activity and search. Missing: login activity, school/centre column, mobile check. |
 | R23 | Mask sensitive data; never show passwords, tokens or keys | PARTIALLY COMPLETED | pending | v92: directory and snapshot show masked email and initials only; never passwords, tokens, keys, answers, IP addresses or browser strings (t92, t92b). Applies to the new screens only. |
-| R24 | VIEW ACCOUNT AS ADMIN: server-authorised, banner, exit button, short expiry, per-action checks, audit, no credentials | NOT STARTED | pending | Nothing like it exists today (searched code). Approach decided (FD-12): read only, never a login session as another person. Design and threat model written (VIEW_AS_DESIGN.md). Not built: needs the founder's explicit go and the D7 review. |
-| R25 | Read-only by default: block changes, payments, messages, plan changes, submissions while inspecting | NOT STARTED | pending |  |
+| R24 | VIEW ACCOUNT AS ADMIN: server-authorised, banner, exit button, short expiry, per-action checks, audit, no credentials | READY FOR TESTING | pending | Nothing like it exists today (searched code). Approach decided (FD-12): read only, never a login session as another person. Design and threat model written (VIEW_AS_DESIGN.md). Not built: needs the founder's explicit go and the D7 review. |
+| R25 | Read-only by default: block changes, payments, messages, plan changes, submissions while inspecting | READY FOR TESTING | pending | v140: the view pages contain no write path (t140); the admin session is not the student, so real write routes act only for the admin own account. |
 | R26 | Separately authorised test mode with explicit confirmation and recorded reason; prefer test accounts | NOT STARTED | pending |  |
 | R27 | No admin-to-admin impersonation and no privilege increase through this feature | PARTIALLY COMPLETED | pending | v92: the new screens are read only and never create a session as another person (t92 checks the code). Admin-to-admin and privilege rules still to be built with View As. |
 | R28 | Test checklist for every account type (student, parent, tutor, centre, teacher), based only on features that exist | PARTIALLY COMPLETED | pending | v93: six checklists (student, parent, tutor, centre, teacher, founder) of 43 checks; a test proves every page they name exists. They are instructions for a person with TEST accounts; no results are recorded; no centre, tutor or teacher test accounts exist yet. |

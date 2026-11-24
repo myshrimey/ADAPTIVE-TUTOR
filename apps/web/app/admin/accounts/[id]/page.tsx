@@ -1,6 +1,7 @@
 import { createServiceClient } from '@/lib/supabase-server';
 import { adminPageGate, AdminNav } from '@/lib/admin-page';
 import { loadSnapshot, KIND_LABEL } from '@adaptive-tutor/core';
+import ViewAsStart from './ViewAsStart';
 
 export const dynamic = 'force-dynamic';
 const when = (iso: string | null) => (iso ? iso.slice(0, 16).replace('T', ' ') : 'Never recorded');
@@ -34,6 +35,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
           </>}
           <tr><th align="left">Registered devices</th><td>{s.devices}</td></tr>
         </tbody></table>
+        {s.kind === 'student' && <ViewAsStart userId={id} />}
         <p><a href={`/admin/accounts/${id}/timeline`}>Open the activity timeline (sign-ins, profile, payments, reports)</a></p>
         <h2 style={{ fontSize: 'var(--step-1)', marginTop: 20 }}>Links</h2>
         {s.links.length ? <ul>{s.links.map((l, i) => <li key={i}>{l.who} {l.shortId}{l.initials ? ` (${l.initials})` : ''} · {l.type} · {l.status}</li>)}</ul> : <p>No links.</p>}
