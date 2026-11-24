@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createServerClient, getCurrentStudentId } from '@/lib/supabase-server';
 import { runOrchestratorTurn, publicError, checkAnswerSize } from '@adaptive-tutor/core';
 import { aiForStudent } from '@/lib/ai';
+import { wantsStream, withTokens, ndjsonResponse } from '@/lib/stream-turn';
 
 export async function POST(request: Request) {
   try {
@@ -25,7 +26,12 @@ export async function POST(request: Request) {
       questionId = session.active_question_id;
     }
 
-    const turn = await runOrchestratorTurn(supabase, { studentId, sessionId, studentAnswer: { questionId: questionId!, answer } }, await aiForStudent(studentId, { tutor: true }));
+    const ai = await aiForStudent(studentId, { tutor: true });
+    if (wantsStream(request)) {
+      await supabase.auth.getSession(); // read the sign-in cookie now, while the request is still open, before the reply starts streaming
+      return ndjsonResponse((emit) => runOrchestratorTurn(supabase, { studentId, sessionId, studentAnswer: { questionId: questionId!, answer } }, withTokens(ai, (v) => emit({ t: 'token', v }), () => emit({ t: 'restart' }))));
+    }
+    const turn = await runOrchestratorTurn(supabase, { studentId, sessionId, studentAnswer: { questionId: questionId!, answer } }, ai);
 
     return NextResponse.json({ data: turn, error: null });
   } catch (err: any) {

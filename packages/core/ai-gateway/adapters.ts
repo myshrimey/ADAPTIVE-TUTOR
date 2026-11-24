@@ -3,6 +3,7 @@ import { GeminiProvider } from '../ai-provider/gemini.provider';
 import { GroqProvider } from '../ai-provider/groq.provider';
 import { OpenAIProvider } from '../ai-provider/openai.provider';
 import { ClaudeProvider } from '../ai-provider/claude.provider';
+import { readSse } from '../ai-provider/sse';
 import { KEY_ENV_RE, type ProviderRow } from './registry';
 
 const TIMEOUT_MS = 20_000, IMAGE_TIMEOUT_MS = 60_000;
@@ -20,10 +21,12 @@ export class OpenAICompatibleProvider implements AIProvider {
     const userContent = hasImages
       ? [{ type: 'text', text: params.userMessage }, ...params.images!.map((im) => ({ type: 'image_url', image_url: { url: `data:${im.mimeType};base64,${im.base64}` } }))]
       : params.userMessage;
+    const streaming = !!params.onToken && params.responseFormat !== 'json' && !hasImages;
     const body = {
       model: this.cfg.model,
       messages: [{ role: 'system', content: params.systemPrompt }, { role: 'user', content: userContent }],
       max_tokens: hasImages ? 4096 : 512, temperature: 0.4,
+      ...(streaming ? { stream: true, stream_options: { include_usage: true } } : {}),
       ...(params.responseFormat === 'json' ? { response_format: { type: 'json_object' } } : {}),
     };
     const controller = new AbortController();
@@ -37,6 +40,19 @@ export class OpenAICompatibleProvider implements AIProvider {
       throw new Error(`${this.cfg.label}_request_network_error: ${String(err?.message ?? err).slice(0, 120)}`);
     } finally { clearTimeout(timer); }
     if (!res.ok) { const t = await res.text().catch(() => ''); throw new Error(`${this.cfg.label}_request_failed: ${res.status} ${t.slice(0, 120)}`); }
+    if (streaming) {
+      let text = ''; let usage: any = null; let stalled = false;
+      await readSse(res, (payload) => {
+        let j: any; try { j = JSON.parse(payload); } catch { return; }
+        const piece: string = j.choices?.[0]?.delta?.content ?? '';
+        if (piece) { text += piece; params.onToken!(piece); }
+        usage = j.usage ?? usage;
+      }, { idleMs: TIMEOUT_MS, onIdle: () => { stalled = true; controller.abort(); } }).catch((err: any) => {
+        if (stalled || err?.name === 'AbortError') throw new Error(`${this.cfg.label}_request_timeout: stream stalled for ${TIMEOUT_MS / 1000}s`);
+        throw new Error(`${this.cfg.label}_request_network_error: ${String(err?.message ?? err).slice(0, 120)}`);
+      });
+      return { text, usage: { inputTokens: usage?.prompt_tokens ?? 0, outputTokens: usage?.completion_tokens ?? Math.ceil(text.length / 4) } };
+    }
     const json = await res.json();
     return { text: json.choices?.[0]?.message?.content ?? '', usage: { inputTokens: json.usage?.prompt_tokens ?? 0, outputTokens: json.usage?.completion_tokens ?? 0 } };
   }

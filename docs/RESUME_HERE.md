@@ -2,7 +2,12 @@
 
 _This file is the single source of truth for "what's the exact current status." Read it first every session, update it last every session._
 
-## Latest delivery - v136 (2026-11-21) - CONTACT BOOK
+## Latest delivery - v137 (2026-11-22) - REPLY STREAMING
+The tutor's reply now appears word by word on the lesson screen instead of after a long wait. Groq, Gemini and generic OpenAI-style providers stream; marking and scoring calls do not. Nothing is saved until the full reply has arrived. If a provider fails part-way, the partial text is cleared and the next provider starts over. If streaming is unavailable the screen uses the normal reply. No database change. Deploy the website only, then try one lesson message. Not tried live (see INSTRUCTIONS). Hints, quiz and the first message of a session are not streamed yet.
+Tracker note: every not-started task (View Account As, activity tracking, analytics) waits on decision D7 (lawyer review) or your explicit go; 56 tasks are READY FOR TESTING and count as done only after you accept them.
+
+## Previous delivery - v136 (2026-11-21) - CONTACT BOOK
+**DEPLOYED: founder confirmed on 2026-11-21 that all versions up to v136 are deployed.**
 New page /admin/contacts (Super Admin only): every account with its full email, a phone, a WhatsApp number and a note, editable in the row. Changing an email also changes the sign-in email (Supabase Auth first, then our table; undone if the second step fails). Opening the page and every edit are written to the Audit log (field names only, never the numbers). The family Profile page has a new "Parent WhatsApp number" field. Parent details entered by families show in the book read-only. Migration 0067 adds the column and the server-only table user_contacts. Order: deploy website, then `npm run db:migrate`. Not built: delete of accounts, bulk import, sending WhatsApp messages.
 
 ## Previous delivery - v135 (2026-11-19) - FIX FOR A FAILED MIGRATION

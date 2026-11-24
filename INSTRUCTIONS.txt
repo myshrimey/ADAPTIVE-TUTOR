@@ -1,28 +1,26 @@
-Sahayak v136 - Contact book (delta on top of v135)
+Sahayak v137 - Reply streaming (delta on top of v136)
 
 WHAT CHANGED
-- New page /admin/contacts (Super Admin only). Lists every account with its full email, a phone, a WhatsApp number and a note. Edit in the row and press Save.
-- Changing an email here also changes the email the person signs in with. If the second step fails the first is undone.
-- Opening the page and every edit are written to the Audit log. The log names which fields changed, never the numbers or emails.
-- Family Profile page has a new "Parent WhatsApp number" field. What families enter shows in the Contact book (read-only there).
-- Menu entry "Contact book" in the admin menu.
-- Migration 0067: new column student_profile_details.parent_whatsapp and new server-only table user_contacts.
+- The tutor's reply now appears word by word on the lesson screen instead of all at once after a wait. Families said the app felt slow; this is the biggest "feels fast" fix.
+- Works with Groq, Gemini and any OpenAI-style provider in your AI registry. Marking answers, reading photos and every JSON call are NOT streamed.
+- Nothing is saved until the whole reply has arrived, exactly as before.
+- If a provider fails part-way, the half-written reply disappears and the next provider writes it from the start.
+- If streaming is unavailable for any reason, the screen falls back to the normal reply.
+- No database change.
 
 ORDER
-1. Copy the files over your project and deploy the website.
-2. Run npm run db:migrate (0067 is new; the v135 fix means earlier files re-run safely).
-3. Open /admin/contacts. Edit one test account's WhatsApp, press Save, reload to see it kept. Then open /admin/audit and look for contact.view and contact.edit.
-4. Optional: /admin/deploy-check has a new check for 0067 (expect 1, 0, 1).
-The profile page keeps saving if the website goes live before the migration (the WhatsApp number just is not stored until 0067 runs).
+1. Copy the files over your project and deploy the website. No migration.
+2. Open a lesson, send a message and an answer. Check: words appear as they are written; the finished reply matches what you see after reloading the lesson; the next question appears after the reply.
+3. Check /admin/ai-requests: the tutor calls should show provider and latency as before.
 
 TESTED
-t136 (20 checks), full test suite (107 pass, 4 known-stale, 0 fail), type check, migration 0067 on a scratch database (whole chain twice with a user row: column added, table has row rules on and no policies, cascade delete works).
+t137 (19 checks: split lines, Groq, Gemini, generic adapter, failover restart, tutor-only streaming, error lines, routes, lesson screen), full test suite (108 pass, 4 known-stale, 0 fail), type check.
 
 NOT TESTED
-Not built for production, not run against your real Supabase (especially the sign-in email change), no browser check of the page.
+Not run on a live site or in a browser: especially that Vercel passes the stream through unbuffered and that sign-in is still read inside the streaming reply. If words arrive all at once, or a lesson message errors, tell me; the normal reply path is untouched and I can switch streaming off with one line.
 
 NOT BUILT
-Deleting accounts, bulk import/export, sending WhatsApp messages, editing the family's parent details from the book.
+Streaming for hints, the first message of a session, quizzes and parent/teacher screens.
 
 NOT DEPLOYED
-Nothing has been deployed or run on your live database.
+Nothing has been deployed.

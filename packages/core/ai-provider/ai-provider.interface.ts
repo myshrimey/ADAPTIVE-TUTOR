@@ -12,6 +12,10 @@ export interface AICompletionParams {
   images?: AIImage[];
   /** Optional id to add costs up per piece of work (e.g. a mock exam id for cost per handwritten evaluation). Never a name or contact detail. */
   ref?: string;
+  /** v137: when set on a plain-text call, a provider that can stream calls this with each piece of the reply as it arrives. Providers that cannot stream ignore it. */
+  onToken?: (piece: string) => void;
+  /** v137: called when a provider failed AFTER some pieces were sent, just before the next provider starts over: the screen must clear the partial reply. */
+  onRestart?: () => void;
 }
 
 export interface AIImage {

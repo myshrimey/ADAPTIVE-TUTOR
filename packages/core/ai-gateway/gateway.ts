@@ -142,6 +142,7 @@ export class GatewayAIProvider implements AIProvider {
       const override = p.id === ctx.config.primary_provider ? ctx.config.primary_model : p.id === ctx.config.fallback_provider ? ctx.config.fallback_model : null;
       const attemptNo = tried.length + 1, retryCount = tried.filter((x) => x === p.id).length;
       tried.push(p.id);
+      let emitted = false; // v137: did this attempt already send pieces of a reply to the screen?
       const lastFailure = failures.length ? failures[failures.length - 1] : null;
       // ADMIN ONLY: why this model was picked. Contains no key, no price secret and no student text.
       const explanation = {
@@ -152,7 +153,7 @@ export class GatewayAIProvider implements AIProvider {
       };
       try {
         const adapter = deps.buildAdapter(p, override);
-        const result = await adapter.complete(clean);
+        const result = await adapter.complete(params.onToken ? { ...clean, onToken: (t: string) => { emitted = true; params.onToken!(t); } } : clean);
         const inTok = result.usage?.inputTokens ?? 0, outTok = result.usage?.outputTokens ?? 0;
         const cost = computeCost(p, inTok, outTok, params.images?.length ?? 0, now.toISOString().slice(0, 10), { fx: econ.fx_usd_inr, promoUsedInr: ctx.promoUsed?.[p.id] ?? 0 });
         if (ctx.promoUsed && cost.promoCreditInr) ctx.promoUsed[p.id] = (ctx.promoUsed[p.id] ?? 0) + cost.promoCreditInr;
@@ -176,6 +177,7 @@ export class GatewayAIProvider implements AIProvider {
         const u = (ctx.usage[p.id] ??= { requests: 0, tokens: 0, failures: 0, failuresLastHour: 0, attemptsLastHour: 0, rate429LastHour: 0, lastMinuteRequests: 0 });
         u.requests += 1; u.failures += 1; u.attemptsLastHour += 1; u.failuresLastHour += 1; if (code === 429) u.rate429LastHour += 1;
         failures.push(`${p.id}: ${message.slice(0, 100)}`);
+        if (emitted) { try { params.onRestart?.(); } catch { /* screen callback must not break failover */ } }
         await this.report({
           requestId, attemptNo, retryCount, fallbackCount: attemptNo - 1, fallbackReason: lastFailure, modelVersion: p.model_version,
           provider: p.id, feature: task.key, ok: false, inputTokens: 0, outputTokens: 0, latencyMs: Date.now() - started, error: message, model: override || p.model || undefined, task: task.key, taskTier: task.tier,

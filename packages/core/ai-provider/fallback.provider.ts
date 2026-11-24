@@ -45,8 +45,9 @@ export class FallbackAIProvider implements AIProvider {
     if (needsImages && candidates.length === 0) throw new Error('no_vision_provider: set GEMINI_API_KEY to read photos');
     for (const { name, provider } of candidates) {
       const started = Date.now();
+      let emitted = false;
       try {
-        const result = await provider.complete(params);
+        const result = await provider.complete(params.onToken ? { ...params, onToken: (t: string) => { emitted = true; params.onToken!(t); } } : params);
         await this.report({
           provider: name,
           feature,
@@ -59,6 +60,7 @@ export class FallbackAIProvider implements AIProvider {
       } catch (err: any) {
         const message = String(err?.message ?? err);
         failures.push(`${name}: ${message}`);
+        if (emitted) { try { params.onRestart?.(); } catch { /* ignore */ } }
         await this.report({ provider: name, feature, ok: false, inputTokens: 0, outputTokens: 0, latencyMs: Date.now() - started, error: message });
       }
     }

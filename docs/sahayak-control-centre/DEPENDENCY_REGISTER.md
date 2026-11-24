@@ -74,6 +74,7 @@ Updated 2026-10-31.
 | TASK-102 | TASK-101 |
 | TASK-103 | TASK-102 |
 | TASK-104 | TASK-103 |
+| TASK-105 | TASK-103 |
 
 ## Outside dependencies (things only a person can do or decide)
 | Item | Who | Blocks |

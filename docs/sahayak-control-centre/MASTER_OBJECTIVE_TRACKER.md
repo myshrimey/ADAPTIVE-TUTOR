@@ -1,7 +1,7 @@
 # Master Objective Tracker
 Updated 2026-10-31. Only SAH-PROMPT-0009 is tracked at requirement level. Status words are the 14 allowed ones. "Founder acceptance" is separate from technical status and is empty for everything (the founder has not accepted anything under this system yet).
 
-Counts for SAH-PROMPT-0009: 86 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 59, READY FOR TESTING: 8.
+Counts for SAH-PROMPT-0009: 87 requirements. COMPLETED: 4, NOT STARTED: 15, PARTIALLY COMPLETED: 60, READY FOR TESTING: 8.
 
 ## SAH-PROMPT-0009 / O1: Persistent registry and execution control (Parts 1-3, 11, 12)
 Requirements 11; PARTIALLY COMPLETED 11
@@ -74,7 +74,7 @@ Requirements 4; NOT STARTED 2, PARTIALLY COMPLETED 2
 | R40 | Flag Indian privacy / legal questions for professional review instead of claiming compliance | PARTIALLY COMPLETED | pending | Flagged in PHASE0_AUDIT.md section 10; review itself not done. |
 
 ## SAH-PROMPT-0009 / O6: Database and architecture rules (Part 8)
-Requirements 37; COMPLETED 2, PARTIALLY COMPLETED 34, READY FOR TESTING 1
+Requirements 38; COMPLETED 2, PARTIALLY COMPLETED 35, READY FOR TESTING 1
 
 | Req | Requirement | Status | Founder acceptance | Evidence / note |
 |---|---|---|---|---|
@@ -115,6 +115,7 @@ Requirements 37; COMPLETED 2, PARTIALLY COMPLETED 34, READY FOR TESTING 1
 | R84 | Speed: stuck AI calls fall over to the backup provider in 10 s instead of 20 s (founder deployed a Groq key) | PARTIALLY COMPLETED | pending | v134: Gemini chat timeout 10 s, no same-model retry for text calls, Groq timeout 12 s; t134. Streaming not built. Not measured live. |
 | R85 | Migrations must re-run safely once real accounts exist (founder hit a failure at 0016 on 2026-11-19) | PARTIALLY COMPLETED | pending | v135: 0016 and 0018 constraint lists now include the later roles/kinds; t135 guards every repeated constraint; whole chain run twice on scratch with tutor/centre/parent rows. Not run on the live database. |
 | R86 | Founder can see and correct how to reach every account (email, phone, WhatsApp) without the Supabase dashboard | PARTIALLY COMPLETED | pending | v136: /admin/contacts, Super Admin only, audited; WhatsApp field on Profile; migration 0067; t136. |
+| R87 | Tutor replies appear as they are written so lessons feel fast (families said the app is slow) | PARTIALLY COMPLETED | pending | v137: streaming for Groq, Gemini and OpenAI-style providers; t137; not yet tried on the live site. |
 
 ## SAH-PROMPT-0009 / O7: Testing and acceptance (Part 9)
 Requirements 6; NOT STARTED 4, PARTIALLY COMPLETED 2

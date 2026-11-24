@@ -1,6 +1,13 @@
 # Execution Log
 Newest first. One entry per execution.
 
+## EX-0049 - 2026-11-22 - founder: continue building, complete tasks and gaps (chat); chose reply streaming
+- Summary: v137: reply streaming (TASK-105).
+- Files: ai-provider/*, ai-gateway/*, api/session/message+answer, learn page, lib/stream-turn.ts
+- Database: none
+- Tests: t137, tsc, full npm test
+- Open: Not run on the live site; hints, quiz and first lesson message not streamed
+
 ## EX-0048 - 2026-11-21 - founder: yes, build contact book with whatsapp field (chat)
 - Summary: v136: Contact book (TASK-104).
 - Files: migrations/0067; packages/core/contacts; api/admin/contacts; admin/contacts; profile

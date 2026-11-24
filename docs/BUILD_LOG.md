@@ -905,3 +905,8 @@ Note (v135): tests/t53.ts uses Math.random (25% of generated questions are marke
 
 ## v136 (2026-11-21) - Contact book
 Founder asked how to see/edit registered emails, phones and WhatsApp numbers and chose to build a Contact book. Added migration 0067 (student_profile_details.parent_whatsapp; server-only table user_contacts), packages/core/contacts (logic, store), /api/admin/contacts (PATCH, Super Admin), /admin/contacts page with row editor, menu entry, and a WhatsApp field on /profile (reuses error code profile_parent_phone_invalid; profile still saves before 0067 by retrying without the column). Email change: Auth first, then users, revert Auth if users fails. Audit: contact.view and contact.edit, fields only. t136 (20 checks); t95, t95b, t101, t128 pins updated. Scratch: whole chain twice with a user row, column added, table has RLS on and no policies, cascade delete works. tsc clean. Not production-built, not tried against real Supabase Auth.
+
+Deployment note (2026-11-21): founder confirmed v102 to v136 are all deployed.
+
+## v137 (2026-11-22) - Reply streaming
+Speed step 3. AICompletionParams gets optional onToken/onRestart; Groq, Gemini (streamGenerateContent?alt=sse) and the generic OpenAI-style adapter stream plain-text calls (JSON and photo calls never stream); gateway and legacy chain call onRestart if a provider fails after sending text. Orchestrator unchanged: the route wraps the provider (apps/web/lib/stream-turn.ts) so only the 'tutor' call streams; /api/session/message and /answer return NDJSON on ?stream=1. Lesson screen shows the partial reply and falls back to the normal reply. t137 (19 checks); tsc clean. No migration. Not run on a live site: needs a real lesson message after deploy.

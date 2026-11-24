@@ -169,3 +169,5 @@ Fading support: pedagogy/scaffold.ts picks 1 of 5 support levels per turn and te
 - v134 (2026-11-15): speed: faster failover Gemini -> Groq (timeouts 10 s/12 s); no migration (current 0066).
 - v135 (2026-11-19): fixed db:migrate failure at 0016 (users_role_check) and 0018; no new migration (current 0066).
 - v136 (2026-11-21): Contact book at /admin/contacts is Super Admin only and shows full contact details, so every view/edit is audited (fields only, never values). Contact phone/WhatsApp live in user_contacts (server key only, no policies); parent WhatsApp lives in student_profile_details.parent_whatsapp. Email edits go to Auth first, then users, with revert. t136.
+- 2026-11-21: founder confirmed all versions up to v136 are deployed (website and database).
+- v137 (2026-11-22): tutor replies stream (?stream=1 on /api/session/message and /answer, NDJSON). Streaming is a provider wrapper, never inside the orchestrator; only feature 'tutor' streams; nothing is saved until the full reply returns; a provider failing after text was sent triggers onRestart. t137.

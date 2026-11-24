@@ -1,11 +1,12 @@
 import type { AIProvider, AICompletionParams, AICompletionResult } from './ai-provider.interface';
+import { readSse } from './sse';
 
 // Talks to the Gemini REST API directly rather than pulling in @google/genai —
 // one fetch call, no extra dependency, and it's trivial to swap for the SDK
 // later without touching anything outside this file. Nothing else in the
 // codebase should import a model SDK or call this endpoint directly.
 const DEFAULT_GEMINI_MODEL = 'gemini-3.8-flash';
-const endpointFor = (model: string) => `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+const endpointFor = (model: string, streaming = false) => `https://generativelanguage.googleapis.com/v1beta/models/${model}:${streaming ? 'streamGenerateContent?alt=sse&' : 'generateContent?'}`;
 
 // Without this, a hung Gemini call (bad network, Google-side stall, etc.)
 // had nothing stopping it — Vercel's own platform limit for a function is
@@ -67,6 +68,7 @@ export class GeminiProvider implements AIProvider {
   }
 
   private async attemptComplete(params: AICompletionParams): Promise<AICompletionResult> {
+    const streaming = !!params.onToken && params.responseFormat !== 'json' && !params.images?.length;
     const body = {
       systemInstruction: { parts: [{ text: params.systemPrompt }] },
       contents: [{ role: 'user', parts: [{ text: params.userMessage }, ...(params.images ?? []).map((im) => ({ inline_data: { mime_type: im.mimeType, data: im.base64 } }))] }],
@@ -86,7 +88,7 @@ export class GeminiProvider implements AIProvider {
 
     let res: Response;
     try {
-      res = await fetch(`${endpointFor(this.model)}?key=${this.apiKey}`, {
+      res = await fetch(`${endpointFor(this.model, streaming)}key=${this.apiKey}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
@@ -104,6 +106,20 @@ export class GeminiProvider implements AIProvider {
     if (!res.ok) {
       const errText = await res.text().catch(() => '');
       throw new Error(`gemini_request_failed: ${res.status} ${errText}`);
+    }
+
+    if (streaming) {
+      let text = ''; let usageMeta: any = null; let stalled = false;
+      await readSse(res, (payload) => {
+        let j: any; try { j = JSON.parse(payload); } catch { return; }
+        const piece: string = j.candidates?.[0]?.content?.parts?.map((x: { text?: string }) => x.text ?? '').join('') ?? '';
+        if (piece) { text += piece; params.onToken!(piece); }
+        usageMeta = j.usageMetadata ?? usageMeta;
+      }, { idleMs: REQUEST_TIMEOUT_MS, onIdle: () => { stalled = true; controller.abort(); } }).catch((err: any) => {
+        if (stalled || err?.name === 'AbortError') throw new Error(`gemini_request_timeout: stream stalled for ${REQUEST_TIMEOUT_MS / 1000}s`);
+        throw new Error(`gemini_request_network_error: ${err?.message ?? err}`);
+      });
+      return { text, usage: { inputTokens: usageMeta?.promptTokenCount ?? 0, outputTokens: usageMeta?.candidatesTokenCount ?? Math.ceil(text.length / 4) } };
     }
 
     const json = await res.json();

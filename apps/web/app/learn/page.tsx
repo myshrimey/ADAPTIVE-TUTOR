@@ -114,6 +114,32 @@ function friendlyError(raw: string): string {
   return raw;
 }
 
+/** v137: reads the tutor's streamed reply (lines of JSON). Returns the same { data, error } the normal endpoint returns. */
+async function readTurnStream(res: Response, onText: (t: string) => void): Promise<any> {
+  const reader = res.body!.getReader();
+  const dec = new TextDecoder();
+  let buf = '';
+  let text = '';
+  let result: any = null;
+  const handle = (line: string) => {
+    if (!line.trim()) return;
+    let m: any; try { m = JSON.parse(line); } catch { return; }
+    if (m.t === 'token' && typeof m.v === 'string') { text += m.v; onText(text); }
+    else if (m.t === 'restart') { text = ''; onText(''); }
+    else if (m.t === 'done') result = { data: m.data, error: null };
+    else if (m.t === 'error') result = { data: null, error: m.error };
+  };
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buf += dec.decode(value, { stream: true });
+    let nl: number;
+    while ((nl = buf.indexOf('\n')) >= 0) { handle(buf.slice(0, nl)); buf = buf.slice(nl + 1); }
+  }
+  handle(buf);
+  return result ?? { data: null, error: 'network_error' };
+}
+
 export default function LearnPage() {
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [skillId, setSkillId] = useState<string | null>(null);
@@ -124,6 +150,8 @@ export default function LearnPage() {
   const [activeQuestion, setActiveQuestion] = useState<ActiveQuestion | null>(null);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  // v137: the tutor's reply as it arrives (null = nothing arriving yet).
+  const [streamingText, setStreamingText] = useState<string | null>(null);
 
   // Pre-session check-in (v34). The session is created only after the student
   // answers (or skips) the short check-in, so "recovery mode" can shape the
@@ -232,8 +260,19 @@ export default function LearnPage() {
       ? JSON.stringify({ sessionId, questionId: activeQuestion.id, answer: text })
       : JSON.stringify({ sessionId, message: text });
 
-    const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
-    const json = await res.json();
+    // v137: ask for the reply as a stream so words appear as they are written. If anything about streaming is unavailable the normal reply still works.
+    let json: any;
+    try {
+      const res = await fetch(endpoint + '?stream=1', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
+      if ((res.headers.get('content-type') ?? '').includes('ndjson') && res.body) {
+        json = await readTurnStream(res, (t) => setStreamingText(t));
+      } else {
+        json = await res.json();
+      }
+    } catch {
+      json = { error: 'network_error' };
+    }
+    setStreamingText(null);
     setLoading(false);
 
     if (json.error) {
@@ -579,7 +618,13 @@ export default function LearnPage() {
                 {m.role === 'tutor' && <ReadAloud text={m.content} />}
               </div>
             ))}
-            {loading && messages.length > 0 && (
+            {loading && streamingText && (
+              <div className="chat-msg chat-msg--tutor">
+                <span className="chat-msg__role">Tutor</span>
+                <MathText text={streamingText} />
+              </div>
+            )}
+            {loading && !streamingText && messages.length > 0 && (
               <div className="chat-msg chat-msg--tutor">
                 <span className="chat-msg__role">Tutor</span>
                 <span className="typing-dots">

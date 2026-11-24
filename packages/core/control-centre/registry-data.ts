@@ -1022,6 +1022,16 @@ export const REGISTRY = {
    "founder_acceptance": "pending"
   },
   {
+   "id": "SAH-PROMPT-0009/R87",
+   "prompt_id": "SAH-PROMPT-0009",
+   "objective_code": "O6",
+   "code": "R87",
+   "text": "Tutor replies appear as they are written so lessons feel fast (families said the app is slow)",
+   "status": "PARTIALLY COMPLETED",
+   "note": "v137: streaming for Groq, Gemini and OpenAI-style providers; t137; not yet tried on the live site.",
+   "founder_acceptance": "pending"
+  },
+  {
    "id": "SAH-PROMPT-0009/R50",
    "prompt_id": "SAH-PROMPT-0009",
    "objective_code": "O8",
@@ -3047,6 +3057,21 @@ export const REGISTRY = {
    "note": "v136: migration 0067, core/contacts, API, page, profile field; t136 (20 checks); scratch chain twice OK.",
    "founder_next": false,
    "founder_rank": null
+  },
+  {
+   "id": "TASK-105",
+   "prompt_id": "SAH-PROMPT-0009",
+   "phase": "P6",
+   "title": "Stream the tutor reply to the lesson screen",
+   "objective_code": "O6",
+   "requirements": "R87",
+   "depends_on": "TASK-103",
+   "size": "L",
+   "status": "READY FOR TESTING",
+   "verification": "not yet",
+   "note": "v137: provider streaming, failover restart, NDJSON endpoint, lesson screen; t137 (19 checks).",
+   "founder_next": false,
+   "founder_rank": null
   }
  ],
  "decisions": [
@@ -3691,6 +3716,16 @@ export const REGISTRY = {
    "db_changes": "0067 contact_book (new column, new server-only table)",
    "tests": "scratch before/after, whole chain twice, t136, tsc, full npm test",
    "open_problems": "Not run on the live database; not tried against real Supabase Auth; founder must deploy, run db:migrate and try one edit"
+  },
+  {
+   "id": "EX-0049",
+   "executed_on": "2026-11-22",
+   "prompt_id": "founder: continue building, complete tasks and gaps (chat); chose reply streaming",
+   "summary": "v137: reply streaming (TASK-105).",
+   "files": "ai-provider/*, ai-gateway/*, api/session/message+answer, learn page, lib/stream-turn.ts",
+   "db_changes": "none",
+   "tests": "t137, tsc, full npm test",
+   "open_problems": "Not run on the live site; hints, quiz and first lesson message not streamed"
   }
  ]
 } as unknown as ControlRegistry;
